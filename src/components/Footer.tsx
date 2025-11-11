@@ -45,7 +45,7 @@ const Footer = () => {
         
         <div className="border-t border-teal-medium mt-8 pt-6 text-center">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} MultiToolsA. All rights reserved.
+            © {new Date().getFullYear()} MultiToolsA - Tag Generator Tools. All rights reserved.
           </p>
         </div>
       </div>
