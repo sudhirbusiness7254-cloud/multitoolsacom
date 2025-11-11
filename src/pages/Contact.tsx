@@ -25,7 +25,7 @@ const Contact = () => {
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">Contact Us</h1>
           
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             <div className="bg-card rounded-xl p-8 shadow-lg border border-border">
               <h2 className="text-2xl font-bold text-foreground mb-6">Get in Touch</h2>
               <p className="text-muted-foreground mb-6">

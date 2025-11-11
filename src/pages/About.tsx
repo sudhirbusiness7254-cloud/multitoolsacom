@@ -32,7 +32,7 @@ const About = () => {
             </div>
 
             <h2 className="text-2xl font-bold text-foreground mb-4">Key Features</h2>
-            <div className="grid md:grid-cols-2 gap-6 mb-6">
+            <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-6">
               <div className="flex gap-4">
                 <div className="bg-accent/10 p-3 rounded-lg h-fit">
                   <Tag className="w-6 h-6 text-accent" />

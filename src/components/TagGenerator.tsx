@@ -68,14 +68,14 @@ const TagGenerator = () => {
         [Top Banner Ad Space - 728x90]
       </div> */}
 
-      <div className="bg-card rounded-xl p-6 shadow-lg border border-border">
-        <div className="flex items-center gap-3 mb-6">
-          <div className="bg-accent/10 p-3 rounded-lg">
-            <Tag className="w-6 h-6 text-accent" />
+      <div className="bg-card rounded-xl p-4 sm:p-6 shadow-lg border border-border">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 mb-6">
+          <div className="bg-accent/10 p-2 sm:p-3 rounded-lg">
+            <Tag className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
           </div>
           <div>
-            <h2 className="text-2xl font-bold text-foreground">YouTube Tag & Hashtag Generator</h2>
-            <p className="text-sm text-muted-foreground">Generate optimized tags and hashtags for your YouTube videos</p>
+            <h2 className="text-xl sm:text-2xl font-bold text-foreground">YouTube Tag & Hashtag Generator</h2>
+            <p className="text-xs sm:text-sm text-muted-foreground">Generate optimized tags and hashtags for your YouTube videos</p>
           </div>
         </div>
 
@@ -84,7 +84,7 @@ const TagGenerator = () => {
             <label htmlFor="youtube-url" className="block text-sm font-medium text-foreground mb-2">
               YouTube Video URL
             </label>
-            <div className="flex gap-2">
+            <div className="flex flex-col sm:flex-row gap-2">
               <Input
                 id="youtube-url"
                 type="text"
@@ -96,14 +96,14 @@ const TagGenerator = () => {
               <Button 
                 onClick={generateTags} 
                 disabled={isLoading}
-                className="bg-accent hover:bg-accent/90 text-accent-foreground"
+                className="bg-accent hover:bg-accent/90 text-accent-foreground w-full sm:w-auto"
               >
                 {isLoading ? "Generating..." : "Generate"}
               </Button>
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-4">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <div className="flex items-center justify-between mb-2">
                 <label htmlFor="hashtags" className="flex items-center gap-2 text-sm font-medium text-foreground">
