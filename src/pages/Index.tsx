@@ -9,11 +9,18 @@ const Index = () => {
       <Header />
       
       {/* <!-- AD PLACEMENT ZONE: Below Header Banner --> */}
-      <div className="w-full bg-muted/20 border-2 border-dashed border-muted p-4 text-center text-muted-foreground">
+      {/* <div className="w-full bg-muted/20 border-2 border-dashed border-muted p-4 text-center text-muted-foreground">
         [Header Banner Ad Space - Full Width Responsive]
-      </div>
+      </div> */}
       
       <main className="flex-1">
+        {/* Generator Section */}
+        <section className="py-12 px-4">
+          <div className="container mx-auto">
+            <TagGenerator />
+          </div>
+        </section>
+
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-teal-dark to-teal-medium py-16 px-4">
           <div className="container mx-auto text-center">
@@ -58,17 +65,10 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Generator Section */}
-        <section className="py-12 px-4">
-          <div className="container mx-auto">
-            <TagGenerator />
-          </div>
-        </section>
-
         {/* <!-- AD PLACEMENT ZONE: Mid-page Section --> */}
-        <div className="w-full bg-muted/20 border-2 border-dashed border-muted p-4 text-center text-muted-foreground my-8">
+        {/* <div className="w-full bg-muted/20 border-2 border-dashed border-muted p-4 text-center text-muted-foreground my-8">
           [Mid-page Ad Space - Full Width]
-        </div>
+        </div> */}
 
         {/* How It Works Section */}
         <section className="py-16 px-4 bg-card/50">
