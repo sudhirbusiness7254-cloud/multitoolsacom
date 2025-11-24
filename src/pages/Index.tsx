@@ -16,50 +16,6 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Hero Section */}
-        <section className="bg-gradient-to-br from-teal-dark to-teal-medium py-12 md:py-16 px-4">
-          <div className="container mx-auto text-center">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-cyan-bright mb-3 md:mb-4">
-              Social Media Tag Generator
-            </h1>
-            <p className="text-base sm:text-lg md:text-xl text-foreground/90 mb-6 md:mb-8 max-w-2xl mx-auto px-4">
-              Generate optimized tags and hashtags for YouTube, Instagram & TikTok. Free, fast, and optimized for social media SEO.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 mt-8 md:mt-12">
-              <div className="flex items-center gap-3 w-full sm:w-auto">
-                <div className="bg-accent/20 p-2 md:p-3 rounded-lg">
-                  <Sparkles className="w-5 h-5 md:w-6 md:h-6 text-cyan-bright" />
-                </div>
-                <div className="text-left">
-                  <div className="text-xl md:text-2xl font-bold text-cyan-bright">100% Free</div>
-                  <div className="text-xs md:text-sm text-foreground/80">No registration needed</div>
-                </div>
-              </div>
-              
-              <div className="flex items-center gap-3 w-full sm:w-auto">
-                <div className="bg-accent/20 p-2 md:p-3 rounded-lg">
-                  <TrendingUp className="w-5 h-5 md:w-6 md:h-6 text-cyan-bright" />
-                </div>
-                <div className="text-left">
-                  <div className="text-xl md:text-2xl font-bold text-cyan-bright">Multi-Platform</div>
-                  <div className="text-xs md:text-sm text-foreground/80">YouTube, Instagram & TikTok</div>
-                </div>
-              </div>
-              
-              <div className="flex items-center gap-3 w-full sm:w-auto">
-                <div className="bg-accent/20 p-2 md:p-3 rounded-lg">
-                  <Zap className="w-5 h-5 md:w-6 md:h-6 text-cyan-bright" />
-                </div>
-                <div className="text-left">
-                  <div className="text-xl md:text-2xl font-bold text-cyan-bright">Instant Results</div>
-                  <div className="text-xs md:text-sm text-foreground/80">Generate in seconds</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* How It Works Section */}
         <section className="py-12 md:py-16 px-4 bg-card/50">
           <div className="container mx-auto max-w-4xl">
