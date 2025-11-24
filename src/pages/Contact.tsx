@@ -17,11 +17,6 @@ const Contact = () => {
       <Header />
       
       <main className="flex-1 container mx-auto px-4 py-12">
-        {/* <!-- AD PLACEMENT ZONE: Page Top Banner --> */}
-        <div className="w-full max-w-4xl mx-auto bg-muted/20 border-2 border-dashed border-muted rounded-lg p-4 text-center text-muted-foreground mb-8">
-          [Top Banner Ad Space - 728x90]
-        </div>
-
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">Contact Us</h1>
           
@@ -76,10 +71,6 @@ const Contact = () => {
                 </div>
               </div>
 
-              {/* <!-- AD PLACEMENT ZONE: Sidebar --> */}
-              <div className="w-full bg-muted/20 border-2 border-dashed border-muted rounded-lg p-4 text-center text-muted-foreground mt-8">
-                [Sidebar Ad Space - 300x250]
-              </div>
             </div>
 
             <div className="bg-card rounded-xl p-8 shadow-lg border border-border">
@@ -144,10 +135,6 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* <!-- AD PLACEMENT ZONE: Bottom --> */}
-          <div className="w-full bg-muted/20 border-2 border-dashed border-muted rounded-lg p-4 text-center text-muted-foreground mt-8">
-            [Bottom Ad Space - 728x90]
-          </div>
         </div>
       </main>
       

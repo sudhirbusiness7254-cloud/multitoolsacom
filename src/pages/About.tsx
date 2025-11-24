@@ -8,11 +8,6 @@ const About = () => {
       <Header />
       
       <main className="flex-1 container mx-auto px-4 py-12">
-        {/* <!-- AD PLACEMENT ZONE: Page Top Banner --> */}
-        <div className="w-full max-w-4xl mx-auto bg-muted/20 border-2 border-dashed border-muted rounded-lg p-4 text-center text-muted-foreground mb-8">
-          [Top Banner Ad Space - 728x90]
-        </div>
-
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">About MultiToolsA Tag Generator</h1>
           
@@ -25,11 +20,6 @@ const About = () => {
             <p className="text-muted-foreground mb-6">
               We provide a simple yet effective tool that analyzes your YouTube video URL and generates relevant, SEO-optimized tags and hashtags. Our generator helps you save time and ensures your content reaches the right audience.
             </p>
-
-            {/* <!-- AD PLACEMENT ZONE: Mid-content Rectangle --> */}
-            <div className="w-full bg-muted/20 border-2 border-dashed border-muted rounded-lg p-4 text-center text-muted-foreground my-8">
-              [Mid-content Ad Space - 336x280]
-            </div>
 
             <h2 className="text-2xl font-bold text-foreground mb-4">Key Features</h2>
             <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-6">
@@ -104,10 +94,6 @@ const About = () => {
             </ul>
           </div>
 
-          {/* <!-- AD PLACEMENT ZONE: Bottom Content --> */}
-          <div className="w-full bg-muted/20 border-2 border-dashed border-muted rounded-lg p-4 text-center text-muted-foreground">
-            [Bottom Ad Space - 728x90]
-          </div>
         </div>
       </main>
       
