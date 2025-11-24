@@ -4,57 +4,73 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { Copy, Hash, Tag } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+
+type Platform = "youtube" | "instagram" | "tiktok" | null;
 
 const TagGenerator = () => {
-  const [youtubeUrl, setYoutubeUrl] = useState("");
+  const [videoUrl, setVideoUrl] = useState("");
   const [hashtags, setHashtags] = useState("");
   const [tags, setTags] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [detectedPlatform, setDetectedPlatform] = useState<Platform>(null);
+
+  const detectPlatform = (url: string): Platform => {
+    if (url.includes("youtube.com") || url.includes("youtu.be")) {
+      return "youtube";
+    } else if (url.includes("instagram.com")) {
+      return "instagram";
+    } else if (url.includes("tiktok.com")) {
+      return "tiktok";
+    }
+    return null;
+  };
 
   const generateTags = () => {
-    if (!youtubeUrl.trim()) {
-      toast.error("Please enter a YouTube URL");
+    if (!videoUrl.trim()) {
+      toast.error("Please enter a video URL");
+      return;
+    }
+
+    const platform = detectPlatform(videoUrl);
+    
+    if (!platform) {
+      toast.error("Please enter a valid YouTube, Instagram, or TikTok URL");
       return;
     }
 
     setIsLoading(true);
+    setDetectedPlatform(platform);
     
     // Simulate tag generation (in a real app, this would call an API)
     setTimeout(() => {
-      // Extract video ID and create sample tags
-      const videoId = extractVideoId(youtubeUrl);
-      
-      if (!videoId) {
-        toast.error("Invalid YouTube URL");
-        setIsLoading(false);
-        return;
-      }
+      let generatedHashtags = "";
+      let generatedTags = "";
 
-      // Sample generated hashtags
-      const generatedHashtags = `#YouTube #VideoMarketing #ContentCreator #ViralVideo #YouTubeTips #VideoSEO #SocialMedia #DigitalMarketing #YouTubeGrowth #ContentStrategy`;
-      
-      // Sample generated tags
-      const generatedTags = `youtube, video marketing, content creation, viral videos, youtube tips, video seo, social media, digital marketing, youtube growth, content strategy, video optimization, youtube algorithm, video content, youtube channel, content creator`;
+      switch (platform) {
+        case "youtube":
+          generatedHashtags = `#YouTube #VideoMarketing #ContentCreator #ViralVideo #YouTubeTips #VideoSEO #SocialMedia #DigitalMarketing #YouTubeGrowth #ContentStrategy`;
+          generatedTags = `youtube, video marketing, content creation, viral videos, youtube tips, video seo, social media, digital marketing, youtube growth, content strategy, video optimization, youtube algorithm, video content, youtube channel, content creator`;
+          break;
+        
+        case "instagram":
+          generatedHashtags = `#Instagram #InstaDaily #InstaGood #PhotoOfTheDay #InstaMood #InstaReels #Trending #ExploreMore #InstaGram #SocialMedia #ContentCreator #ViralReels #InstaLove #InstaFamous #ReelsInsta`;
+          generatedTags = `instagram, reels, instagram reels, content creator, viral content, social media, instagram tips, engagement, followers, instagram growth, photo of the day, instagram marketing, influencer, trending reels, instagram algorithm`;
+          break;
+        
+        case "tiktok":
+          generatedHashtags = `#TikTok #FYP #ForYou #Viral #Trending #TikTokViral #TikTokTrend #FYPage #TikTokFamous #ContentCreator #TikTokVideo #ViralTikTok #ForYouPage #TikTokLife #TikTokCreator`;
+          generatedTags = `tiktok, fyp, for you page, viral, trending, tiktok viral, content creator, tiktok trends, tiktok growth, tiktok tips, tiktok algorithm, viral video, tiktok marketing, tiktok content, social media, tiktok creator`;
+          break;
+      }
       
       setHashtags(generatedHashtags);
       setTags(generatedTags);
       setIsLoading(false);
-      toast.success("Tags and hashtags generated successfully!");
+      toast.success(`Tags and hashtags generated for ${platform.charAt(0).toUpperCase() + platform.slice(1)}!`);
     }, 1000);
   };
 
-  const extractVideoId = (url: string): string | null => {
-    const patterns = [
-      /(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\s]+)/,
-      /youtube\.com\/embed\/([^&\s]+)/,
-    ];
-    
-    for (const pattern of patterns) {
-      const match = url.match(pattern);
-      if (match) return match[1];
-    }
-    return null;
-  };
 
   const copyToClipboard = (text: string, type: string) => {
     navigator.clipboard.writeText(text);
@@ -68,24 +84,31 @@ const TagGenerator = () => {
           <div className="bg-accent/10 p-2 sm:p-3 rounded-lg">
             <Tag className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
           </div>
-          <div>
-            <h2 className="text-xl sm:text-2xl font-bold text-foreground">YouTube Tag & Hashtag Generator</h2>
-            <p className="text-xs sm:text-sm text-muted-foreground">Generate optimized tags and hashtags for your YouTube videos</p>
+          <div className="flex-1">
+            <div className="flex items-center gap-2 flex-wrap">
+              <h2 className="text-xl sm:text-2xl font-bold text-foreground">Social Media Tag Generator</h2>
+              {detectedPlatform && (
+                <Badge variant="secondary" className="text-xs">
+                  {detectedPlatform.charAt(0).toUpperCase() + detectedPlatform.slice(1)}
+                </Badge>
+              )}
+            </div>
+            <p className="text-xs sm:text-sm text-muted-foreground">Generate optimized tags and hashtags for YouTube, Instagram & TikTok</p>
           </div>
         </div>
 
         <div className="space-y-4">
           <div>
-            <label htmlFor="youtube-url" className="block text-sm font-medium text-foreground mb-2">
-              YouTube Video URL
+            <label htmlFor="video-url" className="block text-sm font-medium text-foreground mb-2">
+              Video URL (YouTube, Instagram, or TikTok)
             </label>
             <div className="flex flex-col sm:flex-row gap-2">
               <Input
-                id="youtube-url"
+                id="video-url"
                 type="text"
-                placeholder="https://www.youtube.com/watch?v=..."
-                value={youtubeUrl}
-                onChange={(e) => setYoutubeUrl(e.target.value)}
+                placeholder="Paste YouTube, Instagram, or TikTok URL..."
+                value={videoUrl}
+                onChange={(e) => setVideoUrl(e.target.value)}
                 className="flex-1"
               />
               <Button 
