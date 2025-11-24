@@ -18,7 +18,7 @@ const Header = () => {
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition-opacity">
             <img src={logo} alt="Tag Generator Logo" className="h-10 w-10 md:h-12 md:w-12" />
-            <span className="text-xl md:text-2xl font-bold text-cyan-bright">MultiToolsA</span>
+            <span className="text-xl md:text-2xl font-bold text-cyan-bright">Tag Generator</span>
           </Link>
           
           <div className="hidden md:flex items-center gap-6">

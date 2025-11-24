@@ -63,11 +63,6 @@ const TagGenerator = () => {
 
   return (
     <div className="w-full max-w-4xl mx-auto space-y-6">
-      {/* <!-- AD PLACEMENT ZONE: Top Banner Ad (728x90 or responsive) --> */}
-      {/* <div className="w-full bg-muted/20 border-2 border-dashed border-muted rounded-lg p-4 text-center text-muted-foreground">
-        [Top Banner Ad Space - 728x90]
-      </div> */}
-
       <div className="bg-card rounded-xl p-4 sm:p-6 shadow-lg border border-border">
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 mb-6">
           <div className="bg-accent/10 p-2 sm:p-3 rounded-lg">
@@ -160,11 +155,6 @@ const TagGenerator = () => {
           </div>
         </div>
       </div>
-
-      {/* <!-- AD PLACEMENT ZONE: Bottom Banner Ad (728x90 or responsive) --> */}
-      {/* <div className="w-full bg-muted/20 border-2 border-dashed border-muted rounded-lg p-4 text-center text-muted-foreground">
-        [Bottom Banner Ad Space - 728x90]
-      </div> */}
     </div>
   );
 };
