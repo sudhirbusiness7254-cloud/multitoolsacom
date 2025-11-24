@@ -20,10 +20,10 @@ const Index = () => {
         <section className="bg-gradient-to-br from-teal-dark to-teal-medium py-12 md:py-16 px-4">
           <div className="container mx-auto text-center">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-cyan-bright mb-3 md:mb-4">
-              YouTube Tag & Hashtag Generator
+              Social Media Tag Generator
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-foreground/90 mb-6 md:mb-8 max-w-2xl mx-auto px-4">
-              Boost your video visibility with AI-powered tags and trending hashtags. Free, fast, and optimized for YouTube SEO.
+              Generate optimized tags and hashtags for YouTube, Instagram & TikTok. Free, fast, and optimized for social media SEO.
             </p>
             
             <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 mt-8 md:mt-12">
@@ -42,8 +42,8 @@ const Index = () => {
                   <TrendingUp className="w-5 h-5 md:w-6 md:h-6 text-cyan-bright" />
                 </div>
                 <div className="text-left">
-                  <div className="text-xl md:text-2xl font-bold text-cyan-bright">SEO Optimized</div>
-                  <div className="text-xs md:text-sm text-foreground/80">Rank higher on YouTube</div>
+                  <div className="text-xl md:text-2xl font-bold text-cyan-bright">Multi-Platform</div>
+                  <div className="text-xs md:text-sm text-foreground/80">YouTube, Instagram & TikTok</div>
                 </div>
               </div>
               
@@ -74,7 +74,7 @@ const Index = () => {
                 </div>
                 <h3 className="text-xl font-semibold text-foreground mb-2">Paste URL</h3>
                 <p className="text-muted-foreground">
-                  Copy your YouTube video URL and paste it into the input field above
+                  Copy your YouTube, Instagram, or TikTok video URL and paste it into the input field above
                 </p>
               </div>
               
@@ -94,7 +94,7 @@ const Index = () => {
                 </div>
                 <h3 className="text-xl font-semibold text-foreground mb-2">Copy & Use</h3>
                 <p className="text-muted-foreground">
-                  Copy the results and add them to your YouTube video description
+                  Copy the results and add them to your video description or post
                 </p>
               </div>
             </div>
@@ -113,7 +113,7 @@ const Index = () => {
                 <div>
                   <h3 className="text-xl font-semibold text-foreground mb-2">Improve Search Rankings</h3>
                   <p className="text-muted-foreground">
-                    Proper tags help YouTube's algorithm understand your content and rank it higher in search results.
+                    Proper tags help algorithms understand your content and rank it higher in search results across all platforms.
                   </p>
                 </div>
                 
