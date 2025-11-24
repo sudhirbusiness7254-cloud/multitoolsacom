@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="container mx-auto px-4 py-6 md:py-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
           <div>
-            <h3 className="text-lg font-semibold text-cyan-bright mb-3">MultiToolsA</h3>
+            <h3 className="text-lg font-semibold text-cyan-bright mb-3">Tag Generator</h3>
             <p className="text-sm text-muted-foreground">
               Free YouTube tag and hashtag generator tool to help optimize your video content and reach more viewers.
             </p>
@@ -45,7 +45,7 @@ const Footer = () => {
         
         <div className="border-t border-teal-medium mt-8 pt-6 text-center">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} MultiToolsA - Tag Generator Tools. All rights reserved.
+            © {new Date().getFullYear()} Tag Generator. All rights reserved.
           </p>
         </div>
       </div>

@@ -8,11 +8,6 @@ const Index = () => {
     <div className="min-h-screen bg-background flex flex-col">
       <Header />
       
-      {/* <!-- AD PLACEMENT ZONE: Below Header Banner --> */}
-      {/* <div className="w-full bg-muted/20 border-2 border-dashed border-muted p-4 text-center text-muted-foreground">
-        [Header Banner Ad Space - Full Width Responsive]
-      </div> */}
-      
       <main className="flex-1">
         {/* Generator Section */}
         <section className="py-12 px-4">
@@ -64,11 +59,6 @@ const Index = () => {
             </div>
           </div>
         </section>
-
-        {/* <!-- AD PLACEMENT ZONE: Mid-page Section --> */}
-        {/* <div className="w-full bg-muted/20 border-2 border-dashed border-muted p-4 text-center text-muted-foreground my-8">
-          [Mid-page Ad Space - Full Width]
-        </div> */}
 
         {/* How It Works Section */}
         <section className="py-12 md:py-16 px-4 bg-card/50">
