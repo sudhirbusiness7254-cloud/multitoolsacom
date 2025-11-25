@@ -24,43 +24,91 @@ const Index = () => {
             </h2>
             <div className="bg-card rounded-xl p-6 md:p-8 shadow-lg border border-border mb-8">
               <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-6">
-                Our free Social Media Tag Generator is a powerful tool designed to help content creators optimize their videos across multiple platforms including YouTube, Instagram, and TikTok. Simply paste your video URL, and our tool automatically extracts and generates relevant tags and hashtags that can boost your content's visibility and reach.
+                Our free Social Media Tag Generator is a powerful tool designed to help content creators optimize their content across multiple platforms including YouTube, Instagram, TikTok, LinkedIn, Twitter, Facebook, and Pinterest. Simply paste your content URL, and our tool automatically generates relevant tags and hashtags that can boost your content's visibility and reach.
               </p>
               
-              <div className="grid md:grid-cols-3 gap-6 mt-8">
-                <div className="bg-background/50 rounded-lg p-6 border border-border">
-                  <div className="flex items-center gap-3 mb-3">
+              <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4 mt-8">
+                <div className="bg-background/50 rounded-lg p-4 border border-border">
+                  <div className="flex items-center gap-2 mb-2">
                     <div className="bg-red-500/10 p-2 rounded-lg">
-                      <span className="text-2xl">📺</span>
+                      <span className="text-xl">📺</span>
                     </div>
-                    <h3 className="text-lg font-semibold text-foreground">YouTube Tags</h3>
+                    <h3 className="text-base font-semibold text-foreground">YouTube</h3>
                   </div>
-                  <p className="text-sm text-muted-foreground">
-                    Extract and generate SEO-optimized tags from any YouTube video to improve search rankings and suggested video placement.
+                  <p className="text-xs text-muted-foreground">
+                    SEO-optimized tags for better search rankings
                   </p>
                 </div>
                 
-                <div className="bg-background/50 rounded-lg p-6 border border-border">
-                  <div className="flex items-center gap-3 mb-3">
+                <div className="bg-background/50 rounded-lg p-4 border border-border">
+                  <div className="flex items-center gap-2 mb-2">
                     <div className="bg-pink-500/10 p-2 rounded-lg">
-                      <span className="text-2xl">📸</span>
+                      <span className="text-xl">📸</span>
                     </div>
-                    <h3 className="text-lg font-semibold text-foreground">Instagram Hashtags</h3>
+                    <h3 className="text-base font-semibold text-foreground">Instagram</h3>
                   </div>
-                  <p className="text-sm text-muted-foreground">
-                    Generate trending Instagram hashtags to increase post discoverability and engagement on Reels and posts.
+                  <p className="text-xs text-muted-foreground">
+                    Trending hashtags for posts and reels
                   </p>
                 </div>
                 
-                <div className="bg-background/50 rounded-lg p-6 border border-border">
-                  <div className="flex items-center gap-3 mb-3">
+                <div className="bg-background/50 rounded-lg p-4 border border-border">
+                  <div className="flex items-center gap-2 mb-2">
                     <div className="bg-cyan-500/10 p-2 rounded-lg">
-                      <span className="text-2xl">🎵</span>
+                      <span className="text-xl">🎵</span>
                     </div>
-                    <h3 className="text-lg font-semibold text-foreground">TikTok Hashtags</h3>
+                    <h3 className="text-base font-semibold text-foreground">TikTok</h3>
                   </div>
-                  <p className="text-sm text-muted-foreground">
-                    Create viral TikTok hashtags to help your videos reach the "For You" page and gain maximum exposure.
+                  <p className="text-xs text-muted-foreground">
+                    Viral hashtags for the For You page
+                  </p>
+                </div>
+
+                <div className="bg-background/50 rounded-lg p-4 border border-border">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="bg-blue-500/10 p-2 rounded-lg">
+                      <span className="text-xl">💼</span>
+                    </div>
+                    <h3 className="text-base font-semibold text-foreground">LinkedIn</h3>
+                  </div>
+                  <p className="text-xs text-muted-foreground">
+                    Professional hashtags for B2B content
+                  </p>
+                </div>
+
+                <div className="bg-background/50 rounded-lg p-4 border border-border">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="bg-sky-500/10 p-2 rounded-lg">
+                      <span className="text-xl">🐦</span>
+                    </div>
+                    <h3 className="text-base font-semibold text-foreground">Twitter</h3>
+                  </div>
+                  <p className="text-xs text-muted-foreground">
+                    Trending hashtags for engagement
+                  </p>
+                </div>
+
+                <div className="bg-background/50 rounded-lg p-4 border border-border">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="bg-blue-600/10 p-2 rounded-lg">
+                      <span className="text-xl">👥</span>
+                    </div>
+                    <h3 className="text-base font-semibold text-foreground">Facebook</h3>
+                  </div>
+                  <p className="text-xs text-muted-foreground">
+                    Hashtags for posts and videos
+                  </p>
+                </div>
+
+                <div className="bg-background/50 rounded-lg p-4 border border-border">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="bg-red-600/10 p-2 rounded-lg">
+                      <span className="text-xl">📌</span>
+                    </div>
+                    <h3 className="text-base font-semibold text-foreground">Pinterest</h3>
+                  </div>
+                  <p className="text-xs text-muted-foreground">
+                    SEO-rich keywords for pins
                   </p>
                 </div>
               </div>
@@ -147,7 +195,7 @@ const Index = () => {
                 </div>
                 <h3 className="text-xl font-semibold text-foreground mb-2">Paste URL</h3>
                 <p className="text-muted-foreground">
-                  Copy your YouTube, Instagram, or TikTok video URL and paste it into the input field above
+                  Copy your content URL from YouTube, Instagram, TikTok, LinkedIn, Twitter, Facebook, or Pinterest and paste it into the input field above
                 </p>
               </div>
               

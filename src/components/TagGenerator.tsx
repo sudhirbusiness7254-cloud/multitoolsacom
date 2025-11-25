@@ -6,7 +6,7 @@ import { toast } from "sonner";
 import { Copy, Hash, Tag } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
-type Platform = "youtube" | "instagram" | "tiktok" | null;
+type Platform = "youtube" | "instagram" | "tiktok" | "linkedin" | "twitter" | "facebook" | "pinterest" | null;
 
 const TagGenerator = () => {
   const [videoUrl, setVideoUrl] = useState("");
@@ -22,6 +22,14 @@ const TagGenerator = () => {
       return "instagram";
     } else if (url.includes("tiktok.com")) {
       return "tiktok";
+    } else if (url.includes("linkedin.com")) {
+      return "linkedin";
+    } else if (url.includes("twitter.com") || url.includes("x.com")) {
+      return "twitter";
+    } else if (url.includes("facebook.com") || url.includes("fb.com")) {
+      return "facebook";
+    } else if (url.includes("pinterest.com") || url.includes("pin.it")) {
+      return "pinterest";
     }
     return null;
   };
@@ -35,7 +43,7 @@ const TagGenerator = () => {
     const platform = detectPlatform(videoUrl);
     
     if (!platform) {
-      toast.error("Please enter a valid YouTube, Instagram, or TikTok URL");
+      toast.error("Please enter a valid social media URL (YouTube, Instagram, TikTok, LinkedIn, Twitter, Facebook, or Pinterest)");
       return;
     }
 
@@ -62,6 +70,26 @@ const TagGenerator = () => {
           generatedHashtags = `#TikTok #FYP #ForYou #Viral #Trending #TikTokViral #TikTokTrend #FYPage #TikTokFamous #ContentCreator #TikTokVideo #ViralTikTok #ForYouPage #TikTokLife #TikTokCreator`;
           generatedTags = `tiktok, fyp, for you page, viral, trending, tiktok viral, content creator, tiktok trends, tiktok growth, tiktok tips, tiktok algorithm, viral video, tiktok marketing, tiktok content, social media, tiktok creator`;
           break;
+        
+        case "linkedin":
+          generatedHashtags = `#LinkedIn #LinkedInTips #ProfessionalDevelopment #CareerGrowth #BusinessNetworking #ThoughtLeadership #LinkedInMarketing #B2B #ProfessionalBranding #LinkedInContent #CareerAdvice #BusinessStrategy #LinkedInVideo #Leadership #Networking`;
+          generatedTags = `linkedin, professional networking, career development, business growth, linkedin tips, b2b marketing, thought leadership, professional branding, linkedin content, career advice, business strategy, linkedin algorithm, professional development, networking tips, linkedin marketing`;
+          break;
+        
+        case "twitter":
+          generatedHashtags = `#Twitter #TwitterTips #SocialMedia #Trending #Viral #TwitterMarketing #ContentCreator #DigitalMarketing #TwitterThread #Engagement #TwitterCommunity #SocialMediaMarketing #TwitterGrowth #OnlinePresence #TwitterStrategy`;
+          generatedTags = `twitter, social media, twitter tips, viral tweets, twitter marketing, content strategy, engagement, twitter growth, twitter algorithm, digital marketing, twitter threads, social media strategy, twitter community, online presence, twitter engagement`;
+          break;
+        
+        case "facebook":
+          generatedHashtags = `#Facebook #FacebookMarketing #SocialMedia #FacebookAds #ContentMarketing #FacebookVideo #SocialMediaMarketing #FacebookTips #DigitalMarketing #FacebookPage #ContentCreator #FacebookGrowth #VideoMarketing #FacebookStrategy #Engagement`;
+          generatedTags = `facebook, facebook marketing, social media, facebook ads, content marketing, facebook video, social media strategy, facebook tips, digital marketing, facebook page, facebook growth, video marketing, facebook algorithm, engagement, facebook content`;
+          break;
+        
+        case "pinterest":
+          generatedHashtags = `#Pinterest #PinterestMarketing #PinterestTips #PinterestSEO #VisualContent #PinterestBusiness #ContentMarketing #PinterestGrowth #PinterestStrategy #SocialMedia #PinterestIdeas #DigitalMarketing #PinterestPin #VisualMarketing #PinterestInspiration`;
+          generatedTags = `pinterest, pinterest marketing, pinterest seo, visual content, pinterest tips, pinterest business, content marketing, pinterest growth, pinterest strategy, pinterest algorithm, pinterest pins, visual marketing, pinterest ideas, social media, pinterest inspiration`;
+          break;
       }
       
       setHashtags(generatedHashtags);
@@ -86,27 +114,27 @@ const TagGenerator = () => {
           </div>
           <div className="flex-1">
             <div className="flex items-center gap-2 flex-wrap">
-              <h2 className="text-xl sm:text-2xl font-bold text-foreground">Social Media Tag Generator</h2>
+            <h2 className="text-xl sm:text-2xl font-bold text-foreground">Social Media Tag Generator</h2>
               {detectedPlatform && (
                 <Badge variant="secondary" className="text-xs">
                   {detectedPlatform.charAt(0).toUpperCase() + detectedPlatform.slice(1)}
                 </Badge>
               )}
             </div>
-            <p className="text-xs sm:text-sm text-muted-foreground">Generate optimized tags and hashtags for YouTube, Instagram & TikTok</p>
+            <p className="text-xs sm:text-sm text-muted-foreground">Generate optimized tags and hashtags for all major platforms</p>
           </div>
         </div>
 
         <div className="space-y-4">
           <div>
             <label htmlFor="video-url" className="block text-sm font-medium text-foreground mb-2">
-              Video URL (YouTube, Instagram, or TikTok)
+              Social Media Content URL
             </label>
             <div className="flex flex-col sm:flex-row gap-2">
               <Input
                 id="video-url"
                 type="text"
-                placeholder="Paste YouTube, Instagram, or TikTok URL..."
+                placeholder="Paste URL from YouTube, Instagram, TikTok, LinkedIn, Twitter, Facebook, or Pinterest..."
                 value={videoUrl}
                 onChange={(e) => setVideoUrl(e.target.value)}
                 className="flex-1"
