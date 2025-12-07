@@ -9,6 +9,7 @@ import About from "./pages/About";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import Contact from "./pages/Contact";
+import ImageToolsPage from "./pages/ImageToolsPage";
 import ImageConverterPage from "./pages/ImageConverterPage";
 import NotFound from "./pages/NotFound";
 
@@ -29,7 +30,10 @@ const App = () => (
             <Route path="/terms" element={<Terms />} />
             <Route path="/contact" element={<Contact />} />
             
-            {/* Image Converter Routes */}
+            {/* Image Tools Landing Page */}
+            <Route path="/image-tools" element={<ImageToolsPage />} />
+            
+            {/* Image Converter Tool */}
             <Route path="/image-converter" element={<ImageConverterPage />} />
             <Route path="/image-converter/:conversion" element={<ImageConverterPage />} />
             

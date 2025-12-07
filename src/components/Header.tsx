@@ -53,14 +53,14 @@ const Header = () => {
                     <span className="block text-xs text-muted-foreground mt-0.5">Generate tags for social media</span>
                   </Link>
                   <Link
-                    to="/image-converter"
+                    to="/image-tools"
                     onClick={() => setToolsDropdownOpen(false)}
                     className={`block px-4 py-3 text-sm transition-colors hover:bg-teal-medium ${
-                      location.pathname.includes("converter") || location.pathname.includes("to-") ? "text-cyan-bright bg-teal-medium/50" : "text-foreground"
+                      location.pathname.includes("image") || location.pathname.includes("to-") ? "text-cyan-bright bg-teal-medium/50" : "text-foreground"
                     }`}
                   >
                     🖼️ Image Converter
-                    <span className="block text-xs text-muted-foreground mt-0.5">Convert JPG, PNG, WEBP, HEIC</span>
+                    <span className="block text-xs text-muted-foreground mt-0.5">Convert JPG, PNG, WEBP, HEIC & more</span>
                   </Link>
                 </div>
               )}
@@ -131,10 +131,10 @@ const Header = () => {
                   🏷️ Tag Extractor
                 </Link>
                 <Link 
-                  to="/image-converter" 
+                  to="/image-tools" 
                   onClick={closeMobileMenu}
                   className={`block px-4 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-teal-medium ${
-                    location.pathname.includes("converter") ? "text-cyan-bright bg-teal-medium/50" : "text-foreground"
+                    location.pathname.includes("image") ? "text-cyan-bright bg-teal-medium/50" : "text-foreground"
                   }`}
                 >
                   🖼️ Image Converter
