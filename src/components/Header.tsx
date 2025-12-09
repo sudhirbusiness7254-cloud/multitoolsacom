@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import logo from "@/assets/logo.png";
 
@@ -7,6 +7,7 @@ const Header = () => {
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [toolsDropdownOpen, setToolsDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   
   const isActive = (path: string) => location.pathname === path;
   const isToolsActive = () => location.pathname === "/" || location.pathname.includes("converter") || location.pathname.includes("to-");
@@ -16,6 +17,18 @@ const Header = () => {
     setMobileMenuOpen(false);
     setToolsDropdownOpen(false);
   };
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setToolsDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
   
   return (
     <header className="bg-teal-dark border-b border-teal-medium sticky top-0 z-50 backdrop-blur-sm bg-opacity-95">
@@ -28,10 +41,9 @@ const Header = () => {
           
           <div className="hidden md:flex items-center gap-6">
             {/* Tools Dropdown */}
-            <div className="relative">
+            <div className="relative" ref={dropdownRef}>
               <button
                 onClick={() => setToolsDropdownOpen(!toolsDropdownOpen)}
-                onBlur={() => setTimeout(() => setToolsDropdownOpen(false), 150)}
                 className={`flex items-center gap-1 text-sm font-medium transition-colors hover:text-cyan-bright ${
                   isToolsActive() ? "text-cyan-bright" : "text-foreground"
                 }`}
@@ -41,7 +53,7 @@ const Header = () => {
               </button>
               
               {toolsDropdownOpen && (
-                <div className="absolute top-full left-0 mt-2 w-56 bg-teal-dark border border-teal-medium rounded-lg shadow-lg overflow-hidden z-50">
+                <div className="absolute top-full left-0 mt-2 w-56 bg-[hsl(var(--teal-dark))] border border-teal-medium rounded-lg shadow-xl z-[100]">
                   <Link
                     to="/"
                     onClick={() => setToolsDropdownOpen(false)}
