@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Image, Hash } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const Header = () => {
@@ -10,7 +10,10 @@ const Header = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
   
   const isActive = (path: string) => location.pathname === path;
-  const isToolsActive = () => location.pathname === "/" || location.pathname.includes("converter") || location.pathname.includes("to-");
+  const isToolsActive = () => 
+    location.pathname.includes("image") || 
+    location.pathname.includes("tag") || 
+    location.pathname.includes("to-");
   
   const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
   const closeMobileMenu = () => {
@@ -31,12 +34,12 @@ const Header = () => {
   }, []);
   
   return (
-    <header className="bg-teal-dark border-b border-teal-medium sticky top-0 z-50 backdrop-blur-sm bg-opacity-95">
+    <header className="bg-card border-b border-border sticky top-0 z-50 backdrop-blur-sm bg-opacity-95">
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition-opacity">
-            <img src={logo} alt="Tag Generator Logo" className="h-10 w-10 md:h-12 md:w-12" />
-            <span className="text-xl md:text-2xl font-bold text-cyan-bright">MultiTools</span>
+            <img src={logo} alt="MultiTools Logo" className="h-10 w-10 md:h-12 md:w-12" />
+            <span className="text-xl md:text-2xl font-bold text-primary">MultiTools</span>
           </Link>
           
           <div className="hidden md:flex items-center gap-6">
@@ -44,8 +47,8 @@ const Header = () => {
             <div className="relative" ref={dropdownRef}>
               <button
                 onClick={() => setToolsDropdownOpen(!toolsDropdownOpen)}
-                className={`flex items-center gap-1 text-sm font-medium transition-colors hover:text-cyan-bright ${
-                  isToolsActive() ? "text-cyan-bright" : "text-foreground"
+                className={`flex items-center gap-1 text-sm font-medium transition-colors hover:text-primary ${
+                  isToolsActive() ? "text-primary" : "text-foreground"
                 }`}
               >
                 Tools
@@ -53,26 +56,42 @@ const Header = () => {
               </button>
               
               {toolsDropdownOpen && (
-                <div className="absolute top-full left-0 mt-2 w-56 bg-[hsl(var(--teal-dark))] border border-teal-medium rounded-lg shadow-xl z-[100]">
-                  <Link
-                    to="/"
-                    onClick={() => setToolsDropdownOpen(false)}
-                    className={`block px-4 py-3 text-sm transition-colors hover:bg-teal-medium ${
-                      isActive("/") ? "text-cyan-bright bg-teal-medium/50" : "text-foreground"
-                    }`}
-                  >
-                    🏷️ Tag Extractor
-                    <span className="block text-xs text-muted-foreground mt-0.5">Generate tags for social media</span>
-                  </Link>
+                <div className="absolute top-full left-0 mt-2 w-64 bg-card border border-border rounded-xl shadow-xl z-[100] overflow-hidden">
                   <Link
                     to="/image-tools"
                     onClick={() => setToolsDropdownOpen(false)}
-                    className={`block px-4 py-3 text-sm transition-colors hover:bg-teal-medium ${
-                      location.pathname.includes("image") || location.pathname.includes("to-") ? "text-cyan-bright bg-teal-medium/50" : "text-foreground"
+                    className={`flex items-start gap-3 px-4 py-4 transition-colors hover:bg-secondary ${
+                      location.pathname.includes("image") || location.pathname.includes("to-") 
+                        ? "bg-secondary" 
+                        : ""
                     }`}
                   >
-                    🖼️ Image Converter
-                    <span className="block text-xs text-muted-foreground mt-0.5">Convert JPG, PNG, WEBP, HEIC & more</span>
+                    <div className="w-10 h-10 rounded-lg bg-gradient-orange flex items-center justify-center flex-shrink-0">
+                      <Image className="w-5 h-5 text-primary-foreground" />
+                    </div>
+                    <div>
+                      <span className="font-semibold text-foreground">Image Converter</span>
+                      <span className="block text-xs text-muted-foreground mt-0.5">
+                        JPG, PNG, WEBP, TIFF, RAW & more
+                      </span>
+                    </div>
+                  </Link>
+                  <Link
+                    to="/tag-extractor"
+                    onClick={() => setToolsDropdownOpen(false)}
+                    className={`flex items-start gap-3 px-4 py-4 transition-colors hover:bg-secondary ${
+                      location.pathname.includes("tag") ? "bg-secondary" : ""
+                    }`}
+                  >
+                    <div className="w-10 h-10 rounded-lg bg-gradient-orange flex items-center justify-center flex-shrink-0">
+                      <Hash className="w-5 h-5 text-primary-foreground" />
+                    </div>
+                    <div>
+                      <span className="font-semibold text-foreground">Tag Extractor</span>
+                      <span className="block text-xs text-muted-foreground mt-0.5">
+                        YouTube, Instagram, TikTok & more
+                      </span>
+                    </div>
                   </Link>
                 </div>
               )}
@@ -80,32 +99,16 @@ const Header = () => {
 
             <Link 
               to="/about" 
-              className={`text-sm font-medium transition-colors hover:text-cyan-bright ${
-                isActive("/about") ? "text-cyan-bright" : "text-foreground"
+              className={`text-sm font-medium transition-colors hover:text-primary ${
+                isActive("/about") ? "text-primary" : "text-foreground"
               }`}
             >
               About
             </Link>
             <Link 
-              to="/privacy" 
-              className={`text-sm font-medium transition-colors hover:text-cyan-bright ${
-                isActive("/privacy") ? "text-cyan-bright" : "text-foreground"
-              }`}
-            >
-              Privacy
-            </Link>
-            <Link 
-              to="/terms" 
-              className={`text-sm font-medium transition-colors hover:text-cyan-bright ${
-                isActive("/terms") ? "text-cyan-bright" : "text-foreground"
-              }`}
-            >
-              Terms
-            </Link>
-            <Link 
               to="/contact" 
-              className={`text-sm font-medium transition-colors hover:text-cyan-bright ${
-                isActive("/contact") ? "text-cyan-bright" : "text-foreground"
+              className={`text-sm font-medium transition-colors hover:text-primary ${
+                isActive("/contact") ? "text-primary" : "text-foreground"
               }`}
             >
               Contact
@@ -115,7 +118,7 @@ const Header = () => {
           {/* Mobile menu button */}
           <button 
             onClick={toggleMobileMenu}
-            className="md:hidden text-foreground hover:text-cyan-bright transition-colors"
+            className="md:hidden text-foreground hover:text-primary transition-colors"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? (
@@ -128,64 +131,52 @@ const Header = () => {
         
         {/* Mobile menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 border-t border-teal-medium">
+          <div className="md:hidden mt-4 pb-4 border-t border-border">
             <div className="flex flex-col gap-2 pt-4">
               {/* Tools Section */}
               <div className="mb-2">
                 <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider px-2 mb-2">Tools</p>
                 <Link 
-                  to="/" 
-                  onClick={closeMobileMenu}
-                  className={`block px-4 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-teal-medium ${
-                    isActive("/") ? "text-cyan-bright bg-teal-medium/50" : "text-foreground"
-                  }`}
-                >
-                  🏷️ Tag Extractor
-                </Link>
-                <Link 
                   to="/image-tools" 
                   onClick={closeMobileMenu}
-                  className={`block px-4 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-teal-medium ${
-                    location.pathname.includes("image") ? "text-cyan-bright bg-teal-medium/50" : "text-foreground"
+                  className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors hover:bg-secondary ${
+                    location.pathname.includes("image") ? "bg-secondary text-primary" : "text-foreground"
                   }`}
                 >
-                  🖼️ Image Converter
+                  <div className="w-8 h-8 rounded-lg bg-gradient-orange flex items-center justify-center">
+                    <Image className="w-4 h-4 text-primary-foreground" />
+                  </div>
+                  Image Converter
+                </Link>
+                <Link 
+                  to="/tag-extractor" 
+                  onClick={closeMobileMenu}
+                  className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors hover:bg-secondary ${
+                    location.pathname.includes("tag") ? "bg-secondary text-primary" : "text-foreground"
+                  }`}
+                >
+                  <div className="w-8 h-8 rounded-lg bg-gradient-orange flex items-center justify-center">
+                    <Hash className="w-4 h-4 text-primary-foreground" />
+                  </div>
+                  Tag Extractor
                 </Link>
               </div>
 
-              <div className="border-t border-teal-medium pt-2">
+              <div className="border-t border-border pt-2">
                 <Link 
                   to="/about" 
                   onClick={closeMobileMenu}
-                  className={`block px-4 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-teal-medium ${
-                    isActive("/about") ? "text-cyan-bright" : "text-foreground"
+                  className={`block px-4 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-secondary ${
+                    isActive("/about") ? "text-primary" : "text-foreground"
                   }`}
                 >
                   About
                 </Link>
                 <Link 
-                  to="/privacy" 
-                  onClick={closeMobileMenu}
-                  className={`block px-4 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-teal-medium ${
-                    isActive("/privacy") ? "text-cyan-bright" : "text-foreground"
-                  }`}
-                >
-                  Privacy
-                </Link>
-                <Link 
-                  to="/terms" 
-                  onClick={closeMobileMenu}
-                  className={`block px-4 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-teal-medium ${
-                    isActive("/terms") ? "text-cyan-bright" : "text-foreground"
-                  }`}
-                >
-                  Terms
-                </Link>
-                <Link 
                   to="/contact" 
                   onClick={closeMobileMenu}
-                  className={`block px-4 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-teal-medium ${
-                    isActive("/contact") ? "text-cyan-bright" : "text-foreground"
+                  className={`block px-4 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-secondary ${
+                    isActive("/contact") ? "text-primary" : "text-foreground"
                   }`}
                 >
                   Contact

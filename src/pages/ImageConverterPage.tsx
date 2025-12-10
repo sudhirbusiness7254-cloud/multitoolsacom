@@ -10,9 +10,14 @@ import {
   Download, 
   Globe, 
   CheckCircle,
-  FileImage,
-  ArrowRightLeft
+  FileImage
 } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const conversionMeta: Record<string, { title: string; description: string; h1: string; fromFormat: string; toFormat: string }> = {
   "jpg-to-png": {
@@ -64,6 +69,13 @@ const conversionMeta: Record<string, { title: string; description: string; h1: s
     fromFormat: "gif",
     toFormat: "png"
   },
+  "gif-to-jpg": {
+    title: "GIF to JPG Converter - Free Online Image Conversion Tool",
+    description: "Convert GIF images to JPG format online for free. Convert animated or static GIFs to compressed JPG format.",
+    h1: "Convert GIF to JPG Online Free",
+    fromFormat: "gif",
+    toFormat: "jpg"
+  },
   "heic-to-jpg": {
     title: "HEIC to JPG Converter - Free Online Image Conversion Tool",
     description: "Convert HEIC images to JPG format online for free. Make iPhone photos compatible with all devices and platforms instantly.",
@@ -85,12 +97,54 @@ const conversionMeta: Record<string, { title: string; description: string; h1: s
     fromFormat: "svg",
     toFormat: "png"
   },
+  "svg-to-jpg": {
+    title: "SVG to JPG Converter - Free Online Image Conversion Tool",
+    description: "Convert SVG vector images to JPG format online for free. Convert vector graphics to compressed raster images.",
+    h1: "Convert SVG to JPG Online Free",
+    fromFormat: "svg",
+    toFormat: "jpg"
+  },
   "bmp-to-jpg": {
     title: "BMP to JPG Converter - Free Online Image Conversion Tool",
     description: "Convert BMP images to JPG format online for free. Drastically reduce file size while maintaining image quality.",
     h1: "Convert BMP to JPG Online Free",
     fromFormat: "bmp",
     toFormat: "jpg"
+  },
+  "bmp-to-png": {
+    title: "BMP to PNG Converter - Free Online Image Conversion Tool",
+    description: "Convert BMP images to PNG format online for free. Convert bitmap images to portable network graphics format.",
+    h1: "Convert BMP to PNG Online Free",
+    fromFormat: "bmp",
+    toFormat: "png"
+  },
+  "tiff-to-jpg": {
+    title: "TIFF to JPG Converter - Free Online Image Conversion Tool",
+    description: "Convert TIFF images to JPG format online for free. Compress large TIFF files to smaller JPG format for easy sharing.",
+    h1: "Convert TIFF to JPG Online Free",
+    fromFormat: "tiff",
+    toFormat: "jpg"
+  },
+  "tiff-to-png": {
+    title: "TIFF to PNG Converter - Free Online Image Conversion Tool",
+    description: "Convert TIFF images to PNG format online for free. Convert high-quality TIFF images to web-friendly PNG format.",
+    h1: "Convert TIFF to PNG Online Free",
+    fromFormat: "tiff",
+    toFormat: "png"
+  },
+  "raw-to-jpg": {
+    title: "RAW to JPG Converter - Free Online Image Conversion Tool",
+    description: "Convert RAW camera images to JPG format online for free. Process camera RAW files into shareable JPG images.",
+    h1: "Convert RAW to JPG Online Free",
+    fromFormat: "raw",
+    toFormat: "jpg"
+  },
+  "raw-to-png": {
+    title: "RAW to PNG Converter - Free Online Image Conversion Tool",
+    description: "Convert RAW camera images to PNG format online for free. Convert unprocessed camera files to high-quality PNG.",
+    h1: "Convert RAW to PNG Online Free",
+    fromFormat: "raw",
+    toFormat: "png"
   },
 };
 
@@ -105,8 +159,8 @@ const ImageConverterPage = () => {
   const meta = activeConversion && conversionMeta[activeConversion] 
     ? conversionMeta[activeConversion] 
     : {
-        title: "Free Online Image Converter - JPG, PNG, WEBP, GIF, HEIC | Convert Images",
-        description: "Convert images between JPG, PNG, WEBP, GIF, BMP, SVG, and HEIC formats online for free. Fast, secure, and easy-to-use image conversion tool with no watermarks.",
+        title: "Free Online Image Converter - JPG, PNG, WEBP, GIF, TIFF, RAW | Convert Images",
+        description: "Convert images between JPG, PNG, WEBP, GIF, BMP, SVG, TIFF, RAW, and HEIC formats online for free. Fast, secure, and easy-to-use image conversion tool with no watermarks.",
         h1: "Free Online Image Converter",
         fromFormat: "",
         toFormat: ""
@@ -139,7 +193,7 @@ const ImageConverterPage = () => {
         "name": "What image formats are supported?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We support all major image formats including JPG/JPEG, PNG, WEBP, GIF, BMP, SVG, HEIC, and HEIF. You can convert between any of these formats instantly."
+          "text": "We support all major image formats including JPG/JPEG, PNG, WEBP, GIF, BMP, SVG, TIFF, RAW, HEIC, and HEIF. You can convert between any of these formats instantly."
         }
       },
       {
@@ -148,22 +202,6 @@ const ImageConverterPage = () => {
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Absolutely! All image conversion happens directly in your browser. Your images are never uploaded to our servers, ensuring complete privacy and security."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I convert HEIC photos from iPhone?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, you can convert HEIC/HEIF images from iPhone to JPG, PNG, or WEBP format. This makes your iPhone photos compatible with all devices and platforms."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is the maximum file size I can convert?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Since conversion happens in your browser, there's no strict file size limit. However, very large images may take longer to process depending on your device's capabilities."
         }
       }
     ]
@@ -192,13 +230,12 @@ const ImageConverterPage = () => {
       <Helmet>
         <title>{meta.title}</title>
         <meta name="description" content={meta.description} />
-        <meta name="keywords" content="image converter, jpg to png, png to jpg, webp converter, heic to jpg, photo converter, image format converter, free image converter, online image converter, convert images online" />
-        <link rel="canonical" href={`https://yoursite.com/image-converter${conversion ? `/${conversion}` : ''}`} />
+        <meta name="keywords" content="image converter, jpg to png, png to jpg, webp converter, tiff to jpg, raw to png, heic to jpg, photo converter, free image converter" />
+        <link rel="canonical" href={`https://yoursite.com${location.pathname}`} />
         
         <meta property="og:title" content={meta.title} />
         <meta property="og:description" content={meta.description} />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
         
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={meta.title} />
@@ -217,21 +254,22 @@ const ImageConverterPage = () => {
         
         <main className="flex-1">
           {/* Hero Section */}
-          <section className="py-12 md:py-20 bg-gradient-hero">
-            <div className="container mx-auto px-4">
-              <div className="text-center max-w-4xl mx-auto mb-10 md:mb-14">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-bright/10 border border-cyan-bright/30 mb-6">
-                  <Image className="w-4 h-4 text-cyan-bright" />
-                  <span className="text-sm font-medium text-cyan-bright">Free Image Converter</span>
+          <section className="py-12 md:py-20 bg-gradient-hero relative overflow-hidden">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-3xl" />
+            
+            <div className="container mx-auto px-4 relative z-10">
+              <div className="text-center max-w-4xl mx-auto mb-10">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 mb-6">
+                  <Image className="w-4 h-4 text-primary" />
+                  <span className="text-sm font-medium text-primary">Free Image Converter</span>
                 </div>
                 
-                <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
+                <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
                   {meta.h1}
                 </h1>
                 
                 <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-                  Convert images between JPG, PNG, WEBP, GIF, BMP, SVG, and HEIC formats instantly. 
-                  100% free, secure, and processed entirely in your browser.
+                  Convert images instantly. 100% free, secure, and processed entirely in your browser.
                 </p>
               </div>
 
@@ -240,213 +278,79 @@ const ImageConverterPage = () => {
           </section>
 
           {/* Features Section */}
-          <section className="py-16 md:py-24 bg-teal-dark/50">
+          <section className="py-16 md:py-24 bg-gradient-dark">
             <div className="container mx-auto px-4">
-              <h2 className="text-2xl md:text-4xl font-bold text-center text-foreground mb-12">
+              <h2 className="text-2xl md:text-4xl font-bold text-center mb-12">
                 Why Use Our Image Converter?
               </h2>
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div className="bg-teal-medium/30 rounded-2xl p-6 border border-teal-medium hover:border-cyan-bright transition-colors">
-                  <div className="w-12 h-12 rounded-xl bg-cyan-bright/20 flex items-center justify-center mb-4">
-                    <Zap className="w-6 h-6 text-cyan-bright" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-foreground mb-2">Lightning Fast</h3>
-                  <p className="text-muted-foreground text-sm">
-                    Convert images in seconds with our optimized browser-based technology.
-                  </p>
-                </div>
-
-                <div className="bg-teal-medium/30 rounded-2xl p-6 border border-teal-medium hover:border-cyan-bright transition-colors">
-                  <div className="w-12 h-12 rounded-xl bg-cyan-bright/20 flex items-center justify-center mb-4">
-                    <Shield className="w-6 h-6 text-cyan-bright" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-foreground mb-2">100% Secure</h3>
-                  <p className="text-muted-foreground text-sm">
-                    Your images never leave your device. All processing happens locally in your browser.
-                  </p>
-                </div>
-
-                <div className="bg-teal-medium/30 rounded-2xl p-6 border border-teal-medium hover:border-cyan-bright transition-colors">
-                  <div className="w-12 h-12 rounded-xl bg-cyan-bright/20 flex items-center justify-center mb-4">
-                    <Download className="w-6 h-6 text-cyan-bright" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-foreground mb-2">No Watermarks</h3>
-                  <p className="text-muted-foreground text-sm">
-                    Download clean, professional images without any watermarks or branding.
-                  </p>
-                </div>
-
-                <div className="bg-teal-medium/30 rounded-2xl p-6 border border-teal-medium hover:border-cyan-bright transition-colors">
-                  <div className="w-12 h-12 rounded-xl bg-cyan-bright/20 flex items-center justify-center mb-4">
-                    <Globe className="w-6 h-6 text-cyan-bright" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-foreground mb-2">Works Everywhere</h3>
-                  <p className="text-muted-foreground text-sm">
-                    Use on any device with a modern browser - desktop, tablet, or mobile.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Supported Formats */}
-          <section className="py-16 md:py-24">
-            <div className="container mx-auto px-4">
-              <h2 className="text-2xl md:text-4xl font-bold text-center text-foreground mb-4">
-                Supported Image Formats
-              </h2>
-              <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-                Convert between all popular image formats with just a few clicks
-              </p>
-
-              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
-                {["JPG", "PNG", "WEBP", "GIF", "BMP", "SVG", "HEIC"].map((format) => (
-                  <div 
-                    key={format}
-                    className="bg-teal-medium/20 rounded-xl p-4 text-center border border-teal-medium hover:border-cyan-bright hover:bg-teal-medium/40 transition-all"
-                  >
-                    <FileImage className="w-8 h-8 text-cyan-bright mx-auto mb-2" />
-                    <span className="font-semibold text-foreground">{format}</span>
+                {[
+                  { icon: Zap, title: "Lightning Fast", desc: "Convert images in seconds with browser-based technology." },
+                  { icon: Shield, title: "100% Secure", desc: "Images never leave your device. All processing is local." },
+                  { icon: Download, title: "No Watermarks", desc: "Download clean images without any watermarks or branding." },
+                  { icon: Globe, title: "Works Everywhere", desc: "Use on any device with a modern browser." }
+                ].map((item, i) => (
+                  <div key={i} className="bg-card rounded-2xl p-6 border border-border hover:border-primary/50 transition-colors">
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                      <item.icon className="w-6 h-6 text-primary" />
+                    </div>
+                    <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
+                    <p className="text-muted-foreground text-sm">{item.desc}</p>
                   </div>
                 ))}
-              </div>
-
-              <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
-                <div className="flex items-center gap-3 p-4 bg-teal-medium/20 rounded-xl">
-                  <ArrowRightLeft className="w-5 h-5 text-cyan-bright flex-shrink-0" />
-                  <span className="text-sm text-foreground">JPG ↔ PNG ↔ WEBP</span>
-                </div>
-                <div className="flex items-center gap-3 p-4 bg-teal-medium/20 rounded-xl">
-                  <ArrowRightLeft className="w-5 h-5 text-cyan-bright flex-shrink-0" />
-                  <span className="text-sm text-foreground">HEIC → JPG/PNG/WEBP</span>
-                </div>
-                <div className="flex items-center gap-3 p-4 bg-teal-medium/20 rounded-xl">
-                  <ArrowRightLeft className="w-5 h-5 text-cyan-bright flex-shrink-0" />
-                  <span className="text-sm text-foreground">GIF ↔ PNG ↔ JPG</span>
-                </div>
               </div>
             </div>
           </section>
 
           {/* How It Works */}
-          <section className="py-16 md:py-24 bg-teal-dark/50">
+          <section className="py-16 md:py-24">
             <div className="container mx-auto px-4">
-              <h2 className="text-2xl md:text-4xl font-bold text-center text-foreground mb-12">
+              <h2 className="text-2xl md:text-4xl font-bold text-center mb-12">
                 How to Convert Images
               </h2>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-                <div className="text-center">
-                  <div className="w-16 h-16 rounded-full bg-cyan-bright text-teal-dark font-bold text-2xl flex items-center justify-center mx-auto mb-4">
-                    1
-                  </div>
-                  <h3 className="text-lg font-semibold text-foreground mb-2">Upload Image</h3>
-                  <p className="text-muted-foreground text-sm">
-                    Drag and drop your image or click to browse and select a file from your device.
-                  </p>
-                </div>
-
-                <div className="text-center">
-                  <div className="w-16 h-16 rounded-full bg-cyan-bright text-teal-dark font-bold text-2xl flex items-center justify-center mx-auto mb-4">
-                    2
-                  </div>
-                  <h3 className="text-lg font-semibold text-foreground mb-2">Select Format</h3>
-                  <p className="text-muted-foreground text-sm">
-                    Choose your desired output format from the dropdown menu (PNG, JPG, WEBP, etc.).
-                  </p>
-                </div>
-
-                <div className="text-center">
-                  <div className="w-16 h-16 rounded-full bg-cyan-bright text-teal-dark font-bold text-2xl flex items-center justify-center mx-auto mb-4">
-                    3
-                  </div>
-                  <h3 className="text-lg font-semibold text-foreground mb-2">Download</h3>
-                  <p className="text-muted-foreground text-sm">
-                    Click convert and download your newly formatted image instantly.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* FAQ Section */}
-          <section className="py-16 md:py-24">
-            <div className="container mx-auto px-4">
-              <h2 className="text-2xl md:text-4xl font-bold text-center text-foreground mb-12">
-                Frequently Asked Questions
-              </h2>
-
-              <div className="max-w-3xl mx-auto space-y-6">
-                {faqSchema.mainEntity.map((faq, index) => (
-                  <div key={index} className="bg-teal-medium/20 rounded-xl p-6 border border-teal-medium">
-                    <h3 className="text-lg font-semibold text-foreground mb-3 flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-cyan-bright flex-shrink-0 mt-0.5" />
-                      {faq.name}
-                    </h3>
-                    <p className="text-muted-foreground ml-8">
-                      {faq.acceptedAnswer.text}
-                    </p>
+                {[
+                  { step: "1", title: "Upload Image", desc: "Drag and drop or click to upload your image.", icon: FileImage },
+                  { step: "2", title: "Select Format", desc: "Choose your desired output format.", icon: CheckCircle },
+                  { step: "3", title: "Download", desc: "Click convert and download your image.", icon: Download }
+                ].map((item) => (
+                  <div key={item.step} className="text-center">
+                    <div className="bg-gradient-orange w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                      <item.icon className="w-8 h-8 text-primary-foreground" />
+                    </div>
+                    <div className="bg-primary text-primary-foreground w-8 h-8 rounded-full flex items-center justify-center mx-auto mb-3 text-sm font-bold">
+                      {item.step}
+                    </div>
+                    <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
+                    <p className="text-muted-foreground text-sm">{item.desc}</p>
                   </div>
                 ))}
               </div>
             </div>
           </section>
 
-          {/* SEO Content Section */}
-          <section className="py-16 md:py-24 bg-teal-dark/50">
+          {/* FAQ Section */}
+          <section className="py-16 md:py-24 bg-gradient-dark">
             <div className="container mx-auto px-4">
-              <div className="max-w-4xl mx-auto prose prose-invert">
-                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
-                  The Ultimate Free Online Image Converter
-                </h2>
-                
-                <div className="text-muted-foreground space-y-4">
-                  <p>
-                    Looking for a reliable, fast, and free image converter? Our online tool allows you to convert 
-                    images between all popular formats including JPG, PNG, WEBP, GIF, BMP, SVG, and HEIC/HEIF. 
-                    Whether you need to convert iPhone photos (HEIC) to JPG for sharing, optimize images for the 
-                    web by converting to WEBP, or simply change between common formats, our converter handles it all.
-                  </p>
+              <h2 className="text-2xl md:text-4xl font-bold text-center mb-12">
+                Frequently Asked Questions
+              </h2>
 
-                  <h3 className="text-xl font-semibold text-foreground mt-8 mb-4">
-                    Why Convert Images to Different Formats?
-                  </h3>
-                  <p>
-                    Different image formats serve different purposes. <strong>JPG</strong> is ideal for photographs 
-                    with millions of colors and offers good compression. <strong>PNG</strong> supports transparency 
-                    and is perfect for logos, icons, and graphics. <strong>WEBP</strong> provides superior compression 
-                    for web use, reducing file sizes by up to 30% compared to JPG while maintaining quality. 
-                    <strong>GIF</strong> supports animation and is widely used for simple graphics.
-                  </p>
-
-                  <h3 className="text-xl font-semibold text-foreground mt-8 mb-4">
-                    Convert HEIC Photos from iPhone
-                  </h3>
-                  <p>
-                    iPhone cameras save photos in HEIC format by default, which offers better quality at smaller 
-                    file sizes. However, HEIC isn't universally supported. Our converter makes it easy to convert 
-                    HEIC images to JPG, PNG, or WEBP for compatibility with Windows, Android, and web platforms.
-                  </p>
-
-                  <h3 className="text-xl font-semibold text-foreground mt-8 mb-4">
-                    Optimize Images for Web Performance
-                  </h3>
-                  <p>
-                    Web performance is crucial for user experience and SEO. Converting images to WEBP format can 
-                    significantly reduce page load times. Our converter helps you optimize images for websites, 
-                    blogs, and e-commerce platforms without sacrificing visual quality.
-                  </p>
-
-                  <h3 className="text-xl font-semibold text-foreground mt-8 mb-4">
-                    Privacy-First Image Conversion
-                  </h3>
-                  <p>
-                    Unlike other online converters, our tool processes everything directly in your browser. 
-                    Your images are never uploaded to any server, ensuring complete privacy and security. 
-                    This also means faster conversions since there's no upload/download time to external servers.
-                  </p>
-                </div>
+              <div className="max-w-3xl mx-auto">
+                <Accordion type="single" collapsible className="space-y-4">
+                  {faqSchema.mainEntity.map((faq, index) => (
+                    <AccordionItem key={index} value={`item-${index}`} className="bg-card border border-border rounded-xl px-6">
+                      <AccordionTrigger className="text-left font-semibold">
+                        {faq.name}
+                      </AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground">
+                        {faq.acceptedAnswer.text}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
               </div>
             </div>
           </section>

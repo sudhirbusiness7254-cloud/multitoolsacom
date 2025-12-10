@@ -4,7 +4,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
-import Index from "./pages/Index";
+import HomePage from "./pages/HomePage";
+import TagExtractorPage from "./pages/TagExtractorPage";
 import About from "./pages/About";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
@@ -23,8 +24,9 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/tag-extractor" element={<Index />} />
+            {/* Main Pages */}
+            <Route path="/" element={<HomePage />} />
+            <Route path="/tag-extractor" element={<TagExtractorPage />} />
             <Route path="/about" element={<About />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
@@ -45,10 +47,17 @@ const App = () => (
             <Route path="/jpg-to-webp" element={<ImageConverterPage />} />
             <Route path="/png-to-webp" element={<ImageConverterPage />} />
             <Route path="/gif-to-png" element={<ImageConverterPage />} />
+            <Route path="/gif-to-jpg" element={<ImageConverterPage />} />
             <Route path="/heic-to-jpg" element={<ImageConverterPage />} />
             <Route path="/heic-to-png" element={<ImageConverterPage />} />
             <Route path="/svg-to-png" element={<ImageConverterPage />} />
+            <Route path="/svg-to-jpg" element={<ImageConverterPage />} />
             <Route path="/bmp-to-jpg" element={<ImageConverterPage />} />
+            <Route path="/bmp-to-png" element={<ImageConverterPage />} />
+            <Route path="/tiff-to-jpg" element={<ImageConverterPage />} />
+            <Route path="/tiff-to-png" element={<ImageConverterPage />} />
+            <Route path="/raw-to-jpg" element={<ImageConverterPage />} />
+            <Route path="/raw-to-png" element={<ImageConverterPage />} />
             
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
