@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import TagGenerator from "@/components/TagGenerator";
-import { Sparkles, TrendingUp, Zap, Search, Target, BarChart3, Users, CheckCircle, HelpCircle, ChevronDown, Hash, Globe, Clock, Shield } from "lucide-react";
+import { Hash, Globe, Zap, CheckCircle, TrendingUp, Target, Users, Sparkles, Search, BarChart3, Shield, Clock } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -10,7 +10,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const Index = () => {
+const TagExtractorPage = () => {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -90,12 +90,12 @@ const Index = () => {
         <title>Free Social Media Tag Generator - Hashtags for YouTube, Instagram, TikTok | 2024</title>
         <meta name="description" content="Generate free hashtags and tags for YouTube, Instagram, TikTok, Twitter, Facebook, LinkedIn & Pinterest. Boost your social media reach with our AI-powered tag generator tool." />
         <meta name="keywords" content="tag generator, hashtag generator, youtube tags, instagram hashtags, tiktok hashtags, social media tags, free hashtag generator, youtube tag extractor, trending hashtags, viral hashtags" />
-        <link rel="canonical" href="https://yoursite.com/tag-generator" />
+        <link rel="canonical" href="https://yoursite.com/tag-extractor" />
         
         <meta property="og:title" content="Free Social Media Tag Generator - Hashtags for All Platforms" />
         <meta property="og:description" content="Generate optimized hashtags for YouTube, Instagram, TikTok, Twitter, Facebook & more. 100% free tag generator tool." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://yoursite.com/tag-generator" />
+        <meta property="og:url" content="https://yoursite.com/tag-extractor" />
         
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Free Social Media Tag Generator" />
@@ -114,19 +114,21 @@ const Index = () => {
         
         <main className="flex-1">
           {/* Hero Section */}
-          <section className="py-12 md:py-20 bg-gradient-tag text-primary-foreground">
-            <div className="container mx-auto px-4">
+          <section className="py-12 md:py-20 bg-gradient-hero relative overflow-hidden">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-3xl" />
+            
+            <div className="container mx-auto px-4 relative z-10">
               <div className="text-center max-w-4xl mx-auto mb-8">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-foreground/10 border border-primary-foreground/20 mb-6">
-                  <Hash className="w-4 h-4" />
-                  <span className="text-sm font-medium">Social Media Tag Generator</span>
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 mb-6">
+                  <Hash className="w-4 h-4 text-primary" />
+                  <span className="text-sm font-medium text-primary">Social Media Tag Generator</span>
                 </div>
                 
                 <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
                   Free Hashtag & Tag Generator for Social Media
                 </h1>
                 
-                <p className="text-lg md:text-xl opacity-90 max-w-2xl mx-auto">
+                <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
                   Generate viral hashtags for YouTube, Instagram, TikTok, Twitter, Facebook, LinkedIn & Pinterest. 
                   Boost your content reach instantly with our free tag generator tool.
                 </p>
@@ -144,7 +146,7 @@ const Index = () => {
           {/* Supported Platforms */}
           <section className="py-12 md:py-16 px-4">
             <div className="container mx-auto max-w-6xl">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-foreground mb-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-4">
                 Supported Social Media Platforms
               </h2>
               <p className="text-center text-muted-foreground mb-10 max-w-2xl mx-auto">
@@ -161,11 +163,11 @@ const Index = () => {
                   { name: "LinkedIn", emoji: "💼", color: "bg-blue-700" },
                   { name: "Pinterest", emoji: "📌", color: "bg-red-600" },
                 ].map((platform) => (
-                  <div key={platform.name} className="bg-card rounded-xl p-4 border border-border text-center hover:shadow-lg transition-shadow">
+                  <div key={platform.name} className="bg-card rounded-xl p-4 border border-border text-center hover:border-primary/50 hover-lift transition-all">
                     <div className={`w-12 h-12 ${platform.color} rounded-full flex items-center justify-center mx-auto mb-3`}>
                       <span className="text-xl">{platform.emoji}</span>
                     </div>
-                    <h3 className="font-semibold text-foreground text-sm">{platform.name}</h3>
+                    <h3 className="font-semibold text-sm">{platform.name}</h3>
                   </div>
                 ))}
               </div>
@@ -173,9 +175,9 @@ const Index = () => {
           </section>
 
           {/* How It Works */}
-          <section className="py-12 md:py-16 px-4 bg-muted/50">
+          <section className="py-12 md:py-16 px-4 bg-gradient-dark">
             <div className="container mx-auto max-w-5xl">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-foreground mb-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-4">
                 How to Use the Tag Generator
               </h2>
               <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
@@ -204,13 +206,13 @@ const Index = () => {
                   }
                 ].map((item) => (
                   <div key={item.step} className="text-center">
-                    <div className="bg-gradient-tag w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                    <div className="bg-gradient-orange w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
                       <item.icon className="w-8 h-8 text-primary-foreground" />
                     </div>
                     <div className="bg-primary text-primary-foreground w-8 h-8 rounded-full flex items-center justify-center mx-auto mb-3 text-sm font-bold">
                       {item.step}
                     </div>
-                    <h3 className="text-xl font-semibold text-foreground mb-2">{item.title}</h3>
+                    <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
                     <p className="text-muted-foreground">{item.description}</p>
                   </div>
                 ))}
@@ -221,7 +223,7 @@ const Index = () => {
           {/* Why Use Tags Section */}
           <section className="py-12 md:py-16 px-4">
             <div className="container mx-auto max-w-6xl">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-foreground mb-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-4">
                 Why Are Hashtags Important for Social Media?
               </h2>
               <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto">
@@ -265,7 +267,7 @@ const Index = () => {
                     <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
                       <item.icon className="w-6 h-6 text-primary" />
                     </div>
-                    <h3 className="text-lg font-semibold text-foreground mb-2">{item.title}</h3>
+                    <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
                     <p className="text-muted-foreground text-sm">{item.description}</p>
                   </div>
                 ))}
@@ -274,9 +276,9 @@ const Index = () => {
           </section>
 
           {/* Features */}
-          <section className="py-12 md:py-16 px-4 bg-muted/50">
+          <section className="py-12 md:py-16 px-4 bg-gradient-dark">
             <div className="container mx-auto max-w-5xl">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-foreground mb-12">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12">
                 Tag Generator Features
               </h2>
               
@@ -289,7 +291,7 @@ const Index = () => {
                 ].map((item, i) => (
                   <div key={i} className="bg-card rounded-xl p-6 border border-border text-center">
                     <item.icon className="w-8 h-8 text-primary mx-auto mb-3" />
-                    <h3 className="font-semibold text-foreground mb-1">{item.title}</h3>
+                    <h3 className="font-semibold mb-1">{item.title}</h3>
                     <p className="text-sm text-muted-foreground">{item.desc}</p>
                   </div>
                 ))}
@@ -300,7 +302,7 @@ const Index = () => {
           {/* FAQ Section */}
           <section className="py-12 md:py-16 px-4">
             <div className="container mx-auto max-w-4xl">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-foreground mb-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-4">
                 Frequently Asked Questions
               </h2>
               <p className="text-center text-muted-foreground mb-10">
@@ -313,7 +315,7 @@ const Index = () => {
                     What is a social media tag generator?
                   </AccordionTrigger>
                   <AccordionContent className="text-muted-foreground">
-                    A social media tag generator is a free online tool that automatically creates relevant hashtags and tags for your social media content. It analyzes your content URL and generates optimized tags for platforms like YouTube, Instagram, TikTok, Twitter, Facebook, LinkedIn, and Pinterest. Using the right tags helps increase your content's visibility, reach, and engagement.
+                    A social media tag generator is a free online tool that automatically creates relevant hashtags and tags for your social media content. It analyzes your content URL and generates optimized tags for platforms like YouTube, Instagram, TikTok, Twitter, Facebook, LinkedIn, and Pinterest.
                   </AccordionContent>
                 </AccordionItem>
 
@@ -322,7 +324,7 @@ const Index = () => {
                     How do I use the tag generator?
                   </AccordionTrigger>
                   <AccordionContent className="text-muted-foreground">
-                    Using our tag generator is simple: 1) Copy your social media content URL (video, post, or reel), 2) Paste it in the input field on this page, 3) Click "Generate Tags", 4) Copy the generated hashtags and tags, 5) Paste them in your post description. The tool automatically detects the platform and creates relevant tags optimized for that specific social network.
+                    Using our tag generator is simple: 1) Copy your social media content URL (video, post, or reel), 2) Paste it in the input field on this page, 3) Click "Generate Tags", 4) Copy the generated hashtags and tags, 5) Paste them in your post description.
                   </AccordionContent>
                 </AccordionItem>
 
@@ -331,34 +333,25 @@ const Index = () => {
                     Is this tag generator completely free?
                   </AccordionTrigger>
                   <AccordionContent className="text-muted-foreground">
-                    Yes, our social media tag generator is 100% free to use with no signup required. You can generate unlimited tags for all supported platforms without any cost. There are no hidden fees, no watermarks, and no daily limits. We believe in providing valuable tools to help content creators grow their social media presence.
+                    Yes, our social media tag generator is 100% free to use with no signup required. You can generate unlimited tags for all supported platforms without any cost.
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem value="item-4" className="bg-card border border-border rounded-xl px-6">
                   <AccordionTrigger className="text-left font-semibold">
-                    Which social media platforms are supported?
+                    Which platforms are supported?
                   </AccordionTrigger>
                   <AccordionContent className="text-muted-foreground">
-                    Our tag generator supports all major social media platforms including: YouTube (video tags and hashtags), Instagram (post and reel hashtags), TikTok (video hashtags), Twitter/X (tweet hashtags), Facebook (post hashtags), LinkedIn (professional hashtags), and Pinterest (pin keywords). The tool automatically detects the platform from your URL and generates appropriate tags.
+                    We support YouTube, Instagram, TikTok, Twitter/X, Facebook, LinkedIn, and Pinterest. The tool automatically detects the platform from your URL.
                   </AccordionContent>
                 </AccordionItem>
 
                 <AccordionItem value="item-5" className="bg-card border border-border rounded-xl px-6">
                   <AccordionTrigger className="text-left font-semibold">
-                    How many hashtags should I use on each platform?
+                    How many hashtags should I use?
                   </AccordionTrigger>
                   <AccordionContent className="text-muted-foreground">
-                    The optimal number varies by platform: Instagram allows up to 30 hashtags (5-15 recommended for best engagement), Twitter/X works best with 1-3 hashtags, TikTok performs well with 3-5 relevant hashtags, LinkedIn suggests 3-5 professional hashtags, Facebook recommends 2-3 hashtags, YouTube videos benefit from 5-10 relevant tags, and Pinterest pins work best with 2-5 keyword tags.
-                  </AccordionContent>
-                </AccordionItem>
-
-                <AccordionItem value="item-6" className="bg-card border border-border rounded-xl px-6">
-                  <AccordionTrigger className="text-left font-semibold">
-                    Why are hashtags important for social media growth?
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground">
-                    Hashtags are crucial for social media growth because they: 1) Increase content discoverability in search results, 2) Help algorithms categorize and recommend your content, 3) Connect you with users interested in specific topics, 4) Boost engagement rates by up to 12.6%, 5) Help you reach new audiences beyond your followers, 6) Enable trend participation and viral potential. Consistent use of relevant hashtags is one of the most effective free strategies for growing your social media presence.
+                    It varies by platform: Instagram allows up to 30 (5-15 recommended), Twitter works best with 1-3, TikTok performs well with 3-5, LinkedIn suggests 3-5, and YouTube videos benefit from 5-10 relevant tags.
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
@@ -366,68 +359,42 @@ const Index = () => {
           </section>
 
           {/* SEO Article Section */}
-          <section className="py-12 md:py-16 px-4 bg-muted/30">
+          <section className="py-12 md:py-16 px-4 bg-gradient-dark">
             <div className="container mx-auto max-w-4xl">
-              <article className="prose prose-lg max-w-none">
-                <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-6">
-                  The Complete Guide to Social Media Hashtags & Tags in 2024
+              <article className="prose prose-invert max-w-none">
+                <h2 className="text-2xl md:text-3xl font-bold mb-6 text-foreground">
+                  The Complete Guide to Social Media Hashtags in 2024
                 </h2>
                 
-                <div className="bg-card rounded-xl p-6 md:p-8 border border-border space-y-6">
-                  <div>
-                    <h3 className="text-xl font-semibold text-foreground mb-3">What Are Social Media Hashtags?</h3>
-                    <p className="text-muted-foreground">
-                      Hashtags are keywords or phrases preceded by the # symbol that categorize content on social media platforms. When you add hashtags to your posts, you make your content discoverable to anyone searching for or following those specific tags. Originally popularized by Twitter in 2007, hashtags have become essential tools for content discovery across all major social platforms including Instagram, TikTok, YouTube, Facebook, LinkedIn, and Pinterest.
-                    </p>
-                  </div>
-
-                  <div>
-                    <h3 className="text-xl font-semibold text-foreground mb-3">Why Use a Tag Generator Tool?</h3>
-                    <p className="text-muted-foreground">
-                      Manually researching hashtags is time-consuming and often results in using the same overused tags. A tag generator tool like ours analyzes your content and suggests relevant, optimized hashtags that can significantly improve your reach. Benefits include: saving hours of research time, discovering trending and niche-specific tags, avoiding banned or shadowbanned hashtags, getting platform-specific recommendations, and maintaining consistency across your content strategy.
-                    </p>
-                  </div>
-
-                  <div>
-                    <h3 className="text-xl font-semibold text-foreground mb-3">Hashtag Best Practices by Platform</h3>
-                    <div className="space-y-4 text-muted-foreground">
-                      <p><strong className="text-foreground">YouTube:</strong> Use 5-10 relevant tags in your video's tag section and 3-5 hashtags in the description. Include a mix of broad and specific tags. Place your most important keyword first.</p>
-                      <p><strong className="text-foreground">Instagram:</strong> Use 5-15 hashtags (though 30 are allowed). Mix popular, moderately popular, and niche hashtags. Place them in the caption or first comment. Create branded hashtags for campaigns.</p>
-                      <p><strong className="text-foreground">TikTok:</strong> Use 3-5 trending hashtags. Include niche-specific tags and participate in hashtag challenges. The #fyp and #foryou tags are popular but highly competitive.</p>
-                      <p><strong className="text-foreground">Twitter/X:</strong> Keep it minimal with 1-3 hashtags per tweet. Use trending hashtags when relevant. Create event-specific hashtags for campaigns or chats.</p>
-                      <p><strong className="text-foreground">LinkedIn:</strong> Use 3-5 professional hashtags. Focus on industry-specific and skill-based tags. Follow hashtags to engage with relevant communities.</p>
-                    </div>
-                  </div>
-
-                  <div>
-                    <h3 className="text-xl font-semibold text-foreground mb-3">How to Maximize Your Hashtag Strategy</h3>
-                    <ul className="list-disc list-inside text-muted-foreground space-y-2">
-                      <li>Research your competitors' hashtags to find what works in your niche</li>
-                      <li>Mix popular hashtags with niche-specific ones for balanced reach</li>
-                      <li>Track hashtag performance using platform analytics</li>
-                      <li>Update your hashtag strategy regularly based on trends</li>
-                      <li>Create and promote branded hashtags for community building</li>
-                      <li>Avoid using irrelevant hashtags just because they're popular</li>
-                      <li>Test different hashtag combinations to find optimal performance</li>
-                    </ul>
-                  </div>
-
-                  <div>
-                    <h3 className="text-xl font-semibold text-foreground mb-3">Common Hashtag Mistakes to Avoid</h3>
-                    <p className="text-muted-foreground">
-                      Many content creators sabotage their reach by making these common mistakes: using banned or shadowbanned hashtags, stuffing posts with too many irrelevant tags, using only ultra-popular hashtags where competition is fierce, ignoring platform-specific best practices, not tracking hashtag performance, and failing to update hashtag strategies based on changing trends. Our tag generator helps you avoid these pitfalls by suggesting optimized, relevant hashtags for your specific content and platform.
-                    </p>
-                  </div>
+                <div className="space-y-6 text-muted-foreground">
+                  <p>
+                    In today's digital landscape, hashtags have become an essential tool for content creators, marketers, and businesses looking to expand their reach on social media platforms. Our free tag generator helps you discover the most effective hashtags for your content across YouTube, Instagram, TikTok, Twitter, Facebook, LinkedIn, and Pinterest.
+                  </p>
+                  
+                  <h3 className="text-xl font-semibold text-foreground mt-8 mb-4">Understanding Hashtag Strategy</h3>
+                  <p>
+                    Effective hashtag usage requires a balanced approach. Using too many hashtags can appear spammy, while using too few might limit your reach. Our tag generator analyzes your content and suggests the optimal mix of trending, niche, and branded hashtags tailored to each platform's best practices.
+                  </p>
+                  
+                  <h3 className="text-xl font-semibold text-foreground mt-8 mb-4">Platform-Specific Optimization</h3>
+                  <p>
+                    Each social media platform has its own hashtag culture. Instagram thrives on multiple hashtags, TikTok favors trending sounds and challenges, YouTube relies on tags for search optimization, and Twitter prefers concise, relevant hashtags. Our tool automatically adapts its suggestions based on the detected platform.
+                  </p>
+                  
+                  <h3 className="text-xl font-semibold text-foreground mt-8 mb-4">Maximizing Content Discoverability</h3>
+                  <p>
+                    The right hashtags can exponentially increase your content's visibility. By combining popular hashtags with niche-specific ones, you can reach both broad audiences and targeted communities interested in your specific content type. This strategic approach helps build a loyal following over time.
+                  </p>
                 </div>
               </article>
             </div>
           </section>
         </main>
-        
+
         <Footer />
       </div>
     </>
   );
 };
 
-export default Index;
+export default TagExtractorPage;

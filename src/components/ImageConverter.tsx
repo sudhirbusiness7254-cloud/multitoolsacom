@@ -57,9 +57,14 @@ const formatConversions: Record<string, ConversionOption[]> = {
     { value: "png", label: "PNG", mimeType: "image/png", extension: "png" },
     { value: "webp", label: "WEBP", mimeType: "image/webp", extension: "webp" },
   ],
+  "image/tiff": [
+    { value: "jpg", label: "JPG", mimeType: "image/jpeg", extension: "jpg" },
+    { value: "png", label: "PNG", mimeType: "image/png", extension: "png" },
+    { value: "webp", label: "WEBP", mimeType: "image/webp", extension: "webp" },
+  ],
 };
 
-// Default conversions for unknown formats
+// Default conversions for unknown formats (including RAW)
 const defaultConversions: ConversionOption[] = [
   { value: "jpg", label: "JPG", mimeType: "image/jpeg", extension: "jpg" },
   { value: "png", label: "PNG", mimeType: "image/png", extension: "png" },
@@ -91,6 +96,7 @@ const ImageConverter = ({ preselectedConversion }: ImageConverterProps) => {
       "image/svg+xml": "SVG",
       "image/heic": "HEIC",
       "image/heif": "HEIF",
+      "image/tiff": "TIFF",
     };
     return formatMap[mimeType] || "IMAGE";
   };
@@ -264,29 +270,29 @@ const ImageConverter = ({ preselectedConversion }: ImageConverterProps) => {
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
           onClick={() => fileInputRef.current?.click()}
-          className={`relative border-2 border-dashed rounded-2xl p-8 md:p-16 text-center cursor-pointer transition-all duration-300 ${
+          className={`relative border-2 border-dashed rounded-2xl p-10 md:p-20 text-center cursor-pointer transition-all duration-300 bg-card ${
             isDragging
-              ? "border-cyan-bright bg-cyan-bright/10 scale-[1.02]"
-              : "border-teal-medium hover:border-cyan-bright hover:bg-teal-medium/30"
+              ? "border-primary bg-primary/10 scale-[1.02]"
+              : "border-border hover:border-primary/50 hover:bg-secondary/50"
           }`}
         >
           <input
             ref={fileInputRef}
             type="file"
-            accept="image/*,.heic,.heif"
+            accept="image/*,.heic,.heif,.tiff,.tif,.raw,.cr2,.nef,.arw,.dng"
             onChange={handleInputChange}
             className="hidden"
           />
           <div className="flex flex-col items-center gap-4">
-            <div className="w-20 h-20 rounded-full bg-gradient-to-br from-cyan-bright/20 to-teal-medium flex items-center justify-center">
-              <Upload className="w-10 h-10 text-cyan-bright" />
+            <div className="w-20 h-20 rounded-full bg-gradient-orange flex items-center justify-center">
+              <Upload className="w-10 h-10 text-primary-foreground" />
             </div>
             <div>
-              <p className="text-lg md:text-xl font-semibold text-foreground mb-2">
+              <p className="text-xl md:text-2xl font-semibold mb-2">
                 Drag & Drop your image here
               </p>
               <p className="text-muted-foreground">
-                or click to browse • Supports JPG, PNG, WEBP, GIF, BMP, SVG, HEIC
+                or click to browse • Supports JPG, PNG, WEBP, GIF, BMP, SVG, TIFF, RAW, HEIC
               </p>
             </div>
           </div>
@@ -294,10 +300,10 @@ const ImageConverter = ({ preselectedConversion }: ImageConverterProps) => {
       ) : (
         <div className="space-y-6">
           {/* Image Preview */}
-          <div className="relative bg-teal-medium/30 rounded-2xl p-4 md:p-6">
+          <div className="relative bg-card rounded-2xl p-4 md:p-6 border border-border">
             <button
               onClick={resetConverter}
-              className="absolute top-4 right-4 w-8 h-8 rounded-full bg-destructive/80 hover:bg-destructive text-destructive-foreground flex items-center justify-center transition-colors z-10"
+              className="absolute top-4 right-4 w-8 h-8 rounded-full bg-destructive hover:bg-destructive/80 text-destructive-foreground flex items-center justify-center transition-colors z-10"
             >
               <X className="w-4 h-4" />
             </button>
@@ -310,7 +316,7 @@ const ImageConverter = ({ preselectedConversion }: ImageConverterProps) => {
                     alt="Preview"
                     className="max-h-64 md:max-h-80 w-auto rounded-xl shadow-lg object-contain"
                   />
-                  <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-teal-dark rounded-full text-xs font-medium text-cyan-bright border border-teal-medium">
+                  <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-secondary rounded-full text-xs font-medium text-primary border border-border">
                     {getSourceFormat(uploadedImage.type)}
                   </div>
                 </div>
@@ -319,7 +325,7 @@ const ImageConverter = ({ preselectedConversion }: ImageConverterProps) => {
               {selectedFormat && convertedBlob && (
                 <>
                   <div className="flex items-center">
-                    <ArrowRight className="w-8 h-8 text-cyan-bright" />
+                    <ArrowRight className="w-8 h-8 text-primary" />
                   </div>
                   <div className="flex-1 flex justify-center">
                     <div className="relative max-w-sm">
@@ -328,7 +334,7 @@ const ImageConverter = ({ preselectedConversion }: ImageConverterProps) => {
                         alt="Converted"
                         className="max-h-64 md:max-h-80 w-auto rounded-xl shadow-lg object-contain"
                       />
-                      <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-cyan-bright rounded-full text-xs font-medium text-teal-dark">
+                      <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-primary rounded-full text-xs font-medium text-primary-foreground">
                         {selectedFormat.toUpperCase()}
                       </div>
                     </div>
@@ -339,22 +345,22 @@ const ImageConverter = ({ preselectedConversion }: ImageConverterProps) => {
           </div>
 
           {/* Conversion Controls */}
-          <div className="bg-teal-medium/20 rounded-2xl p-6 border border-teal-medium">
+          <div className="bg-card rounded-2xl p-6 border border-border">
             <div className="flex flex-col sm:flex-row items-center gap-4">
               <div className="flex-1 w-full">
-                <label className="block text-sm font-medium text-foreground mb-2">
+                <label className="block text-sm font-medium mb-2">
                   Convert to:
                 </label>
                 <Select value={selectedFormat} onValueChange={setSelectedFormat}>
-                  <SelectTrigger className="w-full bg-teal-dark border-teal-medium">
+                  <SelectTrigger className="w-full bg-secondary border-border">
                     <SelectValue placeholder="Select output format" />
                   </SelectTrigger>
-                  <SelectContent className="bg-teal-dark border-teal-medium">
+                  <SelectContent className="bg-card border-border">
                     {availableFormats.map((format) => (
                       <SelectItem 
                         key={format.value} 
                         value={format.value}
-                        className="hover:bg-teal-medium focus:bg-teal-medium"
+                        className="hover:bg-secondary focus:bg-secondary"
                       >
                         {getSourceFormat(uploadedImage.type)} → {format.label}
                       </SelectItem>
@@ -368,7 +374,7 @@ const ImageConverter = ({ preselectedConversion }: ImageConverterProps) => {
                   <Button
                     onClick={convertImage}
                     disabled={!selectedFormat || isConverting}
-                    className="flex-1 sm:flex-none bg-cyan-bright hover:bg-cyan-bright/90 text-teal-dark font-semibold"
+                    className="flex-1 sm:flex-none bg-gradient-orange hover:opacity-90 text-primary-foreground font-semibold"
                   >
                     {isConverting ? (
                       <>
@@ -385,7 +391,7 @@ const ImageConverter = ({ preselectedConversion }: ImageConverterProps) => {
                 ) : (
                   <Button
                     onClick={downloadImage}
-                    className="flex-1 sm:flex-none bg-green-600 hover:bg-green-700 text-white font-semibold"
+                    className="flex-1 sm:flex-none bg-brand-green hover:bg-brand-green/90 text-primary-foreground font-semibold"
                   >
                     <Download className="w-4 h-4" />
                     Download {selectedFormat.toUpperCase()}
@@ -404,7 +410,7 @@ const ImageConverter = ({ preselectedConversion }: ImageConverterProps) => {
               {convertedBlob && (
                 <>
                   {" → "}
-                  <span className="text-cyan-bright font-medium">
+                  <span className="text-primary font-medium">
                     {(convertedBlob.size / 1024).toFixed(1)} KB
                   </span>
                 </>
