@@ -1,20 +1,9 @@
 import CategoryPageLayout from "@/components/CategoryPageLayout";
 import { getCategoryBySlug } from "@/data/toolsData";
-import DragDropUpload from "@/components/DragDropUpload";
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Download } from "lucide-react";
-import { toast } from "sonner";
+import UniversalDocumentConverter from "@/components/UniversalDocumentConverter";
 
 const ImageToDocumentPage = () => {
   const category = getCategoryBySlug("image-to-document")!;
-  const [file, setFile] = useState<File | null>(null);
-  const [format, setFormat] = useState<string>("pdf");
-
-  const handleConvert = () => {
-    if (!file) return;
-    toast.info("Select a specific tool below for document conversion");
-  };
 
   return (
     <CategoryPageLayout
@@ -65,11 +54,10 @@ All conversions happen locally in your browser using modern web technologies. Th
         "No file size limits"
       ]}
       howToUse={[
-        "Choose the document format you need from the tools below.",
+        "Select the output format (PDF, HTML, or Base64).",
         "Drag and drop your image into the upload area or click to browse.",
-        "The tool automatically processes your image.",
-        "Adjust any settings if available for your chosen format.",
-        "Click Download to save your converted document."
+        "Click the Convert button to process your image.",
+        "Download your converted document instantly."
       ]}
       faqs={[
         {
@@ -116,15 +104,7 @@ All conversions happen locally in your browser using modern web technologies. Th
         "Generating inline images for emails"
       ]}
     >
-      <div className="space-y-4">
-        <DragDropUpload onFileSelect={setFile} accept="image/*" />
-        {file && (
-          <div className="bg-card rounded-xl p-4 border border-border text-center">
-            <p className="text-muted-foreground mb-3">Select a specific tool below to convert your image</p>
-            <p className="text-sm text-primary">Uploaded: {file.name}</p>
-          </div>
-        )}
-      </div>
+      <UniversalDocumentConverter />
     </CategoryPageLayout>
   );
 };
