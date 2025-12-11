@@ -65,8 +65,13 @@ const ImageRotateFlipPage = () => {
                 <p className="text-lg text-muted-foreground">Rotate and flip images instantly. Fix orientation, create mirror effects, or rotate by any angle.</p>
               </div>
 
-              {/* Tool Selection Cards */}
-              <div className="max-w-4xl mx-auto mb-8">
+              {/* Universal Tool First */}
+              <div id="tool-section" className="max-w-4xl mx-auto mb-8">
+                <UniversalRotateFlip key={key} initialMode={selectedMode} />
+              </div>
+
+              {/* Tool Selection Cards Below */}
+              <div className="max-w-4xl mx-auto">
                 <h2 className="text-xl font-bold mb-4 text-center">Choose Your Tool</h2>
                 <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
                   {rotateFlipTools.map((tool) => (
@@ -91,11 +96,6 @@ const ImageRotateFlipPage = () => {
                     </button>
                   ))}
                 </div>
-              </div>
-
-              {/* Universal Tool */}
-              <div id="tool-section" className="max-w-4xl mx-auto">
-                <UniversalRotateFlip key={key} initialMode={selectedMode} />
               </div>
             </div>
           </section>
