@@ -1,124 +1,147 @@
-import CategoryPageLayout from "@/components/CategoryPageLayout";
-import { getCategoryBySlug } from "@/data/toolsData";
-import DragDropUpload from "@/components/DragDropUpload";
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import UniversalFormatUtility from "@/components/UniversalFormatUtility";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { ArrowRight, Palette, Circle, Droplets, Eraser, Layers, Combine } from "lucide-react";
+import { getCategoryBySlug, toolCategories } from "@/data/toolsData";
+import { Link } from "react-router-dom";
+
+type UtilityMode = "grayscale" | "blackwhite" | "add-transparency" | "remove-transparency" | "invert" | "sepia";
+
+const formatTools = [
+  { id: "grayscale", name: "Grayscale Conversion", mode: "grayscale" as UtilityMode, description: "Convert image to grayscale", icon: <Palette className="w-5 h-5" /> },
+  { id: "blackwhite", name: "Black & White", mode: "blackwhite" as UtilityMode, description: "Convert image to pure black and white", icon: <Circle className="w-5 h-5" /> },
+  { id: "add-transparency", name: "Add Transparency", mode: "add-transparency" as UtilityMode, description: "Add transparency to image", icon: <Droplets className="w-5 h-5" /> },
+  { id: "remove-transparency", name: "Remove Transparency", mode: "remove-transparency" as UtilityMode, description: "Remove transparency from image", icon: <Eraser className="w-5 h-5" /> },
+  { id: "invert", name: "Invert Colors", mode: "invert" as UtilityMode, description: "Create negative of image", icon: <Layers className="w-5 h-5" /> },
+  { id: "sepia", name: "Sepia Effect", mode: "sepia" as UtilityMode, description: "Apply vintage sepia tone", icon: <Combine className="w-5 h-5" /> },
+];
 
 const FormatUtilitiesPage = () => {
   const category = getCategoryBySlug("image-format-utilities")!;
-  const [file, setFile] = useState<File | null>(null);
+  const [selectedMode, setSelectedMode] = useState<UtilityMode>("grayscale");
+  const [key, setKey] = useState(0);
+
+  const handleToolClick = (mode: UtilityMode) => {
+    setSelectedMode(mode);
+    setKey(prev => prev + 1);
+    document.getElementById("tool-section")?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const canonicalUrl = `https://multitools.com/${category.slug}`;
+  const metaTitle = "Image Format Utilities - Grayscale, Transparency, Invert Colors | Free Online";
+  const metaDescription = "Free image format utilities. Convert to grayscale or black & white, add/remove transparency, invert colors, apply sepia. Browser-based processing.";
+
+  const faqs = [
+    { question: "What's the difference between grayscale and black & white?", answer: "Grayscale preserves a full range of gray tones from black to white. Black & white uses only pure black and pure white with no gray in between." },
+    { question: "How do I make a transparent background?", answer: "Use our Add Transparency tool. Select the color you want to remove (usually white or a solid color) and adjust the tolerance level." },
+    { question: "What formats support transparency?", answer: "PNG, WebP, and GIF support transparency. JPEG does not support transparency - any transparent areas will be filled with a background color." },
+    { question: "Is the processing done locally?", answer: "Yes, all processing happens locally in your browser. Your images are never uploaded to any server, ensuring complete privacy." }
+  ];
+
+  const otherCategories = toolCategories.filter(cat => cat.id !== category.id && cat.id !== "tag-tools").slice(0, 6);
 
   return (
-    <CategoryPageLayout
-      category={category}
-      metaTitle="Image Format Utilities - Grayscale, Transparency, Merge Images | Free Online"
-      metaDescription="Free image format utilities. Convert to grayscale or black & white, add/remove transparency, flatten layers, merge images. Browser-based processing for complete privacy."
-      keywords={[
-        "grayscale image",
-        "black and white converter",
-        "add transparency",
-        "remove transparency",
-        "flatten image",
-        "merge images",
-        "image utilities",
-        "photo effects",
-        "free image tools"
-      ]}
-      introduction="Our Format Utilities provide essential image manipulation capabilities. Convert photos to grayscale or pure black and white for classic aesthetics. Add or remove transparency for web graphics. Flatten layered images or merge multiple images into one. These fundamental tools are indispensable for designers, photographers, and content creators working with various image requirements."
-      article={`Image format utilities are the building blocks of digital image manipulation. These fundamental operations enable creative workflows and solve common image challenges.
+    <>
+      <Helmet>
+        <title>{metaTitle}</title>
+        <meta name="description" content={metaDescription} />
+        <link rel="canonical" href={canonicalUrl} />
+      </Helmet>
 
-Grayscale Conversion removes all color information, leaving only luminance values. This creates classic, timeless images that emphasize form, contrast, and composition. Grayscale is also useful for reducing file size and preparing images for black and white printing.
+      <div className="min-h-screen bg-background flex flex-col">
+        <Header />
+        
+        <main className="flex-1">
+          {/* Hero Section */}
+          <section className="py-8 md:py-12 bg-gradient-hero relative overflow-hidden">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-3xl" />
+            
+            <div className="container mx-auto px-4 relative z-10">
+              <div className="text-center max-w-3xl mx-auto mb-8">
+                <h1 className="text-3xl md:text-5xl font-bold mb-4">{category.name}</h1>
+                <p className="text-lg text-muted-foreground">Essential image utilities. Convert to grayscale, add transparency, invert colors, and more.</p>
+              </div>
 
-Black & White Conversion takes grayscale further by reducing images to pure black or white pixels. This high-contrast effect is perfect for logos, line art, stencils, and creating bold graphic statements. Adjustable threshold controls let you fine-tune where the cutoff between black and white occurs.
+              {/* Universal Tool First */}
+              <div id="tool-section" className="max-w-4xl mx-auto mb-8">
+                <UniversalFormatUtility key={key} initialMode={selectedMode} />
+              </div>
 
-Add Transparency creates alpha channel support for images. Convert solid backgrounds to transparent for overlays, web graphics, and design compositions. Our intelligent background detection can automatically identify and remove common background types.
+              {/* Tool Selection Cards Below */}
+              <div className="max-w-4xl mx-auto">
+                <h2 className="text-xl font-bold mb-4 text-center">Choose Your Tool</h2>
+                <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
+                  {formatTools.map((tool) => (
+                    <button
+                      key={tool.id}
+                      onClick={() => handleToolClick(tool.mode)}
+                      className={`group text-left bg-card rounded-xl p-4 border transition-all duration-300 hover-lift ${
+                        selectedMode === tool.mode ? "border-primary bg-primary/10" : "border-border hover:border-primary/50"
+                      }`}
+                    >
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className={`${selectedMode === tool.mode ? "text-primary" : "text-muted-foreground"}`}>
+                          {tool.icon}
+                        </div>
+                        <h3 className="font-semibold group-hover:text-primary transition-colors">{tool.name}</h3>
+                      </div>
+                      <p className="text-sm text-muted-foreground mb-2">{tool.description}</p>
+                      <div className="flex items-center gap-1 text-primary text-sm font-medium">
+                        <span>Use Tool</span>
+                        <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
 
-Remove Transparency replaces transparent areas with a solid color of your choice. This is necessary when converting to formats that don't support transparency (like JPEG) or when you need a specific background color.
+          {/* Introduction */}
+          <section className="py-12 px-4">
+            <div className="container mx-auto max-w-4xl">
+              <h2 className="text-2xl md:text-3xl font-bold mb-6">What are Format Utilities?</h2>
+              <p className="text-muted-foreground leading-relaxed">Our Format Utilities provide essential image manipulation capabilities. Convert photos to grayscale or pure black and white for classic aesthetics. Add or remove transparency for web graphics. Invert colors or apply vintage sepia effects. These fundamental tools are indispensable for designers and content creators.</p>
+            </div>
+          </section>
 
-Flatten Image combines all visible layers into a single background layer. This is essential for preparing files for web, print, or formats that don't support layers. The visual appearance is preserved while simplifying the file structure.
+          {/* FAQs */}
+          <section className="py-12 px-4 bg-gradient-dark">
+            <div className="container mx-auto max-w-4xl">
+              <h2 className="text-2xl font-bold mb-6">Frequently Asked Questions</h2>
+              <Accordion type="single" collapsible className="space-y-2">
+                {faqs.map((faq, i) => (
+                  <AccordionItem key={i} value={`faq-${i}`} className="bg-card border border-border rounded-xl px-4">
+                    <AccordionTrigger className="text-left hover:no-underline">{faq.question}</AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground">{faq.answer}</AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
+          </section>
 
-Merge Images combines multiple separate images into a single file. Create panoramas, comparison images, collages, or simply join images horizontally or vertically.`}
-      features={[
-        "Grayscale conversion",
-        "Black & white with threshold control",
-        "Add alpha transparency",
-        "Remove/replace transparency",
-        "Flatten to single layer",
-        "Merge multiple images",
-        "Batch processing",
-        "Format conversion"
-      ]}
-      benefits={[
-        "Essential utilities in one place",
-        "Professional results",
-        "No Photoshop needed",
-        "Free unlimited use",
-        "Fast processing",
-        "Works everywhere",
-        "Complete privacy",
-        "High quality output"
-      ]}
-      howToUse={[
-        "Select the utility tool you need from the options below.",
-        "Upload your image using drag and drop or file browser.",
-        "Adjust settings specific to your chosen operation.",
-        "Preview the result before downloading.",
-        "Save your processed image in your preferred format."
-      ]}
-      faqs={[
-        {
-          question: "What's the difference between grayscale and black & white?",
-          answer: "Grayscale preserves a full range of gray tones from black to white. Black & white (also called 1-bit) uses only pure black and pure white with no gray in between."
-        },
-        {
-          question: "How do I make a transparent background?",
-          answer: "Use our Add Transparency tool. It can automatically detect and remove solid color backgrounds, or you can manually specify the color to make transparent."
-        },
-        {
-          question: "What formats support transparency?",
-          answer: "PNG, WebP, and GIF support transparency. JPEG does not support transparency - any transparent areas will be filled with a background color."
-        },
-        {
-          question: "Can I merge more than two images?",
-          answer: "Yes, our Merge Images tool supports combining multiple images at once. You can arrange them horizontally, vertically, or in custom layouts."
-        },
-        {
-          question: "What does flattening an image do?",
-          answer: "Flattening merges all layers into a single background layer. This simplifies the file and is necessary for some formats that don't support layers."
-        },
-        {
-          question: "Will grayscale conversion reduce file size?",
-          answer: "Yes, typically. Grayscale images have one channel instead of three (RGB), which can reduce file size significantly while maintaining apparent detail."
-        },
-        {
-          question: "Can I undo these operations?",
-          answer: "Operations are applied to a copy of your image - your original is never modified. Keep your original file if you need to make changes later."
-        },
-        {
-          question: "Is the processing done online or locally?",
-          answer: "All processing happens locally in your browser. Your images are never uploaded to any server, ensuring complete privacy and fast performance."
-        }
-      ]}
-      useCases={[
-        "Creating classic black & white photos",
-        "Preparing web graphics with transparency",
-        "Converting logos to grayscale",
-        "Merging comparison images",
-        "Preparing images for print",
-        "Creating stencil art from photos",
-        "Simplifying complex layered files",
-        "Batch processing image collections"
-      ]}
-    >
-      <div className="space-y-4">
-        <DragDropUpload onFileSelect={setFile} accept="image/*" />
-        {file && (
-          <div className="bg-card rounded-xl p-4 border border-border text-center">
-            <p className="text-muted-foreground mb-3">Select a utility tool below</p>
-            <p className="text-sm text-primary">Uploaded: {file.name}</p>
-          </div>
-        )}
+          {/* Other Categories */}
+          <section className="py-12 px-4">
+            <div className="container mx-auto max-w-5xl">
+              <h2 className="text-2xl font-bold mb-6">Explore More Image Tools</h2>
+              <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+                {otherCategories.map((cat) => (
+                  <Link key={cat.id} to={`/${cat.slug}`} className="bg-card rounded-xl p-4 border border-border hover:border-primary/50 transition-colors group">
+                    <h3 className="font-semibold group-hover:text-primary transition-colors">{cat.name}</h3>
+                    <p className="text-sm text-muted-foreground mt-1">{cat.description}</p>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        </main>
+
+        <Footer />
       </div>
-    </CategoryPageLayout>
+    </>
   );
 };
 
