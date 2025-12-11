@@ -53,6 +53,8 @@ import ImageToPptxPage from "./pages/tools/ImageToPptxPage";
 import ImageToHtmlPage from "./pages/tools/ImageToHtmlPage";
 import ImageToBase64Page from "./pages/tools/ImageToBase64Page";
 import Base64ToImagePage from "./pages/tools/Base64ToImagePage";
+import ImageEditorPage from "./pages/ImageEditorPage";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -73,6 +75,7 @@ const App = () => (
             
             {/* Image Tools Landing Page */}
             <Route path="/image-tools" element={<ImageToolsPage />} />
+            <Route path="/image-editor" element={<ImageEditorPage />} />
             <Route path="/image-converter" element={<ImageConverterPage />} />
             <Route path="/image-converter/:conversion" element={<ImageConverterPage />} />
             
