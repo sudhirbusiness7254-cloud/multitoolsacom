@@ -9,6 +9,10 @@ import { Download, Square, Circle, RectangleHorizontal, Monitor, Image, Crop, Ro
 
 type CropMode = "free" | "1:1" | "4:3" | "16:9" | "3:2" | "9:16" | "circle";
 
+interface UniversalImageCropperProps {
+  initialMode?: CropMode;
+}
+
 interface CropModeOption {
   id: CropMode;
   label: string;
@@ -33,10 +37,10 @@ interface CropArea {
   height: number;
 }
 
-const UniversalImageCropper = () => {
+const UniversalImageCropper = ({ initialMode = "free" }: UniversalImageCropperProps) => {
   const [file, setFile] = useState<File | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
-  const [selectedMode, setSelectedMode] = useState<CropMode>("free");
+  const [selectedMode, setSelectedMode] = useState<CropMode>(initialMode);
   const [isCropping, setIsCropping] = useState(false);
   const [progress, setProgress] = useState(0);
   const [result, setResult] = useState<string | null>(null);
