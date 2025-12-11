@@ -53,6 +53,7 @@ import ImageToPptxPage from "./pages/tools/ImageToPptxPage";
 import ImageToHtmlPage from "./pages/tools/ImageToHtmlPage";
 import ImageToBase64Page from "./pages/tools/ImageToBase64Page";
 import Base64ToImagePage from "./pages/tools/Base64ToImagePage";
+const queryClient = new QueryClient();
 
 const App = () => (
   <HelmetProvider>
