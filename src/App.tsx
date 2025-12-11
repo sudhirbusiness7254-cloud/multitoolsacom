@@ -46,7 +46,13 @@ import FitToHeightPage from "./pages/tools/FitToHeightPage";
 import FitToBoxPage from "./pages/tools/FitToBoxPage";
 import QualityResizePage from "./pages/tools/QualityResizePage";
 
-const queryClient = new QueryClient();
+// Image to Document Tool Pages
+import ImageToPdfPage from "./pages/tools/ImageToPdfPage";
+import ImageToDocxPage from "./pages/tools/ImageToDocxPage";
+import ImageToPptxPage from "./pages/tools/ImageToPptxPage";
+import ImageToHtmlPage from "./pages/tools/ImageToHtmlPage";
+import ImageToBase64Page from "./pages/tools/ImageToBase64Page";
+import Base64ToImagePage from "./pages/tools/Base64ToImagePage";
 
 const App = () => (
   <HelmetProvider>
@@ -101,7 +107,14 @@ const App = () => (
             <Route path="/fit-to-box" element={<FitToBoxPage />} />
             <Route path="/resize-without-quality-loss" element={<QualityResizePage />} />
             
-            {/* SEO-friendly direct conversion routes */}
+            {/* Image to Document Tools */}
+            <Route path="/image-to-pdf" element={<ImageToPdfPage />} />
+            <Route path="/image-to-docx" element={<ImageToDocxPage />} />
+            <Route path="/image-to-pptx" element={<ImageToPptxPage />} />
+            <Route path="/image-to-html" element={<ImageToHtmlPage />} />
+            <Route path="/image-to-base64" element={<ImageToBase64Page />} />
+            <Route path="/base64-to-image" element={<Base64ToImagePage />} />
+            
             <Route path="/jpg-to-png" element={<ImageConverterPage />} />
             <Route path="/png-to-jpg" element={<ImageConverterPage />} />
             <Route path="/webp-to-jpg" element={<ImageConverterPage />} />
