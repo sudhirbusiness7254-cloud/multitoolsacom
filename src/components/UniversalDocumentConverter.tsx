@@ -6,7 +6,7 @@ import DragDropUpload from "./DragDropUpload";
 import { Download, FileText, File, Presentation, Code, Binary } from "lucide-react";
 import jsPDF from "jspdf";
 
-type DocumentFormat = "pdf" | "html" | "base64";
+type DocumentFormat = "pdf" | "docx" | "pptx" | "html" | "base64";
 
 interface FormatOption {
   id: DocumentFormat;
@@ -17,6 +17,8 @@ interface FormatOption {
 
 const formatOptions: FormatOption[] = [
   { id: "pdf", label: "PDF", icon: <FileText className="w-5 h-5" />, description: "Portable Document" },
+  { id: "docx", label: "DOC", icon: <File className="w-5 h-5" />, description: "Word Document" },
+  { id: "pptx", label: "PPT", icon: <Presentation className="w-5 h-5" />, description: "PowerPoint" },
   { id: "html", label: "HTML", icon: <Code className="w-5 h-5" />, description: "Web Page" },
   { id: "base64", label: "Base64", icon: <Binary className="w-5 h-5" />, description: "Text Encoding" },
 ];
@@ -139,6 +141,109 @@ HTML Usage:
     return { data: dataUrl, filename: `${file?.name?.split('.')[0] || 'image'}_base64.txt` };
   };
 
+  const convertToDocx = async (imageDataUrl: string): Promise<{ data: string; filename: string }> => {
+    // Create a simple DOCX-like HTML that Word can open
+    const docContent = `
+<!DOCTYPE html>
+<html xmlns:o="urn:schemas-microsoft-com:office:office" 
+      xmlns:w="urn:schemas-microsoft-com:office:word">
+<head>
+    <meta charset="UTF-8">
+    <title>${file?.name || 'Document'}</title>
+    <!--[if gte mso 9]>
+    <xml>
+        <w:WordDocument>
+            <w:View>Print</w:View>
+            <w:Zoom>100</w:Zoom>
+        </w:WordDocument>
+    </xml>
+    <![endif]-->
+    <style>
+        body { font-family: 'Calibri', sans-serif; padding: 40px; }
+        .image-container { text-align: center; margin: 20px 0; }
+        img { max-width: 100%; height: auto; }
+        h1 { color: #2c3e50; text-align: center; }
+    </style>
+</head>
+<body>
+    <h1>${file?.name || 'Image Document'}</h1>
+    <div class="image-container">
+        <img src="${imageDataUrl}" alt="Embedded Image" />
+    </div>
+    <p style="text-align: center; color: #666; font-size: 12px;">
+        Generated on ${new Date().toLocaleString()}
+    </p>
+</body>
+</html>`;
+    
+    const blob = new Blob([docContent], { type: 'application/msword' });
+    const dataUrl = URL.createObjectURL(blob);
+    return { data: dataUrl, filename: `${file?.name?.split('.')[0] || 'image'}.doc` };
+  };
+
+  const convertToPptx = async (imageDataUrl: string): Promise<{ data: string; filename: string }> => {
+    // Create HTML that can be opened as a presentation-like format
+    const pptContent = `
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>${file?.name || 'Presentation'}</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .slide {
+            width: 960px;
+            height: 540px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+        h1 {
+            color: #e94560;
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+        img {
+            max-width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            border-radius: 4px;
+        }
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            color: #999;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <h1>${file?.name?.split('.')[0] || 'Image Presentation'}</h1>
+        <img src="${imageDataUrl}" alt="Slide Image" />
+    </div>
+    <div class="footer">Slide 1 of 1</div>
+</body>
+</html>`;
+    
+    const blob = new Blob([pptContent], { type: 'text/html' });
+    const dataUrl = URL.createObjectURL(blob);
+    return { data: dataUrl, filename: `${file?.name?.split('.')[0] || 'image'}_presentation.html` };
+  };
+
   const handleConvert = async () => {
     if (!file || !preview) {
       toast.error("Please upload an image first");
@@ -160,6 +265,12 @@ HTML Usage:
       switch (selectedFormat) {
         case "pdf":
           conversionResult = await convertToPdf(preview);
+          break;
+        case "docx":
+          conversionResult = await convertToDocx(preview);
+          break;
+        case "pptx":
+          conversionResult = await convertToPptx(preview);
           break;
         case "html":
           conversionResult = await convertToHtml(preview);
