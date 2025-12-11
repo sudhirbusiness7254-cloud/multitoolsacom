@@ -1,11 +1,9 @@
 import CategoryPageLayout from "@/components/CategoryPageLayout";
 import { getCategoryBySlug } from "@/data/toolsData";
-import DragDropUpload from "@/components/DragDropUpload";
-import { useState } from "react";
+import UniversalImageCropper from "@/components/UniversalImageCropper";
 
 const ImageCropPage = () => {
   const category = getCategoryBySlug("image-crop")!;
-  const [file, setFile] = useState<File | null>(null);
 
   return (
     <CategoryPageLayout
@@ -58,11 +56,11 @@ All our cropping tools maintain maximum image quality by using the original imag
         "Complete privacy"
       ]}
       howToUse={[
-        "Choose the cropping style that matches your needs.",
+        "Select the crop mode (Free, 1:1, 4:3, 16:9, Circle, etc.).",
         "Upload your image via drag and drop or file selection.",
-        "Adjust the crop area using the interactive interface.",
-        "Preview your cropped image in real-time.",
-        "Download the perfectly cropped result."
+        "Drag the crop area to position it perfectly.",
+        "Use corner handles to resize the crop selection.",
+        "Click Crop Image and download your result."
       ]}
       faqs={[
         {
@@ -109,15 +107,7 @@ All our cropping tools maintain maximum image quality by using the original imag
         "Removing unwanted borders"
       ]}
     >
-      <div className="space-y-4">
-        <DragDropUpload onFileSelect={setFile} accept="image/*" />
-        {file && (
-          <div className="bg-card rounded-xl p-4 border border-border text-center">
-            <p className="text-muted-foreground mb-3">Select a cropping tool below</p>
-            <p className="text-sm text-primary">Uploaded: {file.name}</p>
-          </div>
-        )}
-      </div>
+      <UniversalImageCropper />
     </CategoryPageLayout>
   );
 };
