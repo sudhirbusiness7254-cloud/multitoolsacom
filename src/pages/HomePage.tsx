@@ -2,25 +2,56 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Image, Hash, ArrowRight, Zap, Shield, Globe, Sparkles } from "lucide-react";
+import { ArrowRight, Zap, Shield, Globe, Sparkles, Minimize2, FileText, Maximize2, Crop, RotateCw, Settings, Palette, Type, Layers, Info, PenTool, Lock, QrCode, Hash } from "lucide-react";
+import { toolCategories } from "@/data/toolsData";
+
+const iconMap: Record<string, React.ElementType> = {
+  "RefreshCw": RotateCw,
+  "Minimize2": Minimize2,
+  "FileText": FileText,
+  "Maximize2": Maximize2,
+  "Crop": Crop,
+  "RotateCw": RotateCw,
+  "Settings": Settings,
+  "Sparkles": Palette,
+  "Type": Type,
+  "Layers": Layers,
+  "Info": Info,
+  "Zap": Zap,
+  "PenTool": PenTool,
+  "Shield": Lock,
+  "QrCode": QrCode,
+  "Hash": Hash,
+};
 
 const HomePage = () => {
+  const imageCategories = toolCategories.filter(cat => cat.id !== "tag-tools").sort((a, b) => a.priority - b.priority);
+  const tagCategory = toolCategories.find(cat => cat.id === "tag-tools");
+
   return (
     <>
       <Helmet>
-        <title>MultiTools - Free Image Converter & Tag Generator | Online Tools 2024</title>
-        <meta name="description" content="Free online tools: Convert images (JPG, PNG, WEBP, HEIC, TIFF, RAW) and generate hashtags for YouTube, Instagram, TikTok. Fast, secure, no signup required." />
-        <meta name="keywords" content="image converter, tag generator, jpg to png, hashtag generator, free online tools, photo converter, social media tags" />
-        <link rel="canonical" href="https://yoursite.com/" />
+        <title>MultiTools - Free Image Tools & Tag Generator | Online Converter, Compressor, Editor</title>
+        <meta name="description" content="Free online image tools: Convert, compress, resize, crop, rotate, add watermarks, filters & more. Generate hashtags for YouTube, Instagram, TikTok. Fast, secure, no signup." />
+        <meta name="keywords" content="image converter, image compressor, photo editor, tag generator, jpg to png, hashtag generator, free online tools, image resize, image crop" />
+        <link rel="canonical" href="https://multitools.com/" />
         
-        <meta property="og:title" content="MultiTools - Free Image Converter & Tag Generator" />
-        <meta property="og:description" content="Convert images and generate hashtags for social media. 100% free, no signup required." />
+        <meta property="og:title" content="MultiTools - Free Image Tools & Tag Generator" />
+        <meta property="og:description" content="Convert, compress, edit images and generate hashtags. 100% free, no signup required." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://yoursite.com/" />
         
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="MultiTools - Free Online Tools" />
-        <meta name="twitter:description" content="Free image converter and tag generator tools." />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "MultiTools",
+            "description": "Free online image tools and tag generator",
+            "url": "https://multitools.com",
+            "applicationCategory": "UtilitiesApplication",
+            "operatingSystem": "Web Browser",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+          })}
+        </script>
       </Helmet>
 
       <div className="min-h-screen bg-background flex flex-col">
@@ -29,7 +60,6 @@ const HomePage = () => {
         <main className="flex-1">
           {/* Hero Section */}
           <section className="py-16 md:py-24 bg-gradient-hero relative overflow-hidden">
-            {/* Background glow effect */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-3xl" />
             
             <div className="container mx-auto px-4 relative z-10">
@@ -40,106 +70,100 @@ const HomePage = () => {
                 </div>
                 
                 <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-                  Powerful Tools for
-                  <span className="bg-gradient-orange bg-clip-text text-transparent"> Creators</span>
+                  Complete Image Tools
+                  <span className="bg-gradient-orange bg-clip-text text-transparent"> Ecosystem</span>
                 </h1>
                 
                 <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-                  Convert images between formats and generate viral hashtags for social media. 
-                  Fast, secure, and completely free to use.
+                  Convert, compress, resize, crop, edit, and enhance your images. Generate viral hashtags for social media. 
+                  All tools are free, fast, and process locally for complete privacy.
                 </p>
               </div>
             </div>
           </section>
 
-          {/* Tools Section */}
+          {/* Image Tools Categories */}
           <section className="py-16 md:py-24 px-4">
-            <div className="container mx-auto max-w-6xl">
+            <div className="container mx-auto max-w-7xl">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-4">
-                Choose Your Tool
+                Image Tools
               </h2>
               <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-                Select from our collection of free, professional-grade tools
+                14 categories, 60+ individual tools for all your image editing needs
               </p>
               
-              <div className="grid md:grid-cols-2 gap-8">
-                {/* Image Converter Card */}
-                <Link 
-                  to="/image-tools"
-                  className="group relative bg-card rounded-2xl p-8 border border-border hover:border-primary/50 transition-all duration-300 hover-lift overflow-hidden"
-                >
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-2xl group-hover:bg-primary/10 transition-colors" />
-                  
-                  <div className="relative z-10">
-                    <div className="w-16 h-16 rounded-2xl bg-gradient-orange flex items-center justify-center mb-6">
-                      <Image className="w-8 h-8 text-primary-foreground" />
-                    </div>
-                    
-                    <h3 className="text-2xl font-bold mb-3">Image Converter</h3>
-                    <p className="text-muted-foreground mb-6">
-                      Convert images between JPG, PNG, WEBP, GIF, BMP, TIFF, RAW, HEIC, and SVG formats. 
-                      Fast, secure, browser-based conversion with no watermarks.
-                    </p>
-                    
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {["JPG", "PNG", "WEBP", "TIFF", "RAW", "HEIC"].map((format) => (
-                        <span 
-                          key={format}
-                          className="px-3 py-1 bg-secondary rounded-full text-xs font-medium text-secondary-foreground"
-                        >
-                          {format}
-                        </span>
-                      ))}
-                    </div>
-                    
-                    <div className="flex items-center gap-2 text-primary font-semibold">
-                      <span>Start Converting</span>
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </div>
-                  </div>
-                </Link>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                {imageCategories.map((category) => {
+                  const IconComponent = iconMap[category.icon] || Sparkles;
+                  return (
+                    <Link 
+                      key={category.id}
+                      to={`/${category.slug}`}
+                      className="group relative bg-card rounded-2xl p-6 border border-border hover:border-primary/50 transition-all duration-300 hover-lift overflow-hidden"
+                    >
+                      <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full blur-2xl group-hover:bg-primary/10 transition-colors" />
+                      
+                      <div className="relative z-10">
+                        <div className="w-12 h-12 rounded-xl bg-gradient-orange flex items-center justify-center mb-4">
+                          <IconComponent className="w-6 h-6 text-primary-foreground" />
+                        </div>
+                        
+                        <h3 className="text-lg font-bold mb-2 group-hover:text-primary transition-colors">{category.name}</h3>
+                        <p className="text-sm text-muted-foreground mb-4">{category.description}</p>
+                        
+                        <div className="flex items-center gap-2 text-primary text-sm font-medium">
+                          <span>{category.tools.length} Tools</span>
+                          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        </div>
+                      </div>
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+          </section>
 
-                {/* Tag Extractor Card */}
+          {/* Tag Tools Section */}
+          {tagCategory && (
+            <section className="py-16 md:py-24 px-4 bg-gradient-dark">
+              <div className="container mx-auto max-w-4xl">
                 <Link 
                   to="/tag-extractor"
-                  className="group relative bg-card rounded-2xl p-8 border border-border hover:border-primary/50 transition-all duration-300 hover-lift overflow-hidden"
+                  className="group relative bg-card rounded-2xl p-8 border border-border hover:border-primary/50 transition-all duration-300 hover-lift overflow-hidden block"
                 >
                   <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-2xl group-hover:bg-accent/10 transition-colors" />
                   
-                  <div className="relative z-10">
-                    <div className="w-16 h-16 rounded-2xl bg-gradient-orange flex items-center justify-center mb-6">
+                  <div className="relative z-10 text-center">
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-orange flex items-center justify-center mb-6 mx-auto">
                       <Hash className="w-8 h-8 text-primary-foreground" />
                     </div>
                     
-                    <h3 className="text-2xl font-bold mb-3">Tag Extractor</h3>
-                    <p className="text-muted-foreground mb-6">
+                    <h2 className="text-2xl md:text-3xl font-bold mb-3">Tag Extractor & Generator</h2>
+                    <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
                       Generate viral hashtags and tags for YouTube, Instagram, TikTok, Twitter, Facebook, and more. 
                       Auto-detect platform from URL.
                     </p>
                     
-                    <div className="flex flex-wrap gap-2 mb-6">
+                    <div className="flex flex-wrap gap-2 justify-center mb-6">
                       {["YouTube", "Instagram", "TikTok", "Twitter", "Facebook"].map((platform) => (
-                        <span 
-                          key={platform}
-                          className="px-3 py-1 bg-secondary rounded-full text-xs font-medium text-secondary-foreground"
-                        >
+                        <span key={platform} className="px-3 py-1 bg-secondary rounded-full text-xs font-medium text-secondary-foreground">
                           {platform}
                         </span>
                       ))}
                     </div>
                     
-                    <div className="flex items-center gap-2 text-primary font-semibold">
+                    <div className="flex items-center gap-2 text-primary font-semibold justify-center">
                       <span>Generate Tags</span>
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
                 </Link>
               </div>
-            </div>
-          </section>
+            </section>
+          )}
 
           {/* Features Section */}
-          <section className="py-16 md:py-24 px-4 bg-gradient-dark">
+          <section className="py-16 md:py-24 px-4">
             <div className="container mx-auto max-w-5xl">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12">
                 Why Choose MultiTools?

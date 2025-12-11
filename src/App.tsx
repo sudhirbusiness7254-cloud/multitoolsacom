@@ -16,6 +16,19 @@ import NotFound from "./pages/NotFound";
 
 // Category Pages
 import ImageCompressionPage from "./pages/categories/ImageCompressionPage";
+import ImageToDocumentPage from "./pages/categories/ImageToDocumentPage";
+import ImageResizePage from "./pages/categories/ImageResizePage";
+import ImageCropPage from "./pages/categories/ImageCropPage";
+import ImageRotateFlipPage from "./pages/categories/ImageRotateFlipPage";
+import FormatUtilitiesPage from "./pages/categories/FormatUtilitiesPage";
+import PhotoFiltersPage from "./pages/categories/PhotoFiltersPage";
+import WatermarkToolsPage from "./pages/categories/WatermarkToolsPage";
+import ImageCombinePage from "./pages/categories/ImageCombinePage";
+import ImageMetadataPage from "./pages/categories/ImageMetadataPage";
+import ImageOptimizationPage from "./pages/categories/ImageOptimizationPage";
+import ImageDrawingPage from "./pages/categories/ImageDrawingPage";
+import ImageSecurityPage from "./pages/categories/ImageSecurityPage";
+import ImageQRPage from "./pages/categories/ImageQRPage";
 
 // Compression Tool Pages
 import JpegCompressorPage from "./pages/tools/JpegCompressorPage";
@@ -47,8 +60,23 @@ const App = () => (
             <Route path="/image-converter" element={<ImageConverterPage />} />
             <Route path="/image-converter/:conversion" element={<ImageConverterPage />} />
             
-            {/* Image Compression Category & Tools */}
+            {/* Category Pages */}
             <Route path="/image-compression" element={<ImageCompressionPage />} />
+            <Route path="/image-to-document" element={<ImageToDocumentPage />} />
+            <Route path="/image-resize" element={<ImageResizePage />} />
+            <Route path="/image-crop" element={<ImageCropPage />} />
+            <Route path="/image-rotate-flip" element={<ImageRotateFlipPage />} />
+            <Route path="/image-format-utilities" element={<FormatUtilitiesPage />} />
+            <Route path="/photo-filters" element={<PhotoFiltersPage />} />
+            <Route path="/watermark-tools" element={<WatermarkToolsPage />} />
+            <Route path="/image-combine" element={<ImageCombinePage />} />
+            <Route path="/image-metadata" element={<ImageMetadataPage />} />
+            <Route path="/image-optimization" element={<ImageOptimizationPage />} />
+            <Route path="/image-drawing" element={<ImageDrawingPage />} />
+            <Route path="/image-security" element={<ImageSecurityPage />} />
+            <Route path="/image-qr" element={<ImageQRPage />} />
+            
+            {/* Compression Tools */}
             <Route path="/jpeg-compressor" element={<JpegCompressorPage />} />
             <Route path="/png-compressor" element={<PngCompressorPage />} />
             <Route path="/webp-compressor" element={<WebpCompressorPage />} />
