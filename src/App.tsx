@@ -37,6 +37,14 @@ import WebpCompressorPage from "./pages/tools/WebpCompressorPage";
 import GifCompressorPage from "./pages/tools/GifCompressorPage";
 import TiffCompressorPage from "./pages/tools/TiffCompressorPage";
 
+// Resize Tool Pages
+import ExactResizePage from "./pages/tools/ExactResizePage";
+import PercentageResizePage from "./pages/tools/PercentageResizePage";
+import FitToWidthPage from "./pages/tools/FitToWidthPage";
+import FitToHeightPage from "./pages/tools/FitToHeightPage";
+import FitToBoxPage from "./pages/tools/FitToBoxPage";
+import QualityResizePage from "./pages/tools/QualityResizePage";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -82,6 +90,14 @@ const App = () => (
             <Route path="/webp-compressor" element={<WebpCompressorPage />} />
             <Route path="/gif-compressor" element={<GifCompressorPage />} />
             <Route path="/tiff-compressor" element={<TiffCompressorPage />} />
+            
+            {/* Resize Tools */}
+            <Route path="/exact-resize" element={<ExactResizePage />} />
+            <Route path="/percentage-resize" element={<PercentageResizePage />} />
+            <Route path="/fit-to-width" element={<FitToWidthPage />} />
+            <Route path="/fit-to-height" element={<FitToHeightPage />} />
+            <Route path="/fit-to-box" element={<FitToBoxPage />} />
+            <Route path="/resize-without-quality-loss" element={<QualityResizePage />} />
             
             {/* SEO-friendly direct conversion routes */}
             <Route path="/jpg-to-png" element={<ImageConverterPage />} />
