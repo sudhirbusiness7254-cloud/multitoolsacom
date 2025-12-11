@@ -1,114 +1,147 @@
-import CategoryPageLayout from "@/components/CategoryPageLayout";
-import { getCategoryBySlug } from "@/data/toolsData";
+import { useState } from "react";
+import { Helmet } from "react-helmet-async";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import UniversalImageCropper from "@/components/UniversalImageCropper";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { ArrowRight, Crop, Square, Circle, RectangleHorizontal, Grid } from "lucide-react";
+import { getCategoryBySlug, toolCategories } from "@/data/toolsData";
+import { Link } from "react-router-dom";
+
+type CropMode = "free" | "1:1" | "4:3" | "16:9" | "3:2" | "9:16" | "circle";
+
+const cropTools = [
+  { id: "manual-crop", name: "Manual Crop", mode: "free" as CropMode, description: "Manually crop image with custom selection", icon: <Crop className="w-5 h-5" /> },
+  { id: "aspect-ratio-crop", name: "Aspect Ratio Crop", mode: "16:9" as CropMode, description: "Crop image to specific aspect ratio", icon: <RectangleHorizontal className="w-5 h-5" /> },
+  { id: "circle-crop", name: "Circle Crop", mode: "circle" as CropMode, description: "Crop image into a circle shape", icon: <Circle className="w-5 h-5" /> },
+  { id: "square-crop", name: "Square Crop", mode: "1:1" as CropMode, description: "Crop image into a square shape", icon: <Square className="w-5 h-5" /> },
+  { id: "free-selection-crop", name: "Free Selection Crop", mode: "free" as CropMode, description: "Crop image with free-form selection", icon: <Grid className="w-5 h-5" /> },
+];
 
 const ImageCropPage = () => {
   const category = getCategoryBySlug("image-crop")!;
+  const [selectedMode, setSelectedMode] = useState<CropMode>("free");
+  const [key, setKey] = useState(0);
+
+  const handleToolClick = (mode: CropMode) => {
+    setSelectedMode(mode);
+    setKey(prev => prev + 1); // Reset component
+    // Scroll to cropper
+    document.getElementById("cropper-section")?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const canonicalUrl = `https://multitools.com/${category.slug}`;
+  const metaTitle = "Image Crop Tools - Crop Images Online Free | Circle, Square, Aspect Ratio";
+  const metaDescription = "Free online image cropper. Crop images manually, by aspect ratio, in circles or squares. Perfect for profile pictures, social media, and more.";
+
+  const faqs = [
+    { question: "How do I create a circular profile picture?", answer: "Use our Circle Crop tool. Upload your image, adjust the circular selection to frame your subject, and download. The result will have a transparent background for perfect display on any platform." },
+    { question: "What aspect ratios are available?", answer: "We offer common presets including 1:1, 4:3, 3:2, 16:9, 9:16, and more. You can also enter custom ratios for specific requirements." },
+    { question: "Will cropping reduce image quality?", answer: "No, cropping uses the original image data without recompression. The cropped area maintains full original quality." },
+    { question: "Are my images stored on your servers?", answer: "No, all processing happens in your browser. Images are never uploaded, ensuring complete privacy and security." }
+  ];
+
+  const otherCategories = toolCategories.filter(cat => cat.id !== category.id && cat.id !== "tag-tools").slice(0, 6);
 
   return (
-    <CategoryPageLayout
-      category={category}
-      metaTitle="Image Crop Tools - Crop Images Online Free | Circle, Square, Aspect Ratio"
-      metaDescription="Free online image cropper. Crop images manually, by aspect ratio, in circles or squares. Perfect for profile pictures, social media, and more. Browser-based processing."
-      keywords={[
-        "image crop",
-        "crop image online",
-        "photo cropper",
-        "circle crop",
-        "square crop",
-        "aspect ratio crop",
-        "free image cropper",
-        "crop profile picture",
-        "manual crop"
-      ]}
-      introduction="Our Image Crop Tools offer versatile cropping options for any need. Create perfect circles for profile pictures, crop to specific aspect ratios for social media, or use manual cropping for complete control. Each tool processes your images locally in the browser, ensuring privacy and instant results. No uploads, no watermarks, completely free for unlimited use."
-      article={`Cropping is essential for focusing attention on the important parts of an image and meeting specific dimension requirements. Our comprehensive cropping suite handles every scenario you might encounter.
+    <>
+      <Helmet>
+        <title>{metaTitle}</title>
+        <meta name="description" content={metaDescription} />
+        <link rel="canonical" href={canonicalUrl} />
+      </Helmet>
 
-Manual Crop provides complete freedom to select any rectangular area of your image. Simply draw a selection box around the area you want to keep. This is perfect when you need precise control over the final composition.
+      <div className="min-h-screen bg-background flex flex-col">
+        <Header />
+        
+        <main className="flex-1">
+          {/* Hero Section */}
+          <section className="py-8 md:py-12 bg-gradient-hero relative overflow-hidden">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-3xl" />
+            
+            <div className="container mx-auto px-4 relative z-10">
+              <div className="text-center max-w-3xl mx-auto mb-8">
+                <h1 className="text-3xl md:text-5xl font-bold mb-4">{category.name}</h1>
+                <p className="text-lg text-muted-foreground">Crop images with precision. Choose from manual, aspect ratio, circle, or square cropping modes.</p>
+              </div>
 
-Aspect Ratio Crop is designed for situations where specific proportions are required. Whether it's 16:9 for video thumbnails, 4:3 for traditional photos, or 1:1 for Instagram posts, you can lock the ratio while adjusting the crop area.
+              {/* Tool Selection Cards */}
+              <div className="max-w-4xl mx-auto mb-8">
+                <h2 className="text-xl font-bold mb-4 text-center">Choose Your Tool</h2>
+                <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
+                  {cropTools.map((tool) => (
+                    <button
+                      key={tool.id}
+                      onClick={() => handleToolClick(tool.mode)}
+                      className={`group text-left bg-card rounded-xl p-4 border transition-all duration-300 hover-lift ${
+                        selectedMode === tool.mode ? "border-primary bg-primary/10" : "border-border hover:border-primary/50"
+                      }`}
+                    >
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className={`${selectedMode === tool.mode ? "text-primary" : "text-muted-foreground"}`}>
+                          {tool.icon}
+                        </div>
+                        <h3 className="font-semibold group-hover:text-primary transition-colors">{tool.name}</h3>
+                      </div>
+                      <p className="text-sm text-muted-foreground mb-2">{tool.description}</p>
+                      <div className="flex items-center gap-1 text-primary text-sm font-medium">
+                        <span>Use Tool</span>
+                        <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
 
-Circle Crop is essential for profile pictures and avatars. Most social media platforms display profile images in circular formats. Our tool creates perfect circles with transparent backgrounds, ready for immediate use.
+              {/* Universal Cropper */}
+              <div id="cropper-section" className="max-w-4xl mx-auto">
+                <UniversalImageCropper key={key} initialMode={selectedMode} />
+              </div>
+            </div>
+          </section>
 
-Square Crop simplifies creating 1:1 images for platforms like Instagram. The tool automatically centers your selection and ensures perfect proportions for grid layouts and profile photos.
+          {/* Introduction */}
+          <section className="py-12 px-4">
+            <div className="container mx-auto max-w-4xl">
+              <h2 className="text-2xl md:text-3xl font-bold mb-6">What is Image Crop?</h2>
+              <p className="text-muted-foreground leading-relaxed">Our Image Crop Tools offer versatile cropping options for any need. Create perfect circles for profile pictures, crop to specific aspect ratios for social media, or use manual cropping for complete control.</p>
+            </div>
+          </section>
 
-Free Selection Crop offers polygon-based selection for creative cropping needs. Create custom shapes beyond simple rectangles, useful for artistic projects and unique design requirements.
+          {/* FAQs */}
+          <section className="py-12 px-4 bg-gradient-dark">
+            <div className="container mx-auto max-w-4xl">
+              <h2 className="text-2xl font-bold mb-6">Frequently Asked Questions</h2>
+              <Accordion type="single" collapsible className="space-y-2">
+                {faqs.map((faq, i) => (
+                  <AccordionItem key={i} value={`faq-${i}`} className="bg-card border border-border rounded-xl px-4">
+                    <AccordionTrigger className="text-left hover:no-underline">{faq.question}</AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground">{faq.answer}</AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
+          </section>
 
-All our cropping tools maintain maximum image quality by using the original image data. There's no recompression unless you specifically change formats. Transparent backgrounds are preserved in formats that support them.`}
-      features={[
-        "Manual rectangular cropping",
-        "Preset aspect ratio options",
-        "Circle and oval cropping",
-        "Perfect square cropping",
-        "Free-form polygon selection",
-        "Real-time preview",
-        "Transparent background support",
-        "High-quality output"
-      ]}
-      benefits={[
-        "Perfect profile pictures",
-        "Social media ready images",
-        "Precise composition control",
-        "No quality loss",
-        "Instant processing",
-        "Works on all devices",
-        "Free with no limits",
-        "Complete privacy"
-      ]}
-      howToUse={[
-        "Select the crop mode (Free, 1:1, 4:3, 16:9, Circle, etc.).",
-        "Upload your image via drag and drop or file selection.",
-        "Drag the crop area to position it perfectly.",
-        "Use corner handles to resize the crop selection.",
-        "Click Crop Image and download your result."
-      ]}
-      faqs={[
-        {
-          question: "How do I create a circular profile picture?",
-          answer: "Use our Circle Crop tool. Upload your image, adjust the circular selection to frame your subject, and download. The result will have a transparent background for perfect display on any platform."
-        },
-        {
-          question: "What aspect ratios are available?",
-          answer: "We offer common presets including 1:1, 4:3, 3:2, 16:9, 9:16, and more. You can also enter custom ratios for specific requirements."
-        },
-        {
-          question: "Can I crop and resize at the same time?",
-          answer: "Yes, after cropping you can specify output dimensions. The tool will resize the cropped area to your desired size."
-        },
-        {
-          question: "Will cropping reduce image quality?",
-          answer: "No, cropping uses the original image data without recompression. The cropped area maintains full original quality."
-        },
-        {
-          question: "How does circle crop handle the background?",
-          answer: "Circle crop creates a transparent background outside the circle. The output is a PNG file with alpha transparency for seamless use on any background."
-        },
-        {
-          question: "Can I undo a crop after downloading?",
-          answer: "Once downloaded, the crop is permanent. We recommend keeping your original file. Our tool never modifies your original image."
-        },
-        {
-          question: "What's the maximum image size for cropping?",
-          answer: "Processing is done locally, so limits depend on your device. Most devices handle images up to 50MP without issues."
-        },
-        {
-          question: "Are my images stored on your servers?",
-          answer: "No, all processing happens in your browser. Images are never uploaded, ensuring complete privacy and security."
-        }
-      ]}
-      useCases={[
-        "Creating profile pictures",
-        "Preparing Instagram posts",
-        "Making YouTube thumbnails",
-        "Cropping product photos",
-        "Preparing images for print",
-        "Creating avatar images",
-        "Focusing on image subjects",
-        "Removing unwanted borders"
-      ]}
-    >
-      <UniversalImageCropper />
-    </CategoryPageLayout>
+          {/* Other Categories */}
+          <section className="py-12 px-4">
+            <div className="container mx-auto max-w-5xl">
+              <h2 className="text-2xl font-bold mb-6">Explore More Image Tools</h2>
+              <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+                {otherCategories.map((cat) => (
+                  <Link key={cat.id} to={`/${cat.slug}`} className="bg-card rounded-xl p-4 border border-border hover:border-primary/50 transition-colors group">
+                    <h3 className="font-semibold group-hover:text-primary transition-colors">{cat.name}</h3>
+                    <p className="text-sm text-muted-foreground mt-1">{cat.description}</p>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        </main>
+
+        <Footer />
+      </div>
+    </>
   );
 };
 
