@@ -123,7 +123,8 @@ const UniversalImageCropper = () => {
   const getDisplayScale = () => {
     if (!containerRef.current || !originalWidth) return 1;
     const containerWidth = containerRef.current.clientWidth - 32;
-    return Math.min(1, containerWidth / originalWidth, 400 / originalHeight);
+    const containerHeight = 180; // Reduced height
+    return Math.min(1, containerWidth / originalWidth, containerHeight / originalHeight);
   };
 
   const handleMouseDown = (e: React.MouseEvent, type: "move" | "resize") => {
@@ -314,7 +315,7 @@ const UniversalImageCropper = () => {
             <div
               ref={containerRef}
               className="relative bg-muted/50 rounded-xl overflow-hidden flex items-center justify-center p-4"
-              style={{ minHeight: 300 }}
+              style={{ height: 200, maxHeight: 200 }}
             >
               {preview && (
                 <div className="relative" style={{ transform: `scale(${scale})`, transformOrigin: "center" }}>
@@ -454,12 +455,12 @@ const UniversalImageCropper = () => {
             <h4 className="font-medium text-foreground flex items-center gap-2">
               <Image className="w-4 h-4 text-primary" /> Live Preview
             </h4>
-            <div className="bg-muted/30 rounded-xl p-4 flex items-center justify-center min-h-[300px]">
+            <div className="bg-muted/30 rounded-xl p-4 flex items-center justify-center" style={{ height: 200, maxHeight: 200 }}>
               {result ? (
                 <img
                   src={result}
                   alt="Cropped result"
-                  className={`max-w-full max-h-[300px] object-contain shadow-lg ${
+                  className={`max-w-full max-h-[180px] object-contain shadow-lg ${
                     selectedMode === "circle" ? "rounded-full" : "rounded-lg"
                   }`}
                 />
