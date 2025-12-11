@@ -14,6 +14,16 @@ import ImageToolsPage from "./pages/ImageToolsPage";
 import ImageConverterPage from "./pages/ImageConverterPage";
 import NotFound from "./pages/NotFound";
 
+// Category Pages
+import ImageCompressionPage from "./pages/categories/ImageCompressionPage";
+
+// Compression Tool Pages
+import JpegCompressorPage from "./pages/tools/JpegCompressorPage";
+import PngCompressorPage from "./pages/tools/PngCompressorPage";
+import WebpCompressorPage from "./pages/tools/WebpCompressorPage";
+import GifCompressorPage from "./pages/tools/GifCompressorPage";
+import TiffCompressorPage from "./pages/tools/TiffCompressorPage";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -34,10 +44,16 @@ const App = () => (
             
             {/* Image Tools Landing Page */}
             <Route path="/image-tools" element={<ImageToolsPage />} />
-            
-            {/* Image Converter Tool */}
             <Route path="/image-converter" element={<ImageConverterPage />} />
             <Route path="/image-converter/:conversion" element={<ImageConverterPage />} />
+            
+            {/* Image Compression Category & Tools */}
+            <Route path="/image-compression" element={<ImageCompressionPage />} />
+            <Route path="/jpeg-compressor" element={<JpegCompressorPage />} />
+            <Route path="/png-compressor" element={<PngCompressorPage />} />
+            <Route path="/webp-compressor" element={<WebpCompressorPage />} />
+            <Route path="/gif-compressor" element={<GifCompressorPage />} />
+            <Route path="/tiff-compressor" element={<TiffCompressorPage />} />
             
             {/* SEO-friendly direct conversion routes */}
             <Route path="/jpg-to-png" element={<ImageConverterPage />} />
