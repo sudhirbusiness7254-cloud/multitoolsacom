@@ -1,11 +1,9 @@
 import CategoryPageLayout from "@/components/CategoryPageLayout";
 import { getCategoryBySlug } from "@/data/toolsData";
-import DragDropUpload from "@/components/DragDropUpload";
-import { useState } from "react";
+import UniversalImageResizer from "@/components/UniversalImageResizer";
 
 const ImageResizePage = () => {
   const category = getCategoryBySlug("image-resize")!;
-  const [file, setFile] = useState<File | null>(null);
 
   return (
     <CategoryPageLayout
@@ -58,10 +56,10 @@ All resizing operations preserve important metadata and color profiles when appr
         "Professional results"
       ]}
       howToUse={[
-        "Select the resize method that fits your needs from the tools below.",
+        "Select the resize method (Exact, Percentage, Fit Width/Height, or Fit Box).",
         "Upload your image using drag and drop or file browser.",
         "Enter your desired dimensions or percentage.",
-        "Preview the result in real-time.",
+        "Click Resize Image to process.",
         "Download your perfectly resized image."
       ]}
       faqs={[
@@ -109,15 +107,7 @@ All resizing operations preserve important metadata and color profiles when appr
         "Batch resizing photo collections"
       ]}
     >
-      <div className="space-y-4">
-        <DragDropUpload onFileSelect={setFile} accept="image/*" />
-        {file && (
-          <div className="bg-card rounded-xl p-4 border border-border text-center">
-            <p className="text-muted-foreground mb-3">Select a resize method below</p>
-            <p className="text-sm text-primary">Uploaded: {file.name}</p>
-          </div>
-        )}
-      </div>
+      <UniversalImageResizer />
     </CategoryPageLayout>
   );
 };
