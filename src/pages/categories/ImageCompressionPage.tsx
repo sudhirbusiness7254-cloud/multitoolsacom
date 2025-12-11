@@ -2,11 +2,11 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import UniversalImageCompressor from "@/components/UniversalImageCompressor";
 import { Minimize2, ArrowRight, Zap, Shield, Globe, Sparkles } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const compressionTools = [
-  { name: "Universal Compressor", slug: "universal-image-compressor", description: "Compress any image format", savings: "All Formats", featured: true },
   { name: "JPEG Compressor", slug: "jpeg-compressor", description: "Compress JPG/JPEG images", savings: "Up to 90%" },
   { name: "PNG Compressor", slug: "png-compressor", description: "Compress PNG with transparency", savings: "Up to 60%" },
   { name: "WebP Compressor", slug: "webp-compressor", description: "Optimize WebP images", savings: "Up to 50%" },
@@ -45,8 +45,8 @@ const ImageCompressionPage = () => {
   const schemaMarkup = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "Image Compression Tools - MultiTools",
-    "description": "Free online image compression tools. Reduce JPEG, PNG, WebP, GIF, and TIFF file sizes without losing quality.",
+    "name": "Image Compressor - Compress Any Image Online Free",
+    "description": "Free online image compressor. Compress JPEG, PNG, WebP, GIF, BMP, TIFF and more without losing quality. Fast, secure, browser-based compression.",
     "url": "https://multitools.com/image-compression",
     "applicationCategory": "UtilitiesApplication",
     "operatingSystem": "Web Browser",
@@ -60,13 +60,13 @@ const ImageCompressionPage = () => {
   return (
     <>
       <Helmet>
-        <title>Image Compression Tools - Compress JPEG, PNG, WebP, GIF Online Free</title>
-        <meta name="description" content="Free online image compression tools. Reduce JPEG, PNG, WebP, GIF, and TIFF file sizes by up to 90% without losing quality. Fast, secure, browser-based compression." />
-        <meta name="keywords" content="image compressor, jpeg compressor, png compressor, webp compressor, gif compressor, compress images, reduce image size, image optimization" />
+        <title>Image Compressor - Compress JPEG, PNG, WebP, GIF Online Free | Reduce Image Size</title>
+        <meta name="description" content="Free online image compressor. Compress JPEG, PNG, WebP, GIF, BMP, TIFF and more by up to 90% without losing quality. Fast, secure, browser-based compression." />
+        <meta name="keywords" content="image compressor, compress image, reduce image size, jpeg compressor, png compressor, webp compressor, gif compressor, online image compression, free image compressor" />
         <link rel="canonical" href="https://multitools.com/image-compression" />
         
-        <meta property="og:title" content="Image Compression Tools - Compress Images Online Free" />
-        <meta property="og:description" content="Reduce image file sizes by up to 90% without losing quality. Free online compression for JPEG, PNG, WebP, GIF, and TIFF." />
+        <meta property="og:title" content="Image Compressor - Compress Any Image Online Free" />
+        <meta property="og:description" content="Reduce image file sizes by up to 90% without losing quality. Free online compression for JPEG, PNG, WebP, GIF, BMP, TIFF and more." />
         <meta property="og:type" content="website" />
         
         <script type="application/ld+json">
@@ -78,34 +78,44 @@ const ImageCompressionPage = () => {
         <Header />
         
         <main className="flex-1">
-          {/* Hero Section */}
+          {/* Hero Section with Tool */}
           <section className="py-12 md:py-20 bg-gradient-hero relative overflow-hidden">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-3xl" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-3xl" />
+            <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-accent/5 rounded-full blur-3xl" />
             
             <div className="container mx-auto px-4 relative z-10">
-              <div className="text-center max-w-3xl mx-auto">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-orange flex items-center justify-center mx-auto mb-6">
+              <div className="text-center max-w-3xl mx-auto mb-10">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-orange flex items-center justify-center mx-auto mb-6 glow-orange">
                   <Minimize2 className="w-8 h-8 text-primary-foreground" />
                 </div>
                 
                 <h1 className="text-3xl md:text-5xl font-bold mb-4">
-                  Image Compression Tools
+                  Image Compressor
                 </h1>
-                <p className="text-lg text-muted-foreground mb-8">
-                  Reduce image file sizes by up to 90% without losing quality. 
+                <p className="text-lg text-muted-foreground mb-2">
+                  Reduce image file sizes by up to 90% without losing quality.
+                </p>
+                <p className="text-sm text-muted-foreground">
                   Fast, free, and secure browser-based compression for all major image formats.
                 </p>
+              </div>
+
+              {/* Universal Compressor Tool */}
+              <div className="max-w-3xl mx-auto">
+                <UniversalImageCompressor />
               </div>
             </div>
           </section>
 
-          {/* Tools Grid */}
+          {/* Format-Specific Tools Grid */}
           <section className="py-12 md:py-16 px-4">
             <div className="container mx-auto max-w-5xl">
-              <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">
-                Choose Your Compressor
+              <h2 className="text-2xl md:text-3xl font-bold text-center mb-4">
+                Format-Specific Compressors
               </h2>
-              
+              <p className="text-center text-muted-foreground mb-8">
+                Need optimized compression for a specific format? Choose from our dedicated tools
+              </p>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {compressionTools.map((tool) => (
                   <Link
