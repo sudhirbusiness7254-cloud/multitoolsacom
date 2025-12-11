@@ -6,6 +6,7 @@ import { Minimize2, ArrowRight, Zap, Shield, Globe, Sparkles } from "lucide-reac
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const compressionTools = [
+  { name: "Universal Compressor", slug: "universal-image-compressor", description: "Compress any image format", savings: "All Formats", featured: true },
   { name: "JPEG Compressor", slug: "jpeg-compressor", description: "Compress JPG/JPEG images", savings: "Up to 90%" },
   { name: "PNG Compressor", slug: "png-compressor", description: "Compress PNG with transparency", savings: "Up to 60%" },
   { name: "WebP Compressor", slug: "webp-compressor", description: "Optimize WebP images", savings: "Up to 50%" },

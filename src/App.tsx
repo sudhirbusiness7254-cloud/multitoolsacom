@@ -36,6 +36,7 @@ import PngCompressorPage from "./pages/tools/PngCompressorPage";
 import WebpCompressorPage from "./pages/tools/WebpCompressorPage";
 import GifCompressorPage from "./pages/tools/GifCompressorPage";
 import TiffCompressorPage from "./pages/tools/TiffCompressorPage";
+import UniversalCompressorPage from "./pages/tools/UniversalCompressorPage";
 
 // Resize Tool Pages
 import ExactResizePage from "./pages/tools/ExactResizePage";
@@ -85,6 +86,7 @@ const App = () => (
             <Route path="/image-qr" element={<ImageQRPage />} />
             
             {/* Compression Tools */}
+            <Route path="/universal-image-compressor" element={<UniversalCompressorPage />} />
             <Route path="/jpeg-compressor" element={<JpegCompressorPage />} />
             <Route path="/png-compressor" element={<PngCompressorPage />} />
             <Route path="/webp-compressor" element={<WebpCompressorPage />} />
