@@ -3,8 +3,9 @@ import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import { Input } from "@/components/ui/input";
 import DragDropUpload from "@/components/DragDropUpload";
-import { Download, RotateCcw, Eye, EyeOff, Lock, Unlock, Grid } from "lucide-react";
+import { Download, RotateCcw, Eye, EyeOff, Lock, Unlock, Grid, Loader2, Shield } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
+import { createEncryptedCanvas, decryptCanvasImage } from "@/lib/imageCrypto";
 
 type SecurityMode = "blur" | "pixelate" | "hide" | "encrypt" | "decrypt";
 
@@ -28,6 +29,7 @@ const UniversalImageSecurity = ({ initialMode = "blur" }: UniversalImageSecurity
   const [hideColor, setHideColor] = useState("#000000");
   const [password, setPassword] = useState("");
   const [isDrawing, setIsDrawing] = useState(false);
+  const [isProcessing, setIsProcessing] = useState(false);
   const [selection, setSelection] = useState<{ x: number; y: number; w: number; h: number } | null>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const originalImageRef = useRef<HTMLImageElement | null>(null);
@@ -103,29 +105,47 @@ const UniversalImageSecurity = ({ initialMode = "blur" }: UniversalImageSecurity
     setIsDrawing(false);
   };
 
-  const applyEffect = useCallback(() => {
+  const applyEffect = useCallback(async () => {
     if (!canvasRef.current || !originalImageRef.current) return;
 
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    // Redraw original
-    ctx.drawImage(originalImageRef.current, 0, 0);
+    // For non-encrypt/decrypt modes, redraw original first
+    if (mode !== "encrypt" && mode !== "decrypt") {
+      ctx.drawImage(originalImageRef.current, 0, 0);
+    }
 
     if (mode === "encrypt") {
-      // Simple XOR encryption for demo
       if (!password) {
         toast({ title: "Password required", description: "Please enter a password to encrypt.", variant: "destructive" });
         return;
       }
-      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-      const data = imageData.data;
-      for (let i = 0; i < data.length; i++) {
-        data[i] ^= password.charCodeAt(i % password.length);
+      if (password.length < 8) {
+        toast({ title: "Weak password", description: "Please use at least 8 characters for better security.", variant: "destructive" });
+        return;
       }
-      ctx.putImageData(imageData, 0, 0);
-      toast({ title: "Image encrypted", description: "Use the same password to decrypt." });
+      
+      setIsProcessing(true);
+      try {
+        // Redraw original before encrypting
+        ctx.drawImage(originalImageRef.current, 0, 0);
+        await createEncryptedCanvas(canvas, password);
+        toast({ 
+          title: "Image encrypted securely", 
+          description: "AES-256-GCM encryption applied. Download and use the same password to decrypt." 
+        });
+      } catch (error) {
+        console.error("Encryption error:", error);
+        toast({ 
+          title: "Encryption failed", 
+          description: "An error occurred during encryption.", 
+          variant: "destructive" 
+        });
+      } finally {
+        setIsProcessing(false);
+      }
       return;
     }
 
@@ -134,13 +154,24 @@ const UniversalImageSecurity = ({ initialMode = "blur" }: UniversalImageSecurity
         toast({ title: "Password required", description: "Please enter the password to decrypt.", variant: "destructive" });
         return;
       }
-      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-      const data = imageData.data;
-      for (let i = 0; i < data.length; i++) {
-        data[i] ^= password.charCodeAt(i % password.length);
+      
+      setIsProcessing(true);
+      try {
+        await decryptCanvasImage(canvas, password);
+        toast({ 
+          title: "Image decrypted successfully", 
+          description: "Original image has been restored." 
+        });
+      } catch (error) {
+        console.error("Decryption error:", error);
+        toast({ 
+          title: "Decryption failed", 
+          description: "Wrong password or corrupted data. Please check your password and try again.", 
+          variant: "destructive" 
+        });
+      } finally {
+        setIsProcessing(false);
       }
-      ctx.putImageData(imageData, 0, 0);
-      toast({ title: "Image decrypted", description: "If password is correct, image is restored." });
       return;
     }
 
@@ -249,16 +280,20 @@ const UniversalImageSecurity = ({ initialMode = "blur" }: UniversalImageSecurity
             )}
             {(mode === "encrypt" || mode === "decrypt") && (
               <div className="space-y-2 sm:col-span-2">
-                <label className="text-sm font-medium">Password</label>
+                <label className="text-sm font-medium">Password (min 8 characters)</label>
                 <Input
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Enter encryption password"
+                  minLength={8}
                 />
-                <p className="text-xs text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 rounded-md p-2 mt-2">
-                  ⚠️ <strong>Demo Only:</strong> This encryption uses a simple visual scrambling technique for demonstration purposes. It is NOT cryptographically secure and should NOT be used to protect sensitive information.
-                </p>
+                <div className="flex items-start gap-2 text-xs text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 rounded-md p-2 mt-2">
+                  <Shield className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                  <span>
+                    <strong>Secure Encryption:</strong> Uses AES-256-GCM with PBKDF2 key derivation (100,000 iterations). Your image data is cryptographically protected.
+                  </span>
+                </div>
               </div>
             )}
           </div>
@@ -280,10 +315,27 @@ const UniversalImageSecurity = ({ initialMode = "blur" }: UniversalImageSecurity
               className="max-w-full max-h-[500px] cursor-crosshair"
               style={{ touchAction: "none" }}
             />
+            {isProcessing && (
+              <div className="absolute inset-0 bg-background/80 flex items-center justify-center">
+                <div className="flex flex-col items-center gap-2">
+                  <Loader2 className="w-8 h-8 animate-spin text-primary" />
+                  <span className="text-sm font-medium">
+                    {mode === "encrypt" ? "Encrypting..." : "Decrypting..."}
+                  </span>
+                </div>
+              </div>
+            )}
           </div>
 
-          <Button onClick={applyEffect} className="w-full">
-            Apply {mode === "blur" ? "Blur" : mode === "pixelate" ? "Pixelate" : mode === "hide" ? "Hide" : mode === "encrypt" ? "Encrypt" : "Decrypt"}
+          <Button onClick={applyEffect} className="w-full" disabled={isProcessing}>
+            {isProcessing ? (
+              <>
+                <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                Processing...
+              </>
+            ) : (
+              <>Apply {mode === "blur" ? "Blur" : mode === "pixelate" ? "Pixelate" : mode === "hide" ? "Hide" : mode === "encrypt" ? "Encrypt" : "Decrypt"}</>
+            )}
           </Button>
 
           {/* Actions */}
