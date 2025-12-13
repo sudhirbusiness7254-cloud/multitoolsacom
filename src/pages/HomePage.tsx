@@ -101,40 +101,40 @@ const HomePage = () => {
         
         <main className="flex-1">
           {/* Hero Section */}
-          <section className="py-10 sm:py-14 md:py-20 lg:py-24 bg-gradient-hero relative overflow-hidden">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[400px] md:w-[500px] lg:w-[600px] h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] bg-primary/10 rounded-full blur-3xl" />
+          <section className="py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 bg-gradient-hero relative overflow-hidden">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] sm:w-[350px] md:w-[450px] lg:w-[550px] h-[250px] sm:h-[350px] md:h-[450px] lg:h-[550px] bg-primary/10 rounded-full blur-3xl pointer-events-none" />
             
             <div className="container mx-auto px-4 sm:px-6 relative z-10">
-              <div className="text-center max-w-4xl mx-auto mb-8 sm:mb-10 md:mb-12">
-                <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-primary/10 border border-primary/30 mb-4 sm:mb-6">
-                  <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-primary" />
+              <div className="text-center max-w-4xl mx-auto">
+                <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-primary/10 border border-primary/30 mb-4 sm:mb-5 md:mb-6">
+                  <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary" />
                   <span className="text-xs sm:text-sm font-medium text-primary">{totalTools}+ Free Online Tools</span>
                 </div>
                 
-                <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 leading-tight">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4 md:mb-5 leading-tight px-2">
                   Complete Image Tools
                   <span 
-                    className="bg-clip-text text-transparent"
+                    className="bg-clip-text text-transparent block sm:inline"
                     style={{ backgroundImage: 'linear-gradient(135deg, #F97316, #EF4444)' }}
                   > Ecosystem</span>
                 </h1>
                 
-                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto mb-6 sm:mb-8 px-2">
+                <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-xl sm:max-w-2xl mx-auto mb-5 sm:mb-6 md:mb-8 px-3 sm:px-4">
                   Convert, compress, resize, crop, edit, and enhance your images. Generate viral hashtags for social media. 
                   All tools are free, fast, and process locally for complete privacy.
                 </p>
                 
-                <div className="flex flex-col xs:flex-row flex-wrap justify-center gap-3 sm:gap-4">
+                <div className="flex flex-col sm:flex-row justify-center gap-2.5 sm:gap-3 md:gap-4 px-4 sm:px-0">
                   <Link 
                     to="/all-tools"
-                    className="inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors text-sm sm:text-base"
+                    className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:bg-primary/90 active:bg-primary/80 transition-colors text-sm sm:text-base touch-target"
                   >
                     Browse All Tools
                     <ArrowRight className="w-4 h-4" />
                   </Link>
                   <Link 
                     to="/tag-extractor"
-                    className="inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg bg-secondary text-secondary-foreground font-medium hover:bg-secondary/80 transition-colors text-sm sm:text-base"
+                    className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg bg-secondary text-secondary-foreground font-medium hover:bg-secondary/80 active:bg-secondary/70 transition-colors text-sm sm:text-base touch-target"
                   >
                     <Hash className="w-4 h-4" />
                     Tag Generator
@@ -145,15 +145,15 @@ const HomePage = () => {
           </section>
 
           {/* Popular Tools Section */}
-          <section className="py-8 sm:py-12 md:py-16 px-4 sm:px-6 bg-secondary/30">
+          <section className="py-6 sm:py-10 md:py-14 px-3 sm:px-4 md:px-6 bg-secondary/30">
             <div className="container mx-auto max-w-7xl">
-              <div className="flex items-center justify-between mb-6 sm:mb-8">
+              <div className="flex items-center justify-between mb-4 sm:mb-6 md:mb-8">
                 <div>
-                  <div className="flex items-center gap-1.5 sm:gap-2 mb-1 sm:mb-2">
+                  <div className="flex items-center gap-1.5 sm:gap-2 mb-1">
                     <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                     <span className="text-xs sm:text-sm font-medium text-primary">Most Popular</span>
                   </div>
-                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold">Popular Tools</h2>
+                  <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold">Popular Tools</h2>
                 </div>
                 <Link 
                   to="/all-tools"
@@ -163,22 +163,21 @@ const HomePage = () => {
                 </Link>
               </div>
               
-              <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-2 sm:gap-3 md:gap-4">
+              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-2 sm:gap-3 md:gap-4">
                 {popularTools.map((tool) => {
-                  const gradient = getGradient(tool.category);
                   return (
                     <Link 
                       key={tool.slug}
                       to={`/${tool.slug}`}
-                      className="group bg-card rounded-lg sm:rounded-xl p-3 sm:p-4 border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+                      className="group bg-card rounded-lg sm:rounded-xl p-2.5 sm:p-3 md:p-4 border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98]"
                     >
                       <ToolIconWithBackground 
                         toolSlug={tool.slug} 
-                        size={48} 
-                        iconSize={24}
-                        className="mb-2 sm:mb-3 mx-auto"
+                        size={40} 
+                        iconSize={20}
+                        className="mb-1.5 sm:mb-2 md:mb-3 mx-auto"
                       />
-                      <h3 className="text-xs sm:text-sm font-semibold text-center group-hover:text-primary transition-colors line-clamp-2">
+                      <h3 className="text-[10px] sm:text-xs md:text-sm font-semibold text-center group-hover:text-primary transition-colors line-clamp-2">
                         {tool.name}
                       </h3>
                     </Link>
@@ -189,7 +188,7 @@ const HomePage = () => {
               <div className="sm:hidden mt-4 text-center">
                 <Link 
                   to="/all-tools"
-                  className="inline-flex items-center gap-2 text-sm text-primary hover:underline"
+                  className="inline-flex items-center gap-2 text-sm text-primary hover:underline py-2"
                 >
                   View All Tools <ArrowRight className="w-4 h-4" />
                 </Link>
@@ -198,57 +197,59 @@ const HomePage = () => {
           </section>
 
           {/* Image Tools Categories */}
-          <section className="py-16 md:py-24 px-4">
+          <section className="py-8 sm:py-12 md:py-16 lg:py-20 px-3 sm:px-4 md:px-6">
             <div className="container mx-auto max-w-7xl">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-4">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-2 sm:mb-3 md:mb-4">
                 Image Tool Categories
               </h2>
-              <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+              <p className="text-center text-muted-foreground mb-6 sm:mb-8 md:mb-10 lg:mb-12 max-w-2xl mx-auto text-sm sm:text-base px-2">
                 {imageCategories.length} categories with {totalTools}+ individual tools for all your image editing needs
               </p>
               
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-5 lg:gap-6">
                 {imageCategories.map((category) => {
                   const gradient = getGradient(category.id);
                   return (
                     <Link 
                       key={category.id}
                       to={`/${category.slug}`}
-                      className="group relative bg-card rounded-2xl p-6 border border-border hover:border-primary/50 transition-all duration-300 hover-lift overflow-hidden"
+                      className="group relative bg-card rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-5 lg:p-6 border border-border hover:border-primary/50 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg overflow-hidden active:scale-[0.98]"
                     >
                       <div 
-                        className="absolute top-0 right-0 w-24 h-24 rounded-full blur-2xl opacity-20 group-hover:opacity-30 transition-opacity"
+                        className="absolute top-0 right-0 w-16 sm:w-20 md:w-24 h-16 sm:h-20 md:h-24 rounded-full blur-2xl opacity-20 group-hover:opacity-30 transition-opacity pointer-events-none"
                         style={{ background: `linear-gradient(135deg, ${gradient.from}, ${gradient.to})` }}
                       />
                       
                       <div className="relative z-10">
                         <div 
-                          className="w-14 h-14 rounded-xl flex items-center justify-center mb-4"
+                          className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-lg sm:rounded-xl flex items-center justify-center mb-2 sm:mb-3 md:mb-4"
                           style={{ background: `linear-gradient(135deg, ${gradient.from}, ${gradient.to})` }}
                         >
-                          {categoryLucideIcons[category.id] || <Image className="w-6 h-6 text-white" />}
+                          <div className="[&>svg]:w-4 [&>svg]:h-4 sm:[&>svg]:w-5 sm:[&>svg]:h-5 md:[&>svg]:w-6 md:[&>svg]:h-6">
+                            {categoryLucideIcons[category.id] || <Image className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" />}
+                          </div>
                         </div>
                         
-                        <h3 className="text-lg font-bold mb-2 group-hover:text-primary transition-colors">{category.name}</h3>
-                        <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{category.description}</p>
+                        <h3 className="text-sm sm:text-base md:text-lg font-bold mb-1 sm:mb-2 group-hover:text-primary transition-colors line-clamp-1">{category.name}</h3>
+                        <p className="text-xs sm:text-sm text-muted-foreground mb-2 sm:mb-3 md:mb-4 line-clamp-2 hidden sm:block">{category.description}</p>
                         
-                        {/* Tool Preview */}
-                        <div className="flex flex-wrap gap-1 mb-4">
-                          {category.tools.slice(0, 3).map((tool) => (
-                            <span key={tool.id} className="text-xs bg-secondary px-2 py-1 rounded-full">
+                        {/* Tool Preview - Hidden on mobile */}
+                        <div className="hidden md:flex flex-wrap gap-1 mb-3 md:mb-4">
+                          {category.tools.slice(0, 2).map((tool) => (
+                            <span key={tool.id} className="text-[10px] md:text-xs bg-secondary px-1.5 md:px-2 py-0.5 md:py-1 rounded-full">
                               {tool.name}
                             </span>
                           ))}
-                          {category.tools.length > 3 && (
-                            <span className="text-xs bg-secondary px-2 py-1 rounded-full text-muted-foreground">
-                              +{category.tools.length - 3}
+                          {category.tools.length > 2 && (
+                            <span className="text-[10px] md:text-xs bg-secondary px-1.5 md:px-2 py-0.5 md:py-1 rounded-full text-muted-foreground">
+                              +{category.tools.length - 2}
                             </span>
                           )}
                         </div>
                         
-                        <div className="flex items-center gap-2 text-primary text-sm font-medium">
-                          <span>Explore Tools</span>
-                          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        <div className="flex items-center gap-1 sm:gap-2 text-primary text-xs sm:text-sm font-medium">
+                          <span>{category.tools.length} Tools</span>
+                          <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
                         </div>
                       </div>
                     </Link>
@@ -259,37 +260,37 @@ const HomePage = () => {
           </section>
 
           {/* Tag Tools Section */}
-          <section className="py-16 md:py-24 px-4 bg-gradient-dark">
+          <section className="py-8 sm:py-12 md:py-16 lg:py-20 px-3 sm:px-4 md:px-6 bg-gradient-dark">
             <div className="container mx-auto max-w-4xl">
               <Link 
                 to="/tag-extractor"
-                className="group relative bg-card rounded-2xl p-8 border border-border hover:border-primary/50 transition-all duration-300 hover-lift overflow-hidden block"
+                className="group relative bg-card rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-8 border border-border hover:border-primary/50 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg overflow-hidden block active:scale-[0.99]"
               >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-2xl group-hover:bg-accent/10 transition-colors" />
+                <div className="absolute top-0 right-0 w-24 sm:w-32 h-24 sm:h-32 bg-accent/5 rounded-full blur-2xl group-hover:bg-accent/10 transition-colors pointer-events-none" />
                 
                 <div className="relative z-10 text-center">
                   <div 
-                    className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 mx-auto"
+                    className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-5 md:mb-6 mx-auto"
                     style={{ background: `linear-gradient(135deg, #8B5CF6, #6366F1)` }}
                   >
-                    <Hash className="w-8 h-8 text-white" />
+                    <Hash className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" />
                   </div>
                   
-                  <h2 className="text-2xl md:text-3xl font-bold mb-3">Tag Extractor & Generator</h2>
-                  <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-3">Tag Extractor & Generator</h2>
+                  <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-5 md:mb-6 max-w-xl mx-auto px-2">
                     Generate viral hashtags and tags for YouTube, Instagram, TikTok, Twitter, Facebook, and more. 
                     Auto-detect platform from URL.
                   </p>
                   
-                  <div className="flex flex-wrap gap-2 justify-center mb-6">
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2 justify-center mb-4 sm:mb-5 md:mb-6">
                     {["YouTube", "Instagram", "TikTok", "Twitter", "Facebook"].map((platform) => (
-                      <span key={platform} className="px-3 py-1 bg-secondary rounded-full text-xs font-medium text-secondary-foreground">
+                      <span key={platform} className="px-2 sm:px-3 py-0.5 sm:py-1 bg-secondary rounded-full text-[10px] sm:text-xs font-medium text-secondary-foreground">
                         {platform}
                       </span>
                     ))}
                   </div>
                   
-                  <div className="flex items-center gap-2 text-primary font-semibold justify-center">
+                  <div className="flex items-center gap-2 text-primary font-semibold justify-center text-sm sm:text-base">
                     <span>Generate Tags</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </div>
@@ -299,28 +300,28 @@ const HomePage = () => {
           </section>
 
           {/* Features Section */}
-          <section className="py-16 md:py-24 px-4">
+          <section className="py-8 sm:py-12 md:py-16 lg:py-20 px-3 sm:px-4 md:px-6">
             <div className="container mx-auto max-w-5xl">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-6 sm:mb-8 md:mb-10 lg:mb-12">
                 Why Choose MultiTools?
               </h2>
               
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-5 lg:gap-6">
                 {[
                   { icon: Zap, title: "Lightning Fast", desc: "Instant results with browser-based processing", gradient: { from: "#F97316", to: "#EAB308" } },
                   { icon: Shield, title: "100% Secure", desc: "Your files never leave your device", gradient: { from: "#22C55E", to: "#10B981" } },
                   { icon: Globe, title: "Works Everywhere", desc: "Use on any device with a browser", gradient: { from: "#3B82F6", to: "#06B6D4" } },
                   { icon: Sparkles, title: "Completely Free", desc: "No hidden fees or watermarks", gradient: { from: "#A855F7", to: "#EC4899" } }
                 ].map((item, i) => (
-                  <div key={i} className="bg-card rounded-xl p-6 border border-border text-center hover:border-primary/50 transition-colors">
+                  <div key={i} className="bg-card rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 lg:p-6 border border-border text-center hover:border-primary/50 transition-colors">
                     <div 
-                      className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4"
+                      className="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-lg sm:rounded-xl flex items-center justify-center mx-auto mb-2 sm:mb-3 md:mb-4"
                       style={{ background: `linear-gradient(135deg, ${item.gradient.from}, ${item.gradient.to})` }}
                     >
-                      <item.icon className="w-6 h-6 text-white" />
+                      <item.icon className="w-5 h-5 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" />
                     </div>
-                    <h3 className="font-semibold mb-2">{item.title}</h3>
-                    <p className="text-sm text-muted-foreground">{item.desc}</p>
+                    <h3 className="font-semibold mb-1 sm:mb-2 text-xs sm:text-sm md:text-base">{item.title}</h3>
+                    <p className="text-[10px] sm:text-xs md:text-sm text-muted-foreground hidden sm:block">{item.desc}</p>
                   </div>
                 ))}
               </div>
@@ -328,56 +329,59 @@ const HomePage = () => {
           </section>
 
           {/* Complete Tools by Category Section */}
-          <section className="py-12 md:py-16 px-4 bg-secondary/30">
+          <section className="py-8 sm:py-10 md:py-14 lg:py-16 px-3 sm:px-4 md:px-6 bg-secondary/30">
             <div className="container mx-auto max-w-7xl">
-              <div className="text-center mb-12">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">All Tools by Category</h2>
-                <p className="text-muted-foreground max-w-2xl mx-auto">
+              <div className="text-center mb-6 sm:mb-8 md:mb-10 lg:mb-12">
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 sm:mb-3 md:mb-4">All Tools by Category</h2>
+                <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto px-2">
                   Browse all {totalTools}+ tools organized by category. Click any tool to use it instantly.
                 </p>
               </div>
               
-              <div className="space-y-10">
+              <div className="space-y-4 sm:space-y-6 md:space-y-8 lg:space-y-10">
                 {imageCategories.map((category) => {
                   const gradient = getGradient(category.id);
                   return (
-                    <div key={category.id} className="bg-card rounded-2xl p-6 border border-border">
+                    <div key={category.id} className="bg-card rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-5 lg:p-6 border border-border">
                       {/* Category Header */}
-                      <div className="flex items-center justify-between mb-6 pb-4 border-b border-border">
-                        <div className="flex items-center gap-4">
+                      <div className="flex items-center justify-between mb-3 sm:mb-4 md:mb-5 lg:mb-6 pb-3 sm:pb-4 border-b border-border gap-3">
+                        <div className="flex items-center gap-2 sm:gap-3 md:gap-4 min-w-0">
                           <div 
-                            className="w-12 h-12 rounded-xl flex items-center justify-center"
+                            className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0"
                             style={{ background: `linear-gradient(135deg, ${gradient.from}, ${gradient.to})` }}
                           >
-                            {categoryLucideIcons[category.id] || <Image className="w-5 h-5 text-white" />}
+                            <div className="[&>svg]:w-4 [&>svg]:h-4 sm:[&>svg]:w-5 sm:[&>svg]:h-5">
+                              {categoryLucideIcons[category.id] || <Image className="w-4 h-4 sm:w-5 sm:h-5 text-white" />}
+                            </div>
                           </div>
-                          <div>
-                            <h3 className="text-xl font-bold">{category.name}</h3>
-                            <p className="text-sm text-muted-foreground">{category.description}</p>
+                          <div className="min-w-0">
+                            <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold truncate">{category.name}</h3>
+                            <p className="text-xs sm:text-sm text-muted-foreground truncate hidden sm:block">{category.description}</p>
                           </div>
                         </div>
                         <Link 
                           to={`/${category.slug}`}
-                          className="hidden sm:flex items-center gap-2 px-4 py-2 rounded-lg bg-primary/10 text-primary hover:bg-primary/20 transition-colors text-sm font-medium"
+                          className="hidden md:flex items-center gap-2 px-3 md:px-4 py-1.5 md:py-2 rounded-lg bg-primary/10 text-primary hover:bg-primary/20 transition-colors text-xs md:text-sm font-medium flex-shrink-0"
                         >
-                          View Category <ArrowRight className="w-4 h-4" />
+                          View Category <ArrowRight className="w-3 h-3 md:w-4 md:h-4" />
                         </Link>
                       </div>
                       
                       {/* All Tools Grid */}
-                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3">
+                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-1.5 sm:gap-2 md:gap-3">
                         {category.tools.map((tool) => (
                           <Link
                             key={tool.id}
                             to={`/${tool.slug}`}
-                            className="group flex items-center gap-2 p-3 rounded-lg bg-secondary/50 hover:bg-secondary border border-transparent hover:border-primary/30 transition-all"
+                            className="group flex items-center gap-1.5 sm:gap-2 p-2 sm:p-2.5 md:p-3 rounded-lg bg-secondary/50 hover:bg-secondary border border-transparent hover:border-primary/30 transition-all active:scale-[0.98]"
                           >
                             <ToolIconWithBackground 
                               toolSlug={tool.slug} 
-                              size={32} 
-                              iconSize={16}
+                              size={28} 
+                              iconSize={14}
+                              className="flex-shrink-0"
                             />
-                            <span className="text-sm font-medium group-hover:text-primary transition-colors line-clamp-1">
+                            <span className="text-xs sm:text-sm font-medium group-hover:text-primary transition-colors line-clamp-1">
                               {tool.name}
                             </span>
                           </Link>
@@ -385,12 +389,12 @@ const HomePage = () => {
                       </div>
                       
                       {/* Mobile View Category Link */}
-                      <div className="sm:hidden mt-4 text-center">
+                      <div className="md:hidden mt-3 sm:mt-4 text-center">
                         <Link 
                           to={`/${category.slug}`}
-                          className="inline-flex items-center gap-2 text-primary text-sm font-medium hover:underline"
+                          className="inline-flex items-center gap-2 text-primary text-xs sm:text-sm font-medium hover:underline py-2"
                         >
-                          View {category.name} Category <ArrowRight className="w-4 h-4" />
+                          View {category.name} <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
                         </Link>
                       </div>
                     </div>
@@ -398,13 +402,13 @@ const HomePage = () => {
                 })}
               </div>
               
-              <div className="text-center mt-12">
+              <div className="text-center mt-8 sm:mt-10 md:mt-12">
                 <Link 
                   to="/all-tools"
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-colors text-lg"
+                  className="inline-flex items-center gap-2 px-5 sm:px-6 md:px-8 py-3 sm:py-3.5 md:py-4 rounded-lg sm:rounded-xl bg-primary text-primary-foreground font-semibold hover:bg-primary/90 active:bg-primary/80 transition-colors text-sm sm:text-base md:text-lg touch-target"
                 >
                   Browse All {totalTools}+ Tools
-                  <ArrowRight className="w-5 h-5" />
+                  <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
                 </Link>
               </div>
             </div>
