@@ -173,31 +173,26 @@ const Header = () => {
                                 .find(c => c.id === expandedCategory)
                                 ?.tools.map((tool) => {
                                   const gradient = getGradient(expandedCategory);
-                                  return (
-                                    <Link
-                                      key={tool.id}
-                                      to={`/${tool.slug}`}
-                                      onClick={() => setToolsDropdownOpen(false)}
-                                      className="group flex items-center gap-3 p-2.5 rounded-lg hover:bg-secondary transition-colors"
-                                    >
-                                      <div 
-                                        className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
-                                        style={{ background: `linear-gradient(135deg, ${gradient.from}40, ${gradient.to}40)` }}
+                                    return (
+                                      <Link
+                                        key={tool.id}
+                                        to={`/${tool.slug}`}
+                                        onClick={() => setToolsDropdownOpen(false)}
+                                        className="group flex items-center gap-3 p-2.5 rounded-lg hover:bg-secondary transition-colors"
                                       >
                                         <div 
-                                          className="w-2 h-2 rounded-full"
+                                          className="w-3 h-3 rounded-full flex-shrink-0"
                                           style={{ background: `linear-gradient(135deg, ${gradient.from}, ${gradient.to})` }}
                                         />
-                                      </div>
-                                      <div>
-                                        <span className="text-sm font-medium group-hover:text-primary transition-colors block">
-                                          {tool.name}
-                                        </span>
-                                        <span className="text-xs text-muted-foreground line-clamp-1">
-                                          {tool.description}
-                                        </span>
-                                      </div>
-                                    </Link>
+                                        <div className="flex-1 min-w-0">
+                                          <span className="text-sm font-medium group-hover:text-primary transition-colors block truncate">
+                                            {tool.name}
+                                          </span>
+                                          <span className="text-xs text-muted-foreground line-clamp-1">
+                                            {tool.description}
+                                          </span>
+                                        </div>
+                                      </Link>
                                   );
                                 })}
                             </div>
@@ -219,16 +214,11 @@ const Header = () => {
                                       className="group flex items-center gap-3 p-2.5 rounded-lg hover:bg-secondary transition-colors"
                                     >
                                       <div 
-                                        className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
-                                        style={{ background: `linear-gradient(135deg, ${gradient.from}40, ${gradient.to}40)` }}
-                                      >
-                                        <div 
-                                          className="w-2 h-2 rounded-full"
-                                          style={{ background: `linear-gradient(135deg, ${gradient.from}, ${gradient.to})` }}
-                                        />
-                                      </div>
-                                      <div>
-                                        <span className="text-sm font-medium group-hover:text-primary transition-colors block">
+                                        className="w-3 h-3 rounded-full flex-shrink-0"
+                                        style={{ background: `linear-gradient(135deg, ${gradient.from}, ${gradient.to})` }}
+                                      />
+                                      <div className="flex-1 min-w-0">
+                                        <span className="text-sm font-medium group-hover:text-primary transition-colors block truncate">
                                           {tool.name}
                                         </span>
                                         <span className="text-xs text-muted-foreground">{cat.name}</span>
