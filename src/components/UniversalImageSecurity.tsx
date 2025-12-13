@@ -256,6 +256,9 @@ const UniversalImageSecurity = ({ initialMode = "blur" }: UniversalImageSecurity
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Enter encryption password"
                 />
+                <p className="text-xs text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 rounded-md p-2 mt-2">
+                  ⚠️ <strong>Demo Only:</strong> This encryption uses a simple visual scrambling technique for demonstration purposes. It is NOT cryptographically secure and should NOT be used to protect sensitive information.
+                </p>
               </div>
             )}
           </div>
