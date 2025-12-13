@@ -480,6 +480,39 @@ export const categoriesSEOContent: Record<string, CategorySEOContent> = {
     ],
     gradientFrom: "#3B82F6",
     gradientTo: "#1D4ED8"
+  },
+  "pdf-tools": {
+    slug: "pdf-tools",
+    name: "PDF Tools",
+    metaTitle: "PDF Tools - Merge, Compress, Split, Convert PDF Online Free",
+    metaDescription: "Free online PDF tools. Merge PDF files, compress PDF size, split PDF pages, convert Word to PDF. Fast, secure, no signup required.",
+    h1: "PDF Tools",
+    shortDescription: "Merge, compress, split and convert PDF files instantly online",
+    longDescription: "Our comprehensive PDF tools suite provides everything you need to work with PDF documents. Merge multiple PDFs into one, compress large files to reduce size, split documents into separate pages, and convert between Word and PDF formats. All processing happens securely in your browser with no file uploads to external servers.",
+    howToUse: [
+      "Select the PDF tool you need (merge, compress, split, or convert)",
+      "Upload your PDF or document files",
+      "Configure options if needed (compression level, page ranges)",
+      "Click Process and download your result instantly"
+    ],
+    benefits: [
+      "Fast processing directly in browser",
+      "Secure - files never leave your device",
+      "No registration or signup required",
+      "Works on all devices including mobile",
+      "Batch processing for multiple files",
+      "High-quality output preservation"
+    ],
+    faqs: [
+      { question: "Do I need to install any software?", answer: "No, all PDF tools work directly in your web browser. No software installation, plugins, or downloads required." },
+      { question: "Are my files secure?", answer: "Yes, all processing happens locally in your browser. Your files are never uploaded to any server and are automatically cleared when you close the page." },
+      { question: "Can I use these tools on mobile?", answer: "Yes, our PDF tools are fully responsive and work on smartphones, tablets, and desktop computers." },
+      { question: "Will Google open only the specific tool page?", answer: "Yes, each PDF tool has its own SEO-optimized page, so search engines can directly link users to the exact tool they need." },
+      { question: "Is there a file size limit?", answer: "Browser-based processing can handle files up to 100MB. For larger files, processing time may increase." },
+      { question: "Can I merge more than 2 PDFs?", answer: "Yes, you can merge unlimited PDF files. Simply keep adding files and arrange them in your preferred order before merging." }
+    ],
+    gradientFrom: "#DC2626",
+    gradientTo: "#EA580C"
   }
 };
 
