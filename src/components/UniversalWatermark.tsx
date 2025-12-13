@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Slider } from "@/components/ui/slider";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import DragDropUpload from "@/components/DragDropUpload";
-import { Download, RotateCcw, Type, Image as ImageIcon } from "lucide-react";
+import { Download, RotateCcw, Type, Image as ImageIcon, Upload, X } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
 
 type WatermarkMode = "text" | "image";
@@ -23,12 +23,15 @@ const UniversalWatermark = ({ initialMode = "text" }: UniversalWatermarkProps) =
   const [mode, setMode] = useState<WatermarkMode>(initialMode);
   const [watermarkText, setWatermarkText] = useState("© Your Name");
   const [watermarkImage, setWatermarkImage] = useState<string | null>(null);
+  const [watermarkFileName, setWatermarkFileName] = useState<string | null>(null);
   const [font, setFont] = useState("Arial");
   const [fontSize, setFontSize] = useState(24);
   const [color, setColor] = useState("#ffffff");
   const [opacity, setOpacity] = useState(50);
   const [position, setPosition] = useState<Position>("bottom-right");
+  const [watermarkScale, setWatermarkScale] = useState(100);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const watermarkInputRef = useRef<HTMLInputElement>(null);
 
   const handleFileSelect = (selectedFile: File) => {
     setFile(selectedFile);
@@ -37,13 +40,30 @@ const UniversalWatermark = ({ initialMode = "text" }: UniversalWatermarkProps) =
     setProcessedUrl(null);
   };
 
-  const handleWatermarkImageSelect = (selectedFile: File) => {
-    const url = URL.createObjectURL(selectedFile);
-    setWatermarkImage(url);
+  const handleWatermarkImageSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedFile = e.target.files?.[0];
+    if (selectedFile) {
+      const url = URL.createObjectURL(selectedFile);
+      setWatermarkImage(url);
+      setWatermarkFileName(selectedFile.name);
+    }
+  };
+
+  const removeWatermarkImage = () => {
+    setWatermarkImage(null);
+    setWatermarkFileName(null);
+    if (watermarkInputRef.current) {
+      watermarkInputRef.current.value = "";
+    }
   };
 
   const applyWatermark = useCallback(() => {
     if (!imageUrl || !canvasRef.current) return;
+
+    if (mode === "image" && !watermarkImage) {
+      toast({ title: "No watermark image", description: "Please upload a watermark image first.", variant: "destructive" });
+      return;
+    }
 
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
@@ -89,12 +109,16 @@ const UniversalWatermark = ({ initialMode = "text" }: UniversalWatermarkProps) =
           const pos = getPosition(textWidth, fontSize);
           ctx.fillText(watermarkText, pos.x, pos.y);
         }
+        ctx.globalAlpha = 1;
+        setProcessedUrl(canvas.toDataURL("image/png"));
+        toast({ title: "Watermark applied!", description: "Your image is ready for download." });
       } else if (mode === "image" && watermarkImage) {
         const wmImg = new window.Image();
         wmImg.crossOrigin = "anonymous";
         wmImg.onload = () => {
-          const wmWidth = wmImg.width * (fontSize / 24);
-          const wmHeight = wmImg.height * (fontSize / 24);
+          const scale = watermarkScale / 100;
+          const wmWidth = wmImg.width * scale;
+          const wmHeight = wmImg.height * scale;
 
           if (position === "tile") {
             for (let y = 0; y < canvas.height; y += wmHeight + 50) {
@@ -109,16 +133,14 @@ const UniversalWatermark = ({ initialMode = "text" }: UniversalWatermarkProps) =
 
           ctx.globalAlpha = 1;
           setProcessedUrl(canvas.toDataURL("image/png"));
+          toast({ title: "Watermark applied!", description: "Your image is ready for download." });
         };
         wmImg.src = watermarkImage;
         return;
       }
-
-      ctx.globalAlpha = 1;
-      setProcessedUrl(canvas.toDataURL("image/png"));
     };
     img.src = imageUrl;
-  }, [imageUrl, mode, watermarkText, watermarkImage, font, fontSize, color, opacity, position]);
+  }, [imageUrl, mode, watermarkText, watermarkImage, font, fontSize, color, opacity, position, watermarkScale]);
 
   const handleDownload = () => {
     if (!processedUrl) return;
@@ -134,6 +156,7 @@ const UniversalWatermark = ({ initialMode = "text" }: UniversalWatermarkProps) =
     setImageUrl(null);
     setProcessedUrl(null);
     setWatermarkImage(null);
+    setWatermarkFileName(null);
   };
 
   return (
@@ -141,7 +164,13 @@ const UniversalWatermark = ({ initialMode = "text" }: UniversalWatermarkProps) =
       <canvas ref={canvasRef} className="hidden" />
 
       {!file ? (
-        <DragDropUpload onFileSelect={handleFileSelect} accept="image/*" />
+        <div className="space-y-4">
+          <div className="text-center mb-4">
+            <h3 className="text-lg font-semibold">Upload Your Photo</h3>
+            <p className="text-sm text-muted-foreground">Select the main image you want to add a watermark to</p>
+          </div>
+          <DragDropUpload onFileSelect={handleFileSelect} accept="image/*" />
+        </div>
       ) : (
         <div className="space-y-6">
           {/* Mode Toggle */}
@@ -161,6 +190,69 @@ const UniversalWatermark = ({ initialMode = "text" }: UniversalWatermarkProps) =
               Image Watermark
             </Button>
           </div>
+
+          {/* Two Column Layout for Image Mode */}
+          {mode === "image" && (
+            <div className="grid md:grid-cols-2 gap-6 p-4 bg-secondary/30 rounded-xl">
+              {/* Main Photo Preview */}
+              <div className="space-y-2">
+                <label className="text-sm font-medium flex items-center gap-2">
+                  <ImageIcon className="w-4 h-4" />
+                  Main Photo
+                </label>
+                <div className="aspect-video bg-secondary/50 rounded-lg overflow-hidden flex items-center justify-center border-2 border-dashed border-border">
+                  <img src={imageUrl} alt="Main" className="max-w-full max-h-full object-contain" />
+                </div>
+                <Button variant="outline" size="sm" onClick={handleReset} className="w-full">
+                  <RotateCcw className="w-3 h-3 mr-2" />
+                  Change Photo
+                </Button>
+              </div>
+
+              {/* Watermark Image Upload */}
+              <div className="space-y-2">
+                <label className="text-sm font-medium flex items-center gap-2">
+                  <Upload className="w-4 h-4" />
+                  Watermark Image (Logo)
+                </label>
+                <div className="aspect-video bg-secondary/50 rounded-lg overflow-hidden flex items-center justify-center border-2 border-dashed border-border relative">
+                  {watermarkImage ? (
+                    <>
+                      <img src={watermarkImage} alt="Watermark" className="max-w-full max-h-full object-contain p-4" />
+                      <button
+                        onClick={removeWatermarkImage}
+                        className="absolute top-2 right-2 w-6 h-6 bg-destructive text-destructive-foreground rounded-full flex items-center justify-center hover:bg-destructive/80"
+                      >
+                        <X className="w-4 h-4" />
+                      </button>
+                    </>
+                  ) : (
+                    <div className="text-center p-4">
+                      <Upload className="w-8 h-8 mx-auto text-muted-foreground mb-2" />
+                      <p className="text-sm text-muted-foreground">Upload watermark image</p>
+                    </div>
+                  )}
+                </div>
+                <input
+                  ref={watermarkInputRef}
+                  type="file"
+                  accept="image/*"
+                  onChange={handleWatermarkImageSelect}
+                  className="hidden"
+                  id="watermark-upload"
+                />
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="w-full"
+                  onClick={() => watermarkInputRef.current?.click()}
+                >
+                  <Upload className="w-3 h-3 mr-2" />
+                  {watermarkImage ? "Change Watermark" : "Upload Watermark"}
+                </Button>
+              </div>
+            </div>
+          )}
 
           {/* Watermark Settings */}
           <div className="grid sm:grid-cols-2 gap-4">
@@ -196,23 +288,29 @@ const UniversalWatermark = ({ initialMode = "text" }: UniversalWatermarkProps) =
                     className="h-10 cursor-pointer"
                   />
                 </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium">Size: {fontSize}px</label>
+                  <Slider
+                    value={[fontSize]}
+                    onValueChange={(v) => setFontSize(v[0])}
+                    min={12}
+                    max={120}
+                    step={1}
+                  />
+                </div>
               </>
             ) : (
-              <div className="space-y-2 sm:col-span-2">
-                <label className="text-sm font-medium">Watermark Image (Logo)</label>
-                <DragDropUpload onFileSelect={handleWatermarkImageSelect} accept="image/*" />
+              <div className="space-y-2">
+                <label className="text-sm font-medium">Watermark Size: {watermarkScale}%</label>
+                <Slider
+                  value={[watermarkScale]}
+                  onValueChange={(v) => setWatermarkScale(v[0])}
+                  min={10}
+                  max={200}
+                  step={5}
+                />
               </div>
             )}
-            <div className="space-y-2">
-              <label className="text-sm font-medium">Size: {fontSize}</label>
-              <Slider
-                value={[fontSize]}
-                onValueChange={(v) => setFontSize(v[0])}
-                min={12}
-                max={72}
-                step={1}
-              />
-            </div>
             <div className="space-y-2">
               <label className="text-sm font-medium">Opacity: {opacity}%</label>
               <Slider
@@ -241,7 +339,11 @@ const UniversalWatermark = ({ initialMode = "text" }: UniversalWatermarkProps) =
             </div>
           </div>
 
-          <Button onClick={applyWatermark} className="w-full">
+          <Button 
+            onClick={applyWatermark} 
+            className="w-full"
+            disabled={mode === "image" && !watermarkImage}
+          >
             Apply Watermark
           </Button>
 
@@ -249,7 +351,7 @@ const UniversalWatermark = ({ initialMode = "text" }: UniversalWatermarkProps) =
           <div className="relative aspect-video bg-secondary/50 rounded-xl overflow-hidden flex items-center justify-center">
             {processedUrl ? (
               <img src={processedUrl} alt="Watermarked" className="max-w-full max-h-full object-contain" />
-            ) : imageUrl ? (
+            ) : imageUrl && mode === "text" ? (
               <img src={imageUrl} alt="Original" className="max-w-full max-h-full object-contain" />
             ) : null}
           </div>
