@@ -95,107 +95,8 @@ const Header = () => {
               {toolsDropdownOpen && (
                 <div className="absolute top-full left-0 mt-2 w-[800px] bg-card border border-border rounded-xl shadow-2xl z-[100] overflow-hidden">
                   <div className="flex">
-                    {/* Tools Column - LEFT SIDE */}
-                    <div className="w-2/3 p-4 border-r border-border">
-                      {expandedCategory ? (
-                        <>
-                          <div className="flex items-center justify-between mb-4">
-                            <h3 className="font-semibold text-lg">
-                              {imageCategories.find(c => c.id === expandedCategory)?.name}
-                            </h3>
-                            <Link
-                              to={`/${expandedCategory}`}
-                              onClick={() => setToolsDropdownOpen(false)}
-                              className="text-sm text-primary hover:underline"
-                            >
-                              View Category →
-                            </Link>
-                          </div>
-                          <ScrollArea className="h-[380px]">
-                            <div className="grid grid-cols-2 gap-2">
-                              {imageCategories
-                                .find(c => c.id === expandedCategory)
-                                ?.tools.map((tool) => {
-                                  const gradient = getGradient(expandedCategory);
-                                  return (
-                                    <Link
-                                      key={tool.id}
-                                      to={`/${tool.slug}`}
-                                      onClick={() => setToolsDropdownOpen(false)}
-                                      className="group flex items-center gap-3 p-2.5 rounded-lg hover:bg-secondary transition-colors"
-                                    >
-                                      <div 
-                                        className="w-3 h-3 rounded-full flex-shrink-0"
-                                        style={{ background: `linear-gradient(135deg, ${gradient.from}, ${gradient.to})` }}
-                                      />
-                                      <div className="flex-1 min-w-0">
-                                        <span className="text-sm font-medium group-hover:text-primary transition-colors block truncate">
-                                          {tool.name}
-                                        </span>
-                                        <span className="text-xs text-muted-foreground line-clamp-1">
-                                          {tool.description}
-                                        </span>
-                                      </div>
-                                    </Link>
-                                  );
-                                })}
-                            </div>
-                          </ScrollArea>
-                        </>
-                      ) : searchQuery.trim() && filteredCategories.length > 0 ? (
-                        <>
-                          <h3 className="font-semibold text-lg mb-4">Search Results</h3>
-                          <ScrollArea className="h-[380px]">
-                            <div className="grid grid-cols-2 gap-2">
-                              {filteredCategories.flatMap(cat => 
-                                cat.tools.map(tool => {
-                                  const gradient = getGradient(cat.id);
-                                  return (
-                                    <Link
-                                      key={tool.id}
-                                      to={`/${tool.slug}`}
-                                      onClick={() => setToolsDropdownOpen(false)}
-                                      className="group flex items-center gap-3 p-2.5 rounded-lg hover:bg-secondary transition-colors"
-                                    >
-                                      <div 
-                                        className="w-3 h-3 rounded-full flex-shrink-0"
-                                        style={{ background: `linear-gradient(135deg, ${gradient.from}, ${gradient.to})` }}
-                                      />
-                                      <div className="flex-1 min-w-0">
-                                        <span className="text-sm font-medium group-hover:text-primary transition-colors block truncate">
-                                          {tool.name}
-                                        </span>
-                                        <span className="text-xs text-muted-foreground">{cat.name}</span>
-                                      </div>
-                                    </Link>
-                                  );
-                                })
-                              )}
-                            </div>
-                          </ScrollArea>
-                        </>
-                      ) : (
-                        <div className="h-full flex flex-col items-center justify-center text-center p-8">
-                          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mb-4">
-                            <span className="text-2xl">🛠️</span>
-                          </div>
-                          <h3 className="font-semibold mb-2">80+ Image Tools</h3>
-                          <p className="text-sm text-muted-foreground mb-4">
-                            Select a category to see available tools, or search for a specific tool.
-                          </p>
-                          <Link
-                            to="/all-tools"
-                            onClick={() => setToolsDropdownOpen(false)}
-                            className="text-sm text-primary hover:underline"
-                          >
-                            Browse All Tools →
-                          </Link>
-                        </div>
-                      )}
-                    </div>
-                    
-                    {/* Categories Column - RIGHT SIDE */}
-                    <div className="w-1/3 bg-secondary/30 p-2">
+                    {/* Categories Column */}
+                    <div className="w-1/3 bg-secondary/30 border-r border-border p-2">
                       {/* Search */}
                       <div className="p-2 mb-2">
                         <div className="relative">
@@ -230,7 +131,7 @@ const Header = () => {
                                   </div>
                                   <span className="text-sm font-medium">{cat.name}</span>
                                 </div>
-                                <ChevronRight className={`w-4 h-4 text-muted-foreground transition-transform ${expandedCategory === cat.id ? 'rotate-180' : ''}`} />
+                                <ChevronRight className={`w-4 h-4 text-muted-foreground transition-transform ${expandedCategory === cat.id ? 'rotate-90' : ''}`} />
                               </button>
                             );
                           })}
@@ -248,6 +149,115 @@ const Header = () => {
                           </Link>
                         </div>
                       </ScrollArea>
+                    </div>
+                    
+                    {/* Tools Column */}
+                    <div className="w-2/3 p-4">
+                      {expandedCategory ? (
+                        <>
+                          <div className="flex items-center justify-between mb-4">
+                            <h3 className="font-semibold text-lg">
+                              {imageCategories.find(c => c.id === expandedCategory)?.name}
+                            </h3>
+                            <Link
+                              to={`/${expandedCategory}`}
+                              onClick={() => setToolsDropdownOpen(false)}
+                              className="text-sm text-primary hover:underline"
+                            >
+                              View Category →
+                            </Link>
+                          </div>
+                          <ScrollArea className="h-[380px]">
+                            <div className="grid grid-cols-2 gap-2">
+                              {imageCategories
+                                .find(c => c.id === expandedCategory)
+                                ?.tools.map((tool) => {
+                                  const gradient = getGradient(expandedCategory);
+                                  return (
+                                    <Link
+                                      key={tool.id}
+                                      to={`/${tool.slug}`}
+                                      onClick={() => setToolsDropdownOpen(false)}
+                                      className="group flex items-center gap-3 p-2.5 rounded-lg hover:bg-secondary transition-colors"
+                                    >
+                                      <div 
+                                        className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
+                                        style={{ background: `linear-gradient(135deg, ${gradient.from}40, ${gradient.to}40)` }}
+                                      >
+                                        <div 
+                                          className="w-2 h-2 rounded-full"
+                                          style={{ background: `linear-gradient(135deg, ${gradient.from}, ${gradient.to})` }}
+                                        />
+                                      </div>
+                                      <div>
+                                        <span className="text-sm font-medium group-hover:text-primary transition-colors block">
+                                          {tool.name}
+                                        </span>
+                                        <span className="text-xs text-muted-foreground line-clamp-1">
+                                          {tool.description}
+                                        </span>
+                                      </div>
+                                    </Link>
+                                  );
+                                })}
+                            </div>
+                          </ScrollArea>
+                        </>
+                      ) : searchQuery.trim() && filteredCategories.length > 0 ? (
+                        <>
+                          <h3 className="font-semibold text-lg mb-4">Search Results</h3>
+                          <ScrollArea className="h-[380px]">
+                            <div className="grid grid-cols-2 gap-2">
+                              {filteredCategories.flatMap(cat => 
+                                cat.tools.map(tool => {
+                                  const gradient = getGradient(cat.id);
+                                  return (
+                                    <Link
+                                      key={tool.id}
+                                      to={`/${tool.slug}`}
+                                      onClick={() => setToolsDropdownOpen(false)}
+                                      className="group flex items-center gap-3 p-2.5 rounded-lg hover:bg-secondary transition-colors"
+                                    >
+                                      <div 
+                                        className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
+                                        style={{ background: `linear-gradient(135deg, ${gradient.from}40, ${gradient.to}40)` }}
+                                      >
+                                        <div 
+                                          className="w-2 h-2 rounded-full"
+                                          style={{ background: `linear-gradient(135deg, ${gradient.from}, ${gradient.to})` }}
+                                        />
+                                      </div>
+                                      <div>
+                                        <span className="text-sm font-medium group-hover:text-primary transition-colors block">
+                                          {tool.name}
+                                        </span>
+                                        <span className="text-xs text-muted-foreground">{cat.name}</span>
+                                      </div>
+                                    </Link>
+                                  );
+                                })
+                              )}
+                            </div>
+                          </ScrollArea>
+                        </>
+                      ) : (
+                        <div className="h-full flex flex-col items-center justify-center text-center p-8">
+                          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mb-4">
+                            <span className="text-2xl">🛠️</span>
+                          </div>
+                          <h3 className="font-semibold mb-2">80+ Image Tools</h3>
+                          <p className="text-sm text-muted-foreground mb-4">
+                            Select a category to see available tools, or search for a specific tool.
+                          </p>
+                          <Link
+                            to="/all-tools"
+                            onClick={() => setToolsDropdownOpen(false)}
+                            className="text-sm text-primary hover:underline"
+                          >
+                            Browse All Tools →
+                          </Link>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
