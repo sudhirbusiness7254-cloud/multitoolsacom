@@ -1,9 +1,12 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import { useState, useMemo } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { ArrowRight, Zap, Shield, Globe, Sparkles, Hash, Star, TrendingUp } from "lucide-react";
+import { ArrowRight, Zap, Shield, Globe, Sparkles, Hash, ChevronRight, Search } from "lucide-react";
 import { toolCategories } from "@/data/toolsData";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Input } from "@/components/ui/input";
 
 // Colorful gradients for categories and tools
 const categoryGradients: Record<string, { from: string; to: string }> = {
@@ -25,21 +28,29 @@ const categoryGradients: Record<string, { from: string; to: string }> = {
   "tag-tools": { from: "#8B5CF6", to: "#6366F1" },
 };
 
-// Popular tools to feature on homepage
-const popularTools = [
-  { slug: "jpg-to-png", name: "JPG to PNG", category: "image-converter" },
-  { slug: "png-to-jpg", name: "PNG to JPG", category: "image-converter" },
-  { slug: "jpeg-compressor", name: "JPEG Compressor", category: "image-compression" },
-  { slug: "image-to-pdf", name: "Image to PDF", category: "image-to-document" },
-  { slug: "exact-resize", name: "Exact Resize", category: "image-resize" },
-  { slug: "manual-crop", name: "Manual Crop", category: "image-crop" },
-  { slug: "rotate-90", name: "Rotate 90°", category: "image-rotate-flip" },
-  { slug: "text-watermark", name: "Text Watermark", category: "watermark-tools" },
-  { slug: "jpg-to-webp", name: "JPG to WebP", category: "image-converter" },
-  { slug: "png-compressor", name: "PNG Compressor", category: "image-compression" },
-  { slug: "collage-maker", name: "Collage Maker", category: "image-combine" },
-  { slug: "image-to-qr-code", name: "QR Code Generator", category: "image-qr" },
+// Tool-specific colorful gradients
+const toolGradients = [
+  { from: "#FF6B6B", to: "#FF8E53" },
+  { from: "#4ECDC4", to: "#45B7AA" },
+  { from: "#667eea", to: "#764ba2" },
+  { from: "#f093fb", to: "#f5576c" },
+  { from: "#11998e", to: "#38ef7d" },
+  { from: "#00c6ff", to: "#0072ff" },
+  { from: "#f857a6", to: "#ff5858" },
+  { from: "#6366f1", to: "#8b5cf6" },
+  { from: "#ec4899", to: "#f97316" },
+  { from: "#3b82f6", to: "#1d4ed8" },
+  { from: "#14b8a6", to: "#059669" },
+  { from: "#f59e0b", to: "#d97706" },
+  { from: "#8b5cf6", to: "#7c3aed" },
+  { from: "#ef4444", to: "#dc2626" },
+  { from: "#22c55e", to: "#16a34a" },
+  { from: "#06b6d4", to: "#0891b2" },
+  { from: "#a855f7", to: "#9333ea" },
+  { from: "#84cc16", to: "#65a30d" },
 ];
+
+const getToolGradient = (index: number) => toolGradients[index % toolGradients.length];
 
 const getGradient = (categoryId: string) => {
   return categoryGradients[categoryId] || { from: "#6366F1", to: "#8B5CF6" };
@@ -48,6 +59,22 @@ const getGradient = (categoryId: string) => {
 const HomePage = () => {
   const imageCategories = toolCategories.filter(cat => cat.id !== "tag-tools").sort((a, b) => a.priority - b.priority);
   const totalTools = imageCategories.reduce((sum, cat) => sum + cat.tools.length, 0);
+  
+  const [selectedCategoryId, setSelectedCategoryId] = useState<string>("image-converter");
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const selectedCategory = useMemo(() => {
+    return imageCategories.find(c => c.id === selectedCategoryId) || imageCategories[0];
+  }, [selectedCategoryId, imageCategories]);
+
+  const filteredTools = useMemo(() => {
+    if (!searchQuery.trim()) return selectedCategory?.tools || [];
+    const query = searchQuery.toLowerCase();
+    return (selectedCategory?.tools || []).filter(tool => 
+      tool.name.toLowerCase().includes(query) ||
+      tool.description.toLowerCase().includes(query)
+    );
+  }, [selectedCategory, searchQuery]);
 
   return (
     <>
@@ -80,17 +107,17 @@ const HomePage = () => {
         
         <main className="flex-1">
           {/* Hero Section */}
-          <section className="py-16 md:py-24 bg-gradient-hero relative overflow-hidden">
+          <section className="py-12 md:py-16 bg-gradient-hero relative overflow-hidden">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-3xl" />
             
             <div className="container mx-auto px-4 relative z-10">
-              <div className="text-center max-w-4xl mx-auto mb-12">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 mb-6">
+              <div className="text-center max-w-4xl mx-auto">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 mb-4">
                   <Sparkles className="w-4 h-4 text-primary" />
                   <span className="text-sm font-medium text-primary">{totalTools}+ Free Online Tools</span>
                 </div>
                 
-                <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+                <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
                   Complete Image Tools
                   <span 
                     className="bg-clip-text text-transparent"
@@ -98,8 +125,8 @@ const HomePage = () => {
                   > Ecosystem</span>
                 </h1>
                 
-                <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-                  Convert, compress, resize, crop, edit, and enhance your images. Generate viral hashtags for social media. 
+                <p className="text-muted-foreground max-w-2xl mx-auto mb-6">
+                  Convert, compress, resize, crop, edit, and enhance your images. 
                   All tools are free, fast, and process locally for complete privacy.
                 </p>
                 
@@ -123,122 +150,180 @@ const HomePage = () => {
             </div>
           </section>
 
-          {/* Popular Tools Section */}
-          <section className="py-12 md:py-16 px-4 bg-secondary/30">
+          {/* Main Split Layout - Tools Left, Categories Right */}
+          <section className="py-8 md:py-12 px-4">
             <div className="container mx-auto max-w-7xl">
-              <div className="flex items-center justify-between mb-8">
-                <div>
-                  <div className="flex items-center gap-2 mb-2">
-                    <TrendingUp className="w-5 h-5 text-primary" />
-                    <span className="text-sm font-medium text-primary">Most Popular</span>
-                  </div>
-                  <h2 className="text-2xl sm:text-3xl font-bold">Popular Tools</h2>
-                </div>
-                <Link 
-                  to="/all-tools"
-                  className="hidden sm:flex items-center gap-2 text-primary hover:underline"
-                >
-                  View All <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-              
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                {popularTools.map((tool) => {
-                  const gradient = getGradient(tool.category);
-                  return (
-                    <Link 
-                      key={tool.slug}
-                      to={`/${tool.slug}`}
-                      className="group bg-card rounded-xl p-4 border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
-                    >
-                      <div 
-                        className="w-12 h-12 rounded-xl flex items-center justify-center mb-3 mx-auto"
-                        style={{ background: `linear-gradient(135deg, ${gradient.from}, ${gradient.to})` }}
-                      >
-                        <Star className="w-6 h-6 text-white" />
-                      </div>
-                      <h3 className="text-sm font-semibold text-center group-hover:text-primary transition-colors line-clamp-2">
-                        {tool.name}
-                      </h3>
-                    </Link>
-                  );
-                })}
-              </div>
-              
-              <div className="sm:hidden mt-6 text-center">
-                <Link 
-                  to="/all-tools"
-                  className="inline-flex items-center gap-2 text-primary hover:underline"
-                >
-                  View All Tools <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </div>
-          </section>
-
-          {/* Image Tools Categories */}
-          <section className="py-16 md:py-24 px-4">
-            <div className="container mx-auto max-w-7xl">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-4">
-                Image Tool Categories
-              </h2>
-              <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-                {imageCategories.length} categories with {totalTools}+ individual tools for all your image editing needs
-              </p>
-              
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                {imageCategories.map((category) => {
-                  const gradient = getGradient(category.id);
-                  return (
-                    <Link 
-                      key={category.id}
-                      to={`/${category.slug}`}
-                      className="group relative bg-card rounded-2xl p-6 border border-border hover:border-primary/50 transition-all duration-300 hover-lift overflow-hidden"
-                    >
-                      <div 
-                        className="absolute top-0 right-0 w-24 h-24 rounded-full blur-2xl opacity-20 group-hover:opacity-30 transition-opacity"
-                        style={{ background: `linear-gradient(135deg, ${gradient.from}, ${gradient.to})` }}
-                      />
-                      
-                      <div className="relative z-10">
+              <div className="flex flex-col lg:flex-row gap-6">
+                {/* LEFT SIDE - Tools */}
+                <div className="lg:w-2/3 w-full order-2 lg:order-1">
+                  <div className="bg-card rounded-2xl border border-border p-6 h-full">
+                    {/* Category Header */}
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+                      <div className="flex items-center gap-3">
                         <div 
-                          className="w-14 h-14 rounded-xl flex items-center justify-center mb-4"
-                          style={{ background: `linear-gradient(135deg, ${gradient.from}, ${gradient.to})` }}
+                          className="w-12 h-12 rounded-xl flex items-center justify-center"
+                          style={{ 
+                            background: `linear-gradient(135deg, ${getGradient(selectedCategoryId).from}, ${getGradient(selectedCategoryId).to})`,
+                            boxShadow: `0 4px 20px ${getGradient(selectedCategoryId).from}40`
+                          }}
                         >
-                          <span className="text-white text-xl font-bold">{category.tools.length}</span>
+                          <Sparkles className="w-6 h-6 text-white" />
                         </div>
-                        
-                        <h3 className="text-lg font-bold mb-2 group-hover:text-primary transition-colors">{category.name}</h3>
-                        <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{category.description}</p>
-                        
-                        {/* Tool Preview */}
-                        <div className="flex flex-wrap gap-1 mb-4">
-                          {category.tools.slice(0, 3).map((tool) => (
-                            <span key={tool.id} className="text-xs bg-secondary px-2 py-1 rounded-full">
-                              {tool.name}
-                            </span>
-                          ))}
-                          {category.tools.length > 3 && (
-                            <span className="text-xs bg-secondary px-2 py-1 rounded-full text-muted-foreground">
-                              +{category.tools.length - 3}
-                            </span>
-                          )}
-                        </div>
-                        
-                        <div className="flex items-center gap-2 text-primary text-sm font-medium">
-                          <span>Explore Tools</span>
-                          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        <div>
+                          <h2 className="text-xl font-bold">{selectedCategory?.name}</h2>
+                          <p className="text-sm text-muted-foreground">{selectedCategory?.tools.length} tools available</p>
                         </div>
                       </div>
-                    </Link>
-                  );
-                })}
+                      
+                      {/* Search */}
+                      <div className="relative w-full sm:w-64">
+                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                        <Input
+                          type="search"
+                          placeholder="Search tools..."
+                          value={searchQuery}
+                          onChange={(e) => setSearchQuery(e.target.value)}
+                          className="pl-10"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Tools Grid */}
+                    <div className="grid sm:grid-cols-2 gap-3">
+                      {filteredTools.map((tool, index) => {
+                        const gradient = getToolGradient(index);
+                        return (
+                          <Link
+                            key={tool.id}
+                            to={`/${tool.slug}`}
+                            className="group flex items-center gap-3 p-3 rounded-xl bg-secondary/30 border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 animate-fade-in"
+                            style={{ animationDelay: `${index * 20}ms` }}
+                          >
+                            <div 
+                              className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110"
+                              style={{ 
+                                background: `linear-gradient(135deg, ${gradient.from}, ${gradient.to})`,
+                                boxShadow: `0 4px 12px ${gradient.from}30`
+                              }}
+                            >
+                              <Sparkles className="w-4 h-4 text-white" />
+                            </div>
+                            
+                            <div className="flex-1 min-w-0">
+                              <h3 className="font-semibold text-sm group-hover:text-primary transition-colors">
+                                {tool.name}
+                              </h3>
+                              <p className="text-xs text-muted-foreground line-clamp-1">
+                                {tool.description}
+                              </p>
+                            </div>
+                            
+                            <ArrowRight className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all flex-shrink-0" />
+                          </Link>
+                        );
+                      })}
+                    </div>
+
+                    {/* Empty State */}
+                    {filteredTools.length === 0 && (
+                      <div className="text-center py-8 animate-fade-in">
+                        <Search className="w-10 h-10 text-muted-foreground mx-auto mb-3" />
+                        <p className="text-muted-foreground">No tools found matching "{searchQuery}"</p>
+                        <button 
+                          onClick={() => setSearchQuery("")}
+                          className="mt-3 text-sm text-primary hover:underline"
+                        >
+                          Clear search
+                        </button>
+                      </div>
+                    )}
+
+                    {/* View Category Page Link */}
+                    <div className="mt-6 pt-4 border-t border-border">
+                      <Link
+                        to={`/${selectedCategory?.slug}`}
+                        className="inline-flex items-center gap-2 text-primary hover:underline font-medium text-sm"
+                      >
+                        View {selectedCategory?.name} page with details
+                        <ArrowRight className="w-4 h-4" />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+
+                {/* RIGHT SIDE - Categories */}
+                <div className="lg:w-1/3 w-full order-1 lg:order-2">
+                  <div className="bg-card rounded-2xl border border-border p-4 sticky top-24">
+                    <h2 className="font-semibold text-lg mb-4 px-2">Select Category</h2>
+                    <ScrollArea className="h-auto lg:h-[500px]">
+                      <div className="space-y-1 pr-2">
+                        {imageCategories.map((category) => {
+                          const gradient = getGradient(category.id);
+                          const isActive = selectedCategoryId === category.id;
+                          
+                          return (
+                            <button
+                              key={category.id}
+                              onClick={() => {
+                                setSelectedCategoryId(category.id);
+                                setSearchQuery("");
+                              }}
+                              className={`w-full flex items-center justify-between px-3 py-3 rounded-xl text-left transition-all duration-300 group ${
+                                isActive 
+                                  ? 'bg-primary/10 border border-primary/30 shadow-sm' 
+                                  : 'hover:bg-secondary/50 border border-transparent'
+                              }`}
+                            >
+                              <div className="flex items-center gap-3">
+                                <div 
+                                  className={`w-10 h-10 rounded-xl flex items-center justify-center transition-transform duration-300 ${
+                                    isActive ? 'scale-110' : 'group-hover:scale-105'
+                                  }`}
+                                  style={{ 
+                                    background: `linear-gradient(135deg, ${gradient.from}, ${gradient.to})`,
+                                    boxShadow: isActive ? `0 4px 15px ${gradient.from}40` : 'none'
+                                  }}
+                                >
+                                  <span className="text-white text-sm font-bold">{category.tools.length}</span>
+                                </div>
+                                <span className={`text-sm font-medium transition-colors ${
+                                  isActive ? 'text-primary' : 'text-foreground group-hover:text-primary'
+                                }`}>
+                                  {category.name}
+                                </span>
+                              </div>
+                              <ChevronRight className={`w-4 h-4 transition-all duration-300 ${
+                                isActive 
+                                  ? 'text-primary translate-x-1' 
+                                  : 'text-muted-foreground group-hover:translate-x-1'
+                              }`} />
+                            </button>
+                          );
+                        })}
+                        
+                        {/* All Tools Link */}
+                        <Link
+                          to="/all-tools"
+                          className="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-secondary/50 text-primary mt-2"
+                        >
+                          <div 
+                            className="w-10 h-10 rounded-xl flex items-center justify-center"
+                            style={{ background: 'linear-gradient(135deg, #F97316, #EF4444)' }}
+                          >
+                            <span className="text-white text-sm font-bold">{totalTools}+</span>
+                          </div>
+                          <span className="text-sm font-medium">View All Tools</span>
+                        </Link>
+                      </div>
+                    </ScrollArea>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
 
           {/* Tag Tools Section */}
-          <section className="py-16 md:py-24 px-4 bg-gradient-dark">
+          <section className="py-12 md:py-16 px-4 bg-gradient-dark">
             <div className="container mx-auto max-w-4xl">
               <Link 
                 to="/tag-extractor"
@@ -256,8 +341,7 @@ const HomePage = () => {
                   
                   <h2 className="text-2xl md:text-3xl font-bold mb-3">Tag Extractor & Generator</h2>
                   <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
-                    Generate viral hashtags and tags for YouTube, Instagram, TikTok, Twitter, Facebook, and more. 
-                    Auto-detect platform from URL.
+                    Generate viral hashtags and tags for YouTube, Instagram, TikTok, Twitter, Facebook, and more.
                   </p>
                   
                   <div className="flex flex-wrap gap-2 justify-center mb-6">
@@ -278,9 +362,9 @@ const HomePage = () => {
           </section>
 
           {/* Features Section */}
-          <section className="py-16 md:py-24 px-4">
+          <section className="py-12 md:py-16 px-4">
             <div className="container mx-auto max-w-5xl">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12">
+              <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8">
                 Why Choose MultiTools?
               </h2>
               
@@ -302,67 +386,6 @@ const HomePage = () => {
                     <p className="text-sm text-muted-foreground">{item.desc}</p>
                   </div>
                 ))}
-              </div>
-            </div>
-          </section>
-
-          {/* All Tools Quick Access */}
-          <section className="py-12 md:py-16 px-4 bg-secondary/30">
-            <div className="container mx-auto max-w-7xl">
-              <h2 className="text-2xl font-bold text-center mb-8">Quick Access to All Tools</h2>
-              
-              {imageCategories.slice(0, 4).map((category) => {
-                const gradient = getGradient(category.id);
-                return (
-                  <div key={category.id} className="mb-8">
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center gap-3">
-                        <div 
-                          className="w-8 h-8 rounded-lg flex items-center justify-center"
-                          style={{ background: `linear-gradient(135deg, ${gradient.from}, ${gradient.to})` }}
-                        >
-                          <span className="text-white text-xs font-bold">{category.tools.length}</span>
-                        </div>
-                        <h3 className="font-semibold">{category.name}</h3>
-                      </div>
-                      <Link 
-                        to={`/${category.slug}`}
-                        className="text-sm text-primary hover:underline"
-                      >
-                        View All →
-                      </Link>
-                    </div>
-                    <div className="flex flex-wrap gap-2">
-                      {category.tools.slice(0, 8).map((tool) => (
-                        <Link
-                          key={tool.id}
-                          to={`/${tool.slug}`}
-                          className="px-3 py-1.5 bg-card border border-border rounded-lg text-sm hover:border-primary/50 hover:text-primary transition-colors"
-                        >
-                          {tool.name}
-                        </Link>
-                      ))}
-                      {category.tools.length > 8 && (
-                        <Link
-                          to={`/${category.slug}`}
-                          className="px-3 py-1.5 bg-primary/10 text-primary rounded-lg text-sm hover:bg-primary/20 transition-colors"
-                        >
-                          +{category.tools.length - 8} more
-                        </Link>
-                      )}
-                    </div>
-                  </div>
-                );
-              })}
-              
-              <div className="text-center">
-                <Link 
-                  to="/all-tools"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors"
-                >
-                  Browse All {totalTools}+ Tools
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
               </div>
             </div>
           </section>
