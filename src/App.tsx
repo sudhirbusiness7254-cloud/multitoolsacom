@@ -13,6 +13,8 @@ import Contact from "./pages/Contact";
 import ImageToolsPage from "./pages/ImageToolsPage";
 import ImageConverterPage from "./pages/ImageConverterPage";
 import NotFound from "./pages/NotFound";
+import AllToolsPage from "./pages/AllToolsPage";
+import DynamicToolPage from "./pages/tools/DynamicToolPage";
 
 // Category Pages
 import ImageCompressionPage from "./pages/categories/ImageCompressionPage";
@@ -29,30 +31,6 @@ import ImageOptimizationPage from "./pages/categories/ImageOptimizationPage";
 import ImageDrawingPage from "./pages/categories/ImageDrawingPage";
 import ImageSecurityPage from "./pages/categories/ImageSecurityPage";
 import ImageQRPage from "./pages/categories/ImageQRPage";
-
-// Compression Tool Pages
-import JpegCompressorPage from "./pages/tools/JpegCompressorPage";
-import PngCompressorPage from "./pages/tools/PngCompressorPage";
-import WebpCompressorPage from "./pages/tools/WebpCompressorPage";
-import GifCompressorPage from "./pages/tools/GifCompressorPage";
-import TiffCompressorPage from "./pages/tools/TiffCompressorPage";
-import UniversalCompressorPage from "./pages/tools/UniversalCompressorPage";
-
-// Resize Tool Pages
-import ExactResizePage from "./pages/tools/ExactResizePage";
-import PercentageResizePage from "./pages/tools/PercentageResizePage";
-import FitToWidthPage from "./pages/tools/FitToWidthPage";
-import FitToHeightPage from "./pages/tools/FitToHeightPage";
-import FitToBoxPage from "./pages/tools/FitToBoxPage";
-import QualityResizePage from "./pages/tools/QualityResizePage";
-
-// Image to Document Tool Pages
-import ImageToPdfPage from "./pages/tools/ImageToPdfPage";
-import ImageToDocxPage from "./pages/tools/ImageToDocxPage";
-import ImageToPptxPage from "./pages/tools/ImageToPptxPage";
-import ImageToHtmlPage from "./pages/tools/ImageToHtmlPage";
-import ImageToBase64Page from "./pages/tools/ImageToBase64Page";
-import Base64ToImagePage from "./pages/tools/Base64ToImagePage";
 import ImageEditorPage from "./pages/ImageEditorPage";
 
 const queryClient = new QueryClient();
@@ -67,6 +45,7 @@ const App = () => (
           <Routes>
             {/* Main Pages */}
             <Route path="/" element={<HomePage />} />
+            <Route path="/all-tools" element={<AllToolsPage />} />
             <Route path="/tag-extractor" element={<TagExtractorPage />} />
             <Route path="/about" element={<About />} />
             <Route path="/privacy" element={<Privacy />} />
@@ -77,7 +56,6 @@ const App = () => (
             <Route path="/image-tools" element={<ImageToolsPage />} />
             <Route path="/image-editor" element={<ImageEditorPage />} />
             <Route path="/image-converter" element={<ImageConverterPage />} />
-            <Route path="/image-converter/:conversion" element={<ImageConverterPage />} />
             
             {/* Category Pages */}
             <Route path="/image-compression" element={<ImageCompressionPage />} />
@@ -95,48 +73,8 @@ const App = () => (
             <Route path="/image-security" element={<ImageSecurityPage />} />
             <Route path="/image-qr" element={<ImageQRPage />} />
             
-            {/* Compression Tools */}
-            <Route path="/universal-image-compressor" element={<UniversalCompressorPage />} />
-            <Route path="/jpeg-compressor" element={<JpegCompressorPage />} />
-            <Route path="/png-compressor" element={<PngCompressorPage />} />
-            <Route path="/webp-compressor" element={<WebpCompressorPage />} />
-            <Route path="/gif-compressor" element={<GifCompressorPage />} />
-            <Route path="/tiff-compressor" element={<TiffCompressorPage />} />
-            
-            {/* Resize Tools */}
-            <Route path="/exact-resize" element={<ExactResizePage />} />
-            <Route path="/percentage-resize" element={<PercentageResizePage />} />
-            <Route path="/fit-to-width" element={<FitToWidthPage />} />
-            <Route path="/fit-to-height" element={<FitToHeightPage />} />
-            <Route path="/fit-to-box" element={<FitToBoxPage />} />
-            <Route path="/resize-without-quality-loss" element={<QualityResizePage />} />
-            
-            {/* Image to Document Tools */}
-            <Route path="/image-to-pdf" element={<ImageToPdfPage />} />
-            <Route path="/image-to-docx" element={<ImageToDocxPage />} />
-            <Route path="/image-to-pptx" element={<ImageToPptxPage />} />
-            <Route path="/image-to-html" element={<ImageToHtmlPage />} />
-            <Route path="/image-to-base64" element={<ImageToBase64Page />} />
-            <Route path="/base64-to-image" element={<Base64ToImagePage />} />
-            
-            <Route path="/jpg-to-png" element={<ImageConverterPage />} />
-            <Route path="/png-to-jpg" element={<ImageConverterPage />} />
-            <Route path="/webp-to-jpg" element={<ImageConverterPage />} />
-            <Route path="/webp-to-png" element={<ImageConverterPage />} />
-            <Route path="/jpg-to-webp" element={<ImageConverterPage />} />
-            <Route path="/png-to-webp" element={<ImageConverterPage />} />
-            <Route path="/gif-to-png" element={<ImageConverterPage />} />
-            <Route path="/gif-to-jpg" element={<ImageConverterPage />} />
-            <Route path="/heic-to-jpg" element={<ImageConverterPage />} />
-            <Route path="/heic-to-png" element={<ImageConverterPage />} />
-            <Route path="/svg-to-png" element={<ImageConverterPage />} />
-            <Route path="/svg-to-jpg" element={<ImageConverterPage />} />
-            <Route path="/bmp-to-jpg" element={<ImageConverterPage />} />
-            <Route path="/bmp-to-png" element={<ImageConverterPage />} />
-            <Route path="/tiff-to-jpg" element={<ImageConverterPage />} />
-            <Route path="/tiff-to-png" element={<ImageConverterPage />} />
-            <Route path="/raw-to-jpg" element={<ImageConverterPage />} />
-            <Route path="/raw-to-png" element={<ImageConverterPage />} />
+            {/* Dynamic Tool Pages - SEO optimized individual tool pages */}
+            <Route path="/:toolSlug" element={<DynamicToolPage />} />
             
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
