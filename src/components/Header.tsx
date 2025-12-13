@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import { Menu, X, ChevronDown, Search, RefreshCw, Minimize2, Maximize2, Crop, Droplet, Image } from "lucide-react";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo-icon.png";
 import { toolCategories } from "@/data/toolsData";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
