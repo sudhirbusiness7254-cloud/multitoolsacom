@@ -75,6 +75,38 @@ const Header = () => {
 
   return (
     <header className="bg-card border-b border-border sticky top-0 z-50 backdrop-blur-sm bg-opacity-95">
+      {/* Categories Bar */}
+      <div className="hidden lg:block border-b border-border bg-secondary/30">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center gap-1 py-2 overflow-x-auto scrollbar-hide">
+            {imageCategories.map((cat) => {
+              const gradient = getGradient(cat.id);
+              return (
+                <Link
+                  key={cat.id}
+                  to={`/${cat.slug}`}
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-lg hover:bg-secondary whitespace-nowrap transition-colors text-sm"
+                >
+                  <div 
+                    className="w-5 h-5 rounded flex items-center justify-center"
+                    style={{ background: `linear-gradient(135deg, ${gradient.from}, ${gradient.to})` }}
+                  >
+                    <span className="text-white text-[10px] font-bold">{cat.tools.length}</span>
+                  </div>
+                  <span className="font-medium">{cat.name}</span>
+                </Link>
+              );
+            })}
+            <Link
+              to="/all-tools"
+              className="flex items-center gap-2 px-3 py-1.5 rounded-lg hover:bg-secondary whitespace-nowrap transition-colors text-sm text-primary"
+            >
+              <span className="font-medium">All Tools</span>
+            </Link>
+          </div>
+        </div>
+      </div>
+      
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition-opacity">
