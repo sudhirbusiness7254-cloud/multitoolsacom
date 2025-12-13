@@ -84,22 +84,22 @@ const Header = () => {
 
   return (
     <header className="bg-card border-b border-border sticky top-0 z-50 backdrop-blur-sm bg-opacity-95">
-      <nav className="container mx-auto px-4 py-3">
-        <div className="flex items-center justify-between">
+      <nav className="container mx-auto px-4 sm:px-6 py-3">
+        <div className="flex items-center justify-between gap-2">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-            <img src={logo} alt="MultiTools Logo" className="h-10 w-10" />
-            <span className="text-xl font-bold text-primary hidden sm:block">MultiTools</span>
+          <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity flex-shrink-0">
+            <img src={logo} alt="MultiTools Logo" className="h-8 w-8 sm:h-10 sm:w-10" />
+            <span className="text-lg sm:text-xl font-bold text-primary hidden xs:block">MultiTools</span>
           </Link>
           
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-1 flex-wrap justify-end">
             {/* Top Categories as Direct Links */}
             {topCategories.map((cat) => (
               <Link
                 key={cat.id}
                 to={`/${cat.slug}`}
-                className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-secondary ${
+                className={`px-2 xl:px-3 py-2 rounded-lg text-xs xl:text-sm font-medium transition-colors hover:bg-secondary whitespace-nowrap ${
                   isCategoryActive(cat.slug) ? "text-primary bg-primary/10" : "text-foreground"
                 }`}
               >
@@ -111,15 +111,15 @@ const Header = () => {
             <div className="relative" ref={dropdownRef}>
               <button 
                 onClick={() => setAllToolsOpen(!allToolsOpen)} 
-                className={`flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-secondary ${
+                className={`flex items-center gap-1 px-2 xl:px-3 py-2 rounded-lg text-xs xl:text-sm font-medium transition-colors hover:bg-secondary ${
                   allToolsOpen ? "text-primary bg-primary/10" : "text-foreground"
                 }`}
               >
-                ALL TOOLS <ChevronDown className={`w-4 h-4 transition-transform ${allToolsOpen ? 'rotate-180' : ''}`} />
+                ALL TOOLS <ChevronDown className={`w-3 h-3 xl:w-4 xl:h-4 transition-transform ${allToolsOpen ? 'rotate-180' : ''}`} />
               </button>
               
               {allToolsOpen && (
-                <div className="absolute top-full right-0 mt-2 w-[900px] bg-card border border-border rounded-xl shadow-2xl z-[100] overflow-hidden">
+                <div className="absolute top-full right-0 mt-2 w-[95vw] max-w-[900px] bg-card border border-border rounded-xl shadow-2xl z-[100] overflow-hidden">
                   {/* Search Bar */}
                   <div className="p-4 border-b border-border bg-secondary/30">
                     <div className="relative max-w-md mx-auto">
@@ -134,9 +134,9 @@ const Header = () => {
                   </div>
                   
                   {/* Categories Grid with Tools */}
-                  <ScrollArea className="h-[480px]">
-                    <div className="p-4">
-                      <div className="grid grid-cols-5 gap-6">
+                  <ScrollArea className="h-[60vh] max-h-[480px]">
+                    <div className="p-3 sm:p-4">
+                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6">
                         {filteredCategories.map((cat) => {
                           const gradient = getGradient(cat.id);
                           return (
@@ -145,43 +145,43 @@ const Header = () => {
                               <Link
                                 to={`/${cat.slug}`}
                                 onClick={() => setAllToolsOpen(false)}
-                                className="flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-muted-foreground hover:text-primary transition-colors pb-2 border-b border-border"
+                                className="flex items-center gap-2 text-[10px] sm:text-xs font-bold uppercase tracking-wide text-muted-foreground hover:text-primary transition-colors pb-2 border-b border-border"
                               >
                                 <div 
-                                  className="w-4 h-4 rounded flex items-center justify-center"
+                                  className="w-3 h-3 sm:w-4 sm:h-4 rounded flex items-center justify-center flex-shrink-0"
                                   style={{ background: `linear-gradient(135deg, ${gradient.from}, ${gradient.to})` }}
                                 />
-                                {cat.name.replace(" Tools", "").replace(" Image", "")}
+                                <span className="truncate">{cat.name.replace(" Tools", "").replace(" Image", "")}</span>
                               </Link>
                               
                               {/* Tools List */}
                               <div className="space-y-0.5">
-                                {cat.tools.slice(0, 6).map((tool) => (
+                                {cat.tools.slice(0, 5).map((tool) => (
                                   <Link
                                     key={tool.id}
                                     to={`/${tool.slug}`}
                                     onClick={() => setAllToolsOpen(false)}
-                                    className="flex items-center gap-2 py-1.5 text-sm hover:text-primary transition-colors group"
+                                    className="flex items-center gap-1.5 sm:gap-2 py-1 sm:py-1.5 text-xs sm:text-sm hover:text-primary transition-colors group"
                                   >
                                     <div 
-                                      className="w-5 h-5 rounded flex items-center justify-center flex-shrink-0"
+                                      className="w-4 h-4 sm:w-5 sm:h-5 rounded flex items-center justify-center flex-shrink-0"
                                       style={{ background: `linear-gradient(135deg, ${gradient.from}30, ${gradient.to}30)` }}
                                     >
                                       <div 
-                                        className="w-1.5 h-1.5 rounded-full"
+                                        className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full"
                                         style={{ background: `linear-gradient(135deg, ${gradient.from}, ${gradient.to})` }}
                                       />
                                     </div>
-                                    <span className="line-clamp-1">{tool.name}</span>
+                                    <span className="line-clamp-1 text-xs">{tool.name}</span>
                                   </Link>
                                 ))}
-                                {cat.tools.length > 6 && (
+                                {cat.tools.length > 5 && (
                                   <Link
                                     to={`/${cat.slug}`}
                                     onClick={() => setAllToolsOpen(false)}
-                                    className="text-xs text-primary hover:underline pt-1 block"
+                                    className="text-[10px] sm:text-xs text-primary hover:underline pt-1 block"
                                   >
-                                    +{cat.tools.length - 6} more
+                                    +{cat.tools.length - 5} more
                                   </Link>
                                 )}
                               </div>

@@ -105,41 +105,41 @@ const CategoryPageLayout = ({
         
         <main className="flex-1">
           {/* Hero Section */}
-          <section className="py-8 md:py-12 bg-gradient-hero relative overflow-hidden">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-3xl" />
+          <section className="py-6 sm:py-8 md:py-12 bg-gradient-hero relative overflow-hidden">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[400px] md:w-[600px] h-[300px] sm:h-[400px] md:h-[600px] bg-primary/10 rounded-full blur-3xl" />
             
-            <div className="container mx-auto px-4 relative z-10">
-              <div className="text-center max-w-3xl mx-auto mb-8">
-                <h1 className="text-3xl md:text-5xl font-bold mb-4">
+            <div className="container mx-auto px-4 sm:px-6 relative z-10">
+              <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4">
                   {category.name}
                 </h1>
-                <p className="text-lg text-muted-foreground">
-                  {introduction.substring(0, 200)}...
+                <p className="text-sm sm:text-base md:text-lg text-muted-foreground px-2">
+                  {introduction.substring(0, 150)}...
                 </p>
               </div>
               
               {/* Main Tool Component (if provided) */}
               {children && (
-                <div className="max-w-4xl mx-auto mb-12">
+                <div className="max-w-4xl mx-auto mb-8 sm:mb-12">
                   {children}
                 </div>
               )}
 
               {/* Tools Grid */}
               <div className="max-w-5xl mx-auto">
-                <h2 className="text-2xl font-bold mb-6 text-center">Choose Your Tool</h2>
-                <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+                <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-center">Choose Your Tool</h2>
+                <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
                   {category.tools.map((tool) => (
                     <Link
                       key={tool.id}
                       to={`/${tool.slug}`}
-                      className="group bg-card rounded-xl p-5 border border-border hover:border-primary/50 transition-all duration-300 hover-lift"
+                      className="group bg-card rounded-xl p-4 sm:p-5 border border-border hover:border-primary/50 transition-all duration-300 hover-lift touch-target"
                     >
-                      <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">
+                      <h3 className="font-semibold text-sm sm:text-base mb-1 sm:mb-2 group-hover:text-primary transition-colors">
                         {tool.name}
                       </h3>
-                      <p className="text-sm text-muted-foreground mb-3">{tool.description}</p>
-                      <div className="flex items-center gap-1 text-primary text-sm font-medium">
+                      <p className="text-xs sm:text-sm text-muted-foreground mb-2 sm:mb-3 line-clamp-2">{tool.description}</p>
+                      <div className="flex items-center gap-1 text-primary text-xs sm:text-sm font-medium">
                         <span>Use Tool</span>
                         <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                       </div>
@@ -151,36 +151,36 @@ const CategoryPageLayout = ({
           </section>
 
           {/* Introduction Section */}
-          <section className="py-12 md:py-16 px-4">
+          <section className="py-8 sm:py-12 md:py-16 px-4 sm:px-6">
             <div className="container mx-auto max-w-4xl">
-              <h2 className="text-2xl md:text-3xl font-bold mb-6">What is {category.name}?</h2>
-              <p className="text-muted-foreground leading-relaxed">{introduction}</p>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6">What is {category.name}?</h2>
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">{introduction}</p>
             </div>
           </section>
 
           {/* Features & Benefits */}
-          <section className="py-12 md:py-16 px-4 bg-gradient-dark">
+          <section className="py-8 sm:py-12 md:py-16 px-4 sm:px-6 bg-gradient-dark">
             <div className="container mx-auto max-w-5xl">
-              <div className="grid md:grid-cols-2 gap-8">
-                <div className="bg-card rounded-2xl p-6 border border-border">
-                  <h2 className="text-xl font-bold mb-4 text-primary">Key Features</h2>
-                  <ul className="space-y-3">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
+                <div className="bg-card rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-border">
+                  <h2 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-primary">Key Features</h2>
+                  <ul className="space-y-2 sm:space-y-3">
                     {features.map((feature, i) => (
-                      <li key={i} className="flex items-start gap-3">
-                        <span className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
-                        <span className="text-muted-foreground">{feature}</span>
+                      <li key={i} className="flex items-start gap-2 sm:gap-3">
+                        <span className="w-2 h-2 rounded-full bg-primary mt-1.5 sm:mt-2 flex-shrink-0" />
+                        <span className="text-xs sm:text-sm text-muted-foreground">{feature}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
                 
-                <div className="bg-card rounded-2xl p-6 border border-border">
-                  <h2 className="text-xl font-bold mb-4 text-primary">Benefits</h2>
-                  <ul className="space-y-3">
+                <div className="bg-card rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-border">
+                  <h2 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-primary">Benefits</h2>
+                  <ul className="space-y-2 sm:space-y-3">
                     {benefits.map((benefit, i) => (
-                      <li key={i} className="flex items-start gap-3">
-                        <span className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
-                        <span className="text-muted-foreground">{benefit}</span>
+                      <li key={i} className="flex items-start gap-2 sm:gap-3">
+                        <span className="w-2 h-2 rounded-full bg-accent mt-1.5 sm:mt-2 flex-shrink-0" />
+                        <span className="text-xs sm:text-sm text-muted-foreground">{benefit}</span>
                       </li>
                     ))}
                   </ul>
@@ -190,16 +190,16 @@ const CategoryPageLayout = ({
           </section>
 
           {/* How to Use */}
-          <section className="py-12 md:py-16 px-4">
+          <section className="py-8 sm:py-12 md:py-16 px-4 sm:px-6">
             <div className="container mx-auto max-w-4xl">
-              <h2 className="text-2xl md:text-3xl font-bold mb-6">How to Use {category.name}</h2>
-              <div className="space-y-4">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6">How to Use {category.name}</h2>
+              <div className="space-y-3 sm:space-y-4">
                 {howToUse.map((step, i) => (
-                  <div key={i} className="flex gap-4 items-start">
-                    <div className="w-8 h-8 rounded-full bg-gradient-orange flex items-center justify-center text-sm font-bold flex-shrink-0">
+                  <div key={i} className="flex gap-3 sm:gap-4 items-start">
+                    <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-gradient-orange flex items-center justify-center text-xs sm:text-sm font-bold flex-shrink-0">
                       {i + 1}
                     </div>
-                    <p className="text-muted-foreground pt-1">{step}</p>
+                    <p className="text-xs sm:text-sm text-muted-foreground pt-0.5 sm:pt-1">{step}</p>
                   </div>
                 ))}
               </div>
@@ -207,23 +207,23 @@ const CategoryPageLayout = ({
           </section>
 
           {/* Detailed Article */}
-          <section className="py-12 md:py-16 px-4 bg-gradient-dark">
+          <section className="py-8 sm:py-12 md:py-16 px-4 sm:px-6 bg-gradient-dark">
             <div className="container mx-auto max-w-4xl">
-              <h2 className="text-2xl md:text-3xl font-bold mb-6">Why Choose Our {category.name}?</h2>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6">Why Choose Our {category.name}?</h2>
               <div className="prose prose-invert max-w-none">
-                <p className="text-muted-foreground leading-relaxed whitespace-pre-line">{article}</p>
+                <p className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed whitespace-pre-line">{article}</p>
               </div>
             </div>
           </section>
 
           {/* Use Cases */}
-          <section className="py-12 md:py-16 px-4">
+          <section className="py-8 sm:py-12 md:py-16 px-4 sm:px-6">
             <div className="container mx-auto max-w-4xl">
-              <h2 className="text-2xl md:text-3xl font-bold mb-6">Use Cases</h2>
-              <div className="grid sm:grid-cols-2 gap-4">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6">Use Cases</h2>
+              <div className="grid grid-cols-1 xs:grid-cols-2 gap-3 sm:gap-4">
                 {useCases.map((useCase, i) => (
-                  <div key={i} className="bg-card rounded-xl p-4 border border-border">
-                    <p className="text-muted-foreground">{useCase}</p>
+                  <div key={i} className="bg-card rounded-lg sm:rounded-xl p-3 sm:p-4 border border-border">
+                    <p className="text-xs sm:text-sm text-muted-foreground">{useCase}</p>
                   </div>
                 ))}
               </div>
@@ -231,16 +231,16 @@ const CategoryPageLayout = ({
           </section>
 
           {/* FAQs */}
-          <section className="py-12 md:py-16 px-4 bg-gradient-dark">
+          <section className="py-8 sm:py-12 md:py-16 px-4 sm:px-6 bg-gradient-dark">
             <div className="container mx-auto max-w-4xl">
-              <h2 className="text-2xl md:text-3xl font-bold mb-6">Frequently Asked Questions</h2>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6">Frequently Asked Questions</h2>
               <Accordion type="single" collapsible className="space-y-2">
                 {faqs.map((faq, i) => (
-                  <AccordionItem key={i} value={`faq-${i}`} className="bg-card border border-border rounded-xl px-4">
-                    <AccordionTrigger className="text-left hover:no-underline">
+                  <AccordionItem key={i} value={`faq-${i}`} className="bg-card border border-border rounded-lg sm:rounded-xl px-3 sm:px-4">
+                    <AccordionTrigger className="text-left hover:no-underline text-sm sm:text-base py-3 sm:py-4">
                       {faq.question}
                     </AccordionTrigger>
-                    <AccordionContent className="text-muted-foreground">
+                    <AccordionContent className="text-xs sm:text-sm text-muted-foreground pb-3 sm:pb-4">
                       {faq.answer}
                     </AccordionContent>
                   </AccordionItem>
@@ -250,18 +250,18 @@ const CategoryPageLayout = ({
           </section>
 
           {/* Internal Links */}
-          <section className="py-12 md:py-16 px-4">
+          <section className="py-8 sm:py-12 md:py-16 px-4 sm:px-6">
             <div className="container mx-auto max-w-5xl">
-              <h2 className="text-2xl md:text-3xl font-bold mb-6">Explore More Image Tools</h2>
-              <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6">Explore More Image Tools</h2>
+              <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
                 {otherCategories.map((cat) => (
                   <Link
                     key={cat.id}
                     to={`/${cat.slug}`}
-                    className="bg-card rounded-xl p-4 border border-border hover:border-primary/50 transition-colors group"
+                    className="bg-card rounded-lg sm:rounded-xl p-3 sm:p-4 border border-border hover:border-primary/50 transition-colors group touch-target"
                   >
-                    <h3 className="font-semibold group-hover:text-primary transition-colors">{cat.name}</h3>
-                    <p className="text-sm text-muted-foreground mt-1">{cat.description}</p>
+                    <h3 className="text-sm sm:text-base font-semibold group-hover:text-primary transition-colors">{cat.name}</h3>
+                    <p className="text-xs sm:text-sm text-muted-foreground mt-1 line-clamp-2">{cat.description}</p>
                   </Link>
                 ))}
               </div>
