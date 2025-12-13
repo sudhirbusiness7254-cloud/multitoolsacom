@@ -306,62 +306,88 @@ const HomePage = () => {
             </div>
           </section>
 
-          {/* All Tools Quick Access */}
+          {/* Complete Tools by Category Section */}
           <section className="py-12 md:py-16 px-4 bg-secondary/30">
             <div className="container mx-auto max-w-7xl">
-              <h2 className="text-2xl font-bold text-center mb-8">Quick Access to All Tools</h2>
+              <div className="text-center mb-12">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">All Tools by Category</h2>
+                <p className="text-muted-foreground max-w-2xl mx-auto">
+                  Browse all {totalTools}+ tools organized by category. Click any tool to use it instantly.
+                </p>
+              </div>
               
-              {imageCategories.slice(0, 4).map((category) => {
-                const gradient = getGradient(category.id);
-                return (
-                  <div key={category.id} className="mb-8">
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center gap-3">
-                        <div 
-                          className="w-8 h-8 rounded-lg flex items-center justify-center"
-                          style={{ background: `linear-gradient(135deg, ${gradient.from}, ${gradient.to})` }}
-                        >
-                          <span className="text-white text-xs font-bold">{category.tools.length}</span>
+              <div className="space-y-10">
+                {imageCategories.map((category) => {
+                  const gradient = getGradient(category.id);
+                  return (
+                    <div key={category.id} className="bg-card rounded-2xl p-6 border border-border">
+                      {/* Category Header */}
+                      <div className="flex items-center justify-between mb-6 pb-4 border-b border-border">
+                        <div className="flex items-center gap-4">
+                          <div 
+                            className="w-12 h-12 rounded-xl flex items-center justify-center"
+                            style={{ background: `linear-gradient(135deg, ${gradient.from}, ${gradient.to})` }}
+                          >
+                            <span className="text-white text-lg font-bold">{category.tools.length}</span>
+                          </div>
+                          <div>
+                            <h3 className="text-xl font-bold">{category.name}</h3>
+                            <p className="text-sm text-muted-foreground">{category.description}</p>
+                          </div>
                         </div>
-                        <h3 className="font-semibold">{category.name}</h3>
-                      </div>
-                      <Link 
-                        to={`/${category.slug}`}
-                        className="text-sm text-primary hover:underline"
-                      >
-                        View All →
-                      </Link>
-                    </div>
-                    <div className="flex flex-wrap gap-2">
-                      {category.tools.slice(0, 8).map((tool) => (
-                        <Link
-                          key={tool.id}
-                          to={`/${tool.slug}`}
-                          className="px-3 py-1.5 bg-card border border-border rounded-lg text-sm hover:border-primary/50 hover:text-primary transition-colors"
-                        >
-                          {tool.name}
-                        </Link>
-                      ))}
-                      {category.tools.length > 8 && (
-                        <Link
+                        <Link 
                           to={`/${category.slug}`}
-                          className="px-3 py-1.5 bg-primary/10 text-primary rounded-lg text-sm hover:bg-primary/20 transition-colors"
+                          className="hidden sm:flex items-center gap-2 px-4 py-2 rounded-lg bg-primary/10 text-primary hover:bg-primary/20 transition-colors text-sm font-medium"
                         >
-                          +{category.tools.length - 8} more
+                          View Category <ArrowRight className="w-4 h-4" />
                         </Link>
-                      )}
+                      </div>
+                      
+                      {/* All Tools Grid */}
+                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3">
+                        {category.tools.map((tool) => (
+                          <Link
+                            key={tool.id}
+                            to={`/${tool.slug}`}
+                            className="group flex items-center gap-2 p-3 rounded-lg bg-secondary/50 hover:bg-secondary border border-transparent hover:border-primary/30 transition-all"
+                          >
+                            <div 
+                              className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
+                              style={{ background: `linear-gradient(135deg, ${gradient.from}30, ${gradient.to}30)` }}
+                            >
+                              <div 
+                                className="w-2.5 h-2.5 rounded-full"
+                                style={{ background: `linear-gradient(135deg, ${gradient.from}, ${gradient.to})` }}
+                              />
+                            </div>
+                            <span className="text-sm font-medium group-hover:text-primary transition-colors line-clamp-1">
+                              {tool.name}
+                            </span>
+                          </Link>
+                        ))}
+                      </div>
+                      
+                      {/* Mobile View Category Link */}
+                      <div className="sm:hidden mt-4 text-center">
+                        <Link 
+                          to={`/${category.slug}`}
+                          className="inline-flex items-center gap-2 text-primary text-sm font-medium hover:underline"
+                        >
+                          View {category.name} Category <ArrowRight className="w-4 h-4" />
+                        </Link>
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
               
-              <div className="text-center">
+              <div className="text-center mt-12">
                 <Link 
                   to="/all-tools"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-colors text-lg"
                 >
                   Browse All {totalTools}+ Tools
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-5 h-5" />
                 </Link>
               </div>
             </div>
