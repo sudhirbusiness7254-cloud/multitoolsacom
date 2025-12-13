@@ -230,14 +230,6 @@ const Header = () => {
             >
               About
             </Link>
-            <Link 
-              to="/contact" 
-              className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-secondary ${
-                isActive("/contact") ? "text-primary" : "text-foreground"
-              }`}
-            >
-              Contact
-            </Link>
           </div>
           
           {/* Mobile Menu Button */}
@@ -379,13 +371,6 @@ const Header = () => {
                   className="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-secondary transition-colors touch-target"
                 >
                   <span className="font-medium text-sm">About</span>
-                </Link>
-                <Link
-                  to="/contact"
-                  onClick={closeMobileMenu}
-                  className="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-secondary transition-colors touch-target"
-                >
-                  <span className="font-medium text-sm">Contact</span>
                 </Link>
               </div>
             </ScrollArea>
