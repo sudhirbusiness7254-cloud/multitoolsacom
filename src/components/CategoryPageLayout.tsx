@@ -5,41 +5,32 @@ import Footer from "@/components/Footer";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ArrowRight } from "lucide-react";
 import { toolCategories, Category } from "@/data/toolsData";
-
-interface FAQ {
-  question: string;
-  answer: string;
-}
+import { CategorySEOContent } from "@/data/categorySEOData";
 
 interface CategoryPageLayoutProps {
   category: Category;
-  metaTitle: string;
-  metaDescription: string;
-  keywords: string[];
-  introduction: string;
-  article: string;
-  features: string[];
-  benefits: string[];
-  howToUse: string[];
-  faqs: FAQ[];
-  useCases: string[];
+  seoContent: CategorySEOContent;
   children?: React.ReactNode;
 }
 
 const CategoryPageLayout = ({
   category,
-  metaTitle,
-  metaDescription,
-  keywords,
-  introduction,
-  article,
-  features,
-  benefits,
-  howToUse,
-  faqs,
-  useCases,
+  seoContent,
   children
 }: CategoryPageLayoutProps) => {
+  const {
+    metaTitle,
+    metaDescription,
+    h1,
+    shortDescription,
+    longDescription,
+    howToUse,
+    benefits,
+    faqs,
+    gradientFrom,
+    gradientTo
+  } = seoContent;
+  
   const canonicalUrl = `https://multitools.com/${category.slug}`;
 
   const schemaMarkup = {
@@ -80,7 +71,6 @@ const CategoryPageLayout = ({
       <Helmet>
         <title>{metaTitle}</title>
         <meta name="description" content={metaDescription} />
-        <meta name="keywords" content={keywords.join(", ")} />
         <link rel="canonical" href={canonicalUrl} />
         
         <meta property="og:title" content={metaTitle} />
@@ -105,16 +95,24 @@ const CategoryPageLayout = ({
         
         <main className="flex-1">
           {/* Hero Section */}
-          <section className="py-6 sm:py-8 md:py-12 bg-gradient-hero relative overflow-hidden">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[400px] md:w-[600px] h-[300px] sm:h-[400px] md:h-[600px] bg-primary/10 rounded-full blur-3xl" />
+          <section 
+            className="py-6 sm:py-8 md:py-12 relative overflow-hidden"
+            style={{
+              background: `linear-gradient(135deg, ${gradientFrom}20 0%, ${gradientTo}20 100%)`
+            }}
+          >
+            <div 
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[400px] md:w-[600px] h-[300px] sm:h-[400px] md:h-[600px] rounded-full blur-3xl"
+              style={{ backgroundColor: `${gradientFrom}15` }}
+            />
             
             <div className="container mx-auto px-4 sm:px-6 relative z-10">
               <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8">
                 <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4">
-                  {category.name}
+                  {h1 || category.name}
                 </h1>
                 <p className="text-sm sm:text-base md:text-lg text-muted-foreground px-2">
-                  {introduction.substring(0, 150)}...
+                  {shortDescription}
                 </p>
               </div>
               
@@ -154,37 +152,29 @@ const CategoryPageLayout = ({
           <section className="py-8 sm:py-12 md:py-16 px-4 sm:px-6">
             <div className="container mx-auto max-w-4xl">
               <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6">What is {category.name}?</h2>
-              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">{introduction}</p>
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">{longDescription}</p>
             </div>
           </section>
 
-          {/* Features & Benefits */}
+          {/* Benefits */}
           <section className="py-8 sm:py-12 md:py-16 px-4 sm:px-6 bg-gradient-dark">
             <div className="container mx-auto max-w-5xl">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
-                <div className="bg-card rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-border">
-                  <h2 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-primary">Key Features</h2>
-                  <ul className="space-y-2 sm:space-y-3">
-                    {features.map((feature, i) => (
-                      <li key={i} className="flex items-start gap-2 sm:gap-3">
-                        <span className="w-2 h-2 rounded-full bg-primary mt-1.5 sm:mt-2 flex-shrink-0" />
-                        <span className="text-xs sm:text-sm text-muted-foreground">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                
-                <div className="bg-card rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-border">
-                  <h2 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-primary">Benefits</h2>
-                  <ul className="space-y-2 sm:space-y-3">
-                    {benefits.map((benefit, i) => (
-                      <li key={i} className="flex items-start gap-2 sm:gap-3">
-                        <span className="w-2 h-2 rounded-full bg-accent mt-1.5 sm:mt-2 flex-shrink-0" />
-                        <span className="text-xs sm:text-sm text-muted-foreground">{benefit}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 sm:mb-8 text-center">Key Benefits</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                {benefits.map((benefit, i) => (
+                  <div 
+                    key={i} 
+                    className="bg-card rounded-xl p-4 sm:p-5 border border-border flex items-start gap-3"
+                  >
+                    <div 
+                      className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 text-white font-bold text-sm"
+                      style={{ background: `linear-gradient(135deg, ${gradientFrom}, ${gradientTo})` }}
+                    >
+                      {i + 1}
+                    </div>
+                    <span className="text-sm text-muted-foreground pt-1">{benefit}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </section>
@@ -196,42 +186,49 @@ const CategoryPageLayout = ({
               <div className="space-y-3 sm:space-y-4">
                 {howToUse.map((step, i) => (
                   <div key={i} className="flex gap-3 sm:gap-4 items-start">
-                    <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-gradient-orange flex items-center justify-center text-xs sm:text-sm font-bold flex-shrink-0">
+                    <div 
+                      className="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-sm sm:text-base font-bold flex-shrink-0 text-white"
+                      style={{ background: `linear-gradient(135deg, ${gradientFrom}, ${gradientTo})` }}
+                    >
                       {i + 1}
                     </div>
-                    <p className="text-xs sm:text-sm text-muted-foreground pt-0.5 sm:pt-1">{step}</p>
+                    <div className="bg-card rounded-xl p-4 flex-1 border border-border">
+                      <p className="text-sm text-muted-foreground">{step}</p>
+                    </div>
                   </div>
                 ))}
               </div>
             </div>
           </section>
 
-          {/* Detailed Article */}
+          {/* Why Choose Us Article */}
           <section className="py-8 sm:py-12 md:py-16 px-4 sm:px-6 bg-gradient-dark">
             <div className="container mx-auto max-w-4xl">
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6">Why Choose Our {category.name}?</h2>
-              <div className="prose prose-invert max-w-none">
-                <p className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed whitespace-pre-line">{article}</p>
-              </div>
-            </div>
-          </section>
-
-          {/* Use Cases */}
-          <section className="py-8 sm:py-12 md:py-16 px-4 sm:px-6">
-            <div className="container mx-auto max-w-4xl">
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6">Use Cases</h2>
-              <div className="grid grid-cols-1 xs:grid-cols-2 gap-3 sm:gap-4">
-                {useCases.map((useCase, i) => (
-                  <div key={i} className="bg-card rounded-lg sm:rounded-xl p-3 sm:p-4 border border-border">
-                    <p className="text-xs sm:text-sm text-muted-foreground">{useCase}</p>
-                  </div>
-                ))}
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6">Why Choose Our {category.name} Tools?</h2>
+              <div className="bg-card rounded-2xl p-6 sm:p-8 border border-border">
+                <div className="prose prose-invert max-w-none">
+                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                    Our {category.name.toLowerCase()} tools are designed with simplicity and power in mind. 
+                    Every tool works directly in your browser, meaning your files never leave your device. 
+                    This ensures complete privacy and faster processing times compared to server-based alternatives.
+                  </p>
+                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mt-4">
+                    Whether you're a professional photographer, designer, marketer, or casual user, 
+                    our tools provide the perfect balance of functionality and ease of use. 
+                    No sign-up required, no watermarks, no hidden fees – just powerful image tools at your fingertips.
+                  </p>
+                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mt-4">
+                    We continuously update our tools to support the latest image formats and technologies, 
+                    ensuring you always have access to cutting-edge features without the complexity of 
+                    professional desktop software.
+                  </p>
+                </div>
               </div>
             </div>
           </section>
 
           {/* FAQs */}
-          <section className="py-8 sm:py-12 md:py-16 px-4 sm:px-6 bg-gradient-dark">
+          <section className="py-8 sm:py-12 md:py-16 px-4 sm:px-6">
             <div className="container mx-auto max-w-4xl">
               <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6">Frequently Asked Questions</h2>
               <Accordion type="single" collapsible className="space-y-2">
@@ -250,7 +247,7 @@ const CategoryPageLayout = ({
           </section>
 
           {/* Internal Links */}
-          <section className="py-8 sm:py-12 md:py-16 px-4 sm:px-6">
+          <section className="py-8 sm:py-12 md:py-16 px-4 sm:px-6 bg-gradient-dark">
             <div className="container mx-auto max-w-5xl">
               <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6">Explore More Image Tools</h2>
               <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
