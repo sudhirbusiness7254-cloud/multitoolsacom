@@ -2,8 +2,29 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { ArrowRight, Zap, Shield, Globe, Sparkles, Hash, Star, TrendingUp } from "lucide-react";
+import { ArrowRight, Zap, Shield, Globe, Sparkles, Hash, Star, TrendingUp, RefreshCw, Minimize2, Maximize2, Crop, Droplet, RotateCw, Settings, Palette, Layers, FileText, Database, Zap as ZapIcon, Pencil, Lock, QrCode, Image } from "lucide-react";
 import { toolCategories } from "@/data/toolsData";
+import { getToolIcon } from "@/components/icons/ToolIcons";
+
+// Category icons mapping
+const categoryLucideIcons: Record<string, React.ReactNode> = {
+  "image-converter": <RefreshCw className="w-6 h-6 text-white" />,
+  "image-compression": <Minimize2 className="w-6 h-6 text-white" />,
+  "image-to-document": <FileText className="w-6 h-6 text-white" />,
+  "image-resize": <Maximize2 className="w-6 h-6 text-white" />,
+  "image-crop": <Crop className="w-6 h-6 text-white" />,
+  "image-rotate-flip": <RotateCw className="w-6 h-6 text-white" />,
+  "image-format-utilities": <Settings className="w-6 h-6 text-white" />,
+  "photo-filters": <Palette className="w-6 h-6 text-white" />,
+  "watermark-tools": <Droplet className="w-6 h-6 text-white" />,
+  "image-combine": <Layers className="w-6 h-6 text-white" />,
+  "image-metadata": <Database className="w-6 h-6 text-white" />,
+  "image-optimization": <ZapIcon className="w-6 h-6 text-white" />,
+  "image-drawing": <Pencil className="w-6 h-6 text-white" />,
+  "image-security": <Lock className="w-6 h-6 text-white" />,
+  "image-qr": <QrCode className="w-6 h-6 text-white" />,
+  "tag-tools": <Hash className="w-6 h-6 text-white" />,
+};
 
 // Colorful gradients for categories and tools
 const categoryGradients: Record<string, { from: string; to: string }> = {
@@ -205,7 +226,7 @@ const HomePage = () => {
                           className="w-14 h-14 rounded-xl flex items-center justify-center mb-4"
                           style={{ background: `linear-gradient(135deg, ${gradient.from}, ${gradient.to})` }}
                         >
-                          <span className="text-white text-xl font-bold">{category.tools.length}</span>
+                          {categoryLucideIcons[category.id] || <Image className="w-6 h-6 text-white" />}
                         </div>
                         
                         <h3 className="text-lg font-bold mb-2 group-hover:text-primary transition-colors">{category.name}</h3>
@@ -328,7 +349,7 @@ const HomePage = () => {
                             className="w-12 h-12 rounded-xl flex items-center justify-center"
                             style={{ background: `linear-gradient(135deg, ${gradient.from}, ${gradient.to})` }}
                           >
-                            <span className="text-white text-lg font-bold">{category.tools.length}</span>
+                            {categoryLucideIcons[category.id] || <Image className="w-5 h-5 text-white" />}
                           </div>
                           <div>
                             <h3 className="text-xl font-bold">{category.name}</h3>

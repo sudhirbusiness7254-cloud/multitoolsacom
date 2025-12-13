@@ -1,10 +1,20 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, ChevronDown, Search } from "lucide-react";
+import { Menu, X, ChevronDown, Search, RefreshCw, Minimize2, Maximize2, Crop, Droplet, Image } from "lucide-react";
 import logo from "@/assets/logo.png";
 import { toolCategories } from "@/data/toolsData";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { getToolIcon } from "@/components/icons/ToolIcons";
+
+// Category icon mapping
+const categoryIcons: Record<string, React.ReactNode> = {
+  "image-converter": <RefreshCw className="w-4 h-4 text-white" />,
+  "image-compression": <Minimize2 className="w-4 h-4 text-white" />,
+  "image-resize": <Maximize2 className="w-4 h-4 text-white" />,
+  "image-crop": <Crop className="w-4 h-4 text-white" />,
+  "watermark-tools": <Droplet className="w-4 h-4 text-white" />,
+};
 
 // Colorful gradients for categories
 const categoryGradients: Record<string, { from: string; to: string }> = {
@@ -276,7 +286,7 @@ const Header = () => {
                         className="w-8 h-8 rounded-lg flex items-center justify-center"
                         style={{ background: `linear-gradient(135deg, ${gradient.from}, ${gradient.to})` }}
                       >
-                        <span className="text-white text-xs font-bold">{cat.tools.length}</span>
+                        {categoryIcons[cat.id] || <Image className="w-4 h-4 text-white" />}
                       </div>
                       <span className="font-medium">{cat.name}</span>
                     </Link>
@@ -301,7 +311,7 @@ const Header = () => {
                             className="w-8 h-8 rounded-lg flex items-center justify-center"
                             style={{ background: `linear-gradient(135deg, ${gradient.from}, ${gradient.to})` }}
                           >
-                            <span className="text-white text-xs font-bold">{cat.tools.length}</span>
+                            {categoryIcons[cat.id] || <Image className="w-4 h-4 text-white" />}
                           </div>
                           <span className="font-medium">{cat.name}</span>
                         </div>
