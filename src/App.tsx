@@ -10,6 +10,8 @@ import About from "./pages/About";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import Contact from "./pages/Contact";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 import ImageToolsPage from "./pages/ImageToolsPage";
 import ImageConverterPage from "./pages/ImageConverterPage";
 import NotFound from "./pages/NotFound";
@@ -52,6 +54,8 @@ const App = () => (
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
             
             {/* Image Tools Landing Page */}
             <Route path="/image-tools" element={<ImageToolsPage />} />
