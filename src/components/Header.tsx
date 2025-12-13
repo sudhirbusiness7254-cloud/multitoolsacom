@@ -94,23 +94,24 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-card/95 border-b border-border sticky top-0 z-50 backdrop-blur-md">
-      <nav className="container mx-auto px-3 sm:px-4 md:px-6 py-2.5 sm:py-3">
-        <div className="flex items-center justify-between gap-3">
+    <header className="bg-card/95 border-b border-border sticky top-0 z-50 backdrop-blur-md overflow-x-hidden">
+      <nav className="container mx-auto px-3 sm:px-4 md:px-6 py-2.5 sm:py-3 max-w-full">
+        <div className="flex items-center justify-between gap-2 lg:gap-3">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity flex-shrink-0">
             <img src={logo} alt="MultiTools Logo" className="h-8 w-8" />
-            <span className="text-base sm:text-lg md:text-xl font-bold text-primary">MultiTools</span>
+            <span className="text-base sm:text-lg md:text-xl font-bold text-primary hidden sm:block lg:hidden xl:block">MultiTools</span>
+            <span className="text-base font-bold text-primary sm:hidden lg:block xl:hidden">MT</span>
           </Link>
           
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-1 xl:gap-2">
+          <div className="hidden lg:flex items-center gap-0.5 xl:gap-1 flex-shrink min-w-0">
             {/* Top Categories as Direct Links */}
             {topCategories.map((cat) => (
               <Link
                 key={cat.id}
                 to={`/${cat.slug}`}
-                className={`px-2.5 xl:px-3 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-secondary whitespace-nowrap ${
+                className={`px-2 xl:px-2.5 py-1.5 xl:py-2 rounded-lg text-xs xl:text-sm font-medium transition-colors hover:bg-secondary whitespace-nowrap ${
                   isCategoryActive(cat.slug) ? "text-primary bg-primary/10" : "text-foreground"
                 }`}
               >
@@ -122,11 +123,13 @@ const Header = () => {
             <div className="relative" ref={dropdownRef}>
               <button 
                 onClick={() => setAllToolsOpen(!allToolsOpen)} 
-                className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-secondary ${
+                className={`flex items-center gap-1 px-2 xl:px-2.5 py-1.5 xl:py-2 rounded-lg text-xs xl:text-sm font-medium transition-colors hover:bg-secondary whitespace-nowrap ${
                   allToolsOpen ? "text-primary bg-primary/10" : "text-foreground"
                 }`}
               >
-                ALL TOOLS <ChevronDown className={`w-4 h-4 transition-transform ${allToolsOpen ? 'rotate-180' : ''}`} />
+                <span className="hidden xl:inline">ALL TOOLS</span>
+                <span className="xl:hidden">ALL</span>
+                <ChevronDown className={`w-3.5 h-3.5 xl:w-4 xl:h-4 transition-transform ${allToolsOpen ? 'rotate-180' : ''}`} />
               </button>
               
               {allToolsOpen && (
@@ -212,19 +215,20 @@ const Header = () => {
               )}
             </div>
 
-            <div className="w-px h-6 bg-border mx-1 xl:mx-2" />
+            <div className="w-px h-5 bg-border mx-0.5 xl:mx-1" />
             
             <Link 
               to="/tag-extractor" 
-              className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-secondary ${
+              className={`px-2 xl:px-2.5 py-1.5 xl:py-2 rounded-lg text-xs xl:text-sm font-medium transition-colors hover:bg-secondary whitespace-nowrap ${
                 isActive("/tag-extractor") ? "text-primary bg-primary/10" : "text-foreground"
               }`}
             >
-              Tag Generator
+              <span className="hidden xl:inline">Tag Generator</span>
+              <span className="xl:hidden">Tags</span>
             </Link>
             <Link 
               to="/about" 
-              className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-secondary ${
+              className={`px-2 xl:px-2.5 py-1.5 xl:py-2 rounded-lg text-xs xl:text-sm font-medium transition-colors hover:bg-secondary ${
                 isActive("/about") ? "text-primary" : "text-foreground"
               }`}
             >
@@ -232,7 +236,7 @@ const Header = () => {
             </Link>
             <Link 
               to="/contact" 
-              className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-secondary ${
+              className={`px-2 xl:px-2.5 py-1.5 xl:py-2 rounded-lg text-xs xl:text-sm font-medium transition-colors hover:bg-secondary ${
                 isActive("/contact") ? "text-primary" : "text-foreground"
               }`}
             >
