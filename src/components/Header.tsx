@@ -95,64 +95,8 @@ const Header = () => {
               {toolsDropdownOpen && (
                 <div className="absolute top-full left-0 mt-2 w-[800px] bg-card border border-border rounded-xl shadow-2xl z-[100] overflow-hidden">
                   <div className="flex">
-                    {/* Categories Column */}
-                    <div className="w-1/3 bg-secondary/30 border-r border-border p-2">
-                      {/* Search */}
-                      <div className="p-2 mb-2">
-                        <div className="relative">
-                          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                          <Input
-                            placeholder="Search tools..."
-                            value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
-                            className="pl-9 h-9 text-sm bg-background"
-                          />
-                        </div>
-                      </div>
-                      
-                      <ScrollArea className="h-[400px]">
-                        <div className="space-y-1">
-                          {filteredCategories.map((cat) => {
-                            const gradient = getGradient(cat.id);
-                            return (
-                              <button
-                                key={cat.id}
-                                onClick={() => setExpandedCategory(expandedCategory === cat.id ? null : cat.id)}
-                                className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-left transition-colors ${
-                                  expandedCategory === cat.id ? 'bg-secondary' : 'hover:bg-secondary/50'
-                                }`}
-                              >
-                                <div className="flex items-center gap-3">
-                                  <div 
-                                    className="w-8 h-8 rounded-lg flex items-center justify-center"
-                                    style={{ background: `linear-gradient(135deg, ${gradient.from}, ${gradient.to})` }}
-                                  >
-                                    <span className="text-white text-xs font-bold">{cat.tools.length}</span>
-                                  </div>
-                                  <span className="text-sm font-medium">{cat.name}</span>
-                                </div>
-                                <ChevronRight className={`w-4 h-4 text-muted-foreground transition-transform ${expandedCategory === cat.id ? 'rotate-90' : ''}`} />
-                              </button>
-                            );
-                          })}
-                          
-                          {/* All Tools Link */}
-                          <Link
-                            to="/all-tools"
-                            onClick={() => setToolsDropdownOpen(false)}
-                            className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-secondary/50 text-primary"
-                          >
-                            <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center">
-                              <span className="text-primary text-xs font-bold">80+</span>
-                            </div>
-                            <span className="text-sm font-medium">View All Tools</span>
-                          </Link>
-                        </div>
-                      </ScrollArea>
-                    </div>
-                    
-                    {/* Tools Column */}
-                    <div className="w-2/3 p-4">
+                    {/* Tools Column - LEFT SIDE (Large Panel) */}
+                    <div className="w-2/3 p-4 border-r border-border">
                       {expandedCategory ? (
                         <>
                           <div className="flex items-center justify-between mb-4">
@@ -258,6 +202,62 @@ const Header = () => {
                           </Link>
                         </div>
                       )}
+                    </div>
+                    
+                    {/* Categories Column - RIGHT SIDE (Small Panel) */}
+                    <div className="w-1/3 bg-secondary/30 p-2">
+                      {/* Search */}
+                      <div className="p-2 mb-2">
+                        <div className="relative">
+                          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                          <Input
+                            placeholder="Search tools..."
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            className="pl-9 h-9 text-sm bg-background"
+                          />
+                        </div>
+                      </div>
+                      
+                      <ScrollArea className="h-[400px]">
+                        <div className="space-y-1">
+                          {filteredCategories.map((cat) => {
+                            const gradient = getGradient(cat.id);
+                            return (
+                              <button
+                                key={cat.id}
+                                onClick={() => setExpandedCategory(expandedCategory === cat.id ? null : cat.id)}
+                                className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-left transition-colors ${
+                                  expandedCategory === cat.id ? 'bg-secondary' : 'hover:bg-secondary/50'
+                                }`}
+                              >
+                                <div className="flex items-center gap-3">
+                                  <div 
+                                    className="w-8 h-8 rounded-lg flex items-center justify-center"
+                                    style={{ background: `linear-gradient(135deg, ${gradient.from}, ${gradient.to})` }}
+                                  >
+                                    <span className="text-white text-xs font-bold">{cat.tools.length}</span>
+                                  </div>
+                                  <span className="text-sm font-medium">{cat.name}</span>
+                                </div>
+                                <ChevronRight className={`w-4 h-4 text-muted-foreground transition-transform ${expandedCategory === cat.id ? 'rotate-90' : ''}`} />
+                              </button>
+                            );
+                          })}
+                          
+                          {/* All Tools Link */}
+                          <Link
+                            to="/all-tools"
+                            onClick={() => setToolsDropdownOpen(false)}
+                            className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-secondary/50 text-primary"
+                          >
+                            <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center">
+                              <span className="text-primary text-xs font-bold">80+</span>
+                            </div>
+                            <span className="text-sm font-medium">View All Tools</span>
+                          </Link>
+                        </div>
+                      </ScrollArea>
                     </div>
                   </div>
                 </div>
