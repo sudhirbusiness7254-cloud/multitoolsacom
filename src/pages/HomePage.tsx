@@ -112,12 +112,7 @@ const HomePage = () => {
                 </div>
                 
                 <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4 md:mb-5 leading-tight px-2">
-                  Complete Image T
-                  <span className="inline-flex items-center -mx-1">
-                    <span className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 rounded-full bg-gradient-to-br from-green-400 to-green-600 inline-block -mr-1 sm:-mr-1.5 md:-mr-2 shadow-lg shadow-green-500/30" />
-                    <span className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 rounded-full bg-gradient-to-br from-green-500 to-green-700 inline-block shadow-lg shadow-green-500/30" />
-                  </span>
-                  ls
+                  Complete Image T<span className="text-green-500">oo</span>ls
                   <span 
                     className="bg-clip-text text-transparent block sm:inline"
                     style={{ backgroundImage: 'linear-gradient(135deg, #F97316, #EF4444)' }}
