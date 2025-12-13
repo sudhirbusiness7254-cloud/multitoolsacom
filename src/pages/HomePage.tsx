@@ -80,17 +80,17 @@ const HomePage = () => {
         
         <main className="flex-1">
           {/* Hero Section */}
-          <section className="py-16 md:py-24 bg-gradient-hero relative overflow-hidden">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-3xl" />
+          <section className="py-10 sm:py-14 md:py-20 lg:py-24 bg-gradient-hero relative overflow-hidden">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[400px] md:w-[500px] lg:w-[600px] h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] bg-primary/10 rounded-full blur-3xl" />
             
-            <div className="container mx-auto px-4 relative z-10">
-              <div className="text-center max-w-4xl mx-auto mb-12">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 mb-6">
-                  <Sparkles className="w-4 h-4 text-primary" />
-                  <span className="text-sm font-medium text-primary">{totalTools}+ Free Online Tools</span>
+            <div className="container mx-auto px-4 sm:px-6 relative z-10">
+              <div className="text-center max-w-4xl mx-auto mb-8 sm:mb-10 md:mb-12">
+                <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-primary/10 border border-primary/30 mb-4 sm:mb-6">
+                  <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-primary" />
+                  <span className="text-xs sm:text-sm font-medium text-primary">{totalTools}+ Free Online Tools</span>
                 </div>
                 
-                <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+                <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 leading-tight">
                   Complete Image Tools
                   <span 
                     className="bg-clip-text text-transparent"
@@ -98,22 +98,22 @@ const HomePage = () => {
                   > Ecosystem</span>
                 </h1>
                 
-                <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
+                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto mb-6 sm:mb-8 px-2">
                   Convert, compress, resize, crop, edit, and enhance your images. Generate viral hashtags for social media. 
                   All tools are free, fast, and process locally for complete privacy.
                 </p>
                 
-                <div className="flex flex-wrap justify-center gap-4">
+                <div className="flex flex-col xs:flex-row flex-wrap justify-center gap-3 sm:gap-4">
                   <Link 
                     to="/all-tools"
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors"
+                    className="inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors text-sm sm:text-base"
                   >
                     Browse All Tools
                     <ArrowRight className="w-4 h-4" />
                   </Link>
                   <Link 
                     to="/tag-extractor"
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-secondary text-secondary-foreground font-medium hover:bg-secondary/80 transition-colors"
+                    className="inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg bg-secondary text-secondary-foreground font-medium hover:bg-secondary/80 transition-colors text-sm sm:text-base"
                   >
                     <Hash className="w-4 h-4" />
                     Tag Generator
@@ -124,40 +124,40 @@ const HomePage = () => {
           </section>
 
           {/* Popular Tools Section */}
-          <section className="py-12 md:py-16 px-4 bg-secondary/30">
+          <section className="py-8 sm:py-12 md:py-16 px-4 sm:px-6 bg-secondary/30">
             <div className="container mx-auto max-w-7xl">
-              <div className="flex items-center justify-between mb-8">
+              <div className="flex items-center justify-between mb-6 sm:mb-8">
                 <div>
-                  <div className="flex items-center gap-2 mb-2">
-                    <TrendingUp className="w-5 h-5 text-primary" />
-                    <span className="text-sm font-medium text-primary">Most Popular</span>
+                  <div className="flex items-center gap-1.5 sm:gap-2 mb-1 sm:mb-2">
+                    <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+                    <span className="text-xs sm:text-sm font-medium text-primary">Most Popular</span>
                   </div>
-                  <h2 className="text-2xl sm:text-3xl font-bold">Popular Tools</h2>
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold">Popular Tools</h2>
                 </div>
                 <Link 
                   to="/all-tools"
-                  className="hidden sm:flex items-center gap-2 text-primary hover:underline"
+                  className="hidden sm:flex items-center gap-2 text-sm text-primary hover:underline"
                 >
                   View All <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
               
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+              <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-2 sm:gap-3 md:gap-4">
                 {popularTools.map((tool) => {
                   const gradient = getGradient(tool.category);
                   return (
                     <Link 
                       key={tool.slug}
                       to={`/${tool.slug}`}
-                      className="group bg-card rounded-xl p-4 border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+                      className="group bg-card rounded-lg sm:rounded-xl p-3 sm:p-4 border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
                     >
                       <div 
-                        className="w-12 h-12 rounded-xl flex items-center justify-center mb-3 mx-auto"
+                        className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl flex items-center justify-center mb-2 sm:mb-3 mx-auto"
                         style={{ background: `linear-gradient(135deg, ${gradient.from}, ${gradient.to})` }}
                       >
-                        <Star className="w-6 h-6 text-white" />
+                        <Star className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                       </div>
-                      <h3 className="text-sm font-semibold text-center group-hover:text-primary transition-colors line-clamp-2">
+                      <h3 className="text-xs sm:text-sm font-semibold text-center group-hover:text-primary transition-colors line-clamp-2">
                         {tool.name}
                       </h3>
                     </Link>
@@ -165,10 +165,10 @@ const HomePage = () => {
                 })}
               </div>
               
-              <div className="sm:hidden mt-6 text-center">
+              <div className="sm:hidden mt-4 text-center">
                 <Link 
                   to="/all-tools"
-                  className="inline-flex items-center gap-2 text-primary hover:underline"
+                  className="inline-flex items-center gap-2 text-sm text-primary hover:underline"
                 >
                   View All Tools <ArrowRight className="w-4 h-4" />
                 </Link>
