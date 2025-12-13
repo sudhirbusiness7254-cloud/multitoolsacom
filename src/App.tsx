@@ -31,7 +31,7 @@ import ImageOptimizationPage from "./pages/categories/ImageOptimizationPage";
 import ImageDrawingPage from "./pages/categories/ImageDrawingPage";
 import ImageSecurityPage from "./pages/categories/ImageSecurityPage";
 import ImageQRPage from "./pages/categories/ImageQRPage";
-import PDFToolsPage from "./pages/categories/PDFToolsPage";
+
 import ImageEditorPage from "./pages/ImageEditorPage";
 
 const queryClient = new QueryClient();
@@ -73,7 +73,7 @@ const App = () => (
             <Route path="/image-drawing" element={<ImageDrawingPage />} />
             <Route path="/image-security" element={<ImageSecurityPage />} />
             <Route path="/image-qr" element={<ImageQRPage />} />
-            <Route path="/pdf-tools" element={<PDFToolsPage />} />
+            
             
             {/* Dynamic Tool Pages - SEO optimized individual tool pages */}
             <Route path="/:toolSlug" element={<DynamicToolPage />} />
