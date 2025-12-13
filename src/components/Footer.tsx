@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { toolCategories } from "@/data/toolsData";
+import logo from "@/assets/logo-icon.png";
 
 const Footer = () => {
   const imageCategories = toolCategories.filter(cat => cat.id !== "tag-tools").sort((a, b) => a.priority - b.priority);
@@ -19,7 +20,10 @@ const Footer = () => {
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8 mb-8 sm:mb-10">
           {/* Brand */}
           <div className="col-span-2 sm:col-span-2 md:col-span-1 lg:col-span-1">
-            <h3 className="text-lg sm:text-xl font-bold text-primary mb-3 sm:mb-4">MultiTools</h3>
+            <div className="flex items-center gap-2 mb-3 sm:mb-4">
+              <img src={logo} alt="MultiTools Logo" className="h-8 w-8" />
+              <h3 className="text-lg sm:text-xl font-bold text-primary">MultiTools</h3>
+            </div>
             <p className="text-xs sm:text-sm text-muted-foreground mb-4">
               Free online tools for image conversion, compression, editing, and social media tags.
             </p>
