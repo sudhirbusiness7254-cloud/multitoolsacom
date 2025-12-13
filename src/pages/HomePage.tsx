@@ -92,7 +92,10 @@ const HomePage = () => {
                 
                 <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
                   Complete Image Tools
-                  <span className="bg-gradient-orange bg-clip-text text-transparent"> Ecosystem</span>
+                  <span 
+                    className="bg-clip-text text-transparent"
+                    style={{ backgroundImage: 'linear-gradient(135deg, #F97316, #EF4444)' }}
+                  > Ecosystem</span>
                 </h1>
                 
                 <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
