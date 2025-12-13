@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, ChevronDown, Search, RefreshCw, Minimize2, Maximize2, Crop, Droplet, Image } from "lucide-react";
+import { Menu, X, ChevronDown, Search, RefreshCw, Minimize2, Maximize2, Crop, Droplet, Image, FileText } from "lucide-react";
 import logo from "@/assets/logo.png";
 import { toolCategories } from "@/data/toolsData";
 import { Input } from "@/components/ui/input";
@@ -15,6 +15,7 @@ const categoryIcons: Record<string, React.ReactNode> = {
   "image-resize": <Maximize2 className="w-4 h-4 text-white" />,
   "image-crop": <Crop className="w-4 h-4 text-white" />,
   "watermark-tools": <Droplet className="w-4 h-4 text-white" />,
+  "pdf-tools": <FileText className="w-4 h-4 text-white" />,
 };
 
 // Colorful gradients for categories
@@ -215,6 +216,15 @@ const Header = () => {
 
             <div className="w-px h-6 bg-border mx-1 xl:mx-2" />
             
+            <Link 
+              to="/pdf-tools" 
+              className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                isCategoryActive("pdf-tools") ? "text-white" : "text-foreground hover:opacity-90"
+              }`}
+              style={{ background: isCategoryActive("pdf-tools") ? 'linear-gradient(135deg, #DC2626, #EA580C)' : 'linear-gradient(135deg, #DC262680, #EA580C80)' }}
+            >
+              PDF Tools
+            </Link>
             <Link 
               to="/tag-extractor" 
               className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-secondary ${

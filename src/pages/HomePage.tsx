@@ -24,6 +24,7 @@ const categoryLucideIcons: Record<string, React.ReactNode> = {
   "image-security": <Lock className="w-6 h-6 text-white" />,
   "image-qr": <QrCode className="w-6 h-6 text-white" />,
   "tag-tools": <Hash className="w-6 h-6 text-white" />,
+  "pdf-tools": <FileText className="w-6 h-6 text-white" />,
 };
 
 // Colorful gradients for categories and tools
@@ -44,6 +45,7 @@ const categoryGradients: Record<string, { from: string; to: string }> = {
   "image-security": { from: "#EF4444", to: "#B91C1C" },
   "image-qr": { from: "#3B82F6", to: "#1D4ED8" },
   "tag-tools": { from: "#8B5CF6", to: "#6366F1" },
+  "pdf-tools": { from: "#DC2626", to: "#EA580C" },
 };
 
 // Popular tools to feature on homepage
@@ -131,6 +133,14 @@ const HomePage = () => {
                   >
                     Browse All Tools
                     <ArrowRight className="w-4 h-4" />
+                  </Link>
+                  <Link 
+                    to="/pdf-tools"
+                    className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg text-sm sm:text-base touch-target font-medium transition-colors"
+                    style={{ background: 'linear-gradient(135deg, #DC2626, #EA580C)', color: 'white' }}
+                  >
+                    <FileText className="w-4 h-4" />
+                    PDF Tools
                   </Link>
                   <Link 
                     to="/tag-extractor"
