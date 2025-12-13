@@ -390,6 +390,227 @@ export const toolsSEOContent: Record<string, ToolSEOContent> = {
     keywords: ["qr code generator", "create qr code", "qr maker", "image qr"],
     gradientFrom: "#3b82f6",
     gradientTo: "#1d4ed8"
+  },
+
+  // PDF TOOLS
+  "pdf-merge": {
+    slug: "pdf-merge",
+    title: "PDF Merge",
+    metaTitle: "PDF Merge - Combine Multiple PDF Files Online Free",
+    metaDescription: "Merge PDF files online for free. Combine multiple PDFs into one document easily. Fast, secure, no signup required. Works on all devices.",
+    h1: "Merge PDF Files Online Free",
+    shortDescription: "Combine multiple PDF files into a single document",
+    longDescription: "Our PDF Merge tool allows you to combine multiple PDF files into one document quickly and easily. Simply upload your PDFs, arrange them in your preferred order, and download the merged result. Perfect for combining reports, documents, or creating comprehensive PDF packages.",
+    howToUse: [
+      "Click upload or drag and drop your PDF files",
+      "Arrange files in your desired order using arrows",
+      "Add more files if needed",
+      "Click 'Merge' to combine all PDFs",
+      "Download your merged PDF document"
+    ],
+    benefits: [
+      "Merge unlimited PDF files",
+      "Drag and drop file ordering",
+      "No file size limits",
+      "Fast browser-based processing",
+      "Secure - files never leave your device",
+      "Works on desktop and mobile"
+    ],
+    whyImportant: "PDF merging is essential for combining multiple documents into a single file for easier sharing, printing, and archiving. Whether you need to combine invoices, reports, or chapters into one document, our tool makes it simple and fast.",
+    faqs: [
+      { question: "How many PDFs can I merge at once?", answer: "There is no limit. You can merge as many PDF files as you need in a single operation." },
+      { question: "Will the quality of my PDFs be affected?", answer: "No, the original quality of all PDFs is preserved during the merge process." },
+      { question: "Can I rearrange the order of PDFs?", answer: "Yes, use the up and down arrows to arrange files in your desired order before merging." },
+      { question: "Is the merged PDF searchable?", answer: "Yes, if your original PDFs are searchable, the merged result will also be searchable." }
+    ],
+    relatedTools: ["pdf-split", "pdf-compress", "word-to-pdf"],
+    category: "PDF Tools",
+    categorySlug: "pdf-tools",
+    keywords: ["pdf merge", "combine pdf", "join pdf", "merge pdf files", "pdf combiner"],
+    gradientFrom: "#DC2626",
+    gradientTo: "#EA580C"
+  },
+  "pdf-compress": {
+    slug: "pdf-compress",
+    title: "PDF Compress",
+    metaTitle: "PDF Compress - Reduce PDF File Size Online Free",
+    metaDescription: "Compress PDF files online for free. Reduce PDF size by up to 80% without losing quality. Fast, secure, no signup required.",
+    h1: "Compress PDF Files Online Free",
+    shortDescription: "Reduce PDF file size while maintaining quality",
+    longDescription: "Our PDF Compress tool reduces the file size of your PDF documents by up to 80% while maintaining visual quality. Perfect for email attachments, web uploads, and saving storage space. Adjust the compression level to balance between file size and quality.",
+    howToUse: [
+      "Upload your PDF file",
+      "Adjust the compression quality slider",
+      "Click 'Compress' to process",
+      "Download your compressed PDF"
+    ],
+    benefits: [
+      "Reduce file size by up to 80%",
+      "Maintain document quality",
+      "Perfect for email attachments",
+      "Faster file uploads and downloads",
+      "Save storage space",
+      "No quality loss at recommended settings"
+    ],
+    whyImportant: "Large PDF files can be difficult to share via email, upload to websites, or store efficiently. Compressing PDFs reduces file size while keeping the document readable and professional-looking.",
+    faqs: [
+      { question: "How much can I compress a PDF?", answer: "Depending on the content, you can typically reduce file size by 50-80% while maintaining good visual quality." },
+      { question: "Will text become blurry after compression?", answer: "No, text remains sharp and readable. Only embedded images may be slightly optimized." },
+      { question: "Can I choose the compression level?", answer: "Yes, use the quality slider to balance between file size and visual quality." },
+      { question: "Is compression reversible?", answer: "Compression is permanent. Always keep your original files as backup if needed." }
+    ],
+    relatedTools: ["pdf-merge", "pdf-split", "jpg-to-pdf"],
+    category: "PDF Tools",
+    categorySlug: "pdf-tools",
+    keywords: ["pdf compress", "reduce pdf size", "compress pdf", "pdf size reducer", "shrink pdf"],
+    gradientFrom: "#059669",
+    gradientTo: "#10B981"
+  },
+  "word-to-pdf": {
+    slug: "word-to-pdf",
+    title: "Word to PDF",
+    metaTitle: "Word to PDF Converter - Convert DOCX to PDF Online Free",
+    metaDescription: "Convert Word documents to PDF online for free. Transform DOC and DOCX files to PDF format instantly. Fast, secure, no signup required.",
+    h1: "Convert Word to PDF Online Free",
+    shortDescription: "Transform Word documents into PDF format",
+    longDescription: "Convert your Microsoft Word documents (DOC, DOCX) to PDF format with our free online converter. The conversion preserves formatting, fonts, and images, ensuring your document looks exactly the same in PDF format. Perfect for sharing documents that need to maintain their layout across different devices.",
+    howToUse: [
+      "Upload your Word document (DOC or DOCX)",
+      "Wait for the file to be processed",
+      "Click 'Convert' to transform to PDF",
+      "Download your PDF document"
+    ],
+    benefits: [
+      "Preserves formatting and layout",
+      "Maintains fonts and images",
+      "Creates universally readable documents",
+      "No Microsoft Office required",
+      "Fast and secure conversion",
+      "Works on all devices"
+    ],
+    whyImportant: "PDF format ensures your documents look the same on any device or operating system. Converting Word to PDF is essential for sharing professional documents, submitting forms, or archiving important files.",
+    faqs: [
+      { question: "Will my formatting be preserved?", answer: "Yes, our converter maintains all formatting including fonts, images, tables, and layout." },
+      { question: "Can I convert DOC files?", answer: "Yes, we support both DOC and DOCX formats from all versions of Microsoft Word." },
+      { question: "Will the PDF be editable?", answer: "The PDF will be a fixed document. To edit, you would need to convert back to Word format." },
+      { question: "Are hyperlinks preserved?", answer: "Yes, clickable links in your Word document will work in the resulting PDF." }
+    ],
+    relatedTools: ["pdf-merge", "pdf-compress", "jpg-to-pdf"],
+    category: "PDF Tools",
+    categorySlug: "pdf-tools",
+    keywords: ["word to pdf", "docx to pdf", "convert word", "doc to pdf", "word converter"],
+    gradientFrom: "#2563EB",
+    gradientTo: "#3B82F6"
+  },
+  "pdf-split": {
+    slug: "pdf-split",
+    title: "PDF Split",
+    metaTitle: "PDF Split - Split PDF Into Multiple Files Online Free",
+    metaDescription: "Split PDF files online for free. Separate PDF pages into individual files or custom ranges. Fast, secure, no signup required.",
+    h1: "Split PDF Files Online Free",
+    shortDescription: "Divide PDF documents into separate files",
+    longDescription: "Our PDF Split tool lets you divide a PDF document into multiple separate files. Extract specific pages, split into individual pages, or define custom page ranges. Perfect for separating chapters, extracting forms, or organizing large documents.",
+    howToUse: [
+      "Upload your PDF file",
+      "Choose split method (all pages or custom ranges)",
+      "Enter page ranges if using custom split",
+      "Click 'Split' to process",
+      "Download your split PDF files as a ZIP"
+    ],
+    benefits: [
+      "Split into individual pages",
+      "Custom page range support",
+      "Extract specific sections",
+      "Download all as ZIP file",
+      "Fast processing",
+      "No page limit"
+    ],
+    whyImportant: "Splitting PDFs helps you extract only the pages you need, share specific sections without revealing the entire document, or organize large documents into manageable pieces.",
+    faqs: [
+      { question: "Can I extract specific pages?", answer: "Yes, enter page ranges like '1-3, 5, 7-10' to extract only the pages you need." },
+      { question: "How are split files delivered?", answer: "All split PDF files are packaged into a ZIP file for easy download." },
+      { question: "Is there a page limit?", answer: "No, you can split PDFs of any size with unlimited pages." },
+      { question: "Will bookmarks be preserved?", answer: "Bookmarks within the extracted page ranges will be preserved in the resulting files." }
+    ],
+    relatedTools: ["pdf-merge", "pdf-compress", "pdf-to-jpg"],
+    category: "PDF Tools",
+    categorySlug: "pdf-tools",
+    keywords: ["pdf split", "split pdf", "separate pdf pages", "divide pdf", "extract pdf pages"],
+    gradientFrom: "#7C3AED",
+    gradientTo: "#8B5CF6"
+  },
+  "pdf-to-jpg": {
+    slug: "pdf-to-jpg",
+    title: "PDF to JPG",
+    metaTitle: "PDF to JPG Converter - Convert PDF Pages to Images Online Free",
+    metaDescription: "Convert PDF to JPG images online for free. Transform PDF pages into high-quality JPG images. Fast, secure, no signup required.",
+    h1: "Convert PDF to JPG Images Online Free",
+    shortDescription: "Transform PDF pages into JPG images",
+    longDescription: "Convert your PDF documents into high-quality JPG images with our free online converter. Each page of your PDF becomes a separate JPG image, perfect for sharing on social media, embedding in presentations, or viewing without a PDF reader.",
+    howToUse: [
+      "Upload your PDF file",
+      "Choose image quality settings",
+      "Click 'Convert' to process",
+      "Download all images as a ZIP file"
+    ],
+    benefits: [
+      "High-quality image output",
+      "Each page as separate image",
+      "Adjustable quality settings",
+      "Perfect for presentations",
+      "Easy social media sharing",
+      "No PDF reader required to view"
+    ],
+    whyImportant: "Converting PDF to JPG makes document content easily shareable on platforms that do not support PDF. Images can be embedded in presentations, posted on social media, or viewed on any device without special software.",
+    faqs: [
+      { question: "What quality are the JPG images?", answer: "You can choose from low, medium, or high quality. High quality produces the clearest images but larger file sizes." },
+      { question: "Are all pages converted?", answer: "Yes, every page of your PDF is converted to a separate JPG image." },
+      { question: "How are the images delivered?", answer: "All JPG images are packaged into a ZIP file for convenient download." },
+      { question: "Can I convert only specific pages?", answer: "Currently all pages are converted. Use our PDF Split tool first if you need only specific pages." }
+    ],
+    relatedTools: ["jpg-to-pdf", "pdf-split", "pdf-compress"],
+    category: "PDF Tools",
+    categorySlug: "pdf-tools",
+    keywords: ["pdf to jpg", "pdf to image", "convert pdf to jpg", "pdf converter", "pdf to jpeg"],
+    gradientFrom: "#F59E0B",
+    gradientTo: "#FBBF24"
+  },
+  "jpg-to-pdf": {
+    slug: "jpg-to-pdf",
+    title: "JPG to PDF",
+    metaTitle: "JPG to PDF Converter - Convert Images to PDF Online Free",
+    metaDescription: "Convert JPG images to PDF online for free. Combine multiple images into one PDF document. Fast, secure, no signup required.",
+    h1: "Convert JPG Images to PDF Online Free",
+    shortDescription: "Transform JPG images into PDF documents",
+    longDescription: "Convert your JPG images into PDF documents with our free online converter. Combine multiple images into a single PDF, perfect for creating photo albums, portfolios, or document archives. Arrange images in your preferred order before conversion.",
+    howToUse: [
+      "Upload one or more JPG images",
+      "Arrange images in your desired order",
+      "Add more images if needed",
+      "Click 'Convert' to create PDF",
+      "Download your PDF document"
+    ],
+    benefits: [
+      "Combine multiple images",
+      "Drag and drop ordering",
+      "High-quality output",
+      "Perfect for portfolios",
+      "Easy document sharing",
+      "Print-ready PDF output"
+    ],
+    whyImportant: "Converting images to PDF creates a single, easy-to-share document from multiple photos. PDFs are universally readable and maintain consistent appearance across all devices and platforms.",
+    faqs: [
+      { question: "Can I combine multiple images into one PDF?", answer: "Yes, upload as many images as you like and they will all be combined into a single PDF document." },
+      { question: "What image formats are supported?", answer: "We support JPG, JPEG, PNG, and other common image formats." },
+      { question: "Will image quality be preserved?", answer: "Yes, images are embedded at their original quality in the PDF." },
+      { question: "Can I control the page size?", answer: "Images are automatically sized to fit standard page dimensions while maintaining aspect ratio." }
+    ],
+    relatedTools: ["pdf-to-jpg", "pdf-merge", "image-to-pdf"],
+    category: "PDF Tools",
+    categorySlug: "pdf-tools",
+    keywords: ["jpg to pdf", "image to pdf", "convert jpg to pdf", "photos to pdf", "jpeg to pdf"],
+    gradientFrom: "#EC4899",
+    gradientTo: "#F472B6"
   }
 };
 
@@ -549,6 +770,12 @@ export const getAllToolsFlat = () => {
   ["image-to-qr-code", "qr-code-to-image"].forEach(slug => {
     const name = slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
     tools.push({ slug, name, category: "Image QR Tools", categorySlug: "image-qr" });
+  });
+
+  // PDF Tools
+  ["pdf-merge", "pdf-compress", "word-to-pdf", "pdf-split", "pdf-to-jpg", "jpg-to-pdf"].forEach(slug => {
+    const name = slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+    tools.push({ slug, name, category: "PDF Tools", categorySlug: "pdf-tools" });
   });
 
   return tools;

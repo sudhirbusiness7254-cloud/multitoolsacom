@@ -17,6 +17,7 @@ import UniversalImageDrawing from "@/components/UniversalImageDrawing";
 import UniversalImageSecurity from "@/components/UniversalImageSecurity";
 import UniversalQRTools from "@/components/UniversalQRTools";
 import UniversalDocumentConverter from "@/components/UniversalDocumentConverter";
+import UniversalPDFTools from "@/components/UniversalPDFTools";
 
 // Tool slug to component mapping
 const getToolComponent = (slug: string) => {
@@ -99,6 +100,14 @@ const getToolComponent = (slug: string) => {
   if (["image-to-pdf", "image-to-docx", "image-to-pptx", "image-to-html", "image-to-base64", "base64-to-image"].includes(slug)) {
     return <UniversalDocumentConverter />;
   }
+
+  // PDF tools
+  if (slug === "pdf-merge") return <UniversalPDFTools defaultMode="merge" />;
+  if (slug === "pdf-compress") return <UniversalPDFTools defaultMode="compress" />;
+  if (slug === "word-to-pdf") return <UniversalPDFTools defaultMode="word-to-pdf" />;
+  if (slug === "pdf-split") return <UniversalPDFTools defaultMode="split" />;
+  if (slug === "pdf-to-jpg") return <UniversalPDFTools defaultMode="pdf-to-jpg" />;
+  if (slug === "jpg-to-pdf") return <UniversalPDFTools defaultMode="jpg-to-pdf" />;
 
   return null;
 };

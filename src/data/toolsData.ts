@@ -281,6 +281,22 @@ export const toolCategories: Category[] = [
       { id: "tag-extractor", name: "Tag Extractor", slug: "tag-extractor", description: "Extract tags from social media URLs", category: "Tag Tools", categorySlug: "tag-tools", icon: "Hash", keywords: ["tag extractor", "hashtag generator"] },
     ]
   },
+  {
+    id: "pdf-tools",
+    name: "PDF Tools",
+    slug: "pdf-tools",
+    description: "Merge, split, compress and convert PDF files",
+    icon: "FileText",
+    priority: 17,
+    tools: [
+      { id: "pdf-merge", name: "PDF Merge", slug: "pdf-merge", description: "Combine multiple PDF files into one", category: "PDF Tools", categorySlug: "pdf-tools", icon: "FileText", keywords: ["pdf merge", "combine pdf", "join pdf", "merge pdf files"] },
+      { id: "pdf-compress", name: "PDF Compress", slug: "pdf-compress", description: "Reduce PDF file size without losing quality", category: "PDF Tools", categorySlug: "pdf-tools", icon: "Minimize2", keywords: ["pdf compress", "reduce pdf size", "compress pdf", "pdf size reducer"] },
+      { id: "word-to-pdf", name: "Word to PDF", slug: "word-to-pdf", description: "Convert Word documents to PDF format", category: "PDF Tools", categorySlug: "pdf-tools", icon: "FileText", keywords: ["word to pdf", "docx to pdf", "convert word", "doc to pdf"] },
+      { id: "pdf-split", name: "PDF Split", slug: "pdf-split", description: "Split PDF into multiple files", category: "PDF Tools", categorySlug: "pdf-tools", icon: "Scissors", keywords: ["pdf split", "split pdf", "separate pdf pages", "divide pdf"] },
+      { id: "pdf-to-jpg", name: "PDF to JPG", slug: "pdf-to-jpg", description: "Convert PDF pages to JPG images", category: "PDF Tools", categorySlug: "pdf-tools", icon: "Image", keywords: ["pdf to jpg", "pdf to image", "convert pdf to jpg"] },
+      { id: "jpg-to-pdf", name: "JPG to PDF", slug: "jpg-to-pdf", description: "Convert JPG images to PDF document", category: "PDF Tools", categorySlug: "pdf-tools", icon: "FileText", keywords: ["jpg to pdf", "image to pdf", "convert jpg to pdf"] },
+    ]
+  },
 ];
 
 export const getAllTools = (): Tool[] => {
