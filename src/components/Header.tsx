@@ -6,6 +6,7 @@ import { toolCategories } from "@/data/toolsData";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { getToolIcon } from "@/components/icons/ToolIcons";
+import { ToolIconWithBackground, getToolIconComponent } from "@/lib/toolIcons";
 
 // Category icon mapping
 const categoryIcons: Record<string, React.ReactNode> = {
@@ -164,7 +165,6 @@ const Header = () => {
                                 <span className="truncate">{cat.name.replace(" Tools", "").replace(" Image", "")}</span>
                               </Link>
                               
-                              {/* Tools List */}
                               <div className="space-y-0.5">
                                 {cat.tools.slice(0, 5).map((tool) => (
                                   <Link
@@ -173,15 +173,11 @@ const Header = () => {
                                     onClick={() => setAllToolsOpen(false)}
                                     className="flex items-center gap-1.5 sm:gap-2 py-1 sm:py-1.5 text-xs sm:text-sm hover:text-primary transition-colors group"
                                   >
-                                    <div 
-                                      className="w-4 h-4 sm:w-5 sm:h-5 rounded flex items-center justify-center flex-shrink-0"
-                                      style={{ background: `linear-gradient(135deg, ${gradient.from}30, ${gradient.to}30)` }}
-                                    >
-                                      <div 
-                                        className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full"
-                                        style={{ background: `linear-gradient(135deg, ${gradient.from}, ${gradient.to})` }}
-                                      />
-                                    </div>
+                                    <ToolIconWithBackground 
+                                      toolSlug={tool.slug} 
+                                      size={20} 
+                                      iconSize={12}
+                                    />
                                     <span className="line-clamp-1 text-xs">{tool.name}</span>
                                   </Link>
                                 ))}

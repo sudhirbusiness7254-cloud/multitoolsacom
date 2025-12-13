@@ -2,9 +2,9 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { ArrowRight, Zap, Shield, Globe, Sparkles, Hash, Star, TrendingUp, RefreshCw, Minimize2, Maximize2, Crop, Droplet, RotateCw, Settings, Palette, Layers, FileText, Database, Zap as ZapIcon, Pencil, Lock, QrCode, Image } from "lucide-react";
+import { ArrowRight, Zap, Shield, Globe, Sparkles, Hash, TrendingUp, RefreshCw, Minimize2, Maximize2, Crop, Droplet, RotateCw, Settings, Palette, Layers, FileText, Database, Zap as ZapIcon, Pencil, Lock, QrCode, Image, Star } from "lucide-react";
 import { toolCategories } from "@/data/toolsData";
-import { getToolIcon } from "@/components/icons/ToolIcons";
+import { ToolIconWithBackground, getToolIconColor, getToolIconComponent } from "@/lib/toolIcons";
 
 // Category icons mapping
 const categoryLucideIcons: Record<string, React.ReactNode> = {
@@ -172,12 +172,12 @@ const HomePage = () => {
                       to={`/${tool.slug}`}
                       className="group bg-card rounded-lg sm:rounded-xl p-3 sm:p-4 border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
                     >
-                      <div 
-                        className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl flex items-center justify-center mb-2 sm:mb-3 mx-auto"
-                        style={{ background: `linear-gradient(135deg, ${gradient.from}, ${gradient.to})` }}
-                      >
-                        <Star className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-                      </div>
+                      <ToolIconWithBackground 
+                        toolSlug={tool.slug} 
+                        size={48} 
+                        iconSize={24}
+                        className="mb-2 sm:mb-3 mx-auto"
+                      />
                       <h3 className="text-xs sm:text-sm font-semibold text-center group-hover:text-primary transition-colors line-clamp-2">
                         {tool.name}
                       </h3>
@@ -372,15 +372,11 @@ const HomePage = () => {
                             to={`/${tool.slug}`}
                             className="group flex items-center gap-2 p-3 rounded-lg bg-secondary/50 hover:bg-secondary border border-transparent hover:border-primary/30 transition-all"
                           >
-                            <div 
-                              className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
-                              style={{ background: `linear-gradient(135deg, ${gradient.from}30, ${gradient.to}30)` }}
-                            >
-                              <div 
-                                className="w-2.5 h-2.5 rounded-full"
-                                style={{ background: `linear-gradient(135deg, ${gradient.from}, ${gradient.to})` }}
-                              />
-                            </div>
+                            <ToolIconWithBackground 
+                              toolSlug={tool.slug} 
+                              size={32} 
+                              iconSize={16}
+                            />
                             <span className="text-sm font-medium group-hover:text-primary transition-colors line-clamp-1">
                               {tool.name}
                             </span>
