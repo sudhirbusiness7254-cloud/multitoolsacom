@@ -2,9 +2,7 @@ import { useState, useRef, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Slider } from "@/components/ui/slider";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import DragDropUpload from "@/components/DragDropUpload";
-import { Download, RotateCcw, Plus, X, ArrowRight, ArrowDown, Grid, Layers } from "lucide-react";
+import { Download, RotateCcw, Plus, X, ArrowRight, ArrowDown, Grid, Layers, Upload, GripVertical } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
 
 type CombineMode = "horizontal" | "vertical" | "collage" | "before-after";
@@ -27,17 +25,58 @@ const UniversalImageCombine = ({ initialMode = "horizontal" }: UniversalImageCom
   const [gap, setGap] = useState(0);
   const [backgroundColor, setBackgroundColor] = useState("#ffffff");
   const [columns, setColumns] = useState(2);
+  const [dragIndex, setDragIndex] = useState<number | null>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const handleFileSelect = (selectedFile: File) => {
-    const url = URL.createObjectURL(selectedFile);
-    setImages((prev) => [...prev, { file: selectedFile, url }]);
+  const handleFilesSelect = (files: FileList | null) => {
+    if (!files) return;
+    
+    const newImages = Array.from(files).map((file) => ({
+      file,
+      url: URL.createObjectURL(file),
+    }));
+    
+    setImages((prev) => [...prev, ...newImages]);
     setProcessedUrl(null);
+    
+    toast({ 
+      title: `${files.length} image(s) added`, 
+      description: `Total: ${images.length + files.length} images` 
+    });
+  };
+
+  const handleFileInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    handleFilesSelect(e.target.files);
+    if (fileInputRef.current) {
+      fileInputRef.current.value = "";
+    }
   };
 
   const removeImage = (index: number) => {
+    URL.revokeObjectURL(images[index].url);
     setImages((prev) => prev.filter((_, i) => i !== index));
     setProcessedUrl(null);
+  };
+
+  const handleDragStart = (index: number) => {
+    setDragIndex(index);
+  };
+
+  const handleDragOver = (e: React.DragEvent, index: number) => {
+    e.preventDefault();
+    if (dragIndex === null || dragIndex === index) return;
+    
+    const newImages = [...images];
+    const draggedItem = newImages[dragIndex];
+    newImages.splice(dragIndex, 1);
+    newImages.splice(index, 0, draggedItem);
+    setImages(newImages);
+    setDragIndex(index);
+  };
+
+  const handleDragEnd = () => {
+    setDragIndex(null);
   };
 
   const combineImages = useCallback(async () => {
@@ -50,12 +89,15 @@ const UniversalImageCombine = ({ initialMode = "horizontal" }: UniversalImageCom
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
+    toast({ title: "Processing...", description: `Combining ${images.length} images...` });
+
     const loadedImages = await Promise.all(
       images.map((img) =>
-        new Promise<HTMLImageElement>((resolve) => {
+        new Promise<HTMLImageElement>((resolve, reject) => {
           const image = new window.Image();
           image.crossOrigin = "anonymous";
           image.onload = () => resolve(image);
+          image.onerror = () => reject(new Error("Failed to load image"));
           image.src = img.url;
         })
       )
@@ -133,18 +175,20 @@ const UniversalImageCombine = ({ initialMode = "horizontal" }: UniversalImageCom
     }
 
     setProcessedUrl(canvas.toDataURL("image/png"));
-    toast({ title: "Images combined!", description: "Your combined image is ready for download." });
+    toast({ title: "Images combined!", description: `${images.length} images merged successfully.` });
   }, [images, mode, gap, backgroundColor, columns]);
 
   const handleDownload = () => {
     if (!processedUrl) return;
     const link = document.createElement("a");
-    link.download = `combined-${mode}-image.png`;
+    link.download = `combined-${mode}-${images.length}-images.png`;
     link.href = processedUrl;
     link.click();
+    toast({ title: "Download started", description: "Your combined image is being downloaded." });
   };
 
   const handleReset = () => {
+    images.forEach((img) => URL.revokeObjectURL(img.url));
     setImages([]);
     setProcessedUrl(null);
   };
@@ -152,6 +196,14 @@ const UniversalImageCombine = ({ initialMode = "horizontal" }: UniversalImageCom
   return (
     <div className="bg-card rounded-2xl border border-border p-6">
       <canvas ref={canvasRef} className="hidden" />
+      <input
+        ref={fileInputRef}
+        type="file"
+        accept="image/*"
+        multiple
+        onChange={handleFileInputChange}
+        className="hidden"
+      />
 
       <div className="space-y-6">
         {/* Mode Selection */}
@@ -169,33 +221,94 @@ const UniversalImageCombine = ({ initialMode = "horizontal" }: UniversalImageCom
           ))}
         </div>
 
-        {/* Image Upload */}
-        <div>
-          <p className="text-sm text-muted-foreground mb-2">Add images to combine ({images.length} added)</p>
-          <DragDropUpload onFileSelect={handleFileSelect} accept="image/*" />
+        {/* Upload Area */}
+        <div 
+          className="border-2 border-dashed border-border rounded-xl p-8 text-center cursor-pointer hover:border-primary/50 hover:bg-secondary/30 transition-colors"
+          onClick={() => fileInputRef.current?.click()}
+          onDragOver={(e) => e.preventDefault()}
+          onDrop={(e) => {
+            e.preventDefault();
+            handleFilesSelect(e.dataTransfer.files);
+          }}
+        >
+          <Upload className="w-12 h-12 mx-auto text-muted-foreground mb-4" />
+          <h3 className="text-lg font-semibold mb-2">Upload Images</h3>
+          <p className="text-sm text-muted-foreground mb-4">
+            Drag & drop multiple images or click to browse
+          </p>
+          <div className="flex justify-center gap-2">
+            <Button variant="outline" onClick={(e) => { e.stopPropagation(); fileInputRef.current?.click(); }}>
+              <Plus className="w-4 h-4 mr-2" />
+              Add Images
+            </Button>
+          </div>
+          <p className="text-xs text-muted-foreground mt-3">
+            No limit on number of images • Supports JPG, PNG, WebP, GIF
+          </p>
         </div>
 
-        {/* Image Thumbnails */}
+        {/* Image Count & Stats */}
         {images.length > 0 && (
-          <div className="flex flex-wrap gap-2">
-            {images.map((img, index) => (
-              <div key={index} className="relative group">
-                <img
-                  src={img.url}
-                  alt={`Image ${index + 1}`}
-                  className="w-20 h-20 object-cover rounded-lg border border-border"
-                />
-                <button
-                  onClick={() => removeImage(index)}
-                  className="absolute -top-2 -right-2 w-5 h-5 bg-destructive text-destructive-foreground rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+          <div className="flex items-center justify-between px-4 py-2 bg-secondary/30 rounded-lg">
+            <span className="text-sm font-medium">
+              {images.length} image{images.length !== 1 ? "s" : ""} added
+            </span>
+            <div className="flex gap-2">
+              <Button 
+                variant="ghost" 
+                size="sm"
+                onClick={() => fileInputRef.current?.click()}
+              >
+                <Plus className="w-4 h-4 mr-1" />
+                Add More
+              </Button>
+              <Button 
+                variant="ghost" 
+                size="sm"
+                onClick={handleReset}
+                className="text-destructive hover:text-destructive"
+              >
+                <X className="w-4 h-4 mr-1" />
+                Clear All
+              </Button>
+            </div>
+          </div>
+        )}
+
+        {/* Image Thumbnails with Drag & Drop Reorder */}
+        {images.length > 0 && (
+          <div className="space-y-2">
+            <p className="text-sm text-muted-foreground">Drag to reorder images:</p>
+            <div className="flex flex-wrap gap-3">
+              {images.map((img, index) => (
+                <div 
+                  key={`${img.file.name}-${index}`}
+                  className={`relative group cursor-move ${dragIndex === index ? 'opacity-50' : ''}`}
+                  draggable
+                  onDragStart={() => handleDragStart(index)}
+                  onDragOver={(e) => handleDragOver(e, index)}
+                  onDragEnd={handleDragEnd}
                 >
-                  <X className="w-3 h-3" />
-                </button>
-                <span className="absolute bottom-0 left-0 right-0 bg-black/50 text-white text-xs text-center">
-                  {index + 1}
-                </span>
-              </div>
-            ))}
+                  <div className="absolute top-1 left-1 z-10 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <GripVertical className="w-4 h-4 text-white drop-shadow-lg" />
+                  </div>
+                  <img
+                    src={img.url}
+                    alt={`Image ${index + 1}`}
+                    className="w-24 h-24 object-cover rounded-lg border-2 border-border hover:border-primary transition-colors"
+                  />
+                  <button
+                    onClick={() => removeImage(index)}
+                    className="absolute -top-2 -right-2 w-6 h-6 bg-destructive text-destructive-foreground rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-lg"
+                  >
+                    <X className="w-4 h-4" />
+                  </button>
+                  <span className="absolute bottom-1 left-1 right-1 bg-black/70 text-white text-xs text-center rounded py-0.5">
+                    {index + 1}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         )}
 
@@ -207,7 +320,7 @@ const UniversalImageCombine = ({ initialMode = "horizontal" }: UniversalImageCom
               value={[gap]}
               onValueChange={(v) => setGap(v[0])}
               min={0}
-              max={50}
+              max={100}
               step={1}
             />
           </div>
@@ -227,34 +340,42 @@ const UniversalImageCombine = ({ initialMode = "horizontal" }: UniversalImageCom
                 value={[columns]}
                 onValueChange={(v) => setColumns(v[0])}
                 min={2}
-                max={5}
+                max={10}
                 step={1}
               />
             </div>
           )}
         </div>
 
-        <Button onClick={combineImages} className="w-full" disabled={images.length < 2}>
-          <Plus className="w-4 h-4 mr-2" />
-          Combine Images
+        <Button 
+          onClick={combineImages} 
+          className="w-full" 
+          disabled={images.length < 2}
+          size="lg"
+        >
+          <Grid className="w-4 h-4 mr-2" />
+          Combine {images.length} Image{images.length !== 1 ? "s" : ""}
         </Button>
 
         {/* Preview */}
         {processedUrl && (
-          <div className="relative aspect-video bg-secondary/50 rounded-xl overflow-hidden flex items-center justify-center">
-            <img src={processedUrl} alt="Combined" className="max-w-full max-h-full object-contain" />
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold text-center">Preview</h3>
+            <div className="relative bg-secondary/50 rounded-xl overflow-auto max-h-[600px] flex items-center justify-center p-4">
+              <img src={processedUrl} alt="Combined" className="max-w-full h-auto object-contain" />
+            </div>
           </div>
         )}
 
         {/* Actions */}
         <div className="flex justify-center gap-3">
-          <Button variant="outline" onClick={handleReset}>
+          <Button variant="outline" onClick={handleReset} disabled={images.length === 0}>
             <RotateCcw className="w-4 h-4 mr-2" />
             Reset
           </Button>
-          <Button onClick={handleDownload} disabled={!processedUrl}>
+          <Button onClick={handleDownload} disabled={!processedUrl} size="lg">
             <Download className="w-4 h-4 mr-2" />
-            Download
+            Download Combined Image
           </Button>
         </div>
       </div>
