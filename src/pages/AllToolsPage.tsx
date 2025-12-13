@@ -3,28 +3,10 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { toolCategories } from "@/data/toolsData";
-import { ArrowRight, Search, Sparkles, RefreshCw, Minimize2, Maximize2, Crop, Droplet, RotateCw, Settings, Palette, Layers, FileText, Database, Zap, Pencil, Lock, QrCode, Image } from "lucide-react";
+import { ArrowRight, Search, Sparkles } from "lucide-react";
 import { useState, useMemo } from "react";
 import { Input } from "@/components/ui/input";
-
-// Category icons mapping
-const categoryLucideIcons: Record<string, React.ReactNode> = {
-  "image-converter": <RefreshCw className="w-5 h-5 text-white" />,
-  "image-compression": <Minimize2 className="w-5 h-5 text-white" />,
-  "image-to-document": <FileText className="w-5 h-5 text-white" />,
-  "image-resize": <Maximize2 className="w-5 h-5 text-white" />,
-  "image-crop": <Crop className="w-5 h-5 text-white" />,
-  "image-rotate-flip": <RotateCw className="w-5 h-5 text-white" />,
-  "image-format-utilities": <Settings className="w-5 h-5 text-white" />,
-  "photo-filters": <Palette className="w-5 h-5 text-white" />,
-  "watermark-tools": <Droplet className="w-5 h-5 text-white" />,
-  "image-combine": <Layers className="w-5 h-5 text-white" />,
-  "image-metadata": <Database className="w-5 h-5 text-white" />,
-  "image-optimization": <Zap className="w-5 h-5 text-white" />,
-  "image-drawing": <Pencil className="w-5 h-5 text-white" />,
-  "image-security": <Lock className="w-5 h-5 text-white" />,
-  "image-qr": <QrCode className="w-5 h-5 text-white" />,
-};
+import { ToolIconWithBackground, getToolIconColor, getToolIconComponent } from "@/lib/toolIcons";
 
 // Colorful gradient pairs for tools
 const toolGradients = [
@@ -136,14 +118,12 @@ const AllToolsPage = () => {
                         to={`/${tool.slug}`}
                         className="group relative bg-card rounded-xl p-4 border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg"
                       >
-                        <div 
-                          className="w-10 h-10 rounded-lg flex items-center justify-center mb-3"
-                          style={{ 
-                            background: `linear-gradient(135deg, ${tool.gradient.from}, ${tool.gradient.to})` 
-                          }}
-                        >
-                          {categoryLucideIcons[tool.categorySlug] || <Image className="w-5 h-5 text-white" />}
-                        </div>
+                        <ToolIconWithBackground 
+                          toolSlug={tool.slug} 
+                          size={40} 
+                          iconSize={20}
+                          className="mb-3"
+                        />
                         
                         <h3 className="font-semibold text-sm mb-1 group-hover:text-primary transition-colors line-clamp-1">
                           {tool.name}
