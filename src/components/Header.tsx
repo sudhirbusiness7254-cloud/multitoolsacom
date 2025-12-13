@@ -94,23 +94,23 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-card border-b border-border sticky top-0 z-50 backdrop-blur-sm bg-opacity-95">
-      <nav className="container mx-auto px-4 sm:px-6 py-3">
-        <div className="flex items-center justify-between gap-2">
+    <header className="bg-card/95 border-b border-border sticky top-0 z-50 backdrop-blur-md">
+      <nav className="container mx-auto px-3 sm:px-4 md:px-6 py-2.5 sm:py-3">
+        <div className="flex items-center justify-between gap-3">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity flex-shrink-0">
-            <img src={logo} alt="MultiTools Logo" className="h-8 w-8 sm:h-10 sm:w-10" />
-            <span className="text-lg sm:text-xl font-bold text-primary hidden xs:block">MultiTools</span>
+            <img src={logo} alt="MultiTools Logo" className="h-8 w-8" />
+            <span className="text-base sm:text-lg md:text-xl font-bold text-primary">MultiTools</span>
           </Link>
           
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-1 flex-wrap justify-end">
+          <div className="hidden lg:flex items-center gap-1 xl:gap-2">
             {/* Top Categories as Direct Links */}
             {topCategories.map((cat) => (
               <Link
                 key={cat.id}
                 to={`/${cat.slug}`}
-                className={`px-2 xl:px-3 py-2 rounded-lg text-xs xl:text-sm font-medium transition-colors hover:bg-secondary whitespace-nowrap ${
+                className={`px-2.5 xl:px-3 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-secondary whitespace-nowrap ${
                   isCategoryActive(cat.slug) ? "text-primary bg-primary/10" : "text-foreground"
                 }`}
               >
@@ -122,15 +122,15 @@ const Header = () => {
             <div className="relative" ref={dropdownRef}>
               <button 
                 onClick={() => setAllToolsOpen(!allToolsOpen)} 
-                className={`flex items-center gap-1 px-2 xl:px-3 py-2 rounded-lg text-xs xl:text-sm font-medium transition-colors hover:bg-secondary ${
+                className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-secondary ${
                   allToolsOpen ? "text-primary bg-primary/10" : "text-foreground"
                 }`}
               >
-                ALL TOOLS <ChevronDown className={`w-3 h-3 xl:w-4 xl:h-4 transition-transform ${allToolsOpen ? 'rotate-180' : ''}`} />
+                ALL TOOLS <ChevronDown className={`w-4 h-4 transition-transform ${allToolsOpen ? 'rotate-180' : ''}`} />
               </button>
               
               {allToolsOpen && (
-                <div className="absolute top-full right-0 mt-2 w-[95vw] max-w-[900px] bg-card border border-border rounded-xl shadow-2xl z-[100] overflow-hidden">
+                <div className="absolute top-full right-0 mt-2 w-[90vw] max-w-[900px] bg-card border border-border rounded-xl shadow-2xl z-[100] overflow-hidden">
                   {/* Search Bar */}
                   <div className="p-4 border-b border-border bg-secondary/30">
                     <div className="relative max-w-md mx-auto">
@@ -146,8 +146,8 @@ const Header = () => {
                   
                   {/* Categories Grid with Tools */}
                   <ScrollArea className="h-[60vh] max-h-[480px]">
-                    <div className="p-3 sm:p-4">
-                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6">
+                    <div className="p-4">
+                      <div className="grid grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
                         {filteredCategories.map((cat) => {
                           const gradient = getGradient(cat.id);
                           return (
@@ -156,10 +156,10 @@ const Header = () => {
                               <Link
                                 to={`/${cat.slug}`}
                                 onClick={() => setAllToolsOpen(false)}
-                                className="flex items-center gap-2 text-[10px] sm:text-xs font-bold uppercase tracking-wide text-muted-foreground hover:text-primary transition-colors pb-2 border-b border-border"
+                                className="flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-muted-foreground hover:text-primary transition-colors pb-2 border-b border-border"
                               >
                                 <div 
-                                  className="w-3 h-3 sm:w-4 sm:h-4 rounded flex items-center justify-center flex-shrink-0"
+                                  className="w-4 h-4 rounded flex items-center justify-center flex-shrink-0"
                                   style={{ background: `linear-gradient(135deg, ${gradient.from}, ${gradient.to})` }}
                                 />
                                 <span className="truncate">{cat.name.replace(" Tools", "").replace(" Image", "")}</span>
@@ -171,7 +171,7 @@ const Header = () => {
                                     key={tool.id}
                                     to={`/${tool.slug}`}
                                     onClick={() => setAllToolsOpen(false)}
-                                    className="flex items-center gap-1.5 sm:gap-2 py-1 sm:py-1.5 text-xs sm:text-sm hover:text-primary transition-colors group"
+                                    className="flex items-center gap-2 py-1.5 text-sm hover:text-primary transition-colors group"
                                   >
                                     <ToolIconWithBackground 
                                       toolSlug={tool.slug} 
@@ -185,7 +185,7 @@ const Header = () => {
                                   <Link
                                     to={`/${cat.slug}`}
                                     onClick={() => setAllToolsOpen(false)}
-                                    className="text-[10px] sm:text-xs text-primary hover:underline pt-1 block"
+                                    className="text-xs text-primary hover:underline pt-1 block"
                                   >
                                     +{cat.tools.length - 5} more
                                   </Link>
@@ -212,7 +212,7 @@ const Header = () => {
               )}
             </div>
 
-            <div className="w-px h-6 bg-border mx-2" />
+            <div className="w-px h-6 bg-border mx-1 xl:mx-2" />
             
             <Link 
               to="/tag-extractor" 
@@ -243,31 +243,39 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <button 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
-            className="lg:hidden text-foreground hover:text-primary transition-colors" 
+            className="lg:hidden p-2 -mr-2 text-foreground hover:text-primary hover:bg-secondary/50 rounded-lg transition-colors touch-target" 
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
         
+        {/* Mobile Menu Overlay */}
+        {mobileMenuOpen && (
+          <div 
+            className="lg:hidden fixed inset-0 top-[57px] bg-background/80 backdrop-blur-sm z-40"
+            onClick={closeMobileMenu}
+          />
+        )}
+        
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden mt-4 pb-4 border-t border-border">
+          <div className="lg:hidden fixed left-0 right-0 top-[57px] bg-card border-b border-border shadow-xl z-50 max-h-[calc(100vh-57px)] overflow-hidden">
             {/* Mobile Search */}
-            <div className="p-4">
+            <div className="p-3 border-b border-border bg-secondary/30">
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                 <Input
                   placeholder="Search tools..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-9"
+                  className="pl-9 h-10"
                 />
               </div>
             </div>
             
-            <ScrollArea className="max-h-[60vh]">
-              <div className="flex flex-col gap-1 px-2">
+            <ScrollArea className="h-[calc(100vh-140px)] max-h-[70vh]">
+              <div className="flex flex-col gap-0.5 p-2">
                 {/* Top Categories */}
                 {topCategories.map((cat) => {
                   const gradient = getGradient(cat.id);
@@ -276,20 +284,20 @@ const Header = () => {
                       key={cat.id}
                       to={`/${cat.slug}`}
                       onClick={closeMobileMenu}
-                      className="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-secondary transition-colors"
+                      className="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-secondary active:bg-secondary/80 transition-colors touch-target"
                     >
                       <div 
-                        className="w-8 h-8 rounded-lg flex items-center justify-center"
+                        className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
                         style={{ background: `linear-gradient(135deg, ${gradient.from}, ${gradient.to})` }}
                       >
                         {categoryIcons[cat.id] || <Image className="w-4 h-4 text-white" />}
                       </div>
-                      <span className="font-medium">{cat.name}</span>
+                      <span className="font-medium text-sm">{cat.name}</span>
                     </Link>
                   );
                 })}
                 
-                <div className="border-t border-border my-2" />
+                <div className="border-t border-border my-2 mx-3" />
                 
                 {/* All Categories Expandable */}
                 {(searchQuery.trim() ? filteredCategories : imageCategories.filter(c => !topCategoryIds.includes(c.id))).map((cat) => {
@@ -300,46 +308,46 @@ const Header = () => {
                     <div key={cat.id}>
                       <button
                         onClick={() => setExpandedCategory(isExpanded ? null : cat.id)}
-                        className="w-full flex items-center justify-between px-3 py-3 rounded-lg hover:bg-secondary transition-colors"
+                        className="w-full flex items-center justify-between px-3 py-3 rounded-lg hover:bg-secondary active:bg-secondary/80 transition-colors touch-target"
                       >
                         <div className="flex items-center gap-3">
                           <div 
-                            className="w-8 h-8 rounded-lg flex items-center justify-center"
+                            className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
                             style={{ background: `linear-gradient(135deg, ${gradient.from}, ${gradient.to})` }}
                           >
                             {categoryIcons[cat.id] || <Image className="w-4 h-4 text-white" />}
                           </div>
-                          <span className="font-medium">{cat.name}</span>
+                          <span className="font-medium text-sm">{cat.name}</span>
                         </div>
-                        <ChevronDown className={`w-4 h-4 text-muted-foreground transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
+                        <ChevronDown className={`w-5 h-5 text-muted-foreground transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
                       </button>
                       
                       {isExpanded && (
-                        <div className="ml-11 space-y-1 py-2">
+                        <div className="ml-12 space-y-0.5 py-2 pr-3">
                           <Link
                             to={`/${cat.slug}`}
                             onClick={closeMobileMenu}
-                            className="block px-3 py-2 text-sm text-primary font-medium"
+                            className="block px-3 py-2.5 text-sm text-primary font-medium rounded-lg hover:bg-secondary/50"
                           >
                             View All {cat.name} →
                           </Link>
-                          {cat.tools.slice(0, 8).map((tool) => (
+                          {cat.tools.slice(0, 6).map((tool) => (
                             <Link
                               key={tool.id}
                               to={`/${tool.slug}`}
                               onClick={closeMobileMenu}
-                              className="block px-3 py-2 text-sm text-muted-foreground hover:text-foreground"
+                              className="block px-3 py-2.5 text-sm text-muted-foreground hover:text-foreground rounded-lg hover:bg-secondary/50"
                             >
                               {tool.name}
                             </Link>
                           ))}
-                          {cat.tools.length > 8 && (
+                          {cat.tools.length > 6 && (
                             <Link
                               to={`/${cat.slug}`}
                               onClick={closeMobileMenu}
-                              className="block px-3 py-2 text-xs text-primary"
+                              className="block px-3 py-2 text-xs text-primary font-medium"
                             >
-                              +{cat.tools.length - 8} more tools
+                              +{cat.tools.length - 6} more tools
                             </Link>
                           )}
                         </div>
@@ -348,36 +356,36 @@ const Header = () => {
                   );
                 })}
                 
-                <div className="border-t border-border my-2" />
+                <div className="border-t border-border my-2 mx-3" />
                 
                 {/* Other Links */}
                 <Link
                   to="/all-tools"
                   onClick={closeMobileMenu}
-                  className="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-secondary transition-colors text-primary"
+                  className="flex items-center gap-3 px-3 py-3 rounded-lg bg-primary/10 hover:bg-primary/20 transition-colors touch-target"
                 >
-                  <span className="font-medium">View All Tools</span>
+                  <span className="font-semibold text-sm text-primary">View All Tools</span>
                 </Link>
                 <Link
                   to="/tag-extractor"
                   onClick={closeMobileMenu}
-                  className="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-secondary transition-colors"
+                  className="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-secondary transition-colors touch-target"
                 >
-                  <span className="font-medium">Tag Generator</span>
+                  <span className="font-medium text-sm">Tag Generator</span>
                 </Link>
                 <Link
                   to="/about"
                   onClick={closeMobileMenu}
-                  className="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-secondary transition-colors"
+                  className="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-secondary transition-colors touch-target"
                 >
-                  <span className="font-medium">About</span>
+                  <span className="font-medium text-sm">About</span>
                 </Link>
                 <Link
                   to="/contact"
                   onClick={closeMobileMenu}
-                  className="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-secondary transition-colors"
+                  className="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-secondary transition-colors touch-target"
                 >
-                  <span className="font-medium">Contact</span>
+                  <span className="font-medium text-sm">Contact</span>
                 </Link>
               </div>
             </ScrollArea>
