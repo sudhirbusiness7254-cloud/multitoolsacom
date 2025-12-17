@@ -65,9 +65,28 @@ const Footer = () => {
           ))}
         </div>
 
-        {/* All Tools Quick Links */}
+        {/* PDF Tools Quick Links */}
         <div className="border-t border-border pt-6 sm:pt-8 mb-6 sm:mb-8">
-          <h4 className="font-semibold text-foreground mb-3 sm:mb-4 text-center text-sm sm:text-base">Popular Tools</h4>
+          <h4 className="font-semibold text-foreground mb-3 sm:mb-4 text-center text-sm sm:text-base">PDF Tools</h4>
+          <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2 mb-6">
+            {[
+              { name: "Merge PDF", route: "/merge-pdf" },
+              { name: "Compress PDF", route: "/compress-pdf" },
+              { name: "Word to PDF", route: "/word-to-pdf" },
+              { name: "Image to PDF", route: "/image-to-pdf" },
+              { name: "Split PDF", route: "/split-pdf" },
+            ].map((item) => (
+              <Link 
+                key={item.route} 
+                to={item.route}
+                className="px-2 sm:px-3 py-1 bg-red-500/10 border border-red-500/20 rounded-full text-[10px] sm:text-xs text-red-500 hover:bg-red-500 hover:text-white transition-colors"
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
+          
+          <h4 className="font-semibold text-foreground mb-3 sm:mb-4 text-center text-sm sm:text-base">Popular Image Tools</h4>
           <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2">
             {[
               { name: "JPG to PNG", route: "/jpg-to-png" },
@@ -94,6 +113,8 @@ const Footer = () => {
         {/* Bottom Links */}
         <div className="flex flex-wrap justify-center gap-3 sm:gap-6 mb-4 sm:mb-6">
           <Link to="/" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">Home</Link>
+          <Link to="/all-tools" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">All Tools</Link>
+          <Link to="/pdf-tools" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">PDF Tools</Link>
           <Link to="/about" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">About</Link>
           <Link to="/blog" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">Blog</Link>
           <Link to="/privacy" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">Privacy</Link>
