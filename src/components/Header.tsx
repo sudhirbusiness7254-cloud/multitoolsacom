@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, ChevronDown, Search, RefreshCw, Minimize2, Maximize2, Crop, Droplet, Image } from "lucide-react";
+import { Menu, X, ChevronDown, Search, RefreshCw, Minimize2, Maximize2, Crop, Droplet, Image, FileText } from "lucide-react";
 import logo from "@/assets/logo-icon.png";
 import { toolCategories } from "@/data/toolsData";
 import { Input } from "@/components/ui/input";
@@ -215,6 +215,15 @@ const Header = () => {
 
             <div className="w-px h-6 bg-border mx-1 xl:mx-2" />
             <Link 
+              to="/pdf-tools" 
+              className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-secondary flex items-center gap-1.5 ${
+                location.pathname.includes("pdf") ? "text-primary bg-primary/10" : "text-foreground"
+              }`}
+            >
+              <FileText className="w-4 h-4" />
+              PDF Tools
+            </Link>
+            <Link 
               to="/tag-extractor" 
               className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-secondary ${
                 isActive("/tag-extractor") ? "text-primary bg-primary/10" : "text-foreground"
@@ -357,6 +366,19 @@ const Header = () => {
                   className="flex items-center gap-3 px-3 py-3 rounded-lg bg-primary/10 hover:bg-primary/20 transition-colors touch-target"
                 >
                   <span className="font-semibold text-sm text-primary">View All Tools</span>
+                </Link>
+                <Link
+                  to="/pdf-tools"
+                  onClick={closeMobileMenu}
+                  className="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-secondary transition-colors touch-target"
+                >
+                  <div 
+                    className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
+                    style={{ background: 'linear-gradient(135deg, #DC2626, #EA580C)' }}
+                  >
+                    <FileText className="w-4 h-4 text-white" />
+                  </div>
+                  <span className="font-medium text-sm">PDF Tools</span>
                 </Link>
                 <Link
                   to="/tag-extractor"
