@@ -1,4 +1,4 @@
-import { useParams, Navigate } from "react-router-dom";
+import { useLocation, Navigate } from "react-router-dom";
 import SEOToolPage from "@/components/SEOToolPage";
 import { getPDFToolSEO } from "@/data/pdfToolsSEOData";
 import MergePDF from "@/components/pdf/MergePDF";
@@ -16,14 +16,15 @@ const pdfComponents: Record<string, React.ComponentType> = {
 };
 
 const PDFToolPage = () => {
-  const { toolSlug } = useParams<{ toolSlug: string }>();
-  
-  if (!toolSlug) return <Navigate to="/pdf-tools" replace />;
+  const location = useLocation();
+  const toolSlug = location.pathname.replace("/", "");
   
   const seoContent = getPDFToolSEO(toolSlug);
   const ToolComponent = pdfComponents[toolSlug];
   
-  if (!seoContent || !ToolComponent) return null;
+  if (!seoContent || !ToolComponent) {
+    return <Navigate to="/pdf-tools" replace />;
+  }
   
   return (
     <SEOToolPage seoContent={seoContent}>
