@@ -24,6 +24,7 @@ const categoryLucideIcons: Record<string, React.ReactNode> = {
   "image-security": <Lock className="w-6 h-6 text-white" />,
   "image-qr": <QrCode className="w-6 h-6 text-white" />,
   "tag-tools": <Hash className="w-6 h-6 text-white" />,
+  "pdf-tools": <FileText className="w-6 h-6 text-white" />,
 };
 
 // Colorful gradients for categories and tools
@@ -44,6 +45,7 @@ const categoryGradients: Record<string, { from: string; to: string }> = {
   "image-security": { from: "#EF4444", to: "#B91C1C" },
   "image-qr": { from: "#3B82F6", to: "#1D4ED8" },
   "tag-tools": { from: "#8B5CF6", to: "#6366F1" },
+  "pdf-tools": { from: "#DC2626", to: "#EA580C" },
 };
 
 // Popular tools to feature on homepage
@@ -51,15 +53,15 @@ const popularTools = [
   { slug: "jpg-to-png", name: "JPG to PNG", category: "image-converter" },
   { slug: "png-to-jpg", name: "PNG to JPG", category: "image-converter" },
   { slug: "jpeg-compressor", name: "JPEG Compressor", category: "image-compression" },
-  { slug: "image-to-pdf", name: "Image to PDF", category: "image-to-document" },
+  { slug: "merge-pdf", name: "Merge PDF", category: "pdf-tools" },
   { slug: "exact-resize", name: "Exact Resize", category: "image-resize" },
   { slug: "manual-crop", name: "Manual Crop", category: "image-crop" },
   { slug: "rotate-90", name: "Rotate 90°", category: "image-rotate-flip" },
   { slug: "text-watermark", name: "Text Watermark", category: "watermark-tools" },
   { slug: "jpg-to-webp", name: "JPG to WebP", category: "image-converter" },
   { slug: "png-compressor", name: "PNG Compressor", category: "image-compression" },
-  { slug: "collage-maker", name: "Collage Maker", category: "image-combine" },
-  { slug: "image-to-qr-code", name: "QR Code Generator", category: "image-qr" },
+  { slug: "compress-pdf", name: "Compress PDF", category: "pdf-tools" },
+  { slug: "word-to-pdf", name: "Word to PDF", category: "pdf-tools" },
 ];
 
 const getGradient = (categoryId: string) => {
@@ -255,6 +257,48 @@ const HomePage = () => {
                     </Link>
                   );
                 })}
+              </div>
+            </div>
+          </section>
+
+          {/* PDF Tools Section */}
+          <section className="py-8 sm:py-12 md:py-16 lg:py-20 px-3 sm:px-4 md:px-6 bg-gradient-to-b from-red-500/5 to-orange-500/5">
+            <div className="container mx-auto max-w-4xl">
+              <div className="text-center mb-6 sm:mb-8">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-500/10 border border-red-500/30 mb-4">
+                  <FileText className="w-4 h-4 text-red-500" />
+                  <span className="text-sm font-medium text-red-500">PDF Tools</span>
+                </div>
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2">All-in-One PDF Tools</h2>
+                <p className="text-muted-foreground">Merge, compress, split, and convert PDFs online for free</p>
+              </div>
+              
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4">
+                {[
+                  { slug: "merge-pdf", name: "Merge PDF", icon: "📄" },
+                  { slug: "compress-pdf", name: "Compress PDF", icon: "📦" },
+                  { slug: "word-to-pdf", name: "Word to PDF", icon: "📝" },
+                  { slug: "image-to-pdf", name: "Image to PDF", icon: "🖼️" },
+                  { slug: "split-pdf", name: "Split PDF", icon: "✂️" },
+                ].map((tool) => (
+                  <Link
+                    key={tool.slug}
+                    to={`/${tool.slug}`}
+                    className="group bg-card rounded-xl p-4 border border-border hover:border-red-500/50 transition-all hover:-translate-y-0.5 hover:shadow-lg text-center"
+                  >
+                    <div className="text-2xl mb-2">{tool.icon}</div>
+                    <span className="text-sm font-medium group-hover:text-red-500 transition-colors">{tool.name}</span>
+                  </Link>
+                ))}
+              </div>
+              
+              <div className="text-center mt-6">
+                <Link
+                  to="/pdf-tools"
+                  className="inline-flex items-center gap-2 text-red-500 font-medium hover:underline"
+                >
+                  View All PDF Tools <ArrowRight className="w-4 h-4" />
+                </Link>
               </div>
             </div>
           </section>
