@@ -86,6 +86,25 @@ const Footer = () => {
             ))}
           </div>
           
+          <h4 className="font-semibold text-foreground mb-3 sm:mb-4 text-center text-sm sm:text-base">Facebook Tools</h4>
+          <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2 mb-6">
+            {[
+              { name: "Caption Generator", route: "/facebook-caption-generator" },
+              { name: "Bio Generator", route: "/facebook-bio-generator" },
+              { name: "Hashtag Generator", route: "/facebook-hashtag-generator" },
+              { name: "Engagement Calculator", route: "/facebook-engagement-rate-calculator" },
+              { name: "All Facebook Tools", route: "/facebook-tools" },
+            ].map((item) => (
+              <Link 
+                key={item.route} 
+                to={item.route}
+                className="px-2 sm:px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full text-[10px] sm:text-xs text-blue-500 hover:bg-blue-500 hover:text-white transition-colors"
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
+          
           <h4 className="font-semibold text-foreground mb-3 sm:mb-4 text-center text-sm sm:text-base">Popular Image Tools</h4>
           <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2">
             {[

@@ -17,6 +17,7 @@ import UniversalImageDrawing from "@/components/UniversalImageDrawing";
 import UniversalImageSecurity from "@/components/UniversalImageSecurity";
 import UniversalQRTools from "@/components/UniversalQRTools";
 import UniversalDocumentConverter from "@/components/UniversalDocumentConverter";
+import UniversalFacebookTools from "@/components/facebook/UniversalFacebookTools";
 
 
 // Tool slug to component mapping
