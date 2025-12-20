@@ -1,8 +1,10 @@
-import { useState, useCallback } from "react";
-import { FileText, Minimize2, FileUp, Image, Scissors, Upload, X, ArrowRight } from "lucide-react";
+import { useState, useCallback, useRef } from "react";
+import { FileText, Minimize2, FileUp, Image, Scissors, Upload, X, ArrowRight, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Link } from "react-router-dom";
+import { toast } from "sonner";
+
+// Import PDF tool components
 import MergePDF from "./MergePDF";
 import CompressPDF from "./CompressPDF";
 import WordToPDF from "./WordToPDF";
@@ -16,7 +18,7 @@ interface PDFTool {
   description: string;
   icon: React.ReactNode;
   color: string;
-  acceptedFiles: string;
+  acceptedFiles: string[];
   component: React.ComponentType;
 }
 
@@ -28,7 +30,7 @@ const pdfTools: PDFTool[] = [
     description: "Combine multiple PDF files into one",
     icon: <FileText className="w-6 h-6" />,
     color: "from-red-500 to-red-600",
-    acceptedFiles: ".pdf",
+    acceptedFiles: [".pdf"],
     component: MergePDF
   },
   {
@@ -38,7 +40,7 @@ const pdfTools: PDFTool[] = [
     description: "Reduce PDF file size",
     icon: <Minimize2 className="w-6 h-6" />,
     color: "from-orange-500 to-orange-600",
-    acceptedFiles: ".pdf",
+    acceptedFiles: [".pdf"],
     component: CompressPDF
   },
   {
@@ -48,7 +50,7 @@ const pdfTools: PDFTool[] = [
     description: "Convert Word documents to PDF",
     icon: <FileUp className="w-6 h-6" />,
     color: "from-blue-500 to-blue-600",
-    acceptedFiles: ".doc,.docx",
+    acceptedFiles: [".doc", ".docx"],
     component: WordToPDF
   },
   {
@@ -58,7 +60,7 @@ const pdfTools: PDFTool[] = [
     description: "Convert images to PDF",
     icon: <Image className="w-6 h-6" />,
     color: "from-purple-500 to-purple-600",
-    acceptedFiles: "image/*",
+    acceptedFiles: ["image/*"],
     component: ImageToPDFTool
   },
   {
@@ -68,7 +70,7 @@ const pdfTools: PDFTool[] = [
     description: "Extract pages from PDF",
     icon: <Scissors className="w-6 h-6" />,
     color: "from-pink-500 to-pink-600",
-    acceptedFiles: ".pdf",
+    acceptedFiles: [".pdf"],
     component: SplitPDF
   },
 ];
@@ -80,22 +82,10 @@ interface UniversalPDFToolsProps {
 const UniversalPDFTools = ({ defaultTool }: UniversalPDFToolsProps) => {
   const [selectedTool, setSelectedTool] = useState<string>(defaultTool || "");
   const [isDragging, setIsDragging] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const handleDragOver = useCallback((e: React.DragEvent) => {
-    e.preventDefault();
-    setIsDragging(true);
-  }, []);
-
-  const handleDragLeave = useCallback(() => {
-    setIsDragging(false);
-  }, []);
-
-  const handleDrop = useCallback((e: React.DragEvent) => {
-    e.preventDefault();
-    setIsDragging(false);
-    
-    const files = Array.from(e.dataTransfer.files);
-    if (files.length === 0) return;
+  const detectToolFromFiles = (files: File[]): string | null => {
+    if (files.length === 0) return null;
 
     const file = files[0];
     const fileName = file.name.toLowerCase();
@@ -103,17 +93,76 @@ const UniversalPDFTools = ({ defaultTool }: UniversalPDFToolsProps) => {
     // Auto-detect tool based on file type
     if (fileName.endsWith('.pdf')) {
       if (files.length > 1) {
-        setSelectedTool("merge-pdf");
+        return "merge-pdf";
       } else {
-        // Default to compress for single PDF
-        setSelectedTool("compress-pdf");
+        return "compress-pdf";
       }
     } else if (fileName.endsWith('.doc') || fileName.endsWith('.docx')) {
-      setSelectedTool("word-to-pdf");
+      return "word-to-pdf";
     } else if (file.type.startsWith('image/')) {
-      setSelectedTool("image-to-pdf");
+      return "image-to-pdf";
+    }
+    
+    return null;
+  };
+
+  const handleDragOver = useCallback((e: React.DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragging(true);
+  }, []);
+
+  const handleDragLeave = useCallback((e: React.DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragging(false);
+  }, []);
+
+  const handleDrop = useCallback((e: React.DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragging(false);
+    
+    const files = Array.from(e.dataTransfer.files);
+    if (files.length === 0) {
+      toast.error("No files detected. Please try again.");
+      return;
+    }
+
+    const detectedTool = detectToolFromFiles(files);
+    
+    if (detectedTool) {
+      setSelectedTool(detectedTool);
+      const toolName = pdfTools.find(t => t.id === detectedTool)?.name || detectedTool;
+      toast.success(`Opening ${toolName}. Please upload your file again in the tool below.`);
+    } else {
+      toast.error("Unsupported file type. Please use PDF, Word documents, or images.");
     }
   }, []);
+
+  const handleFileInputChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = Array.from(e.target.files || []);
+    if (files.length === 0) return;
+
+    const detectedTool = detectToolFromFiles(files);
+    
+    if (detectedTool) {
+      setSelectedTool(detectedTool);
+      const toolName = pdfTools.find(t => t.id === detectedTool)?.name || detectedTool;
+      toast.success(`Opening ${toolName}. Please upload your file again in the tool below.`);
+    } else {
+      toast.error("Unsupported file type. Please use PDF, Word documents, or images.");
+    }
+    
+    // Reset file input
+    if (fileInputRef.current) {
+      fileInputRef.current.value = "";
+    }
+  }, []);
+
+  const handleBrowseClick = () => {
+    fileInputRef.current?.click();
+  };
 
   const activeTool = pdfTools.find(t => t.id === selectedTool);
 
@@ -121,7 +170,7 @@ const UniversalPDFTools = ({ defaultTool }: UniversalPDFToolsProps) => {
     const ToolComponent = activeTool.component;
     return (
       <div className="space-y-6">
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${activeTool.color} flex items-center justify-center text-white`}>
               {activeTool.icon}
@@ -137,22 +186,35 @@ const UniversalPDFTools = ({ defaultTool }: UniversalPDFToolsProps) => {
           </Button>
         </div>
         
-        <ToolComponent />
+        <div className="bg-card border border-border rounded-xl p-6">
+          <ToolComponent />
+        </div>
       </div>
     );
   }
 
   return (
     <div className="space-y-8">
+      {/* Hidden file input for click-to-browse */}
+      <input
+        ref={fileInputRef}
+        type="file"
+        onChange={handleFileInputChange}
+        accept=".pdf,.doc,.docx,image/*"
+        multiple
+        className="hidden"
+      />
+      
       {/* Universal Drop Zone */}
       <div
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
         onDrop={handleDrop}
+        onClick={handleBrowseClick}
         className={`
-          relative border-2 border-dashed rounded-2xl p-8 md:p-12 text-center transition-all duration-300
+          relative border-2 border-dashed rounded-2xl p-8 md:p-12 text-center transition-all duration-300 cursor-pointer
           ${isDragging 
-            ? 'border-primary bg-primary/5 scale-[1.02]' 
+            ? 'border-primary bg-primary/10 scale-[1.02]' 
             : 'border-border hover:border-primary/50 hover:bg-secondary/30'
           }
         `}
@@ -165,9 +227,13 @@ const UniversalPDFTools = ({ defaultTool }: UniversalPDFToolsProps) => {
             <h3 className="text-xl font-semibold mb-2">
               {isDragging ? "Drop your file here!" : "Drop any file to get started"}
             </h3>
-            <p className="text-muted-foreground max-w-md mx-auto">
+            <p className="text-muted-foreground max-w-md mx-auto mb-4">
               Drop a PDF to merge, compress, or split. Drop Word documents to convert to PDF. Drop images to create a PDF.
             </p>
+            <Button variant="outline" className="pointer-events-none">
+              <Plus className="w-4 h-4 mr-2" />
+              Or click to browse files
+            </Button>
           </div>
         </div>
       </div>
