@@ -281,6 +281,21 @@ export const toolCategories: Category[] = [
       { id: "tag-extractor", name: "Tag Extractor", slug: "tag-extractor", description: "Extract tags from social media URLs", category: "Tag Tools", categorySlug: "tag-tools", icon: "Hash", keywords: ["tag extractor", "hashtag generator"] },
     ]
   },
+  {
+    id: "pdf-tools",
+    name: "PDF Tools",
+    slug: "pdf-tools",
+    description: "All-in-one PDF tools for merging, compressing, converting, and splitting PDFs",
+    icon: "FileText",
+    priority: 17,
+    tools: [
+      { id: "merge-pdf", name: "Merge PDF", slug: "merge-pdf", description: "Combine multiple PDF files into one document", category: "PDF Tools", categorySlug: "pdf-tools", icon: "FileText", keywords: ["merge pdf", "combine pdf", "join pdf", "pdf merger"] },
+      { id: "compress-pdf", name: "Compress PDF", slug: "compress-pdf", description: "Reduce PDF file size while maintaining quality", category: "PDF Tools", categorySlug: "pdf-tools", icon: "Minimize2", keywords: ["compress pdf", "reduce pdf size", "pdf compressor", "shrink pdf"] },
+      { id: "word-to-pdf", name: "Word to PDF", slug: "word-to-pdf", description: "Convert Word documents (DOCX, DOC) to PDF format", category: "PDF Tools", categorySlug: "pdf-tools", icon: "FileUp", keywords: ["word to pdf", "docx to pdf", "convert word", "doc to pdf"] },
+      { id: "image-to-pdf", name: "Image to PDF", slug: "image-to-pdf", description: "Convert and combine images into PDF documents", category: "PDF Tools", categorySlug: "pdf-tools", icon: "Image", keywords: ["image to pdf", "jpg to pdf", "png to pdf", "photo to pdf"] },
+      { id: "split-pdf", name: "Split PDF", slug: "split-pdf", description: "Extract pages or split PDF into multiple files", category: "PDF Tools", categorySlug: "pdf-tools", icon: "Scissors", keywords: ["split pdf", "extract pdf pages", "pdf splitter", "divide pdf"] },
+    ]
+  },
 ];
 
 export const getAllTools = (): Tool[] => {

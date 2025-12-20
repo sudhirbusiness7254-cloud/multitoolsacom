@@ -1,12 +1,21 @@
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { toolCategories } from "@/data/toolsData";
-import { ArrowRight, Search, Sparkles } from "lucide-react";
+import { ArrowRight, Search, Sparkles, FileText } from "lucide-react";
 import { useState, useMemo } from "react";
 import { Input } from "@/components/ui/input";
 import { ToolIconWithBackground, getToolIconColor, getToolIconComponent } from "@/lib/toolIcons";
+
+// PDF Tools data for inclusion in all tools
+const pdfToolsData = [
+  { id: "merge-pdf", name: "Merge PDF", slug: "merge-pdf", description: "Combine multiple PDF files into one document", category: "PDF Tools", categorySlug: "pdf-tools", icon: "FileText", keywords: ["merge pdf", "combine pdf", "join pdf", "pdf merger"] },
+  { id: "compress-pdf", name: "Compress PDF", slug: "compress-pdf", description: "Reduce PDF file size while maintaining quality", category: "PDF Tools", categorySlug: "pdf-tools", icon: "Minimize2", keywords: ["compress pdf", "reduce pdf size", "pdf compressor", "shrink pdf"] },
+  { id: "word-to-pdf", name: "Word to PDF", slug: "word-to-pdf", description: "Convert Word documents (DOCX, DOC) to PDF format", category: "PDF Tools", categorySlug: "pdf-tools", icon: "FileUp", keywords: ["word to pdf", "docx to pdf", "convert word", "doc to pdf"] },
+  { id: "image-to-pdf", name: "Image to PDF", slug: "image-to-pdf", description: "Convert and combine images into PDF documents", category: "PDF Tools", categorySlug: "pdf-tools", icon: "Image", keywords: ["image to pdf", "jpg to pdf", "png to pdf", "photo to pdf"] },
+  { id: "split-pdf", name: "Split PDF", slug: "split-pdf", description: "Extract pages or split PDF into multiple files", category: "PDF Tools", categorySlug: "pdf-tools", icon: "Scissors", keywords: ["split pdf", "extract pdf pages", "pdf splitter", "divide pdf"] },
+];
 
 // Colorful gradient pairs for tools
 const toolGradients = [
@@ -33,12 +42,21 @@ const AllToolsPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
   
   const allTools = useMemo(() => {
-    return toolCategories.flatMap((cat, catIndex) => 
+    // Combine image tools with PDF tools
+    const imageTools = toolCategories.flatMap((cat, catIndex) => 
       cat.tools.map((tool, toolIndex) => ({
         ...tool,
         gradient: getGradient(catIndex * 10 + toolIndex)
       }))
     );
+    
+    // Add PDF tools
+    const pdfTools = pdfToolsData.map((tool, index) => ({
+      ...tool,
+      gradient: { from: "#ef4444", to: "#dc2626" } // Red gradient for PDF tools
+    }));
+    
+    return [...imageTools, ...pdfTools];
   }, []);
 
   const filteredTools = useMemo(() => {
@@ -66,8 +84,8 @@ const AllToolsPage = () => {
   return (
     <>
       <Helmet>
-        <title>All Image Tools - 80+ Free Online Image Tools | MultiTools</title>
-        <meta name="description" content="Browse our complete collection of 80+ free online image tools. Convert, compress, resize, crop, edit, and enhance images. No signup required." />
+        <title>All Tools - 85+ Free Online Image & PDF Tools | MultiTools</title>
+        <meta name="description" content="Browse our complete collection of 85+ free online tools. Convert, compress, resize images. Merge, split, convert PDFs. No signup required." />
         <link rel="canonical" href="https://multitools.com/all-tools" />
       </Helmet>
 
@@ -80,11 +98,11 @@ const AllToolsPage = () => {
             <div className="container mx-auto px-4 text-center">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 mb-6">
                 <Sparkles className="w-4 h-4 text-primary" />
-                <span className="text-sm font-medium text-primary">80+ Free Tools</span>
+                <span className="text-sm font-medium text-primary">85+ Free Tools</span>
               </div>
-              <h1 className="text-3xl md:text-5xl font-bold mb-4">All Image Tools</h1>
+              <h1 className="text-3xl md:text-5xl font-bold mb-4">All Tools</h1>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-                Browse our complete collection of free online image tools
+                Browse our complete collection of free online image and PDF tools
               </p>
               
               {/* Search */}
