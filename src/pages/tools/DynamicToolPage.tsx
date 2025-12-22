@@ -102,6 +102,18 @@ const getToolComponent = (slug: string) => {
     return <UniversalDocumentConverter />;
   }
 
+  // Facebook tools
+  const facebookSlugs = [
+    "facebook-story-downloader", "facebook-profile-picture-downloader", "facebook-cover-photo-downloader",
+    "facebook-caption-generator", "facebook-bio-generator", "facebook-hashtag-generator",
+    "facebook-post-idea-generator", "facebook-comment-generator", "facebook-story-text-generator",
+    "facebook-page-name-generator", "facebook-engagement-rate-calculator", "facebook-ad-copy-generator",
+    "facebook-cta-generator", "facebook-content-calendar-generator", "facebook-posting-time-analyzer",
+    "facebook-audience-interest-finder", "facebook-ad-headline-generator", "facebook-post-formatter"
+  ];
+  if (facebookSlugs.includes(slug)) {
+    return <UniversalFacebookTools toolType={slug} />;
+  }
 
   return null;
 };
