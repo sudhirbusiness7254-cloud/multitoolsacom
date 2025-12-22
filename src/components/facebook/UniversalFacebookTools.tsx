@@ -24,12 +24,15 @@ import {
   AtSign,
   MousePointer,
   Heading,
-  MessageCircle
+  MessageCircle,
+  Loader2
 } from "lucide-react";
 
 interface UniversalFacebookToolsProps {
   toolType?: string;
 }
+
+const DEEPSEEK_API_KEY = "sk-d024f61a26fc4df1ba3cb0f58abad062";
 
 const toolIconMap: Record<string, React.ElementType> = {
   "facebook-caption-generator": MessageSquare,
@@ -47,6 +50,146 @@ const toolIconMap: Record<string, React.ElementType> = {
   "facebook-audience-interest-finder": Target,
   "facebook-ad-headline-generator": Heading,
   "facebook-post-formatter": AlignLeft,
+};
+
+const getPromptForTool = (toolType: string, context: string, tone: string, category: string): string => {
+  const prompts: Record<string, string> = {
+    "facebook-caption-generator": `Generate an engaging Facebook caption for a ${category} post. The tone should be ${tone}. ${context ? `Context: ${context}` : ''} 
+    
+    Requirements:
+    - Include relevant emojis
+    - Add a call to action
+    - Keep it under 200 characters for maximum engagement
+    - Make it scroll-stopping
+    
+    Return only the caption, nothing else.`,
+    
+    "facebook-bio-generator": `Create a creative and catchy Facebook bio. The tone should be ${tone}. ${context ? `About: ${context}` : ''}
+    
+    Requirements:
+    - Use creative emojis
+    - Keep it concise (under 100 characters)
+    - Make it memorable and unique
+    - Include personality traits or interests
+    
+    Return only the bio, nothing else.`,
+    
+    "facebook-hashtag-generator": `Generate 10-15 relevant and trending Facebook hashtags for a ${category} post. ${context ? `Topic: ${context}` : ''}
+    
+    Requirements:
+    - Mix popular and niche hashtags
+    - Include some trending tags
+    - Make them relevant to the topic
+    - Format: #hashtag1 #hashtag2 ...
+    
+    Return only the hashtags, nothing else.`,
+    
+    "facebook-post-idea-generator": `Generate 3 creative and engaging Facebook post ideas for a ${category} page. The tone should be ${tone}. ${context ? `About: ${context}` : ''}
+    
+    Requirements:
+    - Each idea should be unique and engaging
+    - Include post type (poll, behind-the-scenes, story, etc.)
+    - Add tips for maximizing engagement
+    - Make them actionable
+    
+    Format each idea with an emoji and clear description.`,
+    
+    "facebook-comment-generator": `Generate a thoughtful and engaging comment for a Facebook post. The tone should be ${tone}. ${context ? `Post context: ${context}` : ''}
+    
+    Requirements:
+    - Be genuine and authentic
+    - Add value to the conversation
+    - Include appropriate emojis
+    - Keep it under 100 words
+    
+    Return only the comment, nothing else.`,
+    
+    "facebook-story-text-generator": `Create engaging text for a Facebook story. The tone should be ${tone}. ${context ? `Topic: ${context}` : ''}
+    
+    Requirements:
+    - Keep it short and punchy
+    - Include eye-catching emojis
+    - Add a swipe up or action prompt
+    - Make it visually appealing
+    
+    Return only the story text, nothing else.`,
+    
+    "facebook-page-name-generator": `Generate 5 unique and creative Facebook page name ideas for a ${category} business/brand. ${context ? `About: ${context}` : ''}
+    
+    Requirements:
+    - Make them memorable
+    - Easy to spell and pronounce
+    - Include creative symbols if appropriate
+    - Each name on a new line
+    
+    Return only the page names, one per line.`,
+    
+    "facebook-ad-copy-generator": `Write compelling Facebook ad copy for a ${category} product/service. The tone should be ${tone}. ${context ? `Details: ${context}` : ''}
+    
+    Requirements:
+    - Hook the reader in the first line
+    - Highlight benefits, not just features
+    - Include a strong call to action
+    - Use urgency if appropriate
+    - Keep it under 125 characters for primary text
+    
+    Return only the ad copy, nothing else.`,
+    
+    "facebook-cta-generator": `Generate 5 compelling call-to-action buttons/phrases for Facebook. The tone should be ${tone}. ${context ? `For: ${context}` : ''}
+    
+    Requirements:
+    - Use action verbs
+    - Create urgency
+    - Include emojis
+    - Keep each under 25 characters
+    
+    Return only the CTAs, one per line.`,
+    
+    "facebook-ad-headline-generator": `Create 5 attention-grabbing Facebook ad headlines for a ${category} campaign. ${context ? `About: ${context}` : ''}
+    
+    Requirements:
+    - Under 40 characters each
+    - Include power words
+    - Create curiosity
+    - Use numbers if relevant
+    
+    Return only the headlines, one per line.`,
+    
+    "facebook-content-calendar-generator": `Create a 7-day Facebook content calendar for a ${category} page. ${context ? `About: ${context}` : ''}
+    
+    For each day, provide:
+    - Day of week
+    - Best posting time
+    - Content type (image, video, poll, etc.)
+    - Post topic/idea
+    - Engagement strategy
+    
+    Format clearly with days as headers.`,
+    
+    "facebook-posting-time-analyzer": `Provide optimal Facebook posting times analysis for a ${category} audience. ${context ? `Additional info: ${context}` : ''}
+    
+    Include:
+    - Best days to post
+    - Best times for each day
+    - Worst times to avoid
+    - Industry-specific recommendations
+    - Tips for testing optimal times
+    
+    Format clearly with sections.`,
+    
+    "facebook-audience-interest-finder": `Identify audience interests and targeting suggestions for Facebook ads in the ${category} niche. ${context ? `Specifics: ${context}` : ''}
+    
+    Include:
+    - Related interests
+    - Demographics suggestions
+    - Behavioral targeting ideas
+    - Lookalike audience suggestions
+    - Competitor pages to target
+    
+    Format as a structured list.`,
+  };
+  
+  return prompts[toolType] || prompts["facebook-caption-generator"];
 };
 
 const UniversalFacebookTools = ({ toolType }: UniversalFacebookToolsProps) => {
@@ -70,87 +213,86 @@ const UniversalFacebookTools = ({ toolType }: UniversalFacebookToolsProps) => {
 
   const generateContent = useCallback(async () => {
     setIsProcessing(true);
+    setGeneratedContent("");
     
-    // Simulate processing
-    await new Promise(resolve => setTimeout(resolve, 1200));
-    
-    const contentTemplates: Record<string, string[]> = {
-      caption: [
+    try {
+      const prompt = getPromptForTool(
+        toolType || "facebook-caption-generator", 
+        inputText, 
+        selectedTone, 
+        selectedCategory
+      );
+      
+      const response = await fetch("https://api.deepseek.com/chat/completions", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${DEEPSEEK_API_KEY}`,
+        },
+        body: JSON.stringify({
+          model: "deepseek-chat",
+          messages: [
+            {
+              role: "system",
+              content: "You are a creative social media expert specializing in Facebook marketing. Generate engaging, authentic content that drives engagement. Be creative, use emojis appropriately, and always provide actionable content."
+            },
+            {
+              role: "user",
+              content: prompt
+            }
+          ],
+          max_tokens: 500,
+          temperature: 0.8,
+        }),
+      });
+      
+      if (!response.ok) {
+        throw new Error(`API error: ${response.status}`);
+      }
+      
+      const data = await response.json();
+      const content = data.choices?.[0]?.message?.content || "";
+      
+      if (content) {
+        setGeneratedContent(content.trim());
+        toast.success("Content generated successfully!");
+      } else {
+        throw new Error("No content generated");
+      }
+    } catch (error) {
+      console.error("Error generating content:", error);
+      toast.error("Failed to generate content. Please try again.");
+      
+      // Fallback to template-based generation
+      const fallbackContent = getFallbackContent(toolType || "facebook-caption-generator");
+      setGeneratedContent(fallbackContent);
+    } finally {
+      setIsProcessing(false);
+    }
+  }, [toolType, inputText, selectedTone, selectedCategory]);
+
+  const getFallbackContent = (type: string): string => {
+    const templates: Record<string, string[]> = {
+      "facebook-caption-generator": [
         "✨ Life is what happens when you're busy making other plans. What's your plan for today? Drop a comment below! 👇",
         "📸 Capturing moments that matter. Every picture tells a story, what's yours? Share your thoughts! 💭",
         "🌟 Dream big, work hard, stay focused. Success is just around the corner! Who's ready to crush their goals? 💪",
-        "💫 Sometimes the smallest step in the right direction ends up being the biggest step of your life. Keep moving forward! 🚀",
-        "🎯 Goals don't work unless you do. Let's make today count! What are you working on? 📝"
       ],
-      bio: [
+      "facebook-bio-generator": [
         "✨ Dreamer | Creator | Storyteller | Making the ordinary extraordinary ✨",
         "🌍 Explorer of life's beautiful moments | Sharing my journey one post at a time 📸",
         "💡 Turning ideas into reality | Passionate about growth and connection 🌱",
-        "🎯 Living life on my own terms | Inspiring others along the way 💫",
-        "🌟 Just a soul with goals | Building my dreams one day at a time 🚀"
       ],
-      hashtags: [
+      "facebook-hashtag-generator": [
         "#motivation #success #goals #mindset #inspiration #growth #positivity #lifestyle #entrepreneur #hustle #dreambig #nevergiveup",
-        "#love #life #happy #instagood #photooftheday #beautiful #fashion #smile #friends #family #blessed #grateful",
-        "#business #marketing #entrepreneur #startup #success #motivation #money #smallbusiness #branding #digitalmarketing"
       ],
-      postIdea: [
-        "📊 Poll: Ask your audience about their weekend plans and share yours! Great for boosting engagement.",
-        "🎬 Behind-the-scenes: Show a day in your life or work process. People love authentic content!",
-        "💬 Engagement post: Share a controversial opinion in your niche and ask for thoughts. Gets people talking!",
-        "📚 Value post: Share 5 tips that helped you achieve something specific. Educational content performs great!",
-        "🎉 Celebration: Highlight a milestone or thank your community. Gratitude posts build connection!"
+      "facebook-post-idea-generator": [
+        "📊 Poll: Ask your audience about their weekend plans and share yours!\n\n🎬 Behind-the-scenes: Show a day in your life or work process.\n\n💬 Engagement post: Share a controversial opinion in your niche.",
       ],
-      comment: [
-        "This is absolutely amazing! Thanks for sharing this valuable content 🙌 Really made my day!",
-        "Love this perspective! Really made me think differently about it 💡 Keep up the great work!",
-        "Great post! This resonates with me so much. Keep up the incredible work! ✨",
-        "Wow, this is so inspiring! Needed to see this today 🌟 Thank you for sharing!",
-        "Couldn't agree more! This is exactly what I've been thinking about lately 💯"
-      ],
-      storyText: [
-        "✨ New day, new opportunities! Swipe up to see more → What's on your agenda today?",
-        "🔥 Big things coming! Stay tuned for the announcement... You don't want to miss this!",
-        "💭 Quick question: What's your biggest goal this week? Drop your answer!",
-        "📸 POV: You're living your best life ✨ This is your sign to keep going!",
-        "🎯 Monday motivation: Your only limit is your mind. Let's crush this week!"
-      ],
-      pageName: [
-        "Digital Dreams Studio ✨",
-        "The Creative Corner 🎨",
-        "Inspired Living Daily 🌟",
-        "Modern Life Chronicles 📖",
-        "The Growth Mindset Hub 🚀"
-      ],
-      adCopy: [
-        "🚀 Transform your life in just 30 days! Our proven system has helped thousands achieve their goals. Limited spots available - claim yours now! ⏰",
-        "💡 Stop struggling and start succeeding! Discover the secret that top performers use to 10x their results. Free training inside! 🎓",
-        "⚡ Ready for a change? Join 50,000+ people who've already transformed their lives with our revolutionary approach. Start free today! 🌟"
-      ],
-      cta: [
-        "👉 Get Started Now - It's Free!",
-        "🎯 Claim Your Spot Today",
-        "⚡ Start Your Transformation",
-        "🚀 Join The Movement",
-        "💫 Unlock Your Potential Now"
-      ],
-      adHeadline: [
-        "Transform Your Results in 7 Days 🚀",
-        "The Secret Top Performers Know 💡",
-        "Finally, A System That Works ✨",
-        "Your Success Story Starts Here 🌟",
-        "Stop Dreaming, Start Achieving 🎯"
-      ]
     };
-    
-    const type = toolType?.replace("facebook-", "").replace("-generator", "").replace("-finder", "").replace("-analyzer", "") || "caption";
-    const templates = contentTemplates[type] || contentTemplates.caption;
-    const randomContent = templates[Math.floor(Math.random() * templates.length)];
-    
-    setGeneratedContent(randomContent);
-    setIsProcessing(false);
-    toast.success("Content generated successfully!");
-  }, [toolType]);
+    const list = templates[type] || templates["facebook-caption-generator"];
+    return list[Math.floor(Math.random() * list.length)];
+  };
 
   const calculateEngagement = useCallback(() => {
     const followerCount = parseFloat(followers);
@@ -221,82 +363,82 @@ const UniversalFacebookTools = ({ toolType }: UniversalFacebookToolsProps) => {
     : 'Facebook Tool';
 
   return (
-    <div className="w-full max-w-4xl mx-auto space-y-6">
+    <div className="w-full max-w-4xl mx-auto space-y-4 sm:space-y-6 px-2 sm:px-0">
       <Card className="border-border bg-card">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-3 text-foreground">
-            <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center">
-              <ToolIcon className="h-5 w-5 text-blue-500" />
+        <CardHeader className="p-4 sm:p-6">
+          <CardTitle className="flex items-center gap-2 sm:gap-3 text-foreground text-base sm:text-lg">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
+              <ToolIcon className="h-4 w-4 sm:h-5 sm:w-5 text-blue-500" />
             </div>
-            <span>{toolName}</span>
+            <span className="truncate">{toolName}</span>
           </CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4">
+        <CardContent className="space-y-4 p-4 sm:p-6 pt-0 sm:pt-0">
           {isCalculator ? (
             // Calculator interface
             <div className="space-y-4">
-              <p className="text-sm text-muted-foreground">
-                Enter your Facebook metrics below to calculate your engagement rate. A higher rate indicates better audience interaction.
+              <p className="text-xs sm:text-sm text-muted-foreground">
+                Enter your Facebook metrics below to calculate your engagement rate.
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-3 sm:gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="followers">Total Followers</Label>
+                  <Label htmlFor="followers" className="text-xs sm:text-sm">Total Followers</Label>
                   <Input
                     id="followers"
                     type="number"
                     placeholder="e.g., 10000"
                     value={followers}
                     onChange={(e) => setFollowers(e.target.value)}
-                    className="w-full"
+                    className="w-full text-sm"
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="likes">Post Likes</Label>
+                  <Label htmlFor="likes" className="text-xs sm:text-sm">Post Likes</Label>
                   <Input
                     id="likes"
                     type="number"
                     placeholder="e.g., 500"
                     value={likes}
                     onChange={(e) => setLikes(e.target.value)}
-                    className="w-full"
+                    className="w-full text-sm"
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="comments">Comments</Label>
+                  <Label htmlFor="comments" className="text-xs sm:text-sm">Comments</Label>
                   <Input
                     id="comments"
                     type="number"
                     placeholder="e.g., 50"
                     value={comments}
                     onChange={(e) => setComments(e.target.value)}
-                    className="w-full"
+                    className="w-full text-sm"
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="shares">Shares</Label>
+                  <Label htmlFor="shares" className="text-xs sm:text-sm">Shares</Label>
                   <Input
                     id="shares"
                     type="number"
                     placeholder="e.g., 25"
                     value={shares}
                     onChange={(e) => setShares(e.target.value)}
-                    className="w-full"
+                    className="w-full text-sm"
                   />
                 </div>
               </div>
-              <Button className="w-full bg-blue-500 hover:bg-blue-600" onClick={calculateEngagement}>
+              <Button className="w-full bg-blue-500 hover:bg-blue-600 text-sm" onClick={calculateEngagement}>
                 <Calculator className="h-4 w-4 mr-2" />
                 Calculate Engagement Rate
               </Button>
               {engagementRate !== null && (
-                <div className="p-6 bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-xl text-center">
-                  <p className="text-sm text-muted-foreground mb-2">Your Engagement Rate</p>
-                  <p className="text-4xl font-bold text-blue-500 mb-2">{engagementRate.toFixed(2)}%</p>
-                  <p className="text-sm text-muted-foreground">
-                    {engagementRate >= 6 ? "🎉 Outstanding! You're in the top tier of Facebook engagement!" : 
-                     engagementRate >= 3 ? "🎉 Excellent engagement! Your content resonates well with your audience." : 
-                     engagementRate >= 1 ? "👍 Good engagement rate. Keep creating quality content!" : 
-                     "💡 There's room for improvement. Try posting more engaging content and at optimal times."}
+                <div className="p-4 sm:p-6 bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-xl text-center">
+                  <p className="text-xs sm:text-sm text-muted-foreground mb-2">Your Engagement Rate</p>
+                  <p className="text-3xl sm:text-4xl font-bold text-blue-500 mb-2">{engagementRate.toFixed(2)}%</p>
+                  <p className="text-xs sm:text-sm text-muted-foreground">
+                    {engagementRate >= 6 ? "🎉 Outstanding! Top tier engagement!" : 
+                     engagementRate >= 3 ? "🎉 Excellent engagement rate!" : 
+                     engagementRate >= 1 ? "👍 Good engagement. Keep it up!" : 
+                     "💡 Room for improvement. Try posting more engaging content."}
                   </p>
                 </div>
               )}
@@ -304,39 +446,39 @@ const UniversalFacebookTools = ({ toolType }: UniversalFacebookToolsProps) => {
           ) : isFormatter ? (
             // Formatter interface
             <div className="space-y-4">
-              <p className="text-sm text-muted-foreground">
-                Enter your text below and click a formatting button to convert it to special Unicode characters that work on Facebook.
+              <p className="text-xs sm:text-sm text-muted-foreground">
+                Enter text and click a button to convert to special Unicode characters.
               </p>
               <div className="space-y-2">
-                <Label htmlFor="text">Enter Your Text</Label>
+                <Label htmlFor="text" className="text-xs sm:text-sm">Enter Your Text</Label>
                 <Textarea
                   id="text"
                   placeholder="Type the text you want to format..."
                   value={inputText}
                   onChange={(e) => setInputText(e.target.value)}
-                  className="min-h-[100px] w-full"
+                  className="min-h-[80px] sm:min-h-[100px] w-full text-sm"
                 />
               </div>
-              <div className="flex flex-wrap gap-2">
-                <Button variant="outline" onClick={() => formatText("bold")} className="flex-1 min-w-[100px]">
-                  <span className="font-bold mr-2">B</span> Bold
+              <div className="grid grid-cols-3 gap-2">
+                <Button variant="outline" onClick={() => formatText("bold")} className="text-xs sm:text-sm">
+                  <span className="font-bold mr-1 sm:mr-2">B</span> Bold
                 </Button>
-                <Button variant="outline" onClick={() => formatText("italic")} className="flex-1 min-w-[100px]">
-                  <span className="italic mr-2">I</span> Italic
+                <Button variant="outline" onClick={() => formatText("italic")} className="text-xs sm:text-sm">
+                  <span className="italic mr-1 sm:mr-2">I</span> Italic
                 </Button>
-                <Button variant="outline" onClick={() => formatText("strikethrough")} className="flex-1 min-w-[100px]">
-                  <span className="line-through mr-2">S</span> Strikethrough
+                <Button variant="outline" onClick={() => formatText("strikethrough")} className="text-xs sm:text-sm">
+                  <span className="line-through mr-1 sm:mr-2">S</span> Strike
                 </Button>
               </div>
               {generatedContent && (
                 <div className="space-y-3">
-                  <Label>Formatted Text</Label>
-                  <div className="p-4 bg-muted rounded-xl border">
-                    <p className="text-foreground break-all">{generatedContent}</p>
+                  <Label className="text-xs sm:text-sm">Formatted Text</Label>
+                  <div className="p-3 sm:p-4 bg-muted rounded-xl border">
+                    <p className="text-foreground break-all text-sm">{generatedContent}</p>
                   </div>
                   <Button 
                     variant="outline" 
-                    className="w-full"
+                    className="w-full text-sm"
                     onClick={() => copyToClipboard(generatedContent)}
                   >
                     <Copy className="h-4 w-4 mr-2" />
@@ -348,13 +490,13 @@ const UniversalFacebookTools = ({ toolType }: UniversalFacebookToolsProps) => {
           ) : isTimingTool ? (
             // Timing/Calendar tool interface
             <div className="space-y-4">
-              <p className="text-sm text-muted-foreground">
-                Select your industry to get personalized posting time recommendations based on audience behavior.
+              <p className="text-xs sm:text-sm text-muted-foreground">
+                Select your industry and get AI-powered recommendations.
               </p>
               <div className="space-y-2">
-                <Label htmlFor="industry">Your Industry</Label>
+                <Label htmlFor="industry" className="text-xs sm:text-sm">Your Industry</Label>
                 <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-                  <SelectTrigger className="w-full">
+                  <SelectTrigger className="w-full text-sm">
                     <SelectValue placeholder="Select your industry" />
                   </SelectTrigger>
                   <SelectContent>
@@ -369,56 +511,71 @@ const UniversalFacebookTools = ({ toolType }: UniversalFacebookToolsProps) => {
                   </SelectContent>
                 </Select>
               </div>
-              <Button className="w-full bg-blue-500 hover:bg-blue-600" onClick={generateContent} disabled={isProcessing}>
-                {isProcessing ? (
-                  <RefreshCw className="h-4 w-4 mr-2 animate-spin" />
-                ) : (
-                  <Clock className="h-4 w-4 mr-2" />
-                )}
-                {toolType?.includes("calendar") ? "Generate Content Calendar" : "Analyze Best Times"}
-              </Button>
-              <div className="p-6 bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-xl space-y-4">
-                <h4 className="font-semibold text-foreground text-lg">Recommended Posting Times</h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="p-4 bg-background rounded-lg border">
-                    <p className="font-medium text-foreground mb-2">📅 Monday - Friday</p>
-                    <p className="text-sm text-muted-foreground">Morning: 9:00 AM - 10:00 AM</p>
-                    <p className="text-sm text-muted-foreground">Afternoon: 1:00 PM - 3:00 PM</p>
-                    <p className="text-sm text-muted-foreground">Evening: 7:00 PM - 8:00 PM</p>
-                  </div>
-                  <div className="p-4 bg-background rounded-lg border">
-                    <p className="font-medium text-foreground mb-2">🗓️ Weekends</p>
-                    <p className="text-sm text-muted-foreground">Morning: 10:00 AM - 12:00 PM</p>
-                    <p className="text-sm text-muted-foreground">Afternoon: 2:00 PM - 4:00 PM</p>
-                    <p className="text-sm text-muted-foreground">Evening: 7:00 PM - 9:00 PM</p>
-                  </div>
-                </div>
-                <p className="text-xs text-muted-foreground">
-                  * Times shown in your local timezone. Test different times with your specific audience for best results.
-                </p>
+              <div className="space-y-2">
+                <Label htmlFor="context" className="text-xs sm:text-sm">Additional Context (Optional)</Label>
+                <Textarea
+                  id="context"
+                  placeholder="Describe your business or target audience..."
+                  value={inputText}
+                  onChange={(e) => setInputText(e.target.value)}
+                  className="min-h-[60px] w-full text-sm"
+                />
               </div>
+              <Button className="w-full bg-blue-500 hover:bg-blue-600 text-sm" onClick={generateContent} disabled={isProcessing}>
+                {isProcessing ? (
+                  <>
+                    <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                    Generating...
+                  </>
+                ) : (
+                  <>
+                    <Sparkles className="h-4 w-4 mr-2" />
+                    {toolType?.includes("calendar") ? "Generate Content Calendar" : "Analyze Best Times"}
+                  </>
+                )}
+              </Button>
+              {generatedContent && (
+                <div className="space-y-3">
+                  <Label className="text-xs sm:text-sm">AI Generated Analysis</Label>
+                  <div className="p-4 sm:p-6 bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-xl">
+                    <p className="text-foreground whitespace-pre-wrap text-sm leading-relaxed">{generatedContent}</p>
+                  </div>
+                  <Button 
+                    variant="outline" 
+                    className="w-full text-sm"
+                    onClick={() => copyToClipboard(generatedContent)}
+                  >
+                    <Copy className="h-4 w-4 mr-2" />
+                    Copy to Clipboard
+                  </Button>
+                </div>
+              )}
             </div>
           ) : (
-            // Generator interface (default)
+            // Generator interface (default) - AI Powered
             <div className="space-y-4">
-              <p className="text-sm text-muted-foreground">
-                Generate engaging content for your Facebook posts. Add context for more personalized results.
+              <div className="flex items-center gap-2 text-xs text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded-md p-2">
+                <Sparkles className="w-4 h-4 flex-shrink-0" />
+                <span><strong>AI Powered:</strong> Using DeepSeek AI for real-time content generation</span>
+              </div>
+              <p className="text-xs sm:text-sm text-muted-foreground">
+                Add context for more personalized AI-generated results.
               </p>
               <div className="space-y-2">
-                <Label htmlFor="context">Topic or Context (Optional)</Label>
+                <Label htmlFor="context" className="text-xs sm:text-sm">Topic or Context (Optional)</Label>
                 <Textarea
                   id="context"
                   placeholder="Describe what your post is about, your niche, or any specific keywords..."
                   value={inputText}
                   onChange={(e) => setInputText(e.target.value)}
-                  className="min-h-[80px] w-full"
+                  className="min-h-[60px] sm:min-h-[80px] w-full text-sm"
                 />
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-3 sm:gap-4">
                 <div className="space-y-2">
-                  <Label>Tone</Label>
+                  <Label className="text-xs sm:text-sm">Tone</Label>
                   <Select value={selectedTone} onValueChange={setSelectedTone}>
-                    <SelectTrigger className="w-full">
+                    <SelectTrigger className="w-full text-sm">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -431,9 +588,9 @@ const UniversalFacebookTools = ({ toolType }: UniversalFacebookToolsProps) => {
                   </Select>
                 </div>
                 <div className="space-y-2">
-                  <Label>Category</Label>
+                  <Label className="text-xs sm:text-sm">Category</Label>
                   <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-                    <SelectTrigger className="w-full">
+                    <SelectTrigger className="w-full text-sm">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -449,40 +606,45 @@ const UniversalFacebookTools = ({ toolType }: UniversalFacebookToolsProps) => {
                 </div>
               </div>
               <Button 
-                className="w-full bg-blue-500 hover:bg-blue-600" 
+                className="w-full bg-blue-500 hover:bg-blue-600 text-sm" 
                 onClick={generateContent}
                 disabled={isProcessing}
               >
                 {isProcessing ? (
-                  <RefreshCw className="h-4 w-4 mr-2 animate-spin" />
+                  <>
+                    <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                    Generating with AI...
+                  </>
                 ) : (
-                  <Sparkles className="h-4 w-4 mr-2" />
+                  <>
+                    <Sparkles className="h-4 w-4 mr-2" />
+                    Generate Content
+                  </>
                 )}
-                Generate Content
               </Button>
               {generatedContent && (
                 <div className="space-y-3">
-                  <Label>Generated Content</Label>
-                  <div className="p-4 bg-gradient-to-br from-blue-500/5 to-purple-500/5 border border-blue-500/20 rounded-xl">
-                    <p className="text-foreground whitespace-pre-wrap leading-relaxed">{generatedContent}</p>
+                  <Label className="text-xs sm:text-sm">Generated Content</Label>
+                  <div className="p-3 sm:p-4 bg-gradient-to-br from-blue-500/5 to-purple-500/5 border border-blue-500/20 rounded-xl">
+                    <p className="text-foreground whitespace-pre-wrap leading-relaxed text-sm">{generatedContent}</p>
                   </div>
-                  <div className="flex flex-col sm:flex-row gap-2">
+                  <div className="grid grid-cols-2 gap-2">
                     <Button 
                       variant="outline" 
-                      className="flex-1"
+                      className="text-sm"
                       onClick={() => copyToClipboard(generatedContent)}
                     >
-                      <Copy className="h-4 w-4 mr-2" />
-                      Copy to Clipboard
+                      <Copy className="h-4 w-4 mr-1 sm:mr-2" />
+                      Copy
                     </Button>
                     <Button 
                       variant="outline" 
-                      className="flex-1"
+                      className="text-sm"
                       onClick={generateContent}
                       disabled={isProcessing}
                     >
-                      <RefreshCw className="h-4 w-4 mr-2" />
-                      Generate Another
+                      <RefreshCw className="h-4 w-4 mr-1 sm:mr-2" />
+                      Regenerate
                     </Button>
                   </div>
                 </div>

@@ -14,9 +14,9 @@ interface UniversalImageSecurityProps {
 }
 
 const securityModes = [
-  { id: "blur" as SecurityMode, name: "Blur Area", icon: <Eye className="w-4 h-4" /> },
+  { id: "blur" as SecurityMode, name: "Blur", icon: <Eye className="w-4 h-4" /> },
   { id: "pixelate" as SecurityMode, name: "Pixelate", icon: <Grid className="w-4 h-4" /> },
-  { id: "hide" as SecurityMode, name: "Hide Area", icon: <EyeOff className="w-4 h-4" /> },
+  { id: "hide" as SecurityMode, name: "Hide", icon: <EyeOff className="w-4 h-4" /> },
   { id: "encrypt" as SecurityMode, name: "Encrypt", icon: <Lock className="w-4 h-4" /> },
   { id: "decrypt" as SecurityMode, name: "Decrypt", icon: <Unlock className="w-4 h-4" /> },
 ];
@@ -60,26 +60,40 @@ const UniversalImageSecurity = ({ initialMode = "blur" }: UniversalImageSecurity
     }
   }, [imageUrl]);
 
-  const getCanvasCoords = (e: React.MouseEvent<HTMLCanvasElement>) => {
+  const getCanvasCoords = useCallback((e: React.MouseEvent<HTMLCanvasElement> | React.TouchEvent<HTMLCanvasElement>) => {
     const canvas = canvasRef.current;
     if (!canvas) return { x: 0, y: 0 };
     const rect = canvas.getBoundingClientRect();
     const scaleX = canvas.width / rect.width;
     const scaleY = canvas.height / rect.height;
+    
+    // Handle both mouse and touch events
+    let clientX: number, clientY: number;
+    if ('touches' in e) {
+      const touch = e.touches[0] || e.changedTouches[0];
+      clientX = touch.clientX;
+      clientY = touch.clientY;
+    } else {
+      clientX = e.clientX;
+      clientY = e.clientY;
+    }
+    
     return {
-      x: (e.clientX - rect.left) * scaleX,
-      y: (e.clientY - rect.top) * scaleY,
+      x: (clientX - rect.left) * scaleX,
+      y: (clientY - rect.top) * scaleY,
     };
-  };
+  }, []);
 
-  const startSelection = (e: React.MouseEvent<HTMLCanvasElement>) => {
+  const startSelection = useCallback((e: React.MouseEvent<HTMLCanvasElement> | React.TouchEvent<HTMLCanvasElement>) => {
+    e.preventDefault();
     if (mode === "encrypt" || mode === "decrypt") return;
     const pos = getCanvasCoords(e);
     startPos.current = pos;
     setIsDrawing(true);
-  };
+  }, [mode, getCanvasCoords]);
 
-  const updateSelection = (e: React.MouseEvent<HTMLCanvasElement>) => {
+  const updateSelection = useCallback((e: React.MouseEvent<HTMLCanvasElement> | React.TouchEvent<HTMLCanvasElement>) => {
+    e.preventDefault();
     if (!isDrawing) return;
     const pos = getCanvasCoords(e);
     const x = Math.min(startPos.current.x, pos.x);
@@ -99,11 +113,12 @@ const UniversalImageSecurity = ({ initialMode = "blur" }: UniversalImageSecurity
       ctx.strokeRect(x, y, w, h);
       ctx.setLineDash([]);
     }
-  };
+  }, [isDrawing, getCanvasCoords]);
 
-  const endSelection = () => {
+  const endSelection = useCallback((e: React.MouseEvent<HTMLCanvasElement> | React.TouchEvent<HTMLCanvasElement>) => {
+    e.preventDefault();
     setIsDrawing(false);
-  };
+  }, []);
 
   const applyEffect = useCallback(async () => {
     if (!canvasRef.current || !originalImageRef.current) return;
@@ -181,14 +196,51 @@ const UniversalImageSecurity = ({ initialMode = "blur" }: UniversalImageSecurity
     }
 
     const { x, y, w, h } = selection;
+    
+    // Ensure we have valid dimensions
+    if (w < 2 || h < 2) {
+      toast({ title: "Selection too small", description: "Please draw a larger selection area.", variant: "destructive" });
+      return;
+    }
 
     if (mode === "blur") {
-      // Apply blur using canvas filter
-      ctx.filter = `blur(${intensity}px)`;
-      ctx.drawImage(canvas, x, y, w, h, x, y, w, h);
-      ctx.filter = "none";
+      // Manual blur implementation using pixel averaging
+      const imageData = ctx.getImageData(x, y, w, h);
+      const data = imageData.data;
+      const blurRadius = Math.max(1, Math.floor(intensity / 3));
+      
+      // Create a copy of the data for reading
+      const originalData = new Uint8ClampedArray(data);
+      
+      for (let py = 0; py < h; py++) {
+        for (let px = 0; px < w; px++) {
+          let r = 0, g = 0, b = 0, count = 0;
+          
+          // Sample surrounding pixels
+          for (let dy = -blurRadius; dy <= blurRadius; dy++) {
+            for (let dx = -blurRadius; dx <= blurRadius; dx++) {
+              const nx = px + dx;
+              const ny = py + dy;
+              if (nx >= 0 && nx < w && ny >= 0 && ny < h) {
+                const idx = (ny * w + nx) * 4;
+                r += originalData[idx];
+                g += originalData[idx + 1];
+                b += originalData[idx + 2];
+                count++;
+              }
+            }
+          }
+          
+          const idx = (py * w + px) * 4;
+          data[idx] = r / count;
+          data[idx + 1] = g / count;
+          data[idx + 2] = b / count;
+        }
+      }
+      
+      ctx.putImageData(imageData, x, y);
     } else if (mode === "pixelate") {
-      const pixelSize = Math.max(2, intensity);
+      const pixelSize = Math.max(4, intensity);
       const imageData = ctx.getImageData(x, y, w, h);
       const data = imageData.data;
       
@@ -233,31 +285,32 @@ const UniversalImageSecurity = ({ initialMode = "blur" }: UniversalImageSecurity
   };
 
   return (
-    <div className="bg-card rounded-2xl border border-border p-6">
+    <div className="bg-card rounded-2xl border border-border p-4 sm:p-6">
       {!file ? (
         <DragDropUpload onFileSelect={handleFileSelect} accept="image/*" />
       ) : (
-        <div className="space-y-6">
+        <div className="space-y-4 sm:space-y-6">
           {/* Mode Selection */}
-          <div className="flex flex-wrap justify-center gap-2">
+          <div className="flex flex-wrap justify-center gap-1 sm:gap-2">
             {securityModes.map((m) => (
               <Button
                 key={m.id}
                 variant={mode === m.id ? "default" : "outline"}
                 onClick={() => setMode(m.id)}
-                className="flex items-center gap-2"
+                className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm px-2 sm:px-4"
+                size="sm"
               >
                 {m.icon}
-                {m.name}
+                <span className="hidden xs:inline sm:inline">{m.name}</span>
               </Button>
             ))}
           </div>
 
           {/* Settings */}
-          <div className="grid sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
             {(mode === "blur" || mode === "pixelate") && (
               <div className="space-y-2">
-                <label className="text-sm font-medium">Intensity: {intensity}</label>
+                <label className="text-xs sm:text-sm font-medium">Intensity: {intensity}</label>
                 <Slider
                   value={[intensity]}
                   onValueChange={(v) => setIntensity(v[0])}
@@ -269,7 +322,7 @@ const UniversalImageSecurity = ({ initialMode = "blur" }: UniversalImageSecurity
             )}
             {mode === "hide" && (
               <div className="space-y-2">
-                <label className="text-sm font-medium">Hide Color</label>
+                <label className="text-xs sm:text-sm font-medium">Hide Color</label>
                 <Input
                   type="color"
                   value={hideColor}
@@ -280,7 +333,7 @@ const UniversalImageSecurity = ({ initialMode = "blur" }: UniversalImageSecurity
             )}
             {(mode === "encrypt" || mode === "decrypt") && (
               <div className="space-y-2 sm:col-span-2">
-                <label className="text-sm font-medium">Password (min 8 characters)</label>
+                <label className="text-xs sm:text-sm font-medium">Password (min 8 characters)</label>
                 <Input
                   type="password"
                   value={password}
@@ -291,7 +344,7 @@ const UniversalImageSecurity = ({ initialMode = "blur" }: UniversalImageSecurity
                 <div className="flex items-start gap-2 text-xs text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 rounded-md p-2 mt-2">
                   <Shield className="w-4 h-4 mt-0.5 flex-shrink-0" />
                   <span>
-                    <strong>Secure Encryption:</strong> Uses AES-256-GCM with PBKDF2 key derivation (100,000 iterations). Your image data is cryptographically protected.
+                    <strong>Secure Encryption:</strong> Uses AES-256-GCM with PBKDF2 key derivation.
                   </span>
                 </div>
               </div>
@@ -299,20 +352,24 @@ const UniversalImageSecurity = ({ initialMode = "blur" }: UniversalImageSecurity
           </div>
 
           {mode !== "encrypt" && mode !== "decrypt" && (
-            <p className="text-sm text-muted-foreground text-center">
+            <p className="text-xs sm:text-sm text-muted-foreground text-center">
               Draw a rectangle over the area you want to protect
             </p>
           )}
 
           {/* Canvas */}
-          <div className="relative bg-secondary/50 rounded-xl overflow-hidden flex items-center justify-center">
+          <div className="relative bg-secondary/50 rounded-xl overflow-hidden flex items-center justify-center touch-none">
             <canvas
               ref={canvasRef}
               onMouseDown={startSelection}
               onMouseMove={updateSelection}
               onMouseUp={endSelection}
               onMouseLeave={endSelection}
-              className="max-w-full max-h-[500px] cursor-crosshair"
+              onTouchStart={startSelection}
+              onTouchMove={updateSelection}
+              onTouchEnd={endSelection}
+              onTouchCancel={endSelection}
+              className="max-w-full max-h-[400px] sm:max-h-[500px] cursor-crosshair"
               style={{ touchAction: "none" }}
             />
             {isProcessing && (
@@ -339,13 +396,13 @@ const UniversalImageSecurity = ({ initialMode = "blur" }: UniversalImageSecurity
           </Button>
 
           {/* Actions */}
-          <div className="flex justify-center gap-3">
-            <Button variant="outline" onClick={handleReset}>
-              <RotateCcw className="w-4 h-4 mr-2" />
+          <div className="flex justify-center gap-2 sm:gap-3">
+            <Button variant="outline" onClick={handleReset} size="sm" className="text-xs sm:text-sm">
+              <RotateCcw className="w-4 h-4 mr-1 sm:mr-2" />
               Reset
             </Button>
-            <Button onClick={handleDownload}>
-              <Download className="w-4 h-4 mr-2" />
+            <Button onClick={handleDownload} size="sm" className="text-xs sm:text-sm">
+              <Download className="w-4 h-4 mr-1 sm:mr-2" />
               Download
             </Button>
           </div>
