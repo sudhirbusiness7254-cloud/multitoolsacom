@@ -204,14 +204,11 @@ export const toolCategories: Category[] = [
     id: "image-metadata",
     name: "Image Metadata",
     slug: "image-metadata",
-    description: "View and edit image metadata",
+    description: "View image metadata and dimensions",
     icon: "Info",
     priority: 11,
     tools: [
-      { id: "view-exif", name: "View EXIF", slug: "view-exif", description: "View image EXIF data", category: "Image Metadata", categorySlug: "image-metadata", icon: "Info", keywords: ["view exif", "exif viewer"] },
-      { id: "remove-exif", name: "Remove EXIF", slug: "remove-exif", description: "Remove EXIF data from image", category: "Image Metadata", categorySlug: "image-metadata", icon: "Trash", keywords: ["remove exif", "strip metadata"] },
-      { id: "edit-exif-datetime", name: "Edit EXIF Date/Time", slug: "edit-exif-datetime", description: "Edit image date and time", category: "Image Metadata", categorySlug: "image-metadata", icon: "Calendar", keywords: ["edit exif", "change date"] },
-      { id: "copy-exif", name: "Copy EXIF", slug: "copy-exif", description: "Copy EXIF data between images", category: "Image Metadata", categorySlug: "image-metadata", icon: "Copy", keywords: ["copy exif", "transfer metadata"] },
+      { id: "view-image-info", name: "View Image Info", slug: "view-image-info", description: "View image dimensions, size, and format details", category: "Image Metadata", categorySlug: "image-metadata", icon: "Info", keywords: ["image info", "image dimensions", "file size"] },
     ]
   },
   {

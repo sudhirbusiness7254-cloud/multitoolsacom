@@ -47,6 +47,9 @@ const UniversalImageDrawing = ({ initialTool = "pen" }: UniversalImageDrawingPro
       const img = new window.Image();
       img.crossOrigin = "anonymous";
       img.onload = () => {
+        // Scale canvas for mobile while maintaining aspect ratio
+        const maxWidth = Math.min(img.width, window.innerWidth - 48);
+        const scale = maxWidth / img.width;
         canvas.width = img.width;
         canvas.height = img.height;
         ctx.drawImage(img, 0, 0);
@@ -77,19 +80,32 @@ const UniversalImageDrawing = ({ initialTool = "pen" }: UniversalImageDrawingPro
     setHistory(newHistory);
   };
 
-  const getCanvasCoords = (e: React.MouseEvent<HTMLCanvasElement>) => {
+  const getCanvasCoords = useCallback((e: React.MouseEvent<HTMLCanvasElement> | React.TouchEvent<HTMLCanvasElement>) => {
     const canvas = canvasRef.current;
     if (!canvas) return { x: 0, y: 0 };
     const rect = canvas.getBoundingClientRect();
     const scaleX = canvas.width / rect.width;
     const scaleY = canvas.height / rect.height;
+    
+    // Handle both mouse and touch events
+    let clientX: number, clientY: number;
+    if ('touches' in e) {
+      const touch = e.touches[0] || e.changedTouches[0];
+      clientX = touch.clientX;
+      clientY = touch.clientY;
+    } else {
+      clientX = e.clientX;
+      clientY = e.clientY;
+    }
+    
     return {
-      x: (e.clientX - rect.left) * scaleX,
-      y: (e.clientY - rect.top) * scaleY,
+      x: (clientX - rect.left) * scaleX,
+      y: (clientY - rect.top) * scaleY,
     };
-  };
+  }, []);
 
-  const startDrawing = (e: React.MouseEvent<HTMLCanvasElement>) => {
+  const startDrawing = useCallback((e: React.MouseEvent<HTMLCanvasElement> | React.TouchEvent<HTMLCanvasElement>) => {
+    e.preventDefault();
     const pos = getCanvasCoords(e);
     startPos.current = pos;
     setIsDrawing(true);
@@ -109,9 +125,10 @@ const UniversalImageDrawing = ({ initialTool = "pen" }: UniversalImageDrawingPro
       ctx.fillText(text, pos.x, pos.y);
       saveState();
     }
-  };
+  }, [tool, color, brushSize, text, getCanvasCoords]);
 
-  const draw = (e: React.MouseEvent<HTMLCanvasElement>) => {
+  const draw = useCallback((e: React.MouseEvent<HTMLCanvasElement> | React.TouchEvent<HTMLCanvasElement>) => {
+    e.preventDefault();
     if (!isDrawing) return;
     const pos = getCanvasCoords(e);
     const ctx = canvasRef.current?.getContext("2d");
@@ -121,18 +138,21 @@ const UniversalImageDrawing = ({ initialTool = "pen" }: UniversalImageDrawingPro
       ctx.strokeStyle = color;
       ctx.lineWidth = brushSize;
       ctx.lineCap = "round";
+      ctx.lineJoin = "round";
       ctx.lineTo(pos.x, pos.y);
       ctx.stroke();
     } else if (tool === "eraser") {
       ctx.strokeStyle = "#ffffff";
       ctx.lineWidth = brushSize * 2;
       ctx.lineCap = "round";
+      ctx.lineJoin = "round";
       ctx.lineTo(pos.x, pos.y);
       ctx.stroke();
     }
-  };
+  }, [isDrawing, tool, color, brushSize, getCanvasCoords]);
 
-  const stopDrawing = (e: React.MouseEvent<HTMLCanvasElement>) => {
+  const stopDrawing = useCallback((e: React.MouseEvent<HTMLCanvasElement> | React.TouchEvent<HTMLCanvasElement>) => {
+    e.preventDefault();
     if (!isDrawing) return;
     setIsDrawing(false);
 
@@ -158,7 +178,7 @@ const UniversalImageDrawing = ({ initialTool = "pen" }: UniversalImageDrawingPro
     }
 
     saveState();
-  };
+  }, [isDrawing, tool, color, brushSize, getCanvasCoords]);
 
   const handleDownload = () => {
     if (!canvasRef.current) return;
@@ -176,43 +196,44 @@ const UniversalImageDrawing = ({ initialTool = "pen" }: UniversalImageDrawingPro
   };
 
   return (
-    <div className="bg-card rounded-2xl border border-border p-6">
+    <div className="bg-card rounded-2xl border border-border p-4 sm:p-6">
       {!file ? (
         <DragDropUpload onFileSelect={handleFileSelect} accept="image/*" />
       ) : (
-        <div className="space-y-6">
+        <div className="space-y-4 sm:space-y-6">
           {/* Tool Selection */}
-          <div className="flex flex-wrap justify-center gap-2">
+          <div className="flex flex-wrap justify-center gap-1 sm:gap-2">
             {drawingTools.map((t) => (
               <Button
                 key={t.id}
                 variant={tool === t.id ? "default" : "outline"}
                 onClick={() => setTool(t.id)}
-                className="flex items-center gap-2"
+                className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm px-2 sm:px-4"
+                size="sm"
               >
                 {t.icon}
-                {t.name}
+                <span className="hidden sm:inline">{t.name}</span>
               </Button>
             ))}
-            <Button variant="outline" onClick={undo} disabled={history.length <= 1}>
-              <Undo2 className="w-4 h-4 mr-2" />
-              Undo
+            <Button variant="outline" onClick={undo} disabled={history.length <= 1} size="sm" className="px-2 sm:px-4">
+              <Undo2 className="w-4 h-4 sm:mr-2" />
+              <span className="hidden sm:inline">Undo</span>
             </Button>
           </div>
 
           {/* Settings */}
-          <div className="grid sm:grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
             <div className="space-y-2">
-              <label className="text-sm font-medium">Color</label>
+              <label className="text-xs sm:text-sm font-medium">Color</label>
               <Input
                 type="color"
                 value={color}
                 onChange={(e) => setColor(e.target.value)}
-                className="h-10 cursor-pointer"
+                className="h-10 cursor-pointer w-full"
               />
             </div>
             <div className="space-y-2">
-              <label className="text-sm font-medium">Brush Size: {brushSize}</label>
+              <label className="text-xs sm:text-sm font-medium">Size: {brushSize}</label>
               <Slider
                 value={[brushSize]}
                 onValueChange={(v) => setBrushSize(v[0])}
@@ -222,8 +243,8 @@ const UniversalImageDrawing = ({ initialTool = "pen" }: UniversalImageDrawingPro
               />
             </div>
             {tool === "text" && (
-              <div className="space-y-2">
-                <label className="text-sm font-medium">Text</label>
+              <div className="space-y-2 col-span-2 sm:col-span-1">
+                <label className="text-xs sm:text-sm font-medium">Text</label>
                 <Input
                   value={text}
                   onChange={(e) => setText(e.target.value)}
@@ -234,26 +255,30 @@ const UniversalImageDrawing = ({ initialTool = "pen" }: UniversalImageDrawingPro
           </div>
 
           {/* Canvas */}
-          <div className="relative bg-secondary/50 rounded-xl overflow-hidden flex items-center justify-center">
+          <div className="relative bg-secondary/50 rounded-xl overflow-hidden flex items-center justify-center touch-none">
             <canvas
               ref={canvasRef}
               onMouseDown={startDrawing}
               onMouseMove={draw}
               onMouseUp={stopDrawing}
               onMouseLeave={stopDrawing}
-              className="max-w-full max-h-[500px] cursor-crosshair"
+              onTouchStart={startDrawing}
+              onTouchMove={draw}
+              onTouchEnd={stopDrawing}
+              onTouchCancel={stopDrawing}
+              className="max-w-full max-h-[400px] sm:max-h-[500px] cursor-crosshair"
               style={{ touchAction: "none" }}
             />
           </div>
 
           {/* Actions */}
-          <div className="flex justify-center gap-3">
-            <Button variant="outline" onClick={handleReset}>
-              <RotateCcw className="w-4 h-4 mr-2" />
+          <div className="flex justify-center gap-2 sm:gap-3">
+            <Button variant="outline" onClick={handleReset} size="sm" className="text-xs sm:text-sm">
+              <RotateCcw className="w-4 h-4 mr-1 sm:mr-2" />
               Reset
             </Button>
-            <Button onClick={handleDownload}>
-              <Download className="w-4 h-4 mr-2" />
+            <Button onClick={handleDownload} size="sm" className="text-xs sm:text-sm">
+              <Download className="w-4 h-4 mr-1 sm:mr-2" />
               Download
             </Button>
           </div>
