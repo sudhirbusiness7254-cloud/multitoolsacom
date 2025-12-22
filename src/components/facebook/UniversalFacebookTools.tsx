@@ -5,15 +5,12 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { toast } from "sonner";
 import { 
-  Download, 
   Copy, 
   RefreshCw, 
   Sparkles, 
   User, 
-  Image, 
   MessageSquare,
   Hash,
   Lightbulb,
@@ -22,15 +19,37 @@ import {
   Calendar,
   Clock,
   Target,
-  AlignLeft
+  AlignLeft,
+  Type,
+  AtSign,
+  MousePointer,
+  Heading,
+  MessageCircle
 } from "lucide-react";
 
 interface UniversalFacebookToolsProps {
   toolType?: string;
 }
 
+const toolIconMap: Record<string, React.ElementType> = {
+  "facebook-caption-generator": MessageSquare,
+  "facebook-bio-generator": User,
+  "facebook-hashtag-generator": Hash,
+  "facebook-post-idea-generator": Lightbulb,
+  "facebook-comment-generator": MessageCircle,
+  "facebook-story-text-generator": Type,
+  "facebook-page-name-generator": AtSign,
+  "facebook-engagement-rate-calculator": Calculator,
+  "facebook-ad-copy-generator": Megaphone,
+  "facebook-cta-generator": MousePointer,
+  "facebook-content-calendar-generator": Calendar,
+  "facebook-posting-time-analyzer": Clock,
+  "facebook-audience-interest-finder": Target,
+  "facebook-ad-headline-generator": Heading,
+  "facebook-post-formatter": AlignLeft,
+};
+
 const UniversalFacebookTools = ({ toolType }: UniversalFacebookToolsProps) => {
-  const [inputUrl, setInputUrl] = useState("");
   const [inputText, setInputText] = useState("");
   const [selectedTone, setSelectedTone] = useState("casual");
   const [selectedCategory, setSelectedCategory] = useState("general");
@@ -52,61 +71,61 @@ const UniversalFacebookTools = ({ toolType }: UniversalFacebookToolsProps) => {
   const generateContent = useCallback(async () => {
     setIsProcessing(true);
     
-    // Simulate AI generation
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    // Simulate processing
+    await new Promise(resolve => setTimeout(resolve, 1200));
     
     const contentTemplates: Record<string, string[]> = {
       caption: [
-        "✨ Life is what happens when you're busy making other plans. What's your plan for today?",
-        "📸 Capturing moments that matter. Every picture tells a story, what's yours?",
-        "🌟 Dream big, work hard, stay focused. Success is just around the corner!",
-        "💫 Sometimes the smallest step in the right direction ends up being the biggest step of your life.",
-        "🎯 Goals don't work unless you do. Let's make today count!"
+        "✨ Life is what happens when you're busy making other plans. What's your plan for today? Drop a comment below! 👇",
+        "📸 Capturing moments that matter. Every picture tells a story, what's yours? Share your thoughts! 💭",
+        "🌟 Dream big, work hard, stay focused. Success is just around the corner! Who's ready to crush their goals? 💪",
+        "💫 Sometimes the smallest step in the right direction ends up being the biggest step of your life. Keep moving forward! 🚀",
+        "🎯 Goals don't work unless you do. Let's make today count! What are you working on? 📝"
       ],
       bio: [
-        "✨ Dreamer | Creator | Storyteller | Making the ordinary extraordinary",
-        "🌍 Explorer of life's beautiful moments | Sharing my journey one post at a time",
-        "💡 Turning ideas into reality | Passionate about growth and connection",
-        "🎯 Living life on my own terms | Inspiring others along the way",
-        "🌟 Just a soul with goals | Building my dreams one day at a time"
+        "✨ Dreamer | Creator | Storyteller | Making the ordinary extraordinary ✨",
+        "🌍 Explorer of life's beautiful moments | Sharing my journey one post at a time 📸",
+        "💡 Turning ideas into reality | Passionate about growth and connection 🌱",
+        "🎯 Living life on my own terms | Inspiring others along the way 💫",
+        "🌟 Just a soul with goals | Building my dreams one day at a time 🚀"
       ],
       hashtags: [
-        "#motivation #success #goals #mindset #inspiration #growth #positivity #lifestyle #entrepreneur #hustle",
-        "#love #life #happy #instagood #photooftheday #beautiful #fashion #smile #friends #family",
-        "#business #marketing #entrepreneur #startup #success #motivation #money #smallbusiness #branding #digital"
+        "#motivation #success #goals #mindset #inspiration #growth #positivity #lifestyle #entrepreneur #hustle #dreambig #nevergiveup",
+        "#love #life #happy #instagood #photooftheday #beautiful #fashion #smile #friends #family #blessed #grateful",
+        "#business #marketing #entrepreneur #startup #success #motivation #money #smallbusiness #branding #digitalmarketing"
       ],
       postIdea: [
-        "📊 Poll: Ask your audience about their weekend plans and share yours!",
-        "🎬 Behind-the-scenes: Show a day in your life or work process",
-        "💬 Engagement post: Share a controversial opinion in your niche and ask for thoughts",
-        "📚 Value post: Share 5 tips that helped you achieve something specific",
-        "🎉 Celebration: Highlight a milestone or thank your community"
+        "📊 Poll: Ask your audience about their weekend plans and share yours! Great for boosting engagement.",
+        "🎬 Behind-the-scenes: Show a day in your life or work process. People love authentic content!",
+        "💬 Engagement post: Share a controversial opinion in your niche and ask for thoughts. Gets people talking!",
+        "📚 Value post: Share 5 tips that helped you achieve something specific. Educational content performs great!",
+        "🎉 Celebration: Highlight a milestone or thank your community. Gratitude posts build connection!"
       ],
       comment: [
-        "This is absolutely amazing! Thanks for sharing this valuable content 🙌",
-        "Love this perspective! Really made me think differently about it 💡",
+        "This is absolutely amazing! Thanks for sharing this valuable content 🙌 Really made my day!",
+        "Love this perspective! Really made me think differently about it 💡 Keep up the great work!",
         "Great post! This resonates with me so much. Keep up the incredible work! ✨",
-        "Wow, this is so inspiring! Needed to see this today 🌟",
+        "Wow, this is so inspiring! Needed to see this today 🌟 Thank you for sharing!",
         "Couldn't agree more! This is exactly what I've been thinking about lately 💯"
       ],
       storyText: [
-        "✨ New day, new opportunities! Swipe up to see more →",
-        "🔥 Big things coming! Stay tuned for the announcement",
-        "💭 Quick question: What's your biggest goal this week?",
-        "📸 POV: You're living your best life",
-        "🎯 Monday motivation: Your only limit is your mind"
+        "✨ New day, new opportunities! Swipe up to see more → What's on your agenda today?",
+        "🔥 Big things coming! Stay tuned for the announcement... You don't want to miss this!",
+        "💭 Quick question: What's your biggest goal this week? Drop your answer!",
+        "📸 POV: You're living your best life ✨ This is your sign to keep going!",
+        "🎯 Monday motivation: Your only limit is your mind. Let's crush this week!"
       ],
       pageName: [
-        "Digital Dreams Studio",
-        "The Creative Corner",
-        "Inspired Living Daily",
-        "Modern Life Chronicles",
-        "The Growth Mindset Hub"
+        "Digital Dreams Studio ✨",
+        "The Creative Corner 🎨",
+        "Inspired Living Daily 🌟",
+        "Modern Life Chronicles 📖",
+        "The Growth Mindset Hub 🚀"
       ],
       adCopy: [
-        "🚀 Transform your life in just 30 days! Our proven system has helped thousands achieve their goals. Limited spots available - claim yours now!",
-        "💡 Stop struggling and start succeeding! Discover the secret that top performers use to 10x their results. Free training inside!",
-        "⚡ Ready for a change? Join 50,000+ people who've already transformed their lives with our revolutionary approach. Start free today!"
+        "🚀 Transform your life in just 30 days! Our proven system has helped thousands achieve their goals. Limited spots available - claim yours now! ⏰",
+        "💡 Stop struggling and start succeeding! Discover the secret that top performers use to 10x their results. Free training inside! 🎓",
+        "⚡ Ready for a change? Join 50,000+ people who've already transformed their lives with our revolutionary approach. Start free today! 🌟"
       ],
       cta: [
         "👉 Get Started Now - It's Free!",
@@ -116,15 +135,15 @@ const UniversalFacebookTools = ({ toolType }: UniversalFacebookToolsProps) => {
         "💫 Unlock Your Potential Now"
       ],
       adHeadline: [
-        "Transform Your Results in 7 Days",
-        "The Secret Top Performers Know",
-        "Finally, A System That Works",
-        "Your Success Story Starts Here",
-        "Stop Dreaming, Start Achieving"
+        "Transform Your Results in 7 Days 🚀",
+        "The Secret Top Performers Know 💡",
+        "Finally, A System That Works ✨",
+        "Your Success Story Starts Here 🌟",
+        "Stop Dreaming, Start Achieving 🎯"
       ]
     };
     
-    const type = toolType?.replace("facebook-", "").replace("-generator", "") || "caption";
+    const type = toolType?.replace("facebook-", "").replace("-generator", "").replace("-finder", "").replace("-analyzer", "") || "caption";
     const templates = contentTemplates[type] || contentTemplates.caption;
     const randomContent = templates[Math.floor(Math.random() * templates.length)];
     
@@ -152,6 +171,11 @@ const UniversalFacebookTools = ({ toolType }: UniversalFacebookToolsProps) => {
   }, [followers, likes, comments, shares]);
 
   const formatText = useCallback((style: "bold" | "italic" | "strikethrough") => {
+    if (!inputText.trim()) {
+      toast.error("Please enter some text to format");
+      return;
+    }
+    
     const unicodeMaps: Record<string, Record<string, string>> = {
       bold: {
         'a': '𝗮', 'b': '𝗯', 'c': '𝗰', 'd': '𝗱', 'e': '𝗲', 'f': '𝗳', 'g': '𝗴', 'h': '𝗵',
@@ -186,48 +210,35 @@ const UniversalFacebookTools = ({ toolType }: UniversalFacebookToolsProps) => {
   }, [inputText]);
 
   // Determine which interface to show based on tool type
-  const isDownloadTool = toolType?.includes("downloader");
   const isCalculator = toolType?.includes("calculator");
   const isFormatter = toolType?.includes("formatter");
   const isTimingTool = toolType?.includes("time") || toolType?.includes("calendar");
+
+  // Get tool icon
+  const ToolIcon = toolType ? toolIconMap[toolType] || Sparkles : Sparkles;
+  const toolName = toolType 
+    ? toolType.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ').replace('Facebook ', '') 
+    : 'Facebook Tool';
 
   return (
     <div className="w-full max-w-4xl mx-auto space-y-6">
       <Card className="border-border bg-card">
         <CardHeader>
-          <CardTitle className="flex items-center gap-2 text-foreground">
-            <Sparkles className="h-5 w-5 text-primary" />
-            {toolType ? toolType.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ').replace('Facebook ', '') : 'Facebook Tool'}
+          <CardTitle className="flex items-center gap-3 text-foreground">
+            <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center">
+              <ToolIcon className="h-5 w-5 text-blue-500" />
+            </div>
+            <span>{toolName}</span>
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
-          {isDownloadTool ? (
-            // Download tool interface
-            <div className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="url">Facebook URL</Label>
-                <Input
-                  id="url"
-                  placeholder="Paste Facebook profile, story, or page URL here..."
-                  value={inputUrl}
-                  onChange={(e) => setInputUrl(e.target.value)}
-                />
-              </div>
-              <Button 
-                className="w-full" 
-                onClick={() => toast.info("This feature requires a backend service to fetch Facebook content. The tool interface is ready for integration.")}
-              >
-                <Download className="h-4 w-4 mr-2" />
-                Download
-              </Button>
-              <p className="text-xs text-muted-foreground text-center">
-                Note: Due to Facebook's privacy policies, downloading requires valid public URLs.
-              </p>
-            </div>
-          ) : isCalculator ? (
+          {isCalculator ? (
             // Calculator interface
             <div className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
+              <p className="text-sm text-muted-foreground">
+                Enter your Facebook metrics below to calculate your engagement rate. A higher rate indicates better audience interaction.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="followers">Total Followers</Label>
                   <Input
@@ -236,6 +247,7 @@ const UniversalFacebookTools = ({ toolType }: UniversalFacebookToolsProps) => {
                     placeholder="e.g., 10000"
                     value={followers}
                     onChange={(e) => setFollowers(e.target.value)}
+                    className="w-full"
                   />
                 </div>
                 <div className="space-y-2">
@@ -246,6 +258,7 @@ const UniversalFacebookTools = ({ toolType }: UniversalFacebookToolsProps) => {
                     placeholder="e.g., 500"
                     value={likes}
                     onChange={(e) => setLikes(e.target.value)}
+                    className="w-full"
                   />
                 </div>
                 <div className="space-y-2">
@@ -256,6 +269,7 @@ const UniversalFacebookTools = ({ toolType }: UniversalFacebookToolsProps) => {
                     placeholder="e.g., 50"
                     value={comments}
                     onChange={(e) => setComments(e.target.value)}
+                    className="w-full"
                   />
                 </div>
                 <div className="space-y-2">
@@ -266,21 +280,23 @@ const UniversalFacebookTools = ({ toolType }: UniversalFacebookToolsProps) => {
                     placeholder="e.g., 25"
                     value={shares}
                     onChange={(e) => setShares(e.target.value)}
+                    className="w-full"
                   />
                 </div>
               </div>
-              <Button className="w-full" onClick={calculateEngagement}>
+              <Button className="w-full bg-blue-500 hover:bg-blue-600" onClick={calculateEngagement}>
                 <Calculator className="h-4 w-4 mr-2" />
                 Calculate Engagement Rate
               </Button>
               {engagementRate !== null && (
-                <div className="p-4 bg-primary/10 rounded-lg text-center">
-                  <p className="text-sm text-muted-foreground">Your Engagement Rate</p>
-                  <p className="text-3xl font-bold text-primary">{engagementRate.toFixed(2)}%</p>
-                  <p className="text-xs text-muted-foreground mt-2">
-                    {engagementRate >= 3 ? "🎉 Excellent engagement!" : 
-                     engagementRate >= 1 ? "👍 Good engagement" : 
-                     "💡 Try improving your content strategy"}
+                <div className="p-6 bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-xl text-center">
+                  <p className="text-sm text-muted-foreground mb-2">Your Engagement Rate</p>
+                  <p className="text-4xl font-bold text-blue-500 mb-2">{engagementRate.toFixed(2)}%</p>
+                  <p className="text-sm text-muted-foreground">
+                    {engagementRate >= 6 ? "🎉 Outstanding! You're in the top tier of Facebook engagement!" : 
+                     engagementRate >= 3 ? "🎉 Excellent engagement! Your content resonates well with your audience." : 
+                     engagementRate >= 1 ? "👍 Good engagement rate. Keep creating quality content!" : 
+                     "💡 There's room for improvement. Try posting more engaging content and at optimal times."}
                   </p>
                 </div>
               )}
@@ -288,6 +304,9 @@ const UniversalFacebookTools = ({ toolType }: UniversalFacebookToolsProps) => {
           ) : isFormatter ? (
             // Formatter interface
             <div className="space-y-4">
+              <p className="text-sm text-muted-foreground">
+                Enter your text below and click a formatting button to convert it to special Unicode characters that work on Facebook.
+              </p>
               <div className="space-y-2">
                 <Label htmlFor="text">Enter Your Text</Label>
                 <Textarea
@@ -295,25 +314,25 @@ const UniversalFacebookTools = ({ toolType }: UniversalFacebookToolsProps) => {
                   placeholder="Type the text you want to format..."
                   value={inputText}
                   onChange={(e) => setInputText(e.target.value)}
-                  className="min-h-[100px]"
+                  className="min-h-[100px] w-full"
                 />
               </div>
-              <div className="flex gap-2 flex-wrap">
-                <Button variant="outline" onClick={() => formatText("bold")}>
-                  <span className="font-bold">B</span> Bold
+              <div className="flex flex-wrap gap-2">
+                <Button variant="outline" onClick={() => formatText("bold")} className="flex-1 min-w-[100px]">
+                  <span className="font-bold mr-2">B</span> Bold
                 </Button>
-                <Button variant="outline" onClick={() => formatText("italic")}>
-                  <span className="italic">I</span> Italic
+                <Button variant="outline" onClick={() => formatText("italic")} className="flex-1 min-w-[100px]">
+                  <span className="italic mr-2">I</span> Italic
                 </Button>
-                <Button variant="outline" onClick={() => formatText("strikethrough")}>
-                  <span className="line-through">S</span> Strikethrough
+                <Button variant="outline" onClick={() => formatText("strikethrough")} className="flex-1 min-w-[100px]">
+                  <span className="line-through mr-2">S</span> Strikethrough
                 </Button>
               </div>
               {generatedContent && (
-                <div className="space-y-2">
+                <div className="space-y-3">
                   <Label>Formatted Text</Label>
-                  <div className="p-3 bg-muted rounded-lg">
-                    <p className="text-foreground">{generatedContent}</p>
+                  <div className="p-4 bg-muted rounded-xl border">
+                    <p className="text-foreground break-all">{generatedContent}</p>
                   </div>
                   <Button 
                     variant="outline" 
@@ -329,10 +348,13 @@ const UniversalFacebookTools = ({ toolType }: UniversalFacebookToolsProps) => {
           ) : isTimingTool ? (
             // Timing/Calendar tool interface
             <div className="space-y-4">
+              <p className="text-sm text-muted-foreground">
+                Select your industry to get personalized posting time recommendations based on audience behavior.
+              </p>
               <div className="space-y-2">
                 <Label htmlFor="industry">Your Industry</Label>
                 <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-                  <SelectTrigger>
+                  <SelectTrigger className="w-full">
                     <SelectValue placeholder="Select your industry" />
                   </SelectTrigger>
                   <SelectContent>
@@ -347,7 +369,7 @@ const UniversalFacebookTools = ({ toolType }: UniversalFacebookToolsProps) => {
                   </SelectContent>
                 </Select>
               </div>
-              <Button className="w-full" onClick={generateContent} disabled={isProcessing}>
+              <Button className="w-full bg-blue-500 hover:bg-blue-600" onClick={generateContent} disabled={isProcessing}>
                 {isProcessing ? (
                   <RefreshCw className="h-4 w-4 mr-2 animate-spin" />
                 ) : (
@@ -355,28 +377,33 @@ const UniversalFacebookTools = ({ toolType }: UniversalFacebookToolsProps) => {
                 )}
                 {toolType?.includes("calendar") ? "Generate Content Calendar" : "Analyze Best Times"}
               </Button>
-              <div className="p-4 bg-muted rounded-lg space-y-3">
-                <h4 className="font-semibold text-foreground">Recommended Posting Times</h4>
-                <div className="grid grid-cols-2 gap-2 text-sm">
-                  <div className="p-2 bg-background rounded">
-                    <p className="font-medium">Monday - Friday</p>
-                    <p className="text-muted-foreground">9:00 AM - 10:00 AM</p>
-                    <p className="text-muted-foreground">1:00 PM - 3:00 PM</p>
+              <div className="p-6 bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-xl space-y-4">
+                <h4 className="font-semibold text-foreground text-lg">Recommended Posting Times</h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="p-4 bg-background rounded-lg border">
+                    <p className="font-medium text-foreground mb-2">📅 Monday - Friday</p>
+                    <p className="text-sm text-muted-foreground">Morning: 9:00 AM - 10:00 AM</p>
+                    <p className="text-sm text-muted-foreground">Afternoon: 1:00 PM - 3:00 PM</p>
+                    <p className="text-sm text-muted-foreground">Evening: 7:00 PM - 8:00 PM</p>
                   </div>
-                  <div className="p-2 bg-background rounded">
-                    <p className="font-medium">Weekends</p>
-                    <p className="text-muted-foreground">10:00 AM - 12:00 PM</p>
-                    <p className="text-muted-foreground">7:00 PM - 9:00 PM</p>
+                  <div className="p-4 bg-background rounded-lg border">
+                    <p className="font-medium text-foreground mb-2">🗓️ Weekends</p>
+                    <p className="text-sm text-muted-foreground">Morning: 10:00 AM - 12:00 PM</p>
+                    <p className="text-sm text-muted-foreground">Afternoon: 2:00 PM - 4:00 PM</p>
+                    <p className="text-sm text-muted-foreground">Evening: 7:00 PM - 9:00 PM</p>
                   </div>
                 </div>
                 <p className="text-xs text-muted-foreground">
-                  * Times shown in your local timezone. Actual optimal times may vary based on your specific audience.
+                  * Times shown in your local timezone. Test different times with your specific audience for best results.
                 </p>
               </div>
             </div>
           ) : (
             // Generator interface (default)
             <div className="space-y-4">
+              <p className="text-sm text-muted-foreground">
+                Generate engaging content for your Facebook posts. Add context for more personalized results.
+              </p>
               <div className="space-y-2">
                 <Label htmlFor="context">Topic or Context (Optional)</Label>
                 <Textarea
@@ -384,14 +411,14 @@ const UniversalFacebookTools = ({ toolType }: UniversalFacebookToolsProps) => {
                   placeholder="Describe what your post is about, your niche, or any specific keywords..."
                   value={inputText}
                   onChange={(e) => setInputText(e.target.value)}
-                  className="min-h-[80px]"
+                  className="min-h-[80px] w-full"
                 />
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label>Tone</Label>
                   <Select value={selectedTone} onValueChange={setSelectedTone}>
-                    <SelectTrigger>
+                    <SelectTrigger className="w-full">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -406,7 +433,7 @@ const UniversalFacebookTools = ({ toolType }: UniversalFacebookToolsProps) => {
                 <div className="space-y-2">
                   <Label>Category</Label>
                   <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-                    <SelectTrigger>
+                    <SelectTrigger className="w-full">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -422,7 +449,7 @@ const UniversalFacebookTools = ({ toolType }: UniversalFacebookToolsProps) => {
                 </div>
               </div>
               <Button 
-                className="w-full" 
+                className="w-full bg-blue-500 hover:bg-blue-600" 
                 onClick={generateContent}
                 disabled={isProcessing}
               >
@@ -431,22 +458,22 @@ const UniversalFacebookTools = ({ toolType }: UniversalFacebookToolsProps) => {
                 ) : (
                   <Sparkles className="h-4 w-4 mr-2" />
                 )}
-                Generate
+                Generate Content
               </Button>
               {generatedContent && (
                 <div className="space-y-3">
                   <Label>Generated Content</Label>
-                  <div className="p-4 bg-muted rounded-lg">
-                    <p className="text-foreground whitespace-pre-wrap">{generatedContent}</p>
+                  <div className="p-4 bg-gradient-to-br from-blue-500/5 to-purple-500/5 border border-blue-500/20 rounded-xl">
+                    <p className="text-foreground whitespace-pre-wrap leading-relaxed">{generatedContent}</p>
                   </div>
-                  <div className="flex gap-2">
+                  <div className="flex flex-col sm:flex-row gap-2">
                     <Button 
                       variant="outline" 
                       className="flex-1"
                       onClick={() => copyToClipboard(generatedContent)}
                     >
                       <Copy className="h-4 w-4 mr-2" />
-                      Copy
+                      Copy to Clipboard
                     </Button>
                     <Button 
                       variant="outline" 
@@ -455,7 +482,7 @@ const UniversalFacebookTools = ({ toolType }: UniversalFacebookToolsProps) => {
                       disabled={isProcessing}
                     >
                       <RefreshCw className="h-4 w-4 mr-2" />
-                      Regenerate
+                      Generate Another
                     </Button>
                   </div>
                 </div>
