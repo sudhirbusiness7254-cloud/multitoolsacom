@@ -1506,6 +1506,555 @@ export const watermarkSEOContent: Record<string, ComprehensiveSEOContent> = {
   }
 };
 
+// Image Metadata Tools - Comprehensive Content
+export const imageMetadataSEOContent: Record<string, ComprehensiveSEOContent> = {
+  "view-exif": {
+    slug: "view-exif",
+    title: "View EXIF Data",
+    metaTitle: "View EXIF Data - Read Image Metadata Online Free | MultiTools",
+    metaDescription: "View EXIF data and image metadata online for free. See camera settings, GPS location, date taken, and more. Instant analysis, no signup required.",
+    h1: "View Image EXIF Data Online Free",
+    
+    introduction: `Every digital photo contains hidden information called EXIF data that reveals details about when, where, and how the image was captured. Our free EXIF viewer extracts and displays this metadata, including camera model, lens information, exposure settings, GPS coordinates, date and time, and much more. Whether you are a photographer analyzing your camera settings, verifying the authenticity of an image, checking where a photo was taken, or simply curious about the technical details behind a picture, this tool provides comprehensive metadata analysis instantly. All processing happens securely in your browser, ensuring your images remain private while giving you full access to their hidden information.`,
+    
+    aboutTool: `Our EXIF viewer is a comprehensive metadata extraction tool that reads and displays all embedded information in digital images. EXIF (Exchangeable Image File Format) data is automatically recorded by digital cameras and smartphones when photos are taken. This includes technical information like aperture, shutter speed, ISO, focal length, and white balance, as well as device information like camera make and model. Many photos also contain GPS coordinates showing where the image was captured. The tool displays all available metadata in an organized, readable format. Processing happens entirely in your browser, meaning your images are never uploaded to any server, preserving both your privacy and the integrity of your files.`,
+    
+    howToUse: [
+      { step: 1, title: "Upload Your Image", description: "Click to browse or drag and drop any JPG or image file to analyze." },
+      { step: 2, title: "Wait for Analysis", description: "The tool reads and extracts all embedded metadata from your image." },
+      { step: 3, title: "View Camera Information", description: "See the camera make, model, and lens used to capture the photo." },
+      { step: 4, title: "Check Exposure Settings", description: "Review aperture, shutter speed, ISO, and other exposure data." },
+      { step: 5, title: "View Location Data", description: "If available, see GPS coordinates showing where the photo was taken." },
+      { step: 6, title: "Export or Copy Data", description: "Copy metadata to clipboard or save as a text file for reference." }
+    ],
+    
+    whyImportant: `EXIF data provides valuable insights for photographers, investigators, and anyone working with digital images. Photographers use EXIF to analyze which camera settings produced successful shots, helping improve their technique over time. Photo editors verify image authenticity and original capture details. Investigators and journalists check metadata to verify when and where photos were taken. Privacy-conscious users review EXIF data before sharing photos to ensure sensitive information like GPS location is not inadvertently disclosed. Archive managers use metadata for organizing and cataloging image collections. Forensic analysts examine EXIF data as part of digital investigations. Understanding and accessing EXIF data is essential for anyone who works seriously with digital photography.`,
+    
+    keyFeatures: [
+      { title: "Comprehensive Extraction", description: "Reads all available EXIF, IPTC, and XMP metadata from images." },
+      { title: "Camera Information", description: "Displays make, model, lens, and serial number when available." },
+      { title: "Exposure Details", description: "Shows aperture, shutter speed, ISO, focal length, and metering mode." },
+      { title: "GPS Location", description: "Extracts and displays geographic coordinates with map link when present." },
+      { title: "Date and Time", description: "Shows original capture date and any modification timestamps." },
+      { title: "Organized Display", description: "Presents metadata in clear, categorized sections for easy reading." },
+      { title: "Browser-Based Privacy", description: "Images are analyzed locally and never uploaded to any server." },
+      { title: "Export Options", description: "Copy metadata to clipboard or download as text file." }
+    ],
+    
+    benefitsText: `Our EXIF viewer provides instant access to comprehensive image metadata without any software installation. The organized display makes it easy to find specific information whether you are checking camera settings, verifying location data, or analyzing image authenticity. Browser-based processing means your images remain completely private since they never leave your device. Unlike some metadata viewers that show only basic information, our tool extracts and displays all available data fields. The ability to export metadata makes it easy to document findings or include information in reports. This free, unlimited tool replaces expensive software for anyone needing to access image metadata.`,
+    
+    benefits: [
+      "Complete metadata extraction",
+      "Camera and lens identification",
+      "GPS location display",
+      "Date and time verification",
+      "Exposure settings analysis",
+      "Complete image privacy",
+      "Free unlimited analysis",
+      "Works on all devices"
+    ],
+    
+    whoCanUse: [
+      { title: "Photographers", description: "Analyze camera settings to understand what made shots successful." },
+      { title: "Photo Editors", description: "Verify image origin and original capture information." },
+      { title: "Journalists", description: "Verify authenticity and location of news photographs." },
+      { title: "Privacy Advocates", description: "Check what information is embedded before sharing images." },
+      { title: "Investigators", description: "Examine metadata for forensic and verification purposes." },
+      { title: "Archive Managers", description: "Extract metadata for cataloging and organizing image collections." }
+    ],
+    
+    useCases: [
+      { title: "Photography Learning", description: "Study exposure settings that produced successful photos to improve technique." },
+      { title: "Image Verification", description: "Confirm when and where photos were actually taken for authenticity." },
+      { title: "Privacy Audit", description: "Check images for sensitive metadata before sharing publicly." },
+      { title: "Photo Organization", description: "Extract date and location data for organizing photo collections." },
+      { title: "Equipment Identification", description: "Identify which camera and lens combination was used for specific shots." },
+      { title: "Legal Documentation", description: "Document metadata for evidence or intellectual property purposes." }
+    ],
+    
+    faqs: [
+      { question: "What is EXIF data?", answer: "EXIF (Exchangeable Image File Format) is metadata automatically embedded in digital photos by cameras and smartphones, including camera settings, date, and sometimes GPS location." },
+      { question: "Do all images have EXIF data?", answer: "Most photos from digital cameras and smartphones contain EXIF data, but it may be stripped during editing or sharing on some platforms." },
+      { question: "Can I see GPS location from photos?", answer: "Yes, if the camera or phone had location services enabled when the photo was taken, GPS coordinates will be displayed." },
+      { question: "Does viewing EXIF data modify the image?", answer: "No, this tool only reads metadata. Your image file is not modified in any way." },
+      { question: "What image formats contain EXIF data?", answer: "EXIF is most common in JPEG files but can also be present in TIFF, RAW, and some other formats." },
+      { question: "Why would I want to remove EXIF data?", answer: "Privacy concerns, particularly GPS location. Use our Remove EXIF tool if you want to strip metadata before sharing." },
+      { question: "Are my images uploaded to a server?", answer: "No, all analysis happens in your browser. Your images remain completely private." },
+      { question: "Does this work on mobile?", answer: "Yes, our EXIF viewer works on smartphones and tablets with modern browsers." },
+      { question: "Can I export the metadata?", answer: "Yes, you can copy metadata to clipboard or download as a text file." },
+      { question: "Is this tool free?", answer: "Yes, completely free with no limits on usage." }
+    ],
+    
+    privacyNote: `Your images are completely private when using our EXIF viewer. All metadata extraction happens locally in your web browser. Your images are never uploaded to any server, never stored anywhere, and never accessible to anyone but you. This is particularly important for EXIF viewing since the metadata itself may contain sensitive information like GPS location. We do not access, collect, or store any information about your images. No account is required. When you close the browser, all data is cleared. Your privacy is 100% protected.`,
+    
+    conclusion: `Our free EXIF viewer provides instant, comprehensive access to all metadata hidden in your digital images. Whether you are analyzing photography techniques, verifying image authenticity, checking for privacy-sensitive information, or organizing photo collections, this tool delivers the information you need. The browser-based processing keeps your images completely private while providing complete metadata extraction. With organized display, export options, and unlimited free usage, it is the ideal tool for anyone working with digital photography. Try our EXIF viewer now and discover the hidden information in your images.`,
+    
+    relatedTools: ["remove-exif", "edit-exif-datetime", "copy-exif"],
+    category: "Image Metadata",
+    categorySlug: "image-metadata",
+    keywords: ["view exif", "exif viewer", "image metadata", "photo information", "camera settings", "gps location"],
+    gradientFrom: "#0ea5e9",
+    gradientTo: "#06b6d4"
+  },
+  
+  "remove-exif": {
+    slug: "remove-exif",
+    title: "Remove EXIF Data",
+    metaTitle: "Remove EXIF Data - Strip Image Metadata Online Free | MultiTools",
+    metaDescription: "Remove EXIF data from images online for free. Strip GPS location, camera info, and personal metadata. Protect privacy before sharing photos.",
+    h1: "Remove EXIF Data from Images Online Free",
+    
+    introduction: `Digital photos often contain hidden metadata that reveals more than you might want to share, including GPS coordinates showing exactly where images were taken, camera serial numbers, and timestamps. Our free EXIF removal tool strips all this metadata from your images, protecting your privacy when sharing photos online or with others. Whether you are concerned about location privacy, want to remove camera identification data, or simply want cleaner image files, this tool permanently removes all embedded metadata while preserving full image quality. All processing happens securely in your browser, ensuring your photos remain private throughout the process.`,
+    
+    aboutTool: `Our EXIF removal tool completely strips all embedded metadata from your images, creating clean files that contain only the visual image data. This includes removing EXIF data (camera settings, dates, GPS), IPTC data (captions, keywords, copyright), XMP data (editing history), and any other embedded information. The tool preserves full image quality since it only removes metadata without recompressing or altering the actual image pixels. The resulting file is smaller and contains no hidden information that could compromise your privacy or reveal details about when, where, or how the photo was taken. Processing happens entirely in your browser for complete privacy.`,
+    
+    howToUse: [
+      { step: 1, title: "Upload Your Image", description: "Click to browse or drag and drop the image you want to strip metadata from." },
+      { step: 2, title: "View Current Metadata", description: "Optionally review what metadata is currently embedded in your image." },
+      { step: 3, title: "Click Remove EXIF", description: "Press the button to strip all metadata from your image." },
+      { step: 4, title: "Verify Removal", description: "The tool confirms that metadata has been successfully removed." },
+      { step: 5, title: "Download Clean Image", description: "Save your metadata-free image to your device." },
+      { step: 6, title: "Process More Images", description: "Repeat for additional images that need metadata removal." }
+    ],
+    
+    whyImportant: `Removing EXIF data is essential for privacy protection in the digital age. GPS coordinates embedded in photos can reveal your home location, workplace, or travel patterns to anyone who examines the metadata. Camera serial numbers can be used to track which photos came from your device. Timestamps reveal when photos were taken, which may have security implications. Social media platforms and messaging apps vary in whether they strip metadata, so removing it yourself ensures consistent privacy protection. Professional photographers remove metadata to prevent clients from seeing what equipment was used. Privacy-conscious individuals strip metadata before sharing any photos publicly. The risks of inadvertently sharing location data through photos are well-documented, making metadata removal an important privacy practice.`,
+    
+    keyFeatures: [
+      { title: "Complete Removal", description: "Strips all EXIF, IPTC, XMP, and other embedded metadata." },
+      { title: "GPS Data Removal", description: "Eliminates location coordinates that reveal where photos were taken." },
+      { title: "Quality Preservation", description: "Removes only metadata without affecting image quality." },
+      { title: "Smaller File Size", description: "Resulting files are smaller without the embedded data." },
+      { title: "Batch Processing", description: "Process multiple images to remove metadata efficiently." },
+      { title: "Browser-Based Privacy", description: "Images are processed locally and never uploaded anywhere." },
+      { title: "Verification Display", description: "Confirms successful metadata removal." },
+      { title: "Instant Processing", description: "Remove metadata immediately without waiting." }
+    ],
+    
+    benefitsText: `Our EXIF removal tool provides essential privacy protection for anyone sharing digital photos. The complete stripping of all metadata types ensures no hidden information remains in your files. Quality preservation means your photos look exactly the same, just without the privacy risks. Browser-based processing adds an extra layer of privacy since your images never leave your device during the removal process. The smaller resulting file sizes are a bonus, making images faster to upload and share. Unlike some tools that only remove certain data types, our comprehensive approach strips everything for complete peace of mind. The free, unlimited usage makes privacy protection accessible to everyone.`,
+    
+    benefits: [
+      "Complete privacy protection",
+      "GPS location removal",
+      "Camera info stripped",
+      "Full quality preservation",
+      "Smaller file sizes",
+      "Complete local processing",
+      "Free unlimited use",
+      "Instant results"
+    ],
+    
+    whoCanUse: [
+      { title: "Privacy-Conscious Users", description: "Remove location and personal data before sharing photos anywhere." },
+      { title: "Social Media Users", description: "Strip metadata before posting photos on platforms that may preserve it." },
+      { title: "Photographers", description: "Remove camera and equipment information from client deliverables." },
+      { title: "Journalists", description: "Protect source anonymity by removing metadata from submitted images." },
+      { title: "Businesses", description: "Clean corporate images of internal metadata before publication." },
+      { title: "Parents", description: "Remove location data from photos of children before sharing." }
+    ],
+    
+    useCases: [
+      { title: "Social Media Sharing", description: "Remove all metadata before uploading photos to social platforms." },
+      { title: "Online Marketplace Listings", description: "Strip location data from product photos before listing." },
+      { title: "Blog and Website Images", description: "Clean images of metadata before publishing on websites." },
+      { title: "Email Attachments", description: "Remove metadata from photos before sending via email." },
+      { title: "Public Document Images", description: "Strip metadata from images included in public documents." },
+      { title: "Anonymous Sharing", description: "Remove all identifying information for anonymous image sharing." }
+    ],
+    
+    faqs: [
+      { question: "What metadata is removed?", answer: "All metadata including EXIF (camera settings, GPS, date), IPTC (captions, copyright), XMP (editing history), and any other embedded data." },
+      { question: "Will removing EXIF affect image quality?", answer: "No, only metadata is removed. The actual image pixels remain unchanged, preserving full quality." },
+      { question: "Is the original file modified?", answer: "No, a new file is created without metadata. Your original file remains unchanged on your device." },
+      { question: "Why should I remove GPS data?", answer: "GPS coordinates can reveal your home, workplace, or travel patterns to anyone who examines the photo metadata." },
+      { question: "Do social media platforms remove EXIF automatically?", answer: "Some do, some do not, and policies change. Removing metadata yourself ensures consistent protection." },
+      { question: "Can metadata be recovered after removal?", answer: "No, our tool permanently removes metadata from the new file. The data cannot be recovered from the clean image." },
+      { question: "Are my images uploaded to a server?", answer: "No, all processing happens in your browser. Your images remain completely private." },
+      { question: "Does this work on mobile?", answer: "Yes, our EXIF removal tool works on smartphones and tablets." },
+      { question: "What formats are supported?", answer: "JPG, PNG, WebP, and most common image formats." },
+      { question: "Is this tool free?", answer: "Yes, completely free with unlimited usage." }
+    ],
+    
+    privacyNote: `Your privacy is doubly protected with our EXIF removal tool. First, all processing happens locally in your web browser, meaning your images are never uploaded to any server. Second, the tool removes privacy-sensitive metadata from your images so they are safer to share. We do not access, collect, or store any information about your images or their metadata. No account is required. When you close the browser, all data is cleared. Your privacy is 100% protected during the removal process, and your images are safer afterward.`,
+    
+    conclusion: `Our free EXIF removal tool provides essential privacy protection by stripping all metadata from your digital photos. Whether you are concerned about GPS location data, camera identification, or simply want cleaner files, this tool delivers complete metadata removal while preserving full image quality. The browser-based processing keeps your images private during the process, and the resulting clean files are safer to share anywhere. With unlimited free usage and support for all common formats, protecting your photo privacy has never been easier. Try our EXIF removal tool now and take control of your image privacy.`,
+    
+    relatedTools: ["view-exif", "edit-exif-datetime", "image-encrypt"],
+    category: "Image Metadata",
+    categorySlug: "image-metadata",
+    keywords: ["remove exif", "strip metadata", "delete gps", "privacy protection", "remove location", "clean metadata"],
+    gradientFrom: "#ef4444",
+    gradientTo: "#f97316"
+  }
+};
+
+// Image Optimization Tools - Comprehensive Content
+export const imageOptimizationSEOContent: Record<string, ComprehensiveSEOContent> = {
+  "optimize-for-web": {
+    slug: "optimize-for-web",
+    title: "Optimize for Web",
+    metaTitle: "Optimize Images for Web - Free Online Image Optimization | MultiTools",
+    metaDescription: "Optimize images for web use online for free. Reduce file size, improve loading speed, maintain quality. Boost website performance instantly.",
+    h1: "Optimize Images for Web Online Free",
+    
+    introduction: `Website performance depends heavily on image optimization. Large, unoptimized images are the leading cause of slow-loading websites, resulting in poor user experience, higher bounce rates, and lower search engine rankings. Our free web optimization tool automatically processes your images to achieve the smallest possible file size while maintaining visual quality appropriate for web display. Whether you are a website owner, blogger, e-commerce manager, or anyone publishing images online, this tool helps ensure your images load fast without visible quality loss. The optimization is based on industry best practices and automatically adjusts for different image types and content.`,
+    
+    aboutTool: `Our web optimization tool applies multiple optimization techniques to prepare images for optimal web performance. The tool analyzes each image to determine the best compression settings, strips unnecessary metadata that adds file weight, converts to efficient color spaces, and applies format-specific optimizations. For JPEGs, it uses progressive encoding and optimizes Huffman tables. For PNGs, it reduces color palettes where possible and applies maximum lossless compression. The tool can also convert images to modern formats like WebP for even better compression. All processing happens locally in your browser, providing fast results while keeping your images private. The goal is always the smallest possible file size with no visible quality difference.`,
+    
+    howToUse: [
+      { step: 1, title: "Upload Your Image", description: "Click to browse or drag and drop the image you want to optimize for web use." },
+      { step: 2, title: "View Original Size", description: "See the current file size and dimensions of your image." },
+      { step: 3, title: "Select Optimization Level", description: "Choose from balanced, quality-focused, or size-focused optimization presets." },
+      { step: 4, title: "Click Optimize", description: "The tool applies web optimization techniques to your image." },
+      { step: 5, title: "Compare Results", description: "See the optimized file size and compare quality with the original." },
+      { step: 6, title: "Download Optimized Image", description: "Save your web-ready image with dramatically reduced file size." }
+    ],
+    
+    whyImportant: `Image optimization is critical for modern web success. Google uses page speed as a ranking factor, and images typically account for the majority of page weight. Users expect pages to load in under 3 seconds, and each additional second of load time increases bounce rates significantly. Mobile users on slower connections are particularly affected by unoptimized images. Core Web Vitals metrics, which directly impact search rankings, depend heavily on image optimization. E-commerce sites lose conversions when product pages load slowly. Blogs lose readers who will not wait for posts to load. Proper image optimization can reduce page weight by 50-80% while maintaining visual quality, dramatically improving user experience and business outcomes.`,
+    
+    keyFeatures: [
+      { title: "Automatic Optimization", description: "Intelligent analysis determines optimal settings for each image." },
+      { title: "Multiple Techniques", description: "Applies compression, metadata removal, and format-specific optimizations." },
+      { title: "Quality Preservation", description: "Maintains visual quality appropriate for web display." },
+      { title: "Size Reduction", description: "Typically achieves 50-80% file size reduction." },
+      { title: "Format Optimization", description: "Applies best practices for JPEG, PNG, WebP, and other formats." },
+      { title: "Progressive Loading", description: "Enables progressive encoding for faster perceived loading." },
+      { title: "Browser-Based Processing", description: "All optimization happens locally for privacy and speed." },
+      { title: "Instant Results", description: "See optimization results immediately." }
+    ],
+    
+    benefitsText: `Our web optimization tool provides significant benefits for anyone publishing images online. The automatic optimization eliminates guesswork, applying proven techniques without requiring technical knowledge. Typical file size reductions of 50-80% translate directly to faster page loads and better user experience. The quality preservation ensures your images still look great to visitors. Browser-based processing means no waiting for uploads and complete privacy for your images. Unlike subscription-based optimization services, our tool is completely free with no usage limits. The improved page speed benefits both users and search rankings, making optimization one of the highest-impact improvements you can make to any website.`,
+    
+    benefits: [
+      "Dramatically smaller file sizes",
+      "Faster page loading",
+      "Improved SEO rankings",
+      "Better user experience",
+      "Quality preservation",
+      "Complete image privacy",
+      "Free unlimited optimization",
+      "Works on all devices"
+    ],
+    
+    whoCanUse: [
+      { title: "Website Owners", description: "Optimize all site images for faster loading and better SEO." },
+      { title: "Bloggers", description: "Ensure blog posts load quickly with optimized images." },
+      { title: "E-commerce Managers", description: "Speed up product pages with optimized product photos." },
+      { title: "Web Developers", description: "Prepare images for optimal performance in web projects." },
+      { title: "Content Managers", description: "Optimize images before uploading to CMS platforms." },
+      { title: "Marketing Teams", description: "Ensure landing pages load fast with optimized graphics." }
+    ],
+    
+    useCases: [
+      { title: "Website Speed", description: "Optimize all website images to improve page load times and Core Web Vitals." },
+      { title: "Blog Optimization", description: "Reduce blog image sizes for faster post loading and reader retention." },
+      { title: "E-commerce Performance", description: "Speed up product pages with optimized product photography." },
+      { title: "Landing Pages", description: "Ensure marketing landing pages load instantly for maximum conversions." },
+      { title: "CMS Upload Prep", description: "Optimize images before uploading to WordPress, Shopify, or other platforms." },
+      { title: "Email Images", description: "Reduce image sizes for faster email loading and delivery." }
+    ],
+    
+    faqs: [
+      { question: "How much smaller will my images be?", answer: "Typically 50-80% smaller depending on the original image and content type. Photos compress more than graphics with solid colors." },
+      { question: "Will optimization affect how images look?", answer: "Web optimization is calibrated to maintain visual quality at web display sizes. Any quality reduction is imperceptible in normal viewing." },
+      { question: "What optimization techniques are used?", answer: "Compression, metadata removal, color space optimization, progressive encoding, and format-specific best practices." },
+      { question: "Should I optimize all my website images?", answer: "Yes, every unoptimized image slows your site. Optimizing all images provides the best performance improvement." },
+      { question: "Does this work with WordPress?", answer: "Yes, optimize images before uploading to WordPress or any CMS for best results." },
+      { question: "Can I optimize multiple images at once?", answer: "Process images one at a time with our efficient workflow, or batch-optimize for multiple files." },
+      { question: "Are my images uploaded to a server?", answer: "No, all optimization happens in your browser. Your images remain completely private." },
+      { question: "Does this work on mobile?", answer: "Yes, our optimization tool works on smartphones and tablets." },
+      { question: "What formats are supported?", answer: "JPEG, PNG, WebP, GIF, and most common image formats." },
+      { question: "Is there a cost?", answer: "No, the tool is completely free with unlimited usage." }
+    ],
+    
+    privacyNote: `Your images remain completely private during optimization. All processing happens locally in your web browser using client-side technology. Your images are never uploaded to any server, never stored anywhere, and never accessible to anyone but you. We do not track what images you optimize or collect any usage data. No account is required. When you close the browser, all image data is cleared. Your files and privacy are 100% protected.`,
+    
+    conclusion: `Our free web optimization tool provides professional-quality image optimization for anyone publishing content online. With automatic optimization techniques, typical file size reductions of 50-80%, and quality preservation for web display, it is the easiest way to improve website performance. Faster loading improves user experience, reduces bounce rates, and helps search engine rankings. Browser-based processing keeps your images private while delivering instant results. With unlimited free usage and support for all common formats, there is no reason not to optimize every image you publish. Try our web optimization tool now and make your website faster.`,
+    
+    relatedTools: ["jpeg-compressor", "png-compressor", "reduce-file-size", "webp-to-jpg"],
+    category: "Image Optimization",
+    categorySlug: "image-optimization",
+    keywords: ["optimize for web", "web optimization", "image performance", "page speed", "website images", "image compression"],
+    gradientFrom: "#10b981",
+    gradientTo: "#059669"
+  }
+};
+
+// Image Security Tools - Comprehensive Content
+export const imageSecuritySEOContent: Record<string, ComprehensiveSEOContent> = {
+  "image-encrypt": {
+    slug: "image-encrypt",
+    title: "Encrypt Image",
+    metaTitle: "Encrypt Images Online - Secure Photo Encryption Free | MultiTools",
+    metaDescription: "Encrypt images with password protection online for free. Secure your private photos with strong encryption. Only you can decrypt with your password.",
+    h1: "Encrypt Images Online Free",
+    
+    introduction: `In an age of data breaches and privacy concerns, protecting sensitive images has never been more important. Our free image encryption tool allows you to secure your photos with strong password-based encryption, making them unreadable without the correct decryption key. Whether you are protecting personal photos, confidential business images, sensitive documents scanned as images, or any visual content that should remain private, this tool provides military-grade encryption that keeps your images safe. The encrypted files appear as scrambled, unrecognizable data that can only be restored to their original form with your password. All encryption happens locally in your browser for maximum security.`,
+    
+    aboutTool: `Our image encryption tool uses advanced cryptographic algorithms to transform your images into encrypted data that is impossible to view without the correct password. The encryption process converts image pixel data into scrambled bytes using AES-256 encryption, one of the strongest encryption standards available. The resulting encrypted file contains no recognizable image data and cannot be previewed, opened as an image, or reverse-engineered without the password. Only someone with your exact password can decrypt and view the original image. The tool works entirely in your browser, meaning your original images and passwords are never transmitted over the internet or stored on any server. This provides true end-to-end security for your sensitive visual content.`,
+    
+    howToUse: [
+      { step: 1, title: "Upload Your Image", description: "Click to browse or drag and drop the image you want to encrypt." },
+      { step: 2, title: "Enter a Strong Password", description: "Create a secure password that you will remember. This is needed to decrypt later." },
+      { step: 3, title: "Confirm Password", description: "Re-enter your password to confirm it was typed correctly." },
+      { step: 4, title: "Click Encrypt", description: "The tool encrypts your image using strong AES-256 encryption." },
+      { step: 5, title: "Download Encrypted File", description: "Save the encrypted file. It cannot be viewed as an image without decryption." },
+      { step: 6, title: "Store Password Safely", description: "Remember or securely store your password. Without it, the image cannot be recovered." }
+    ],
+    
+    whyImportant: `Image encryption is essential for protecting visual content that should remain confidential. Personal photos may contain sensitive moments you do not want exposed if your device is lost or hacked. Medical images, financial documents scanned as images, and business-sensitive visuals all require protection. Cloud storage services may be breached, but encrypted files remain unreadable. Sharing sensitive images via email or messaging becomes safer when encrypted. Journalists and activists use encryption to protect source material. Anyone storing private photos on devices or cloud services should consider encryption as a privacy measure. Without encryption, images are fully accessible to anyone who gains access to your files, whether through hacking, theft, or accidental exposure.`,
+    
+    keyFeatures: [
+      { title: "AES-256 Encryption", description: "Uses military-grade encryption standard trusted by governments and security experts." },
+      { title: "Password Protection", description: "Your chosen password is the only key to decrypt the image." },
+      { title: "Complete Privacy", description: "Encrypted images show no recognizable visual content." },
+      { title: "Browser-Based Security", description: "All encryption happens locally; your images and passwords never leave your device." },
+      { title: "Any Image Format", description: "Encrypt JPG, PNG, WebP, GIF, and other image formats." },
+      { title: "Secure Output", description: "Encrypted files cannot be previewed or opened as images." },
+      { title: "Portable Protection", description: "Encrypted files can be safely stored or shared." },
+      { title: "Instant Processing", description: "Encryption completes quickly in your browser." }
+    ],
+    
+    benefitsText: `Our image encryption tool provides robust protection for your sensitive visual content. AES-256 encryption is the same standard used by banks, governments, and security-conscious organizations worldwide. The browser-based operation means your images and passwords are never transmitted or stored anywhere, providing true privacy. Unlike cloud storage encryption that providers can potentially access, client-side encryption means only you hold the key. The encrypted files are portable and can be safely stored on any device or cloud service. Even if someone gains access to the encrypted file, they cannot view the image without your password. This level of protection was previously available only through complex software, but our tool makes it accessible to everyone for free.`,
+    
+    benefits: [
+      "Military-grade encryption",
+      "Password-based protection",
+      "Complete local processing",
+      "No server storage",
+      "Works with all formats",
+      "Portable encrypted files",
+      "Safe cloud storage",
+      "Free unlimited use"
+    ],
+    
+    whoCanUse: [
+      { title: "Privacy-Conscious Users", description: "Protect personal photos before cloud storage or sharing." },
+      { title: "Professionals", description: "Secure confidential visual documents and sensitive business images." },
+      { title: "Healthcare Workers", description: "Encrypt medical images to protect patient privacy." },
+      { title: "Legal Professionals", description: "Secure evidence photos and sensitive legal documentation." },
+      { title: "Journalists", description: "Protect source materials and sensitive photographic evidence." },
+      { title: "Activists", description: "Secure images that could put people at risk if exposed." }
+    ],
+    
+    useCases: [
+      { title: "Cloud Storage Protection", description: "Encrypt images before uploading to cloud services for added security." },
+      { title: "Secure Sharing", description: "Send encrypted images that only the intended recipient can decrypt." },
+      { title: "Device Security", description: "Protect sensitive images on laptops or phones that could be lost or stolen." },
+      { title: "Archive Protection", description: "Encrypt sensitive photo archives for secure long-term storage." },
+      { title: "Confidential Documents", description: "Secure scanned documents and sensitive business images." },
+      { title: "Personal Privacy", description: "Encrypt private personal photos for peace of mind." }
+    ],
+    
+    faqs: [
+      { question: "How secure is the encryption?", answer: "We use AES-256 encryption, the same standard used by banks and governments. It is considered unbreakable with current technology." },
+      { question: "Can anyone recover my image without the password?", answer: "No. Without your exact password, the encrypted file cannot be decrypted. There is no backdoor or recovery option." },
+      { question: "What happens if I forget my password?", answer: "The image cannot be recovered without the password. We do not store passwords and cannot help recover them. Keep your password safe." },
+      { question: "Are my images uploaded anywhere?", answer: "No. All encryption happens entirely in your browser. Your images and passwords never leave your device." },
+      { question: "Can I decrypt the image on a different device?", answer: "Yes. Use our decryption tool with the encrypted file and your password on any device." },
+      { question: "What does the encrypted file look like?", answer: "The encrypted file is scrambled data that cannot be opened as an image. It appears as random bytes." },
+      { question: "How strong should my password be?", answer: "Use a long password with mixed characters. Longer and more complex passwords provide stronger security." },
+      { question: "Can I encrypt multiple images?", answer: "Encrypt images one at a time, each with its own password if desired." },
+      { question: "What formats can be encrypted?", answer: "All common image formats including JPG, PNG, WebP, GIF, and BMP." },
+      { question: "Is this tool free?", answer: "Yes, completely free with no limits on usage." }
+    ],
+    
+    privacyNote: `Maximum privacy is built into our encryption tool. All processing happens entirely in your web browser. Your images are never uploaded to any server. Your passwords are never transmitted or stored anywhere. The encryption happens locally on your device using only JavaScript running in your browser. We have no access to your images, passwords, or encrypted files. This is true end-to-end encryption where you are the only one who holds the key. When you close the browser, all data is cleared. Your sensitive images and passwords remain completely private and secure.`,
+    
+    conclusion: `Our free image encryption tool provides military-grade protection for your sensitive visual content. With AES-256 encryption, browser-based security, and password protection, you can secure personal photos, confidential documents, and any images that should remain private. The encrypted files can be safely stored on any device or cloud service, and only you can decrypt them with your password. This level of security was previously difficult to achieve without technical expertise, but our tool makes powerful encryption accessible to everyone. Try our image encryption tool now and take control of your visual privacy.`,
+    
+    relatedTools: ["image-decrypt", "remove-exif", "manual-pixel-blur", "hide-area"],
+    category: "Image Security",
+    categorySlug: "image-security",
+    keywords: ["encrypt image", "image encryption", "password protect image", "secure photos", "private images", "AES encryption"],
+    gradientFrom: "#7c3aed",
+    gradientTo: "#a855f7"
+  }
+};
+
+// Image QR Tools - Comprehensive Content
+export const imageQRSEOContent: Record<string, ComprehensiveSEOContent> = {
+  "image-to-qr-code": {
+    slug: "image-to-qr-code",
+    title: "Image to QR Code Generator",
+    metaTitle: "Image to QR Code Generator - Create QR Codes Online Free | MultiTools",
+    metaDescription: "Generate QR codes from URLs, text, or image links online for free. Create scannable QR codes instantly. Customizable colors and sizes.",
+    h1: "Generate QR Codes Online Free",
+    
+    introduction: `QR codes have become essential tools for bridging the physical and digital worlds, allowing instant access to websites, images, contact information, and more through a simple smartphone scan. Our free QR code generator creates high-quality, scannable codes from any URL, text, or image link you provide. Whether you are creating QR codes for marketing materials, product packaging, business cards, restaurant menus, or any other application, this tool delivers professional results with customization options for colors and sizes. The generated QR codes work with all standard QR scanner apps and are optimized for reliable scanning across different sizes and printing methods.`,
+    
+    aboutTool: `Our QR code generator creates standard QR codes that encode any text or URL you provide. The resulting codes can be scanned by any smartphone camera or QR reader app, instantly directing users to websites, displaying text, or triggering other actions depending on the encoded content. The tool uses error correction algorithms that ensure codes remain scannable even if partially damaged or obscured. You can customize the foreground and background colors to match your branding, and choose from various sizes for different use cases. The output is available as PNG or SVG for maximum flexibility. All generation happens in your browser for instant results and privacy.`,
+    
+    howToUse: [
+      { step: 1, title: "Enter Your Content", description: "Type the URL, text, or image link you want to encode in the QR code." },
+      { step: 2, title: "Customize Size", description: "Select the output size appropriate for your use (print, digital, etc.)." },
+      { step: 3, title: "Choose Colors", description: "Optionally change the foreground and background colors to match your branding." },
+      { step: 4, title: "Generate QR Code", description: "Click generate to create your QR code instantly." },
+      { step: 5, title: "Preview and Test", description: "Scan the preview with your phone to verify it works correctly." },
+      { step: 6, title: "Download QR Code", description: "Save your QR code as PNG or SVG for use in your projects." }
+    ],
+    
+    whyImportant: `QR codes provide instant, contactless access to digital content from physical media. In marketing, QR codes on print materials drive traffic to websites, landing pages, and promotional content. Restaurants use QR codes for contactless menus. Businesses place QR codes on products for detailed information, user manuals, or warranty registration. Event organizers use QR codes for tickets and registration. Real estate agents link to virtual tours. Retailers enable quick mobile payments. The technology is free to use, works on virtually all smartphones, and provides measurable engagement through link tracking. Creating professional QR codes is essential for any modern marketing or business communication strategy.`,
+    
+    keyFeatures: [
+      { title: "Universal Compatibility", description: "Generated codes work with all standard QR scanner apps and smartphone cameras." },
+      { title: "Custom Colors", description: "Match your branding with custom foreground and background colors." },
+      { title: "Multiple Sizes", description: "Generate codes in various sizes for different applications." },
+      { title: "Error Correction", description: "Built-in redundancy ensures reliable scanning even if partially damaged." },
+      { title: "SVG Output", description: "Vector format available for perfect scaling to any size." },
+      { title: "PNG Output", description: "Raster format for easy use in documents and web." },
+      { title: "Instant Generation", description: "Create QR codes immediately in your browser." },
+      { title: "Free Unlimited Use", description: "Generate as many QR codes as needed without cost." }
+    ],
+    
+    benefitsText: `Our QR code generator provides professional results without the complexity or cost of dedicated software. The instant browser-based generation means you can create codes on demand without waiting. Custom color options ensure your QR codes complement your brand identity rather than clashing with it. Multiple output formats cover all use cases from web graphics to large-format printing. The error correction built into QR code standards means your codes will scan reliably across different conditions. Unlike some services that add their own branding or limit usage, our tool produces clean codes with unlimited generation. Whether you need one code or hundreds, this tool delivers consistently high-quality results.`,
+    
+    benefits: [
+      "Instant QR code creation",
+      "Custom color branding",
+      "Multiple size options",
+      "SVG and PNG formats",
+      "High scannability",
+      "Works on all scanners",
+      "Free unlimited generation",
+      "No branding added"
+    ],
+    
+    whoCanUse: [
+      { title: "Marketers", description: "Create QR codes for print materials, ads, and promotional campaigns." },
+      { title: "Restaurant Owners", description: "Generate menu QR codes for contactless dining experiences." },
+      { title: "Retailers", description: "Add QR codes to products for additional information or support." },
+      { title: "Event Organizers", description: "Create QR codes for tickets, registration, and event information." },
+      { title: "Real Estate Agents", description: "Link property signs to virtual tours and listing details." },
+      { title: "Business Owners", description: "Use QR codes for business cards, receipts, and customer engagement." }
+    ],
+    
+    useCases: [
+      { title: "Marketing Materials", description: "Add QR codes to flyers, posters, and brochures linking to websites or offers." },
+      { title: "Restaurant Menus", description: "Create contactless menu access via table QR codes." },
+      { title: "Product Packaging", description: "Link to user manuals, support, or product registration." },
+      { title: "Business Cards", description: "Include QR codes for instant contact saving or portfolio viewing." },
+      { title: "Event Materials", description: "Tickets, programs, and signage with linked digital content." },
+      { title: "Educational Materials", description: "Link printed materials to online resources and videos." }
+    ],
+    
+    faqs: [
+      { question: "What can I encode in a QR code?", answer: "URLs (websites), plain text, phone numbers, email addresses, WiFi credentials, and more. Any text-based content works." },
+      { question: "How do people scan QR codes?", answer: "Most smartphone cameras can scan QR codes automatically. Simply point the camera at the code and a notification appears." },
+      { question: "What size should my QR code be?", answer: "For print, minimum 2x2 cm. Larger sizes scan from greater distances. For web, 200x200 pixels typically works well." },
+      { question: "Can I change the colors?", answer: "Yes, customize foreground and background colors. Ensure sufficient contrast for reliable scanning." },
+      { question: "What is error correction?", answer: "QR codes include redundant data so they still scan even if partially obscured or damaged." },
+      { question: "Which format should I use?", answer: "SVG for print and scaling to any size. PNG for web and digital use." },
+      { question: "Will dark-colored QR codes scan?", answer: "Yes, as long as there is sufficient contrast between foreground and background colors." },
+      { question: "Are my URLs private?", answer: "All generation happens in your browser. Your URLs are not logged or tracked by us." },
+      { question: "Can I add a logo to the QR code?", answer: "Basic codes work best for reliability. Adding logos may reduce scannability." },
+      { question: "Is this tool free?", answer: "Yes, completely free with unlimited QR code generation." }
+    ],
+    
+    privacyNote: `Your content remains private when generating QR codes. All processing happens locally in your web browser. The URLs, text, or other content you encode are not transmitted to or stored on any server. We do not log what QR codes you create or track their usage. No account is required. The only data that leaves your browser is when someone scans the QR code and follows the encoded link. Your QR code content is completely private during generation.`,
+    
+    conclusion: `Our free QR code generator provides instant, professional-quality codes for any application. With custom colors, multiple sizes, and both SVG and PNG output formats, you can create perfectly branded QR codes for marketing, business, or personal use. The high scannability and error correction ensure reliable performance across different conditions. Browser-based generation means instant results with complete privacy for your encoded content. With unlimited free usage, there is no reason not to add QR codes to your marketing materials, products, or any print collateral. Try our QR code generator now and start bridging your physical and digital presence.`,
+    
+    relatedTools: ["qr-code-to-image", "image-to-base64", "text-watermark"],
+    category: "Image QR Tools",
+    categorySlug: "image-qr",
+    keywords: ["qr code generator", "create qr code", "qr maker", "image qr", "url to qr", "qr code creator"],
+    gradientFrom: "#3b82f6",
+    gradientTo: "#1d4ed8"
+  }
+};
+
+// Image Combine Tools - Comprehensive Content
+export const imageCombineSEOContent: Record<string, ComprehensiveSEOContent> = {
+  "collage-maker": {
+    slug: "collage-maker",
+    title: "Photo Collage Maker",
+    metaTitle: "Photo Collage Maker - Create Image Collages Online Free | MultiTools",
+    metaDescription: "Create beautiful photo collages online for free. Combine multiple images into one stunning layout. Choose from templates or customize your own design.",
+    h1: "Create Photo Collages Online Free",
+    
+    introduction: `Photo collages transform multiple individual images into a single, cohesive visual story. Our free collage maker allows you to combine photos into beautiful layouts, perfect for sharing memories, creating social media content, designing marketing materials, or producing artistic compositions. Whether you want to showcase vacation photos, create a family portrait collection, design a product showcase, or make an artistic statement, this tool provides the templates and customization options you need. The intuitive interface makes collage creation accessible to everyone, while the professional-quality output rivals expensive design software. All processing happens in your browser for instant results and complete privacy.`,
+    
+    aboutTool: `Our collage maker is a comprehensive tool for combining multiple photos into professional layouts. The tool offers pre-designed templates for common collage styles including grids, masonry layouts, and artistic arrangements. You can also customize layouts with adjustable cell sizes, spacing, and borders. Images can be repositioned and zoomed within each cell to achieve perfect framing. Background colors and patterns complement your photos. The tool supports any number of images and works with all common formats. Processing happens entirely in your browser, so your photos remain private and results are instant. The final collage can be downloaded as a high-resolution image suitable for printing or digital sharing.`,
+    
+    howToUse: [
+      { step: 1, title: "Upload Your Photos", description: "Select multiple images from your device to include in your collage." },
+      { step: 2, title: "Choose a Template", description: "Select from pre-designed layouts or start with a custom arrangement." },
+      { step: 3, title: "Arrange Photos", description: "Drag photos to different positions and adjust their placement within cells." },
+      { step: 4, title: "Adjust Framing", description: "Zoom and pan images within cells to get perfect composition." },
+      { step: 5, title: "Customize Design", description: "Adjust spacing, borders, and background to match your style." },
+      { step: 6, title: "Download Collage", description: "Export your finished collage as a high-resolution image." }
+    ],
+    
+    whyImportant: `Photo collages serve both practical and artistic purposes in modern visual communication. Social media thrives on collages that tell stories in single posts, increasing engagement over individual photos. Families create collages to commemorate events, display memories, and share experiences. Businesses use collages to showcase products, display team members, or present before-and-after results. Real estate listings benefit from property photo collages. Artists create visual narratives and composite works. Event photographers compile highlights into shareable formats. The ability to combine multiple images into one eliminates the need to choose a single photo, allows comparison presentations, and creates visual impact that individual images cannot achieve alone.`,
+    
+    keyFeatures: [
+      { title: "Template Gallery", description: "Pre-designed layouts for quick, professional collage creation." },
+      { title: "Custom Layouts", description: "Create unique arrangements with adjustable cell sizes and positions." },
+      { title: "Image Adjustment", description: "Zoom and pan photos within cells for perfect framing." },
+      { title: "Drag-and-Drop", description: "Easily rearrange photos between cells with intuitive controls." },
+      { title: "Customizable Spacing", description: "Adjust gaps between photos for different visual effects." },
+      { title: "Background Options", description: "Choose colors or patterns to complement your photos." },
+      { title: "High-Resolution Output", description: "Export collages suitable for printing or large displays." },
+      { title: "Browser-Based Privacy", description: "All processing happens locally in your browser." }
+    ],
+    
+    benefitsText: `Our collage maker provides professional design capabilities without the learning curve of complex software. The template gallery offers quick starting points for common layouts, while custom options allow unlimited creativity. The drag-and-drop interface makes photo arrangement intuitive, and the zoom and pan controls within each cell ensure perfect composition. Browser-based processing means instant previews, fast generation, and complete privacy for your photos. Unlike subscription-based design tools, our collage maker is completely free with no usage limits. The high-resolution output ensures your collages look great whether shared digitally or printed for physical display.`,
+    
+    benefits: [
+      "Easy drag-and-drop design",
+      "Professional templates",
+      "Custom layout options",
+      "Perfect photo framing",
+      "Adjustable spacing and borders",
+      "High-resolution output",
+      "Complete photo privacy",
+      "Free unlimited creation"
+    ],
+    
+    whoCanUse: [
+      { title: "Social Media Creators", description: "Create engaging multi-photo posts for maximum impact." },
+      { title: "Families", description: "Combine family photos into shareable memory collections." },
+      { title: "Event Photographers", description: "Compile event highlights into single-image summaries." },
+      { title: "Businesses", description: "Showcase products, team members, or project results." },
+      { title: "Real Estate Agents", description: "Create property photo compilations for listings." },
+      { title: "Artists", description: "Produce composite works and visual narratives." }
+    ],
+    
+    useCases: [
+      { title: "Social Media Posts", description: "Combine multiple photos into single engaging posts for Instagram, Facebook, or Pinterest." },
+      { title: "Family Memories", description: "Create collages of family events, vacations, or milestones to share and display." },
+      { title: "Product Showcases", description: "Display multiple product angles or variations in a single compelling image." },
+      { title: "Event Highlights", description: "Compile wedding, party, or event photos into shareable summary images." },
+      { title: "Before and After", description: "Present transformation results with side-by-side or comparative layouts." },
+      { title: "Portfolio Displays", description: "Showcase multiple works in a single portfolio image." }
+    ],
+    
+    faqs: [
+      { question: "How many photos can I include in a collage?", answer: "You can include as many photos as your layout supports. Templates range from 2 to 20+ cells, and custom layouts can include more." },
+      { question: "Can I create my own custom layout?", answer: "Yes, in addition to templates, you can create custom layouts with adjustable cell sizes and positions." },
+      { question: "What output resolution is available?", answer: "Collages are exported at high resolution suitable for printing. The exact resolution depends on your input images and layout size." },
+      { question: "Can I adjust how photos fit in cells?", answer: "Yes, you can zoom and pan each photo within its cell to achieve perfect composition and framing." },
+      { question: "What formats are supported?", answer: "Input can be JPG, PNG, WebP, or most common image formats. Output is high-quality JPG or PNG." },
+      { question: "Can I add text to my collage?", answer: "The current version focuses on photo arrangement. For text, use image editing software after creating your collage." },
+      { question: "Are my photos uploaded to a server?", answer: "No, all processing happens in your browser. Your photos remain completely private." },
+      { question: "Does this work on mobile?", answer: "Yes, the collage maker works on smartphones and tablets with touch-friendly controls." },
+      { question: "Can I save and edit later?", answer: "Export saves a finished image. To edit, you would need to recreate the collage." },
+      { question: "Is this tool free?", answer: "Yes, completely free with unlimited collage creation." }
+    ],
+    
+    privacyNote: `Your photos remain completely private when creating collages. All processing happens locally in your web browser. Your images are never uploaded to any server, never stored anywhere, and never accessible to anyone but you. This is especially important for personal and family photos. We do not track what collages you create or collect any usage data. No account is required. When you close the browser, all image data is cleared. Your photos and memories remain 100% private.`,
+    
+    conclusion: `Our free photo collage maker provides professional-quality results with an intuitive, easy-to-use interface. Whether you are creating social media content, preserving family memories, showcasing products, or producing artistic compositions, this tool delivers the templates and customization options you need. The drag-and-drop design, zoom controls, and adjustable layouts make collage creation accessible to everyone. Browser-based processing keeps your photos private while delivering instant results. With unlimited free usage, there is no limit to the visual stories you can tell. Try our collage maker now and transform your photos into stunning collages.`,
+    
+    relatedTools: ["merge-horizontally", "merge-vertically", "stitch-images", "before-after-maker"],
+    category: "Image Combine",
+    categorySlug: "image-combine",
+    keywords: ["collage maker", "photo collage", "combine photos", "image collage", "picture collage", "photo grid"],
+    gradientFrom: "#ec4899",
+    gradientTo: "#f472b6"
+  }
+};
+
 // Export function to get comprehensive SEO content
 export const getComprehensiveSEOContent = (slug: string): ComprehensiveSEOContent | null => {
   // Check image converter tools
@@ -1546,6 +2095,31 @@ export const getComprehensiveSEOContent = (slug: string): ComprehensiveSEOConten
   // Check watermark tools
   if (watermarkSEOContent[slug]) {
     return watermarkSEOContent[slug];
+  }
+  
+  // Check image metadata tools
+  if (imageMetadataSEOContent[slug]) {
+    return imageMetadataSEOContent[slug];
+  }
+  
+  // Check image optimization tools
+  if (imageOptimizationSEOContent[slug]) {
+    return imageOptimizationSEOContent[slug];
+  }
+  
+  // Check image security tools
+  if (imageSecuritySEOContent[slug]) {
+    return imageSecuritySEOContent[slug];
+  }
+  
+  // Check image QR tools
+  if (imageQRSEOContent[slug]) {
+    return imageQRSEOContent[slug];
+  }
+  
+  // Check image combine tools
+  if (imageCombineSEOContent[slug]) {
+    return imageCombineSEOContent[slug];
   }
   
   return null;
