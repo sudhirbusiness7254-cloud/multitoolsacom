@@ -11,6 +11,10 @@ export interface ToolSEOContent {
   howToUse: string[];
   benefits: string[];
   whyImportant: string;
+  keyFeatures?: string[];
+  whoCanUse?: string[];
+  privacyNote?: string;
+  conclusion?: string;
   faqs: { question: string; answer: string }[];
   relatedTools: string[];
   category: string;
@@ -636,9 +640,27 @@ export const getToolSEOContent = (slug: string, toolName: string, category: stri
       longDescription: fbSeo.longDescription,
       howToUse: fbSeo.howToUse,
       benefits: fbSeo.benefits,
-      whyImportant: `${fbSeo.h1} is an essential tool for Facebook marketing and social media management. Whether you're a content creator, marketer, or business owner, this tool helps you optimize your Facebook presence.`,
+      whyImportant: fbSeo.whyImportant || `${fbSeo.h1} is an essential tool for Facebook marketing and social media management. Whether you are a content creator, marketer, or business owner, this tool helps you optimize your Facebook presence and grow your audience effectively.`,
+      keyFeatures: fbSeo.keyFeatures || [
+        "Fast and instant processing",
+        "100% free with no hidden costs",
+        "Works on all devices and browsers",
+        "No registration or login required",
+        "Secure and private processing",
+        "Professional-quality results"
+      ],
+      whoCanUse: fbSeo.whoCanUse || [
+        "Social Media Managers",
+        "Content Creators",
+        "Digital Marketers",
+        "Small Business Owners",
+        "Influencers",
+        "Freelancers"
+      ],
+      privacyNote: fbSeo.privacyNote || "Your privacy is our top priority. We do not store, share, or sell any of your data. All processing happens securely, and your information is automatically cleared after use. No account or personal details required.",
+      conclusion: fbSeo.conclusion || `Start using our ${fbSeo.h1} today and take your Facebook presence to the next level. This free, easy-to-use tool is designed to save you time and help you create professional content that engages your audience. Try it now and see the difference!`,
       faqs: fbSeo.faqs,
-      relatedTools: [],
+      relatedTools: fbSeo.relatedTools || [],
       category: "Facebook Tools",
       categorySlug: "facebook-tools",
       keywords: fbSeo.keywords,

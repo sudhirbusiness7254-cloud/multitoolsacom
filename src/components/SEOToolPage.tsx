@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { ChevronRight, CheckCircle, HelpCircle, ArrowRight, Lightbulb, BookOpen, Star } from "lucide-react";
+import { ChevronRight, CheckCircle, HelpCircle, ArrowRight, Lightbulb, BookOpen, Star, Users, Shield, Sparkles, Zap } from "lucide-react";
 import { ToolSEOContent } from "@/data/toolsSEOData";
 import {
   Accordion,
@@ -185,9 +185,63 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
 
               {/* Why Important */}
               <div className="bg-card rounded-2xl border border-border p-6 md:p-8 mb-8">
-                <h2 className="text-xl md:text-2xl font-bold mb-4">Why {seoContent.title} is Important</h2>
+                <div className="flex items-center gap-3 mb-4">
+                  <div 
+                    className="w-10 h-10 rounded-lg flex items-center justify-center"
+                    style={{ background: `linear-gradient(135deg, ${seoContent.gradientFrom}, ${seoContent.gradientTo})` }}
+                  >
+                    <Sparkles className="w-5 h-5 text-white" />
+                  </div>
+                  <h2 className="text-xl md:text-2xl font-bold">Why This Tool is Important</h2>
+                </div>
                 <p className="text-muted-foreground leading-relaxed">{seoContent.whyImportant}</p>
               </div>
+
+              {/* Key Features */}
+              {seoContent.keyFeatures && seoContent.keyFeatures.length > 0 && (
+                <div className="bg-card rounded-2xl border border-border p-6 md:p-8 mb-8">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div 
+                      className="w-10 h-10 rounded-lg flex items-center justify-center"
+                      style={{ background: `linear-gradient(135deg, ${seoContent.gradientFrom}, ${seoContent.gradientTo})` }}
+                    >
+                      <Zap className="w-5 h-5 text-white" />
+                    </div>
+                    <h2 className="text-xl md:text-2xl font-bold">Key Features</h2>
+                  </div>
+                  <ul className="grid md:grid-cols-2 gap-3">
+                    {seoContent.keyFeatures.map((feature, index) => (
+                      <li key={index} className="flex items-start gap-3">
+                        <Zap className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: seoContent.gradientFrom }} />
+                        <span className="text-foreground">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Who Can Use */}
+              {seoContent.whoCanUse && seoContent.whoCanUse.length > 0 && (
+                <div className="bg-card rounded-2xl border border-border p-6 md:p-8 mb-8">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div 
+                      className="w-10 h-10 rounded-lg flex items-center justify-center"
+                      style={{ background: `linear-gradient(135deg, ${seoContent.gradientFrom}, ${seoContent.gradientTo})` }}
+                    >
+                      <Users className="w-5 h-5 text-white" />
+                    </div>
+                    <h2 className="text-xl md:text-2xl font-bold">Who Can Use This Tool</h2>
+                  </div>
+                  <ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+                    {seoContent.whoCanUse.map((user, index) => (
+                      <li key={index} className="flex items-center gap-3 bg-secondary/50 rounded-lg px-4 py-3">
+                        <Users className="w-4 h-4 flex-shrink-0" style={{ color: seoContent.gradientFrom }} />
+                        <span className="text-foreground font-medium">{user}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
 
               {/* FAQ Section */}
               <div className="bg-card rounded-2xl border border-border p-6 md:p-8 mb-8">
@@ -213,6 +267,29 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                   ))}
                 </Accordion>
               </div>
+
+              {/* Privacy & Security Note */}
+              <div className="bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/20 rounded-2xl p-6 md:p-8 mb-8">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-green-500/20 flex items-center justify-center flex-shrink-0">
+                    <Shield className="w-6 h-6 text-green-600" />
+                  </div>
+                  <div>
+                    <h2 className="text-xl font-bold text-green-700 dark:text-green-400 mb-2">Privacy & Security</h2>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {seoContent.privacyNote || "Your privacy is our priority. We do not store your files or data. All processing happens securely in your browser, and files are never uploaded to external servers. Your information remains completely private and is automatically cleared after use."}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Conclusion */}
+              {seoContent.conclusion && (
+                <div className="bg-card rounded-2xl border border-border p-6 md:p-8 mb-8">
+                  <h2 className="text-xl md:text-2xl font-bold mb-4">Conclusion</h2>
+                  <p className="text-muted-foreground leading-relaxed">{seoContent.conclusion}</p>
+                </div>
+              )}
 
               {/* Related Tools */}
               {seoContent.relatedTools.length > 0 && (
