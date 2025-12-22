@@ -29,36 +29,56 @@ export const toolsSEOContent: Record<string, ToolSEOContent> = {
   "jpg-to-png": {
     slug: "jpg-to-png",
     title: "JPG to PNG Converter",
-    metaTitle: "JPG to PNG Converter - Free Online Image Conversion Tool",
+    metaTitle: "JPG to PNG Converter - Free Online Image Conversion Tool | MultiTools",
     metaDescription: "Convert JPG images to PNG format online for free. Preserve image quality with transparent background support. No signup required, instant conversion.",
     h1: "Convert JPG to PNG Online Free",
-    shortDescription: "Transform your JPG images to PNG format with transparency support",
-    longDescription: "Our JPG to PNG converter allows you to easily transform JPEG images into PNG format. PNG (Portable Network Graphics) supports lossless compression and transparency, making it ideal for web graphics, logos, and images that require a transparent background. The conversion process maintains image quality while enabling features not available in JPEG format.",
+    shortDescription: "Transform your JPG images to PNG format with transparency support and lossless quality.",
+    longDescription: "Our JPG to PNG converter allows you to easily transform JPEG images into PNG format with just a few clicks. PNG (Portable Network Graphics) supports lossless compression and transparency, making it ideal for web graphics, logos, icons, and images that require a transparent background. The conversion process maintains image quality while enabling features not available in JPEG format. Whether you are a web developer, graphic designer, or content creator, this tool provides the perfect solution for your image conversion needs.",
     howToUse: [
       "Click the upload area or drag and drop your JPG image",
-      "Wait for the image to load in the preview",
-      "Click the 'Convert to PNG' button",
-      "Download your converted PNG image"
+      "Wait for the image to load and preview",
+      "Click the Convert to PNG button",
+      "Download your converted PNG image instantly"
     ],
     benefits: [
       "Gain transparency support for your images",
       "Lossless compression preserves image quality",
       "Better for graphics with text and sharp edges",
-      "Ideal for logos and web graphics",
-      "No file size limits",
+      "Ideal for logos, icons, and web graphics",
+      "No file size limits on uploads",
       "100% free with no watermarks"
     ],
-    whyImportant: "Converting JPG to PNG is essential when you need transparency in your images or want to preserve image quality for graphics that require sharp edges and text. PNG format is the standard for web graphics, logos, and any image that needs a transparent background.",
+    whyImportant: "Converting JPG to PNG is essential when you need transparency in your images or want to preserve image quality for graphics that require sharp edges and text. PNG format is the standard for web graphics, logos, icons, and any image that needs a transparent background. Unlike JPG, PNG supports alpha transparency, making it perfect for overlaying images on different backgrounds.",
+    keyFeatures: [
+      "Instant JPG to PNG conversion",
+      "Preserves original image quality",
+      "Supports all JPG/JPEG files",
+      "Browser-based processing",
+      "No software installation needed",
+      "Batch conversion support"
+    ],
+    whoCanUse: [
+      "Web Developers",
+      "Graphic Designers",
+      "Content Creators",
+      "Marketing Teams",
+      "E-commerce Sellers",
+      "Anyone needing PNG images"
+    ],
+    privacyNote: "Your images are converted securely in your browser. We never upload or store your files on any server. All processing happens locally, ensuring your photos remain completely private.",
+    conclusion: "Convert your JPG images to PNG format instantly with our free online tool. Get lossless quality, transparency support, and professional results in seconds. Try it now!",
     faqs: [
       { question: "Will I lose quality when converting JPG to PNG?", answer: "No, PNG uses lossless compression so no additional quality is lost during conversion. However, any compression artifacts already present in the original JPG will remain." },
       { question: "Can I add transparency after converting?", answer: "Yes, once converted to PNG, you can use image editing software to add transparency to specific areas of the image." },
       { question: "Is PNG better than JPG?", answer: "It depends on use case. PNG is better for graphics, logos, and images needing transparency. JPG is better for photographs due to smaller file sizes." },
-      { question: "What happens to the white background?", answer: "The white background remains after conversion. You would need to manually remove it using our background removal tools if transparency is desired." }
+      { question: "What happens to the white background?", answer: "The white background remains after conversion. You would need to manually remove it using background removal tools if transparency is desired." },
+      { question: "Can I convert multiple JPG files at once?", answer: "Yes, our tool supports batch conversion. Upload multiple files and convert them all in one go." },
+      { question: "Is there a file size limit?", answer: "There is no strict limit, but for optimal browser performance, we recommend files under 50MB." }
     ],
-    relatedTools: ["png-to-jpg", "jpg-to-webp", "image-compressor"],
+    relatedTools: ["png-to-jpg", "jpg-to-webp", "jpeg-compressor"],
     category: "Image Converter",
     categorySlug: "image-converter",
-    keywords: ["jpg to png", "jpeg to png", "convert jpg", "image converter", "free converter"],
+    keywords: ["jpg to png", "jpeg to png", "convert jpg", "image converter", "free converter", "png converter"],
     gradientFrom: "#FF6B6B",
     gradientTo: "#FF8E53"
   },
@@ -137,35 +157,56 @@ export const toolsSEOContent: Record<string, ToolSEOContent> = {
   "jpeg-compressor": {
     slug: "jpeg-compressor",
     title: "JPEG Compressor",
-    metaTitle: "JPEG Compressor - Reduce JPG File Size Online Free",
+    metaTitle: "JPEG Compressor - Reduce JPG File Size Online Free | MultiTools",
     metaDescription: "Compress JPEG images online without losing quality. Reduce file size up to 80%. Free, fast, secure - no signup required.",
     h1: "Compress JPEG Images Online Free",
-    shortDescription: "Reduce JPEG file sizes while maintaining visual quality",
-    longDescription: "Our advanced JPEG compressor uses intelligent algorithms to reduce your image file sizes by up to 80% while maintaining excellent visual quality. Perfect for optimizing images for web, email, or storage without noticeable quality loss.",
+    shortDescription: "Reduce JPEG file sizes by up to 80% while maintaining excellent visual quality.",
+    longDescription: "Our advanced JPEG compressor uses intelligent algorithms to reduce your image file sizes by up to 80% while maintaining excellent visual quality. Perfect for optimizing images for websites, email attachments, social media, or storage without noticeable quality loss. Whether you need to speed up your website, fit images within email size limits, or save storage space, our tool delivers professional results instantly.",
     howToUse: [
-      "Upload your JPEG image",
-      "Adjust the quality slider if needed",
-      "Click 'Compress' to process",
-      "Download your optimized image"
+      "Upload your JPEG image by clicking or dragging",
+      "Adjust the quality slider to set compression level",
+      "Click Compress to process your image",
+      "Download your optimized smaller image"
     ],
     benefits: [
-      "Reduce file size up to 80%",
-      "Maintain visual quality",
-      "Faster website loading",
-      "Save storage space",
+      "Reduce file size by up to 80%",
+      "Maintain excellent visual quality",
+      "Faster website loading times",
+      "Save valuable storage space",
       "Perfect for email attachments",
       "Batch compression available"
     ],
-    whyImportant: "Image compression is crucial for web performance. Large images slow down websites, increase bounce rates, and negatively impact SEO. Properly compressed images load faster and provide better user experience across all devices.",
-    faqs: [
-      { question: "How much can I compress without losing quality?", answer: "Most images can be compressed 50-70% with virtually no visible quality loss. Higher compression rates may show artifacts." },
-      { question: "Is the compression reversible?", answer: "JPEG compression is lossy, meaning some data is permanently removed. Always keep your original files as backup." },
-      { question: "Can I compress multiple images at once?", answer: "Yes, our tool supports batch compression for multiple images." }
+    whyImportant: "Image compression is crucial for web performance and user experience. Large images slow down websites, increase bounce rates, hurt SEO rankings, and consume bandwidth. Properly compressed images load faster, reduce hosting costs, and provide better user experience across all devices and connection speeds.",
+    keyFeatures: [
+      "Smart compression algorithms",
+      "Adjustable quality settings",
+      "Real-time size preview",
+      "Batch processing support",
+      "Maintains EXIF data option",
+      "Instant download"
     ],
-    relatedTools: ["png-compressor", "webp-compressor", "image-optimization"],
+    whoCanUse: [
+      "Website Owners",
+      "Bloggers",
+      "E-commerce Sellers",
+      "Email Marketers",
+      "Photographers",
+      "Social Media Managers"
+    ],
+    privacyNote: "Your images are compressed securely in your browser. We never upload, store, or have access to your photos. All processing happens locally on your device, ensuring complete privacy.",
+    conclusion: "Optimize your JPEG images for faster loading and smaller file sizes without sacrificing quality. Our free compressor delivers professional results instantly. Try it now and see the difference!",
+    faqs: [
+      { question: "How much can I compress without losing quality?", answer: "Most images can be compressed 50-70% with virtually no visible quality loss. Higher compression rates may show slight artifacts." },
+      { question: "Is the compression reversible?", answer: "JPEG compression is lossy, meaning some data is permanently removed. Always keep your original files as backup." },
+      { question: "Can I compress multiple images at once?", answer: "Yes, our tool supports batch compression for multiple images simultaneously." },
+      { question: "Will my image metadata be preserved?", answer: "You can choose to keep or remove EXIF metadata during compression." },
+      { question: "What quality setting should I use?", answer: "For web use, 70-80% quality typically provides the best balance between file size and visual quality." },
+      { question: "Is there a file size limit?", answer: "For optimal browser performance, we recommend files under 50MB, though larger files can be processed." }
+    ],
+    relatedTools: ["png-compressor", "webp-compressor", "optimize-for-web"],
     category: "Image Compression",
     categorySlug: "image-compression",
-    keywords: ["jpeg compressor", "jpg compressor", "compress jpeg", "reduce image size"],
+    keywords: ["jpeg compressor", "jpg compressor", "compress jpeg", "reduce image size", "image optimizer"],
     gradientFrom: "#f093fb",
     gradientTo: "#f5576c"
   },
@@ -618,13 +659,50 @@ export const toolsSEOContent: Record<string, ToolSEOContent> = {
   }
 };
 
-// Import Facebook SEO data
+// Import Facebook and PDF SEO data
 import { facebookToolsSEO } from './facebookToolsSEOData';
+import { pdfToolsSEOContent } from './pdfToolsSEOData';
 
 // Generate default SEO content for tools not explicitly defined
 export const getToolSEOContent = (slug: string, toolName: string, category: string, categorySlug: string): ToolSEOContent => {
   if (toolsSEOContent[slug]) {
-    return toolsSEOContent[slug];
+    const existingContent = toolsSEOContent[slug];
+    // Add default values for new fields if not present
+    return {
+      ...existingContent,
+      keyFeatures: existingContent.keyFeatures || getDefaultKeyFeatures(category),
+      whoCanUse: existingContent.whoCanUse || getDefaultWhoCanUse(category),
+      privacyNote: existingContent.privacyNote || getDefaultPrivacyNote(),
+      conclusion: existingContent.conclusion || getDefaultConclusion(existingContent.title)
+    };
+  }
+
+  // Check PDF tools SEO data
+  if (pdfToolsSEOContent[slug]) {
+    const pdfSeo = pdfToolsSEOContent[slug];
+    return {
+      slug: pdfSeo.slug,
+      title: pdfSeo.title,
+      metaTitle: pdfSeo.metaTitle,
+      metaDescription: pdfSeo.metaDescription,
+      h1: pdfSeo.h1,
+      shortDescription: pdfSeo.shortDescription,
+      longDescription: pdfSeo.longDescription,
+      howToUse: pdfSeo.howToUse,
+      benefits: pdfSeo.benefits,
+      whyImportant: pdfSeo.whyImportant,
+      keyFeatures: pdfSeo.keyFeatures,
+      whoCanUse: pdfSeo.whoCanUse,
+      privacyNote: pdfSeo.privacyNote,
+      conclusion: pdfSeo.conclusion,
+      faqs: pdfSeo.faqs,
+      relatedTools: pdfSeo.relatedTools,
+      category: pdfSeo.category,
+      categorySlug: pdfSeo.categorySlug,
+      keywords: pdfSeo.keywords,
+      gradientFrom: pdfSeo.gradientFrom,
+      gradientTo: pdfSeo.gradientTo
+    };
   }
 
   // Check Facebook tools SEO data
@@ -669,8 +747,7 @@ export const getToolSEOContent = (slug: string, toolName: string, category: stri
     };
   }
 
-  // Generate default content
-  const formattedName = toolName.replace(/-/g, " ");
+  // Generate default content with comprehensive fields
   const gradients = [
     { from: "#FF6B6B", to: "#FF8E53" },
     { from: "#4ECDC4", to: "#45B7AA" },
@@ -689,30 +766,36 @@ export const getToolSEOContent = (slug: string, toolName: string, category: stri
     slug,
     title: toolName,
     metaTitle: `${toolName} - Free Online Tool | MultiTools`,
-    metaDescription: `Use our free ${toolName.toLowerCase()} tool online. Fast, secure, and easy to use. No signup required. Process images instantly in your browser.`,
+    metaDescription: `Use our free ${toolName.toLowerCase()} tool online. Fast, secure, and easy to use. No signup required. Process files instantly in your browser.`,
     h1: `${toolName} - Free Online Tool`,
-    shortDescription: `Use our ${toolName.toLowerCase()} for quick and easy image processing`,
-    longDescription: `Our ${toolName.toLowerCase()} provides a fast, secure, and easy way to process your images online. All processing happens in your browser, ensuring your files remain private and secure. No signup or installation required.`,
+    shortDescription: `Use our ${toolName.toLowerCase()} for quick and easy processing with professional results.`,
+    longDescription: `Our ${toolName.toLowerCase()} provides a fast, secure, and easy way to process your files online. All processing happens in your browser, ensuring your files remain private and secure. No signup, registration, or software installation required. Whether you are a professional, student, or casual user, this tool delivers the results you need instantly.`,
     howToUse: [
-      "Upload your image by clicking or dragging",
-      "Adjust settings as needed",
-      "Click the process button",
-      "Download your processed image"
+      "Upload your file by clicking or dragging into the upload area",
+      "Adjust settings and options as needed for your requirements",
+      "Click the process button to start the conversion",
+      "Download your processed file instantly"
     ],
     benefits: [
-      "100% free to use",
+      "100% free to use with no hidden charges",
       "No signup or registration required",
-      "Fast processing in your browser",
+      "Fast processing entirely in your browser",
       "Your files stay private and secure",
-      "Works on any device",
-      "No watermarks on output"
+      "Works on any device and browser",
+      "No watermarks on output files"
     ],
-    whyImportant: `${toolName} is an essential tool for image editing and processing. Whether you are a professional designer, content creator, or just need to quickly edit an image, this tool provides the functionality you need with no hassle.`,
+    whyImportant: `${toolName} is an essential tool for anyone working with digital files. Whether you are a professional designer, content creator, business owner, student, or just need to quickly process a file, this tool provides the functionality you need with no hassle. Save time and get professional results instantly.`,
+    keyFeatures: getDefaultKeyFeatures(category),
+    whoCanUse: getDefaultWhoCanUse(category),
+    privacyNote: getDefaultPrivacyNote(),
+    conclusion: getDefaultConclusion(toolName),
     faqs: [
-      { question: `Is ${toolName} free to use?`, answer: "Yes, this tool is completely free with no hidden charges or premium features." },
-      { question: "Do I need to create an account?", answer: "No, you can use this tool immediately without any signup or registration." },
-      { question: "Is my data secure?", answer: "Yes, all processing happens in your browser. Your files are never uploaded to our servers." },
-      { question: "What file formats are supported?", answer: "We support all major image formats including JPG, PNG, WebP, GIF, and more." }
+      { question: `Is ${toolName} free to use?`, answer: "Yes, this tool is completely free with no hidden charges, premium features, or subscription required. Use it as much as you need." },
+      { question: "Do I need to create an account?", answer: "No, you can use this tool immediately without any signup, registration, or login. Just upload your file and start processing." },
+      { question: "Is my data secure and private?", answer: "Yes, all processing happens securely in your browser. Your files are never uploaded to our servers or stored anywhere. Your privacy is completely protected." },
+      { question: "What file formats are supported?", answer: "We support all major file formats relevant to this tool. Check the upload area for the complete list of accepted formats." },
+      { question: "Does this work on mobile devices?", answer: "Yes, our tool is fully responsive and works perfectly on smartphones, tablets, and desktop computers. No app download required." },
+      { question: "Are there any file size limits?", answer: "For optimal browser performance, we recommend files under 50MB. Larger files may take longer to process depending on your device." }
     ],
     relatedTools: [],
     category,
@@ -721,6 +804,108 @@ export const getToolSEOContent = (slug: string, toolName: string, category: stri
     gradientFrom: gradient.from,
     gradientTo: gradient.to
   };
+};
+
+// Helper functions for default content
+const getDefaultKeyFeatures = (category: string): string[] => {
+  const categoryFeatures: Record<string, string[]> = {
+    "Image Converter": [
+      "Support for all major image formats",
+      "High-quality conversion output",
+      "Fast browser-based processing",
+      "Batch conversion support",
+      "No quality loss during conversion",
+      "Instant download of converted files"
+    ],
+    "Image Compression": [
+      "Smart compression algorithms",
+      "Adjustable quality settings",
+      "Maintains visual quality",
+      "Significant file size reduction",
+      "Batch compression support",
+      "Preview before download"
+    ],
+    "Image Resize": [
+      "Precise dimension control",
+      "Maintain aspect ratio option",
+      "Multiple resize modes",
+      "High-quality scaling",
+      "Batch resize support",
+      "Preview before download"
+    ],
+    "Image Crop": [
+      "Precise cropping controls",
+      "Multiple aspect ratio presets",
+      "Free-form selection",
+      "Visual crop preview",
+      "No quality degradation",
+      "Undo and redo support"
+    ],
+    "Rotate & Flip": [
+      "90, 180, 270 degree rotation",
+      "Horizontal and vertical flip",
+      "Custom angle rotation",
+      "Real-time preview",
+      "Maintains image quality",
+      "Batch processing support"
+    ],
+    "Photo Filters": [
+      "Professional filter effects",
+      "Adjustable intensity levels",
+      "Real-time preview",
+      "Multiple filter options",
+      "Combine multiple effects",
+      "Original quality preserved"
+    ],
+    "Watermark Tools": [
+      "Text and image watermarks",
+      "Adjustable position and size",
+      "Opacity control",
+      "Multiple font options",
+      "Batch watermarking",
+      "Professional results"
+    ],
+    "PDF Tools": [
+      "Fast PDF processing",
+      "Maintains document quality",
+      "Secure browser processing",
+      "No file size limits",
+      "Works with all PDF versions",
+      "Instant download"
+    ]
+  };
+
+  return categoryFeatures[category] || [
+    "Fast and instant processing",
+    "100% free with no hidden costs",
+    "Works on all devices and browsers",
+    "No registration or login required",
+    "Secure and private processing",
+    "Professional-quality results"
+  ];
+};
+
+const getDefaultWhoCanUse = (category: string): string[] => {
+  const categoryUsers: Record<string, string[]> = {
+    "Image Converter": ["Web Developers", "Graphic Designers", "Content Creators", "Photographers", "Marketing Teams", "Anyone with images"],
+    "Image Compression": ["Website Owners", "Email Marketers", "Bloggers", "Photographers", "E-commerce Sellers", "Social Media Managers"],
+    "Image Resize": ["Social Media Managers", "E-commerce Sellers", "Graphic Designers", "Photographers", "Web Developers", "Content Creators"],
+    "Image Crop": ["Photographers", "Designers", "Social Media Managers", "Content Creators", "Marketing Teams", "Personal Users"],
+    "Rotate & Flip": ["Photographers", "Content Editors", "Social Media Users", "Designers", "Personal Users", "Anyone with images"],
+    "Photo Filters": ["Photographers", "Influencers", "Content Creators", "Social Media Managers", "Hobbyists", "Marketing Teams"],
+    "Watermark Tools": ["Photographers", "Artists", "Businesses", "Content Creators", "Agencies", "Freelancers"],
+    "PDF Tools": ["Business Professionals", "Students", "Teachers", "Legal Teams", "Administrative Staff", "Anyone with documents"]
+  };
+
+  return categoryUsers[category] || ["Professionals", "Students", "Business Owners", "Content Creators", "Personal Users", "Anyone needing this tool"];
+};
+
+const getDefaultPrivacyNote = (): string => {
+  return "Your privacy is our top priority. All file processing happens securely in your browser. We never upload, store, or have access to your files. Your documents and images remain completely private and are automatically cleared from memory after processing. No account, login, or personal information required.";
+};
+
+const getDefaultConclusion = (toolName: string): string => {
+  return `Start using our free ${toolName} today and experience fast, secure, and professional results. No signup required, no software to install, just instant processing in your browser. Try it now and see why thousands of users trust our tools for their daily needs!`;
 };
 
 export const getAllToolsFlat = () => {
