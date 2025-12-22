@@ -597,6 +597,272 @@ export const pdfToolsSEOContentDetailed: Record<string, ComprehensiveSEOContent>
     gradientFrom: "#DC2626",
     gradientTo: "#EA580C"
   },
+
+  "split-pdf": {
+    slug: "split-pdf",
+    title: "Split PDF",
+    metaTitle: "Split PDF Online Free - Extract Pages from PDF Documents | MultiTools",
+    metaDescription: "Split PDF files online for free. Extract specific pages, split by range, or separate all pages. Fast, secure browser-based processing. No signup required.",
+    h1: "Split PDF Files Online Free",
+    
+    introduction: `Working with large PDF documents often requires extracting specific sections or splitting them into smaller, more manageable files. Our free PDF splitter gives you complete control over how you divide your documents, whether you need to extract individual pages, split by page ranges, or separate every page into its own file. This is essential for sharing specific sections of lengthy reports, extracting chapters from ebooks, separating combined documents, or creating focused deliverables from comprehensive files. The intuitive interface makes it easy to specify exactly which pages you need, while all processing happens securely in your browser to keep your documents private. No software installation, no account creation, and no limits on how many PDFs you can split.`,
+    
+    aboutTool: `Our PDF splitter is a powerful online tool that provides flexible options for dividing PDF documents. You can extract specific pages by entering individual page numbers, define page ranges to create new documents from consecutive sections, or automatically separate every page into individual PDF files. The tool works with PDF documents of any size and preserves all formatting, images, hyperlinks, and bookmarks in the extracted pages. Unlike many online PDF tools that require uploading files to remote servers, our splitter processes everything locally in your browser using advanced JavaScript PDF libraries. This ensures fast processing, complete privacy for sensitive documents, and no file size restrictions imposed by server uploads. The preview feature lets you verify page selections before splitting.`,
+    
+    howToUse: [
+      { step: 1, title: "Upload Your PDF", description: "Click the upload area or drag and drop your PDF file into the splitter." },
+      { step: 2, title: "Choose Split Method", description: "Select whether to extract specific pages, split by range, or separate all pages." },
+      { step: 3, title: "Specify Pages", description: "For specific pages, enter page numbers (e.g., 1, 3, 5, 7). For ranges, specify start and end pages." },
+      { step: 4, title: "Preview Selection", description: "Review thumbnails of the pages you have selected to verify your choices." },
+      { step: 5, title: "Click Split PDF", description: "Press the split button to process your document. The tool creates your new PDF files instantly." },
+      { step: 6, title: "Download Results", description: "Download individual files or all split documents as a zip archive." }
+    ],
+    
+    whyImportant: `PDF splitting is crucial for efficient document management in professional and personal contexts. Legal professionals often need to extract specific sections of lengthy contracts for focused review or separate combined legal filings. Researchers extract relevant chapters from academic papers and books for reference collections. Business users share specific report sections with different stakeholders rather than overwhelming them with complete documents. Administrative staff separate combined scans into individual document files. Students extract problem sets or specific chapters from course materials. The ability to split PDFs precisely saves time, reduces file sizes for sharing, and allows focused distribution of exactly the information each recipient needs. Without splitting capabilities, you would need to share entire documents even when only a few pages are relevant.`,
+    
+    keyFeatures: [
+      { title: "Multiple Split Methods", description: "Extract specific pages, split by range, or separate all pages into individual files." },
+      { title: "Flexible Page Selection", description: "Specify exact page numbers or ranges to extract precisely what you need." },
+      { title: "Page Preview", description: "View thumbnails of selected pages before splitting to verify your choices." },
+      { title: "Preserved Formatting", description: "All formatting, images, and hyperlinks are maintained in extracted pages." },
+      { title: "Batch Download", description: "Download all split files at once as a convenient zip archive." },
+      { title: "No Size Limits", description: "Split PDFs of any size without restrictions." },
+      { title: "Browser-Based Privacy", description: "All processing happens locally in your browser for complete document security." },
+      { title: "Instant Processing", description: "Split PDFs quickly without waiting for server uploads or downloads." }
+    ],
+    
+    benefitsText: `Our PDF splitter offers significant advantages for anyone working with multi-page documents. The primary benefit is the ability to share exactly the pages needed without distributing entire documents, improving efficiency and reducing file sizes. The flexible split options accommodate any workflow, from extracting a single page to creating multiple documents from different sections of a source file. Browser-based processing keeps sensitive documents private, unlike cloud tools requiring server uploads. The preserved formatting ensures split documents maintain professional quality. With no usage limits, no registration requirements, and no watermarks, you can split as many PDFs as needed completely free. The batch download feature saves time when splitting documents into many pages.`,
+    
+    benefits: [
+      "Extract exactly the pages you need",
+      "Multiple split method options",
+      "Preserve all formatting and links",
+      "Fast browser-based processing",
+      "Complete document privacy",
+      "Batch zip download available",
+      "Works on all devices",
+      "100% free with no limits"
+    ],
+    
+    whoCanUse: [
+      { title: "Legal Professionals", description: "Extract specific contract sections or separate combined legal documents." },
+      { title: "Researchers", description: "Pull relevant chapters from papers and books for reference collections." },
+      { title: "Business Analysts", description: "Share specific report sections with different stakeholders." },
+      { title: "Administrative Staff", description: "Separate combined scans into individual document files." },
+      { title: "Educators", description: "Extract specific lessons or chapters from course materials." },
+      { title: "Students", description: "Pull relevant sections from textbooks and study materials." }
+    ],
+    
+    useCases: [
+      { title: "Contract Section Extraction", description: "Pull specific clauses or sections from lengthy legal contracts for focused review." },
+      { title: "Report Distribution", description: "Extract relevant report sections for different departments or stakeholders." },
+      { title: "Document Separation", description: "Split combined scans into individual document files for proper filing." },
+      { title: "Chapter Extraction", description: "Pull specific chapters from ebooks or manuals for focused reading." },
+      { title: "Archive Organization", description: "Split large compiled documents into smaller, organized files." },
+      { title: "Presentation Materials", description: "Extract specific slides or pages for focused presentations." }
+    ],
+    
+    faqs: [
+      { question: "Can I extract non-consecutive pages?", answer: "Yes, you can specify individual page numbers (e.g., 1, 3, 7, 12) to extract non-consecutive pages into a single PDF." },
+      { question: "Can I split into multiple separate documents?", answer: "Yes, you can split by ranges to create multiple documents, or separate all pages into individual files." },
+      { question: "Will the quality be preserved?", answer: "Yes, all formatting, images, fonts, and hyperlinks are perfectly preserved in the split documents." },
+      { question: "Is there a page limit?", answer: "No, you can split PDFs with any number of pages without restrictions." },
+      { question: "Can I split password-protected PDFs?", answer: "You need to unlock the PDF first. Our tool does not bypass PDF security protection." },
+      { question: "How do I download multiple split files?", answer: "You can download files individually or use the batch download option to get all files as a zip archive." },
+      { question: "Are my documents uploaded to a server?", answer: "No, all processing happens locally in your browser. Your PDFs never leave your device." },
+      { question: "Does this work on mobile?", answer: "Yes, our PDF splitter works on smartphones and tablets with modern browsers." },
+      { question: "Can I preview pages before splitting?", answer: "Yes, the tool shows page thumbnails so you can verify your selection before splitting." },
+      { question: "Is this tool free?", answer: "Yes, completely free with no usage limits, no watermarks, and no premium features requiring payment." }
+    ],
+    
+    privacyNote: `Your document privacy is our top priority. The PDF splitter processes all files entirely within your web browser using client-side JavaScript technology. Your PDF documents are never uploaded to any server, never stored anywhere, and never accessible to anyone but you. This browser-based approach eliminates the security risks associated with cloud-based PDF tools that require uploading potentially sensitive documents. We do not track what documents you split, do not collect any usage data, and do not require any personal information or account creation. When you close your browser tab, all document data is immediately cleared from memory. Whether you are splitting confidential business documents, legal contracts, or personal records, your files remain completely private and secure throughout the entire process.`,
+    
+    conclusion: `Our free PDF splitter provides flexible, powerful options for dividing PDF documents exactly as you need. Whether you are extracting specific pages, splitting by ranges, or separating all pages into individual files, this tool delivers fast, accurate results while keeping your documents completely private. The preserved formatting ensures split documents maintain professional quality, while the batch download feature streamlines workflows when creating multiple files. With no usage limits and no account required, you can split as many PDFs as needed completely free. Try our PDF splitter now and take control of your document management.`,
+    
+    relatedTools: ["merge-pdf", "compress-pdf", "word-to-pdf", "image-to-pdf"],
+    category: "PDF Tools",
+    categorySlug: "pdf-tools",
+    keywords: ["split pdf", "extract pages", "pdf splitter", "separate pdf", "divide pdf", "extract pdf pages"],
+    gradientFrom: "#7c3aed",
+    gradientTo: "#a855f7"
+  },
+
+  "word-to-pdf": {
+    slug: "word-to-pdf",
+    title: "Word to PDF Converter",
+    metaTitle: "Word to PDF Converter - Convert DOCX to PDF Online Free | MultiTools",
+    metaDescription: "Convert Word documents to PDF online for free. Transform DOCX and DOC files to PDF format instantly. Preserves formatting perfectly. No signup required.",
+    h1: "Convert Word to PDF Online Free",
+    
+    introduction: `Microsoft Word documents are excellent for editing and collaboration, but when it comes to sharing final versions, PDF format ensures your document appears exactly as intended on any device. Our free Word to PDF converter transforms your DOCX and DOC files into professional PDF documents while perfectly preserving all formatting, fonts, images, and layouts. Whether you need to submit a formal report, share a proposal, distribute a resume, or archive important documents, converting to PDF guarantees consistent appearance across all platforms. The conversion happens instantly in your browser, meaning your documents remain private and you get results in seconds without installing any software.`,
+    
+    aboutTool: `Our Word to PDF converter is a sophisticated online tool that accurately transforms Microsoft Word documents into PDF format. The converter supports both modern DOCX files (Word 2007 and later) and legacy DOC format (older Word versions). Advanced parsing technology ensures that text formatting, paragraph styles, fonts, images, tables, headers, footers, and page layouts are faithfully reproduced in the PDF output. Unlike simple converters that may lose formatting, our tool handles complex documents including those with columns, text boxes, and embedded objects. All processing occurs locally in your browser using client-side JavaScript libraries, ensuring your documents never leave your device. This provides both fast conversion and complete privacy for sensitive content.`,
+    
+    howToUse: [
+      { step: 1, title: "Upload Word Document", description: "Click the upload area or drag and drop your DOCX or DOC file into the converter." },
+      { step: 2, title: "Automatic Format Detection", description: "The tool automatically detects whether you have uploaded a DOCX or DOC file." },
+      { step: 3, title: "Wait for Processing", description: "The conversion begins automatically and typically completes within seconds." },
+      { step: 4, title: "Preview PDF Output", description: "Review the converted PDF to verify formatting has been preserved correctly." },
+      { step: 5, title: "Download Your PDF", description: "Save the converted PDF file to your device with a single click." }
+    ],
+    
+    whyImportant: `Converting Word documents to PDF is essential for professional document distribution. Word files can appear differently on various computers depending on installed fonts, Word versions, and operating systems. PDF format eliminates this variability by embedding all fonts and formatting, ensuring your document looks identical everywhere it is viewed. This consistency is crucial for resumes, contracts, proposals, and any document where appearance matters. PDFs are also more difficult to edit accidentally, protecting the integrity of final versions. Many organizations, academic institutions, and government agencies specifically require PDF format for submissions. Additionally, PDFs are universally viewable without requiring Microsoft Office, making them accessible to all recipients regardless of their software.`,
+    
+    keyFeatures: [
+      { title: "Perfect Format Preservation", description: "All text formatting, fonts, images, and layouts are accurately reproduced in the PDF." },
+      { title: "DOCX and DOC Support", description: "Works with both modern and legacy Word document formats." },
+      { title: "Table and Image Handling", description: "Complex elements including tables, images, and charts are correctly converted." },
+      { title: "Header and Footer Support", description: "Document headers, footers, and page numbers are preserved." },
+      { title: "Font Embedding", description: "Fonts are embedded in the PDF for consistent display on any device." },
+      { title: "Browser-Based Privacy", description: "All conversion happens locally in your browser for complete document security." },
+      { title: "Instant Conversion", description: "Most documents convert in just a few seconds." },
+      { title: "No Software Required", description: "Works entirely in your web browser with no downloads needed." }
+    ],
+    
+    benefitsText: `Our Word to PDF converter offers significant advantages for anyone sharing Word documents. The primary benefit is guaranteed consistent appearance on all devices and platforms, eliminating the frustration of documents looking different than intended. Browser-based conversion means no software installation, no subscriptions to expensive tools like Adobe Acrobat, and no waiting for server processing. The complete privacy protection ensures sensitive documents like contracts, resumes, and confidential reports remain secure. Unlike basic converters, our tool handles complex formatting including multiple columns, text boxes, and embedded objects. With no usage limits and no account required, you can convert as many documents as needed completely free.`,
+    
+    benefits: [
+      "Perfect formatting preservation",
+      "Universal document compatibility",
+      "Font embedding for consistency",
+      "Fast instant conversion",
+      "Complete document privacy",
+      "No software installation needed",
+      "Works on all devices",
+      "100% free unlimited use"
+    ],
+    
+    whoCanUse: [
+      { title: "Job Seekers", description: "Convert resumes to PDF for consistent formatting across all application systems." },
+      { title: "Business Professionals", description: "Transform proposals, reports, and contracts into shareable PDF format." },
+      { title: "Students", description: "Convert essays, papers, and assignments to PDF for submission." },
+      { title: "Legal Professionals", description: "Create PDF versions of legal documents for filing and distribution." },
+      { title: "Administrative Staff", description: "Convert office documents to PDF for archiving and sharing." },
+      { title: "Authors and Writers", description: "Transform manuscripts and drafts into PDF format for review." }
+    ],
+    
+    useCases: [
+      { title: "Resume Submission", description: "Convert resumes to PDF to ensure perfect formatting on employer systems." },
+      { title: "Contract Distribution", description: "Transform contracts to PDF for professional, consistent appearance." },
+      { title: "Academic Submissions", description: "Convert papers and assignments to required PDF format for submission." },
+      { title: "Report Sharing", description: "Create PDF versions of Word reports for distribution to stakeholders." },
+      { title: "Document Archiving", description: "Convert Word documents to PDF for long-term digital archiving." },
+      { title: "Proposal Delivery", description: "Transform proposals to PDF for professional client presentations." }
+    ],
+    
+    faqs: [
+      { question: "Will my formatting be preserved exactly?", answer: "Yes, our converter maintains text formatting, fonts, images, tables, headers, footers, and page layouts accurately." },
+      { question: "Can I convert DOC files (older Word format)?", answer: "Yes, we support both modern DOCX and legacy DOC formats." },
+      { question: "Will custom fonts be preserved?", answer: "Common fonts are embedded. For best results with custom fonts, use standard system fonts or web-safe alternatives." },
+      { question: "Are my documents uploaded to a server?", answer: "No, all conversion happens locally in your browser. Your documents never leave your device." },
+      { question: "Is there a page limit?", answer: "No, you can convert Word documents of any length without restrictions." },
+      { question: "Can I convert multiple documents at once?", answer: "Documents are converted one at a time, but you can convert as many as needed sequentially." },
+      { question: "Will hyperlinks work in the PDF?", answer: "Yes, hyperlinks from your Word document are preserved and clickable in the PDF." },
+      { question: "Does this work on Mac and Windows?", answer: "Yes, the converter works in any modern web browser on any operating system." },
+      { question: "Can I convert password-protected Word files?", answer: "No, please remove password protection before converting." },
+      { question: "Is this service free?", answer: "Yes, completely free with no usage limits, no watermarks, and no account required." }
+    ],
+    
+    privacyNote: `Your document privacy is completely protected during conversion. Our Word to PDF converter processes files entirely within your web browser using client-side JavaScript technology. Your Word documents are never uploaded to any server, never stored anywhere, and never accessible to anyone but you. This is particularly important for sensitive documents like contracts, resumes containing personal information, and confidential business documents. We do not track what documents you convert, do not collect any usage data, and do not require any personal information or account creation. When you close your browser tab, all document data is immediately cleared from memory. Your files remain 100% private throughout the entire conversion process.`,
+    
+    conclusion: `Our free Word to PDF converter provides fast, accurate conversion while guaranteeing your documents look perfect on any device. With complete formatting preservation, font embedding, and browser-based privacy protection, it is the ideal solution for professionals, students, and anyone needing to share Word documents in universal PDF format. No software installation, no subscriptions, and no usage limits mean you can convert as many documents as needed completely free. Whether you are submitting a resume, sharing a proposal, or archiving important documents, our converter delivers professional results in seconds. Try it now and experience the simplest way to convert Word to PDF.`,
+    
+    relatedTools: ["merge-pdf", "compress-pdf", "image-to-pdf", "split-pdf"],
+    category: "PDF Tools",
+    categorySlug: "pdf-tools",
+    keywords: ["word to pdf", "docx to pdf", "convert word", "word converter", "doc to pdf", "word document to pdf"],
+    gradientFrom: "#2563eb",
+    gradientTo: "#3b82f6"
+  },
+
+  "image-to-pdf": {
+    slug: "image-to-pdf",
+    title: "Image to PDF Converter",
+    metaTitle: "Image to PDF Converter - Convert Images to PDF Online Free | MultiTools",
+    metaDescription: "Convert images to PDF online for free. Combine JPG, PNG, WebP images into PDF documents. Arrange pages, adjust settings. No signup required.",
+    h1: "Convert Images to PDF Online Free",
+    
+    introduction: `Transforming images into PDF documents is essential for creating shareable, printable, and professional files from photos, scans, or graphics. Our free image to PDF converter allows you to convert single images or combine multiple images into a single organized PDF document. Whether you are creating a photo album, digitizing scanned documents, preparing a portfolio, compiling receipts, or creating a presentation, this tool handles it all with ease. The intuitive interface lets you arrange images in your preferred order, while high-quality conversion ensures your images look great in the final PDF. All processing happens in your browser for instant results and complete privacy.`,
+    
+    aboutTool: `Our image to PDF converter is a versatile online tool that transforms various image formats into professional PDF documents. The converter supports JPG, JPEG, PNG, WebP, GIF, BMP, and most common image formats. You can convert a single image or upload multiple images that will be arranged into a multi-page PDF, with each image becoming one page. The drag-and-drop interface makes it easy to reorder images before conversion. The tool maintains original image quality and automatically sizes pages to fit each image while preserving aspect ratios. Unlike server-based converters, all processing happens locally in your browser, ensuring your images remain private and conversion is instant regardless of file sizes.`,
+    
+    howToUse: [
+      { step: 1, title: "Upload Images", description: "Click the upload area or drag and drop your image files. You can add multiple images at once." },
+      { step: 2, title: "Arrange Image Order", description: "Use drag-and-drop to arrange images in your desired sequence for the PDF pages." },
+      { step: 3, title: "Add More Images (Optional)", description: "Click the add button to include additional images. There is no limit on the number of images." },
+      { step: 4, title: "Remove Unwanted Images", description: "Click the remove button on any image you want to exclude from the PDF." },
+      { step: 5, title: "Click Convert to PDF", description: "Press the convert button to generate your PDF. Processing happens instantly." },
+      { step: 6, title: "Download Your PDF", description: "Save your new PDF document to your device." }
+    ],
+    
+    whyImportant: `Converting images to PDF is crucial for numerous professional and personal applications. PDFs provide a universal format that can be viewed on any device without specialized software, making them ideal for sharing. Unlike sending multiple image files, a single PDF document is easier to organize, share, and print. Scanned documents saved as images need PDF conversion for proper archival and searchability. Photographers and artists create PDF portfolios for professional presentation. Businesses compile receipts, invoices, and documentation into PDFs for accounting and records. Students and researchers organize research images and references into cohesive documents. The PDF format also ensures images remain in their intended order and cannot be easily rearranged by recipients, preserving the integrity of your presentation.`,
+    
+    keyFeatures: [
+      { title: "Multi-Format Support", description: "Convert JPG, PNG, WebP, GIF, BMP, and other common image formats to PDF." },
+      { title: "Multi-Image Combining", description: "Combine any number of images into a single multi-page PDF document." },
+      { title: "Drag-and-Drop Ordering", description: "Easily arrange images in your preferred sequence using intuitive drag-and-drop." },
+      { title: "Quality Preservation", description: "Images are embedded at full quality in the PDF without compression artifacts." },
+      { title: "Automatic Page Sizing", description: "Pages are automatically sized to fit each image while maintaining aspect ratios." },
+      { title: "Browser-Based Privacy", description: "All conversion happens locally in your browser. Images never leave your device." },
+      { title: "Instant Processing", description: "Convert images to PDF immediately without waiting for server uploads." },
+      { title: "No Limits", description: "Convert any number of images without size or quantity restrictions." }
+    ],
+    
+    benefitsText: `Our image to PDF converter provides substantial benefits for anyone needing to create PDF documents from images. The ability to combine multiple images into a single organized document simplifies sharing and distribution compared to sending separate files. High-quality image embedding ensures your photos and graphics look professional in the final PDF. The drag-and-drop interface makes organization intuitive, while browser-based processing delivers instant results with complete privacy. Unlike subscription-based tools, our converter is completely free with no usage limits, watermarks, or account requirements. Whether you are creating a simple single-image PDF or compiling hundreds of images into a comprehensive document, the process is equally straightforward.`,
+    
+    benefits: [
+      "Convert any image format to PDF",
+      "Combine multiple images easily",
+      "Maintain full image quality",
+      "Intuitive drag-and-drop ordering",
+      "Fast browser-based conversion",
+      "Complete image privacy",
+      "Works on all devices",
+      "100% free unlimited use"
+    ],
+    
+    whoCanUse: [
+      { title: "Photographers", description: "Create professional PDF portfolios from photo collections." },
+      { title: "Business Owners", description: "Compile receipts, invoices, and documentation into organized PDFs." },
+      { title: "Students", description: "Convert notes, diagrams, and research images into study documents." },
+      { title: "Real Estate Agents", description: "Create property photo PDFs for listings and client presentations." },
+      { title: "Artists and Designers", description: "Build portfolio PDFs showcasing artwork and designs." },
+      { title: "Administrative Staff", description: "Digitize scanned documents into proper PDF format for filing." }
+    ],
+    
+    useCases: [
+      { title: "Photo Albums", description: "Compile vacation photos or event pictures into shareable PDF albums." },
+      { title: "Document Scanning", description: "Convert scanned document images into proper searchable PDF files." },
+      { title: "Portfolio Creation", description: "Build professional portfolios from artwork, photos, or design samples." },
+      { title: "Receipt Organization", description: "Combine receipt images into single PDF documents for expense tracking." },
+      { title: "Property Listings", description: "Create comprehensive property photo PDFs for real estate presentations." },
+      { title: "Research Documentation", description: "Compile research images, charts, and diagrams into organized reference documents." }
+    ],
+    
+    faqs: [
+      { question: "What image formats are supported?", answer: "We support JPG, JPEG, PNG, WebP, GIF, BMP, and most common image formats." },
+      { question: "How many images can I combine?", answer: "There is no limit. You can combine as many images as you need into a single PDF." },
+      { question: "Will image quality be preserved?", answer: "Yes, images are embedded at their original quality without additional compression." },
+      { question: "Can I control the page order?", answer: "Yes, use drag-and-drop to arrange images in any order before converting." },
+      { question: "What page size will the PDF use?", answer: "Pages are automatically sized to fit each image while maintaining original aspect ratios." },
+      { question: "Can I add text to the PDF?", answer: "This tool focuses on image conversion. For adding text, use a PDF editor after creating your document." },
+      { question: "Are my images uploaded to a server?", answer: "No, all conversion happens in your browser. Your images remain completely private." },
+      { question: "Does this work on mobile devices?", answer: "Yes, the converter works on smartphones and tablets with modern web browsers." },
+      { question: "Can I convert images with transparent backgrounds?", answer: "Yes, PNG images with transparency are supported and transparency is preserved in the PDF." },
+      { question: "Is this service free?", answer: "Yes, completely free with no usage limits, no watermarks, and no account required." }
+    ],
+    
+    privacyNote: `Your image privacy is completely protected during conversion. Our image to PDF converter processes files entirely within your web browser using client-side JavaScript technology. Your images are never uploaded to any server, never stored anywhere, and never accessible to anyone but you. This is especially important for personal photos, confidential documents, and sensitive images. We do not track what images you convert, do not collect any usage data, and do not require any personal information or account creation. When you close your browser tab, all image data is immediately cleared from memory. Your photos and images remain 100% private throughout the entire conversion process.`,
+    
+    conclusion: `Our free image to PDF converter provides fast, flexible conversion with complete privacy protection. Whether you are creating a single-page PDF from one image or compiling hundreds of photos into a comprehensive document, this tool delivers professional results instantly. The drag-and-drop interface, multi-format support, and quality preservation make it ideal for photographers, businesses, students, and anyone needing to create PDFs from images. With no usage limits, no watermarks, and browser-based processing for complete privacy, there is no better way to convert images to PDF. Try it now and start creating professional PDF documents from your images.`,
+    
+    relatedTools: ["merge-pdf", "compress-pdf", "word-to-pdf", "split-pdf"],
+    category: "PDF Tools",
+    categorySlug: "pdf-tools",
+    keywords: ["image to pdf", "jpg to pdf", "png to pdf", "convert images", "photo to pdf", "pictures to pdf"],
+    gradientFrom: "#a855f7",
+    gradientTo: "#ec4899"
+  },
   
   "compress-pdf": {
     slug: "compress-pdf",
