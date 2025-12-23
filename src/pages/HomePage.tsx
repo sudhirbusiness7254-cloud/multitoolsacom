@@ -458,7 +458,7 @@ const HomePage = () => {
             </div>
           </section>
 
-          {/* Comprehensive Tools Description Section for AdSense */}
+          {/* Comprehensive Tools Description Section - 4000+ Words */}
           <section className="py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 bg-background">
             <div className="container mx-auto max-w-6xl">
               <div className="text-center mb-10 sm:mb-12 md:mb-16">
@@ -475,117 +475,271 @@ const HomePage = () => {
                 <div className="bg-card rounded-2xl p-6 sm:p-8 md:p-10 border border-border mb-8">
                   <h3 className="text-xl sm:text-2xl font-bold mb-4 text-foreground">About MultiTools - Your All-in-One Image Solution</h3>
                   <p className="text-muted-foreground mb-4 leading-relaxed">
-                    MultiTools is a comprehensive online platform that provides free, professional-grade image editing tools accessible to everyone. Whether you are a professional photographer, graphic designer, social media manager, blogger, or simply someone who needs to edit images occasionally, our platform offers everything you need without the complexity of traditional software.
+                    MultiTools is a comprehensive online platform that provides free, professional-grade image editing tools accessible to everyone. Whether you are a professional photographer, graphic designer, social media manager, blogger, or simply someone who needs to edit images occasionally, our platform offers everything you need without the complexity of traditional software. We have built this platform with a singular mission: to democratize image editing and make professional-quality tools available to everyone, regardless of their technical expertise or budget.
                   </p>
                   <p className="text-muted-foreground mb-4 leading-relaxed">
-                    Our mission is to democratize image editing by providing powerful tools that work directly in your browser. Unlike desktop applications that require expensive licenses and technical expertise, MultiTools offers instant access to over 80 specialized tools that handle every aspect of image processing, from basic conversions to advanced editing features.
+                    Unlike desktop applications that require expensive licenses, complex installations, and technical expertise, MultiTools offers instant access to over 85 specialized tools that handle every aspect of image processing. From basic format conversions to advanced editing features, watermarking, metadata management, and document creation, our platform covers the entire spectrum of image manipulation needs. Every tool is designed with user experience in mind, featuring intuitive interfaces that make complex operations simple and accessible.
+                  </p>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    The technology behind MultiTools represents the cutting edge of browser-based image processing. We utilize advanced JavaScript libraries, WebGL acceleration, and modern compression algorithms to deliver professional-quality results directly in your browser. This approach means your images never leave your device – they are processed entirely locally, ensuring complete privacy and security. There are no upload queues, no server processing delays, and no risk of your sensitive images being stored on external servers.
                   </p>
                   <p className="text-muted-foreground leading-relaxed">
-                    Every tool on our platform is designed with user experience in mind. We understand that time is valuable, which is why our tools process images instantly using advanced browser-based technology. Your files never leave your device, ensuring complete privacy and security while delivering professional-quality results.
+                    Our platform is continuously evolving. We regularly add new tools, improve existing ones based on user feedback, and optimize performance to handle even the largest image files efficiently. Whether you need to process a single image or batch convert hundreds of files, MultiTools scales to meet your needs without any limitations on usage or file count.
                   </p>
                 </div>
               </div>
 
-              {/* Image Converter Tools */}
+              {/* Image Converter Tools - Detailed */}
               <div className="mb-10 sm:mb-12 md:mb-14">
                 <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6 flex items-center gap-3">
                   <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #3B82F6, #06B6D4)' }}>
                     <RefreshCw className="w-5 h-5 text-white" />
                   </div>
-                  Image Format Conversion Tools
+                  Image Format Conversion: The Foundation of Digital Image Work
                 </h3>
                 <div className="bg-card rounded-xl p-5 sm:p-6 md:p-8 border border-border">
                   <p className="text-muted-foreground mb-4 leading-relaxed">
-                    Our image converter tools support a wide range of formats including JPG, PNG, WebP, GIF, BMP, TIFF, SVG, HEIC, and RAW. Converting between formats is essential for optimizing images for different platforms and purposes. For example, JPG format is ideal for photographs with millions of colors, while PNG supports transparency and is perfect for logos and graphics.
+                    Image format conversion is perhaps the most fundamental operation in digital image processing, yet it is one that most people don't fully understand. Each image format was designed with specific use cases in mind, and choosing the right format can make the difference between a crisp, fast-loading image and a bloated file that frustrates users and wastes bandwidth. Our comprehensive suite of conversion tools supports over 18 different format transformations, covering every major image format in use today.
                   </p>
                   <p className="text-muted-foreground mb-4 leading-relaxed">
-                    WebP format, developed by Google, offers superior compression compared to JPG and PNG, making it the preferred choice for web optimization. Our JPG to WebP and PNG to WebP converters help you reduce file sizes by up to 30% while maintaining excellent visual quality. This translates to faster website loading times and improved user experience.
+                    The JPEG format, developed by the Joint Photographic Experts Group, remains the most widely used format for photographs and complex images with millions of colors. JPEG uses lossy compression, meaning it discards some image data to achieve smaller file sizes. This trade-off makes JPEG ideal for photographs where perfect pixel accuracy isn't critical. Our JPG to PNG converter is essential when you need to preserve image quality for further editing or when you need transparency support that JPEG doesn't provide.
                   </p>
                   <p className="text-muted-foreground mb-4 leading-relaxed">
-                    For iPhone users, our HEIC to JPG converter is invaluable. Apple devices capture photos in HEIC format which offers excellent quality at smaller file sizes, but this format is not universally supported. Our converter transforms HEIC images to widely compatible JPG format instantly, ensuring you can share your photos anywhere.
+                    PNG (Portable Network Graphics) format supports lossless compression and transparency, making it perfect for logos, graphics, screenshots, and images where quality preservation is paramount. The PNG format can represent images with millions of colors while maintaining perfect quality, though at larger file sizes than JPEG. Our PNG to JPG converter helps when you need to reduce file sizes for web usage or email attachments where transparency isn't required.
                   </p>
-                  <h4 className="font-semibold text-lg mb-3 text-foreground">Supported Conversions Include:</h4>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    WebP, developed by Google, represents the next generation of web image formats. It combines the best features of both JPEG and PNG: excellent compression for photographs (often 25-34% smaller than equivalent JPEG files) and support for transparency (often 26% smaller than equivalent PNG files). Additionally, WebP supports animation, making it a potential replacement for GIF as well. Our JPG to WebP and PNG to WebP converters help you optimize images for modern web applications, significantly improving page load times and user experience.
+                  </p>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    For iPhone and iPad users, HEIC (High Efficiency Image Container) format poses unique challenges. Apple adopted HEIC as the default photo format because it offers superior compression compared to JPEG while maintaining excellent quality. However, HEIC is not universally supported across all devices and platforms. Our HEIC to JPG and HEIC to PNG converters ensure you can share your Apple photos with anyone, regardless of their device or operating system.
+                  </p>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    Professional photographers working with RAW files will appreciate our RAW to JPG and RAW to PNG converters. RAW files contain unprocessed data directly from your camera's sensor, providing maximum flexibility for post-processing. However, they're not suitable for sharing or web use. Our converters apply intelligent processing to convert RAW files into universally compatible formats while preserving as much of the original quality as possible.
+                  </p>
+                  <h4 className="font-semibold text-lg mb-3 text-foreground">Complete List of Supported Conversions:</h4>
                   <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 text-sm text-muted-foreground">
                     <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-primary rounded-full"></span>JPG to PNG</li>
                     <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-primary rounded-full"></span>PNG to JPG</li>
                     <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-primary rounded-full"></span>JPG to WebP</li>
+                    <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-primary rounded-full"></span>WebP to JPG</li>
+                    <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-primary rounded-full"></span>PNG to WebP</li>
                     <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-primary rounded-full"></span>WebP to PNG</li>
                     <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-primary rounded-full"></span>GIF to PNG</li>
-                    <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-primary rounded-full"></span>HEIC to JPG</li>
+                    <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-primary rounded-full"></span>GIF to JPG</li>
+                    <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-primary rounded-full"></span>BMP to JPG</li>
+                    <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-primary rounded-full"></span>BMP to PNG</li>
+                    <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-primary rounded-full"></span>TIFF to JPG</li>
+                    <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-primary rounded-full"></span>TIFF to PNG</li>
                     <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-primary rounded-full"></span>SVG to PNG</li>
+                    <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-primary rounded-full"></span>SVG to JPG</li>
+                    <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-primary rounded-full"></span>HEIC to JPG</li>
+                    <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-primary rounded-full"></span>HEIC to PNG</li>
                     <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-primary rounded-full"></span>RAW to JPG</li>
+                    <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-primary rounded-full"></span>RAW to PNG</li>
                   </ul>
                 </div>
               </div>
 
-              {/* Image Compression */}
+              {/* Image Compression - Detailed */}
               <div className="mb-10 sm:mb-12 md:mb-14">
                 <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6 flex items-center gap-3">
                   <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #22C55E, #10B981)' }}>
                     <Minimize2 className="w-5 h-5 text-white" />
                   </div>
-                  Image Compression and Optimization
+                  Image Compression: Balancing Quality and Performance
                 </h3>
                 <div className="bg-card rounded-xl p-5 sm:p-6 md:p-8 border border-border">
                   <p className="text-muted-foreground mb-4 leading-relaxed">
-                    Image compression is crucial for website performance, email attachments, and storage optimization. Our compression tools use advanced algorithms to reduce file sizes significantly while preserving visual quality. The human eye cannot distinguish the difference between an optimized image and the original in most cases.
+                    In an era where website speed directly impacts search engine rankings, user experience, and conversion rates, image compression has become a critical skill for anyone managing digital content. Our compression tools utilize state-of-the-art algorithms that analyze each image individually, identifying redundant data that can be removed without perceptible quality loss. The result is dramatically smaller file sizes that load faster while maintaining visual fidelity that satisfies even the most discerning eyes.
                   </p>
                   <p className="text-muted-foreground mb-4 leading-relaxed">
-                    Our JPEG compressor analyzes each image and applies intelligent compression that targets redundant data while preserving important details. You can reduce image sizes by 50-80% without noticeable quality loss. This is essential for website owners who want to improve page load speeds and search engine rankings.
+                    Our JPEG compressor employs advanced DCT (Discrete Cosine Transform) optimization to intelligently reduce file sizes. Unlike basic compression tools that apply blanket compression across the entire image, our algorithm analyzes different regions of your image, applying stronger compression to areas where it won't be noticed (like sky or solid backgrounds) while preserving detail in important areas (like faces or text). This intelligent approach typically achieves 50-80% file size reduction while maintaining excellent visual quality.
                   </p>
                   <p className="text-muted-foreground mb-4 leading-relaxed">
-                    PNG compression works differently because PNG uses lossless compression. Our PNG compressor optimizes the color palette and removes unnecessary metadata to achieve smaller file sizes. For images with transparency, this is the ideal format, and our tool ensures optimal compression.
+                    PNG compression works fundamentally differently because PNG uses lossless compression – no image data is actually discarded. Our PNG compressor optimizes images through color palette reduction, filtering algorithms, and metadata stripping. For images that don't require millions of colors, converting to an optimized 256-color palette can reduce file sizes by 70% or more without any visible quality difference. Our tool automatically analyzes your image and recommends the optimal compression approach.
+                  </p>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    WebP compression offers the best of both worlds, supporting both lossy and lossless compression modes. Our WebP compressor leverages Google's advanced VP8 encoding to achieve superior compression ratios. For photographs, WebP typically produces files 25-34% smaller than equivalent quality JPEG. For graphics with transparency, WebP files are often 26% smaller than PNG. If you're optimizing for web performance, WebP should be your primary format choice.
+                  </p>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    GIF compression presents unique challenges due to the format's 256-color limitation and animation support. Our GIF compressor reduces file sizes by optimizing color palettes, removing duplicate frames in animations, and applying advanced LZW compression. For animated GIFs, we can often achieve 40-60% file size reduction while preserving smooth animation quality.
                   </p>
                   <p className="text-muted-foreground leading-relaxed">
-                    Website performance directly impacts user experience and SEO rankings. Studies show that pages loading in under 3 seconds have significantly lower bounce rates. By compressing your images with our tools, you contribute to faster loading times and better overall website performance.
+                    The impact of proper image compression extends beyond just faster loading times. Compressed images reduce bandwidth costs for website owners, consume less storage space on servers and devices, and provide better experiences for users on mobile networks or limited data plans. Studies show that a one-second delay in page load time can result in a 7% reduction in conversions – proper image compression is literally money in your pocket.
                   </p>
                 </div>
               </div>
 
-              {/* Image Resize */}
+              {/* Image Resize - Detailed */}
               <div className="mb-10 sm:mb-12 md:mb-14">
                 <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6 flex items-center gap-3">
                   <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #00C6FF, #0072FF)' }}>
                     <Maximize2 className="w-5 h-5 text-white" />
                   </div>
-                  Professional Image Resizing
+                  Professional Image Resizing: Precision Control Over Dimensions
                 </h3>
                 <div className="bg-card rounded-xl p-5 sm:p-6 md:p-8 border border-border">
                   <p className="text-muted-foreground mb-4 leading-relaxed">
-                    Resizing images correctly is essential for various applications. Whether you need specific dimensions for social media posts, website banners, print materials, or profile pictures, our resize tools offer precise control over your image dimensions while maintaining aspect ratios and quality.
+                    Image resizing might seem straightforward, but doing it correctly requires sophisticated algorithms and careful attention to detail. Simple resize operations can result in blurry, pixelated, or distorted images. Our professional resize tools use advanced resampling algorithms including Lanczos, bicubic, and bilinear interpolation to ensure resized images maintain sharpness and quality regardless of the scale factor.
                   </p>
                   <p className="text-muted-foreground mb-4 leading-relaxed">
-                    Our Exact Resize tool lets you specify exact width and height in pixels, perfect for when you need precise dimensions. The Percentage Resize tool scales images proportionally, ideal for reducing image size while keeping the original aspect ratio. Fit to Width and Fit to Height tools automatically calculate the other dimension to maintain proportions.
+                    Our Exact Resize tool provides pixel-perfect control over your image dimensions. Specify exact width and height in pixels, and your image will be resized precisely to those dimensions. This tool is essential for meeting specific platform requirements – for example, Facebook cover photos require exactly 820x312 pixels, YouTube thumbnails need 1280x720 pixels, and Amazon product images have specific dimension requirements. Our tool ensures your images meet these specifications exactly.
                   </p>
                   <p className="text-muted-foreground mb-4 leading-relaxed">
-                    The Fit to Box feature is particularly useful when you have a specific container size and want the image to fit within it without distortion. This is commonly used for product images, thumbnails, and gallery displays where consistent sizing is important.
+                    The Percentage Resize tool scales images proportionally by a specified percentage. This is ideal when you need to reduce image sizes by a consistent amount – for example, reducing all images to 50% of their original size for web use. Proportional scaling ensures aspect ratios are maintained, preventing the stretched or squished appearance that occurs when width and height are scaled differently.
+                  </p>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    Fit to Width and Fit to Height tools automatically calculate the corresponding dimension to maintain aspect ratio. If you need all images to have a consistent width (like 800 pixels for a blog), Fit to Width will resize images to that width while automatically calculating the appropriate height. This ensures consistency across your image collection while preserving the natural proportions of each image.
+                  </p>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    The Fit to Box tool is particularly powerful for creating consistent galleries, product displays, or thumbnails. Specify a maximum width and height, and images will be scaled to fit within that box while maintaining their aspect ratio. This ensures no image exceeds your specified dimensions while preserving the natural proportions of each image – perfect for responsive web design and e-commerce applications.
                   </p>
                   <p className="text-muted-foreground leading-relaxed">
-                    All our resize operations use high-quality resampling algorithms that preserve image sharpness and detail. Unlike simple resize tools that create pixelated results, our technology intelligently interpolates pixels to create smooth, professional-looking resized images.
+                    Our Resize Without Quality Loss tool employs advanced AI-powered upscaling for enlarging images. Traditional upscaling simply stretches pixels, resulting in blurry, pixelated results. Our intelligent upscaling algorithm analyzes image content and intelligently generates new pixel data, enabling significant enlargements while maintaining sharpness and detail. This is invaluable for printing small images at larger sizes or recovering detail from low-resolution sources.
                   </p>
                 </div>
               </div>
 
-              {/* Crop and Edit */}
+              {/* Crop and Rotate Tools */}
               <div className="mb-10 sm:mb-12 md:mb-14">
                 <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6 flex items-center gap-3">
                   <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #A855F7, #EC4899)' }}>
                     <Crop className="w-5 h-5 text-white" />
                   </div>
-                  Advanced Cropping and Editing Features
+                  Cropping, Rotating, and Image Composition
                 </h3>
                 <div className="bg-card rounded-xl p-5 sm:p-6 md:p-8 border border-border">
                   <p className="text-muted-foreground mb-4 leading-relaxed">
-                    Cropping is one of the most fundamental image editing operations. Our crop tools offer multiple modes including manual selection, preset aspect ratios, circle crop for profile pictures, and square crop for social media. Each mode is optimized for specific use cases to help you achieve perfect results quickly.
+                    Cropping is one of the most powerful composition tools available to photographers and designers. By removing unwanted portions of an image, you can improve composition, focus attention on the subject, meet specific aspect ratio requirements, and transform an ordinary photo into a compelling visual story. Our suite of cropping tools provides every mode you need for any cropping scenario.
                   </p>
                   <p className="text-muted-foreground mb-4 leading-relaxed">
-                    The Aspect Ratio Crop tool includes presets for common formats like 16:9 for widescreen displays, 4:3 for traditional monitors, 1:1 for Instagram posts, and 9:16 for stories and reels. Custom aspect ratios are also supported for specialized requirements.
+                    The Manual Crop tool offers complete freedom to select any rectangular region of your image. Click and drag to define your crop area, then fine-tune the selection with precision handles. This mode is perfect when you need complete creative control over the final composition without any constraints on aspect ratio or dimensions.
                   </p>
                   <p className="text-muted-foreground mb-4 leading-relaxed">
-                    Our rotation and flip tools handle image orientation with precision. Rotate images by 90, 180, or 270 degrees, or specify custom angles for precise alignment. Flip tools create mirror images horizontally or vertically, useful for design work and creative projects.
+                    Aspect Ratio Crop constrains your selection to specific proportions. Choose from common ratios like 16:9 (widescreen), 4:3 (traditional), 1:1 (square), 9:16 (vertical/stories), or enter custom ratios for specialized needs. This tool ensures your cropped images perfectly fit their intended destination, whether that's a YouTube thumbnail, Instagram post, or printed photograph.
+                  </p>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    Circle Crop creates perfectly circular images with transparent backgrounds – essential for profile pictures, avatars, and creative designs. The tool automatically centers your selection and generates a clean circular mask with smooth edges. The result is a professional-looking circular image ready for use across any platform.
+                  </p>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    Our rotation and flip tools provide complete control over image orientation. Rotate images by 90, 180, or 270 degrees with a single click, or use Custom Rotate to specify any angle with decimal precision. This is essential for correcting tilted horizons, creative angle adjustments, or simply fixing photos that were taken in the wrong orientation. Flip tools create horizontal or vertical mirror images, useful for design work and creative projects.
                   </p>
                   <p className="text-muted-foreground leading-relaxed">
-                    Photo filters and adjustments bring professional editing capabilities to your browser. Adjust brightness, contrast, saturation, and sharpness. Apply artistic filters like sepia, vintage, grayscale, and more. These tools transform ordinary photos into visually stunning images suitable for any purpose.
+                    The Image Combine tools enable creative compositions by merging multiple images together. Merge images horizontally (side by side), vertically (stacked), or create custom collages with our Collage Maker. The Before/After Maker creates compelling comparison images perfect for showcasing transformations, edits, or progress over time. These tools are invaluable for social media content, marketing materials, and visual storytelling.
+                  </p>
+                </div>
+              </div>
+
+              {/* Photo Filters and Effects */}
+              <div className="mb-10 sm:mb-12 md:mb-14">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6 flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #F093FB, #F5576C)' }}>
+                    <Palette className="w-5 h-5 text-white" />
+                  </div>
+                  Photo Filters, Effects, and Color Adjustments
+                </h3>
+                <div className="bg-card rounded-xl p-5 sm:p-6 md:p-8 border border-border">
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    Transform ordinary photos into stunning visual masterpieces with our comprehensive suite of filters and effects. From subtle color corrections to dramatic artistic transformations, these tools give you the creative power of professional photo editing software without the complexity or cost. Each filter is carefully crafted to produce beautiful, natural-looking results.
+                  </p>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    Brightness and Contrast adjustments form the foundation of photo editing. Brightness controls the overall lightness or darkness of your image, while Contrast adjusts the difference between the lightest and darkest areas. Proper adjustment of these two parameters can bring life to flat, dull photos or tone down overly harsh images. Our tools provide precise slider controls for fine-tuning these essential parameters.
+                  </p>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    Saturation control adjusts the intensity of colors in your image. Increase saturation for vibrant, punchy colors that pop off the screen, or decrease it for muted, vintage-inspired tones. Our Grayscale Conversion tool removes all color, creating classic black-and-white images with full tonal range. The Black & White Conversion goes further, creating high-contrast images with only pure black and pure white – perfect for graphic effects and text overlays.
+                  </p>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    Artistic filters transform your photos with distinctive looks. The Sepia Effect adds warm, brownish tones reminiscent of vintage photographs. Vintage Filter applies a comprehensive retro look with faded colors, slight vignetting, and warm color shifts. Warm Tone and Cool Tone adjustments shift the overall color temperature, making images feel cozy and inviting or crisp and refreshing respectively.
+                  </p>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    Sharpening enhances edge detail, making images appear crisper and more focused. This is especially useful for images that appear slightly soft due to camera shake, lens limitations, or compression. Our Blur Filter provides the opposite effect, softening images for dreamy effects or background defocusing. Gaussian Blur offers precise control over blur intensity for professional-looking depth-of-field simulation.
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Creative effects like Emboss, Pixelate, and Negative open up endless artistic possibilities. Emboss creates a raised, three-dimensional appearance as if the image were carved into a surface. Pixelate transforms images into a mosaic of larger blocks, useful for censoring content or creating retro gaming aesthetics. The Negative effect inverts all colors, creating surreal, otherworldly images that can be striking in creative projects.
+                  </p>
+                </div>
+              </div>
+
+              {/* Watermark and Security Tools */}
+              <div className="mb-10 sm:mb-12 md:mb-14">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6 flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #14B8A6, #059669)' }}>
+                    <Droplet className="w-5 h-5 text-white" />
+                  </div>
+                  Watermarking and Image Security
+                </h3>
+                <div className="bg-card rounded-xl p-5 sm:p-6 md:p-8 border border-border">
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    Protecting your creative work is essential in the digital age where images can be copied and shared in seconds. Our watermarking tools help you establish ownership, prevent unauthorized use, and build brand recognition across all your visual content. From subtle corner logos to prominent text overlays, our tools provide complete control over watermark appearance and placement.
+                  </p>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    Text Watermark adds customizable text overlays to your images. Choose from a variety of fonts, adjust size, color, and opacity, and position your watermark precisely where you want it. Multiple position presets (corners, center, tiled) make it easy to apply consistent watermarks across your entire image library. The tiled option covers the entire image with repeated watermarks, making removal extremely difficult.
+                  </p>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    Image Watermark allows you to overlay your logo or any other image as a watermark. This is perfect for photographers and businesses who want to brand their images with a professional logo. Adjust the watermark size, opacity, and position to achieve the perfect balance between visibility and unobtrusiveness. Our tool supports PNG logos with transparency for seamless integration.
+                  </p>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    For privacy protection, our security tools provide essential functionality. Manual Face Blur and Manual Pixel Blur allow you to obscure specific areas of your images – faces, license plates, personal information, or anything else you need to protect. The Hide Area tool provides solid coverage for complete concealment of sensitive content.
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Image Encrypt and Image Decrypt provide password-protected encryption for your most sensitive images. Using industry-standard encryption algorithms, these tools ensure that only authorized individuals with the correct password can view the encrypted images. This is invaluable for protecting confidential documents, private photographs, or any visual content that requires controlled access.
+                  </p>
+                </div>
+              </div>
+
+              {/* Metadata Tools */}
+              <div className="mb-10 sm:mb-12 md:mb-14">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6 flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #F59E0B, #D97706)' }}>
+                    <Database className="w-5 h-5 text-white" />
+                  </div>
+                  Image Metadata Management for Privacy and Organization
+                </h3>
+                <div className="bg-card rounded-xl p-5 sm:p-6 md:p-8 border border-border">
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    Every digital photograph contains hidden metadata – information about when the photo was taken, what camera was used, camera settings, and potentially even GPS coordinates showing exactly where the photo was taken. While this metadata is useful for organizing photos and technical reference, it can pose serious privacy risks when images are shared publicly. Our metadata tools give you complete control over this hidden information.
+                  </p>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    View EXIF provides comprehensive access to all metadata embedded in your images. See the exact camera model, lens information, ISO settings, shutter speed, aperture, focal length, and much more. For photos with GPS data, you can view the precise coordinates and even see the location on a map. This is invaluable for photographers who want to learn from their camera settings or anyone curious about the technical details of their images.
+                  </p>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    Remove EXIF strips all metadata from your images, protecting your privacy before sharing. This is essential before posting images online, as metadata can reveal your home location, travel patterns, and personal information. Our tool removes all metadata completely while preserving the visual quality of your image, ensuring you can share safely.
+                  </p>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    Edit Date/Time allows you to modify the timestamp metadata in your images. This is useful for correcting incorrect camera dates, synchronizing timestamps across multiple cameras, or organizing photos chronologically. Change the date, time, or both while leaving other metadata intact.
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Copy EXIF enables you to transfer metadata from one image to another. This is particularly useful when you've edited an image in software that strips metadata – you can restore the original metadata from the source file. It's also valuable for applying consistent metadata across a series of related images.
+                  </p>
+                </div>
+              </div>
+
+              {/* PDF Tools */}
+              <div className="mb-10 sm:mb-12 md:mb-14">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6 flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #DC2626, #EA580C)' }}>
+                    <FileText className="w-5 h-5 text-white" />
+                  </div>
+                  PDF Tools: Complete Document Processing Suite
+                </h3>
+                <div className="bg-card rounded-xl p-5 sm:p-6 md:p-8 border border-border">
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    PDFs have become the universal standard for document sharing, and our PDF tools provide everything you need to work with these essential files. From merging multiple documents into a single file to compressing oversized PDFs for email, our tools handle all common PDF operations with professional-quality results.
+                  </p>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    Merge PDF combines multiple PDF files into a single document. Simply upload your files, arrange them in your desired order, and download the combined result. This is invaluable for creating comprehensive reports, combining scanned documents, or organizing related PDFs into a single file for easier sharing and storage.
+                  </p>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    Compress PDF reduces file sizes for easier sharing and storage. Our intelligent compression analyzes each page and applies optimal compression settings to images while preserving text clarity. Reduce PDFs by 50-80% while maintaining readable, professional-looking documents suitable for any purpose.
+                  </p>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    Word to PDF converts Microsoft Word documents (DOCX, DOC) to universally compatible PDF format. This ensures your documents appear exactly as intended regardless of the recipient's software or operating system. Formatting, fonts, and layouts are preserved perfectly in the conversion process.
+                  </p>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    Image to PDF converts individual images or combines multiple images into PDF documents. This is perfect for creating digital photo albums, converting scanned documents to PDF, or preparing images for professional printing. Control image quality, page size, and orientation for perfect results.
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Split PDF extracts specific pages or divides large PDFs into smaller documents. Extract individual pages, specific page ranges, or split every page into separate files. This is essential for extracting relevant sections from large documents, organizing content, or preparing specific pages for sharing.
                   </p>
                 </div>
               </div>
@@ -593,7 +747,7 @@ const HomePage = () => {
               {/* Benefits Section */}
               <div className="mb-10 sm:mb-12 md:mb-14">
                 <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 sm:mb-8 text-center">
-                  Benefits of Using MultiTools
+                  Why Millions Choose MultiTools
                 </h3>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                   <div className="bg-card rounded-xl p-5 sm:p-6 border border-border">
@@ -602,7 +756,7 @@ const HomePage = () => {
                     </div>
                     <h4 className="font-bold text-lg mb-2">Instant Processing</h4>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      All image processing happens directly in your browser using advanced JavaScript technology. No waiting for server uploads or downloads. Results appear instantly, saving you valuable time.
+                      All image processing happens directly in your browser using advanced JavaScript and WebGL technology. There are no server queues, no waiting for uploads, and no processing delays. Results appear instantly, saving you valuable time and frustration. Even large files and batch operations complete in seconds.
                     </p>
                   </div>
                   <div className="bg-card rounded-xl p-5 sm:p-6 border border-border">
@@ -611,7 +765,7 @@ const HomePage = () => {
                     </div>
                     <h4 className="font-bold text-lg mb-2">Complete Privacy</h4>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      Your images never leave your device. Unlike cloud-based services that upload your files to remote servers, our tools process everything locally. Your photos, documents, and personal images remain completely private.
+                      Your images never leave your device. Unlike cloud-based services that upload your files to remote servers where they may be stored, analyzed, or accessed by third parties, our tools process everything locally. Your photos, documents, and personal images remain completely private and under your control.
                     </p>
                   </div>
                   <div className="bg-card rounded-xl p-5 sm:p-6 border border-border">
@@ -620,7 +774,7 @@ const HomePage = () => {
                     </div>
                     <h4 className="font-bold text-lg mb-2">Universal Access</h4>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      Access our tools from any device with a modern web browser. Works perfectly on Windows, Mac, Linux, iOS, Android, and Chrome OS. No installation required, no storage space consumed.
+                      Access our tools from any device with a modern web browser. Works perfectly on Windows, Mac, Linux, Chrome OS, iOS, and Android. No installation required, no storage space consumed, no updates to manage. Simply visit the website and start editing – it's that simple.
                     </p>
                   </div>
                   <div className="bg-card rounded-xl p-5 sm:p-6 border border-border">
@@ -629,25 +783,25 @@ const HomePage = () => {
                     </div>
                     <h4 className="font-bold text-lg mb-2">Professional Quality</h4>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      Our tools use the same algorithms found in professional software. High-quality compression, precise resizing, and accurate color processing ensure your images look their best.
+                      Our tools use the same advanced algorithms found in professional desktop software. High-quality compression that preserves visual fidelity, precise resizing with advanced interpolation, accurate color processing, and clean output files that meet professional standards for any purpose.
                     </p>
                   </div>
                   <div className="bg-card rounded-xl p-5 sm:p-6 border border-border">
                     <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
                       <Star className="w-6 h-6 text-primary" />
                     </div>
-                    <h4 className="font-bold text-lg mb-2">Completely Free</h4>
+                    <h4 className="font-bold text-lg mb-2">Completely Free Forever</h4>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      All tools are free to use without limitations. No registration required, no watermarks added, no daily limits. Use our tools as much as you need for personal or commercial projects.
+                      All tools are free to use without any limitations whatsoever. No registration required, no watermarks added, no daily limits, no feature restrictions. Use our tools as much as you need for personal projects, commercial work, or anything else – it's all free.
                     </p>
                   </div>
                   <div className="bg-card rounded-xl p-5 sm:p-6 border border-border">
                     <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
                       <TrendingUp className="w-6 h-6 text-primary" />
                     </div>
-                    <h4 className="font-bold text-lg mb-2">Regular Updates</h4>
+                    <h4 className="font-bold text-lg mb-2">Continuous Improvement</h4>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      We continuously improve our tools and add new features based on user feedback. Our development team stays updated with the latest web technologies to provide the best possible experience.
+                      We continuously improve our tools and add new features based on user feedback and technological advances. Our development team stays current with the latest web technologies to provide the best possible experience. Regular updates ensure you always have access to cutting-edge capabilities.
                     </p>
                   </div>
                 </div>
@@ -656,28 +810,30 @@ const HomePage = () => {
               {/* Who Uses Our Tools */}
               <div className="mb-10 sm:mb-12 md:mb-14">
                 <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 text-center">
-                  Who Uses Our Image Tools?
+                  Who Uses MultiTools?
                 </h3>
                 <div className="bg-card rounded-xl p-6 sm:p-8 border border-border">
                   <div className="grid sm:grid-cols-2 gap-6">
                     <div>
                       <h4 className="font-bold mb-3 text-lg">Professional Users</h4>
                       <ul className="space-y-2 text-muted-foreground">
-                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 bg-primary rounded-full mt-2"></span>Photographers who need quick batch processing</li>
-                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 bg-primary rounded-full mt-2"></span>Graphic designers working on web projects</li>
-                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 bg-primary rounded-full mt-2"></span>Web developers optimizing site performance</li>
-                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 bg-primary rounded-full mt-2"></span>Marketing teams creating social media content</li>
-                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 bg-primary rounded-full mt-2"></span>E-commerce businesses managing product images</li>
+                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 bg-primary rounded-full mt-2"></span>Photographers who need quick batch processing and format conversions</li>
+                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 bg-primary rounded-full mt-2"></span>Graphic designers preparing assets for web and print projects</li>
+                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 bg-primary rounded-full mt-2"></span>Web developers optimizing images for site performance</li>
+                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 bg-primary rounded-full mt-2"></span>Marketing teams creating social media content at scale</li>
+                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 bg-primary rounded-full mt-2"></span>E-commerce businesses managing product image libraries</li>
+                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 bg-primary rounded-full mt-2"></span>Real estate agents preparing property photos for listings</li>
                       </ul>
                     </div>
                     <div>
                       <h4 className="font-bold mb-3 text-lg">Personal Users</h4>
                       <ul className="space-y-2 text-muted-foreground">
-                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 bg-primary rounded-full mt-2"></span>Students preparing presentations and projects</li>
-                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 bg-primary rounded-full mt-2"></span>Bloggers optimizing images for their websites</li>
+                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 bg-primary rounded-full mt-2"></span>Students preparing presentations and school projects</li>
+                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 bg-primary rounded-full mt-2"></span>Bloggers optimizing images for faster website loading</li>
                         <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 bg-primary rounded-full mt-2"></span>Social media users creating perfect profile pictures</li>
-                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 bg-primary rounded-full mt-2"></span>Anyone sharing photos via email or messaging</li>
-                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 bg-primary rounded-full mt-2"></span>Home users organizing digital photo collections</li>
+                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 bg-primary rounded-full mt-2"></span>Anyone sharing photos via email or messaging apps</li>
+                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 bg-primary rounded-full mt-2"></span>Home users organizing and editing family photo collections</li>
+                        <li className="flex items-start gap-2"><span className="w-1.5 h-1.5 bg-primary rounded-full mt-2"></span>Privacy-conscious individuals removing metadata from images</li>
                       </ul>
                     </div>
                   </div>
@@ -692,27 +848,31 @@ const HomePage = () => {
                 <div className="space-y-4">
                   <div className="bg-card rounded-xl p-5 sm:p-6 border border-border">
                     <h4 className="font-bold mb-2">Is MultiTools really free to use?</h4>
-                    <p className="text-muted-foreground">Yes, all our tools are completely free with no hidden costs. We do not require registration, subscription, or payment. You can use any tool unlimited times without restrictions.</p>
+                    <p className="text-muted-foreground">Yes, all our tools are completely free with no hidden costs, subscription requirements, or premium tiers. We do not require registration, payment, or any personal information. You can use any tool unlimited times without restrictions of any kind.</p>
                   </div>
                   <div className="bg-card rounded-xl p-5 sm:p-6 border border-border">
                     <h4 className="font-bold mb-2">Are my images safe and private?</h4>
-                    <p className="text-muted-foreground">Absolutely. Your images are processed entirely in your browser and never uploaded to our servers. We have no access to your files, ensuring complete privacy and security for all your images.</p>
+                    <p className="text-muted-foreground">Absolutely. Your images are processed entirely in your browser and never uploaded to our servers. We have no access to your files whatsoever, ensuring complete privacy and security for all your images. This is a fundamental design principle of our platform.</p>
                   </div>
                   <div className="bg-card rounded-xl p-5 sm:p-6 border border-border">
                     <h4 className="font-bold mb-2">What image formats are supported?</h4>
-                    <p className="text-muted-foreground">We support all major image formats including JPG, JPEG, PNG, WebP, GIF, BMP, TIFF, SVG, HEIC, and RAW files. Our converters can transform images between these formats seamlessly.</p>
+                    <p className="text-muted-foreground">We support all major image formats including JPG/JPEG, PNG, WebP, GIF, BMP, TIFF, SVG, HEIC (iPhone photos), and various RAW formats. Our converters can seamlessly transform images between any of these formats with professional-quality results.</p>
                   </div>
                   <div className="bg-card rounded-xl p-5 sm:p-6 border border-border">
                     <h4 className="font-bold mb-2">Do I need to install any software?</h4>
-                    <p className="text-muted-foreground">No installation is required. All tools work directly in your web browser. Simply visit the tool page, upload your image, and get results instantly. Works on any device with a modern browser.</p>
+                    <p className="text-muted-foreground">No installation is required. All tools work directly in your web browser using modern web technologies. Simply visit the tool page, upload your image, and get results instantly. Works on any device with a modern browser including phones, tablets, and computers.</p>
                   </div>
                   <div className="bg-card rounded-xl p-5 sm:p-6 border border-border">
                     <h4 className="font-bold mb-2">Can I use these tools for commercial purposes?</h4>
-                    <p className="text-muted-foreground">Yes, you can use our tools for both personal and commercial projects without any restrictions. There are no watermarks or usage limitations on the processed images.</p>
+                    <p className="text-muted-foreground">Yes, you can use our tools for both personal and commercial projects without any restrictions. There are no watermarks added to processed images, no usage limitations, and no licensing requirements. Use them freely for any purpose.</p>
                   </div>
                   <div className="bg-card rounded-xl p-5 sm:p-6 border border-border">
                     <h4 className="font-bold mb-2">How do I get the best compression results?</h4>
-                    <p className="text-muted-foreground">For photos, use JPEG compression at 70-80% quality for optimal file size reduction while maintaining visual quality. For graphics with transparency, use PNG. For web optimization, consider converting to WebP format.</p>
+                    <p className="text-muted-foreground">For photographs, use JPEG compression at 70-80% quality for optimal balance between file size and visual quality. For graphics with transparency, use PNG. For best web optimization, convert to WebP format which offers superior compression for both photos and graphics.</p>
+                  </div>
+                  <div className="bg-card rounded-xl p-5 sm:p-6 border border-border">
+                    <h4 className="font-bold mb-2">Is there a file size limit?</h4>
+                    <p className="text-muted-foreground">Our tools can handle very large files, though processing time depends on your device's capabilities. Most operations on files up to 50MB complete within seconds on modern devices. For extremely large files, we recommend processing on a desktop computer for best performance.</p>
                   </div>
                 </div>
               </div>
@@ -723,13 +883,13 @@ const HomePage = () => {
                   Start Using MultiTools Today
                 </h3>
                 <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-                  Join millions of users who trust MultiTools for their image editing needs. Our comprehensive suite of free tools is constantly growing to serve you better. No signup required - just pick a tool and start creating.
+                  Join millions of users who trust MultiTools for their image editing needs. Our comprehensive suite of free tools is constantly growing to serve you better. No signup required, no payment needed – just pick a tool and start creating professional-quality images in seconds.
                 </p>
                 <Link 
                   to="/all-tools"
                   className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-xl bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-colors text-base sm:text-lg"
                 >
-                  Explore All Tools
+                  Explore All 85+ Tools
                   <ArrowRight className="w-5 h-5" />
                 </Link>
               </div>
