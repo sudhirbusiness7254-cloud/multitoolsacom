@@ -34,7 +34,6 @@ import ImageDrawingPage from "./pages/categories/ImageDrawingPage";
 import ImageSecurityPage from "./pages/categories/ImageSecurityPage";
 import ImageQRPage from "./pages/categories/ImageQRPage";
 import PDFToolsPage from "./pages/categories/PDFToolsPage";
-import FacebookToolsPage from "./pages/categories/FacebookToolsPage";
 
 import ImageEditorPage from "./pages/ImageEditorPage";
 import PDFToolPage from "./pages/tools/PDFToolPage";
@@ -81,7 +80,6 @@ const App = () => (
             <Route path="/image-security" element={<ImageSecurityPage />} />
             <Route path="/image-qr" element={<ImageQRPage />} />
             <Route path="/pdf-tools" element={<PDFToolsPage />} />
-            <Route path="/facebook-tools" element={<FacebookToolsPage />} />
             
             {/* PDF Tool Pages */}
             <Route path="/merge-pdf" element={<PDFToolPage />} />
