@@ -60,63 +60,63 @@ const UniversalImageSecurity = ({ initialMode = "blur" }: UniversalImageSecurity
     }
   }, [imageUrl]);
 
-  const getCanvasCoords = useCallback((e: React.MouseEvent<HTMLCanvasElement> | React.TouchEvent<HTMLCanvasElement>) => {
+  const getCanvasCoords = useCallback((e: React.PointerEvent<HTMLCanvasElement>) => {
     const canvas = canvasRef.current;
     if (!canvas) return { x: 0, y: 0 };
+
     const rect = canvas.getBoundingClientRect();
     const scaleX = canvas.width / rect.width;
     const scaleY = canvas.height / rect.height;
-    
-    // Handle both mouse and touch events
-    let clientX: number, clientY: number;
-    if ('touches' in e) {
-      const touch = e.touches[0] || e.changedTouches[0];
-      clientX = touch.clientX;
-      clientY = touch.clientY;
-    } else {
-      clientX = e.clientX;
-      clientY = e.clientY;
-    }
-    
+
     return {
-      x: (clientX - rect.left) * scaleX,
-      y: (clientY - rect.top) * scaleY,
+      x: (e.clientX - rect.left) * scaleX,
+      y: (e.clientY - rect.top) * scaleY,
     };
   }, []);
 
-  const startSelection = useCallback((e: React.MouseEvent<HTMLCanvasElement> | React.TouchEvent<HTMLCanvasElement>) => {
-    e.preventDefault();
-    if (mode === "encrypt" || mode === "decrypt") return;
-    const pos = getCanvasCoords(e);
-    startPos.current = pos;
-    setIsDrawing(true);
-  }, [mode, getCanvasCoords]);
+  const startSelection = useCallback(
+    (e: React.PointerEvent<HTMLCanvasElement>) => {
+      e.preventDefault();
+      if (mode === "encrypt" || mode === "decrypt") return;
 
-  const updateSelection = useCallback((e: React.MouseEvent<HTMLCanvasElement> | React.TouchEvent<HTMLCanvasElement>) => {
-    e.preventDefault();
-    if (!isDrawing) return;
-    const pos = getCanvasCoords(e);
-    const x = Math.min(startPos.current.x, pos.x);
-    const y = Math.min(startPos.current.y, pos.y);
-    const w = Math.abs(pos.x - startPos.current.x);
-    const h = Math.abs(pos.y - startPos.current.y);
-    setSelection({ x, y, w, h });
+      canvasRef.current?.setPointerCapture(e.pointerId);
+      const pos = getCanvasCoords(e);
+      startPos.current = pos;
+      setIsDrawing(true);
+    },
+    [mode, getCanvasCoords]
+  );
 
-    // Redraw image and selection box
-    if (canvasRef.current && originalImageRef.current) {
-      const ctx = canvasRef.current.getContext("2d");
-      if (!ctx) return;
-      ctx.drawImage(originalImageRef.current, 0, 0);
-      ctx.strokeStyle = "#ff0000";
-      ctx.lineWidth = 2;
-      ctx.setLineDash([5, 5]);
-      ctx.strokeRect(x, y, w, h);
-      ctx.setLineDash([]);
-    }
-  }, [isDrawing, getCanvasCoords]);
+  const updateSelection = useCallback(
+    (e: React.PointerEvent<HTMLCanvasElement>) => {
+      e.preventDefault();
+      if (!isDrawing) return;
 
-  const endSelection = useCallback((e: React.MouseEvent<HTMLCanvasElement> | React.TouchEvent<HTMLCanvasElement>) => {
+      const pos = getCanvasCoords(e);
+      const x = Math.min(startPos.current.x, pos.x);
+      const y = Math.min(startPos.current.y, pos.y);
+      const w = Math.abs(pos.x - startPos.current.x);
+      const h = Math.abs(pos.y - startPos.current.y);
+      setSelection({ x, y, w, h });
+
+      // Redraw image and selection box
+      if (canvasRef.current && originalImageRef.current) {
+        const ctx = canvasRef.current.getContext("2d");
+        if (!ctx) return;
+        ctx.drawImage(originalImageRef.current, 0, 0);
+        ctx.strokeStyle = "#ff0000";
+        ctx.lineWidth = 2;
+        ctx.setLineDash([5, 5]);
+        ctx.strokeRect(x, y, w, h);
+        ctx.setLineDash([]);
+      }
+    },
+    [isDrawing, getCanvasCoords]
+  );
+
+  const endSelection = useCallback((e: React.PointerEvent<HTMLCanvasElement>) => {
     e.preventDefault();
+    canvasRef.current?.releasePointerCapture(e.pointerId);
     setIsDrawing(false);
   }, []);
 
@@ -359,19 +359,16 @@ const UniversalImageSecurity = ({ initialMode = "blur" }: UniversalImageSecurity
 
           {/* Canvas */}
           <div className="relative bg-secondary/50 rounded-xl overflow-hidden flex items-center justify-center touch-none">
-            <canvas
-              ref={canvasRef}
-              onMouseDown={startSelection}
-              onMouseMove={updateSelection}
-              onMouseUp={endSelection}
-              onMouseLeave={endSelection}
-              onTouchStart={startSelection}
-              onTouchMove={updateSelection}
-              onTouchEnd={endSelection}
-              onTouchCancel={endSelection}
-              className="max-w-full max-h-[400px] sm:max-h-[500px] cursor-crosshair"
-              style={{ touchAction: "none" }}
-            />
+              <canvas
+                ref={canvasRef}
+                onPointerDown={startSelection}
+                onPointerMove={updateSelection}
+                onPointerUp={endSelection}
+                onPointerCancel={endSelection}
+                onPointerLeave={endSelection}
+                className="max-w-full max-h-[400px] sm:max-h-[500px] cursor-crosshair"
+                style={{ touchAction: "none" }}
+              />
             {isProcessing && (
               <div className="absolute inset-0 bg-background/80 flex items-center justify-center">
                 <div className="flex flex-col items-center gap-2">
