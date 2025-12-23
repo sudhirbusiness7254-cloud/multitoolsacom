@@ -80,105 +80,112 @@ const UniversalImageDrawing = ({ initialTool = "pen" }: UniversalImageDrawingPro
     setHistory(newHistory);
   };
 
-  const getCanvasCoords = useCallback((e: React.MouseEvent<HTMLCanvasElement> | React.TouchEvent<HTMLCanvasElement>) => {
+  const getCanvasCoords = useCallback((e: React.PointerEvent<HTMLCanvasElement>) => {
     const canvas = canvasRef.current;
     if (!canvas) return { x: 0, y: 0 };
+
     const rect = canvas.getBoundingClientRect();
     const scaleX = canvas.width / rect.width;
     const scaleY = canvas.height / rect.height;
-    
-    // Handle both mouse and touch events
-    let clientX: number, clientY: number;
-    if ('touches' in e) {
-      const touch = e.touches[0] || e.changedTouches[0];
-      clientX = touch.clientX;
-      clientY = touch.clientY;
-    } else {
-      clientX = e.clientX;
-      clientY = e.clientY;
-    }
-    
+
     return {
-      x: (clientX - rect.left) * scaleX,
-      y: (clientY - rect.top) * scaleY,
+      x: (e.clientX - rect.left) * scaleX,
+      y: (e.clientY - rect.top) * scaleY,
     };
   }, []);
 
-  const startDrawing = useCallback((e: React.MouseEvent<HTMLCanvasElement> | React.TouchEvent<HTMLCanvasElement>) => {
-    e.preventDefault();
-    const pos = getCanvasCoords(e);
-    startPos.current = pos;
-    setIsDrawing(true);
+  const startDrawing = useCallback(
+    (e: React.PointerEvent<HTMLCanvasElement>) => {
+      e.preventDefault();
+      canvasRef.current?.setPointerCapture(e.pointerId);
 
-    if (tool === "pen" || tool === "eraser") {
+      const pos = getCanvasCoords(e);
+      startPos.current = pos;
+      setIsDrawing(true);
+
+      if (tool === "pen" || tool === "eraser") {
+        const ctx = canvasRef.current?.getContext("2d");
+        if (!ctx) return;
+        ctx.beginPath();
+        ctx.moveTo(pos.x, pos.y);
+      }
+
+      if (tool === "text") {
+        const ctx = canvasRef.current?.getContext("2d");
+        if (!ctx) return;
+        ctx.font = `${brushSize * 4}px Arial`;
+        ctx.fillStyle = color;
+        ctx.fillText(text, pos.x, pos.y);
+        saveState();
+      }
+    },
+    [tool, color, brushSize, text, getCanvasCoords]
+  );
+
+  const draw = useCallback(
+    (e: React.PointerEvent<HTMLCanvasElement>) => {
+      e.preventDefault();
+      if (!isDrawing) return;
+
+      const pos = getCanvasCoords(e);
       const ctx = canvasRef.current?.getContext("2d");
       if (!ctx) return;
-      ctx.beginPath();
-      ctx.moveTo(pos.x, pos.y);
-    }
 
-    if (tool === "text") {
+      if (tool === "pen") {
+        ctx.strokeStyle = color;
+        ctx.lineWidth = brushSize;
+        ctx.lineCap = "round";
+        ctx.lineJoin = "round";
+        ctx.lineTo(pos.x, pos.y);
+        ctx.stroke();
+      } else if (tool === "eraser") {
+        // Better eraser: actually removes pixels instead of painting white
+        ctx.save();
+        ctx.globalCompositeOperation = "destination-out";
+        ctx.strokeStyle = "rgba(0,0,0,1)";
+        ctx.lineWidth = brushSize * 2;
+        ctx.lineCap = "round";
+        ctx.lineJoin = "round";
+        ctx.lineTo(pos.x, pos.y);
+        ctx.stroke();
+        ctx.restore();
+      }
+    },
+    [isDrawing, tool, color, brushSize, getCanvasCoords]
+  );
+
+  const stopDrawing = useCallback(
+    (e: React.PointerEvent<HTMLCanvasElement>) => {
+      e.preventDefault();
+      canvasRef.current?.releasePointerCapture(e.pointerId);
+      if (!isDrawing) return;
+      setIsDrawing(false);
+
+      const pos = getCanvasCoords(e);
       const ctx = canvasRef.current?.getContext("2d");
       if (!ctx) return;
-      ctx.font = `${brushSize * 4}px Arial`;
-      ctx.fillStyle = color;
-      ctx.fillText(text, pos.x, pos.y);
+
+      if (tool === "rectangle") {
+        ctx.strokeStyle = color;
+        ctx.lineWidth = brushSize;
+        const width = pos.x - startPos.current.x;
+        const height = pos.y - startPos.current.y;
+        ctx.strokeRect(startPos.current.x, startPos.current.y, width, height);
+      } else if (tool === "circle") {
+        ctx.strokeStyle = color;
+        ctx.lineWidth = brushSize;
+        const radius = Math.sqrt(
+          Math.pow(pos.x - startPos.current.x, 2) + Math.pow(pos.y - startPos.current.y, 2)
+        );
+        ctx.beginPath();
+        ctx.arc(startPos.current.x, startPos.current.y, radius, 0, Math.PI * 2);
+        ctx.stroke();
+      }
+
       saveState();
-    }
-  }, [tool, color, brushSize, text, getCanvasCoords]);
-
-  const draw = useCallback((e: React.MouseEvent<HTMLCanvasElement> | React.TouchEvent<HTMLCanvasElement>) => {
-    e.preventDefault();
-    if (!isDrawing) return;
-    const pos = getCanvasCoords(e);
-    const ctx = canvasRef.current?.getContext("2d");
-    if (!ctx) return;
-
-    if (tool === "pen") {
-      ctx.strokeStyle = color;
-      ctx.lineWidth = brushSize;
-      ctx.lineCap = "round";
-      ctx.lineJoin = "round";
-      ctx.lineTo(pos.x, pos.y);
-      ctx.stroke();
-    } else if (tool === "eraser") {
-      ctx.strokeStyle = "#ffffff";
-      ctx.lineWidth = brushSize * 2;
-      ctx.lineCap = "round";
-      ctx.lineJoin = "round";
-      ctx.lineTo(pos.x, pos.y);
-      ctx.stroke();
-    }
-  }, [isDrawing, tool, color, brushSize, getCanvasCoords]);
-
-  const stopDrawing = useCallback((e: React.MouseEvent<HTMLCanvasElement> | React.TouchEvent<HTMLCanvasElement>) => {
-    e.preventDefault();
-    if (!isDrawing) return;
-    setIsDrawing(false);
-
-    const pos = getCanvasCoords(e);
-    const ctx = canvasRef.current?.getContext("2d");
-    if (!ctx) return;
-
-    if (tool === "rectangle") {
-      ctx.strokeStyle = color;
-      ctx.lineWidth = brushSize;
-      const width = pos.x - startPos.current.x;
-      const height = pos.y - startPos.current.y;
-      ctx.strokeRect(startPos.current.x, startPos.current.y, width, height);
-    } else if (tool === "circle") {
-      ctx.strokeStyle = color;
-      ctx.lineWidth = brushSize;
-      const radius = Math.sqrt(
-        Math.pow(pos.x - startPos.current.x, 2) + Math.pow(pos.y - startPos.current.y, 2)
-      );
-      ctx.beginPath();
-      ctx.arc(startPos.current.x, startPos.current.y, radius, 0, Math.PI * 2);
-      ctx.stroke();
-    }
-
-    saveState();
-  }, [isDrawing, tool, color, brushSize, getCanvasCoords]);
+    },
+    [isDrawing, tool, color, brushSize, getCanvasCoords]
+  );
 
   const handleDownload = () => {
     if (!canvasRef.current) return;
@@ -258,14 +265,11 @@ const UniversalImageDrawing = ({ initialTool = "pen" }: UniversalImageDrawingPro
           <div className="relative bg-secondary/50 rounded-xl overflow-hidden flex items-center justify-center touch-none">
             <canvas
               ref={canvasRef}
-              onMouseDown={startDrawing}
-              onMouseMove={draw}
-              onMouseUp={stopDrawing}
-              onMouseLeave={stopDrawing}
-              onTouchStart={startDrawing}
-              onTouchMove={draw}
-              onTouchEnd={stopDrawing}
-              onTouchCancel={stopDrawing}
+              onPointerDown={startDrawing}
+              onPointerMove={draw}
+              onPointerUp={stopDrawing}
+              onPointerCancel={stopDrawing}
+              onPointerLeave={stopDrawing}
               className="max-w-full max-h-[400px] sm:max-h-[500px] cursor-crosshair"
               style={{ touchAction: "none" }}
             />
