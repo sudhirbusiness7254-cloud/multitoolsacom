@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ImageConverter from "@/components/ImageConverter";
+import { conversionArticles } from "@/data/conversionArticlesData";
 import {
   Image, 
   Zap, 
@@ -17,7 +18,8 @@ import {
   Lock,
   Users,
   Star,
-  Sparkles
+  Sparkles,
+  ArrowRight
 } from "lucide-react";
 import {
   Accordion,
@@ -282,6 +284,73 @@ const ImageConverterPage = () => {
               <ImageConverter preselectedConversion={preselectedFormat} />
             </div>
           </section>
+
+          {/* Format-Specific Article Section (when specific conversion is selected) */}
+          {activeConversion && conversionArticles[activeConversion] && (
+            <section className="py-12 md:py-20 px-4 bg-gradient-to-b from-primary/5 to-transparent">
+              <div className="container mx-auto max-w-4xl">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-orange-500 flex items-center justify-center">
+                    <FileImage className="w-5 h-5 text-white" />
+                  </div>
+                  <h2 className="text-2xl md:text-3xl font-bold">
+                    About {meta.fromFormat.toUpperCase()} to {meta.toFormat.toUpperCase()} Conversion
+                  </h2>
+                </div>
+                
+                <div className="bg-card rounded-2xl border border-border p-6 sm:p-8 space-y-6">
+                  <p className="text-muted-foreground leading-relaxed text-lg">
+                    {conversionArticles[activeConversion].about}
+                  </p>
+                  
+                  <div className="bg-primary/10 border border-primary/20 rounded-xl p-5">
+                    <h3 className="font-semibold text-lg mb-3 flex items-center gap-2">
+                      <Lightbulb className="w-5 h-5 text-primary" />
+                      Why Convert {meta.fromFormat.toUpperCase()} to {meta.toFormat.toUpperCase()}?
+                    </h3>
+                    <p className="text-muted-foreground">{conversionArticles[activeConversion].whyConvert}</p>
+                  </div>
+                  
+                  <div className="bg-secondary/50 rounded-xl p-5">
+                    <h3 className="font-semibold text-lg mb-3">Technical Details</h3>
+                    <p className="text-muted-foreground text-sm">{conversionArticles[activeConversion].technicalDetails}</p>
+                  </div>
+                  
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h3 className="font-semibold text-lg mb-4 flex items-center gap-2">
+                        <ArrowRight className="w-5 h-5 text-primary" />
+                        Common Use Cases
+                      </h3>
+                      <ul className="space-y-2">
+                        {conversionArticles[activeConversion].useCases.map((useCase, i) => (
+                          <li key={i} className="flex items-start gap-3">
+                            <CheckCircle className="w-4 h-4 flex-shrink-0 mt-1 text-primary" />
+                            <span className="text-sm text-muted-foreground">{useCase}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h3 className="font-semibold text-lg mb-4 flex items-center gap-2">
+                        <Star className="w-5 h-5 text-primary" />
+                        Key Benefits
+                      </h3>
+                      <ul className="space-y-2">
+                        {conversionArticles[activeConversion].benefits.map((benefit, i) => (
+                          <li key={i} className="flex items-start gap-3">
+                            <CheckCircle className="w-4 h-4 flex-shrink-0 mt-1 text-green-500" />
+                            <span className="text-sm text-muted-foreground">{benefit}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          )}
 
           {/* Comprehensive About Section - 700+ words */}
           <section className="py-12 md:py-20 px-4">
