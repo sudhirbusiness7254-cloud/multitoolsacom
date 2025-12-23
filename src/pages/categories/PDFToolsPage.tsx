@@ -2,8 +2,17 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { FileText, Minimize2, FileUp, Image, Scissors, Zap, Shield, Globe, Download } from "lucide-react";
+import { 
+  FileText, Minimize2, FileUp, Image, Scissors, Zap, Shield, Globe, Download,
+  BookOpen, Lightbulb, HelpCircle, Lock, Users, CheckCircle, Sparkles, Star
+} from "lucide-react";
 import UniversalPDFTools from "@/components/pdf/UniversalPDFTools";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const pdfTools = [
   { slug: "merge-pdf", name: "Merge PDF", description: "Combine multiple PDF files into one", icon: FileText, color: "from-red-500 to-red-600" },
@@ -14,12 +23,51 @@ const pdfTools = [
 ];
 
 const PDFToolsPage = () => {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is it safe to upload my PDFs?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, your files are processed securely in your browser and are never uploaded to our servers. They are automatically deleted after processing."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are these PDF tools really free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, all PDF tools are 100% free with no hidden costs, watermarks, or registration required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What file formats are supported?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We support PDF files for most operations, Word documents (DOC, DOCX) for conversion, and common image formats (JPG, PNG, WEBP, GIF) for image to PDF conversion."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I merge PDFs with different page sizes?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, our merge tool can combine PDFs with different page sizes into a single document while preserving each page's original dimensions and formatting."
+        }
+      }
+    ]
+  };
+
   return (
     <>
       <Helmet>
         <title>PDF Tools - Free Online PDF Editor & Converter | MultiTools</title>
         <meta name="description" content="Free online PDF tools: merge, compress, split PDFs, convert Word to PDF, and more. Fast, secure, no signup required." />
-        <link rel="canonical" href="https://multitools.app/pdf-tools" />
+        <link rel="canonical" href="https://multitools.com/pdf-tools" />
         <meta property="og:title" content="PDF Tools - Free Online PDF Editor & Converter" />
         <meta property="og:description" content="All-in-one PDF tools: merge, compress, split, convert. 100% free, no signup required." />
         <meta property="og:type" content="website" />
@@ -29,11 +77,14 @@ const PDFToolsPage = () => {
             "@type": "WebApplication",
             "name": "PDF Tools",
             "description": "Free online PDF tools for merging, compressing, splitting, and converting PDFs",
-            "url": "https://multitools.app/pdf-tools",
+            "url": "https://multitools.com/pdf-tools",
             "applicationCategory": "UtilitiesApplication",
             "operatingSystem": "Web Browser",
             "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
           })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(faqSchema)}
         </script>
       </Helmet>
       
@@ -64,17 +115,159 @@ const PDFToolsPage = () => {
             </div>
           </section>
 
-          {/* Features Section */}
-          <section className="py-12 px-4">
+          {/* Comprehensive About Section - 700+ words */}
+          <section className="py-12 md:py-20 px-4">
+            <div className="container mx-auto max-w-4xl">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center">
+                  <BookOpen className="w-5 h-5 text-white" />
+                </div>
+                <h2 className="text-2xl md:text-3xl font-bold">About Our PDF Tools</h2>
+              </div>
+              
+              <div className="bg-card rounded-2xl border border-border p-6 sm:p-8 space-y-6">
+                <p className="text-muted-foreground leading-relaxed">
+                  Welcome to our comprehensive suite of online PDF tools, the ultimate solution for all your PDF document management needs. In today's digital workplace, PDF files have become the universal standard for sharing documents, contracts, reports, presentations, and countless other important files. Our platform provides a complete set of tools designed to help you work with PDFs efficiently, securely, and without the need for expensive software subscriptions or complex desktop applications.
+                </p>
+                
+                <p className="text-muted-foreground leading-relaxed">
+                  The Portable Document Format (PDF) was created by Adobe in 1993 and has since become the gold standard for document sharing across industries, platforms, and devices. PDFs preserve the exact layout, fonts, and formatting of documents regardless of the software, hardware, or operating system used to view them. This reliability makes PDFs indispensable for business contracts, legal documents, academic papers, user manuals, and official publications. However, working with PDFs has traditionally required specialized and often expensive software. Our free online tools eliminate this barrier, putting professional PDF capabilities in the hands of everyone.
+                </p>
+                
+                <p className="text-muted-foreground leading-relaxed">
+                  Our PDF toolkit includes five essential tools that cover the most common PDF operations. The Merge PDF tool allows you to combine multiple PDF documents into a single file, perfect for consolidating reports, creating comprehensive portfolios, or assembling multi-chapter documents from separate files. The Compress PDF tool reduces file sizes significantly without noticeable quality loss, making it easier to share documents via email, upload to websites, or store in cloud services with limited space. The Split PDF tool enables you to extract specific pages or page ranges from larger documents, ideal for sharing relevant sections without distributing entire files. The Word to PDF converter transforms Microsoft Word documents into professional PDF format while preserving all formatting, fonts, and layout elements. Finally, the Image to PDF tool converts photographs, scans, and graphics into PDF documents, perfect for creating professional presentations or archiving visual content.
+                </p>
+                
+                <p className="text-muted-foreground leading-relaxed">
+                  What sets our PDF tools apart is our unwavering commitment to user privacy and data security. Unlike many online PDF services that upload your files to remote servers for processing, our tools utilize advanced browser-based technology to perform all operations directly on your device. This means your sensitive documents, confidential contracts, personal files, and private information never leave your computer. The processing happens entirely within your web browser using sophisticated JavaScript libraries and WebAssembly modules, ensuring both speed and security. This architecture is particularly valuable for professionals handling sensitive materials such as lawyers working with client documents, healthcare providers managing patient records, financial advisors processing confidential statements, or businesses protecting proprietary information.
+                </p>
+                
+                <p className="text-muted-foreground leading-relaxed">
+                  The technology powering our PDF tools represents the cutting edge of browser-based document processing. We utilize the pdf-lib library for PDF manipulation, which provides reliable, cross-platform PDF operations without server dependencies. For Word to PDF conversion, we employ mammoth.js to accurately parse Word documents while preserving formatting elements. Our compression algorithms intelligently balance file size reduction with quality preservation, ensuring your documents remain professional and readable. All these technologies work together seamlessly to provide a fast, reliable, and user-friendly experience that rivals desktop software costing hundreds of dollars.
+                </p>
+                
+                <p className="text-muted-foreground leading-relaxed">
+                  Our PDF tools serve a diverse range of users across various industries and use cases. Business professionals use our tools to merge quarterly reports, compress large presentations for email distribution, and convert proposals from Word to PDF for client delivery. Students rely on our platform to combine research materials, compress assignments for submission, and convert notes to PDF for easier sharing with classmates. Legal professionals use our tools to merge case documents, extract relevant pages for court filings, and ensure confidential materials are processed securely. Real estate agents combine property documents, compress photo-heavy listings, and create professional PDF packages for clients. Teachers and educators merge lesson materials, create PDF handouts from Word documents, and compile educational resources. The versatility of our tools makes them valuable for virtually anyone who works with documents.
+                </p>
+                
+                <p className="text-muted-foreground leading-relaxed">
+                  We have designed our user interface with simplicity and efficiency as primary goals. Every tool features an intuitive drag-and-drop interface that requires no learning curve or technical expertise. Simply drag your files onto the designated area, configure any desired options, and click a single button to process your documents. The results are available for immediate download, and you can process additional files without refreshing the page. Our responsive design ensures a seamless experience across all devices, from desktop computers with large monitors to smartphones and tablets, allowing you to work with PDFs wherever you are.
+                </p>
+
+                <div className="grid sm:grid-cols-2 gap-4 pt-4">
+                  <div className="flex items-start gap-3">
+                    <Zap className="w-5 h-5 flex-shrink-0 mt-0.5 text-red-500" />
+                    <div>
+                      <h4 className="font-semibold text-sm">Instant Processing</h4>
+                      <p className="text-xs text-muted-foreground">Process PDFs in seconds with client-side technology</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Globe className="w-5 h-5 flex-shrink-0 mt-0.5 text-red-500" />
+                    <div>
+                      <h4 className="font-semibold text-sm">Universal Compatibility</h4>
+                      <p className="text-xs text-muted-foreground">Works on all modern browsers and devices</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Lock className="w-5 h-5 flex-shrink-0 mt-0.5 text-red-500" />
+                    <div>
+                      <h4 className="font-semibold text-sm">Complete Privacy</h4>
+                      <p className="text-xs text-muted-foreground">Your files never leave your device</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Users className="w-5 h-5 flex-shrink-0 mt-0.5 text-red-500" />
+                    <div>
+                      <h4 className="font-semibold text-sm">No Registration</h4>
+                      <p className="text-xs text-muted-foreground">Start using immediately without an account</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* How to Use Section */}
+          <section className="py-12 md:py-20 bg-secondary/30 px-4">
+            <div className="container mx-auto max-w-4xl">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center">
+                  <Lightbulb className="w-5 h-5 text-white" />
+                </div>
+                <h2 className="text-2xl md:text-3xl font-bold">How to Use PDF Tools</h2>
+              </div>
+              
+              <div className="bg-card rounded-2xl border border-border p-6 sm:p-8 mb-6">
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  Using our PDF tools is incredibly straightforward. We have designed the entire experience to be intuitive for users of all technical skill levels. Follow these comprehensive steps to work with your PDF documents efficiently and achieve professional results every time.
+                </p>
+
+                <div className="space-y-4">
+                  {[
+                    { step: 1, title: "Select Your Tool", desc: "Choose the appropriate tool for your task from our toolbar. Whether you need to merge multiple PDFs, compress a large file, split pages, convert from Word, or create a PDF from images, we have you covered." },
+                    { step: 2, title: "Upload Your Files", desc: "Drag and drop your PDF or document files directly onto the upload area, or click to browse and select files from your device. For merge operations, you can add multiple files and reorder them as needed." },
+                    { step: 3, title: "Configure Options", desc: "Depending on the tool, you may have additional options to configure. For compression, choose your quality level. For splitting, specify which pages to extract. For merging, arrange files in your preferred order." },
+                    { step: 4, title: "Process Your Files", desc: "Click the process button to start the operation. All processing happens instantly in your browser using advanced algorithms. Watch the progress indicator for larger files." },
+                    { step: 5, title: "Download Results", desc: "Once processing is complete, download your new PDF file. The file is ready for immediate use - share, print, or archive as needed. You can process additional files without refreshing the page." }
+                  ].map((item) => (
+                    <div key={item.step} className="flex gap-4 items-start">
+                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center text-white font-bold flex-shrink-0">
+                        {item.step}
+                      </div>
+                      <div className="flex-1 bg-secondary/50 rounded-xl p-4">
+                        <h3 className="font-semibold mb-1">{item.title}</h3>
+                        <p className="text-sm text-muted-foreground">{item.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="bg-red-500/10 border border-red-500/20 rounded-2xl p-6">
+                <h3 className="font-semibold text-lg mb-4 flex items-center gap-2">
+                  <Star className="w-5 h-5 text-red-500" />
+                  Pro Tips for Best Results
+                </h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5 text-red-500" />
+                    <span className="text-sm text-muted-foreground">When merging PDFs, organize your files in the correct order before processing to save time.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5 text-red-500" />
+                    <span className="text-sm text-muted-foreground">For compression, start with medium quality and adjust as needed to balance file size and visual quality.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5 text-red-500" />
+                    <span className="text-sm text-muted-foreground">Always keep a backup of your original PDF files before performing irreversible operations.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5 text-red-500" />
+                    <span className="text-sm text-muted-foreground">For Word to PDF conversion, ensure your Word document is properly formatted before converting.</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          {/* Why Use Our Tools Section */}
+          <section className="py-12 md:py-20 px-4">
             <div className="container mx-auto max-w-5xl">
-              <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">Why Use Our PDF Tools?</h2>
+              <div className="flex items-center gap-3 mb-8 justify-center">
+                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center">
+                  <Sparkles className="w-5 h-5 text-white" />
+                </div>
+                <h2 className="text-2xl md:text-3xl font-bold">Why Use Our PDF Tools?</h2>
+              </div>
+              
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div className="bg-card border border-border rounded-xl p-6 text-center">
                   <div className="w-12 h-12 rounded-full bg-green-500/10 flex items-center justify-center mx-auto mb-4">
                     <Download className="w-6 h-6 text-green-500" />
                   </div>
                   <h3 className="font-semibold mb-2">100% Free</h3>
-                  <p className="text-sm text-muted-foreground">All tools are completely free with no hidden costs or watermarks.</p>
+                  <p className="text-sm text-muted-foreground">All tools are completely free with no hidden costs, watermarks, or file limits.</p>
                 </div>
                 <div className="bg-card border border-border rounded-xl p-6 text-center">
                   <div className="w-12 h-12 rounded-full bg-blue-500/10 flex items-center justify-center mx-auto mb-4">
@@ -101,8 +294,41 @@ const PDFToolsPage = () => {
             </div>
           </section>
 
+          {/* Benefits Section */}
+          <section className="py-12 md:py-20 bg-secondary/30 px-4">
+            <div className="container mx-auto max-w-5xl">
+              <div className="flex items-center gap-3 mb-8 justify-center">
+                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center">
+                  <CheckCircle className="w-5 h-5 text-white" />
+                </div>
+                <h2 className="text-2xl md:text-3xl font-bold">Key Benefits</h2>
+              </div>
+
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {[
+                  "Merge unlimited PDF files into one document",
+                  "Compress PDFs by up to 80% without quality loss",
+                  "Extract specific pages from any PDF",
+                  "Convert Word documents while preserving formatting",
+                  "Create PDFs from multiple image formats",
+                  "Process files instantly in your browser",
+                  "No software installation required",
+                  "Works offline after page loads",
+                  "Mobile-friendly responsive interface"
+                ].map((benefit, i) => (
+                  <div key={i} className="bg-card rounded-xl p-4 border border-border flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center flex-shrink-0 text-white font-bold text-sm">
+                      {i + 1}
+                    </div>
+                    <span className="text-sm text-muted-foreground pt-1">{benefit}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
           {/* All Tools Grid */}
-          <section className="py-12 px-4 bg-secondary/30">
+          <section className="py-12 px-4">
             <div className="container mx-auto max-w-5xl">
               <h2 className="text-2xl font-bold text-center mb-8">All PDF Tools</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -125,24 +351,121 @@ const PDFToolsPage = () => {
             </div>
           </section>
 
-          {/* FAQ Section */}
-          <section className="py-12 px-4">
-            <div className="container mx-auto max-w-3xl">
-              <h2 className="text-2xl font-bold text-center mb-8">Frequently Asked Questions</h2>
-              <div className="space-y-4">
-                <div className="bg-card border border-border rounded-xl p-6">
-                  <h3 className="font-semibold mb-2">Is it safe to upload my PDFs?</h3>
-                  <p className="text-muted-foreground">Yes, your files are processed securely in your browser and are never uploaded to our servers. They are automatically deleted after processing.</p>
+          {/* Privacy & Security Section */}
+          <section className="py-12 md:py-20 bg-secondary/30 px-4">
+            <div className="container mx-auto max-w-4xl">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center">
+                  <Shield className="w-5 h-5 text-white" />
                 </div>
-                <div className="bg-card border border-border rounded-xl p-6">
-                  <h3 className="font-semibold mb-2">Are these tools really free?</h3>
-                  <p className="text-muted-foreground">Yes, all PDF tools are 100% free with no hidden costs, watermarks, or registration required.</p>
-                </div>
-                <div className="bg-card border border-border rounded-xl p-6">
-                  <h3 className="font-semibold mb-2">What file formats are supported?</h3>
-                  <p className="text-muted-foreground">We support PDF files for most operations, Word documents (DOC, DOCX) for conversion, and common image formats (JPG, PNG, WEBP, GIF) for image to PDF conversion.</p>
-                </div>
+                <h2 className="text-2xl md:text-3xl font-bold">Privacy & Security</h2>
               </div>
+              
+              <div className="bg-card rounded-2xl border border-border p-6 sm:p-8 space-y-6">
+                <p className="text-muted-foreground leading-relaxed">
+                  Your document privacy is our highest priority. In an age where data breaches and privacy violations are increasingly common, we have built our PDF tools with a fundamentally different approach that keeps you in complete control of your files. Unlike traditional online PDF services that require uploading your documents to remote servers, our tools process everything directly in your browser using advanced client-side technology.
+                </p>
+                
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="bg-green-500/10 border border-green-500/20 rounded-xl p-4">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Lock className="w-5 h-5 text-green-500" />
+                      <h4 className="font-semibold text-green-400">100% Client-Side Processing</h4>
+                    </div>
+                    <p className="text-xs text-muted-foreground">All PDF operations happen in your browser. Your documents are never transmitted to any server.</p>
+                  </div>
+                  <div className="bg-green-500/10 border border-green-500/20 rounded-xl p-4">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Shield className="w-5 h-5 text-green-500" />
+                      <h4 className="font-semibold text-green-400">Zero Data Collection</h4>
+                    </div>
+                    <p className="text-xs text-muted-foreground">We do not collect, store, or analyze any of your documents or personal data.</p>
+                  </div>
+                  <div className="bg-green-500/10 border border-green-500/20 rounded-xl p-4">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Globe className="w-5 h-5 text-green-500" />
+                      <h4 className="font-semibold text-green-400">Works Offline</h4>
+                    </div>
+                    <p className="text-xs text-muted-foreground">Once loaded, our tools work without internet connection for complete privacy.</p>
+                  </div>
+                  <div className="bg-green-500/10 border border-green-500/20 rounded-xl p-4">
+                    <div className="flex items-center gap-2 mb-2">
+                      <CheckCircle className="w-5 h-5 text-green-500" />
+                      <h4 className="font-semibold text-green-400">No Account Required</h4>
+                    </div>
+                    <p className="text-xs text-muted-foreground">Use all features without creating an account or providing personal information.</p>
+                  </div>
+                </div>
+                
+                <p className="text-muted-foreground leading-relaxed">
+                  This architecture is particularly valuable for professionals handling sensitive materials. Lawyers can process client contracts with confidence. Healthcare providers can work with patient documents securely. Financial advisors can handle confidential statements privately. Businesses can protect proprietary information while still benefiting from powerful PDF tools. Your documents remain exactly where they should be - on your device, under your control.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* FAQ Section */}
+          <section className="py-12 md:py-20 px-4">
+            <div className="container mx-auto max-w-4xl">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center">
+                  <HelpCircle className="w-5 h-5 text-white" />
+                </div>
+                <h2 className="text-2xl md:text-3xl font-bold">Frequently Asked Questions</h2>
+              </div>
+              
+              <p className="text-muted-foreground mb-6">
+                Find answers to the most common questions about our PDF tools. If you have additional questions, please feel free to contact our support team.
+              </p>
+
+              <Accordion type="single" collapsible className="space-y-2">
+                {faqSchema.mainEntity.map((faq, index) => (
+                  <AccordionItem key={index} value={`item-${index}`} className="bg-card border border-border rounded-xl px-4">
+                    <AccordionTrigger className="text-left font-semibold text-sm sm:text-base">
+                      {faq.name}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground text-sm">
+                      {faq.acceptedAnswer.text}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+                
+                <AccordionItem value="faq-5" className="bg-card border border-border rounded-xl px-4">
+                  <AccordionTrigger className="text-left font-semibold text-sm sm:text-base">
+                    What is the maximum file size I can process?
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground text-sm">
+                    Our tools support PDF files up to 50MB in size. For very large files, processing time may vary depending on your device's capabilities. Most PDFs are processed within seconds.
+                  </AccordionContent>
+                </AccordionItem>
+                
+                <AccordionItem value="faq-6" className="bg-card border border-border rounded-xl px-4">
+                  <AccordionTrigger className="text-left font-semibold text-sm sm:text-base">
+                    Can I use these tools on my mobile phone?
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground text-sm">
+                    Absolutely! All our PDF tools are fully responsive and work perfectly on smartphones and tablets. You can merge, compress, split, and convert PDFs directly from your mobile device.
+                  </AccordionContent>
+                </AccordionItem>
+                
+                <AccordionItem value="faq-7" className="bg-card border border-border rounded-xl px-4">
+                  <AccordionTrigger className="text-left font-semibold text-sm sm:text-base">
+                    How much can the compression tool reduce file size?
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground text-sm">
+                    Compression results vary depending on the original PDF content. PDFs with many images can see reductions of 50-80%. Text-heavy documents may see smaller reductions. Our tool intelligently balances file size with visual quality.
+                  </AccordionContent>
+                </AccordionItem>
+                
+                <AccordionItem value="faq-8" className="bg-card border border-border rounded-xl px-4">
+                  <AccordionTrigger className="text-left font-semibold text-sm sm:text-base">
+                    Will my PDF formatting be preserved?
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground text-sm">
+                    Yes, our tools preserve all formatting, fonts, images, and layout elements. When merging PDFs, each page maintains its original appearance. When converting from Word, we carefully preserve all document styling.
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
             </div>
           </section>
         </main>
