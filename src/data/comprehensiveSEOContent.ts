@@ -4887,6 +4887,170 @@ export const imageToDocumentSEOContent: Record<string, ComprehensiveSEOContent> 
     keywords: ["image to html", "convert image to html", "base64 image", "embed image in html", "self-contained html"],
     gradientFrom: "#8b5cf6",
     gradientTo: "#a855f7"
+  },
+  
+  "image-to-base64": {
+    slug: "image-to-base64",
+    title: "Image to Base64 Converter",
+    metaTitle: "Image to Base64 Converter - Free Online Tool | Encode Images to Base64",
+    metaDescription: "Convert images to Base64 encoded strings online for free. Generate data URIs for embedding images in HTML, CSS, and JavaScript. No software needed.",
+    h1: "Convert Images to Base64 Online Free",
+    
+    introduction: `Base64 encoding transforms binary image data into ASCII text strings that can be embedded directly in code, eliminating the need for separate image files. Our free online Image to Base64 Converter provides developers, designers, and content creators with an instant way to generate Base64-encoded versions of their images. Whether you need data URIs for CSS backgrounds, embedded images in HTML documents, or image strings for API payloads, this tool delivers the encoded output in multiple formats ready for immediate use. The browser-based conversion ensures your images remain private while providing professional-grade encoding that works across all platforms and programming languages.`,
+    
+    aboutTool: `The Image to Base64 Converter is an essential tool for web developers and anyone working with embedded image data. Base64 encoding represents binary data using 64 ASCII characters, creating text strings that can be safely transmitted in text-based formats like HTML, CSS, JSON, and XML. Our converter supports all major image formats including JPG, PNG, WebP, GIF, SVG, and BMP. The tool provides multiple output formats: raw Base64 strings, complete data URIs with MIME type headers, CSS-ready background-image syntax, and HTML img tag formats. Each format serves specific use cases, from embedding images in stylesheets to including visual content in single-file HTML documents. The conversion happens instantly in your browser, with no file uploads to external servers.`,
+    
+    howToUse: [
+      { step: 1, title: "Upload Your Image", description: "Click the upload area or drag your image file onto the converter. The tool accepts JPG, PNG, WebP, GIF, SVG, BMP, and other common formats." },
+      { step: 2, title: "View the Preview", description: "Once uploaded, preview your image to confirm you selected the correct file for encoding." },
+      { step: 3, title: "Select Output Format", description: "Choose your desired output format: Raw Base64, Data URI, CSS syntax, or HTML img tag format." },
+      { step: 4, title: "Copy the Encoded String", description: "Click the copy button to copy the Base64-encoded string to your clipboard, ready for use in your code." },
+      { step: 5, title: "Use in Your Project", description: "Paste the encoded string into your HTML, CSS, JavaScript, or any other text-based format that supports Base64 images." }
+    ],
+    
+    whyImportant: `Base64 encoding solves the fundamental challenge of embedding binary image data in text-based code and documents. When you convert an image to Base64, you create a self-contained text representation that can be placed directly in HTML, CSS, or JavaScript without requiring a separate image file. This eliminates HTTP requests for external images, improves page load performance for small graphics, and creates truly standalone documents. For email HTML, where external image links are often blocked, Base64-embedded images display reliably. For single-page applications, data URIs reduce dependencies and simplify deployment. The encoding is universal, working across all browsers, programming languages, and platforms without compatibility concerns.`,
+    
+    keyFeatures: [
+      { title: "Multiple Output Formats", description: "Get raw Base64, data URI, CSS background syntax, or HTML img tag format based on your needs." },
+      { title: "Universal Format Support", description: "Convert JPG, PNG, WebP, GIF, SVG, BMP, and other common image formats to Base64." },
+      { title: "One-Click Copy", description: "Copy the encoded output to your clipboard instantly with a single click." },
+      { title: "Instant Encoding", description: "Base64 conversion happens instantly in your browser with no waiting for uploads." },
+      { title: "Browser-Based Privacy", description: "All processing occurs locally. Your images never leave your device." },
+      { title: "MIME Type Detection", description: "Automatically detects and includes correct MIME type headers in data URIs." }
+    ],
+    
+    benefitsText: `Our Image to Base64 Converter offers significant advantages for developers and content creators working with embedded images. Unlike server-based tools, the browser-based approach provides instant results without upload delays and ensures complete privacy for sensitive graphics. The multiple output formats save time by providing ready-to-use code snippets for different contexts. Whether you are embedding icons in CSS, creating self-contained HTML documents, or preparing image data for API requests, the tool delivers precisely formatted output. The encoding is standard-compliant and works across all modern browsers and development environments.`,
+    
+    benefits: [
+      "Embed images directly in HTML and CSS code",
+      "Eliminate external image file dependencies",
+      "Reduce HTTP requests for small graphics",
+      "Create self-contained HTML documents",
+      "Ensure email images display reliably",
+      "Generate image data for API payloads"
+    ],
+    
+    whoCanUse: [
+      { title: "Web Developers", description: "Embed icons, backgrounds, and small graphics directly in code for reduced HTTP requests." },
+      { title: "Email Marketers", description: "Create Base64 images that display in email clients that block external images." },
+      { title: "App Developers", description: "Generate image data for storage in databases or transmission via APIs." },
+      { title: "UI/UX Designers", description: "Prepare icons and graphics for embedding in CSS stylesheets." },
+      { title: "Content Creators", description: "Create standalone HTML files with embedded images for distribution." },
+      { title: "Anyone", description: "Convert images to text format for any embedding or transmission need." }
+    ],
+    
+    useCases: [
+      { title: "CSS Background Images", description: "Embed small backgrounds and patterns directly in stylesheets for faster loading." },
+      { title: "Email Templates", description: "Include images in HTML emails that display without being blocked." },
+      { title: "Single-File HTML", description: "Create self-contained HTML documents with all images embedded." },
+      { title: "API Data Transfer", description: "Include image data in JSON payloads for API requests and responses." },
+      { title: "Inline SVG Fallbacks", description: "Provide Base64 PNG fallbacks for SVG images in older browsers." },
+      { title: "Favicon Embedding", description: "Embed favicon images directly in HTML head sections." }
+    ],
+    
+    faqs: [
+      { question: "What is Base64 encoding?", answer: "Base64 converts binary data (like images) into ASCII text using 64 characters, making it safe to embed in text-based formats like HTML and CSS." },
+      { question: "Will Base64 increase file size?", answer: "Yes, Base64 encoding increases data size by approximately 33%. It is best suited for small images where the tradeoff is worthwhile." },
+      { question: "What formats can I convert?", answer: "The tool supports JPG, PNG, WebP, GIF, SVG, BMP, and other common image formats." },
+      { question: "What is a data URI?", answer: "A data URI is a Base64 string with a header that includes the MIME type, formatted as 'data:image/png;base64,...' for direct use in HTML and CSS." },
+      { question: "Are there size limits?", answer: "There are no strict limits, but Base64 is most effective for small images. Very large images may impact page load performance." },
+      { question: "Is my image data secure?", answer: "Yes, all encoding happens locally in your browser. Images are never uploaded to external servers." },
+      { question: "Can I decode Base64 back to an image?", answer: "Yes, use our Base64 to Image converter to decode Base64 strings back to downloadable image files." },
+      { question: "Which browsers support data URIs?", answer: "All modern browsers including Chrome, Firefox, Safari, Edge, and mobile browsers support Base64 data URIs." }
+    ],
+    
+    privacyNote: `All Base64 encoding occurs entirely within your web browser using local JavaScript processing. Your images are never uploaded to external servers, transmitted over the internet, or stored anywhere. This ensures complete privacy for sensitive graphics, proprietary designs, and confidential visual content. All data is discarded when you close or refresh the page.`,
+    
+    conclusion: `Our free Image to Base64 Converter provides developers and creators with an instant, secure way to encode images as text strings for embedding in code. Whether you need data URIs for CSS, embedded images in HTML, or image data for API payloads, this tool delivers correctly formatted output in seconds. The browser-based processing ensures privacy while eliminating upload delays. Convert your images to Base64 and simplify how you embed visual content in your projects.`,
+    
+    relatedTools: ["base64-to-image", "image-to-html", "image-to-pdf", "image-to-docx"],
+    category: "Image to Document",
+    categorySlug: "image-to-document",
+    keywords: ["image to base64", "base64 encoder", "data uri generator", "embed image in code", "base64 image converter"],
+    gradientFrom: "#06b6d4",
+    gradientTo: "#3b82f6"
+  },
+  
+  "base64-to-image": {
+    slug: "base64-to-image",
+    title: "Base64 to Image Converter",
+    metaTitle: "Base64 to Image Converter - Free Online Tool | Decode Base64 to Images",
+    metaDescription: "Convert Base64 encoded strings back to downloadable images online for free. Decode data URIs and Base64 text to JPG, PNG, and other formats instantly.",
+    h1: "Convert Base64 to Image Online Free",
+    
+    introduction: `Base64 decoding transforms encoded text strings back into their original binary image format, enabling you to extract and download images embedded in code. Our free online Base64 to Image Converter provides an instant way to decode Base64 strings and data URIs into downloadable image files. Whether you have extracted Base64 data from HTML source code, received encoded images via API, or need to recover images from database storage, this tool delivers the original image ready for saving, editing, or use in other applications. The browser-based decoding process is fast, secure, and requires no software installation.`,
+    
+    aboutTool: `The Base64 to Image Converter is the reverse companion to Base64 encoding, designed to extract usable image files from encoded text strings. The tool intelligently detects image formats from data URI headers or automatically identifies the format when processing raw Base64 strings. It supports decoding images to all common formats including JPG, PNG, WebP, GIF, and BMP. Simply paste your Base64 string—with or without the data URI prefix—and the tool renders a preview and generates a downloadable file. This is invaluable for developers debugging embedded images, extracting graphics from web pages, or recovering images stored as Base64 in databases. The decoding happens entirely in your browser, ensuring privacy and instant results.`,
+    
+    howToUse: [
+      { step: 1, title: "Paste Your Base64 String", description: "Copy your Base64-encoded image string and paste it into the input text area. The tool accepts both raw Base64 and data URI formats." },
+      { step: 2, title: "Click Decode", description: "Press the 'Decode to Image' button to process the Base64 string and generate the image." },
+      { step: 3, title: "Preview the Result", description: "Once decoded, preview the image to verify it converted correctly." },
+      { step: 4, title: "Download the Image", description: "Click the download button to save the decoded image to your device in its original format." },
+      { step: 5, title: "Use the Image", description: "The downloaded image is ready for editing, sharing, or use in any application that supports images." }
+    ],
+    
+    whyImportant: `Base64 decoding is essential for extracting embedded images from code, APIs, and databases. Many web applications store images as Base64 strings in databases for simplicity, and this tool enables recovery of those images in usable file format. Developers debugging web pages often need to extract embedded images to examine them separately. Email templates and single-file HTML documents contain Base64 images that may need to be extracted for editing or reuse. The decoding process reverses the encoding, recovering the original binary image data from its text representation. This tool makes that process instant and accessible without requiring programming knowledge.`,
+    
+    keyFeatures: [
+      { title: "Automatic Format Detection", description: "Intelligently detects image format from data URI headers or identifies format from raw Base64 data." },
+      { title: "Data URI Support", description: "Accepts both raw Base64 strings and complete data URIs with MIME type headers." },
+      { title: "Multiple Format Output", description: "Decodes to JPG, PNG, WebP, GIF, BMP, and other common image formats." },
+      { title: "Instant Preview", description: "See your decoded image immediately before downloading." },
+      { title: "One-Click Download", description: "Download the decoded image with a single click, ready for use." },
+      { title: "Browser-Based Privacy", description: "All decoding happens locally in your browser for complete security." }
+    ],
+    
+    benefitsText: `Our Base64 to Image Converter offers a fast, secure solution for extracting images from encoded strings. Unlike online tools that require uploading data to servers, our browser-based approach provides instant results with complete privacy. The automatic format detection eliminates guesswork, correctly identifying and rendering images regardless of whether you paste raw Base64 or complete data URIs. This is perfect for developers extracting embedded images, designers recovering graphics from code, and anyone who needs to convert Base64 data back to standard image files. The downloaded images are identical to the originals, ready for editing or distribution.`,
+    
+    benefits: [
+      "Extract images from HTML and CSS source code",
+      "Recover images stored as Base64 in databases",
+      "Debug and examine embedded graphics",
+      "Convert API image data to files",
+      "Download images from single-file HTML documents",
+      "Reuse embedded images in new projects"
+    ],
+    
+    whoCanUse: [
+      { title: "Web Developers", description: "Extract and examine embedded images from web page source code for debugging." },
+      { title: "Database Administrators", description: "Recover and export images stored as Base64 strings in databases." },
+      { title: "QA Engineers", description: "Debug image rendering issues by extracting and examining embedded graphics." },
+      { title: "Designers", description: "Extract embedded graphics from code for editing and reuse in design projects." },
+      { title: "Content Managers", description: "Recover images from email templates and embedded HTML content." },
+      { title: "Anyone", description: "Decode any Base64 image string to a downloadable file." }
+    ],
+    
+    useCases: [
+      { title: "Source Code Extraction", description: "Extract embedded images from HTML, CSS, or JavaScript source code." },
+      { title: "Database Recovery", description: "Convert Base64 image data stored in databases to downloadable files." },
+      { title: "API Response Processing", description: "Decode image data received from APIs into usable image files." },
+      { title: "Email Template Editing", description: "Extract images from HTML email templates for modification." },
+      { title: "Debugging Embedded Graphics", description: "Examine and verify embedded images by decoding them separately." },
+      { title: "Content Migration", description: "Extract embedded images during content migration between platforms." }
+    ],
+    
+    faqs: [
+      { question: "What Base64 formats are supported?", answer: "The tool accepts raw Base64 strings and complete data URIs with headers like 'data:image/png;base64,...'." },
+      { question: "How does format detection work?", answer: "For data URIs, the format is read from the MIME type header. For raw Base64, the tool analyzes the decoded data to identify the format." },
+      { question: "Can I decode any Base64 string?", answer: "The tool decodes Base64 strings that represent valid image data. Non-image Base64 data will not produce valid results." },
+      { question: "What image formats can be decoded?", answer: "The tool supports JPG, PNG, WebP, GIF, BMP, and other common formats depending on the source data." },
+      { question: "Is there a size limit for decoding?", answer: "There are no strict limits, but very large Base64 strings may take longer to process depending on your device." },
+      { question: "Is my data secure during decoding?", answer: "Yes, all decoding happens locally in your browser. Your Base64 data is never sent to external servers." },
+      { question: "Why does my Base64 not decode?", answer: "Ensure the string is valid Base64 image data. Corrupted, incomplete, or non-image Base64 will not decode properly." },
+      { question: "Can I batch decode multiple strings?", answer: "The current tool processes one Base64 string at a time. Paste a new string after downloading each decoded image." }
+    ],
+    
+    privacyNote: `All Base64 decoding occurs entirely within your web browser using local JavaScript processing. Your encoded data is never uploaded to external servers, transmitted over the internet, or stored anywhere. This ensures complete privacy for sensitive image data, proprietary graphics, and confidential visual content. All data is discarded when you close or refresh the page.`,
+    
+    conclusion: `Our free Base64 to Image Converter provides an instant, secure way to decode Base64 strings back to downloadable image files. Whether extracting images from source code, recovering graphics from databases, or processing API image data, this tool delivers the original images ready for use. The browser-based approach ensures complete privacy while providing automatic format detection and instant preview. Paste your Base64 string and download your image in seconds.`,
+    
+    relatedTools: ["image-to-base64", "image-to-html", "image-to-pdf", "image-to-docx"],
+    category: "Image to Document",
+    categorySlug: "image-to-document",
+    keywords: ["base64 to image", "base64 decoder", "decode data uri", "extract base64 image", "base64 image converter"],
+    gradientFrom: "#3b82f6",
+    gradientTo: "#8b5cf6"
   }
 };
 
@@ -4955,6 +5119,11 @@ export const getComprehensiveSEOContent = (slug: string): ComprehensiveSEOConten
   // Check image combine tools
   if (imageCombineSEOContent[slug]) {
     return imageCombineSEOContent[slug];
+  }
+  
+  // Check image to document tools
+  if (imageToDocumentSEOContent[slug]) {
+    return imageToDocumentSEOContent[slug];
   }
   
   return null;
