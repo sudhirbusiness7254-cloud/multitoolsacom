@@ -293,31 +293,6 @@ export const toolCategories: Category[] = [
       { id: "split-pdf", name: "Split PDF", slug: "split-pdf", description: "Extract pages or split PDF into multiple files", category: "PDF Tools", categorySlug: "pdf-tools", icon: "Scissors", keywords: ["split pdf", "extract pdf pages", "pdf splitter", "divide pdf"] },
     ]
   },
-  {
-    id: "facebook-tools",
-    name: "Facebook Tools",
-    slug: "facebook-tools",
-    description: "Free Facebook tools for generating captions, bios, hashtags, and optimizing your social media presence",
-    icon: "Facebook",
-    priority: 18,
-    tools: [
-      { id: "facebook-caption-generator", name: "Facebook Caption Generator", slug: "facebook-caption-generator", description: "Generate engaging captions for your Facebook posts", category: "Facebook Tools", categorySlug: "facebook-tools", icon: "MessageSquare", keywords: ["facebook caption", "fb post caption", "caption generator"] },
-      { id: "facebook-bio-generator", name: "Facebook Bio Generator", slug: "facebook-bio-generator", description: "Create professional and catchy Facebook bios", category: "Facebook Tools", categorySlug: "facebook-tools", icon: "User", keywords: ["facebook bio", "fb bio generator", "profile bio"] },
-      { id: "facebook-hashtag-generator", name: "Facebook Hashtag Generator", slug: "facebook-hashtag-generator", description: "Generate trending hashtags for Facebook posts", category: "Facebook Tools", categorySlug: "facebook-tools", icon: "Hash", keywords: ["facebook hashtags", "fb hashtag generator", "trending hashtags"] },
-      { id: "facebook-post-idea-generator", name: "Facebook Post Idea Generator", slug: "facebook-post-idea-generator", description: "Get creative post ideas for your Facebook page", category: "Facebook Tools", categorySlug: "facebook-tools", icon: "Lightbulb", keywords: ["facebook post ideas", "fb content ideas", "post inspiration"] },
-      { id: "facebook-comment-generator", name: "Facebook Comment Generator", slug: "facebook-comment-generator", description: "Generate thoughtful comments for Facebook posts", category: "Facebook Tools", categorySlug: "facebook-tools", icon: "MessageCircle", keywords: ["facebook comments", "fb comment generator", "comment ideas"] },
-      { id: "facebook-story-text-generator", name: "Facebook Story Text Generator", slug: "facebook-story-text-generator", description: "Create engaging text for Facebook stories", category: "Facebook Tools", categorySlug: "facebook-tools", icon: "Type", keywords: ["facebook story text", "fb story captions", "story text ideas"] },
-      { id: "facebook-page-name-generator", name: "Facebook Page Name Generator", slug: "facebook-page-name-generator", description: "Generate unique and creative Facebook page names", category: "Facebook Tools", categorySlug: "facebook-tools", icon: "AtSign", keywords: ["facebook page name", "fb page name ideas", "page name generator"] },
-      { id: "facebook-engagement-rate-calculator", name: "Facebook Engagement Rate Calculator", slug: "facebook-engagement-rate-calculator", description: "Calculate your Facebook post engagement rate", category: "Facebook Tools", categorySlug: "facebook-tools", icon: "Calculator", keywords: ["facebook engagement", "engagement rate", "fb analytics"] },
-      { id: "facebook-ad-copy-generator", name: "Facebook Ad Copy Generator", slug: "facebook-ad-copy-generator", description: "Generate high-converting Facebook ad copy", category: "Facebook Tools", categorySlug: "facebook-tools", icon: "Megaphone", keywords: ["facebook ads", "ad copy generator", "fb ad text"] },
-      { id: "facebook-cta-generator", name: "Facebook CTA Generator", slug: "facebook-cta-generator", description: "Create compelling call-to-action buttons for Facebook", category: "Facebook Tools", categorySlug: "facebook-tools", icon: "MousePointer", keywords: ["facebook cta", "call to action", "fb button text"] },
-      { id: "facebook-content-calendar-generator", name: "Facebook Content Calendar Generator", slug: "facebook-content-calendar-generator", description: "Plan your Facebook content with an automated calendar", category: "Facebook Tools", categorySlug: "facebook-tools", icon: "Calendar", keywords: ["facebook calendar", "content planner", "social media schedule"] },
-      { id: "facebook-posting-time-analyzer", name: "Facebook Posting Time Analyzer", slug: "facebook-posting-time-analyzer", description: "Find the best times to post on Facebook", category: "Facebook Tools", categorySlug: "facebook-tools", icon: "Clock", keywords: ["best posting time", "facebook schedule", "optimal post time"] },
-      { id: "facebook-audience-interest-finder", name: "Facebook Audience Interest Finder", slug: "facebook-audience-interest-finder", description: "Discover audience interests for Facebook targeting", category: "Facebook Tools", categorySlug: "facebook-tools", icon: "Target", keywords: ["facebook audience", "interest targeting", "fb demographics"] },
-      { id: "facebook-ad-headline-generator", name: "Facebook Ad Headline Generator", slug: "facebook-ad-headline-generator", description: "Create attention-grabbing headlines for Facebook ads", category: "Facebook Tools", categorySlug: "facebook-tools", icon: "Heading", keywords: ["facebook headline", "ad headline generator", "fb ad title"] },
-      { id: "facebook-post-formatter", name: "Facebook Post Formatter", slug: "facebook-post-formatter", description: "Format your Facebook posts with bold, italic, and special characters", category: "Facebook Tools", categorySlug: "facebook-tools", icon: "AlignLeft", keywords: ["facebook formatting", "post formatter", "fb text styles"] },
-    ]
-  },
 ];
 
 export const getAllTools = (): Tool[] => {

@@ -659,8 +659,7 @@ export const toolsSEOContent: Record<string, ToolSEOContent> = {
   }
 };
 
-// Import Facebook and PDF SEO data
-import { facebookToolsSEO } from './facebookToolsSEOData';
+// Import PDF SEO data
 import { pdfToolsSEOContent } from './pdfToolsSEOData';
 
 // Generate default SEO content for tools not explicitly defined
@@ -702,48 +701,6 @@ export const getToolSEOContent = (slug: string, toolName: string, category: stri
       keywords: pdfSeo.keywords,
       gradientFrom: pdfSeo.gradientFrom,
       gradientTo: pdfSeo.gradientTo
-    };
-  }
-
-  // Check Facebook tools SEO data
-  if (facebookToolsSEO[slug]) {
-    const fbSeo = facebookToolsSEO[slug];
-    return {
-      slug: fbSeo.slug,
-      title: fbSeo.title.split(' - ')[0],
-      metaTitle: fbSeo.title,
-      metaDescription: fbSeo.metaDescription,
-      h1: fbSeo.h1,
-      shortDescription: fbSeo.shortDescription,
-      longDescription: fbSeo.longDescription,
-      howToUse: fbSeo.howToUse,
-      benefits: fbSeo.benefits,
-      whyImportant: fbSeo.whyImportant || `${fbSeo.h1} is an essential tool for Facebook marketing and social media management. Whether you are a content creator, marketer, or business owner, this tool helps you optimize your Facebook presence and grow your audience effectively.`,
-      keyFeatures: fbSeo.keyFeatures || [
-        "Fast and instant processing",
-        "100% free with no hidden costs",
-        "Works on all devices and browsers",
-        "No registration or login required",
-        "Secure and private processing",
-        "Professional-quality results"
-      ],
-      whoCanUse: fbSeo.whoCanUse || [
-        "Social Media Managers",
-        "Content Creators",
-        "Digital Marketers",
-        "Small Business Owners",
-        "Influencers",
-        "Freelancers"
-      ],
-      privacyNote: fbSeo.privacyNote || "Your privacy is our top priority. We do not store, share, or sell any of your data. All processing happens securely, and your information is automatically cleared after use. No account or personal details required.",
-      conclusion: fbSeo.conclusion || `Start using our ${fbSeo.h1} today and take your Facebook presence to the next level. This free, easy-to-use tool is designed to save you time and help you create professional content that engages your audience. Try it now and see the difference!`,
-      faqs: fbSeo.faqs,
-      relatedTools: fbSeo.relatedTools || [],
-      category: "Facebook Tools",
-      categorySlug: "facebook-tools",
-      keywords: fbSeo.keywords,
-      gradientFrom: "#1877F2",
-      gradientTo: "#42B72A"
     };
   }
 
@@ -1010,19 +967,6 @@ export const getAllToolsFlat = () => {
   ["pdf-merge", "pdf-compress", "word-to-pdf", "pdf-split", "pdf-to-jpg", "jpg-to-pdf"].forEach(slug => {
     const name = slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
     tools.push({ slug, name, category: "PDF Tools", categorySlug: "pdf-tools" });
-  });
-
-  // Facebook Tools
-  [
-    "facebook-story-downloader", "facebook-profile-picture-downloader", "facebook-cover-photo-downloader",
-    "facebook-caption-generator", "facebook-bio-generator", "facebook-hashtag-generator",
-    "facebook-post-idea-generator", "facebook-comment-generator", "facebook-story-text-generator",
-    "facebook-page-name-generator", "facebook-engagement-rate-calculator", "facebook-ad-copy-generator",
-    "facebook-cta-generator", "facebook-content-calendar-generator", "facebook-posting-time-analyzer",
-    "facebook-audience-interest-finder", "facebook-ad-headline-generator", "facebook-post-formatter"
-  ].forEach(slug => {
-    const name = slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
-    tools.push({ slug, name, category: "Facebook Tools", categorySlug: "facebook-tools" });
   });
 
   return tools;

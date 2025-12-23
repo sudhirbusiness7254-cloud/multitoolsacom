@@ -17,8 +17,6 @@ import UniversalImageDrawing from "@/components/UniversalImageDrawing";
 import UniversalImageSecurity from "@/components/UniversalImageSecurity";
 import UniversalQRTools from "@/components/UniversalQRTools";
 import UniversalDocumentConverter from "@/components/UniversalDocumentConverter";
-import UniversalFacebookTools from "@/components/facebook/UniversalFacebookTools";
-
 
 // Tool slug to component mapping
 const getToolComponent = (slug: string) => {
@@ -100,19 +98,6 @@ const getToolComponent = (slug: string) => {
   // Document tools
   if (["image-to-pdf", "image-to-docx", "image-to-pptx", "image-to-html", "image-to-base64", "base64-to-image"].includes(slug)) {
     return <UniversalDocumentConverter />;
-  }
-
-  // Facebook tools
-  const facebookSlugs = [
-    "facebook-story-downloader", "facebook-profile-picture-downloader", "facebook-cover-photo-downloader",
-    "facebook-caption-generator", "facebook-bio-generator", "facebook-hashtag-generator",
-    "facebook-post-idea-generator", "facebook-comment-generator", "facebook-story-text-generator",
-    "facebook-page-name-generator", "facebook-engagement-rate-calculator", "facebook-ad-copy-generator",
-    "facebook-cta-generator", "facebook-content-calendar-generator", "facebook-posting-time-analyzer",
-    "facebook-audience-interest-finder", "facebook-ad-headline-generator", "facebook-post-formatter"
-  ];
-  if (facebookSlugs.includes(slug)) {
-    return <UniversalFacebookTools toolType={slug} />;
   }
 
   return null;
