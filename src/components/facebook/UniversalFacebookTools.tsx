@@ -32,7 +32,7 @@ interface UniversalFacebookToolsProps {
   toolType?: string;
 }
 
-const DEEPSEEK_API_KEY = "sk-d024f61a26fc4df1ba3cb0f58abad062";
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
 
 const toolIconMap: Record<string, React.ElementType> = {
   "facebook-caption-generator": MessageSquare,
@@ -223,26 +223,14 @@ const UniversalFacebookTools = ({ toolType }: UniversalFacebookToolsProps) => {
         selectedCategory
       );
       
-      const response = await fetch("https://api.deepseek.com/chat/completions", {
+      const response = await fetch(`${SUPABASE_URL}/functions/v1/facebook-ai`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${DEEPSEEK_API_KEY}`,
         },
         body: JSON.stringify({
-          model: "deepseek-chat",
-          messages: [
-            {
-              role: "system",
-              content: "You are a creative social media expert specializing in Facebook marketing. Generate engaging, authentic content that drives engagement. Be creative, use emojis appropriately, and always provide actionable content."
-            },
-            {
-              role: "user",
-              content: prompt
-            }
-          ],
-          max_tokens: 500,
-          temperature: 0.8,
+          prompt,
+          toolType: toolType || "facebook-caption-generator"
         }),
       });
       
@@ -251,7 +239,7 @@ const UniversalFacebookTools = ({ toolType }: UniversalFacebookToolsProps) => {
       }
       
       const data = await response.json();
-      const content = data.choices?.[0]?.message?.content || "";
+      const content = data.content || "";
       
       if (content) {
         setGeneratedContent(content.trim());
