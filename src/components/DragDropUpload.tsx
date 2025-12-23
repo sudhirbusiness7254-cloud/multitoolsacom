@@ -41,13 +41,8 @@ const DragDropUpload = ({
       return;
     }
 
-    // Create preview
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      setPreview(e.target?.result as string);
-    };
-    reader.readAsDataURL(file);
-    
+    // Just call onFileSelect - let parent handle the UI
+    // Don't show internal preview, parent will manage the state
     setFileName(file.name);
     onFileSelect(file);
   }, [maxSize, onFileSelect]);
