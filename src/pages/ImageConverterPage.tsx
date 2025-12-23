@@ -285,66 +285,122 @@ const ImageConverterPage = () => {
             </div>
           </section>
 
-          {/* Format-Specific Article Section (when specific conversion is selected) */}
+          {/* Format-Specific Comprehensive Article Section */}
           {activeConversion && conversionArticles[activeConversion] && (
             <section className="py-12 md:py-20 px-4 bg-gradient-to-b from-primary/5 to-transparent">
-              <div className="container mx-auto max-w-4xl">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-orange-500 flex items-center justify-center">
-                    <FileImage className="w-5 h-5 text-white" />
+              <div className="container mx-auto max-w-5xl">
+                {/* Main Article Header */}
+                <div className="flex items-center gap-3 mb-8">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-orange-500 flex items-center justify-center shadow-lg">
+                    <FileImage className="w-6 h-6 text-white" />
                   </div>
-                  <h2 className="text-2xl md:text-3xl font-bold">
-                    About {meta.fromFormat.toUpperCase()} to {meta.toFormat.toUpperCase()} Conversion
-                  </h2>
+                  <div>
+                    <h2 className="text-2xl md:text-4xl font-bold">
+                      Complete Guide: {meta.fromFormat.toUpperCase()} to {meta.toFormat.toUpperCase()} Conversion
+                    </h2>
+                    <p className="text-muted-foreground mt-1">Everything you need to know about converting {meta.fromFormat.toUpperCase()} files to {meta.toFormat.toUpperCase()} format</p>
+                  </div>
                 </div>
                 
-                <div className="bg-card rounded-2xl border border-border p-6 sm:p-8 space-y-6">
-                  <p className="text-muted-foreground leading-relaxed text-lg">
-                    {conversionArticles[activeConversion].about}
-                  </p>
+                {/* Comprehensive Article Content */}
+                <div className="bg-card rounded-2xl border border-border shadow-xl overflow-hidden">
+                  {/* About Section - Full 1000+ Word Article */}
+                  <div className="p-6 sm:p-10 border-b border-border">
+                    <h3 className="text-xl md:text-2xl font-bold mb-6 flex items-center gap-3">
+                      <BookOpen className="w-6 h-6 text-primary" />
+                      About {meta.fromFormat.toUpperCase()} to {meta.toFormat.toUpperCase()} Conversion
+                    </h3>
+                    <div className="prose prose-lg max-w-none">
+                      {conversionArticles[activeConversion].about.split('\n\n').map((paragraph, index) => (
+                        <p key={index} className="text-muted-foreground leading-relaxed mb-6 text-base md:text-lg">
+                          {paragraph}
+                        </p>
+                      ))}
+                    </div>
+                  </div>
                   
-                  <div className="bg-primary/10 border border-primary/20 rounded-xl p-5">
-                    <h3 className="font-semibold text-lg mb-3 flex items-center gap-2">
-                      <Lightbulb className="w-5 h-5 text-primary" />
+                  {/* Why Convert Section */}
+                  <div className="p-6 sm:p-10 bg-gradient-to-r from-primary/5 to-orange-500/5 border-b border-border">
+                    <h3 className="text-xl md:text-2xl font-bold mb-6 flex items-center gap-3">
+                      <Lightbulb className="w-6 h-6 text-primary" />
                       Why Convert {meta.fromFormat.toUpperCase()} to {meta.toFormat.toUpperCase()}?
                     </h3>
-                    <p className="text-muted-foreground">{conversionArticles[activeConversion].whyConvert}</p>
+                    <p className="text-muted-foreground leading-relaxed text-base md:text-lg">
+                      {conversionArticles[activeConversion].whyConvert}
+                    </p>
                   </div>
                   
-                  <div className="bg-secondary/50 rounded-xl p-5">
-                    <h3 className="font-semibold text-lg mb-3">Technical Details</h3>
-                    <p className="text-muted-foreground text-sm">{conversionArticles[activeConversion].technicalDetails}</p>
+                  {/* Technical Details Section */}
+                  <div className="p-6 sm:p-10 border-b border-border">
+                    <h3 className="text-xl md:text-2xl font-bold mb-6 flex items-center gap-3">
+                      <Zap className="w-6 h-6 text-primary" />
+                      Technical Details & Process
+                    </h3>
+                    <div className="bg-secondary/30 rounded-xl p-6">
+                      <p className="text-muted-foreground leading-relaxed text-base">
+                        {conversionArticles[activeConversion].technicalDetails}
+                      </p>
+                    </div>
                   </div>
                   
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <h3 className="font-semibold text-lg mb-4 flex items-center gap-2">
-                        <ArrowRight className="w-5 h-5 text-primary" />
+                  {/* Use Cases & Benefits Grid */}
+                  <div className="p-6 sm:p-10 grid lg:grid-cols-2 gap-8">
+                    {/* Use Cases */}
+                    <div className="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-2xl p-6 border border-blue-500/20">
+                      <h3 className="text-xl font-bold mb-6 flex items-center gap-3">
+                        <ArrowRight className="w-6 h-6 text-blue-500" />
                         Common Use Cases
                       </h3>
-                      <ul className="space-y-2">
+                      <ul className="space-y-4">
                         {conversionArticles[activeConversion].useCases.map((useCase, i) => (
-                          <li key={i} className="flex items-start gap-3">
-                            <CheckCircle className="w-4 h-4 flex-shrink-0 mt-1 text-primary" />
-                            <span className="text-sm text-muted-foreground">{useCase}</span>
+                          <li key={i} className="flex items-start gap-4 bg-background/50 rounded-lg p-4">
+                            <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0">
+                              <CheckCircle className="w-4 h-4 text-blue-500" />
+                            </div>
+                            <span className="text-muted-foreground">{useCase}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
                     
-                    <div>
-                      <h3 className="font-semibold text-lg mb-4 flex items-center gap-2">
-                        <Star className="w-5 h-5 text-primary" />
+                    {/* Benefits */}
+                    <div className="bg-gradient-to-br from-green-500/10 to-emerald-500/10 rounded-2xl p-6 border border-green-500/20">
+                      <h3 className="text-xl font-bold mb-6 flex items-center gap-3">
+                        <Star className="w-6 h-6 text-green-500" />
                         Key Benefits
                       </h3>
-                      <ul className="space-y-2">
+                      <ul className="space-y-4">
                         {conversionArticles[activeConversion].benefits.map((benefit, i) => (
-                          <li key={i} className="flex items-start gap-3">
-                            <CheckCircle className="w-4 h-4 flex-shrink-0 mt-1 text-green-500" />
-                            <span className="text-sm text-muted-foreground">{benefit}</span>
+                          <li key={i} className="flex items-start gap-4 bg-background/50 rounded-lg p-4">
+                            <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0">
+                              <CheckCircle className="w-4 h-4 text-green-500" />
+                            </div>
+                            <span className="text-muted-foreground">{benefit}</span>
                           </li>
                         ))}
                       </ul>
+                    </div>
+                  </div>
+                  
+                  {/* Quick Stats */}
+                  <div className="p-6 sm:p-10 bg-gradient-to-r from-primary/10 to-orange-500/10 border-t border-border">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                      <div className="text-center">
+                        <div className="text-3xl font-bold text-primary mb-2">100%</div>
+                        <div className="text-sm text-muted-foreground">Free to Use</div>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-3xl font-bold text-primary mb-2">0</div>
+                        <div className="text-sm text-muted-foreground">Server Uploads</div>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-3xl font-bold text-primary mb-2">∞</div>
+                        <div className="text-sm text-muted-foreground">Conversions</div>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-3xl font-bold text-primary mb-2">24/7</div>
+                        <div className="text-sm text-muted-foreground">Availability</div>
+                      </div>
                     </div>
                   </div>
                 </div>
