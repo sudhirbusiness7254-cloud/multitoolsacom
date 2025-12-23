@@ -204,11 +204,14 @@ export const toolCategories: Category[] = [
     id: "image-metadata",
     name: "Image Metadata",
     slug: "image-metadata",
-    description: "View image metadata and dimensions",
+    description: "View, edit, and remove image metadata for privacy",
     icon: "Info",
     priority: 11,
     tools: [
-      { id: "view-image-info", name: "View Image Info", slug: "view-image-info", description: "View image dimensions, size, and format details", category: "Image Metadata", categorySlug: "image-metadata", icon: "Info", keywords: ["image info", "image dimensions", "file size"] },
+      { id: "view-exif", name: "View EXIF", slug: "view-exif", description: "View complete EXIF metadata including camera settings, GPS, and timestamps", category: "Image Metadata", categorySlug: "image-metadata", icon: "Eye", keywords: ["view exif", "exif viewer", "metadata viewer", "image info"] },
+      { id: "remove-exif", name: "Remove EXIF", slug: "remove-exif", description: "Strip all metadata from images for privacy protection", category: "Image Metadata", categorySlug: "image-metadata", icon: "Trash2", keywords: ["remove exif", "strip metadata", "privacy", "delete exif"] },
+      { id: "edit-exif-datetime", name: "Edit Date/Time", slug: "edit-exif-datetime", description: "Modify image date and time metadata", category: "Image Metadata", categorySlug: "image-metadata", icon: "Calendar", keywords: ["edit exif", "change date", "modify timestamp", "edit datetime"] },
+      { id: "copy-exif", name: "Copy EXIF", slug: "copy-exif", description: "Copy EXIF data from one image to another", category: "Image Metadata", categorySlug: "image-metadata", icon: "Copy", keywords: ["copy exif", "transfer metadata", "clone exif"] },
     ]
   },
   {
