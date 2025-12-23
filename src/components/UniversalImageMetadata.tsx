@@ -1,11 +1,11 @@
 import { useState, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import DragDropUpload from "@/components/DragDropUpload";
-import { Download, RotateCcw, Eye, Trash2, Copy, Edit, MapPin, Camera, Settings } from "lucide-react";
+import { Download, RotateCcw, Eye, Trash2, Copy, MapPin, Camera, Settings } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
 import EXIF from "exif-js";
 
-type MetadataMode = "view" | "remove" | "edit" | "copy";
+type MetadataMode = "view" | "remove" | "copy";
 
 interface UniversalImageMetadataProps {
   initialMode?: MetadataMode;
@@ -24,7 +24,6 @@ interface MetadataSection {
 const metadataModes = [
   { id: "view" as MetadataMode, name: "View EXIF", icon: <Eye className="w-4 h-4" /> },
   { id: "remove" as MetadataMode, name: "Remove EXIF", icon: <Trash2 className="w-4 h-4" /> },
-  { id: "edit" as MetadataMode, name: "Edit Date/Time", icon: <Edit className="w-4 h-4" /> },
   { id: "copy" as MetadataMode, name: "Copy EXIF", icon: <Copy className="w-4 h-4" /> },
 ];
 
@@ -363,12 +362,6 @@ const UniversalImageMetadata = ({ initialMode = "view" }: UniversalImageMetadata
               <Button onClick={removeMetadata} disabled={isProcessing}>
                 <Trash2 className="w-4 h-4 mr-2" />
                 Remove All Metadata
-              </Button>
-            )}
-            {mode === "edit" && (
-              <Button disabled>
-                <Edit className="w-4 h-4 mr-2" />
-                Edit Date/Time (Coming Soon)
               </Button>
             )}
             {mode === "copy" && (
