@@ -3552,6 +3552,113 @@ Stop struggling with almost-square images or unpredictable platform cropping. Ta
     keywords: ["square crop", "1:1 crop", "Instagram crop", "square image", "perfect square", "square photo"],
     gradientFrom: "#8b5cf6",
     gradientTo: "#a78bfa"
+  },
+  
+  "free-selection-crop": {
+    slug: "free-selection-crop",
+    title: "Free Selection Crop Tool",
+    metaTitle: "Free Selection Crop - Lasso Crop Images Online Free | MultiTools",
+    metaDescription: "Crop images with free-form selection online for free. Draw custom crop areas of any shape. Perfect for irregular cropping needs. No signup required.",
+    h1: "Free Selection Crop - Custom Shape Cropping Online Free",
+    
+    introduction: `Traditional rectangular cropping limits your creative control when working with images that contain irregular subjects, organic shapes, or content that simply does not fit neatly into a box. Our free Free Selection Crop tool breaks these limitations by allowing you to draw custom crop boundaries of any shape you desire. Whether you need to extract a person from a complex background, isolate an irregularly-shaped product, crop around organic elements like flowers or trees, or simply select an area that follows the natural contours of your subject, this tool gives you complete freedom to draw exactly the selection you need. The intuitive drawing interface makes it easy to trace around subjects with precision, while the sophisticated processing preserves full image quality within your selected area. All operations happen securely in your browser, ensuring your images remain completely private throughout the entire editing process.`,
+    
+    aboutTool: `The Free Selection Crop tool is an advanced image editing instrument that goes far beyond traditional rectangular cropping by allowing you to define custom-shaped selection boundaries. Using a freehand drawing interface, you can trace around any subject or area you want to keep, following curves, angles, and irregular edges with complete precision. This is sometimes called lasso cropping, polygonal selection, or freeform cropping in professional image editing software.
+
+When you draw your selection, the tool processes the boundary to create a cropped image that includes only the area inside your drawn shape. Everything outside the selection is removed and replaced with transparency, creating a PNG image with a transparent background that can be placed on any surface without visible edges or color conflicts. This transparency support is essential for creating cutout graphics, overlaying subjects on new backgrounds, and integrating extracted elements into design compositions.
+
+The tool supports all major image formats for input including JPG, PNG, WebP, GIF, and BMP. The selection process is iterative—you can draw, review, adjust your selection points, and refine until you achieve exactly the result you want. The browser-based architecture means all processing happens locally on your device, with no uploads to external servers, ensuring complete privacy for personal photos, professional work, and confidential imagery.`,
+    
+    howToUse: [
+      { step: 1, title: "Upload Your Image", description: "Click the upload area or drag and drop your image file directly into the tool. All common image formats are supported including JPG, PNG, WebP, GIF, and BMP files." },
+      { step: 2, title: "Start Drawing Your Selection", description: "Click on the image to begin drawing your selection boundary. Each click creates a point, and lines connect the points to form your selection shape." },
+      { step: 3, title: "Trace Around Your Subject", description: "Continue clicking around the area you want to keep. Follow the edges of your subject as closely as possible for the most precise selection. More points create smoother curves around organic shapes." },
+      { step: 4, title: "Close the Selection", description: "Click on your starting point or use the close selection button to complete your shape. The tool will connect your final point to the first, creating a closed selection boundary." },
+      { step: 5, title: "Refine If Needed", description: "Preview your selection and adjust individual points if necessary. You can drag points to new positions or add additional points for more precision." },
+      { step: 6, title: "Apply and Download", description: "Click the crop button to apply your selection. The tool creates a transparent PNG containing only the area inside your selection, ready for immediate download." }
+    ],
+    
+    whyImportant: `Free-form selection cropping is essential for countless image editing tasks where rectangular cropping simply cannot deliver the required results. When you need to extract a person from a photograph, isolate a product with an irregular shape, or select an organic element like a plant or animal, the subject rarely fits neatly into a rectangle. Forcing rectangular crops on such subjects means either including unwanted background elements or cutting off parts of the subject itself.
+
+Professional graphic designers and photographers rely heavily on free-selection capabilities for creating composite images, product cutouts, marketing materials, and artistic compositions. E-commerce sellers need to extract products from backgrounds to create clean, professional-looking listings with transparent backgrounds. Content creators building thumbnails, social media graphics, and presentations often need to isolate specific elements from larger images.
+
+The transparent background output is particularly valuable because it allows extracted elements to be placed on any colored background, over patterns, or integrated into complex designs without visible edges. This makes free-selection cropping a fundamental capability for anyone creating layered graphics, composite images, or elements that need to integrate seamlessly with other visual content.`,
+    
+    keyFeatures: [
+      { title: "Freehand Selection Drawing", description: "Draw custom selection boundaries of any shape by clicking to create points. Trace around subjects with complete freedom and precision." },
+      { title: "Polygon-Based Precision", description: "Point-by-point selection allows for both quick rough selections and highly precise tracing around complex shapes." },
+      { title: "Transparent Background Output", description: "Cropped areas outside your selection become transparent, perfect for overlays and composite designs." },
+      { title: "Point Adjustment", description: "Fine-tune your selection by moving individual points after drawing. Perfect your selection before applying the crop." },
+      { title: "Real-Time Preview", description: "See your selection boundary clearly overlaid on the image as you draw, ensuring accuracy before cropping." },
+      { title: "All Format Support", description: "Accept all common image formats including JPG, PNG, WebP, GIF, and BMP for versatile workflow integration." },
+      { title: "Browser-Based Processing", description: "All cropping happens locally in your browser. No uploads, no servers, complete privacy for your images." },
+      { title: "High-Quality Output", description: "Cropped images maintain full original resolution and quality within the selected area." }
+    ],
+    
+    benefitsText: `Our Free Selection Crop tool delivers capabilities that previously required expensive professional software, making advanced image extraction accessible to everyone. The intuitive point-and-click interface means anyone can create complex selections without technical training or experience with image editing software. The polygon-based selection method provides an ideal balance between ease of use and precision—quick selections for rough work and detailed point placement for precise extractions.
+
+The transparent background output eliminates the need for additional editing steps when integrating extracted elements into other projects. Browser-based processing provides two crucial advantages: complete privacy since images never leave your device, and instant results without waiting for uploads and downloads. Unlike subscription-based professional tools, this capability is completely free with no usage limits.
+
+For users who need to extract multiple subjects or process many images, the focused single-purpose design means fast performance and quick workflow compared to loading full-featured image editing suites. Whether you are a professional designer, e-commerce seller, content creator, or casual user needing to cut out a subject from a photo, this tool provides the capability you need.`,
+    
+    benefits: [
+      "Extract subjects from any background",
+      "Create custom-shaped crop selections",
+      "Transparent output for seamless overlays",
+      "Professional capabilities at no cost",
+      "Intuitive point-and-click interface",
+      "Complete privacy with local processing",
+      "Maintain full image quality",
+      "Works on all devices and browsers"
+    ],
+    
+    whoCanUse: [
+      { title: "Graphic Designers", description: "Extract elements from photographs for composite designs, marketing materials, and creative projects." },
+      { title: "E-commerce Sellers", description: "Create product cutouts with transparent backgrounds for professional marketplace listings." },
+      { title: "Content Creators", description: "Isolate subjects for thumbnails, social media graphics, and presentation materials." },
+      { title: "Photographers", description: "Extract subjects from photographs for creative composites and client deliverables." },
+      { title: "Marketing Professionals", description: "Create cutout graphics for advertisements, banners, and promotional materials." },
+      { title: "Anyone", description: "Anyone needing to extract irregularly-shaped subjects from images." }
+    ],
+    
+    useCases: [
+      { title: "Person Extraction", description: "Cut out people from photographs for composite images, profile pictures, or creative projects." },
+      { title: "Product Photography", description: "Extract products from backgrounds to create clean e-commerce listings with transparent backgrounds." },
+      { title: "Logo Isolation", description: "Extract logos and graphics from images for reuse in new designs and materials." },
+      { title: "Element Extraction", description: "Isolate specific elements from photographs—objects, plants, animals—for creative compositions." },
+      { title: "Creative Composites", description: "Build layered compositions by extracting and combining elements from multiple images." },
+      { title: "Background Removal", description: "Remove backgrounds from subjects to create transparent cutouts for versatile use." }
+    ],
+    
+    faqs: [
+      { question: "How is this different from regular cropping?", answer: "Regular cropping creates rectangles. Free selection lets you draw any shape, following irregular edges and creating custom boundaries." },
+      { question: "What format is the output?", answer: "Output is PNG format with a transparent background, allowing the extracted element to be placed on any surface." },
+      { question: "How many points can I use?", answer: "You can use as many points as needed. More points create more precise selections around complex shapes." },
+      { question: "Can I adjust points after placing them?", answer: "Yes, you can drag points to new positions to refine your selection before applying the crop." },
+      { question: "Does this work for curved edges?", answer: "Yes, by placing points close together along curves, you can closely follow any curved edge." },
+      { question: "What happens outside my selection?", answer: "Everything outside your selection becomes transparent in the output PNG file." },
+      { question: "Are my images uploaded anywhere?", answer: "No, all processing happens locally in your browser. Your images remain completely private." },
+      { question: "What image formats are supported?", answer: "JPG, PNG, WebP, GIF, BMP, and most common image formats are supported for input." },
+      { question: "Can I select multiple areas?", answer: "The current tool creates a single selection. For multiple areas, crop each separately and combine in another tool." },
+      { question: "Is there any cost?", answer: "Completely free with no limits, no registration, no premium version—full functionality for everyone." }
+    ],
+    
+    privacyNote: `Your image privacy is absolutely guaranteed with our Free Selection Crop tool. All processing—image loading, selection drawing, and cropping—happens entirely within your web browser using local JavaScript technology. Your images are never uploaded to any server, never transmitted over the internet, never stored anywhere, and never accessible to anyone but you.
+
+This architecture ensures complete privacy for personal photos, professional client work, confidential business imagery, and any content you need to keep secure. We do not track usage, collect data about your images, or require any account creation. When you close the browser tab, all image data is immediately and completely cleared from memory. Your files remain 100% private throughout the entire editing process.`,
+    
+    conclusion: `Our free Free Selection Crop tool provides professional-grade freeform cropping capabilities accessible to everyone. Whether you are extracting people from photographs, creating product cutouts for e-commerce, isolating elements for creative compositions, or simply need to crop around an irregular subject, this tool delivers the precision and flexibility you need.
+
+The intuitive point-and-click interface makes complex selections achievable for users of all skill levels, while the transparent PNG output ensures your extracted elements integrate seamlessly into any project. Browser-based processing keeps your images completely private while delivering instant results.
+
+Stop struggling with rectangular crop limitations. Take control with free-form selection and create exactly the crops you need for any purpose. Try our Free Selection Crop tool now and unlock unlimited cropping possibilities.`,
+    
+    relatedTools: ["manual-crop", "circle-crop", "aspect-ratio-crop", "square-crop"],
+    category: "Image Crop",
+    categorySlug: "image-crop",
+    keywords: ["free selection crop", "lasso crop", "freeform crop", "polygon crop", "custom shape crop", "extract subject", "transparent background"],
+    gradientFrom: "#ec4899",
+    gradientTo: "#f472b6"
   }
 };
 
