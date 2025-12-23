@@ -1,3 +1,7 @@
+# Sitemap
+Sitemap: https://multitools.com/sitemap.xml
+
+# Crawl rules
 User-agent: Googlebot
 Allow: /
 
@@ -12,3 +16,8 @@ Allow: /
 
 User-agent: *
 Allow: /
+Crawl-delay: 1
+
+# Disallow admin/private paths
+Disallow: /api/
+Disallow: /*.json$
