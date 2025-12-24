@@ -5626,6 +5626,531 @@ export const imageToDocumentSEOContent: Record<string, ComprehensiveSEOContent> 
   }
 };
 
+// Format Utilities Tools - Comprehensive Content
+export const formatUtilitiesSEOContent: Record<string, ComprehensiveSEOContent> = {
+  "grayscale": {
+    slug: "grayscale",
+    title: "Grayscale Image Converter",
+    metaTitle: "Grayscale Image Converter - Free Online Black & White Photo Tool | MultiTools",
+    metaDescription: "Convert color images to grayscale online for free. Transform photos to professional black and white with instant preview. No software required, works on all devices.",
+    h1: "Convert Images to Grayscale Online Free",
+    
+    introduction: `Grayscale conversion transforms colorful images into elegant monochromatic compositions by removing color information while preserving the full tonal range from pure black to pure white. Our free online Grayscale Image Converter provides photographers, designers, and content creators with instant access to professional-quality grayscale transformation without requiring expensive software or technical expertise. Unlike simple desaturation that can produce flat, muddy results, our tool employs sophisticated luminance-based algorithms that accurately represent how the human eye perceives brightness in different colors. Whether you are creating artistic black and white photography, preparing images for print publications, developing visual content with a timeless aesthetic, or simply exploring the dramatic potential hidden within your color photographs, this browser-based tool delivers stunning grayscale results in seconds.`,
+    
+    aboutTool: `The Grayscale Image Converter is a sophisticated yet accessible tool that transforms color photographs and graphics into stunning monochromatic images using advanced luminance calculation algorithms. True grayscale conversion is not merely averaging RGB values—different colors contribute differently to perceived brightness. Red, green, and blue channels are weighted according to human visual perception, with green contributing approximately 71%, red 21%, and blue just 7% to the final grayscale value. This perceptually accurate approach ensures that your grayscale images maintain proper tonal relationships and visual depth. The tool processes images entirely within your web browser using hardware-accelerated canvas operations, meaning your original files remain completely private and never leave your device. You can upload photographs in any common format including JPG, PNG, WebP, and HEIC, with the converted grayscale image available for instant download. The non-destructive workflow allows you to experiment freely, comparing different images and styles before committing to final exports.`,
+    
+    howToUse: [
+      { step: 1, title: "Upload Your Color Image", description: "Click the upload area or drag and drop your color photograph or graphic into the converter. Supported formats include JPG, PNG, WebP, GIF, and HEIC." },
+      { step: 2, title: "Preview the Original", description: "View your original color image to compare against the grayscale conversion results." },
+      { step: 3, title: "Apply Grayscale Conversion", description: "Click the 'Convert to Grayscale' button to transform your image. The luminance-based algorithm processes the image instantly." },
+      { step: 4, title: "Review the Result", description: "Examine the grayscale conversion to ensure tonal values and contrast meet your expectations." },
+      { step: 5, title: "Download Your Grayscale Image", description: "Click the download button to save your converted grayscale image to your device in high quality." },
+      { step: 6, title: "Continue Processing (Optional)", description: "Upload additional images for grayscale conversion or combine with other editing tools for enhanced results." }
+    ],
+    
+    whyImportant: `Grayscale imagery holds enduring power in visual communication, offering timeless elegance that transcends trends and focuses viewer attention on composition, texture, light, and shadow rather than color distractions. Professional photographers often convert portraits and landscapes to grayscale to emphasize emotional depth and artistic vision. Print publications and newspapers have historically relied on grayscale reproduction, and understanding how images translate to monochrome remains essential for publication designers. Grayscale also serves practical purposes in document scanning, accessibility compliance, and reducing file sizes for archival storage. The removal of color can reveal structural details in photographs that were previously obscured by color information, making grayscale conversion a valuable analytical tool. For artists and designers, grayscale versions of work help evaluate value composition—the arrangement of light and dark areas that creates visual hierarchy and guides the viewer's eye through an image.`,
+    
+    keyFeatures: [
+      { title: "Luminance-Based Algorithm", description: "Uses perceptually weighted RGB conversion that matches human visual perception for natural-looking results." },
+      { title: "Full Tonal Range", description: "Preserves complete spectrum from pure black to pure white with smooth gradations between." },
+      { title: "Instant Preview", description: "See your grayscale conversion immediately before downloading, enabling quick comparison with the original." },
+      { title: "High-Quality Output", description: "Maintains full resolution and image quality throughout the conversion process." },
+      { title: "Browser-Based Privacy", description: "All processing occurs locally in your browser—images never upload to external servers." },
+      { title: "Universal Format Support", description: "Works with JPG, PNG, WebP, GIF, HEIC and other common image formats." },
+      { title: "No Registration Required", description: "Use the tool immediately without creating accounts or providing personal information." },
+      { title: "Cross-Platform Compatibility", description: "Functions on any device with a modern web browser including desktop, tablet, and mobile." }
+    ],
+    
+    benefitsText: `Converting images to grayscale offers creative and practical advantages that enhance various projects and workflows. Artistically, grayscale emphasizes form, texture, and light—drawing attention to the essential elements of a composition without color distractions. Professionally, grayscale images print more consistently across different media and require less color management. Technically, grayscale reduces file size by eliminating color channel data, beneficial for web optimization and archival purposes. Our browser-based tool delivers these benefits instantly, without requiring software installation, subscription fees, or technical expertise. The luminance-weighted conversion ensures results that accurately represent your original image's tonal character, avoiding the flat, washed-out appearance that simple desaturation can produce.`,
+    
+    benefits: [
+      "Create timeless, artistic black and white imagery",
+      "Emphasize texture, form, and composition over color",
+      "Reduce file sizes for web and archival storage",
+      "Ensure consistent print reproduction across media",
+      "Focus viewer attention on key visual elements",
+      "Evaluate tonal composition and value structure",
+      "Prepare images for publication requirements",
+      "Achieve professional results without expensive software"
+    ],
+    
+    whoCanUse: [
+      { title: "Photographers", description: "Transform color photographs into dramatic black and white images with professional tonal accuracy." },
+      { title: "Graphic Designers", description: "Create grayscale versions of graphics for publication layouts, branding, and design projects." },
+      { title: "Artists & Illustrators", description: "Analyze value composition and create monochromatic studies from color reference images." },
+      { title: "Content Creators", description: "Develop cohesive visual aesthetics with grayscale imagery for social media and websites." },
+      { title: "Publishers", description: "Prepare images for newspapers, magazines, and publications with grayscale printing requirements." },
+      { title: "Anyone", description: "Explore the artistic potential of grayscale conversion for personal photos and projects." }
+    ],
+    
+    useCases: [
+      { title: "Fine Art Photography", description: "Convert photographs to black and white for gallery exhibitions and art prints." },
+      { title: "Publication Design", description: "Prepare images for magazines, newspapers, and books that require grayscale reproduction." },
+      { title: "Social Media Aesthetics", description: "Create cohesive monochromatic feeds and visual branding across platforms." },
+      { title: "Document Processing", description: "Convert color scans to grayscale for efficient archival and reduced file sizes." },
+      { title: "Value Studies", description: "Analyze compositional structure by removing color to focus on light and dark relationships." },
+      { title: "Print Preparation", description: "Ensure images reproduce well on black and white printers and copiers." }
+    ],
+    
+    faqs: [
+      { question: "What is grayscale conversion?", answer: "Grayscale conversion transforms color images to black and white by calculating luminance values that represent perceived brightness for each pixel." },
+      { question: "Is grayscale the same as black and white?", answer: "Grayscale includes the full range of tones from black through all grays to white, while 'black and white' sometimes refers to pure two-tone images without gray values." },
+      { question: "Why use luminance-based conversion?", answer: "Luminance weighting matches human perception—green appears brighter than red, which appears brighter than blue—producing natural-looking grayscale images." },
+      { question: "Will conversion reduce image quality?", answer: "No, the conversion maintains full resolution. Output quality matches your original image with accurate tonal representation." },
+      { question: "Can I convert back to color?", answer: "Grayscale conversion permanently removes color information. Always keep your original color file if you may need it later." },
+      { question: "What formats are supported?", answer: "The tool supports JPG, PNG, WebP, GIF, HEIC, BMP, TIFF, and other common image formats." },
+      { question: "Is my image data private?", answer: "Yes, all processing occurs locally in your browser. Images never upload to external servers." },
+      { question: "Can I batch convert multiple images?", answer: "Process one image at a time for best results. Each conversion takes just seconds, allowing quick batch processing." }
+    ],
+    
+    privacyNote: `All grayscale conversion processing occurs entirely within your web browser using local JavaScript and canvas operations. Your images are never uploaded to external servers, transmitted over the internet, or stored anywhere outside your device. This ensures complete privacy for personal photographs, professional work, and confidential visual content. All image data is discarded when you close or refresh the page.`,
+    
+    conclusion: `Our free Grayscale Image Converter provides instant, professional-quality transformation from color to monochrome using perceptually accurate luminance algorithms. Whether creating artistic black and white photography, preparing images for publication, or exploring the dramatic potential within your color photographs, this tool delivers stunning grayscale results with complete privacy. The browser-based processing requires no software installation or registration. Upload your image and discover the timeless elegance of grayscale in seconds.`,
+    
+    relatedTools: ["black-and-white", "sepia", "brightness-adjust", "contrast-adjust"],
+    category: "Format Utilities",
+    categorySlug: "format-utilities",
+    keywords: ["grayscale converter", "black and white image", "desaturate photo", "monochrome converter", "grayscale filter"],
+    gradientFrom: "#6b7280",
+    gradientTo: "#374151"
+  },
+  
+  "black-and-white": {
+    slug: "black-and-white",
+    title: "Black & White Image Converter",
+    metaTitle: "Black & White Converter - Free Online High Contrast Photo Tool | MultiTools",
+    metaDescription: "Convert images to pure black and white with adjustable threshold online for free. Create dramatic high-contrast graphics and art. No software required.",
+    h1: "Convert Images to Black & White Online Free",
+    
+    introduction: `Black and white conversion transforms images into dramatic two-tone compositions containing only pure black and pure white pixels, eliminating all gray tones for maximum visual impact. Unlike grayscale which preserves the full tonal range, true black and white uses a threshold algorithm to decide whether each pixel becomes completely black or completely white. Our free online Black & White Converter provides precise control over this threshold, allowing you to fine-tune exactly where the cutoff occurs between light and dark areas. This technique creates bold, graphic imagery perfect for logos, stencils, screen printing, artistic posters, document processing, and any application requiring high-contrast binary images. Whether you are a designer creating striking visual content, an artist exploring graphic abstraction, or a professional preparing images for specific technical requirements, this tool delivers instant, customizable black and white conversion.`,
+    
+    aboutTool: `The Black & White Image Converter employs threshold-based pixel analysis to transform photographs and graphics into pure two-tone images with striking visual impact. Each pixel in your image is evaluated against an adjustable threshold value—pixels brighter than the threshold become pure white, while pixels darker than the threshold become pure black. This binary conversion creates bold, graphic results that differ fundamentally from grayscale or desaturated images. The adjustable threshold slider gives you complete control over the balance between black and white areas, allowing optimization for different source images and intended uses. A lower threshold produces images with more white space, while a higher threshold creates predominantly black results. The tool processes images entirely within your browser using hardware-accelerated canvas operations, ensuring privacy and instant results. Real-time preview shows exactly how different threshold settings affect your image before downloading, enabling precise creative control without trial-and-error file saving.`,
+    
+    howToUse: [
+      { step: 1, title: "Upload Your Image", description: "Click the upload area or drag and drop your photograph or graphic into the converter. All common image formats are supported." },
+      { step: 2, title: "Adjust the Threshold", description: "Use the threshold slider to control the cutoff point between black and white. Preview updates in real-time as you adjust." },
+      { step: 3, title: "Find the Optimal Setting", description: "Experiment with different threshold values to achieve the ideal balance of black and white areas for your image." },
+      { step: 4, title: "Preview the Result", description: "Examine the black and white conversion to ensure important details remain visible and the overall composition works." },
+      { step: 5, title: "Download Your Image", description: "Click the download button to save your converted black and white image in high quality." },
+      { step: 6, title: "Refine if Needed", description: "If results are not optimal, adjust the threshold and try again. The non-destructive workflow allows unlimited experimentation." }
+    ],
+    
+    whyImportant: `Pure black and white imagery serves essential functions across design, art, and technical applications that grayscale cannot fulfill. Stencil art and screen printing require binary images with clear separation between inked and uninked areas. Logo design often demands versions that reproduce cleanly in single-color applications. Document processing and OCR (Optical Character Recognition) perform better with high-contrast black and white scans. Artistic applications include graphic posters, woodcut-style illustrations, and striking visual statements that leverage contrast for maximum impact. Technical applications include QR code generation, barcode creation, and any system requiring binary image input. The adjustable threshold ensures you can optimize conversion for different source materials—photographs with subtle gradations require different settings than graphics with clear tonal separation. Understanding and controlling black and white conversion expands your capabilities across creative and technical disciplines.`,
+    
+    keyFeatures: [
+      { title: "Adjustable Threshold", description: "Precise slider control over the black/white cutoff point for optimal results with any source image." },
+      { title: "Real-Time Preview", description: "See instant updates as you adjust threshold settings, enabling precise visual tuning." },
+      { title: "Pure Binary Output", description: "Creates true black and white with only two colors—no grays—for maximum contrast and clarity." },
+      { title: "High-Quality Processing", description: "Maintains full resolution throughout conversion for crisp, detailed results." },
+      { title: "Browser-Based Privacy", description: "All processing occurs locally—images never leave your device or upload to servers." },
+      { title: "Universal Format Support", description: "Works with JPG, PNG, WebP, GIF, and other common image formats." },
+      { title: "Non-Destructive Workflow", description: "Experiment freely with different thresholds without affecting your original image." },
+      { title: "Instant Download", description: "Download your converted image immediately in high-quality PNG format." }
+    ],
+    
+    benefitsText: `Black and white conversion provides distinct advantages over grayscale for specific applications requiring binary imagery. The complete elimination of gray tones creates bold, graphic results with maximum visual contrast. For printing applications, pure black and white reproduces cleanly without halftone patterns or gradient banding. For digital applications, binary images compress efficiently and scale without quality loss. The adjustable threshold allows optimization for different source materials and intended uses—portraits, landscapes, graphics, and text each benefit from different threshold settings. Our browser-based tool delivers these capabilities instantly, without requiring graphic design software, technical expertise, or account registration. The real-time preview enables quick experimentation to find the perfect balance for each image.`,
+    
+    benefits: [
+      "Create bold, high-contrast graphic imagery",
+      "Prepare images for screen printing and stencils",
+      "Generate single-color logo versions",
+      "Optimize scans for OCR text recognition",
+      "Produce striking artistic poster designs",
+      "Enable clean reproduction without halftones",
+      "Achieve maximum visual impact through contrast",
+      "Create binary images for technical applications"
+    ],
+    
+    whoCanUse: [
+      { title: "Graphic Designers", description: "Create high-contrast versions of images for logos, posters, and single-color printing applications." },
+      { title: "Screen Printers", description: "Prepare artwork with clean separation for screen printing and stencil cutting." },
+      { title: "Artists", description: "Explore graphic abstraction and create bold visual statements with pure black and white imagery." },
+      { title: "Document Processors", description: "Convert scans to high-contrast black and white for improved OCR accuracy and file size reduction." },
+      { title: "Crafters", description: "Generate patterns and templates for cutting machines, embroidery, and craft projects." },
+      { title: "Anyone", description: "Create dramatic black and white versions of any photograph or graphic for creative projects." }
+    ],
+    
+    useCases: [
+      { title: "Stencil Creation", description: "Generate clean black and white patterns for spray paint stencils and cut-out templates." },
+      { title: "Screen Printing Prep", description: "Prepare artwork with pure black and white separation for screen printing processes." },
+      { title: "Logo Variations", description: "Create single-color logo versions for fax, stamps, and monochrome printing applications." },
+      { title: "Document Scanning", description: "Convert color scans to high-contrast black and white for archival and OCR processing." },
+      { title: "Artistic Posters", description: "Design bold, graphic posters using high-contrast black and white imagery." },
+      { title: "Pattern Generation", description: "Create patterns for laser cutting, vinyl cutting, and embroidery machines." }
+    ],
+    
+    faqs: [
+      { question: "What is threshold in black and white conversion?", answer: "Threshold is the brightness level that determines whether each pixel becomes black or white. Pixels brighter than the threshold become white; darker pixels become black." },
+      { question: "How do I choose the right threshold?", answer: "Start at 50% (middle) and adjust based on your image. Lower values create more white; higher values create more black. Use the preview to find the optimal balance." },
+      { question: "Why does my image look wrong at certain thresholds?", answer: "Source images with low contrast or unusual lighting may require threshold adjustment. Try values between 30-70% to find the best setting for your specific image." },
+      { question: "Is black and white the same as grayscale?", answer: "No. Grayscale includes all tones from black through gray to white. Black and white contains only pure black and pure white pixels with no gray values." },
+      { question: "What formats can I convert?", answer: "The tool supports JPG, PNG, WebP, GIF, BMP, HEIC, and other common image formats." },
+      { question: "Will conversion reduce image quality?", answer: "The image maintains full resolution. However, fine details may be lost in the binary conversion—adjust threshold to preserve important features." },
+      { question: "Is my image data private?", answer: "Yes, all processing occurs locally in your browser. Images never upload to external servers." },
+      { question: "Can I undo the conversion?", answer: "The conversion is applied to a copy—your original file remains unchanged. Adjust threshold and re-process if needed." }
+    ],
+    
+    privacyNote: `All black and white conversion processing occurs entirely within your web browser using local JavaScript and canvas operations. Your images are never uploaded to external servers, transmitted over the internet, or stored anywhere outside your device. This ensures complete privacy for personal photographs, professional artwork, and confidential documents. All image data is discarded when you close or refresh the page.`,
+    
+    conclusion: `Our free Black & White Image Converter provides instant transformation to pure two-tone imagery with precise threshold control for optimal results. Whether creating stencils, preparing screen printing artwork, designing graphic posters, or processing documents, this tool delivers bold, high-contrast results with complete privacy. The adjustable threshold and real-time preview enable perfect customization for any source image. Upload your image and discover the dramatic impact of pure black and white conversion in seconds.`,
+    
+    relatedTools: ["grayscale", "invert-colors", "contrast-adjust", "brightness-adjust"],
+    category: "Format Utilities",
+    categorySlug: "format-utilities",
+    keywords: ["black and white converter", "threshold filter", "high contrast image", "binary image", "two-tone converter"],
+    gradientFrom: "#1f2937",
+    gradientTo: "#111827"
+  },
+  
+  "add-transparency": {
+    slug: "add-transparency",
+    title: "Add Transparency to Image",
+    metaTitle: "Add Transparency to Image - Free Online PNG Background Remover | MultiTools",
+    metaDescription: "Add transparency to images by removing backgrounds or specific colors online for free. Create PNG images with transparent areas. No software required.",
+    h1: "Add Transparency to Images Online Free",
+    
+    introduction: `Adding transparency to images enables pixels to be partially or fully see-through, essential for creating graphics that blend seamlessly with any background. Our free online Add Transparency tool converts images to PNG format with alpha channel support and removes specified colors to create transparent areas. Whether you need to remove a solid background color, create images for web overlays, design logos that work on any backdrop, or prepare graphics for layered compositions, this tool provides instant, professional transparency control. Unlike complex photo editing software that requires technical expertise, our browser-based approach makes adding transparency accessible to everyone. Simply upload your image, specify the color to make transparent, adjust tolerance settings, and download your PNG with perfect transparency.`,
+    
+    aboutTool: `The Add Transparency tool transforms opaque images into PNG files with alpha channel transparency by identifying and removing specified colors. The tool uses color-matching algorithms with adjustable tolerance to detect pixels matching your target color—these pixels become fully transparent while the rest of your image remains intact. The tolerance setting controls how closely a pixel must match the target color to become transparent, enabling clean edges even when backgrounds have slight color variations from lighting, compression, or gradients. Higher tolerance values catch more color variations but may affect areas you want to keep; lower values provide precision but may leave edge artifacts. Real-time preview shows exactly which areas become transparent before downloading, allowing fine-tuning for optimal results. All processing occurs within your browser for complete privacy, and the output PNG includes proper alpha channel data for use in any application supporting transparency.`,
+    
+    howToUse: [
+      { step: 1, title: "Upload Your Image", description: "Click the upload area or drag and drop your image file. The tool supports JPG, PNG, WebP, and other common formats." },
+      { step: 2, title: "Select Target Color", description: "Click on the color in your image that you want to make transparent, or enter a specific color value." },
+      { step: 3, title: "Adjust Tolerance", description: "Use the tolerance slider to control how similar a pixel must be to the target color to become transparent." },
+      { step: 4, title: "Preview the Result", description: "Examine the preview to see which areas become transparent. Transparent areas typically display with a checkerboard pattern." },
+      { step: 5, title: "Fine-Tune Settings", description: "Adjust the target color or tolerance if needed to achieve clean edges and proper transparency coverage." },
+      { step: 6, title: "Download PNG", description: "Click download to save your image with transparency as a PNG file with full alpha channel support." }
+    ],
+    
+    whyImportant: `Transparency is fundamental to modern digital design, enabling images to exist independently of fixed backgrounds. Logos must work on websites, documents, merchandise, and marketing materials with varying background colors—transparency makes this possible. Web graphics like buttons, icons, and overlays require transparent areas to integrate seamlessly with page designs. Product photography for e-commerce often needs background removal to present items cleanly against standardized or customized backgrounds. Social media content, presentations, and digital marketing materials frequently layer transparent images to create professional composite designs. Without transparency support, images are confined to their original background color, severely limiting their versatility. Understanding how to add and manage transparency expands your creative capabilities and ensures your visual content adapts to any context.`,
+    
+    keyFeatures: [
+      { title: "Color-Based Selection", description: "Click any color in your image to target it for transparency, or enter specific color values." },
+      { title: "Adjustable Tolerance", description: "Fine-tune how closely pixels must match the target color to become transparent." },
+      { title: "Real-Time Preview", description: "See exactly which areas become transparent before downloading, enabling precise adjustment." },
+      { title: "Alpha Channel Output", description: "Exports proper PNG files with full alpha channel transparency data." },
+      { title: "Checkerboard Preview", description: "Industry-standard checkerboard pattern shows transparent areas clearly during editing." },
+      { title: "Browser-Based Privacy", description: "All processing occurs locally—images never upload to external servers." },
+      { title: "High-Quality Export", description: "Maintains full resolution with clean, anti-aliased edges around transparent areas." },
+      { title: "Universal Compatibility", description: "Output PNG files work in all applications, browsers, and devices supporting transparency." }
+    ],
+    
+    benefitsText: `Adding transparency transforms static images into versatile graphics that adapt to any context. Our browser-based tool makes this process instant and accessible without requiring professional software or technical expertise. The color-matching approach with adjustable tolerance handles real-world images where backgrounds are not perfectly uniform, accounting for lighting variations, compression artifacts, and subtle gradients. The real-time preview eliminates trial-and-error, showing exactly what becomes transparent before you commit to downloading. The resulting PNG files include proper alpha channel data compatible with all major design applications, web browsers, and document formats. Whether preparing professional assets or personal projects, this tool delivers clean transparency with complete privacy—your images never leave your device.`,
+    
+    benefits: [
+      "Create logos that work on any background color",
+      "Prepare product images for e-commerce listings",
+      "Design web graphics with seamless overlays",
+      "Build layered compositions and collages",
+      "Generate assets for presentations and documents",
+      "Produce stickers and decals with clean edges",
+      "Enable creative composite photography",
+      "Achieve professional results without expensive software"
+    ],
+    
+    whoCanUse: [
+      { title: "Graphic Designers", description: "Create transparent assets for logos, icons, and graphics that integrate seamlessly into any design." },
+      { title: "E-commerce Sellers", description: "Remove product photo backgrounds for clean, professional catalog listings." },
+      { title: "Web Developers", description: "Prepare transparent images for website overlays, buttons, and interface elements." },
+      { title: "Social Media Creators", description: "Design layered content with transparent stickers, badges, and graphic elements." },
+      { title: "Marketers", description: "Create versatile brand assets that work across diverse marketing materials." },
+      { title: "Anyone", description: "Add transparency to personal photos and graphics for creative projects." }
+    ],
+    
+    useCases: [
+      { title: "Logo Preparation", description: "Create logos with transparent backgrounds that work on websites, documents, and merchandise." },
+      { title: "Product Photography", description: "Remove backgrounds from product images for e-commerce and catalog use." },
+      { title: "Web Overlay Graphics", description: "Prepare images that layer seamlessly over web page content and backgrounds." },
+      { title: "Sticker and Decal Design", description: "Create print-ready artwork with clean edges for stickers and decals." },
+      { title: "Presentation Assets", description: "Generate transparent graphics for PowerPoint, Keynote, and presentation software." },
+      { title: "Social Media Content", description: "Design overlay graphics, badges, and stickers for social media posts." }
+    ],
+    
+    faqs: [
+      { question: "What does transparency mean in images?", answer: "Transparency allows parts of an image to be see-through. Transparent pixels show whatever is behind them—whether a web page, document, or another image layer." },
+      { question: "Why must I save as PNG?", answer: "PNG format supports alpha channel transparency. JPG and some other formats do not support transparency and will fill transparent areas with a solid color." },
+      { question: "What is tolerance in color selection?", answer: "Tolerance controls how closely a pixel must match the target color to become transparent. Higher tolerance catches more color variations; lower tolerance provides precision." },
+      { question: "How do I choose the right tolerance?", answer: "Start low (10-20%) for solid-color backgrounds. Increase gradually if edges remain or if the background has color variations." },
+      { question: "Why are some areas I want to keep becoming transparent?", answer: "Those areas contain colors similar to your target color. Lower the tolerance or choose a more specific target color to preserve them." },
+      { question: "What is the checkerboard pattern?", answer: "The checkerboard is an industry-standard way to display transparency. It does not appear in your final image—it simply indicates transparent areas during editing." },
+      { question: "Is my image data private?", answer: "Yes, all processing occurs locally in your browser. Images never upload to external servers." },
+      { question: "Can I make multiple colors transparent?", answer: "Process your image multiple times, selecting a different target color each session, to remove multiple colors." }
+    ],
+    
+    privacyNote: `All transparency processing occurs entirely within your web browser using local JavaScript and canvas operations. Your images are never uploaded to external servers, transmitted over the internet, or stored anywhere outside your device. This ensures complete privacy for personal photographs, professional artwork, and confidential graphics. All image data is discarded when you close or refresh the page.`,
+    
+    conclusion: `Our free Add Transparency tool provides instant, precise control over image transparency with color-matching and adjustable tolerance. Whether creating logos, preparing product photos, or designing web graphics, this tool delivers professional PNG files with clean alpha channel transparency. The browser-based processing ensures complete privacy while the real-time preview enables perfect results. Upload your image and add transparency in seconds.`,
+    
+    relatedTools: ["remove-transparency", "flatten-image", "png-compressor", "background-removal"],
+    category: "Format Utilities",
+    categorySlug: "format-utilities",
+    keywords: ["add transparency", "transparent png", "remove background color", "alpha channel", "make image transparent"],
+    gradientFrom: "#10b981",
+    gradientTo: "#059669"
+  },
+  
+  "remove-transparency": {
+    slug: "remove-transparency",
+    title: "Remove Transparency from Image",
+    metaTitle: "Remove Transparency - Free Online PNG to Solid Background Tool | MultiTools",
+    metaDescription: "Remove transparency from PNG images by adding a solid background color online for free. Convert transparent PNGs to JPG-ready images. No software required.",
+    h1: "Remove Transparency from Images Online Free",
+    
+    introduction: `Removing transparency replaces see-through areas in images with a solid background color, essential when preparing transparent PNGs for formats, platforms, or applications that do not support alpha channels. Our free online Remove Transparency tool instantly fills transparent areas with your chosen background color, creating images ready for JPG conversion, social media upload, document embedding, or any context requiring solid backgrounds. Many platforms and formats—including JPG, some social networks, and certain print processes—cannot display transparency and will render transparent areas as black or white unexpectedly. This tool gives you control, allowing you to specify exactly what color replaces transparent pixels. Whether converting transparent logos for email signatures, preparing images for platforms without transparency support, or simply preferring a solid background, this tool provides instant, precise results.`,
+    
+    aboutTool: `The Remove Transparency tool processes PNG images with alpha channels to replace transparent pixels with a solid color of your choice. The tool reads the alpha channel data that defines transparency levels and fills any pixel with transparency using your specified background color. Fully transparent pixels receive the full background color; partially transparent pixels blend proportionally between their original color and the background. This proper alpha compositing ensures smooth edges and natural-looking results, avoiding the harsh outlines that can appear with simple transparency replacement. The tool provides a color picker for selecting any background color, including common choices like white, black, and brand colors. All processing occurs within your browser for complete privacy, and you can preview results before downloading. The output can be saved as PNG with the background color or converted to JPG for reduced file size since transparency is no longer needed.`,
+    
+    howToUse: [
+      { step: 1, title: "Upload Your Transparent Image", description: "Click the upload area or drag and drop your PNG file with transparency. The tool detects images with alpha channels automatically." },
+      { step: 2, title: "Choose Background Color", description: "Select the color that will replace transparent areas using the color picker. Common choices include white, black, or brand colors." },
+      { step: 3, title: "Preview the Result", description: "View how your image looks with the solid background. Transparent areas now display your chosen color." },
+      { step: 4, title: "Adjust Color if Needed", description: "If the background color does not complement your image content, select a different color and preview again." },
+      { step: 5, title: "Download Your Image", description: "Click download to save your image with the solid background. Choose PNG or JPG format based on your needs." },
+      { step: 6, title: "Convert Additional Images", description: "Process more transparent images with the same or different background colors as needed." }
+    ],
+    
+    whyImportant: `While transparency enables versatile graphics, many real-world applications cannot display it properly. JPG format, the most common image format for web and print, does not support transparency—uploading a transparent PNG as JPG results in transparent areas becoming black or displaying incorrectly. Social media platforms often compress images to JPG, causing unexpected background colors to appear. Email clients may struggle with transparent images in signatures and messages. Print processes require solid backgrounds unless specifically designed for transparent substrates. Document formats like Word and PDF sometimes render transparency inconsistently across different viewers. By explicitly removing transparency and adding your chosen background color, you take control of how your image appears across all contexts. This prevents surprises and ensures consistent presentation whether your image appears on websites, in documents, on social media, or in print.`,
+    
+    keyFeatures: [
+      { title: "Custom Color Selection", description: "Choose any background color using the color picker, including precise hex, RGB, or HSL values." },
+      { title: "Proper Alpha Compositing", description: "Blends partially transparent pixels correctly for smooth edges and natural results." },
+      { title: "Instant Preview", description: "See exactly how your image looks with the solid background before downloading." },
+      { title: "Multiple Output Formats", description: "Download as PNG with solid background or convert to JPG for smaller file size." },
+      { title: "Transparency Detection", description: "Automatically identifies and processes images with alpha channel transparency." },
+      { title: "Browser-Based Privacy", description: "All processing occurs locally—images never upload to external servers." },
+      { title: "High-Quality Output", description: "Maintains full resolution with smooth edges around previously transparent areas." },
+      { title: "Common Color Presets", description: "Quick-select buttons for white, black, and other frequently used background colors." }
+    ],
+    
+    benefitsText: `Removing transparency prepares images for universal compatibility across formats, platforms, and applications that cannot handle alpha channels. Our browser-based tool makes this process instant and intuitive, with custom color selection and real-time preview. The proper alpha compositing ensures professional results with smooth edges—no harsh outlines or jagged artifacts. By choosing your own background color, you control the final appearance rather than leaving it to chance when different applications interpret transparency differently. This is essential for professional presentation, brand consistency, and ensuring your images look correct everywhere they appear. The tool processes images locally for complete privacy and allows immediate download in your preferred format.`,
+    
+    benefits: [
+      "Prepare images for JPG conversion without black backgrounds",
+      "Ensure consistent appearance across all platforms",
+      "Control background color for brand consistency",
+      "Create email-safe images that display correctly",
+      "Prepare graphics for print without transparency issues",
+      "Optimize images for social media compression",
+      "Generate document-ready images for Word and PDF",
+      "Avoid unexpected background colors from transparency"
+    ],
+    
+    whoCanUse: [
+      { title: "Marketers", description: "Prepare transparent logos and graphics for email signatures, documents, and platforms without transparency support." },
+      { title: "E-commerce Sellers", description: "Create product images with consistent white backgrounds for catalog listings and marketplaces." },
+      { title: "Social Media Managers", description: "Prepare graphics that display correctly after platform compression to JPG format." },
+      { title: "Designers", description: "Generate client deliverables with solid backgrounds for applications that cannot use transparency." },
+      { title: "Print Professionals", description: "Prepare images with solid backgrounds for printing processes requiring opaque graphics." },
+      { title: "Anyone", description: "Remove transparency from any image to add a solid background of their choice." }
+    ],
+    
+    useCases: [
+      { title: "Email Signature Images", description: "Create logos and graphics with solid backgrounds that display correctly in email clients." },
+      { title: "Social Media Preparation", description: "Add backgrounds to transparent images before uploading to platforms that compress to JPG." },
+      { title: "Document Embedding", description: "Prepare images with solid backgrounds for Word documents, PDFs, and presentations." },
+      { title: "Print Production", description: "Remove transparency for print processes that require opaque images." },
+      { title: "JPG Conversion", description: "Add background color before converting PNG to JPG to prevent black backgrounds." },
+      { title: "Platform Compatibility", description: "Prepare images for websites and applications that do not support transparency." }
+    ],
+    
+    faqs: [
+      { question: "Why do transparent images need background removal?", answer: "Many formats (like JPG), platforms, and applications cannot display transparency. Transparent areas may appear black, white, or distorted without a solid background." },
+      { question: "What happens to partially transparent pixels?", answer: "Partially transparent pixels blend proportionally with your chosen background color using proper alpha compositing for smooth, natural results." },
+      { question: "Should I save as PNG or JPG after removing transparency?", answer: "JPG offers smaller files since transparency data is no longer needed. PNG maintains higher quality. Choose based on your quality vs. file size requirements." },
+      { question: "Can I choose any background color?", answer: "Yes, the color picker supports any color including custom hex values. Preset buttons provide quick access to common colors like white and black." },
+      { question: "Will this affect image quality?", answer: "No, the tool maintains full resolution. Only transparent pixels change—all opaque pixels remain exactly as they were." },
+      { question: "What if my image has no transparency?", answer: "Images without alpha channels will appear unchanged since there are no transparent areas to fill." },
+      { question: "Is my image data private?", answer: "Yes, all processing occurs locally in your browser. Images never upload to external servers." },
+      { question: "Can I undo after downloading?", answer: "The original file remains unchanged. However, the downloaded version has permanent solid background—keep your original if you may need transparency later." }
+    ],
+    
+    privacyNote: `All transparency removal processing occurs entirely within your web browser using local JavaScript and canvas operations. Your images are never uploaded to external servers, transmitted over the internet, or stored anywhere outside your device. This ensures complete privacy for personal photographs, professional artwork, and confidential graphics. All image data is discarded when you close or refresh the page.`,
+    
+    conclusion: `Our free Remove Transparency tool provides instant, precise control over replacing transparent areas with solid background colors. Whether preparing images for JPG conversion, email compatibility, social media upload, or print production, this tool ensures consistent appearance across all platforms. The custom color selection and real-time preview deliver exactly the results you need with complete privacy. Upload your transparent PNG and add a solid background in seconds.`,
+    
+    relatedTools: ["add-transparency", "flatten-image", "jpg-compressor", "png-to-jpg"],
+    category: "Format Utilities",
+    categorySlug: "format-utilities",
+    keywords: ["remove transparency", "add background color", "flatten png", "transparency to solid", "png background"],
+    gradientFrom: "#f59e0b",
+    gradientTo: "#d97706"
+  },
+  
+  "flatten-image": {
+    slug: "flatten-image",
+    title: "Flatten Image Tool",
+    metaTitle: "Flatten Image - Free Online Layer Merge & Transparency Flatten Tool | MultiTools",
+    metaDescription: "Flatten images by merging transparency onto a solid background online for free. Convert layered PNGs to flat images ready for any use. No software required.",
+    h1: "Flatten Images Online Free",
+    
+    introduction: `Flattening an image merges all visual elements onto a single layer with a solid background, eliminating transparency and creating a unified, final image ready for universal distribution. Our free online Flatten Image tool combines transparent areas with your chosen background color to produce images that display consistently across all platforms, formats, and applications. Unlike images with alpha channel transparency that may render differently depending on the viewing context, flattened images have a definitive appearance that never changes. Whether you are finalizing graphics for delivery, preparing images for formats without transparency support, optimizing files for faster loading, or ensuring consistent display across diverse systems, this tool provides instant, professional flattening with complete control over the background color.`,
+    
+    aboutTool: `The Flatten Image tool processes images with transparency by compositing all visual content onto a solid background layer of your choosing. This operation is fundamental in graphic design workflows where layered working files must be converted to final deliverables. The tool reads alpha channel data from PNG and other transparency-supporting formats, then composites each pixel against the background color using proper alpha blending algorithms. Fully opaque pixels remain unchanged; partially transparent pixels blend smoothly with the background; fully transparent pixels become solid background color. The result is an image with no transparency data—every pixel is fully opaque with a definitive color value. This eliminates variables that cause inconsistent display across different viewers and platforms. The tool offers common background color presets plus a full color picker for precise custom colors, with real-time preview showing exactly how your flattened image will appear.`,
+    
+    howToUse: [
+      { step: 1, title: "Upload Your Image", description: "Click the upload area or drag and drop your image file. The tool works with PNG, WebP, and other formats that may contain transparency." },
+      { step: 2, title: "Select Background Color", description: "Choose the color that will serve as the base layer using presets or the custom color picker." },
+      { step: 3, title: "Preview the Flattened Result", description: "View how your image appears with transparency merged onto the solid background." },
+      { step: 4, title: "Adjust Color if Needed", description: "Try different background colors to find the best match for your image content and intended use." },
+      { step: 5, title: "Download the Flattened Image", description: "Click download to save your flattened image. Choose PNG or JPG format based on quality and size preferences." },
+      { step: 6, title: "Process Additional Images", description: "Flatten more images with the same or different background colors as needed." }
+    ],
+    
+    whyImportant: `Flattening is the final step in preparing images for distribution, ensuring consistent appearance regardless of how or where they are viewed. Professional workflows require flattened files for client delivery, print production, and archival storage. Transparency introduces variables—different applications render it differently, some platforms do not support it, and file sizes increase to store alpha channel data. Flattened images eliminate these concerns: every viewer sees identical results, files are smaller, and compatibility is universal. For web performance, flattened images often compress better than those with transparency, improving page load times. For print production, flattened files prevent transparency-related output errors. For archival purposes, flattened images ensure future accessibility regardless of evolving software capabilities. Understanding when and how to flatten is essential knowledge for designers, photographers, and anyone working with digital images.`,
+    
+    keyFeatures: [
+      { title: "Complete Transparency Removal", description: "Merges all transparency onto solid background, creating fully opaque images with definitive appearance." },
+      { title: "Custom Background Colors", description: "Choose any background color with presets for common colors and full color picker for custom values." },
+      { title: "Proper Alpha Compositing", description: "Uses correct blending algorithms for smooth transitions where partial transparency exists." },
+      { title: "Real-Time Preview", description: "See exactly how your flattened image looks before committing to download." },
+      { title: "Multiple Output Formats", description: "Download as PNG or convert to JPG for optimal file size without transparency data." },
+      { title: "Browser-Based Processing", description: "All operations occur locally in your browser for complete privacy and instant results." },
+      { title: "High-Quality Output", description: "Maintains full resolution with clean, professional results suitable for any application." },
+      { title: "Batch-Ready Workflow", description: "Quick processing enables efficient flattening of multiple images in succession." }
+    ],
+    
+    benefitsText: `Flattening images provides definitive, universal compatibility that transparency cannot guarantee. Our browser-based tool makes this essential operation instant and accessible without professional software. The proper alpha compositing ensures smooth results where partial transparency blends naturally with your chosen background. By selecting your own background color, you control the final appearance for brand consistency and aesthetic requirements. Flattened images compress more efficiently, load faster, and display consistently across all platforms and applications. This is particularly important for professional deliverables, web performance optimization, print production, and archival storage. The tool processes images locally for complete privacy and provides immediate download in your preferred format.`,
+    
+    benefits: [
+      "Ensure consistent display across all platforms and viewers",
+      "Reduce file sizes by eliminating transparency data",
+      "Prepare images for print production without transparency issues",
+      "Create definitive deliverables for client projects",
+      "Improve web performance with optimized flat images",
+      "Enable JPG conversion without unexpected backgrounds",
+      "Archive images in universally compatible format",
+      "Control final appearance with custom background colors"
+    ],
+    
+    whoCanUse: [
+      { title: "Graphic Designers", description: "Finalize working files into deliverable assets with solid backgrounds for client handoff." },
+      { title: "Web Developers", description: "Optimize images for web performance by eliminating transparency overhead." },
+      { title: "Print Professionals", description: "Prepare images for print production where transparency may cause output issues." },
+      { title: "Photographers", description: "Create final versions of edited images with consistent, defined backgrounds." },
+      { title: "Archivists", description: "Store images in universally compatible flat format for long-term accessibility." },
+      { title: "Anyone", description: "Flatten any image with transparency onto a solid background of their choice." }
+    ],
+    
+    useCases: [
+      { title: "Client Deliverables", description: "Convert working files with transparency to final flat images for client delivery." },
+      { title: "Web Optimization", description: "Create flat images that compress better and load faster than transparent versions." },
+      { title: "Print Production", description: "Prepare images for printing processes that require or prefer opaque files." },
+      { title: "Format Conversion", description: "Flatten before converting to formats like JPG that do not support transparency." },
+      { title: "Archival Storage", description: "Store definitive flat versions alongside working files for future reference." },
+      { title: "Platform Compatibility", description: "Create images that display identically across all platforms regardless of transparency support." }
+    ],
+    
+    faqs: [
+      { question: "What does flattening an image mean?", answer: "Flattening merges transparency onto a solid background, creating an image where every pixel is fully opaque with a definitive, unchanging color value." },
+      { question: "Is flattening the same as removing transparency?", answer: "Yes, flattening is the process of removing transparency by compositing it onto a solid background color you choose." },
+      { question: "What background color should I choose?", answer: "Choose based on your use case—white for documents and most web uses, brand colors for marketing materials, or any color that complements your image content." },
+      { question: "Will flattening reduce image quality?", answer: "No, flattening maintains full resolution. Only transparency is removed—all image detail remains intact." },
+      { question: "Should I keep my original un-flattened file?", answer: "Yes, always keep original files with transparency in case you need to use them on different backgrounds later." },
+      { question: "What formats support the flattened output?", answer: "Flattened images can be saved as PNG, JPG, or WebP. JPG is often preferred since transparency data is no longer needed." },
+      { question: "Is my image data private?", answer: "Yes, all processing occurs locally in your browser. Images never upload to external servers." },
+      { question: "What if my image has no transparency?", answer: "Images without transparency will appear unchanged since there are no transparent areas to flatten." }
+    ],
+    
+    privacyNote: `All image flattening processing occurs entirely within your web browser using local JavaScript and canvas operations. Your images are never uploaded to external servers, transmitted over the internet, or stored anywhere outside your device. This ensures complete privacy for personal photographs, professional artwork, and confidential graphics. All image data is discarded when you close or refresh the page.`,
+    
+    conclusion: `Our free Flatten Image tool provides instant, professional-quality transparency removal with custom background color selection. Whether preparing client deliverables, optimizing web images, or creating universally compatible files, this tool ensures consistent, definitive appearance across all platforms. The browser-based processing delivers complete privacy while real-time preview enables perfect results. Upload your image and flatten it onto your chosen background in seconds.`,
+    
+    relatedTools: ["remove-transparency", "add-transparency", "png-to-jpg", "image-optimization"],
+    category: "Format Utilities",
+    categorySlug: "format-utilities",
+    keywords: ["flatten image", "merge layers", "remove transparency", "solid background", "flatten png"],
+    gradientFrom: "#8b5cf6",
+    gradientTo: "#7c3aed"
+  },
+  
+  "merge-images": {
+    slug: "merge-images",
+    title: "Merge Images Tool",
+    metaTitle: "Merge Images - Free Online Photo Combiner & Collage Maker | MultiTools",
+    metaDescription: "Merge and combine multiple images into one online for free. Create photo collages, side-by-side comparisons, and composite images. No software required.",
+    h1: "Merge Multiple Images Into One Online Free",
+    
+    introduction: `Merging images combines multiple photographs or graphics into a single unified image, essential for creating comparisons, collages, before-and-after presentations, panoramic effects, and composite designs. Our free online Merge Images tool provides flexible layout options to arrange multiple images horizontally, vertically, or in grid formations, producing a single cohesive output image. Unlike complex photo editing software requiring layer management expertise, our intuitive browser-based approach makes image merging accessible to everyone. Simply upload your images, choose your layout arrangement, adjust spacing and sizing options, and download your combined image. Whether you are a photographer creating comparison shots, a marketer building product collages, a social media creator designing multi-image posts, or anyone needing to combine visual content, this tool delivers professional merged images in seconds.`,
+    
+    aboutTool: `The Merge Images tool is a sophisticated composition engine that arranges multiple images into unified layouts while providing control over sizing, spacing, and alignment. The tool supports various layout modes: horizontal arrangement places images side-by-side, vertical stacking places them top-to-bottom, and grid layouts organize images in rows and columns. You control how images are sized relative to each other—matching heights for horizontal layouts, matching widths for vertical layouts, or fitting to a grid with uniform cells. Spacing options add breathing room between images with customizable gaps. The background color setting determines what appears in any spaces between or around images. All processing uses browser-based canvas operations, combining your images locally for complete privacy. The output is a single image file ready for sharing, embedding, or further editing. This tool bridges the gap between basic photo viewers and professional editing software, providing essential merging capabilities without complexity.`,
+    
+    howToUse: [
+      { step: 1, title: "Upload Multiple Images", description: "Click the upload area or drag and drop two or more images you want to merge. Rearrange the order by dragging if needed." },
+      { step: 2, title: "Select Layout Mode", description: "Choose horizontal (side-by-side), vertical (top-to-bottom), or grid arrangement for your images." },
+      { step: 3, title: "Adjust Sizing Options", description: "Configure how images are sized—match heights, match widths, or fit to uniform grid cells." },
+      { step: 4, title: "Set Spacing and Background", description: "Add spacing between images and choose a background color for gaps and borders." },
+      { step: 5, title: "Preview the Merged Result", description: "Review your combined image. Reorder, resize, or adjust settings as needed." },
+      { step: 6, title: "Download Merged Image", description: "Click download to save your merged image as a single file in PNG or JPG format." }
+    ],
+    
+    whyImportant: `Image merging serves essential functions across creative, professional, and personal applications. Photographers create before-and-after comparisons, contact sheets, and portfolio composites. E-commerce sellers display multiple product views in single images for marketplace listings. Social media platforms often favor single images over galleries, making merged images more effective for engagement. Educators and presenters combine diagrams and illustrations for instructional materials. Real estate professionals merge multiple property photos into single overview images. The ability to combine images efficiently saves time compared to manual editing in complex software, and the unified output is more versatile than multi-image formats that require specific viewer support. Understanding image merging expands your capability to communicate visually with combined content that tells more complete stories than individual images alone.`,
+    
+    keyFeatures: [
+      { title: "Multiple Layout Modes", description: "Arrange images horizontally, vertically, or in customizable grid formations." },
+      { title: "Flexible Sizing Options", description: "Match heights, match widths, or create uniform grid cells for consistent presentation." },
+      { title: "Adjustable Spacing", description: "Add custom gaps between images for visual breathing room and clear separation." },
+      { title: "Background Color Control", description: "Set background color for spaces between images and any visible borders." },
+      { title: "Drag-and-Drop Reordering", description: "Easily rearrange image order by dragging to achieve your desired sequence." },
+      { title: "Real-Time Preview", description: "See your merged result update instantly as you adjust layout and settings." },
+      { title: "Browser-Based Privacy", description: "All processing occurs locally—images never upload to external servers." },
+      { title: "High-Quality Output", description: "Produces high-resolution merged images suitable for print and web use." }
+    ],
+    
+    benefitsText: `Merging images creates unified visual content that communicates more effectively than separate images. Our browser-based tool makes this process instant and intuitive without requiring professional editing software. The multiple layout options accommodate different use cases—horizontal for comparisons, vertical for sequences, grids for collections. The sizing controls ensure consistent, professional presentation regardless of original image dimensions. Spacing and background options add polish for finished, shareable results. All processing happens locally on your device, ensuring privacy for personal photos and proprietary business images. The single output file is universally compatible, easier to share than multiple files, and displays correctly everywhere without requiring gallery viewers or slideshow software.`,
+    
+    benefits: [
+      "Create professional before-and-after comparisons",
+      "Build product collages for e-commerce listings",
+      "Design multi-image social media posts",
+      "Combine diagrams for instructional materials",
+      "Generate contact sheets and portfolio overviews",
+      "Merge screenshots for documentation",
+      "Create panoramic-style wide images",
+      "Produce single-image galleries for maximum compatibility"
+    ],
+    
+    whoCanUse: [
+      { title: "Photographers", description: "Create comparison shots, contact sheets, and portfolio composites from multiple images." },
+      { title: "E-commerce Sellers", description: "Combine multiple product views into single images for marketplace listings." },
+      { title: "Social Media Creators", description: "Build multi-image posts that display as single, engaging images." },
+      { title: "Educators", description: "Merge diagrams, screenshots, and illustrations for instructional materials." },
+      { title: "Real Estate Professionals", description: "Create property overview images combining multiple room and exterior shots." },
+      { title: "Anyone", description: "Combine any photos or graphics into unified images for personal or professional use." }
+    ],
+    
+    useCases: [
+      { title: "Before-and-After Comparisons", description: "Place original and edited images side-by-side to showcase transformations." },
+      { title: "Product Displays", description: "Combine multiple product angles into single images for online listings." },
+      { title: "Social Media Collages", description: "Create multi-image posts that display as single images for better engagement." },
+      { title: "Instructional Graphics", description: "Merge step-by-step screenshots or diagrams into comprehensive guides." },
+      { title: "Portfolio Contact Sheets", description: "Combine multiple works into overview images for portfolio presentations." },
+      { title: "Event Documentation", description: "Merge event photos into summary images that capture multiple moments." }
+    ],
+    
+    faqs: [
+      { question: "How many images can I merge?", answer: "The tool supports merging multiple images. For best results with many images, use grid layout to organize them into rows and columns." },
+      { question: "Can I control the order of images?", answer: "Yes, drag and drop to reorder images after uploading. The order determines their position in the merged output." },
+      { question: "What happens if my images are different sizes?", answer: "Use the sizing options to match heights, widths, or fit to uniform cells. The tool adjusts images while maintaining aspect ratios." },
+      { question: "Can I add borders between images?", answer: "Yes, use the spacing option to add gaps between images. The background color fills these gaps, creating border effects." },
+      { question: "What formats are supported for input?", answer: "The tool accepts JPG, PNG, WebP, GIF, and other common image formats. Mix different formats freely." },
+      { question: "What format is the output?", answer: "Choose PNG for quality or JPG for smaller file size. PNG preserves any transparency in source images." },
+      { question: "Is my image data private?", answer: "Yes, all processing occurs locally in your browser. Images never upload to external servers." },
+      { question: "Can I merge images of very different dimensions?", answer: "Yes, the sizing options handle different dimensions by scaling images to match. Very extreme differences may require cropping first for best results." }
+    ],
+    
+    privacyNote: `All image merging processing occurs entirely within your web browser using local JavaScript and canvas operations. Your images are never uploaded to external servers, transmitted over the internet, or stored anywhere outside your device. This ensures complete privacy for personal photographs, professional work, and confidential visual content. All image data is discarded when you close or refresh the page.`,
+    
+    conclusion: `Our free Merge Images tool provides instant, flexible image combination with multiple layout options and precise control over sizing and spacing. Whether creating comparisons, collages, or composite images, this tool delivers professional results with complete privacy. The browser-based processing requires no software installation while the intuitive interface makes image merging accessible to everyone. Upload your images and create unified visual content in seconds.`,
+    
+    relatedTools: ["image-combine", "collage-maker", "side-by-side", "photo-grid"],
+    category: "Format Utilities",
+    categorySlug: "format-utilities",
+    keywords: ["merge images", "combine photos", "photo collage", "image combiner", "merge pictures"],
+    gradientFrom: "#ec4899",
+    gradientTo: "#db2777"
+  }
+};
+
 // Export function to get comprehensive SEO content
 export const getComprehensiveSEOContent = (slug: string): ComprehensiveSEOContent | null => {
   // Check image converter tools
@@ -5696,6 +6221,11 @@ export const getComprehensiveSEOContent = (slug: string): ComprehensiveSEOConten
   // Check image to document tools
   if (imageToDocumentSEOContent[slug]) {
     return imageToDocumentSEOContent[slug];
+  }
+  
+  // Check format utilities tools
+  if (formatUtilitiesSEOContent[slug]) {
+    return formatUtilitiesSEOContent[slug];
   }
   
   return null;
