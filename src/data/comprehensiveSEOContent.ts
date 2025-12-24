@@ -4760,6 +4760,184 @@ export const imageMetadataSEOContent: Record<string, ComprehensiveSEOContent> = 
     keywords: ["remove exif", "strip metadata", "delete gps", "privacy protection", "remove location", "clean metadata"],
     gradientFrom: "#ef4444",
     gradientTo: "#f97316"
+  },
+  
+  "edit-exif-datetime": {
+    slug: "edit-exif-datetime",
+    title: "Edit Date/Time",
+    metaTitle: "Edit Image Date/Time - Modify EXIF Timestamp Online Free | MultiTools",
+    metaDescription: "Edit image date and time metadata online for free. Change EXIF timestamps, correct wrong dates, organize photos by date. No software installation required.",
+    h1: "Edit Image Date and Time Metadata Online Free",
+    
+    introduction: `Digital cameras and smartphones automatically record the date and time when each photo is taken, storing this information as EXIF metadata within the image file. However, this timestamp is not always accurate—cameras with incorrect clock settings, timezone issues during travel, or scanned photos that inherit the scan date rather than the original capture date can all result in incorrect date metadata that disrupts photo organization. Our free Edit Date/Time tool allows you to modify these EXIF timestamps directly, correcting errors and ensuring your photos are properly organized by their actual capture dates. Whether you need to fix a camera clock that was set incorrectly, adjust for timezone differences, set proper dates on digitized film photographs, or simply organize your photo library accurately, this tool provides complete control over your image timestamps. All processing occurs securely in your browser, keeping your photos private while giving you full editing capabilities.`,
+    
+    aboutTool: `Our Edit Date/Time tool is a specialized EXIF metadata editor focused on modifying the date and time information embedded in digital photographs. Digital cameras record multiple timestamp fields including DateTimeOriginal (when the photo was captured), DateTimeDigitized (when it was converted to digital format), and DateTime (when the file was last modified). Our tool allows you to view and edit all these timestamp fields, providing complete control over how your photos are dated. The interface displays the current timestamps and allows you to set new dates and times with precision down to the second. You can shift all timestamps by a specified amount (useful for correcting camera clock errors across many photos) or set specific dates and times manually. The tool preserves all other EXIF data including camera settings, GPS location, and other metadata—only the timestamp fields you choose to edit are modified. Processing happens entirely in your browser, meaning your photos are never uploaded to any server, ensuring complete privacy for your personal images.`,
+    
+    howToUse: [
+      { step: 1, title: "Upload Your Image", description: "Click the upload area or drag and drop the photo whose date/time you want to edit. The tool accepts JPG and other common image formats containing EXIF data." },
+      { step: 2, title: "View Current Timestamps", description: "The tool displays all date/time fields currently stored in your image's EXIF data, including the original capture date, digitization date, and modification date." },
+      { step: 3, title: "Select Fields to Edit", description: "Choose which timestamp fields you want to modify. You can edit individual fields or synchronize all dates to match a single corrected value." },
+      { step: 4, title: "Enter New Date/Time", description: "Set the correct date and time using the intuitive date picker and time input. You can set a specific date or shift existing timestamps by a specified offset." },
+      { step: 5, title: "Preview Changes", description: "Review the new timestamps before applying them to ensure accuracy. Compare the original and modified values side by side." },
+      { step: 6, title: "Apply and Download", description: "Click to apply your changes and download the image with corrected date/time metadata. The original file on your device remains unchanged." }
+    ],
+    
+    whyImportant: `Accurate date and time metadata is fundamental to photo organization and archiving. Photo management software relies on EXIF timestamps to sort images chronologically, create automatic albums, and power features like "On This Day" memories. When timestamps are incorrect, photos appear in the wrong positions in your library, making it difficult to find specific images or relive memories from particular dates. Camera clock errors are surprisingly common—many photographers forget to update their camera time when traveling across time zones, resulting in hundreds of photos with incorrect timestamps. Daylight saving time changes often catch users off guard, creating timestamp discrepancies. When digitizing old film photographs, the scanner records the scan date rather than the original capture date, which can span decades of difference. Professional photographers need accurate timestamps for client deliverables and legal documentation. Genealogists and archivists require correct dates for historical photo preservation. By providing the ability to correct these timestamps, our tool ensures your photo library remains accurately organized and your memories are properly dated.`,
+    
+    keyFeatures: [
+      { title: "Comprehensive Timestamp Editing", description: "Edit DateTimeOriginal, DateTimeDigitized, and DateTime fields independently or together for complete control over all date metadata." },
+      { title: "Precise Time Control", description: "Set dates and times with second-level precision using intuitive date picker and time input controls." },
+      { title: "Batch Time Shifting", description: "Shift all timestamps by a specified offset—perfect for correcting systematic camera clock errors across multiple photos." },
+      { title: "Timezone Adjustment", description: "Correct timestamps for timezone differences encountered during travel photography." },
+      { title: "Preservation of Other Metadata", description: "Only timestamp fields are modified; all other EXIF data including camera settings and GPS location remains intact." },
+      { title: "Before/After Comparison", description: "Preview original and modified timestamps side by side before applying changes." },
+      { title: "Browser-Based Privacy", description: "All editing happens locally in your browser. Your photos never leave your device." },
+      { title: "Format Preservation", description: "Output maintains original image quality and format—only metadata is modified, not the image data itself." }
+    ],
+    
+    benefitsText: `Our Edit Date/Time tool provides essential functionality for anyone managing digital photo collections. The ability to correct camera clock errors means your photos sort correctly in any photo management application, from Apple Photos to Google Photos to Adobe Lightroom. Timezone corrections ensure travel photos appear at the right chronological position rather than being offset by hours. For scanned photographs, setting accurate original dates transforms them from random recent files into properly dated historical images that integrate seamlessly with your digital collection. The batch offset feature saves hours of work when correcting systematic errors across many images. Browser-based processing provides instant results without waiting for uploads while keeping your personal photos completely private. The non-destructive approach preserves all other metadata and image quality, ensuring you lose nothing while gaining accurate timestamps.`,
+    
+    benefits: [
+      "Correct camera clock errors and timezone issues",
+      "Properly date scanned and digitized photographs",
+      "Organize photo libraries accurately by capture date",
+      "Preserve memories with correct historical dates",
+      "Maintain other EXIF data while editing timestamps",
+      "Process photos privately without server uploads",
+      "Apply batch corrections efficiently",
+      "Free unlimited timestamp editing"
+    ],
+    
+    whoCanUse: [
+      { title: "Photographers", description: "Correct camera clock errors and timezone discrepancies to maintain accurately dated photo archives for client delivery and personal organization." },
+      { title: "Photo Archivists", description: "Set accurate original dates on scanned historical photographs to create properly organized digital archives spanning decades." },
+      { title: "Travelers", description: "Fix timezone-related timestamp errors from photos taken across different time zones during trips and adventures." },
+      { title: "Genealogists", description: "Assign accurate dates to digitized family photographs for historical preservation and family tree documentation." },
+      { title: "Memory Book Creators", description: "Ensure photos appear in correct chronological order when creating photo books, slideshows, and memory projects." },
+      { title: "Anyone with Photo Libraries", description: "Correct any photos with wrong dates to maintain well-organized, chronologically accurate photo collections." }
+    ],
+    
+    useCases: [
+      { title: "Camera Clock Correction", description: "Fix timestamps on photos taken with incorrectly set camera clocks, ensuring proper chronological organization in your library." },
+      { title: "Travel Photography", description: "Adjust timestamps for timezone differences on vacation photos so they sort correctly alongside local time photos." },
+      { title: "Scanned Photo Dating", description: "Set original capture dates on digitized film photographs and old prints that currently show only their scan dates." },
+      { title: "Event Documentation", description: "Ensure event photos have accurate timestamps for proper chronological documentation and archival purposes." },
+      { title: "Legal and Professional Use", description: "Correct timestamp metadata on photos needed for legal documentation, insurance claims, or professional records." },
+      { title: "Memory Organization", description: "Fix dates on photos so they appear correctly in On This Day features, annual retrospectives, and chronological galleries." }
+    ],
+    
+    faqs: [
+      { question: "What date/time fields does this tool edit?", answer: "The tool can edit DateTimeOriginal (capture time), DateTimeDigitized (digitization time), and DateTime (modification time) fields stored in EXIF metadata." },
+      { question: "Will editing the date affect image quality?", answer: "No, only metadata is modified. The actual image data remains completely unchanged, preserving full original quality." },
+      { question: "Can I edit dates on multiple photos at once?", answer: "You can process photos one at a time with our efficient workflow. For batch corrections with the same time shift, apply the offset and repeat for each image." },
+      { question: "What happens to other EXIF data like camera settings?", answer: "All other EXIF data is preserved exactly as it was. Only the date/time fields you choose to edit are modified." },
+      { question: "Can I set dates for scanned old photographs?", answer: "Yes, this is a perfect use case. Set the DateTimeOriginal to the estimated original capture date to properly date digitized historical photos." },
+      { question: "How do I fix a camera that was set to the wrong timezone?", answer: "Use the offset feature to shift all timestamps by the number of hours your camera was off. This corrects the timezone error systematically." },
+      { question: "Are my photos uploaded to a server?", answer: "No, all processing happens locally in your browser. Your photos remain completely private and never leave your device." },
+      { question: "What image formats are supported?", answer: "The tool supports JPEG and other formats that contain EXIF metadata. PNG files typically do not contain EXIF data." },
+      { question: "Can I undo changes after downloading?", answer: "The tool creates a new file with modified metadata. Your original file remains unchanged on your device, so you always have the original if needed." },
+      { question: "Is there a limit to how many photos I can edit?", answer: "No, the tool is completely free with unlimited usage. Edit as many photo timestamps as you need." }
+    ],
+    
+    privacyNote: `Your photos remain completely private when using our Edit Date/Time tool. All timestamp editing and metadata modification occurs locally in your web browser using client-side JavaScript. Your images are never uploaded to any server, never transmitted over the internet, and never stored anywhere outside your device. We do not access, collect, or log any information about your photos or the edits you make. No account registration is required. When you close the browser tab, all image data is cleared from memory. Your personal photos and their metadata are 100% protected throughout the entire editing process.`,
+    
+    conclusion: `Our free Edit Date/Time tool provides essential EXIF timestamp editing capabilities for anyone managing digital photo collections. Whether correcting camera clock errors, adjusting for timezone differences during travel, or setting accurate dates on scanned historical photographs, this tool gives you complete control over your image timestamps. The browser-based processing keeps your photos private while delivering instant results. By ensuring accurate date metadata, your photos will sort correctly in any photo management application, appear properly in chronological views, and preserve the true dates of your memories. With unlimited free usage and preservation of all other image data, this tool is the perfect solution for maintaining accurately dated photo archives.`,
+    
+    relatedTools: ["view-exif", "remove-exif", "copy-exif"],
+    category: "Image Metadata",
+    categorySlug: "image-metadata",
+    keywords: ["edit date", "change timestamp", "modify exif date", "photo date editor", "fix camera date", "correct photo time"],
+    gradientFrom: "#8b5cf6",
+    gradientTo: "#a855f7"
+  },
+  
+  "copy-exif": {
+    slug: "copy-exif",
+    title: "Copy EXIF",
+    metaTitle: "Copy EXIF Data - Transfer Metadata Between Images Online Free | MultiTools",
+    metaDescription: "Copy EXIF metadata from one image to another online for free. Transfer camera settings, GPS location, timestamps between photos. Preserve metadata during editing.",
+    h1: "Copy EXIF Data Between Images Online Free",
+    
+    introduction: `When editing photos in software that strips metadata or when combining images from different sources, valuable EXIF information can be lost. Our free Copy EXIF tool allows you to transfer metadata from one image to another, preserving important information like camera settings, GPS location, timestamps, and copyright data. This is essential when your photo editing workflow results in clean files that have lost their original metadata—simply copy the EXIF from the original to the edited version to restore all information. Whether you are preserving camera settings on retouched photos, maintaining GPS data on cropped images, or transferring copyright information across a set of images, this tool provides complete metadata transfer capabilities. All processing happens in your browser, ensuring your photos remain private while giving you full control over metadata management.`,
+    
+    aboutTool: `Our Copy EXIF tool is a specialized metadata management utility that reads EXIF data from a source image and writes it to a destination image. EXIF (Exchangeable Image File Format) metadata includes a wealth of information recorded by digital cameras: camera make and model, lens specifications, exposure settings (aperture, shutter speed, ISO), flash usage, white balance, GPS coordinates, date and time of capture, orientation, and much more. When photos are edited in certain software or converted between formats, this metadata can be stripped out, leaving valuable information behind. Our tool solves this by extracting complete EXIF data from the original source file and embedding it into the destination file. You can copy all metadata or select specific categories to transfer. The tool handles the complex task of merging metadata while preserving image integrity. Processing occurs entirely in your browser using client-side technology, meaning neither your source nor destination images are ever uploaded to any server.`,
+    
+    howToUse: [
+      { step: 1, title: "Upload Source Image", description: "First, upload the image containing the EXIF metadata you want to copy. This is typically the original, unedited photo with complete metadata." },
+      { step: 2, title: "Upload Destination Image", description: "Next, upload the image that should receive the EXIF data. This might be an edited version of the source or any other image that needs the metadata." },
+      { step: 3, title: "Review Source Metadata", description: "The tool displays all EXIF data found in the source image, including camera info, settings, GPS, and timestamps." },
+      { step: 4, title: "Select Data to Copy", description: "Choose to copy all metadata or select specific categories like camera info, GPS location, timestamps, or copyright data." },
+      { step: 5, title: "Apply Metadata Transfer", description: "Click to copy the selected EXIF data from the source to the destination image." },
+      { step: 6, title: "Download Updated Image", description: "Save the destination image, now containing the copied EXIF metadata, to your device." }
+    ],
+    
+    whyImportant: `EXIF metadata serves multiple important purposes that are lost when editing software strips this information. Camera settings in EXIF data help photographers learn from their work by seeing exactly what aperture, shutter speed, and ISO produced successful shots. GPS coordinates embedded in photos enable location-based organization and mapping features in photo libraries. Timestamps are essential for chronological sorting and "On This Day" memory features. Copyright and artist information establishes ownership and attribution. When you edit a photo in software that strips metadata, all this valuable information is lost—but our Copy EXIF tool lets you restore it by transferring the data from your original file. This is crucial for professional photographers who need to maintain complete metadata in their deliverables, archivists who require full documentation of image provenance, and anyone who relies on metadata for photo organization. The ability to selectively copy specific metadata categories also enables workflows where you want to transfer GPS from one photo to another taken at the same location but with a camera that lacked GPS capability.`,
+    
+    keyFeatures: [
+      { title: "Complete Metadata Transfer", description: "Copy all EXIF fields including camera info, exposure settings, GPS, timestamps, and custom fields from source to destination images." },
+      { title: "Selective Category Copying", description: "Choose to copy all metadata or select specific categories like camera, location, dates, or copyright for targeted transfers." },
+      { title: "Source Preview", description: "View all metadata in the source image before copying to verify you're transferring the correct information." },
+      { title: "Multi-Field Support", description: "Handles camera make/model, lens data, exposure settings, flash info, GPS coordinates, timestamps, orientation, and more." },
+      { title: "Image Quality Preservation", description: "Only metadata is modified—the actual image pixels remain completely unchanged." },
+      { title: "Browser-Based Privacy", description: "Both source and destination images are processed locally. Nothing is uploaded to any server." },
+      { title: "Format Compatibility", description: "Works with JPEG and other formats supporting EXIF metadata." },
+      { title: "Instant Processing", description: "Metadata transfer happens immediately in your browser without waiting for server processing." }
+    ],
+    
+    benefitsText: `Our Copy EXIF tool provides essential functionality for maintaining complete metadata in photo workflows that would otherwise strip this information. Photographers can edit in any software knowing they can restore full EXIF data afterward. GPS data can be preserved on photos processed through tools that remove location information. Copyright and artist credits can be maintained across editing workflows. The selective copying feature enables creative uses like adding GPS data from a phone photo to a DSLR photo taken at the same location. Browser-based processing means instant results with complete privacy—your photos never leave your device during the transfer. Unlike metadata embedding software that requires installation and technical knowledge, our web-based tool is accessible from any device with a browser. Free unlimited usage makes professional-level metadata management available to everyone.`,
+    
+    benefits: [
+      "Restore metadata stripped by editing software",
+      "Preserve GPS location on edited photos",
+      "Maintain camera settings for learning and reference",
+      "Transfer copyright information across images",
+      "Add GPS data to photos from cameras without GPS",
+      "Keep timestamps accurate on processed images",
+      "Complete privacy with browser-based processing",
+      "Free unlimited metadata transfers"
+    ],
+    
+    whoCanUse: [
+      { title: "Photographers", description: "Restore complete EXIF metadata to edited photos that lost information during processing in third-party software." },
+      { title: "Photo Editors", description: "Maintain original camera data and timestamps on retouched images for accurate documentation and archiving." },
+      { title: "Archivists", description: "Preserve complete metadata provenance when creating processed versions of archival photographs." },
+      { title: "Travel Photographers", description: "Add GPS data from phone photos to DSLR images taken at the same location for accurate geo-tagging." },
+      { title: "Stock Photographers", description: "Ensure all deliverables contain required copyright and IPTC metadata transferred from original captures." },
+      { title: "Photo Organizers", description: "Maintain accurate timestamps and location data on all versions of photos for proper library organization." }
+    ],
+    
+    useCases: [
+      { title: "Post-Editing Restoration", description: "Restore EXIF metadata to photos that lost information when edited in software that strips metadata during export." },
+      { title: "GPS Data Transfer", description: "Copy GPS coordinates from a phone photo to a DSLR photo taken at the same location for accurate mapping." },
+      { title: "Copyright Management", description: "Transfer copyright and artist information from template images to new photos for consistent attribution." },
+      { title: "Format Conversion Recovery", description: "Restore metadata to images that lost EXIF data when converted between formats." },
+      { title: "Batch Metadata Consistency", description: "Ensure a series of images share consistent metadata by copying from a properly tagged source image." },
+      { title: "Archive Documentation", description: "Maintain complete provenance data when creating optimized versions of archival photographs." }
+    ],
+    
+    faqs: [
+      { question: "What metadata can be copied between images?", answer: "All EXIF fields can be copied including camera make/model, lens info, exposure settings, flash data, GPS coordinates, date/time, orientation, copyright, and custom fields." },
+      { question: "Will copying EXIF affect image quality?", answer: "No, only metadata is modified. The actual image pixels in both source and destination remain completely unchanged." },
+      { question: "Can I copy metadata from any image to any other image?", answer: "Yes, you can copy EXIF from any image with metadata to any other image. The destination image will receive the source's metadata." },
+      { question: "Can I copy only certain metadata fields?", answer: "Yes, you can choose to copy all metadata or select specific categories like camera info, GPS, timestamps, or copyright." },
+      { question: "What happens to existing metadata in the destination image?", answer: "Existing metadata in the destination is replaced by the copied data for the fields being transferred. Fields not being copied remain unchanged." },
+      { question: "Why would I need to copy EXIF data?", answer: "Common reasons include restoring metadata stripped by editing software, adding GPS to photos from cameras without GPS, or maintaining consistent copyright info." },
+      { question: "Are my images uploaded to a server?", answer: "No, all processing happens locally in your browser. Neither source nor destination images ever leave your device." },
+      { question: "What image formats are supported?", answer: "JPEG and other formats supporting EXIF metadata. PNG files typically do not contain or support EXIF data." },
+      { question: "Can I copy EXIF from multiple source images?", answer: "Process one pair at a time with our workflow. Each transfer copies from one source to one destination image." },
+      { question: "Is there a cost for using this tool?", answer: "No, the tool is completely free with unlimited usage. Copy EXIF data between as many images as you need." }
+    ],
+    
+    privacyNote: `Your photos are completely private when using our Copy EXIF tool. All metadata extraction and embedding occurs locally in your web browser using client-side JavaScript. Neither your source image nor your destination image is ever uploaded to any server or transmitted over the internet. We do not access, collect, or store any information about your photos or their metadata. No account registration is required. All image data is cleared from memory when you close the browser tab. Your personal photos and their metadata remain 100% protected throughout the entire transfer process.`,
+    
+    conclusion: `Our free Copy EXIF tool provides essential metadata management capabilities for photographers and anyone working with digital images. Whether restoring EXIF data stripped by editing software, transferring GPS coordinates between images, or maintaining consistent copyright information, this tool gives you complete control over image metadata. The selective copying feature enables targeted transfers while the browser-based processing keeps your photos private with instant results. By ensuring complete metadata is preserved across your photo workflow, you maintain valuable camera settings for learning, accurate GPS for organization, and proper timestamps for chronological sorting. With unlimited free usage and support for all EXIF fields, this tool is the perfect solution for professional-level metadata management.`,
+    
+    relatedTools: ["view-exif", "remove-exif", "edit-exif-datetime"],
+    category: "Image Metadata",
+    categorySlug: "image-metadata",
+    keywords: ["copy exif", "transfer metadata", "clone exif", "copy image data", "metadata transfer", "exif copy tool"],
+    gradientFrom: "#10b981",
+    gradientTo: "#059669"
   }
 };
 
