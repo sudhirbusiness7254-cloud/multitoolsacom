@@ -5628,8 +5628,8 @@ export const imageToDocumentSEOContent: Record<string, ComprehensiveSEOContent> 
 
 // Format Utilities Tools - Comprehensive Content
 export const formatUtilitiesSEOContent: Record<string, ComprehensiveSEOContent> = {
-  "grayscale": {
-    slug: "grayscale",
+  "grayscale-conversion": {
+    slug: "grayscale-conversion",
     title: "Grayscale Image Converter",
     metaTitle: "Grayscale Image Converter - Free Online Black & White Photo Tool | MultiTools",
     metaDescription: "Convert color images to grayscale online for free. Transform photos to professional black and white with instant preview. No software required, works on all devices.",
@@ -5707,7 +5707,7 @@ export const formatUtilitiesSEOContent: Record<string, ComprehensiveSEOContent> 
     
     conclusion: `Our free Grayscale Image Converter provides instant, professional-quality transformation from color to monochrome using perceptually accurate luminance algorithms. Whether creating artistic black and white photography, preparing images for publication, or exploring the dramatic potential within your color photographs, this tool delivers stunning grayscale results with complete privacy. The browser-based processing requires no software installation or registration. Upload your image and discover the timeless elegance of grayscale in seconds.`,
     
-    relatedTools: ["black-and-white", "sepia", "brightness-adjust", "contrast-adjust"],
+    relatedTools: ["black-white-conversion", "sepia-effect", "brightness-adjust", "contrast-adjust"],
     category: "Format Utilities",
     categorySlug: "format-utilities",
     keywords: ["grayscale converter", "black and white image", "desaturate photo", "monochrome converter", "grayscale filter"],
@@ -5715,8 +5715,8 @@ export const formatUtilitiesSEOContent: Record<string, ComprehensiveSEOContent> 
     gradientTo: "#374151"
   },
   
-  "black-and-white": {
-    slug: "black-and-white",
+  "black-white-conversion": {
+    slug: "black-white-conversion",
     title: "Black & White Image Converter",
     metaTitle: "Black & White Converter - Free Online High Contrast Photo Tool | MultiTools",
     metaDescription: "Convert images to pure black and white with adjustable threshold online for free. Create dramatic high-contrast graphics and art. No software required.",
@@ -5794,7 +5794,7 @@ export const formatUtilitiesSEOContent: Record<string, ComprehensiveSEOContent> 
     
     conclusion: `Our free Black & White Image Converter provides instant transformation to pure two-tone imagery with precise threshold control for optimal results. Whether creating stencils, preparing screen printing artwork, designing graphic posters, or processing documents, this tool delivers bold, high-contrast results with complete privacy. The adjustable threshold and real-time preview enable perfect customization for any source image. Upload your image and discover the dramatic impact of pure black and white conversion in seconds.`,
     
-    relatedTools: ["grayscale", "invert-colors", "contrast-adjust", "brightness-adjust"],
+    relatedTools: ["grayscale-conversion", "negative-image", "contrast-adjust", "brightness-adjust"],
     category: "Format Utilities",
     categorySlug: "format-utilities",
     keywords: ["black and white converter", "threshold filter", "high contrast image", "binary image", "two-tone converter"],
