@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Mail, Phone, MessageSquare } from "lucide-react";
@@ -14,6 +15,16 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
+      <Helmet>
+        <title>Contact Us - MultiToolsA | Get in Touch</title>
+        <meta name="description" content="Contact MultiToolsA for questions, feedback, or support. We're here to help with your image processing and tag generation needs." />
+        <link rel="canonical" href="https://multitoolsa.com/contact" />
+        <meta property="og:title" content="Contact Us - MultiToolsA" />
+        <meta property="og:description" content="Get in touch with the MultiToolsA team for questions, feedback, or support." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://multitoolsa.com/contact" />
+      </Helmet>
+      
       <Header />
       
       <main className="flex-1 container mx-auto px-4 py-12">

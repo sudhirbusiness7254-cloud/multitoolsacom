@@ -117,12 +117,12 @@ const ImageToolsPage = () => {
         <title>Free Image Converter Online - JPG, PNG, WEBP, GIF, TIFF, RAW, HEIC, SVG | 2024</title>
         <meta name="description" content="Convert images online free: JPG to PNG, PNG to JPG, WEBP, TIFF to JPG, RAW to PNG and more. No watermarks, no signup. Fast, secure browser-based image converter." />
         <meta name="keywords" content="image converter, jpg to png, png to jpg, webp converter, tiff to jpg, raw to png, gif converter, svg to png, heic to jpg, free image converter" />
-        <link rel="canonical" href="https://yoursite.com/image-tools" />
+        <link rel="canonical" href="https://multitoolsa.com/image-tools" />
         
         <meta property="og:title" content="Free Image Converter - Convert JPG, PNG, WEBP, TIFF, RAW Online" />
         <meta property="og:description" content="Convert images between all formats free online. No watermarks, no signup. Fast and secure." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://yoursite.com/image-tools" />
+        <meta property="og:url" content="https://multitoolsa.com/image-tools" />
         
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Free Image Converter Online" />

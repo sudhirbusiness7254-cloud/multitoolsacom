@@ -42,7 +42,7 @@ const ToolPageLayout = ({
   schemaType = "WebApplication"
 }: ToolPageLayoutProps) => {
   const slug = title.toLowerCase().replace(/\s+/g, '-');
-  const canonicalUrl = `https://multitools.com/${slug}`;
+  const canonicalUrl = `https://multitoolsa.com/tools/${slug}`;
 
   const schemaMarkup = {
     "@context": "https://schema.org",
