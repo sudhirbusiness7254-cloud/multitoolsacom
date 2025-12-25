@@ -13,6 +13,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import HreflangTags from "@/components/HreflangTags";
 
 const pdfTools = [
   { slug: "merge-pdf", name: "Merge PDF", description: "Combine multiple PDF files into one", icon: FileText, color: "from-red-500 to-red-600" },
@@ -68,6 +69,7 @@ const PDFToolsPage = () => {
         <title>PDF Tools - Free Online PDF Editor & Converter | MultiTools</title>
         <meta name="description" content="Free online PDF tools: merge, compress, split PDFs, convert Word to PDF, and more. Fast, secure, no signup required." />
         <link rel="canonical" href="https://multitoolsa.com/pdf-tools" />
+        <HreflangTags path="/pdf-tools" />
         <meta property="og:title" content="PDF Tools - Free Online PDF Editor & Converter" />
         <meta property="og:description" content="All-in-one PDF tools: merge, compress, split, convert. 100% free, no signup required." />
         <meta property="og:type" content="website" />

@@ -6,6 +6,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { ArrowRight, BookOpen, Shield, HelpCircle, Lightbulb, CheckCircle, Lock, Globe, Zap, Users } from "lucide-react";
 import { toolCategories, Category } from "@/data/toolsData";
 import { CategorySEOContent } from "@/data/categorySEOData";
+import HreflangTags from "@/components/HreflangTags";
 
 interface CategoryPageLayoutProps {
   category: Category;
@@ -72,6 +73,7 @@ const CategoryPageLayout = ({
         <title>{metaTitle}</title>
         <meta name="description" content={metaDescription} />
         <link rel="canonical" href={canonicalUrl} />
+        <HreflangTags path={`/${category.slug}`} />
         
         <meta property="og:title" content={metaTitle} />
         <meta property="og:description" content={metaDescription} />

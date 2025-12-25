@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import { ArrowRight, Zap, Shield, Globe, Sparkles, Hash, TrendingUp, RefreshCw, Minimize2, Maximize2, Crop, Droplet, RotateCw, Settings, Palette, Layers, FileText, Database, Zap as ZapIcon, Pencil, Lock, QrCode, Image, Star } from "lucide-react";
 import { toolCategories } from "@/data/toolsData";
 import { ToolIconWithBackground, getToolIconColor, getToolIconComponent } from "@/lib/toolIcons";
+import HreflangTags from "@/components/HreflangTags";
 
 // Category icons mapping
 const categoryLucideIcons: Record<string, React.ReactNode> = {
@@ -79,11 +80,11 @@ const HomePage = () => {
         <meta name="description" content="Free online image tools: Convert, compress, resize, crop, rotate, add watermarks, filters & more. Generate hashtags for YouTube, Instagram, TikTok. Fast, secure, no signup." />
         <meta name="keywords" content="image converter, image compressor, photo editor, tag generator, jpg to png, hashtag generator, free online tools, image resize, image crop" />
         <link rel="canonical" href="https://multitoolsa.com/" />
+        <HreflangTags path="/" />
         
         <meta property="og:title" content="MultiTools - Free Image Tools & Tag Generator" />
         <meta property="og:description" content="Convert, compress, edit images and generate hashtags. 100% free, no signup required." />
         <meta property="og:type" content="website" />
-        
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
