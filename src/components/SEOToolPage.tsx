@@ -40,7 +40,7 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
     "@type": "WebApplication",
     "name": seoContent.title,
     "description": seoContent.metaDescription,
-    "url": `https://multitools.com/${seoContent.slug}`,
+    "url": `https://multitoolsa.com/tools/${seoContent.slug}`,
     "applicationCategory": "MultimediaApplication",
     "operatingSystem": "Web Browser",
     "offers": {
@@ -68,9 +68,9 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://multitools.com" },
-      { "@type": "ListItem", "position": 2, "name": seoContent.category, "item": `https://multitools.com/${seoContent.categorySlug}` },
-      { "@type": "ListItem", "position": 3, "name": seoContent.title, "item": `https://multitools.com/${seoContent.slug}` }
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://multitoolsa.com" },
+      { "@type": "ListItem", "position": 2, "name": seoContent.category, "item": `https://multitoolsa.com/${seoContent.categorySlug}` },
+      { "@type": "ListItem", "position": 3, "name": seoContent.title, "item": `https://multitoolsa.com/tools/${seoContent.slug}` }
     ]
   };
 
@@ -83,12 +83,12 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
         <title>{comprehensiveContent?.metaTitle || seoContent.metaTitle}</title>
         <meta name="description" content={comprehensiveContent?.metaDescription || seoContent.metaDescription} />
         <meta name="keywords" content={(comprehensiveContent?.keywords || seoContent.keywords).join(", ")} />
-        <link rel="canonical" href={`https://multitools.com/${seoContent.slug}`} />
+        <link rel="canonical" href={`https://multitoolsa.com/tools/${seoContent.slug}`} />
         
         <meta property="og:title" content={comprehensiveContent?.metaTitle || seoContent.metaTitle} />
         <meta property="og:description" content={comprehensiveContent?.metaDescription || seoContent.metaDescription} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={`https://multitools.com/${seoContent.slug}`} />
+        <meta property="og:url" content={`https://multitoolsa.com/tools/${seoContent.slug}`} />
         
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={comprehensiveContent?.metaTitle || seoContent.metaTitle} />

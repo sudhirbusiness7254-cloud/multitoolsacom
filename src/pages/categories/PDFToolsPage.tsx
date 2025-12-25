@@ -67,17 +67,18 @@ const PDFToolsPage = () => {
       <Helmet>
         <title>PDF Tools - Free Online PDF Editor & Converter | MultiTools</title>
         <meta name="description" content="Free online PDF tools: merge, compress, split PDFs, convert Word to PDF, and more. Fast, secure, no signup required." />
-        <link rel="canonical" href="https://multitools.com/pdf-tools" />
+        <link rel="canonical" href="https://multitoolsa.com/pdf-tools" />
         <meta property="og:title" content="PDF Tools - Free Online PDF Editor & Converter" />
         <meta property="og:description" content="All-in-one PDF tools: merge, compress, split, convert. 100% free, no signup required." />
         <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://multitoolsa.com/pdf-tools" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebApplication",
             "name": "PDF Tools",
             "description": "Free online PDF tools for merging, compressing, splitting, and converting PDFs",
-            "url": "https://multitools.com/pdf-tools",
+            "url": "https://multitoolsa.com/pdf-tools",
             "applicationCategory": "UtilitiesApplication",
             "operatingSystem": "Web Browser",
             "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }

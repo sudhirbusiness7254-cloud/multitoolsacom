@@ -78,7 +78,7 @@ const HomePage = () => {
         <title>MultiTools - Free Image Tools & Tag Generator | Online Converter, Compressor, Editor</title>
         <meta name="description" content="Free online image tools: Convert, compress, resize, crop, rotate, add watermarks, filters & more. Generate hashtags for YouTube, Instagram, TikTok. Fast, secure, no signup." />
         <meta name="keywords" content="image converter, image compressor, photo editor, tag generator, jpg to png, hashtag generator, free online tools, image resize, image crop" />
-        <link rel="canonical" href="https://multitools.com/" />
+        <link rel="canonical" href="https://multitoolsa.com/" />
         
         <meta property="og:title" content="MultiTools - Free Image Tools & Tag Generator" />
         <meta property="og:description" content="Convert, compress, edit images and generate hashtags. 100% free, no signup required." />

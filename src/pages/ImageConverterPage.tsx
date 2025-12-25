@@ -239,12 +239,12 @@ const ImageConverterPage = () => {
         <title>{meta.title}</title>
         <meta name="description" content={meta.description} />
         <meta name="keywords" content="image converter, jpg to png, png to jpg, webp converter, tiff to jpg, raw to png, heic to jpg, photo converter, free image converter" />
-        <link rel="canonical" href={`https://multitools.com${location.pathname}`} />
+        <link rel="canonical" href={`https://multitoolsa.com${location.pathname}`} />
         
         <meta property="og:title" content={meta.title} />
         <meta property="og:description" content={meta.description} />
         <meta property="og:type" content="website" />
-        
+        <meta property="og:url" content={`https://multitoolsa.com${location.pathname}`} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.description} />

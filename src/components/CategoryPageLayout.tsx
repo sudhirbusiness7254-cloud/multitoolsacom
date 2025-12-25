@@ -31,7 +31,7 @@ const CategoryPageLayout = ({
     gradientTo
   } = seoContent;
   
-  const canonicalUrl = `https://multitools.com/${category.slug}`;
+  const canonicalUrl = `https://multitoolsa.com/${category.slug}`;
 
   const schemaMarkup = {
     "@context": "https://schema.org",

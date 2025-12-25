@@ -1,5 +1,5 @@
 # Sitemap
-Sitemap: https://multitools.com/sitemap.xml
+Sitemap: https://multitoolsa.com/sitemap.xml
 
 # Crawl rules
 User-agent: Googlebot
