@@ -15,6 +15,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import HreflangTags from "@/components/HreflangTags";
 
 interface SEOToolPageProps {
   seoContent: ToolSEOContent;
@@ -84,6 +85,7 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
         <meta name="description" content={comprehensiveContent?.metaDescription || seoContent.metaDescription} />
         <meta name="keywords" content={(comprehensiveContent?.keywords || seoContent.keywords).join(", ")} />
         <link rel="canonical" href={`https://multitoolsa.com/tools/${seoContent.slug}`} />
+        <HreflangTags path={`/tools/${seoContent.slug}`} />
         
         <meta property="og:title" content={comprehensiveContent?.metaTitle || seoContent.metaTitle} />
         <meta property="og:description" content={comprehensiveContent?.metaDescription || seoContent.metaDescription} />

@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Tag, Hash, TrendingUp, Zap } from "lucide-react";
+import HreflangTags from "@/components/HreflangTags";
 
 const About = () => {
   return (
@@ -10,6 +11,7 @@ const About = () => {
         <title>About MultiToolsA - Free Image Tools & Tag Generator</title>
         <meta name="description" content="Learn about MultiToolsA - your free, powerful solution for image processing and content optimization. Discover our tools for image conversion, compression, and social media tag generation." />
         <link rel="canonical" href="https://multitoolsa.com/about" />
+        <HreflangTags path="/about" />
         <meta property="og:title" content="About MultiToolsA - Free Image Tools & Tag Generator" />
         <meta property="og:description" content="Learn about MultiToolsA - your free solution for image processing and content optimization." />
         <meta property="og:type" content="website" />

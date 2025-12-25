@@ -9,6 +9,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import HreflangTags from "@/components/HreflangTags";
 
 const TagExtractorPage = () => {
   const faqSchema = {
@@ -91,6 +92,7 @@ const TagExtractorPage = () => {
         <meta name="description" content="Generate free hashtags and tags for YouTube, Instagram, TikTok, Twitter, Facebook, LinkedIn & Pinterest. Boost your social media reach with our AI-powered tag generator tool." />
         <meta name="keywords" content="tag generator, hashtag generator, youtube tags, instagram hashtags, tiktok hashtags, social media tags, free hashtag generator, youtube tag extractor, trending hashtags, viral hashtags" />
         <link rel="canonical" href="https://multitoolsa.com/tag-extractor" />
+        <HreflangTags path="/tag-extractor" />
         
         <meta property="og:title" content="Free Social Media Tag Generator - Hashtags for All Platforms" />
         <meta property="og:description" content="Generate optimized hashtags for YouTube, Instagram, TikTok, Twitter, Facebook & more. 100% free tag generator tool." />

@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
+import HreflangTags from "@/components/HreflangTags";
 
 const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
@@ -19,6 +20,7 @@ const Contact = () => {
         <title>Contact Us - MultiToolsA | Get in Touch</title>
         <meta name="description" content="Contact MultiToolsA for questions, feedback, or support. We're here to help with your image processing and tag generation needs." />
         <link rel="canonical" href="https://multitoolsa.com/contact" />
+        <HreflangTags path="/contact" />
         <meta property="og:title" content="Contact Us - MultiToolsA" />
         <meta property="og:description" content="Get in touch with the MultiToolsA team for questions, feedback, or support." />
         <meta property="og:type" content="website" />

@@ -7,6 +7,7 @@ import { ArrowRight, Search, Sparkles, FileText } from "lucide-react";
 import { useState, useMemo } from "react";
 import { Input } from "@/components/ui/input";
 import { ToolIconWithBackground, getToolIconColor, getToolIconComponent } from "@/lib/toolIcons";
+import HreflangTags from "@/components/HreflangTags";
 
 // PDF Tools data for inclusion in all tools
 const pdfToolsData = [
@@ -87,6 +88,7 @@ const AllToolsPage = () => {
         <title>All Tools - 85+ Free Online Image & PDF Tools | MultiTools</title>
         <meta name="description" content="Browse our complete collection of 85+ free online tools. Convert, compress, resize images. Merge, split, convert PDFs. No signup required." />
         <link rel="canonical" href="https://multitoolsa.com/all-tools" />
+        <HreflangTags path="/all-tools" />
       </Helmet>
 
       <div className="min-h-screen bg-background flex flex-col">

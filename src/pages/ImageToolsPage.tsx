@@ -19,6 +19,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import HreflangTags from "@/components/HreflangTags";
 
 const formatColors: Record<string, string> = {
   JPG: "#FF9500",
@@ -118,6 +119,7 @@ const ImageToolsPage = () => {
         <meta name="description" content="Convert images online free: JPG to PNG, PNG to JPG, WEBP, TIFF to JPG, RAW to PNG and more. No watermarks, no signup. Fast, secure browser-based image converter." />
         <meta name="keywords" content="image converter, jpg to png, png to jpg, webp converter, tiff to jpg, raw to png, gif converter, svg to png, heic to jpg, free image converter" />
         <link rel="canonical" href="https://multitoolsa.com/image-tools" />
+        <HreflangTags path="/image-tools" />
         
         <meta property="og:title" content="Free Image Converter - Convert JPG, PNG, WEBP, TIFF, RAW Online" />
         <meta property="og:description" content="Convert images between all formats free online. No watermarks, no signup. Fast and secure." />

@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ImageEditor from "@/components/ImageEditor/ImageEditor";
+import HreflangTags from "@/components/HreflangTags";
 
 const ImageEditorPage = () => {
   return (
@@ -17,6 +18,7 @@ const ImageEditorPage = () => {
           content="image editor, crop image, rotate image, flip image, photo editor, online editor, free image editor, brightness, contrast, saturation"
         />
         <link rel="canonical" href="https://multitoolsa.com/image-editor" />
+        <HreflangTags path="/image-editor" />
         <meta property="og:title" content="Image Editor - Crop, Rotate, Flip & Adjust Online | Free" />
         <meta property="og:description" content="Free online image editor with crop, rotate, flip, and adjustment tools. Real-time preview, undo/redo, keyboard shortcuts." />
         <meta property="og:type" content="website" />
