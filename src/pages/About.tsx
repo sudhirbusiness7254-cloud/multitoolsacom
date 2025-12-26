@@ -11,12 +11,12 @@ const About = () => {
         <title>About MultiToolsA - Free Image Tools & Tag Generator</title>
         <meta name="description" content="Learn about MultiToolsA - your free, powerful solution for image processing and content optimization. Discover our tools for image conversion, compression, and social media tag generation." />
         <link rel="canonical" href="https://multitoolsa.com/about" />
-        <HreflangTags path="/about" />
         <meta property="og:title" content="About MultiToolsA - Free Image Tools & Tag Generator" />
         <meta property="og:description" content="Learn about MultiToolsA - your free solution for image processing and content optimization." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://multitoolsa.com/about" />
       </Helmet>
+      <HreflangTags path="/about" />
       
       <Header />
       

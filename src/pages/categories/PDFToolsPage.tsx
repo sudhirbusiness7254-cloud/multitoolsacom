@@ -69,7 +69,6 @@ const PDFToolsPage = () => {
         <title>PDF Tools - Free Online PDF Editor & Converter | MultiTools</title>
         <meta name="description" content="Free online PDF tools: merge, compress, split PDFs, convert Word to PDF, and more. Fast, secure, no signup required." />
         <link rel="canonical" href="https://multitoolsa.com/pdf-tools" />
-        <HreflangTags path="/pdf-tools" />
         <meta property="og:title" content="PDF Tools - Free Online PDF Editor & Converter" />
         <meta property="og:description" content="All-in-one PDF tools: merge, compress, split, convert. 100% free, no signup required." />
         <meta property="og:type" content="website" />
@@ -90,6 +89,7 @@ const PDFToolsPage = () => {
           {JSON.stringify(faqSchema)}
         </script>
       </Helmet>
+      <HreflangTags path="/pdf-tools" />
       
       <div className="min-h-screen bg-background flex flex-col">
         <Header />

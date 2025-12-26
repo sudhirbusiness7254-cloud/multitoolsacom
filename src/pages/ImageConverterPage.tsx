@@ -241,7 +241,6 @@ const ImageConverterPage = () => {
         <meta name="description" content={meta.description} />
         <meta name="keywords" content="image converter, jpg to png, png to jpg, webp converter, tiff to jpg, raw to png, heic to jpg, photo converter, free image converter" />
         <link rel="canonical" href={`https://multitoolsa.com${location.pathname}`} />
-        <HreflangTags path={location.pathname} />
         
         <meta property="og:title" content={meta.title} />
         <meta property="og:description" content={meta.description} />
@@ -258,6 +257,7 @@ const ImageConverterPage = () => {
           {JSON.stringify(softwareSchema)}
         </script>
       </Helmet>
+      <HreflangTags path={location.pathname} />
 
       <div className="min-h-screen bg-background flex flex-col">
         <Header />
