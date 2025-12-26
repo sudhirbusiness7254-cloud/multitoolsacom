@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
+import HreflangTags from "@/components/HreflangTags";
 
 const Privacy = () => {
   return (
@@ -11,6 +12,7 @@ const Privacy = () => {
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://multitoolsa.com/privacy" />
       </Helmet>
+      <HreflangTags path="/privacy" />
       
       <Header />
       

@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Calendar, Clock, ArrowRight, User, Tag } from "lucide-react";
+import HreflangTags from "@/components/HreflangTags";
 
 const blogPosts = [
   {
@@ -76,6 +77,7 @@ const Blog = () => {
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://multitoolsa.com/blog" />
       </Helmet>
+      <HreflangTags path="/blog" />
       
       <Header />
       
