@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
 import { Link, useParams } from "react-router-dom";
 import { Calendar, Clock, ArrowLeft, User, Share2, Facebook, Twitter, Linkedin } from "lucide-react";
+import HreflangTags from "@/components/HreflangTags";
 
 const blogContent: Record<string, {
   title: string;
@@ -1230,6 +1231,7 @@ const BlogPost = () => {
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
+      <HreflangTags path={`/blog/${slug}`} />
       
       <Header />
       

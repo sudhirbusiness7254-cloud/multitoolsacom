@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
+import HreflangTags from "@/components/HreflangTags";
 
 const Terms = () => {
   return (
@@ -11,6 +12,7 @@ const Terms = () => {
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://multitoolsa.com/terms" />
       </Helmet>
+      <HreflangTags path="/terms" />
       
       <Header />
       

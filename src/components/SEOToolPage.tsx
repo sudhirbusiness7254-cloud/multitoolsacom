@@ -36,12 +36,17 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
   // Get comprehensive content if available
   const comprehensiveContent = getComprehensiveSEOContent(seoContent.slug);
   
+  // Determine the correct URL path based on category
+  const isPDFTool = seoContent.categorySlug === "pdf-tools";
+  const toolPath = isPDFTool ? `/${seoContent.slug}` : `/tools/${seoContent.slug}`;
+  const canonicalUrl = `https://multitoolsa.com${toolPath}`;
+  
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": seoContent.title,
     "description": seoContent.metaDescription,
-    "url": `https://multitoolsa.com/tools/${seoContent.slug}`,
+    "url": canonicalUrl,
     "applicationCategory": "MultimediaApplication",
     "operatingSystem": "Web Browser",
     "offers": {
@@ -71,7 +76,7 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://multitoolsa.com" },
       { "@type": "ListItem", "position": 2, "name": seoContent.category, "item": `https://multitoolsa.com/${seoContent.categorySlug}` },
-      { "@type": "ListItem", "position": 3, "name": seoContent.title, "item": `https://multitoolsa.com/tools/${seoContent.slug}` }
+      { "@type": "ListItem", "position": 3, "name": seoContent.title, "item": canonicalUrl }
     ]
   };
 
@@ -84,12 +89,12 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
         <title>{comprehensiveContent?.metaTitle || seoContent.metaTitle}</title>
         <meta name="description" content={comprehensiveContent?.metaDescription || seoContent.metaDescription} />
         <meta name="keywords" content={(comprehensiveContent?.keywords || seoContent.keywords).join(", ")} />
-        <link rel="canonical" href={`https://multitoolsa.com/tools/${seoContent.slug}`} />
+        <link rel="canonical" href={canonicalUrl} />
         
         <meta property="og:title" content={comprehensiveContent?.metaTitle || seoContent.metaTitle} />
         <meta property="og:description" content={comprehensiveContent?.metaDescription || seoContent.metaDescription} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={`https://multitoolsa.com/tools/${seoContent.slug}`} />
+        <meta property="og:url" content={canonicalUrl} />
         
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={comprehensiveContent?.metaTitle || seoContent.metaTitle} />
@@ -99,7 +104,7 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
         <script type="application/ld+json">{JSON.stringify(faqStructuredData)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbData)}</script>
       </Helmet>
-      <HreflangTags path={`/tools/${seoContent.slug}`} />
+      <HreflangTags path={toolPath} />
 
       <div className="min-h-screen bg-background flex flex-col">
         <Header />
