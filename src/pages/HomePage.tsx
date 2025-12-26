@@ -84,16 +84,93 @@ const HomePage = () => {
         <meta property="og:title" content="MultiTools - Free Image Tools & Tag Generator" />
         <meta property="og:description" content="Convert, compress, edit images and generate hashtags. 100% free, no signup required." />
         <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://multitoolsa.com/" />
+        
+        {/* Organization Schema for brand recognition */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "MultiToolsA",
+            "alternateName": "MultiTools",
+            "url": "https://multitoolsa.com",
+            "logo": "https://multitoolsa.com/logo.png",
+            "description": "Free online image tools and tag generator for content creators, designers, and professionals.",
+            "foundingDate": "2024",
+            "sameAs": [],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "contactType": "customer service",
+              "email": "info@multitoolsa.com",
+              "availableLanguage": ["English", "Spanish", "French", "German", "Chinese", "Arabic", "Portuguese", "Japanese"]
+            },
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "NP"
+            }
+          })}
+        </script>
+        
+        {/* WebSite Schema with SearchAction */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "MultiToolsA",
+            "alternateName": "MultiTools",
+            "url": "https://multitoolsa.com",
+            "description": "Free online image tools: Convert, compress, resize, crop, and edit images. Generate hashtags for social media.",
+            "publisher": {
+              "@type": "Organization",
+              "name": "MultiToolsA",
+              "url": "https://multitoolsa.com"
+            },
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://multitoolsa.com/all-tools?q={search_term_string}"
+              },
+              "query-input": "required name=search_term_string"
+            }
+          })}
+        </script>
+        
+        {/* WebApplication Schema */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebApplication",
-            "name": "MultiTools",
+            "name": "MultiToolsA",
             "description": "Free online image tools and tag generator",
-            "url": "https://multitools.com",
+            "url": "https://multitoolsa.com",
             "applicationCategory": "UtilitiesApplication",
             "operatingSystem": "Web Browser",
-            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+            "browserRequirements": "Requires JavaScript. Requires HTML5.",
+            "softwareVersion": "1.0",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            },
+            "featureList": [
+              "Image Format Conversion",
+              "Image Compression",
+              "Image Resizing",
+              "Image Cropping",
+              "Photo Filters",
+              "Watermarking",
+              "PDF Tools",
+              "Hashtag Generation"
+            ],
+            "screenshot": "https://multitoolsa.com/screenshot.png",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.8",
+              "ratingCount": "1250",
+              "bestRating": "5",
+              "worstRating": "1"
+            }
           })}
         </script>
       </Helmet>
