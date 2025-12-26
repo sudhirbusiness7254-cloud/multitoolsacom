@@ -85,7 +85,6 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
         <meta name="description" content={comprehensiveContent?.metaDescription || seoContent.metaDescription} />
         <meta name="keywords" content={(comprehensiveContent?.keywords || seoContent.keywords).join(", ")} />
         <link rel="canonical" href={`https://multitoolsa.com/tools/${seoContent.slug}`} />
-        <HreflangTags path={`/tools/${seoContent.slug}`} />
         
         <meta property="og:title" content={comprehensiveContent?.metaTitle || seoContent.metaTitle} />
         <meta property="og:description" content={comprehensiveContent?.metaDescription || seoContent.metaDescription} />
@@ -100,6 +99,7 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
         <script type="application/ld+json">{JSON.stringify(faqStructuredData)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbData)}</script>
       </Helmet>
+      <HreflangTags path={`/tools/${seoContent.slug}`} />
 
       <div className="min-h-screen bg-background flex flex-col">
         <Header />

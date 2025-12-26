@@ -88,8 +88,8 @@ const AllToolsPage = () => {
         <title>All Tools - 85+ Free Online Image & PDF Tools | MultiTools</title>
         <meta name="description" content="Browse our complete collection of 85+ free online tools. Convert, compress, resize images. Merge, split, convert PDFs. No signup required." />
         <link rel="canonical" href="https://multitoolsa.com/all-tools" />
-        <HreflangTags path="/all-tools" />
       </Helmet>
+      <HreflangTags path="/all-tools" />
 
       <div className="min-h-screen bg-background flex flex-col">
         <Header />

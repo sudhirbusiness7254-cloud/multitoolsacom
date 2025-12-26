@@ -73,7 +73,6 @@ const CategoryPageLayout = ({
         <title>{metaTitle}</title>
         <meta name="description" content={metaDescription} />
         <link rel="canonical" href={canonicalUrl} />
-        <HreflangTags path={`/${category.slug}`} />
         
         <meta property="og:title" content={metaTitle} />
         <meta property="og:description" content={metaDescription} />
@@ -91,6 +90,7 @@ const CategoryPageLayout = ({
           {JSON.stringify(faqSchema)}
         </script>
       </Helmet>
+      <HreflangTags path={`/${category.slug}`} />
 
       <div className="min-h-screen bg-background flex flex-col">
         <Header />
