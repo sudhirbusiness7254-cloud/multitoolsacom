@@ -1,0 +1,12 @@
+# Force HTTPS and remove www - 301 permanent redirects
+# These rules redirect all traffic to the canonical HTTPS non-www version
+
+# Redirect www to non-www (both HTTP and HTTPS)
+https://www.multitoolsa.com/* https://multitoolsa.com/:splat 301!
+http://www.multitoolsa.com/* https://multitoolsa.com/:splat 301!
+
+# Redirect HTTP to HTTPS
+http://multitoolsa.com/* https://multitoolsa.com/:splat 301!
+
+# SPA fallback - serve index.html for all routes
+/*    /index.html   200
