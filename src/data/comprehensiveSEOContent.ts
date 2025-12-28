@@ -7406,6 +7406,449 @@ export const formatUtilitiesSEOContent: Record<string, ComprehensiveSEOContent> 
   }
 };
 
+// Image Drawing Tools - Comprehensive Content
+export const imageDrawingSEOContent: Record<string, ComprehensiveSEOContent> = {
+  "paint-tool": {
+    slug: "paint-tool",
+    title: "Paint Tool",
+    metaTitle: "Free Online Paint Tool - Draw on Images & Create Art | MultiTools",
+    metaDescription: "Paint directly on images with our free online paint tool. Features multiple brush types, colors, and opacity settings. No signup required, works in your browser.",
+    h1: "Free Online Paint Tool - Draw & Create Art",
+    
+    introduction: `Transform your images into creative masterpieces with our powerful online paint tool. Whether you are an artist looking to add hand-drawn elements to photographs, a designer creating custom graphics, or simply someone who wants to add personal touches to images, our browser-based paint tool provides professional-grade drawing capabilities without any software installation. This versatile painting application combines intuitive controls with advanced features like multiple brush types, customizable colors, adjustable opacity, and pressure-sensitive strokes. Perfect for digital artists, content creators, educators, and hobbyists alike, our paint tool delivers desktop-quality painting features directly in your web browser. Experience the freedom of creative expression with a tool that works on any device, respects your privacy by processing everything locally, and requires no account creation or subscription fees.`,
+    
+    aboutTool: `Our online paint tool is a sophisticated browser-based drawing application designed to provide artists, designers, and creative professionals with a comprehensive set of painting and drawing features. Built using advanced HTML5 canvas technology, this tool offers smooth brush strokes, realistic pen pressure simulation, and a wide range of customization options that rival desktop painting applications. The paint tool features multiple brush types including standard round brushes, soft brushes with feathered edges, and hard-edge brushes for precise work. Users can select from millions of colors using the intuitive color picker, adjust brush sizes from fine detail work to broad strokes, and control opacity for layered effects. The tool supports multiple blend modes, allowing artists to create subtle transitions and dramatic effects. Unlike traditional desktop software that requires installation and updates, our paint tool runs entirely in your browser, meaning you can access your creative workspace from any computer, tablet, or smartphone with an internet connection. All painting operations occur locally on your device, ensuring your artwork and source images remain completely private.`,
+    
+    howToUse: [
+      { step: 1, title: "Upload Your Image", description: "Start by uploading an image you want to paint on, or begin with a blank canvas. Drag and drop files or click to browse your device." },
+      { step: 2, title: "Select Brush Type", description: "Choose from various brush types including round, soft, hard-edge, or custom brushes depending on your artistic needs." },
+      { step: 3, title: "Choose Your Color", description: "Use the color picker to select any color from the spectrum. You can also enter specific hex codes or RGB values for precise color matching." },
+      { step: 4, title: "Adjust Brush Settings", description: "Configure brush size using the slider for fine detail work or broad strokes. Adjust opacity for transparent layering effects." },
+      { step: 5, title: "Start Painting", description: "Click and drag on the canvas to create brush strokes. Use pressure-sensitive input if available on your device for natural variation." },
+      { step: 6, title: "Use Undo/Redo", description: "Made a mistake? Use the undo button to reverse your last strokes. Redo is also available if you change your mind." },
+      { step: 7, title: "Download Your Artwork", description: "When finished, download your painted image in high-quality PNG format preserving all details and transparency." }
+    ],
+    
+    whyImportant: `Digital painting has revolutionized how artists create and express themselves, offering unlimited creative possibilities without the constraints of physical materials. Our online paint tool democratizes digital art by making professional-grade painting tools accessible to everyone, regardless of their budget or technical expertise. Unlike expensive desktop software with steep learning curves, our tool provides an intuitive interface that beginners can master quickly while offering the depth of features that experienced artists demand. The importance of browser-based painting tools has grown significantly in recent years as more creative work happens on the go, across multiple devices, and in collaborative environments. For content creators, the ability to quickly add hand-drawn elements to images can transform ordinary photos into unique, engaging content that stands out in crowded social media feeds. For educators, paint tools enable interactive lessons and visual explanations that enhance learning. For businesses, custom painted graphics add a personal, human touch that connects with audiences on an emotional level.`,
+    
+    keyFeatures: [
+      { title: "Multiple Brush Types", description: "Choose from round, soft, hard-edge, and specialty brushes to achieve different artistic effects and textures." },
+      { title: "Unlimited Color Palette", description: "Access millions of colors through an intuitive color picker with support for hex codes, RGB, and HSL values." },
+      { title: "Adjustable Brush Size", description: "Scale your brush from 1 pixel for fine details to hundreds of pixels for broad strokes and fills." },
+      { title: "Opacity Control", description: "Create transparent layers and subtle blending effects with precise opacity adjustment from 0 to 100 percent." },
+      { title: "Undo/Redo History", description: "Experiment freely with unlimited undo and redo functionality to perfect your artwork." },
+      { title: "Touch Device Support", description: "Paint naturally using touch screens, styluses, and pressure-sensitive devices for responsive, intuitive creation." },
+      { title: "High-Resolution Output", description: "Export your finished artwork in high-quality PNG format at full resolution without compression artifacts." },
+      { title: "No Installation Required", description: "Access the full-featured paint tool directly in your browser without downloading or installing software." }
+    ],
+    
+    benefitsText: `Our online paint tool offers numerous advantages for artists and creators at every skill level. The zero-installation approach means you can start creating immediately without waiting for downloads, dealing with system requirements, or managing software updates. This accessibility extends across devices, allowing you to begin a project on your desktop computer and continue painting on your tablet or even smartphone. The privacy-first design ensures your source images and artwork never leave your device, making it safe for sensitive or proprietary work. Compared to expensive professional software, our tool provides essential painting features at no cost, removing financial barriers to creative expression. The intuitive interface reduces the learning curve significantly, allowing beginners to create impressive artwork within minutes while still offering the depth that experienced artists expect. Real-time preview of brush strokes and effects enables a fluid creative process without the lag or rendering delays common in complex software.`,
+    
+    benefits: [
+      "Create digital art without expensive software",
+      "Works on any device with a modern browser",
+      "Multiple brush types for varied artistic effects",
+      "Unlimited color selection with precise controls",
+      "Local processing keeps your images private",
+      "No account or subscription required",
+      "High-quality PNG export preserves details",
+      "Touch and stylus support for natural painting"
+    ],
+    
+    whoCanUse: [
+      { title: "Digital Artists", description: "Create original artwork or enhance photographs with hand-painted elements and artistic effects." },
+      { title: "Graphic Designers", description: "Add custom illustrations, hand-drawn elements, and personal touches to design projects." },
+      { title: "Content Creators", description: "Transform ordinary images into unique, engaging content for social media and online platforms." },
+      { title: "Educators & Students", description: "Create visual explanations, annotate images, and develop educational materials with drawings." },
+      { title: "Hobbyists & Beginners", description: "Explore digital art without investment in expensive software or equipment." },
+      { title: "Marketing Professionals", description: "Develop custom graphics and illustrated content that stands out from stock imagery." }
+    ],
+    
+    useCases: [
+      { title: "Photo Enhancement", description: "Add artistic elements, decorations, or hand-drawn annotations to photographs for unique results." },
+      { title: "Digital Illustration", description: "Create original digital artwork from scratch or build upon existing images with painted elements." },
+      { title: "Social Media Content", description: "Design eye-catching graphics with hand-drawn elements that stand out in crowded feeds." },
+      { title: "Educational Materials", description: "Develop visual teaching aids with annotated images and illustrated explanations." },
+      { title: "Logo Sketching", description: "Create rough sketches and concepts for logo designs before refining in vector software." },
+      { title: "Personal Projects", description: "Add personal touches to photos, create gifts, or explore artistic expression casually." }
+    ],
+    
+    faqs: [
+      { question: "What brush types are available in the paint tool?", answer: "Our paint tool offers multiple brush types including standard round brushes, soft brushes with feathered edges for smooth gradients, hard-edge brushes for precise lines, and specialty brushes for texture effects. Each brush type can be customized with size and opacity settings." },
+      { question: "Can I use the paint tool on mobile devices?", answer: "Yes, our paint tool is fully optimized for mobile devices including smartphones and tablets. It supports touch input and works with styluses for more precise control. The responsive interface adapts to different screen sizes." },
+      { question: "Are my images uploaded to a server?", answer: "No, all painting operations happen locally in your browser. Your source images and artwork never leave your device, ensuring complete privacy and faster performance without upload delays." },
+      { question: "What file formats can I export my artwork in?", answer: "Finished artwork can be exported as high-quality PNG files, which preserve all details and support transparency. This format is ideal for web use, printing, and further editing in other applications." },
+      { question: "Is there a limit to canvas size?", answer: "Canvas size is limited only by your device capabilities. Most modern devices can handle very large canvases, but performance may vary with extremely high resolutions. We recommend starting with standard sizes and scaling up as needed." },
+      { question: "Can I undo mistakes while painting?", answer: "Absolutely! The paint tool includes unlimited undo and redo functionality. You can step back through your entire painting history to correct mistakes or experiment with different approaches without worry." },
+      { question: "Does the paint tool support pressure sensitivity?", answer: "Yes, on devices with pressure-sensitive input like graphics tablets or stylus-enabled screens, brush strokes respond to pressure for natural variation in line weight and opacity." },
+      { question: "Is the paint tool really free?", answer: "Yes, our paint tool is completely free to use with no hidden costs, watermarks, or usage limits. You can create unlimited artwork without creating an account or paying any fees." }
+    ],
+    
+    privacyNote: `Your privacy is our top priority. The paint tool operates entirely within your web browser using local processing technology. Your source images, painted artwork, and creative work never leave your device or get uploaded to external servers. This means faster performance, complete privacy, and the security of knowing your content remains under your control. No account registration is required, and we do not collect, store, or have access to any of your images or artwork.`,
+    
+    conclusion: `Our free online paint tool empowers creators at every skill level to express themselves through digital art without barriers. With professional-grade features like multiple brush types, unlimited colors, adjustable opacity, and pressure sensitivity, you have everything needed to create stunning artwork directly in your browser. Whether you are enhancing photos with artistic elements, creating original illustrations, or simply exploring your creativity, this tool provides a powerful, accessible, and private creative workspace. Start painting today and discover the possibilities of browser-based digital art.`,
+    
+    relatedTools: ["draw-shapes", "signature-pad", "add-stickers", "add-emojis"],
+    category: "Image Drawing",
+    categorySlug: "image-drawing",
+    keywords: ["paint tool", "online painting", "digital art", "brush tool", "draw on images", "painting app", "digital painting"],
+    gradientFrom: "#8b5cf6",
+    gradientTo: "#7c3aed"
+  },
+
+  "draw-shapes": {
+    slug: "draw-shapes",
+    title: "Draw Shapes Tool",
+    metaTitle: "Free Online Shape Drawing Tool - Add Shapes to Images | MultiTools",
+    metaDescription: "Draw perfect shapes on images with our free online tool. Add circles, rectangles, arrows, lines and more. Customizable colors and styles. No signup required.",
+    h1: "Draw Shapes on Images Online Free",
+    
+    introduction: `Add professional geometric shapes to your images with our powerful online shape drawing tool. Whether you are creating diagrams, highlighting important areas in screenshots, designing infographics, or adding decorative elements to photographs, our browser-based tool provides precise shape creation with complete control over colors, sizes, and styles. This versatile application eliminates the need for expensive graphic design software by offering rectangle, circle, triangle, arrow, line, and polygon drawing capabilities directly in your web browser. Perfect for business professionals creating presentations, educators developing visual materials, content creators enhancing images, and anyone who needs to add clean, precise shapes to their graphics. Our shape drawing tool combines professional results with intuitive controls, ensuring that both beginners and experienced designers can achieve exactly what they envision without a steep learning curve.`,
+    
+    aboutTool: `Our online shape drawing tool is a sophisticated yet user-friendly application designed to add geometric shapes and graphical elements to images with precision and ease. Built using advanced HTML5 canvas technology, this tool offers a comprehensive library of shape options including rectangles, squares, circles, ellipses, triangles, lines, arrows, polygons, and stars. Each shape can be extensively customized with fill colors, stroke colors, stroke widths, opacity levels, and corner radius adjustments. The tool features smart shape alignment and sizing controls that help users create perfectly proportioned elements. Unlike basic image editors that offer limited shape options, our tool provides professional-grade controls including the ability to create outlined shapes, filled shapes, or combinations of both. The real-time preview system shows exactly how shapes will appear as you adjust settings, enabling precise design decisions. All processing occurs locally in your browser, ensuring your source images remain private while delivering instant feedback without server delays. The tool supports layering multiple shapes, allowing complex compositions and detailed annotations.`,
+    
+    howToUse: [
+      { step: 1, title: "Upload Your Image", description: "Start by uploading the image you want to add shapes to. Drag and drop files directly or click to browse your device for the image." },
+      { step: 2, title: "Select Shape Type", description: "Choose from available shapes including rectangle, circle, triangle, line, arrow, polygon, or star from the shape palette." },
+      { step: 3, title: "Configure Shape Style", description: "Set the fill color, stroke color, and stroke width for your shape. Adjust opacity for transparent overlays if needed." },
+      { step: 4, title: "Draw the Shape", description: "Click and drag on the canvas to create your shape. Hold shift for perfect squares, circles, or constrained proportions." },
+      { step: 5, title: "Adjust Position and Size", description: "Select and move shapes to reposition them. Use corner handles to resize while maintaining proportions." },
+      { step: 6, title: "Add More Shapes", description: "Continue adding additional shapes as needed. Layer multiple shapes to create complex designs and annotations." },
+      { step: 7, title: "Download Your Image", description: "When satisfied with your design, download the finished image with all shapes embedded in high-quality PNG format." }
+    ],
+    
+    whyImportant: `The ability to add geometric shapes to images is fundamental to effective visual communication. Shapes draw attention, organize information, and convey meaning in ways that words alone cannot achieve. In professional settings, shapes are essential for creating flowcharts, diagrams, and presentations that clearly communicate complex ideas. For educational purposes, shapes help highlight key areas, create visual hierarchies, and make learning materials more engaging and understandable. In marketing and content creation, shapes add visual interest, create focal points, and help images stand out in crowded digital spaces. Our online shape drawing tool democratizes access to these powerful visual communication capabilities, eliminating the need for expensive software subscriptions or technical expertise. The precision and consistency of geometric shapes add professionalism to any visual project, whether you are annotating screenshots for a tutorial, creating infographics for social media, or developing training materials for your organization.`,
+    
+    keyFeatures: [
+      { title: "Multiple Shape Library", description: "Access rectangles, circles, triangles, lines, arrows, polygons, stars, and more for comprehensive design options." },
+      { title: "Customizable Colors", description: "Choose any fill and stroke color with full opacity control for both solid and transparent shape effects." },
+      { title: "Variable Stroke Width", description: "Adjust outline thickness from hairline to bold strokes for different visual emphasis and style requirements." },
+      { title: "Perfect Proportions", description: "Hold modifier keys while drawing to create perfect squares, circles, and constrained proportions automatically." },
+      { title: "Shape Layering", description: "Add multiple shapes that layer naturally, allowing complex compositions and detailed annotations." },
+      { title: "Real-Time Preview", description: "See exactly how shapes will appear as you adjust settings before committing to the final design." },
+      { title: "Move and Resize", description: "Easily reposition and resize shapes after creation for perfect placement and proportions." },
+      { title: "High-Quality Export", description: "Download finished images in PNG format with all shapes embedded at full resolution." }
+    ],
+    
+    benefitsText: `Our shape drawing tool delivers professional results without the complexity of traditional graphic design software. The intuitive interface allows anyone to create polished, geometric graphics in minutes rather than the hours required to learn complex applications. All processing happens locally in your browser, meaning faster performance without upload delays and complete privacy for your images. The tool works on any device with a modern browser, eliminating platform restrictions and enabling quick shape additions whether you are at your desk or on the go. Unlike subscription-based design software, our tool is completely free with no limits on usage, no watermarks, and no account requirements. The consistent, precise shapes produced by our tool add professionalism to any project, from business presentations to social media graphics.`,
+    
+    benefits: [
+      "Create perfect geometric shapes instantly",
+      "Full color and style customization",
+      "No graphic design experience required",
+      "Works on any device with a browser",
+      "Local processing protects your privacy",
+      "Layer multiple shapes for complex designs",
+      "Professional results without expensive software",
+      "Export high-quality images immediately"
+    ],
+    
+    whoCanUse: [
+      { title: "Business Professionals", description: "Create diagrams, flowcharts, and annotated presentations with clean, professional shapes." },
+      { title: "Educators", description: "Develop visual teaching materials with highlighted areas, callouts, and organizational shapes." },
+      { title: "Content Creators", description: "Enhance images with graphic elements, frames, and attention-grabbing geometric designs." },
+      { title: "Technical Writers", description: "Annotate screenshots and documentation with precise shape overlays and callouts." },
+      { title: "Social Media Managers", description: "Create eye-catching graphics with geometric elements that stand out in feeds." },
+      { title: "Students", description: "Prepare visual presentations and projects with professional-looking diagrams and annotations." }
+    ],
+    
+    useCases: [
+      { title: "Screenshot Annotations", description: "Highlight specific areas of screenshots with circles, rectangles, and arrows for tutorials and documentation." },
+      { title: "Flowchart Creation", description: "Build process diagrams and flowcharts using connected shapes to visualize workflows and procedures." },
+      { title: "Infographic Design", description: "Add geometric elements to create visually organized information graphics for data presentation." },
+      { title: "Presentation Graphics", description: "Enhance slides with shapes that draw attention and organize content effectively." },
+      { title: "Social Media Graphics", description: "Create unique images with geometric overlays and decorative shape elements." },
+      { title: "Product Callouts", description: "Highlight product features in marketing images using arrows, circles, and text boxes." }
+    ],
+    
+    faqs: [
+      { question: "What shapes can I draw with this tool?", answer: "Our tool includes rectangles, squares, circles, ellipses, triangles, lines, arrows, polygons with customizable sides, and stars. Each shape can be customized with different colors, stroke widths, and opacity settings." },
+      { question: "Can I create outlined shapes without fill?", answer: "Yes, you can create shapes with only an outline by setting the fill color to transparent while keeping a visible stroke color and width. This is perfect for highlighting areas without obscuring content." },
+      { question: "How do I create a perfect circle or square?", answer: "Hold the Shift key while drawing to constrain proportions automatically. This ensures circles are perfectly round and rectangles become perfect squares." },
+      { question: "Can I move shapes after placing them?", answer: "Yes, you can select and reposition shapes after creation. Use the selection tool to click on shapes and drag them to new positions or resize using corner handles." },
+      { question: "Are my images uploaded to a server?", answer: "No, all shape drawing and image processing occurs locally in your browser. Your images and finished designs never leave your device, ensuring complete privacy." },
+      { question: "What is the maximum image size supported?", answer: "The tool supports images of virtually any size, limited only by your device capabilities. For optimal performance, we recommend images under 10000x10000 pixels." },
+      { question: "Can I add text along with shapes?", answer: "This tool focuses specifically on geometric shapes. For text additions, consider using our paint tool or text annotation tool alongside this shape tool." },
+      { question: "Is there a limit to how many shapes I can add?", answer: "There is no artificial limit to the number of shapes you can add. You can layer as many shapes as needed for your design, though very complex compositions may affect performance on older devices." }
+    ],
+    
+    privacyNote: `Your images remain completely private when using our shape drawing tool. All processing happens locally within your web browser, meaning your source images and finished designs are never uploaded to external servers. This ensures faster performance, complete privacy, and full control over your visual content. No account registration is required, and we never collect or access any of your image data.`,
+    
+    conclusion: `Our free online shape drawing tool empowers anyone to add professional geometric elements to images without specialized software or design expertise. With a comprehensive library of shapes, full color customization, and intuitive controls, you can create polished diagrams, annotated screenshots, infographics, and decorative graphics in minutes. The browser-based approach ensures accessibility from any device while local processing guarantees your privacy. Start adding shapes to your images today and discover how easy it is to enhance your visual communications with precise, professional geometric elements.`,
+    
+    relatedTools: ["paint-tool", "signature-pad", "add-stickers", "add-emojis"],
+    category: "Image Drawing",
+    categorySlug: "image-drawing",
+    keywords: ["draw shapes", "shape tool", "add shapes to image", "rectangle", "circle", "arrow", "diagram maker", "annotation"],
+    gradientFrom: "#06b6d4",
+    gradientTo: "#0891b2"
+  },
+
+  "signature-pad": {
+    slug: "signature-pad",
+    title: "Signature Pad",
+    metaTitle: "Free Online Signature Pad - Create Digital Signatures | MultiTools",
+    metaDescription: "Create professional digital signatures with our free online signature pad. Draw, customize, and download signatures for documents. Works on any device.",
+    h1: "Free Online Signature Pad - Create Digital Signatures",
+    
+    introduction: `Create professional digital signatures instantly with our free online signature pad. In today's digital-first world, the ability to create, save, and apply digital signatures has become essential for business communications, legal documents, creative works, and personal correspondence. Our browser-based signature pad provides a natural signing experience that captures the unique character of your handwriting, whether you are using a mouse, trackpad, touchscreen, or stylus. This versatile tool eliminates the need for printing, signing, and scanning documents, streamlining workflows and reducing environmental impact. Perfect for professionals who sign contracts and agreements, artists who want to add authentic signatures to their work, educators signing certificates, or anyone who needs to add a personal touch to digital documents. Our signature pad combines simplicity with sophistication, offering customization options for stroke weight, color, and style while maintaining the natural flow that makes each signature unique.`,
+    
+    aboutTool: `Our online signature pad is a professional-grade digital signing tool designed to replicate the natural experience of pen-on-paper signing in a digital environment. Using advanced pressure-sensitive and velocity-responsive algorithms, the tool creates smooth, natural-looking signatures that capture the unique characteristics of your personal handwriting. The signature pad features adjustable pen thickness that responds to drawing speed, creating naturally tapered strokes that look authentic rather than mechanical. Users can customize signature color from classic black and blue to any custom color, and adjust stroke weight from fine to bold depending on their preference and intended use. The interface provides a clean, distraction-free signing area with guides to help position signatures correctly. Unlike basic drawing tools, our signature pad is specifically optimized for signature creation, with stroke smoothing algorithms that eliminate shakiness and produce professional results. All processing occurs locally in your browser, ensuring your signature data remains completely private. Finished signatures can be downloaded with transparent backgrounds, making them easy to overlay on documents, images, or artwork.`,
+    
+    howToUse: [
+      { step: 1, title: "Access the Signature Pad", description: "Open the signature pad tool in your browser. No account creation or login is required to start creating signatures." },
+      { step: 2, title: "Choose Signature Color", description: "Select your preferred signature color from options including classic black, blue, or any custom color for special purposes." },
+      { step: 3, title: "Adjust Stroke Settings", description: "Configure the pen thickness to match your signing style. Thinner settings work well for detailed signatures, thicker for bold statements." },
+      { step: 4, title: "Sign in the Canvas Area", description: "Use your mouse, trackpad, finger, or stylus to draw your signature in the signing area. Sign naturally as you would on paper." },
+      { step: 5, title: "Preview Your Signature", description: "Review your signature to ensure it looks correct. If needed, use the clear button to start over and try again." },
+      { step: 6, title: "Apply Any Adjustments", description: "Make final adjustments to positioning or try different variations until you are satisfied with the result." },
+      { step: 7, title: "Download Your Signature", description: "Save your finished signature as a transparent PNG image, ready to use in documents, images, or any digital application." }
+    ],
+    
+    whyImportant: `Digital signatures have transformed how we conduct business, authenticate documents, and add personal touches to digital content. The ability to create and apply signatures digitally eliminates the inefficient print-sign-scan workflow that wastes time, paper, and resources. In professional contexts, digital signatures accelerate contract execution, improve document workflows, and enable remote business operations that would otherwise require physical presence. For creative professionals, adding authentic signatures to digital artwork, photographs, and designs adds a personal mark of authenticity and ownership. The legal recognition of electronic signatures continues to expand globally, making digital signing not just convenient but officially valid for most purposes. Our signature pad democratizes access to professional signature creation, providing everyone with the tools to create natural, authentic-looking digital signatures without specialized software or hardware. The transparent background output enables seamless integration into any document or image, maintaining a clean, professional appearance.`,
+    
+    keyFeatures: [
+      { title: "Natural Stroke Dynamics", description: "Velocity-responsive algorithms create natural-looking strokes that taper and flow like real pen-on-paper signatures." },
+      { title: "Customizable Colors", description: "Choose classic black, professional blue, or any custom color to match document requirements or personal style." },
+      { title: "Adjustable Stroke Weight", description: "Configure pen thickness from fine lines to bold strokes for different signing styles and purposes." },
+      { title: "Stroke Smoothing", description: "Advanced smoothing algorithms eliminate shakiness and produce clean, professional signature lines." },
+      { title: "Transparent Background Export", description: "Download signatures with transparent backgrounds for seamless overlay on any document or image." },
+      { title: "Touch and Stylus Support", description: "Optimized for touch screens and stylus input for the most natural signing experience possible." },
+      { title: "Unlimited Attempts", description: "Clear and retry as many times as needed to create your perfect signature without any limitations." },
+      { title: "Instant Download", description: "Save your finished signature immediately in high-quality PNG format ready for immediate use." }
+    ],
+    
+    benefitsText: `Our signature pad offers significant advantages over traditional signing methods and alternative digital tools. The elimination of print-sign-scan workflows saves time, reduces costs, and supports environmental sustainability by reducing paper waste. Unlike typed signatures or stamp tools that produce identical, impersonal results, our signature pad captures the natural variation and character that makes handwritten signatures authentic and unique. The browser-based approach means you can create signatures anywhere, on any device, without installing software or creating accounts. Privacy-focused design ensures your signature data never leaves your device, protecting this sensitive personal information from unauthorized access. The transparent background output enables professional integration into any document without white boxes or visible edges. For professionals who sign multiple documents daily, the ability to create, save, and reuse digital signatures dramatically improves efficiency while maintaining the personal touch that builds trust and relationships.`,
+    
+    benefits: [
+      "Create authentic handwritten signatures digitally",
+      "Eliminate print-sign-scan workflows completely",
+      "Works on any device with touch or mouse input",
+      "Natural stroke dynamics for realistic results",
+      "Transparent background for seamless document integration",
+      "Complete privacy with local processing",
+      "No account or software installation required",
+      "Unlimited signature attempts at no cost"
+    ],
+    
+    whoCanUse: [
+      { title: "Business Professionals", description: "Sign contracts, agreements, and correspondence digitally with authentic-looking signatures." },
+      { title: "Artists & Creatives", description: "Add personal signature marks to digital artwork, photographs, and creative projects." },
+      { title: "Educators", description: "Sign certificates, recommendations, and official documents without printing and scanning." },
+      { title: "Remote Workers", description: "Complete document signing from anywhere without access to printers and scanners." },
+      { title: "Small Business Owners", description: "Streamline paperwork with digital signatures for invoices, contracts, and communications." },
+      { title: "Anyone Needing Signatures", description: "Create digital signatures for any purpose from casual to professional applications." }
+    ],
+    
+    useCases: [
+      { title: "Contract Signing", description: "Add your signature to contracts, agreements, and legal documents without printing and scanning." },
+      { title: "Artwork Authentication", description: "Sign digital artwork, photographs, and designs with your authentic personal signature." },
+      { title: "Certificate Signing", description: "Add official signatures to certificates, diplomas, and recognition documents." },
+      { title: "Invoice Approval", description: "Sign and approve invoices, purchase orders, and financial documents digitally." },
+      { title: "Letter Correspondence", description: "Add personal signatures to digital letters and correspondence for a personal touch." },
+      { title: "Document Templates", description: "Create signature images for use in document templates and automated workflows." }
+    ],
+    
+    faqs: [
+      { question: "How do I create a natural-looking signature?", answer: "Sign smoothly and naturally as you would on paper. Our stroke dynamics algorithms handle the natural variation in pressure and speed. Try different speeds to see what produces the best results for your signing style." },
+      { question: "Can I use my signature for legal documents?", answer: "Digital signatures created with our tool can be used in many contexts, but legal validity depends on your jurisdiction and document requirements. Consult legal advice for official document signing requirements." },
+      { question: "What devices work best for creating signatures?", answer: "Touch screens with stylus input provide the most natural experience. Tablets, touch-screen laptops, and smartphones work excellently. Mouse and trackpad input also works well with practice." },
+      { question: "Are my signatures stored on your servers?", answer: "No, all signature creation happens locally in your browser. Your signature data is never uploaded, stored, or accessible to us, ensuring complete privacy of this sensitive personal information." },
+      { question: "What format is the downloaded signature?", answer: "Signatures are downloaded as PNG images with transparent backgrounds, allowing seamless overlay on any document without visible edges or white backgrounds." },
+      { question: "Can I change the signature color?", answer: "Yes, you can choose from preset colors including black and blue, or select any custom color using the color picker for specialized needs." },
+      { question: "How do I add my signature to a PDF document?", answer: "Download your signature as a transparent PNG, then use PDF editing software or our PDF tools to overlay the signature image onto your document at the appropriate location." },
+      { question: "Is there a size limit for signatures?", answer: "You can create signatures at any size within the canvas area. For best results on documents, create medium-sized signatures that can be scaled appropriately for your specific use case." }
+    ],
+    
+    privacyNote: `Your signature is highly personal and sensitive information that deserves maximum protection. Our signature pad processes everything locally in your web browser, meaning your signature data is never transmitted to or stored on external servers. You maintain complete control over this personal information. No account registration is required, and we have no access to any signatures you create. This design ensures that your digital signature remains as private and secure as your handwritten one.`,
+    
+    conclusion: `Our free online signature pad provides everything you need to create professional, authentic-looking digital signatures without specialized software or hardware. With natural stroke dynamics, customizable colors and weights, and transparent background output, you can produce signatures that look genuinely handwritten and integrate seamlessly into any document or image. The privacy-focused, browser-based approach ensures your signature data remains completely under your control. Whether you are signing contracts, authenticating artwork, or simply adding a personal touch to digital communications, our signature pad delivers professional results with intuitive simplicity. Start creating your digital signatures today.`,
+    
+    relatedTools: ["paint-tool", "draw-shapes", "add-stickers", "add-emojis"],
+    category: "Image Drawing",
+    categorySlug: "image-drawing",
+    keywords: ["signature pad", "digital signature", "electronic signature", "sign online", "create signature", "e-signature", "handwritten signature"],
+    gradientFrom: "#10b981",
+    gradientTo: "#059669"
+  },
+
+  "add-stickers": {
+    slug: "add-stickers",
+    title: "Add Stickers to Images",
+    metaTitle: "Free Online Sticker Tool - Add Stickers to Photos | MultiTools",
+    metaDescription: "Add fun stickers to your photos with our free online tool. Choose from hundreds of stickers, resize, rotate, and position freely. No signup required.",
+    h1: "Add Stickers to Photos Online Free",
+    
+    introduction: `Transform your photos into expressive, fun, and engaging images with our free online sticker tool. Stickers have become a universal language of digital expression, adding personality, humor, and emotion to images in ways that words alone cannot achieve. Our browser-based sticker tool provides access to a diverse collection of stickers including characters, symbols, decorations, labels, and thematic elements that can be freely positioned, scaled, and rotated on any image. Whether you are creating social media content that demands attention, personalizing photos for friends and family, designing greeting cards and invitations, or adding playful elements to professional content, our sticker tool delivers the creative flexibility you need. Perfect for content creators, social media enthusiasts, parents creating photo memories, marketers adding visual interest, and anyone who wants to add a touch of fun to their images. The intuitive interface makes sticker placement effortless while powerful controls enable precise positioning for professional-quality results.`,
+    
+    aboutTool: `Our online sticker tool is a feature-rich image enhancement application designed to make adding decorative elements to photos simple, fun, and effective. The tool provides access to an extensive library of high-quality stickers organized into categories for easy browsing and selection. Each sticker can be manipulated with intuitive touch and mouse controls, including multi-touch gestures for natural scaling and rotation on touch devices. The real-time preview system shows exactly how stickers appear on your image as you position them, enabling precise placement and sizing decisions. Users can add multiple stickers to create complex compositions, with each sticker maintaining its own layer for independent adjustment. The sticker library includes diverse categories such as expressions and emotions, holiday and seasonal themes, nature and animals, food and lifestyle, symbols and badges, and decorative elements. All stickers feature transparent backgrounds for seamless integration with any image. The tool processes everything locally in your browser, ensuring your photos remain private while delivering responsive performance. Finished images can be exported in high-quality PNG format preserving all sticker placements and image quality.`,
+    
+    howToUse: [
+      { step: 1, title: "Upload Your Photo", description: "Start by uploading the photo you want to enhance with stickers. Drag and drop files or click to browse your device." },
+      { step: 2, title: "Browse Sticker Categories", description: "Explore the sticker library organized by categories. Find the perfect stickers for your creative vision." },
+      { step: 3, title: "Select a Sticker", description: "Click on any sticker to add it to your image. The sticker appears on the canvas ready for positioning." },
+      { step: 4, title: "Position the Sticker", description: "Drag the sticker to your desired location on the image. Place it exactly where it creates the best effect." },
+      { step: 5, title: "Resize and Rotate", description: "Use corner handles to resize stickers proportionally. Rotate stickers to the perfect angle for your composition." },
+      { step: 6, title: "Add More Stickers", description: "Continue adding additional stickers as desired. Layer multiple stickers to create rich, expressive compositions." },
+      { step: 7, title: "Download Your Creation", description: "When satisfied with your design, download the finished image with all stickers embedded in high-quality format." }
+    ],
+    
+    whyImportant: `Stickers have evolved from simple decorative elements to powerful tools for digital expression and communication. In social media, stickers help content stand out in crowded feeds, convey emotions instantly, and create memorable images that drive engagement. The universal appeal of stickers transcends language barriers, making them effective for global audiences. For personal use, stickers transform ordinary photos into cherished memories with added personality and context. In marketing and content creation, stickers add visual interest that captures attention and communicates brand personality. The ability to add stickers to photos without specialized software democratizes creative expression, enabling anyone to produce engaging visual content regardless of their design experience. Our tool makes professional-quality sticker application accessible to everyone, providing the controls needed for precise placement while maintaining the simplicity that makes creative expression enjoyable rather than frustrating.`,
+    
+    keyFeatures: [
+      { title: "Extensive Sticker Library", description: "Access hundreds of high-quality stickers across multiple categories including emotions, holidays, nature, and decorative elements." },
+      { title: "Free Positioning", description: "Place stickers anywhere on your image with drag-and-drop simplicity for complete creative control." },
+      { title: "Resize Controls", description: "Scale stickers to any size using intuitive corner handles while maintaining proportions and quality." },
+      { title: "Rotation Support", description: "Rotate stickers to any angle for dynamic compositions and natural placement on your images." },
+      { title: "Multiple Sticker Layers", description: "Add unlimited stickers to create complex, layered compositions with independent control of each element." },
+      { title: "Transparent Sticker Backgrounds", description: "All stickers feature transparent backgrounds for seamless integration with your photos." },
+      { title: "Real-Time Preview", description: "See exactly how stickers appear as you position, resize, and rotate them on your image." },
+      { title: "High-Quality Export", description: "Download finished images in PNG format with all stickers preserved at full quality." }
+    ],
+    
+    benefitsText: `Our sticker tool provides significant advantages for anyone looking to enhance photos with creative elements. The browser-based approach eliminates the need for app installations, storage space, or account creation, making creative expression instantly accessible. The extensive sticker library saves time searching for individual elements across multiple sources, providing everything you need in one convenient location. Privacy-focused design ensures your photos are never uploaded to external servers, protecting personal memories and sensitive content. The intuitive controls make professional-quality results achievable by anyone, regardless of their technical or design background. Compared to editing apps with limited free options or subscription requirements, our tool provides full access to all features at no cost. The responsive interface works seamlessly across devices, enabling creative expression whether you are at your computer or on your mobile device.`,
+    
+    benefits: [
+      "Access hundreds of high-quality stickers",
+      "Complete control over position and size",
+      "Works on any device with a browser",
+      "Local processing protects your privacy",
+      "No app installation or account required",
+      "Layer multiple stickers freely",
+      "Professional results without design skills",
+      "Export high-quality images instantly"
+    ],
+    
+    whoCanUse: [
+      { title: "Social Media Creators", description: "Create engaging, sticker-enhanced content that stands out in feeds and drives engagement." },
+      { title: "Parents & Families", description: "Add fun elements to family photos, creating memorable keepsakes and shareable moments." },
+      { title: "Content Marketers", description: "Enhance marketing visuals with attention-grabbing stickers that communicate brand personality." },
+      { title: "Event Planners", description: "Create themed graphics for invitations, announcements, and event documentation." },
+      { title: "Teachers & Educators", description: "Develop engaging visual materials with stickers that capture student attention." },
+      { title: "Casual Photo Enthusiasts", description: "Add personality and fun to personal photos for sharing or printing." }
+    ],
+    
+    useCases: [
+      { title: "Social Media Posts", description: "Create eye-catching images with stickers that boost engagement and express personality." },
+      { title: "Birthday & Holiday Photos", description: "Add themed stickers to celebration photos for festive, shareable memories." },
+      { title: "Greeting Cards", description: "Design personalized digital greeting cards with decorative sticker elements." },
+      { title: "Marketing Graphics", description: "Enhance promotional images with stickers that add visual interest and brand personality." },
+      { title: "Children's Content", description: "Create fun, age-appropriate images with playful stickers that appeal to young audiences." },
+      { title: "Photo Memories", description: "Add context, dates, and decorative elements to preserve photo memories with extra meaning." }
+    ],
+    
+    faqs: [
+      { question: "What types of stickers are available?", answer: "Our library includes stickers across many categories including emotions and expressions, holiday and seasonal themes, animals and nature, food and drinks, symbols and badges, decorative elements, and more." },
+      { question: "Can I resize stickers to any size?", answer: "Yes, stickers can be scaled from very small to very large using the intuitive resize handles. Stickers maintain quality when scaled within reasonable limits." },
+      { question: "How many stickers can I add to one image?", answer: "There is no artificial limit on the number of stickers you can add. Layer as many stickers as needed for your creative vision." },
+      { question: "Are my photos uploaded to a server?", answer: "No, all processing happens locally in your browser. Your photos and finished creations remain on your device, ensuring complete privacy." },
+      { question: "Can I rotate stickers to different angles?", answer: "Yes, each sticker can be rotated to any angle, allowing dynamic compositions and natural-looking placements on your images." },
+      { question: "What format is the downloaded image?", answer: "Finished images are downloaded in high-quality PNG format, preserving all sticker placements and image quality." },
+      { question: "Can I remove a sticker after placing it?", answer: "Yes, you can select and delete individual stickers, or use the undo function to reverse recent placements." },
+      { question: "Do stickers have transparent backgrounds?", answer: "Yes, all stickers in our library feature transparent backgrounds, ensuring they blend seamlessly with your photos without visible boxes or edges." }
+    ],
+    
+    privacyNote: `Your photos and memories deserve protection. Our sticker tool processes everything locally in your web browser, meaning your images are never uploaded to external servers. You maintain complete control over your personal photos throughout the creative process. No account registration is required, and we have no access to any images you enhance with stickers. This privacy-first approach ensures your personal moments remain private.`,
+    
+    conclusion: `Our free online sticker tool provides everything you need to add personality, expression, and visual interest to your photos. With an extensive library of high-quality stickers, intuitive positioning and sizing controls, and privacy-focused local processing, you can create engaging, expressive images in minutes. Whether you are creating social media content, preserving family memories, designing marketing materials, or simply having fun with photos, our sticker tool delivers professional-quality results with effortless simplicity. Start adding stickers to your images today and discover how easy it is to transform ordinary photos into extraordinary expressions.`,
+    
+    relatedTools: ["add-emojis", "paint-tool", "draw-shapes", "signature-pad"],
+    category: "Image Drawing",
+    categorySlug: "image-drawing",
+    keywords: ["add stickers", "photo stickers", "sticker tool", "decorate photos", "image stickers", "fun photos", "sticker maker"],
+    gradientFrom: "#f59e0b",
+    gradientTo: "#d97706"
+  },
+
+  "add-emojis": {
+    slug: "add-emojis",
+    title: "Add Emojis to Images",
+    metaTitle: "Free Online Emoji Tool - Add Emojis to Photos | MultiTools",
+    metaDescription: "Add emojis to your photos with our free online tool. Access all standard emojis, resize, rotate, and position freely. No signup required, works in browser.",
+    h1: "Add Emojis to Photos Online Free",
+    
+    introduction: `Express yourself with universal symbols by adding emojis to your photos using our free online emoji tool. Emojis have become the universal language of digital communication, conveying emotions, ideas, and reactions in instantly recognizable symbols that transcend language barriers. Our browser-based tool provides access to the complete library of standard emojis, allowing you to position, scale, and rotate these expressive symbols anywhere on your images. Whether you are creating engaging social media content, adding emotional context to photos, designing fun graphics for marketing, or simply having creative fun with images, our emoji tool makes the process intuitive and enjoyable. Perfect for content creators, social media enthusiasts, marketers, educators, and anyone who wants to add expressive elements to their visual content. The tool combines comprehensive emoji access with powerful positioning controls, enabling both casual fun and professional-quality results.`,
+    
+    aboutTool: `Our online emoji tool is a comprehensive image enhancement application that brings the full power of emoji expression to photo editing. The tool provides access to the complete Unicode emoji library, organized into intuitive categories including smileys and emotions, people and gestures, animals and nature, food and drink, activities and sports, travel and places, objects, symbols, and flags. Each emoji can be placed with pixel-perfect precision using drag-and-drop controls, then scaled to any size and rotated to any angle for creative compositions. The interface features a searchable emoji picker that makes finding specific emojis quick and easy, whether you know exactly what you want or prefer to browse by category. Multiple emojis can be added to create complex compositions, with each emoji maintaining its own layer for independent adjustment. The tool renders emojis as high-quality graphics rather than relying on system fonts, ensuring consistent appearance across all devices and platforms. All processing occurs locally in your browser for privacy and performance, with finished images exportable in high-quality PNG format.`,
+    
+    howToUse: [
+      { step: 1, title: "Upload Your Photo", description: "Start by uploading the image you want to enhance with emojis. Drag and drop files or click to browse your device." },
+      { step: 2, title: "Open the Emoji Picker", description: "Click the emoji button to open the picker. Browse categories or use the search function to find specific emojis." },
+      { step: 3, title: "Select an Emoji", description: "Click on any emoji to add it to your image. The emoji appears on the canvas ready for positioning." },
+      { step: 4, title: "Position the Emoji", description: "Drag the emoji to your desired location on the image. Place it exactly where it creates the best effect." },
+      { step: 5, title: "Resize and Rotate", description: "Use the controls to scale the emoji to your preferred size. Rotate for dynamic, angled placements." },
+      { step: 6, title: "Add More Emojis", description: "Continue adding emojis as desired. Layer multiple emojis to create rich, expressive compositions." },
+      { step: 7, title: "Download Your Image", description: "When satisfied with your design, download the finished image with all emojis embedded at high quality." }
+    ],
+    
+    whyImportant: `Emojis have revolutionized digital communication by providing instant, universal expression that transcends written language. Adding emojis to photos amplifies this expressive power, enabling images to convey specific emotions, contexts, and messages at a glance. In social media, emoji-enhanced images drive higher engagement because they communicate more quickly and emotionally than images alone. For marketing and branding, emojis add personality and relatability that helps content connect with audiences on a human level. In personal communication, emojis transform photos into more meaningful, context-rich messages that strengthen connections. The universal recognition of emojis makes them effective across cultures and languages, providing a visual vocabulary that everyone understands. Our tool democratizes emoji-enhanced photo creation, providing professional controls without professional complexity. The ability to precisely position, size, and rotate emojis enables both casual fun and sophisticated visual communication.`,
+    
+    keyFeatures: [
+      { title: "Complete Emoji Library", description: "Access thousands of standard Unicode emojis across all categories including faces, people, animals, food, and symbols." },
+      { title: "Searchable Emoji Picker", description: "Find specific emojis quickly using the search function, or browse organized categories for discovery." },
+      { title: "Free Positioning", description: "Place emojis anywhere on your image with precise drag-and-drop controls for creative freedom." },
+      { title: "Scalable to Any Size", description: "Resize emojis from tiny accents to large focal points while maintaining quality and clarity." },
+      { title: "Rotation Controls", description: "Rotate emojis to any angle for dynamic compositions and playful placements." },
+      { title: "Multiple Emoji Layers", description: "Add unlimited emojis with independent control of each for complex, layered designs." },
+      { title: "High-Quality Rendering", description: "Emojis are rendered as high-quality graphics for consistent appearance across all devices." },
+      { title: "PNG Export", description: "Download finished images in high-quality PNG format preserving all emoji placements." }
+    ],
+    
+    benefitsText: `Our emoji tool provides unique advantages for adding expressive elements to photos. The complete Unicode emoji library ensures you have access to every standard emoji for any communication need. Browser-based operation eliminates app installations and storage concerns, making creative expression instantly accessible from any device. The searchable picker saves time finding specific emojis, while category browsing enables discovery of perfect options you might not have considered. High-quality rendering ensures emojis look crisp and professional regardless of size, avoiding the pixelation common with basic tools. Privacy-focused local processing means your photos never leave your device, protecting personal content. Compared to mobile apps with limited features or subscriptions, our tool provides full functionality at no cost. The intuitive interface makes professional results achievable by anyone, while advanced controls satisfy users who need precise placement.`,
+    
+    benefits: [
+      "Access complete Unicode emoji library",
+      "Search or browse to find perfect emojis",
+      "Precise positioning and sizing controls",
+      "Works on any device with a browser",
+      "High-quality emoji rendering at any size",
+      "Local processing protects your privacy",
+      "No account or installation required",
+      "Export professional-quality images"
+    ],
+    
+    whoCanUse: [
+      { title: "Social Media Creators", description: "Create engaging, emoji-enhanced content that drives reactions and engagement across platforms." },
+      { title: "Content Marketers", description: "Add personality and emotional resonance to marketing visuals with strategic emoji placement." },
+      { title: "Casual Photo Editors", description: "Add fun and expression to personal photos for sharing with friends and family." },
+      { title: "Digital Communicators", description: "Enhance visual messages with emojis that add context, emotion, and meaning." },
+      { title: "Educators & Trainers", description: "Create engaging visual materials with emojis that capture attention and aid understanding." },
+      { title: "Event Planners", description: "Design themed graphics with relevant emojis for invitations and event content." }
+    ],
+    
+    useCases: [
+      { title: "Social Media Posts", description: "Create attention-grabbing images with emojis that boost engagement and express specific emotions." },
+      { title: "Reaction Images", description: "Add expressive emojis to photos to create shareable reaction images for messaging and social media." },
+      { title: "Marketing Graphics", description: "Enhance promotional content with emojis that add personality and emotional appeal." },
+      { title: "Photo Messages", description: "Add emoji reactions directly to photos before sharing with friends and family." },
+      { title: "Meme Creation", description: "Combine photos with emojis to create humorous, shareable meme content." },
+      { title: "Educational Content", description: "Use emojis to add visual cues and emotional context to educational materials." }
+    ],
+    
+    faqs: [
+      { question: "What emojis are available?", answer: "Our tool includes the complete Unicode emoji library with thousands of emojis across all standard categories including faces, people, animals, nature, food, activities, travel, objects, symbols, and flags." },
+      { question: "Can I search for specific emojis?", answer: "Yes, the emoji picker includes a search function that lets you find specific emojis by typing keywords like 'heart', 'smile', or 'party' to quickly locate what you need." },
+      { question: "How large can I make emojis?", answer: "Emojis can be scaled to virtually any size, from small accents to large focal points. Our high-quality rendering maintains clarity even at larger sizes." },
+      { question: "Are my photos uploaded anywhere?", answer: "No, all processing happens locally in your browser. Your photos and finished creations remain on your device, ensuring complete privacy." },
+      { question: "Do emojis look the same on all devices?", answer: "Our tool renders emojis as standard graphics rather than using system fonts, ensuring consistent appearance regardless of which device you use or share images to." },
+      { question: "How many emojis can I add?", answer: "There is no limit to the number of emojis you can add to a single image. Layer as many as needed for your creative vision." },
+      { question: "Can I rotate emojis?", answer: "Yes, each emoji can be rotated to any angle, allowing dynamic and playful placements on your images." },
+      { question: "What format is the downloaded image?", answer: "Finished images are exported in high-quality PNG format, preserving all emoji placements and image quality for sharing or printing." }
+    ],
+    
+    privacyNote: `Your photos and creative work remain completely private when using our emoji tool. All processing happens locally within your web browser, meaning your images are never uploaded to external servers. You maintain complete control over your personal content throughout the editing process. No account registration is required, and we never collect or access any of your image data. This privacy-first approach ensures your photos stay yours alone.`,
+    
+    conclusion: `Our free online emoji tool provides everything you need to add expressive, universally-understood symbols to your photos. With access to the complete Unicode emoji library, intuitive search and browse functions, and professional positioning controls, you can create engaging, emotionally-rich images in minutes. The browser-based approach ensures accessibility from any device while local processing guarantees your privacy. Whether you are creating social media content, enhancing personal photos, designing marketing materials, or simply having creative fun, our emoji tool delivers professional-quality results with effortless simplicity. Start adding emojis to your images today and discover the power of universal visual expression.`,
+    
+    relatedTools: ["add-stickers", "paint-tool", "draw-shapes", "signature-pad"],
+    category: "Image Drawing",
+    categorySlug: "image-drawing",
+    keywords: ["add emojis", "emoji tool", "photo emojis", "emoji editor", "emoji on photos", "emoji maker", "expression"],
+    gradientFrom: "#ec4899",
+    gradientTo: "#db2777"
+  }
+};
+
 // Export function to get comprehensive SEO content
 export const getComprehensiveSEOContent = (slug: string): ComprehensiveSEOContent | null => {
   // Check image converter tools
@@ -7481,6 +7924,11 @@ export const getComprehensiveSEOContent = (slug: string): ComprehensiveSEOConten
   // Check format utilities tools
   if (formatUtilitiesSEOContent[slug]) {
     return formatUtilitiesSEOContent[slug];
+  }
+  
+  // Check image drawing tools
+  if (imageDrawingSEOContent[slug]) {
+    return imageDrawingSEOContent[slug];
   }
   
   return null;
