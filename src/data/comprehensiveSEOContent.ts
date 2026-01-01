@@ -7457,6 +7457,362 @@ export const imageCombineSEOContent: Record<string, ComprehensiveSEOContent> = {
     keywords: ["collage maker", "photo collage", "combine photos", "image collage", "picture collage", "photo grid"],
     gradientFrom: "#ec4899",
     gradientTo: "#f472b6"
+  },
+  
+  "merge-horizontally": {
+    slug: "merge-horizontally",
+    title: "Merge Images Horizontally",
+    metaTitle: "Merge Images Horizontally - Free Online Side-by-Side Image Combiner | MultiTools",
+    metaDescription: "Merge multiple images horizontally into a single image online for free. Create side-by-side photo comparisons, panoramic layouts, and seamless image combinations instantly.",
+    h1: "Merge Images Horizontally Online Free",
+    
+    introduction: `Merging images horizontally is a fundamental image manipulation technique that creates powerful side-by-side visual presentations. Whether you are comparing before and after photos, creating panoramic compositions, designing product comparison graphics, or combining screenshots for documentation, our free horizontal image merger provides the perfect solution. This tool seamlessly joins multiple images in a left-to-right arrangement, creating a single cohesive image that tells a complete visual story. Professional photographers use horizontal merging for composite panoramas, while marketers leverage it for compelling comparison graphics. The browser-based processing ensures instant results with complete privacy for your images. No software installation required, no watermarks added, and no limits on the number of images you can merge. Transform separate photos into unified horizontal compositions with just a few clicks.`,
+    
+    aboutTool: `Our horizontal image merger is a specialized tool designed to combine multiple images into a single horizontal strip with precision and flexibility. Unlike basic image stitching tools, this merger offers complete control over the combination process. You can adjust the gap between images to create clean separations or seamless joins. The background color picker allows you to choose colors that complement your images or create transparent backgrounds for overlay use. Images are automatically aligned to maintain visual consistency, whether your source images are different heights or have varying aspect ratios. The tool intelligently scales images to create harmonious compositions while preserving the quality of each original image. Processing happens entirely in your browser using advanced canvas technology, meaning your images never leave your device. The result is a high-resolution horizontal image suitable for web use, printing, or further editing. Whether you are combining two images or a dozen, the tool handles batch processing efficiently.`,
+    
+    howToUse: [
+      { step: 1, title: "Upload Your Images", description: "Click the upload area or drag and drop multiple images into the merger. Select all the images you want to combine horizontally in your preferred order." },
+      { step: 2, title: "Arrange Image Order", description: "Review your uploaded images and drag them to rearrange the order. Images will appear left-to-right in the order shown." },
+      { step: 3, title: "Select Horizontal Mode", description: "Choose the horizontal merge mode to arrange images side by side in a single row layout." },
+      { step: 4, title: "Adjust Gap Settings", description: "Use the gap slider to set the spacing between images. Choose zero for seamless joining or add space for distinct separation." },
+      { step: 5, title: "Choose Background Color", description: "Select a background color for any gaps between images or for areas where images have different heights." },
+      { step: 6, title: "Preview and Download", description: "Click the combine button to generate your merged image. Preview the result and download when satisfied." }
+    ],
+    
+    whyImportant: `Horizontal image merging serves countless practical and creative purposes in visual communication. Product comparison graphics that place options side by side help consumers make informed decisions at a glance. Before and after presentations demonstrate transformations in renovation, fitness, design, and countless other fields. Tutorial creators combine screenshots horizontally to show step sequences in single images. Real estate professionals create room panoramas by merging multiple photos. Social media content that combines multiple images horizontally increases engagement by presenting complete stories in single posts. Documentation teams merge interface screenshots to show workflows. Photographers create artistic diptychs and triptychs by joining related images. The ability to control spacing and background colors enables both seamless panoramic effects and deliberately separated comparison layouts. This versatility makes horizontal merging an essential tool for anyone working with visual content.`,
+    
+    keyFeatures: [
+      { title: "Unlimited Image Combining", description: "Merge as many images as you need into a single horizontal composition without restrictions." },
+      { title: "Customizable Gap Spacing", description: "Control the space between images from seamless joining to distinct separation for comparison layouts." },
+      { title: "Background Color Selection", description: "Choose any background color for gaps or height differences to match your design needs." },
+      { title: "Drag-and-Drop Reordering", description: "Easily arrange images in your desired left-to-right order with intuitive drag controls." },
+      { title: "Height Normalization", description: "Images of different heights are intelligently aligned for harmonious visual composition." },
+      { title: "High-Resolution Output", description: "Export merged images at full resolution suitable for printing or professional use." },
+      { title: "Browser-Based Privacy", description: "All processing happens locally in your browser. Your images never leave your device." },
+      { title: "No Watermarks", description: "Your merged images are clean and ready to use with no branding or watermarks added." }
+    ],
+    
+    benefitsText: `Our horizontal image merger provides professional-quality results without the complexity of traditional image editing software. The intuitive interface makes combining images accessible to everyone, regardless of technical skill. You maintain complete control over the final output through adjustable gaps, background colors, and image ordering. Unlike cloud-based tools that upload your images to external servers, our browser-based processing keeps your photos completely private and delivers instant results without waiting for uploads and downloads. The tool handles images of any size and automatically optimizes the output for quality and compatibility. Whether you need to create a quick comparison graphic or a complex multi-image panorama, this merger adapts to your needs while producing professional results.`,
+    
+    benefits: [
+      "Create side-by-side comparisons instantly",
+      "Build panoramic compositions from multiple photos",
+      "Perfect for before/after presentations",
+      "Customizable spacing between images",
+      "Flexible background color options",
+      "No image quality loss during merging",
+      "Complete privacy with local processing",
+      "Free unlimited use with no watermarks"
+    ],
+    
+    whoCanUse: [
+      { title: "Marketing Professionals", description: "Create compelling product comparison graphics and promotional materials that showcase options side by side." },
+      { title: "Photographers", description: "Build panoramic compositions, create diptychs and triptychs, and present photo series in unified formats." },
+      { title: "Content Creators", description: "Design engaging social media posts that combine multiple images into single eye-catching graphics." },
+      { title: "Documentation Teams", description: "Merge screenshots to show software workflows and interface sequences in comprehensive visuals." },
+      { title: "Real Estate Agents", description: "Combine room photos into panoramic views that showcase properties more effectively." },
+      { title: "Educators", description: "Create visual teaching materials that present related concepts or steps in unified images." }
+    ],
+    
+    useCases: [
+      { title: "Product Comparisons", description: "Place competing products or product variations side by side for clear visual comparison in marketing materials." },
+      { title: "Before and After", description: "Show transformation results in renovation, design, fitness, or any field where visual change demonstrates value." },
+      { title: "Tutorial Screenshots", description: "Combine software or app screenshots to show step-by-step processes in single reference images." },
+      { title: "Photo Series", description: "Present related photographs as unified visual stories for portfolios or social media." },
+      { title: "Room Panoramas", description: "Merge multiple room photos into wide-angle views for real estate or interior design presentations." },
+      { title: "Timeline Graphics", description: "Create visual timelines by arranging chronological images horizontally for historical or project documentation." }
+    ],
+    
+    faqs: [
+      { question: "How many images can I merge horizontally?", answer: "There is no strict limit. You can merge as many images as needed. The tool handles batch processing efficiently, though very large numbers may take longer to process." },
+      { question: "What happens if my images have different heights?", answer: "The tool automatically aligns images, typically centering them vertically. The background color fills any gaps created by height differences." },
+      { question: "Can I create seamless panoramas with this tool?", answer: "Yes, set the gap to zero for seamless joining. For best results, ensure your source images have matching edges where they meet." },
+      { question: "What image formats are supported?", answer: "The tool accepts JPG, PNG, WebP, GIF, and most common image formats. Output is available in JPG or PNG format." },
+      { question: "Can I rearrange images after uploading?", answer: "Yes, simply drag and drop images to reorder them. The order shown is the order they will appear left to right in the merged image." },
+      { question: "Will my images be compressed or lose quality?", answer: "Images maintain their quality during merging. The output is high-resolution and suitable for both digital use and printing." },
+      { question: "Is there a file size limit?", answer: "There is no strict limit, but for optimal browser performance, we recommend individual images under 20MB each." },
+      { question: "Can I adjust spacing between images?", answer: "Yes, the gap slider lets you set any spacing from zero (seamless) to generous separation for comparison layouts." },
+      { question: "Are my images uploaded to a server?", answer: "No, all processing happens locally in your browser. Your images never leave your device, ensuring complete privacy." },
+      { question: "Can I use transparent backgrounds?", answer: "Yes, when you export as PNG, transparent backgrounds are preserved. Choose a transparent background color for overlay use." }
+    ],
+    
+    privacyNote: `Your privacy is fully protected when merging images horizontally. All image processing happens locally in your web browser using JavaScript and HTML5 Canvas technology. Your images are never uploaded to any server, never stored in any database, and never accessible to anyone but you. This local processing approach means faster results and complete confidentiality for sensitive or personal images. No account registration is required, no cookies track your usage, and no data about your images is collected. When you close the browser tab, all image data is automatically cleared from memory. Your merged images remain 100% private and under your control at all times.`,
+    
+    conclusion: `Our free horizontal image merger transforms the complex task of combining multiple images into a simple, intuitive process. Whether you are creating product comparisons, building panoramic compositions, documenting processes with screenshots, or presenting before-and-after transformations, this tool delivers professional results instantly. The customizable gap spacing, flexible background colors, and drag-and-drop reordering give you complete control over your final output. With browser-based processing that keeps your images private and no limits on usage, you can merge as many images as your projects require. Try our horizontal image merger now and experience the easiest way to create side-by-side image compositions online.`,
+    
+    relatedTools: ["merge-vertically", "collage-maker", "stitch-images", "before-after-maker"],
+    category: "Image Combine",
+    categorySlug: "image-combine",
+    keywords: ["merge horizontally", "side by side", "horizontal merge", "combine images", "panorama", "image stitching", "photo merger"],
+    gradientFrom: "#8b5cf6",
+    gradientTo: "#a78bfa"
+  },
+  
+  "merge-vertically": {
+    slug: "merge-vertically",
+    title: "Merge Images Vertically",
+    metaTitle: "Merge Images Vertically - Free Online Top-to-Bottom Image Combiner | MultiTools",
+    metaDescription: "Merge multiple images vertically into a single image online for free. Stack photos top to bottom for infographics, long-form content, and seamless vertical compositions.",
+    h1: "Merge Images Vertically Online Free",
+    
+    introduction: `Vertical image merging is an essential technique for creating long-form visual content, infographics, scrollable social media posts, and stacked photo compositions. Our free vertical image merger allows you to stack multiple images from top to bottom, creating unified vertical strips that flow naturally for modern content consumption. This technique is particularly valuable for mobile-first content where vertical scrolling is the primary navigation method. Long Pinterest graphics, Instagram story compilations, step-by-step tutorials, and infographic designs all benefit from vertical image merging. The tool processes images entirely in your browser for instant results and complete privacy. Whether you are combining two images or creating extensive vertical compilations, the intuitive interface makes the process simple while delivering professional-quality output suitable for any platform or purpose.`,
+    
+    aboutTool: `Our vertical image merger is a precision tool designed specifically for top-to-bottom image combination. The tool accepts multiple images in any common format and arranges them in a seamless vertical stack. Unlike basic image editors, this merger provides granular control over the combination process with adjustable gap spacing between images and customizable background colors for gaps or width differences. Images of varying widths are intelligently handled, with options for alignment and background fill. The drag-and-drop interface allows easy reordering of images before merging, ensuring your final composition flows exactly as intended. All processing uses advanced HTML5 Canvas technology in your browser, meaning zero server uploads and instant results. The output is a high-resolution image file ready for immediate use on social media, websites, print materials, or further editing in other applications.`,
+    
+    howToUse: [
+      { step: 1, title: "Upload Your Images", description: "Drag and drop multiple images into the upload area or click to browse and select files from your device." },
+      { step: 2, title: "Arrange Image Order", description: "Review your uploaded images and drag them to set the top-to-bottom order for your vertical composition." },
+      { step: 3, title: "Select Vertical Mode", description: "Choose the vertical merge mode to stack images from top to bottom in a single column layout." },
+      { step: 4, title: "Set Gap Spacing", description: "Adjust the gap slider to control spacing between images. Use zero for seamless stacking or add space for visual separation." },
+      { step: 5, title: "Choose Background Color", description: "Select a background color for gaps and any areas where images have different widths." },
+      { step: 6, title: "Generate and Download", description: "Click combine to create your merged image. Preview the result and download when you are satisfied." }
+    ],
+    
+    whyImportant: `Vertical image merging has become increasingly important as mobile devices dominate content consumption. Social media platforms like Pinterest, Instagram, and TikTok favor vertical content that fills smartphone screens. Long infographics that stack information vertically are more engaging and shareable than wide formats that require horizontal scrolling. E-commerce sites use vertical image stacks to show products from multiple angles in scrollable galleries. Recipe blogs combine step-by-step photos into vertical tutorials. Architects and designers present floor plans and elevations in vertical sequences. Documentation teams stack screenshots to show complete workflows. The vertical format aligns with natural reading patterns and mobile UX conventions, making it essential for modern visual communication. Our tool makes creating these vertical compositions effortless while maintaining professional quality.`,
+    
+    keyFeatures: [
+      { title: "Unlimited Vertical Stacking", description: "Stack as many images as needed into seamless vertical compositions without any restrictions." },
+      { title: "Adjustable Gap Control", description: "Fine-tune spacing between images from seamless joining to distinct separation." },
+      { title: "Background Color Options", description: "Choose any background color for gaps or width differences to complement your design." },
+      { title: "Easy Drag Reordering", description: "Arrange images in your desired top-to-bottom order with intuitive drag-and-drop controls." },
+      { title: "Width Alignment", description: "Images of different widths are intelligently aligned for clean, professional results." },
+      { title: "High-Resolution Export", description: "Output merged images at full resolution suitable for any use case." },
+      { title: "Local Browser Processing", description: "All merging happens in your browser for instant results and complete privacy." },
+      { title: "No Watermarks Added", description: "Your merged images are clean and ready for immediate use." }
+    ],
+    
+    benefitsText: `Our vertical image merger eliminates the complexity of traditional image editing while delivering results that rival professional software. The intuitive interface requires no learning curve, making vertical compositions accessible to everyone. Adjustable gaps and background colors provide creative control without overwhelming options. The browser-based approach means no software installation, no account creation, and no waiting for cloud processing. Your images remain completely private since they never leave your device. The tool automatically handles images of different dimensions, producing clean results regardless of source variety. Whether creating quick social posts or complex infographics, this merger adapts to your needs while maintaining quality and efficiency.`,
+    
+    benefits: [
+      "Create engaging long-form visual content",
+      "Perfect for mobile-first platforms",
+      "Build comprehensive infographics easily",
+      "Ideal for step-by-step tutorials",
+      "Customizable spacing and backgrounds",
+      "Maintains full image quality",
+      "Complete privacy with local processing",
+      "Free unlimited use without watermarks"
+    ],
+    
+    whoCanUse: [
+      { title: "Social Media Managers", description: "Create engaging vertical content optimized for Pinterest, Instagram Stories, and mobile feeds." },
+      { title: "Infographic Designers", description: "Build comprehensive visual data presentations that stack information effectively." },
+      { title: "Content Marketers", description: "Develop long-form visual content that captures attention and drives engagement." },
+      { title: "Bloggers", description: "Create tutorial compilations and recipe step-by-steps for enhanced reader experience." },
+      { title: "E-commerce Teams", description: "Combine product photos into comprehensive vertical galleries for listings." },
+      { title: "Educators", description: "Stack lesson visuals into organized vertical presentations for students." }
+    ],
+    
+    useCases: [
+      { title: "Pinterest Graphics", description: "Create tall, engaging pins that stand out in feeds and drive more clicks to your content." },
+      { title: "Instagram Stories", description: "Compile multiple story slides into single downloadable vertical images for sharing." },
+      { title: "Step-by-Step Tutorials", description: "Stack instructional photos vertically for easy-to-follow visual guides." },
+      { title: "Recipe Presentations", description: "Combine cooking step photos into comprehensive recipe graphics for food blogs." },
+      { title: "Product Showcases", description: "Stack product photos showing different angles or features in scrollable formats." },
+      { title: "Portfolio Strips", description: "Present related work samples in unified vertical compositions for professional portfolios." }
+    ],
+    
+    faqs: [
+      { question: "How many images can I stack vertically?", answer: "There is no strict limit. You can stack as many images as your project requires. Processing time increases with more images but remains efficient." },
+      { question: "What happens with images of different widths?", answer: "The tool aligns images intelligently, typically centering them. The background color fills any gaps created by width differences." },
+      { question: "Can I create seamless vertical stacks?", answer: "Yes, set the gap to zero for seamless stacking. Ensure your images have matching edges for best results." },
+      { question: "What image formats are supported?", answer: "The tool accepts JPG, PNG, WebP, GIF, and most common formats. Export is available in JPG or PNG." },
+      { question: "Can I reorder images after uploading?", answer: "Yes, drag and drop images to set your desired order. The top-to-bottom order matches your arrangement." },
+      { question: "Is image quality preserved?", answer: "Yes, images maintain their quality during merging. Output is high-resolution and suitable for any use." },
+      { question: "Is there a file size limit?", answer: "No strict limit, but for optimal performance, we recommend individual images under 20MB each." },
+      { question: "Can I adjust the gaps between images?", answer: "Yes, the gap slider provides precise control from zero spacing to generous separation." },
+      { question: "Are my images uploaded anywhere?", answer: "No, all processing happens in your browser. Your images never leave your device." },
+      { question: "What output formats are available?", answer: "You can download your merged image as JPG or PNG, depending on your needs." }
+    ],
+    
+    privacyNote: `Your image privacy is completely protected when using our vertical merger. All image processing occurs locally in your web browser using JavaScript and HTML5 Canvas. Your images are never transmitted to any server, never stored in any cloud service, and never accessible to anyone except you. This local-first approach ensures instant processing without upload delays and complete confidentiality for all your images. No registration is required, no cookies track your activity, and no data about your images is collected or retained. Closing the browser tab immediately clears all image data from memory. Your content remains 100% private throughout the entire process.`,
+    
+    conclusion: `Our free vertical image merger makes creating stacked image compositions simple and accessible. Whether you are designing Pinterest graphics, building infographics, creating tutorials, or developing any vertical content, this tool delivers professional results instantly. The adjustable spacing, customizable backgrounds, and intuitive reordering give you complete creative control. With browser-based processing that protects your privacy and no limits on usage, you can create unlimited vertical compositions. Try our vertical image merger now and discover the easiest way to stack images for modern content platforms.`,
+    
+    relatedTools: ["merge-horizontally", "collage-maker", "stitch-images", "before-after-maker"],
+    category: "Image Combine",
+    categorySlug: "image-combine",
+    keywords: ["merge vertically", "stack images", "vertical merge", "combine images", "infographic", "long image", "photo stacking"],
+    gradientFrom: "#06b6d4",
+    gradientTo: "#22d3ee"
+  },
+  
+  "stitch-images": {
+    slug: "stitch-images",
+    title: "Stitch Images Together",
+    metaTitle: "Stitch Images Together - Free Online Image Stitching Tool | MultiTools",
+    metaDescription: "Stitch multiple images together into one seamless composition online for free. Create panoramas, photo grids, and combined layouts with flexible arrangement options.",
+    h1: "Stitch Images Together Online Free",
+    
+    introduction: `Image stitching combines multiple photographs or graphics into unified compositions that tell complete visual stories. Our free image stitching tool provides flexible arrangement options for creating panoramas, photo grids, seamless collages, and custom layouts. Unlike simple side-by-side tools, image stitching considers the relationship between images to create cohesive results. Photographers use stitching to create wide panoramic landscapes from multiple shots. Designers combine interface elements into unified mockups. Real estate professionals stitch room photos into comprehensive property views. Historians assemble fragmented documents into complete images. The tool processes everything in your browser for instant results and complete privacy. Whether you need horizontal, vertical, or grid arrangements, this versatile stitcher adapts to your creative vision while maintaining professional quality.`,
+    
+    aboutTool: `Our image stitching tool is a comprehensive solution for combining multiple images into unified compositions. The tool supports multiple arrangement modes including horizontal stitching, vertical stitching, and grid layouts, giving you flexibility for any project. Advanced features include adjustable gap spacing between images, customizable background colors, and intelligent alignment for images of different dimensions. The drag-and-drop interface makes arranging images intuitive, and you can easily reorder them before stitching. For grid layouts, you can specify the number of columns and rows to create organized photo collections. All processing uses HTML5 Canvas technology in your browser, ensuring instant results without server uploads. The output is a high-resolution image file suitable for web use, printing, social media, or further editing. The tool handles any common image format and produces clean, professional results regardless of source image variations.`,
+    
+    howToUse: [
+      { step: 1, title: "Upload Multiple Images", description: "Drag and drop your images into the upload area or click to select files. Add all images you want to stitch together." },
+      { step: 2, title: "Choose Arrangement Mode", description: "Select horizontal, vertical, or grid layout depending on your desired composition style." },
+      { step: 3, title: "Arrange Image Order", description: "Drag images to reorder them. The order determines their position in the stitched result." },
+      { step: 4, title: "Configure Layout Settings", description: "Adjust gap spacing and columns (for grids). Set background color for gaps or dimension differences." },
+      { step: 5, title: "Preview Your Composition", description: "Click combine to generate a preview of your stitched image and verify the arrangement." },
+      { step: 6, title: "Download Stitched Image", description: "When satisfied with the result, download your stitched image in high resolution." }
+    ],
+    
+    whyImportant: `Image stitching enables visual storytelling that individual images cannot achieve alone. Panoramic photography relies on stitching to capture views wider than any single lens can record. Architectural documentation uses stitching to create comprehensive building elevations. Scientific imaging combines microscope slides into complete specimen views. Archaeological teams reconstruct fragmented artifacts through digital stitching. Marketing campaigns create banner graphics that span multiple product shots. Interface designers stitch screen recordings into comprehensive UX documentation. The ability to choose between horizontal, vertical, and grid arrangements makes stitching versatile for any application. Professional results that would previously require expensive software are now accessible through browser-based tools that process images locally for speed and privacy.`,
+    
+    keyFeatures: [
+      { title: "Multiple Arrangement Modes", description: "Choose horizontal, vertical, or grid layouts for flexible composition options." },
+      { title: "Grid Layout Options", description: "Create organized photo grids with configurable columns for structured presentations." },
+      { title: "Adjustable Gap Spacing", description: "Control spacing between images from seamless stitching to defined separation." },
+      { title: "Background Color Control", description: "Set custom background colors for gaps and dimension alignment areas." },
+      { title: "Drag-and-Drop Ordering", description: "Easily arrange images in your desired sequence with intuitive controls." },
+      { title: "Intelligent Alignment", description: "Images of different sizes are automatically aligned for clean, professional results." },
+      { title: "High-Resolution Output", description: "Export stitched images at full quality suitable for any use case." },
+      { title: "Complete Privacy", description: "Browser-based processing means your images never leave your device." }
+    ],
+    
+    benefitsText: `Our image stitching tool combines professional capabilities with intuitive usability. The multiple arrangement modes eliminate the need for separate tools for horizontal, vertical, and grid compositions. Adjustable settings provide creative control without complexity. The browser-based approach delivers instant results without software installation or cloud uploads. Your images remain completely private since all processing happens locally on your device. The tool handles mixed image dimensions gracefully, producing clean results regardless of source variations. Whether you are creating panoramas, building photo grids, or combining interface screenshots, this single tool adapts to diverse stitching needs while maintaining the quality standards required for professional use.`,
+    
+    benefits: [
+      "Create panoramas from multiple photos",
+      "Build organized photo grids easily",
+      "Flexible horizontal and vertical options",
+      "Perfect for comprehensive documentation",
+      "Customizable spacing and backgrounds",
+      "Professional quality output",
+      "Complete privacy with local processing",
+      "Free unlimited use"
+    ],
+    
+    whoCanUse: [
+      { title: "Photographers", description: "Create panoramic landscapes, composite images, and photo series from multiple shots." },
+      { title: "Architects", description: "Stitch building elevation photos and floor plan images into comprehensive documentation." },
+      { title: "Product Teams", description: "Combine product photos into organized grid layouts for catalogs and listings." },
+      { title: "UX Designers", description: "Stitch interface screenshots into complete user flow documentation." },
+      { title: "Scientists", description: "Combine microscopy images and specimen photos into unified research visuals." },
+      { title: "Historians", description: "Reconstruct fragmented documents and photographs into complete archival images." }
+    ],
+    
+    useCases: [
+      { title: "Panoramic Photography", description: "Stitch multiple landscape or cityscape photos into wide panoramic compositions." },
+      { title: "Product Grids", description: "Create organized product photography grids for e-commerce catalogs and social media." },
+      { title: "Interface Documentation", description: "Combine UI screenshots into comprehensive visual documentation for development teams." },
+      { title: "Architectural Elevations", description: "Stitch building photos into complete elevation views for presentations and records." },
+      { title: "Scientific Imaging", description: "Combine microscope slides or specimen photos into unified research images." },
+      { title: "Photo Collections", description: "Create organized grid displays of related photographs for portfolios or albums." }
+    ],
+    
+    faqs: [
+      { question: "What arrangement modes are available?", answer: "The tool offers horizontal stitching (side by side), vertical stitching (stacked), and grid layouts with customizable columns." },
+      { question: "Can I create true panoramas with overlap blending?", answer: "This tool arranges images side by side. For advanced panorama blending with overlap detection, specialized panorama software is recommended." },
+      { question: "How many images can I stitch together?", answer: "There is no strict limit. You can stitch as many images as your project requires." },
+      { question: "What happens with different sized images?", answer: "The tool aligns images intelligently. Background color fills any gaps created by size differences." },
+      { question: "Can I customize the grid columns?", answer: "Yes, in grid mode you can specify the number of columns to organize your images." },
+      { question: "What formats are supported?", answer: "Input accepts JPG, PNG, WebP, GIF, and most common formats. Output is JPG or PNG." },
+      { question: "Can I reorder images after uploading?", answer: "Yes, drag and drop images to arrange them in your preferred order before stitching." },
+      { question: "Is image quality preserved?", answer: "Yes, stitched images maintain the quality of your original source images." },
+      { question: "Are my images uploaded to a server?", answer: "No, all processing happens locally in your browser for complete privacy." },
+      { question: "Can I add gaps between stitched images?", answer: "Yes, the gap slider lets you set spacing from seamless joining to visible separation." }
+    ],
+    
+    privacyNote: `Your image privacy is fully protected when using our stitching tool. All processing occurs locally in your web browser using JavaScript and HTML5 Canvas technology. Your images are never uploaded to any server, never stored anywhere, and never accessible to anyone except you. This client-side approach ensures fast processing without network delays and complete confidentiality for all your images. No account is required, no personal information is collected, and no usage data is tracked. When you close your browser tab, all image data is immediately cleared from memory. Your stitched compositions and source images remain 100% private at all times.`,
+    
+    conclusion: `Our free image stitching tool provides professional-quality composition capabilities with remarkable ease of use. Whether you are creating panoramas, building photo grids, combining documentation screenshots, or developing any multi-image composition, this tool delivers the flexibility and quality you need. The multiple arrangement modes, customizable spacing, and intuitive interface make stitching accessible to everyone. With browser-based processing that protects your privacy and no limits on usage, you can create unlimited compositions. Try our image stitching tool now and discover how easy it is to combine multiple images into unified visual stories.`,
+    
+    relatedTools: ["merge-horizontally", "merge-vertically", "collage-maker", "before-after-maker"],
+    category: "Image Combine",
+    categorySlug: "image-combine",
+    keywords: ["stitch images", "image stitching", "combine photos", "panorama", "photo grid", "merge images", "composite image"],
+    gradientFrom: "#10b981",
+    gradientTo: "#34d399"
+  },
+  
+  "before-after-maker": {
+    slug: "before-after-maker",
+    title: "Before/After Image Maker",
+    metaTitle: "Before/After Image Maker - Free Online Comparison Tool | MultiTools",
+    metaDescription: "Create stunning before and after image comparisons online for free. Perfect for showcasing transformations, renovations, design changes, and visual improvements.",
+    h1: "Create Before/After Image Comparisons Online Free",
+    
+    introduction: `Before and after comparisons are among the most powerful visual communication tools, instantly demonstrating transformations, improvements, and changes in compelling ways. Our free Before/After Image Maker enables you to create professional comparison graphics that showcase renovations, design evolution, photo editing results, fitness progress, landscaping transformations, and countless other visual stories. This specialized tool goes beyond simple side-by-side placement to create dedicated comparison layouts optimized for impact and clarity. Whether you need horizontal comparisons, vertical stacks, or interactive slider presentations, this tool provides the formats and customization options to make your transformations shine. The browser-based processing ensures your images remain private while delivering instant, professional-quality results.`,
+    
+    aboutTool: `Our Before/After Image Maker is a specialized comparison tool designed specifically for showcasing visual transformations. Unlike generic image combiners, this tool understands the unique requirements of before/after presentations. The interface clearly designates "before" and "after" upload areas to prevent confusion. Multiple comparison layouts are available including horizontal side-by-side for wide transformations, vertical stacking for portrait-oriented content, and split-screen designs for dramatic reveals. The tool automatically adds professional labels to identify which image is before and which is after, though these can be customized or removed based on your preferences. Alignment features ensure your comparison images are properly registered, making the transformation changes clearly visible. All processing happens in your browser, so your transformation photos never leave your device. The output is a high-resolution image ready for social media, portfolios, marketing materials, or client presentations.`,
+    
+    howToUse: [
+      { step: 1, title: "Upload Before Image", description: "Click the Before upload area and select the image showing the original state or starting point." },
+      { step: 2, title: "Upload After Image", description: "Click the After upload area and select the image showing the transformed or final state." },
+      { step: 3, title: "Choose Comparison Layout", description: "Select horizontal (side by side), vertical (stacked), or before-after mode for your preferred presentation style." },
+      { step: 4, title: "Adjust Layout Settings", description: "Configure gap spacing between images and choose background colors that complement your content." },
+      { step: 5, title: "Preview Your Comparison", description: "Review the generated comparison to ensure both images are properly positioned and the transformation is clear." },
+      { step: 6, title: "Download Comparison", description: "Save your before/after comparison as a high-resolution image for sharing or presentation." }
+    ],
+    
+    whyImportant: `Before and after comparisons leverage fundamental principles of visual perception to communicate change effectively. The human brain is exceptionally skilled at detecting differences when images are presented side by side, making before/after formats ideal for demonstrating value and results. Home renovation contractors showcase the dramatic impact of their work. Fitness professionals document client transformations to attract new clients. Dental practices display smile makeovers to prospective patients. Landscaping companies demonstrate yard transformations through the seasons. Photo editors showcase their retouching skills. Product designers present iterative improvements. The format works because it provides undeniable visual proof of change, building trust and credibility. Our tool makes creating these powerful comparisons accessible to anyone, regardless of design experience, while producing results that look professionally crafted.`,
+    
+    keyFeatures: [
+      { title: "Dedicated Before/After Interface", description: "Clearly labeled upload areas prevent confusion and ensure proper image placement." },
+      { title: "Multiple Layout Options", description: "Choose horizontal, vertical, or slider layouts based on your content and platform." },
+      { title: "Professional Labeling", description: "Automatic Before and After labels clearly identify each image in your comparison." },
+      { title: "Customizable Spacing", description: "Adjust gap between images for different visual effects and styling preferences." },
+      { title: "Background Color Options", description: "Choose complementary background colors that enhance your comparison presentation." },
+      { title: "Image Alignment", description: "Tools to ensure before and after images are properly aligned for clear comparison." },
+      { title: "High-Resolution Export", description: "Download comparisons at full quality for any use case." },
+      { title: "Complete Privacy", description: "Browser-based processing keeps your transformation photos completely private." }
+    ],
+    
+    benefitsText: `Our Before/After Image Maker provides purpose-built functionality that generic image tools cannot match. The dedicated interface eliminates guesswork about image placement. Automatic labeling saves time while ensuring clarity. Multiple layout options let you choose the presentation style that best fits your content and platform. The browser-based approach means instant results without software installation or account creation. Your transformation photos remain completely private since they never leave your device. Whether you are documenting personal progress, showcasing professional work, or creating marketing materials, this specialized tool produces polished results that communicate change effectively and professionally.`,
+    
+    benefits: [
+      "Demonstrate transformations with impact",
+      "Build credibility through visual proof",
+      "Multiple professional layout options",
+      "Automatic clear labeling included",
+      "Perfect for portfolios and marketing",
+      "Customizable styling options",
+      "Complete privacy for your images",
+      "Free unlimited comparison creation"
+    ],
+    
+    whoCanUse: [
+      { title: "Home Renovation Contractors", description: "Showcase dramatic before and after transformations of renovation projects for portfolios and marketing." },
+      { title: "Fitness Professionals", description: "Document client transformation journeys to demonstrate program effectiveness and attract new clients." },
+      { title: "Photo Editors", description: "Display retouching and editing skills with clear before/after comparisons of your work." },
+      { title: "Real Estate Professionals", description: "Show property staging transformations and renovation improvements for listings." },
+      { title: "Dental and Medical Professionals", description: "Present treatment results with professional before/after patient documentation." },
+      { title: "Landscaping Companies", description: "Demonstrate yard and garden transformations to showcase services and seasonal work." }
+    ],
+    
+    useCases: [
+      { title: "Home Renovations", description: "Showcase kitchen remodels, bathroom updates, room makeovers, and whole-home transformations." },
+      { title: "Fitness Progress", description: "Document workout and nutrition program results with clear physical transformation comparisons." },
+      { title: "Photo Retouching", description: "Display photo editing skills by comparing original and enhanced images." },
+      { title: "Property Staging", description: "Show the impact of professional staging on real estate listings with clear comparisons." },
+      { title: "Dental Treatments", description: "Present teeth whitening, orthodontics, and smile makeover results professionally." },
+      { title: "Landscape Projects", description: "Demonstrate garden designs, yard clean-ups, and seasonal landscaping transformations." }
+    ],
+    
+    faqs: [
+      { question: "What layout options are available?", answer: "The tool offers horizontal (side by side), vertical (stacked), and before-after specific layouts optimized for transformation presentations." },
+      { question: "Are labels added automatically?", answer: "Yes, Before and After labels are added automatically. You can customize or remove them based on your preferences." },
+      { question: "Can I use images of different sizes?", answer: "Yes, the tool handles different image dimensions. For best results, use images with similar dimensions for clearer comparison." },
+      { question: "What image formats are supported?", answer: "The tool accepts JPG, PNG, WebP, and most common image formats. Output is available as JPG or PNG." },
+      { question: "Can I adjust the spacing between images?", answer: "Yes, gap controls let you set spacing from seamless joining to visible separation." },
+      { question: "Is image quality preserved?", answer: "Yes, your comparison images maintain their original quality in the final output." },
+      { question: "Are my transformation photos uploaded?", answer: "No, all processing happens locally in your browser. Your images never leave your device." },
+      { question: "Can I create multiple comparisons?", answer: "Yes, create as many before/after comparisons as you need with unlimited free usage." },
+      { question: "What resolution is the output?", answer: "Output is high-resolution, suitable for printing, social media, and professional presentations." },
+      { question: "Can I customize label text or colors?", answer: "Yes, you can customize label appearance or remove labels entirely based on your design preferences." }
+    ],
+    
+    privacyNote: `Your transformation photos are kept completely private when creating before/after comparisons. All image processing happens locally in your web browser using JavaScript and HTML5 Canvas technology. Your before and after images are never uploaded to any server, never stored in any database, and never accessible to anyone except you. This is particularly important for sensitive transformation documentation like medical or fitness progress photos. No account registration is required, no personal information is collected, and no usage tracking occurs. When you close your browser tab, all image data is immediately cleared from memory. Your comparison images and source photos remain 100% private and under your complete control.`,
+    
+    conclusion: `Our free Before/After Image Maker transforms the task of creating professional comparison graphics into a simple, intuitive process. Whether you are showcasing home renovations, fitness transformations, photo editing skills, or any other visual change, this specialized tool delivers polished results that communicate your message effectively. The dedicated before/after interface, automatic labeling, and multiple layout options ensure professional presentations every time. With browser-based processing that protects your privacy and unlimited free usage, you can create as many comparison graphics as your projects require. Try our Before/After Image Maker now and experience the easiest way to showcase transformations online.`,
+    
+    relatedTools: ["merge-horizontally", "merge-vertically", "stitch-images", "collage-maker"],
+    category: "Image Combine",
+    categorySlug: "image-combine",
+    keywords: ["before after", "comparison", "transformation", "before and after", "image comparison", "photo comparison", "progress photos"],
+    gradientFrom: "#f59e0b",
+    gradientTo: "#fbbf24"
   }
 };
 
