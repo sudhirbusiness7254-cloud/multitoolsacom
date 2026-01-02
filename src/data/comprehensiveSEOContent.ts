@@ -6740,8 +6740,8 @@ export const imageOptimizationSEOContent: Record<string, ComprehensiveSEOContent
     gradientTo: "#0891b2"
   },
 
-  "auto-orient": {
-    slug: "auto-orient",
+  "auto-orient-image": {
+    slug: "auto-orient-image",
     title: "Auto-Orient Image",
     metaTitle: "Auto-Orient Images Online Free - Fix Photo Rotation | MultiTools",
     metaDescription: "Auto-orient images to correct rotation based on EXIF data. Fix sideways or upside-down photos instantly online for free. No signup required.",
