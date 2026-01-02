@@ -2,28 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Theme with orange/red accents - supports light and dark modes */
+/* Dark theme with orange/red accents inspired by the reference design */
 
 @layer base {
-  /* Light Mode */
   :root {
-    --background: 0 0% 98%;
-    --foreground: 0 0% 10%;
+    --background: 0 0% 4%;
+    --foreground: 0 0% 95%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 10%;
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 10%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 24 95% 50%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 24 95% 53%;
+    --primary-foreground: 0 0% 5%;
 
-    --secondary: 0 0% 94%;
-    --secondary-foreground: 0 0% 15%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 95%;
 
-    --muted: 0 0% 92%;
-    --muted-foreground: 0 0% 45%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
 
     --accent: 12 90% 50%;
     --accent-foreground: 0 0% 100%;
@@ -31,15 +30,15 @@
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 88%;
-    --input: 0 0% 92%;
-    --ring: 24 95% 50%;
+    --border: 0 0% 18%;
+    --input: 0 0% 12%;
+    --ring: 24 95% 53%;
 
     --radius: 0.75rem;
 
     /* Brand Colors - Orange/Red Theme */
-    --brand-orange: 24 95% 50%;
-    --brand-orange-light: 24 95% 60%;
+    --brand-orange: 24 95% 53%;
+    --brand-orange-light: 24 95% 65%;
     --brand-red: 12 90% 50%;
     --brand-red-dark: 12 90% 40%;
     --brand-amber: 38 92% 50%;
@@ -48,23 +47,22 @@
     --brand-teal: 172 66% 50%;
     
     /* Glow colors */
-    --glow-orange: 0 0 40px hsl(24 95% 50% / 0.2);
-    --glow-red: 0 0 40px hsl(12 90% 50% / 0.2);
+    --glow-orange: 0 0 40px hsl(24 95% 53% / 0.4);
+    --glow-red: 0 0 40px hsl(12 90% 50% / 0.4);
     
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(0 0% 98%), hsl(24 95% 97%));
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(0 0% 98%));
-    --gradient-orange: linear-gradient(135deg, hsl(24 95% 50%), hsl(12 90% 50%));
-    --gradient-dark: linear-gradient(180deg, hsl(0 0% 96%), hsl(0 0% 98%));
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 4%), hsl(12 90% 10%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 10%), hsl(0 0% 6%));
+    --gradient-orange: linear-gradient(135deg, hsl(24 95% 53%), hsl(12 90% 50%));
+    --gradient-dark: linear-gradient(180deg, hsl(0 0% 8%), hsl(0 0% 4%));
     
-    --shadow-soft: 0 4px 20px -4px hsl(24 95% 50% / 0.1);
-    --shadow-strong: 0 10px 40px -10px hsl(0 0% 0% / 0.1);
-    --shadow-glow: 0 0 30px hsl(24 95% 50% / 0.2);
+    --shadow-soft: 0 4px 20px -4px hsl(24 95% 53% / 0.15);
+    --shadow-strong: 0 10px 40px -10px hsl(24 95% 53% / 0.25);
+    --shadow-glow: 0 0 30px hsl(24 95% 53% / 0.4);
     
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  /* Dark Mode */
   .dark {
     --background: 0 0% 4%;
     --foreground: 0 0% 95%;
@@ -93,15 +91,6 @@
     --border: 0 0% 18%;
     --input: 0 0% 12%;
     --ring: 24 95% 53%;
-    
-    /* Dark mode gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(0 0% 4%), hsl(12 90% 10%));
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 10%), hsl(0 0% 6%));
-    --gradient-dark: linear-gradient(180deg, hsl(0 0% 8%), hsl(0 0% 4%));
-    
-    --shadow-soft: 0 4px 20px -4px hsl(24 95% 53% / 0.15);
-    --shadow-strong: 0 10px 40px -10px hsl(24 95% 53% / 0.25);
-    --shadow-glow: 0 0 30px hsl(24 95% 53% / 0.4);
   }
 }
 

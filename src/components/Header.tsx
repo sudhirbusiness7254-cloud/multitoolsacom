@@ -7,7 +7,6 @@ import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { getToolIcon } from "@/components/icons/ToolIcons";
 import { ToolIconWithBackground, getToolIconComponent } from "@/lib/toolIcons";
-import { ThemeToggle } from "@/components/ThemeToggle";
 
 // Category icon mapping
 const categoryIcons: Record<string, React.ReactNode> = {
@@ -232,22 +231,16 @@ const Header = () => {
             >
               Tag Generator
             </Link>
-            
-            {/* Theme Toggle */}
-            <ThemeToggle />
           </div>
           
-          {/* Mobile: Theme Toggle + Menu Button */}
-          <div className="lg:hidden flex items-center gap-1">
-            <ThemeToggle />
-            <button 
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
-              className="p-2 -mr-2 text-foreground hover:text-primary hover:bg-secondary/50 rounded-lg transition-colors touch-target" 
-              aria-label="Toggle menu"
-            >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
+          {/* Mobile Menu Button */}
+          <button 
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
+            className="lg:hidden p-2 -mr-2 text-foreground hover:text-primary hover:bg-secondary/50 rounded-lg transition-colors touch-target" 
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
         </div>
         
         {/* Mobile Menu Overlay */}
