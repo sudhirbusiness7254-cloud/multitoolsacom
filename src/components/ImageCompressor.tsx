@@ -3,6 +3,8 @@ import { Download, Loader2, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import DragDropUpload from "@/components/DragDropUpload";
+import ProcessingOverlay from "@/components/ProcessingOverlay";
+import { useProcessingState } from "@/hooks/useProcessingState";
 import { toast } from "sonner";
 
 interface ImageCompressorProps {
@@ -13,10 +15,21 @@ const ImageCompressor = ({ format }: ImageCompressorProps) => {
   const [originalFile, setOriginalFile] = useState<File | null>(null);
   const [compressedBlob, setCompressedBlob] = useState<Blob | null>(null);
   const [quality, setQuality] = useState([80]);
-  const [isProcessing, setIsProcessing] = useState(false);
   const [originalSize, setOriginalSize] = useState<number>(0);
   const [compressedSize, setCompressedSize] = useState<number>(0);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+
+  const {
+    isProcessing,
+    progress,
+    status,
+    message,
+    error,
+    startProcessing,
+    updateProgress,
+    finishProcessing,
+    setError,
+  } = useProcessingState();
 
   const formatBytes = (bytes: number) => {
     if (bytes === 0) return "0 Bytes";
@@ -38,9 +51,11 @@ const ImageCompressor = ({ format }: ImageCompressorProps) => {
   };
 
   const compressImage = useCallback(async (file: File, qualityValue: number) => {
-    setIsProcessing(true);
+    startProcessing("Compressing your image…");
     
     try {
+      updateProgress(10, "Loading image…");
+      
       const img = new Image();
       const canvas = document.createElement("canvas");
       const ctx = canvas.getContext("2d");
@@ -53,9 +68,13 @@ const ImageCompressor = ({ format }: ImageCompressorProps) => {
         img.src = URL.createObjectURL(file);
       });
 
+      updateProgress(40, "Processing image…");
+
       canvas.width = img.width;
       canvas.height = img.height;
       ctx.drawImage(img, 0, 0);
+
+      updateProgress(70, "Applying compression…");
 
       const mimeType = getMimeType();
       const qualityDecimal = qualityValue / 100;
@@ -71,19 +90,19 @@ const ImageCompressor = ({ format }: ImageCompressorProps) => {
         );
       });
 
+      updateProgress(90, "Finalizing…");
+
       setCompressedBlob(blob);
       setCompressedSize(blob.size);
       setPreviewUrl(URL.createObjectURL(blob));
       
       const savings = ((file.size - blob.size) / file.size * 100).toFixed(1);
-      toast.success(`Compressed! Saved ${savings}% of file size`);
-    } catch (error) {
-      console.error("Compression error:", error);
-      toast.error("Failed to compress image");
-    } finally {
-      setIsProcessing(false);
+      finishProcessing(`Saved ${savings}% of file size!`);
+    } catch (err) {
+      console.error("Compression error:", err);
+      setError("Failed to compress image. Please try again.");
     }
-  }, [format]);
+  }, [format, startProcessing, updateProgress, finishProcessing, setError]);
 
   const handleFileSelect = useCallback((file: File) => {
     setOriginalFile(file);
@@ -117,6 +136,14 @@ const ImageCompressor = ({ format }: ImageCompressorProps) => {
 
   return (
     <div className="space-y-6">
+      <ProcessingOverlay
+        isProcessing={isProcessing}
+        progress={progress}
+        status={status}
+        message={message}
+        error={error}
+      />
+
       <DragDropUpload 
         onFileSelect={handleFileSelect}
         accept="image/*"
