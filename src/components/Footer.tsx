@@ -88,7 +88,7 @@ const Footer = () => {
           
           
           <h4 className="font-semibold text-foreground mb-3 sm:mb-4 text-center text-sm sm:text-base">Popular Image Tools</h4>
-          <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2">
+          <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2 mb-6">
             {[
               { name: "JPG to PNG", route: "/jpg-to-png" },
               { name: "PNG to JPG", route: "/png-to-jpg" },
@@ -98,7 +98,6 @@ const Footer = () => {
               { name: "Image Crop", route: "/image-crop" },
               { name: "Rotate Image", route: "/image-rotate-flip" },
               { name: "Watermark", route: "/watermark-tools" },
-              { name: "Tag Extractor", route: "/tag-extractor" },
             ].map((item) => (
               <Link 
                 key={item.route} 
@@ -108,6 +107,16 @@ const Footer = () => {
                 {item.name}
               </Link>
             ))}
+          </div>
+          
+          <h4 className="font-semibold text-foreground mb-3 sm:mb-4 text-center text-sm sm:text-base">Tag Tools</h4>
+          <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2">
+            <Link 
+              to="/tag-extractor"
+              className="px-2 sm:px-3 py-1 bg-purple-500/10 border border-purple-500/20 rounded-full text-[10px] sm:text-xs text-purple-500 hover:bg-purple-500 hover:text-white transition-colors"
+            >
+              Tag Generator
+            </Link>
           </div>
         </div>
         
