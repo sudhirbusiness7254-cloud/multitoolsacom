@@ -1,6 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, ChevronDown, Search, RefreshCw, Minimize2, Maximize2, Crop, Droplet, Image, FileText } from "lucide-react";
+import { Menu, X, ChevronDown, Search, RefreshCw, Minimize2, Maximize2, Crop, Droplet, Image, FileText, User, LogOut } from "lucide-react";
+import { useAuth } from "@/hooks/useAuth";
+import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo-icon.png";
 import { toolCategories } from "@/data/toolsData";
 import { Input } from "@/components/ui/input";
@@ -49,6 +51,7 @@ const topCategoryIds = [
 
 const Header = () => {
   const location = useLocation();
+  const { user, signOut, loading: authLoading } = useAuth();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [allToolsOpen, setAllToolsOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
@@ -223,14 +226,32 @@ const Header = () => {
               <FileText className="w-4 h-4" />
               PDF Tools
             </Link>
-            <Link 
-              to="/tag-extractor" 
-              className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-secondary ${
-                isActive("/tag-extractor") ? "text-primary bg-primary/10" : "text-foreground"
-              }`}
-            >
-              Tag Generator
-            </Link>
+            
+            <div className="w-px h-6 bg-border mx-1" />
+            
+            {/* Auth Buttons */}
+            {!authLoading && (
+              <>
+                {user ? (
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={signOut}
+                    className="flex items-center gap-1.5"
+                  >
+                    <LogOut className="w-4 h-4" />
+                    Logout
+                  </Button>
+                ) : (
+                  <Link to="/auth">
+                    <Button variant="default" size="sm" className="flex items-center gap-1.5">
+                      <User className="w-4 h-4" />
+                      Sign In
+                    </Button>
+                  </Link>
+                )}
+              </>
+            )}
           </div>
           
           {/* Mobile Menu Button */}
