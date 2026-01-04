@@ -10,15 +10,16 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { toast } from "sonner";
-import { Mail, Lock, Loader2 } from "lucide-react";
+import { Mail, Lock, Loader2, Chrome } from "lucide-react";
 import { z } from "zod";
+import { Separator } from "@/components/ui/separator";
 
 const emailSchema = z.string().email("Please enter a valid email address");
 const passwordSchema = z.string().min(6, "Password must be at least 6 characters");
 
 const AuthPage = () => {
   const navigate = useNavigate();
-  const { user, signUp, signIn, loading: authLoading } = useAuth();
+  const { user, signUp, signIn, signInWithGoogle, loading: authLoading } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -84,6 +85,13 @@ const AuthPage = () => {
     } else {
       toast.success("Welcome back!");
       navigate("/");
+    }
+  };
+
+  const handleGoogleSignIn = async () => {
+    const { error } = await signInWithGoogle();
+    if (error) {
+      toast.error(error.message);
     }
   };
 
@@ -157,6 +165,23 @@ const AuthPage = () => {
                     {isLoading ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : null}
                     Sign In
                   </Button>
+                  
+                  <div className="relative my-4">
+                    <Separator />
+                    <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-card px-2 text-xs text-muted-foreground">
+                      or
+                    </span>
+                  </div>
+                  
+                  <Button 
+                    type="button" 
+                    variant="outline" 
+                    className="w-full" 
+                    onClick={handleGoogleSignIn}
+                  >
+                    <Chrome className="w-4 h-4 mr-2" />
+                    Continue with Google
+                  </Button>
                 </form>
               </TabsContent>
               
@@ -197,6 +222,23 @@ const AuthPage = () => {
                   <Button type="submit" className="w-full" disabled={isLoading}>
                     {isLoading ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : null}
                     Create Account
+                  </Button>
+                  
+                  <div className="relative my-4">
+                    <Separator />
+                    <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-card px-2 text-xs text-muted-foreground">
+                      or
+                    </span>
+                  </div>
+                  
+                  <Button 
+                    type="button" 
+                    variant="outline" 
+                    className="w-full" 
+                    onClick={handleGoogleSignIn}
+                  >
+                    <Chrome className="w-4 h-4 mr-2" />
+                    Continue with Google
                   </Button>
                 </form>
               </TabsContent>
