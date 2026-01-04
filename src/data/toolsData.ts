@@ -282,6 +282,17 @@ export const toolCategories: Category[] = [
     ]
   },
   {
+    id: "ai-tools",
+    name: "AI Tools",
+    slug: "ai-tools",
+    description: "AI-powered tools for image generation and more",
+    icon: "Sparkles",
+    priority: 16,
+    tools: [
+      { id: "text-to-image", name: "Text to Image", slug: "text-to-image", description: "Generate images from text descriptions using AI", category: "AI Tools", categorySlug: "ai-tools", icon: "Sparkles", keywords: ["text to image", "ai image generator", "gemini", "ai art", "generate image"] },
+    ]
+  },
+  {
     id: "pdf-tools",
     name: "PDF Tools",
     slug: "pdf-tools",
