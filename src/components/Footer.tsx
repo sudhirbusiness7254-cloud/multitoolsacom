@@ -109,8 +109,14 @@ const Footer = () => {
             ))}
           </div>
           
-          <h4 className="font-semibold text-foreground mb-3 sm:mb-4 text-center text-sm sm:text-base">Tag Tools</h4>
-          <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2">
+          <h4 className="font-semibold text-foreground mb-3 sm:mb-4 text-center text-sm sm:text-base">AI Tools</h4>
+          <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2 mb-6">
+            <Link 
+              to="/text-to-image"
+              className="px-2 sm:px-3 py-1 bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/30 rounded-full text-[10px] sm:text-xs text-purple-500 hover:from-purple-500 hover:to-pink-500 hover:text-white transition-all"
+            >
+              ✨ Text to Image (AI)
+            </Link>
             <Link 
               to="/tag-extractor"
               className="px-2 sm:px-3 py-1 bg-purple-500/10 border border-purple-500/20 rounded-full text-[10px] sm:text-xs text-purple-500 hover:bg-purple-500 hover:text-white transition-colors"

@@ -39,6 +39,7 @@ import PDFToolsPage from "./pages/categories/PDFToolsPage";
 
 import ImageEditorPage from "./pages/ImageEditorPage";
 import PDFToolPage from "./pages/tools/PDFToolPage";
+import TextToImagePage from "./pages/TextToImagePage";
 
 const queryClient = new QueryClient();
 
@@ -67,6 +68,7 @@ const App = () => (
               <Route path="/image-tools" element={<ImageToolsPage />} />
               <Route path="/image-editor" element={<ImageEditorPage />} />
               <Route path="/image-converter" element={<ImageConverterPage />} />
+              <Route path="/text-to-image" element={<TextToImagePage />} />
               
               {/* Category Pages */}
               <Route path="/image-compression" element={<ImageCompressionPage />} />
