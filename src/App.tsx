@@ -40,6 +40,9 @@ import PDFToolsPage from "./pages/categories/PDFToolsPage";
 import ImageEditorPage from "./pages/ImageEditorPage";
 import PDFToolPage from "./pages/tools/PDFToolPage";
 import TextToImagePage from "./pages/TextToImagePage";
+import AIImageEnhancePage from "./pages/AIImageEnhancePage";
+import AIBackgroundRemovePage from "./pages/AIBackgroundRemovePage";
+import AIImageEditPage from "./pages/AIImageEditPage";
 
 const queryClient = new QueryClient();
 
@@ -69,6 +72,9 @@ const App = () => (
               <Route path="/image-editor" element={<ImageEditorPage />} />
               <Route path="/image-converter" element={<ImageConverterPage />} />
               <Route path="/text-to-image" element={<TextToImagePage />} />
+              <Route path="/ai-image-enhance" element={<AIImageEnhancePage />} />
+              <Route path="/ai-background-remove" element={<AIBackgroundRemovePage />} />
+              <Route path="/ai-image-edit" element={<AIImageEditPage />} />
               
               {/* Category Pages */}
               <Route path="/image-compression" element={<ImageCompressionPage />} />
