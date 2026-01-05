@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, ChevronDown, Search, RefreshCw, Minimize2, Maximize2, Crop, Droplet, Image, FileText, User, LogOut } from "lucide-react";
-import { useAuth } from "@/hooks/useAuth";
+import { Menu, X, ChevronDown, Search, RefreshCw, Minimize2, Maximize2, Crop, Droplet, Image, FileText, Sparkles, Zap, Eraser, Wand2 } from "lucide-react";
+import { Link as RouterLink } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo-icon.png";
 import { toolCategories } from "@/data/toolsData";
@@ -51,12 +51,13 @@ const topCategoryIds = [
 
 const Header = () => {
   const location = useLocation();
-  const { user, signOut, loading: authLoading } = useAuth();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [allToolsOpen, setAllToolsOpen] = useState(false);
+  const [aiToolsOpen, setAiToolsOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const aiDropdownRef = useRef<HTMLDivElement>(null);
   
   const isActive = (path: string) => location.pathname === path;
   const isCategoryActive = (slug: string) => location.pathname.includes(slug);
@@ -73,6 +74,9 @@ const Header = () => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setAllToolsOpen(false);
         setSearchQuery("");
+      }
+      if (aiDropdownRef.current && !aiDropdownRef.current.contains(event.target as Node)) {
+        setAiToolsOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -227,31 +231,78 @@ const Header = () => {
               PDF Tools
             </Link>
             
-            <div className="w-px h-6 bg-border mx-1" />
             
-            {/* Auth Buttons */}
-            {!authLoading && (
-              <>
-                {user ? (
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={signOut}
-                    className="flex items-center gap-1.5"
-                  >
-                    <LogOut className="w-4 h-4" />
-                    Logout
-                  </Button>
-                ) : (
-                  <Link to="/auth">
-                    <Button variant="default" size="sm" className="flex items-center gap-1.5">
-                      <User className="w-4 h-4" />
-                      Sign In
-                    </Button>
-                  </Link>
-                )}
-              </>
-            )}
+            {/* AI Tools Dropdown */}
+            <div className="relative" ref={aiDropdownRef}>
+              <button 
+                onClick={() => setAiToolsOpen(!aiToolsOpen)} 
+                className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-secondary ${
+                  aiToolsOpen || location.pathname.includes("ai-") || location.pathname === "/text-to-image" ? "text-primary bg-primary/10" : "text-foreground"
+                }`}
+              >
+                <Sparkles className="w-4 h-4" />
+                AI Tools <ChevronDown className={`w-4 h-4 transition-transform ${aiToolsOpen ? 'rotate-180' : ''}`} />
+              </button>
+              
+              {aiToolsOpen && (
+                <div className="absolute top-full right-0 mt-2 w-64 bg-card border border-border rounded-xl shadow-2xl z-[100] overflow-hidden">
+                  <div className="p-2">
+                    <Link
+                      to="/text-to-image"
+                      onClick={() => setAiToolsOpen(false)}
+                      className="flex items-center gap-3 p-3 rounded-lg hover:bg-secondary transition-colors"
+                    >
+                      <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
+                        <Sparkles className="w-4 h-4 text-white" />
+                      </div>
+                      <div>
+                        <p className="font-medium text-sm">Text to Image</p>
+                        <p className="text-xs text-muted-foreground">Generate images from text</p>
+                      </div>
+                    </Link>
+                    <Link
+                      to="/ai-image-enhance"
+                      onClick={() => setAiToolsOpen(false)}
+                      className="flex items-center gap-3 p-3 rounded-lg hover:bg-secondary transition-colors"
+                    >
+                      <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center">
+                        <Zap className="w-4 h-4 text-white" />
+                      </div>
+                      <div>
+                        <p className="font-medium text-sm">AI Enhance</p>
+                        <p className="text-xs text-muted-foreground">Improve image quality</p>
+                      </div>
+                    </Link>
+                    <Link
+                      to="/ai-background-remove"
+                      onClick={() => setAiToolsOpen(false)}
+                      className="flex items-center gap-3 p-3 rounded-lg hover:bg-secondary transition-colors"
+                    >
+                      <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center">
+                        <Eraser className="w-4 h-4 text-white" />
+                      </div>
+                      <div>
+                        <p className="font-medium text-sm">Remove Background</p>
+                        <p className="text-xs text-muted-foreground">AI background removal</p>
+                      </div>
+                    </Link>
+                    <Link
+                      to="/ai-image-edit"
+                      onClick={() => setAiToolsOpen(false)}
+                      className="flex items-center gap-3 p-3 rounded-lg hover:bg-secondary transition-colors"
+                    >
+                      <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-orange-500 to-yellow-500 flex items-center justify-center">
+                        <Wand2 className="w-4 h-4 text-white" />
+                      </div>
+                      <div>
+                        <p className="font-medium text-sm">AI Image Edit</p>
+                        <p className="text-xs text-muted-foreground">Edit with natural language</p>
+                      </div>
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
           
           {/* Mobile Menu Button */}
@@ -393,12 +444,50 @@ const Header = () => {
                   </div>
                   <span className="font-medium text-sm">PDF Tools</span>
                 </Link>
+                
+                <div className="border-t border-border my-2 mx-3" />
+                
+                {/* AI Tools Section */}
+                <p className="px-3 py-2 text-xs font-bold uppercase tracking-wide text-muted-foreground">AI Tools</p>
                 <Link
-                  to="/tag-extractor"
+                  to="/text-to-image"
                   onClick={closeMobileMenu}
                   className="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-secondary transition-colors touch-target"
                 >
-                  <span className="font-medium text-sm">Tag Generator</span>
+                  <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
+                    <Sparkles className="w-4 h-4 text-white" />
+                  </div>
+                  <span className="font-medium text-sm">Text to Image</span>
+                </Link>
+                <Link
+                  to="/ai-image-enhance"
+                  onClick={closeMobileMenu}
+                  className="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-secondary transition-colors touch-target"
+                >
+                  <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center">
+                    <Zap className="w-4 h-4 text-white" />
+                  </div>
+                  <span className="font-medium text-sm">AI Enhance</span>
+                </Link>
+                <Link
+                  to="/ai-background-remove"
+                  onClick={closeMobileMenu}
+                  className="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-secondary transition-colors touch-target"
+                >
+                  <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center">
+                    <Eraser className="w-4 h-4 text-white" />
+                  </div>
+                  <span className="font-medium text-sm">Remove Background</span>
+                </Link>
+                <Link
+                  to="/ai-image-edit"
+                  onClick={closeMobileMenu}
+                  className="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-secondary transition-colors touch-target"
+                >
+                  <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-orange-500 to-yellow-500 flex items-center justify-center">
+                    <Wand2 className="w-4 h-4 text-white" />
+                  </div>
+                  <span className="font-medium text-sm">AI Image Edit</span>
                 </Link>
               </div>
             </ScrollArea>
