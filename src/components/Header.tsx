@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, ChevronDown, Search, RefreshCw, Minimize2, Maximize2, Crop, Droplet, Image, FileText, Sparkles, Zap, Eraser, Wand2 } from "lucide-react";
+import { Menu, X, ChevronDown, Search, RefreshCw, Minimize2, Maximize2, Crop, Droplet, Image, FileText, Sparkles, Zap, Eraser, Wand2, Palette } from "lucide-react";
 import { Link as RouterLink } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo-icon.png";
@@ -297,6 +297,19 @@ const Header = () => {
                       <div>
                         <p className="font-medium text-sm">AI Image Edit</p>
                         <p className="text-xs text-muted-foreground">Edit with natural language</p>
+                      </div>
+                    </Link>
+                    <Link
+                      to="/ai-colorize"
+                      onClick={() => setAiToolsOpen(false)}
+                      className="flex items-center gap-3 p-3 rounded-lg hover:bg-secondary transition-colors"
+                    >
+                      <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-amber-500 to-rose-500 flex items-center justify-center">
+                        <Palette className="w-4 h-4 text-white" />
+                      </div>
+                      <div>
+                        <p className="font-medium text-sm">AI Colorize</p>
+                        <p className="text-xs text-muted-foreground">Colorize B&W photos</p>
                       </div>
                     </Link>
                   </div>

@@ -14,3 +14,6 @@ verify_jwt = false
 
 [functions.ai-image-edit]
 verify_jwt = false
+
+[functions.ai-colorize]
+verify_jwt = false
