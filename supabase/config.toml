@@ -17,3 +17,6 @@ verify_jwt = false
 
 [functions.ai-colorize]
 verify_jwt = false
+
+[functions.ai-face-enhance]
+verify_jwt = false
