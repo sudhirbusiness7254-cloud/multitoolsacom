@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Skeleton } from "@/components/ui/skeleton";
 
 interface IframeAdProps {
   className?: string;
@@ -7,6 +8,7 @@ interface IframeAdProps {
 const IframeAd = ({ className = "" }: IframeAdProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [adReady, setAdReady] = useState(false);
 
   useEffect(() => {
     if (!containerRef.current || isLoaded) return;
@@ -26,13 +28,16 @@ const IframeAd = ({ className = "" }: IframeAdProps) => {
     const invokeScript = document.createElement("script");
     invokeScript.src = "https://crowdsubsequentadmire.com/5251d00b938f369c8b531c0ce3b384bb/invoke.js";
     invokeScript.async = true;
+    invokeScript.onload = () => {
+      // Give the ad iframe time to render
+      setTimeout(() => setAdReady(true), 500);
+    };
 
     containerRef.current.appendChild(optionsScript);
     containerRef.current.appendChild(invokeScript);
     setIsLoaded(true);
 
     return () => {
-      // Cleanup on unmount
       if (containerRef.current) {
         containerRef.current.innerHTML = "";
       }
@@ -41,10 +46,26 @@ const IframeAd = ({ className = "" }: IframeAdProps) => {
 
   return (
     <div 
-      ref={containerRef}
-      className={`hidden lg:flex flex-col items-center justify-start w-[160px] min-h-[600px] ${className}`}
+      className={`hidden lg:flex flex-col items-center justify-start w-[160px] min-h-[600px] relative ${className}`}
       aria-label="Advertisement"
-    />
+    >
+      {/* Skeleton placeholder */}
+      {!adReady && (
+        <div className="absolute inset-0 flex flex-col gap-2 p-2">
+          <Skeleton className="w-full h-[200px] rounded-lg" />
+          <Skeleton className="w-full h-4" />
+          <Skeleton className="w-3/4 h-4" />
+          <Skeleton className="w-full h-[150px] rounded-lg" />
+          <Skeleton className="w-full h-4" />
+          <Skeleton className="w-2/3 h-4" />
+          <Skeleton className="w-full h-[150px] rounded-lg" />
+        </div>
+      )}
+      <div 
+        ref={containerRef}
+        className={`w-full h-full ${adReady ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}
+      />
+    </div>
   );
 };
 
