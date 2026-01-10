@@ -163,14 +163,7 @@ const HomePage = () => {
               "PDF Tools",
               "Hashtag Generation"
             ],
-            "screenshot": "https://multitoolsa.com/screenshot.png",
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.8",
-              "ratingCount": "1250",
-              "bestRating": "5",
-              "worstRating": "1"
-            }
+            "screenshot": "https://multitoolsa.com/screenshot.png"
           })}
         </script>
       </Helmet>
@@ -544,7 +537,7 @@ const HomePage = () => {
                   Complete Guide to Our Free Online Image Tools
                 </h2>
                 <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto">
-                  Discover the power of professional image editing without expensive software. Our comprehensive suite of tools helps millions of users worldwide transform their images effortlessly.
+                  Discover the power of professional image editing without expensive software. Our comprehensive suite of 100+ free tools helps you transform your images effortlessly—all processed locally in your browser for complete privacy.
                 </p>
               </div>
 
