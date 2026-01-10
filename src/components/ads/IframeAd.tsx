@@ -1,17 +1,22 @@
 import { useEffect, useRef, useState } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useInViewport } from "@/hooks/useInViewport";
 
 interface IframeAdProps {
   className?: string;
 }
 
 const IframeAd = ({ className = "" }: IframeAdProps) => {
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [adReady, setAdReady] = useState(false);
+  
+  // Only load ad when visible in viewport (with 100px margin)
+  const isInViewport = useInViewport(wrapperRef, { rootMargin: "100px", triggerOnce: true });
 
   useEffect(() => {
-    if (!containerRef.current || isLoaded) return;
+    if (!containerRef.current || isLoaded || !isInViewport) return;
 
     // Create ad script
     const optionsScript = document.createElement("script");
@@ -42,10 +47,11 @@ const IframeAd = ({ className = "" }: IframeAdProps) => {
         containerRef.current.innerHTML = "";
       }
     };
-  }, [isLoaded]);
+  }, [isLoaded, isInViewport]);
 
   return (
     <div 
+      ref={wrapperRef}
       className={`hidden lg:flex flex-col items-center justify-start w-[160px] min-h-[600px] relative ${className}`}
       aria-label="Advertisement"
     >

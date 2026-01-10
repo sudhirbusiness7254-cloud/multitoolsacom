@@ -1,17 +1,22 @@
 import { useEffect, useRef, useState } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useInViewport } from "@/hooks/useInViewport";
 
 interface NativeBannerAdProps {
   className?: string;
 }
 
 const NativeBannerAd = ({ className = "" }: NativeBannerAdProps) => {
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [adReady, setAdReady] = useState(false);
 
+  // Only load ad when visible in viewport (with 100px margin)
+  const isInViewport = useInViewport(wrapperRef, { rootMargin: "100px", triggerOnce: true });
+
   useEffect(() => {
-    if (!containerRef.current || isLoaded) return;
+    if (!containerRef.current || isLoaded || !isInViewport) return;
 
     // Create the script element
     const script = document.createElement("script");
@@ -35,10 +40,11 @@ const NativeBannerAd = ({ className = "" }: NativeBannerAdProps) => {
         containerRef.current.innerHTML = "";
       }
     };
-  }, [isLoaded]);
+  }, [isLoaded, isInViewport]);
 
   return (
     <div 
+      ref={wrapperRef}
       className={`w-full flex justify-center py-4 relative min-h-[90px] ${className}`}
       aria-label="Advertisement"
     >
