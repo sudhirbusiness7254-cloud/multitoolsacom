@@ -1,17 +1,19 @@
 import { useState, useCallback, useRef } from "react";
-import { Download, Loader2, FileImage, X, Trash2, Upload, FileArchive, ZoomIn, Maximize, Percent, ArrowRight, Square, Lock, Unlock, Sparkles } from "lucide-react";
+import { Download, Loader2, FileImage, X, Trash2, Upload, FileArchive, ZoomIn, Maximize, Percent, ArrowRight, Square, Lock, Unlock, Sparkles, FileType } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { Slider } from "@/components/ui/slider";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import JSZip from "jszip";
 
 type ResizeMode = "exact" | "percentage" | "fit-width" | "fit-height" | "fit-box";
+type OutputFormat = "auto" | "jpg" | "png" | "webp";
 
 interface BatchFile {
   id: string;
@@ -27,6 +29,7 @@ interface BatchFile {
   progress: number;
   previewUrl: string;
   resizedPreviewUrl: string | null;
+  outputFormat: string;
 }
 
 interface ResizeModeOption {
@@ -42,6 +45,13 @@ const resizeModeOptions: ResizeModeOption[] = [
   { id: "fit-width", label: "Fit Width", icon: <ArrowRight className="w-4 h-4" />, description: "Match Width" },
   { id: "fit-height", label: "Fit Height", icon: <ArrowRight className="w-4 h-4 rotate-90" />, description: "Match Height" },
   { id: "fit-box", label: "Fit to Box", icon: <Square className="w-4 h-4" />, description: "Max Dimensions" },
+];
+
+const formatOptions: { value: OutputFormat; label: string; description: string }[] = [
+  { value: "auto", label: "Keep Original", description: "Same as input" },
+  { value: "jpg", label: "JPEG", description: "Best for photos" },
+  { value: "png", label: "PNG", description: "Lossless quality" },
+  { value: "webp", label: "WebP", description: "Modern & smaller" },
 ];
 
 const BatchImageResizer = () => {
@@ -61,6 +71,7 @@ const BatchImageResizer = () => {
   const [percentage, setPercentage] = useState(50);
   const [lockAspectRatio, setLockAspectRatio] = useState(true);
   const [quality, setQuality] = useState(85);
+  const [outputFormat, setOutputFormat] = useState<OutputFormat>("auto");
 
   const formatBytes = (bytes: number) => {
     if (bytes === 0) return "0 Bytes";
@@ -96,6 +107,7 @@ const BatchImageResizer = () => {
               progress: 0,
               previewUrl,
               resizedPreviewUrl: null,
+              outputFormat: '',
             });
           };
           img.src = previewUrl;
@@ -175,7 +187,26 @@ const BatchImageResizer = () => {
     }
   };
 
-  const resizeSingleImage = async (batchFile: BatchFile): Promise<{ blob: Blob; width: number; height: number }> => {
+  const getOutputMimeType = (originalMime: string): string => {
+    if (outputFormat === "auto") {
+      return originalMime || "image/png";
+    }
+    const mimeMap: Record<string, string> = {
+      jpg: "image/jpeg",
+      png: "image/png",
+      webp: "image/webp",
+    };
+    return mimeMap[outputFormat] || originalMime;
+  };
+
+  const getOutputExtension = (originalName: string): string => {
+    if (outputFormat === "auto") {
+      return originalName.split('.').pop() || 'png';
+    }
+    return outputFormat === "jpg" ? "jpg" : outputFormat;
+  };
+
+  const resizeSingleImage = async (batchFile: BatchFile): Promise<{ blob: Blob; width: number; height: number; outputExt: string }> => {
     return new Promise((resolve, reject) => {
       const img = new Image();
       const canvas = document.createElement("canvas");
@@ -191,9 +222,10 @@ const BatchImageResizer = () => {
         canvas.width = targetWidth;
         canvas.height = targetHeight;
 
+        const outputMime = getOutputMimeType(batchFile.file.type);
+        
         // For JPEG output, fill with white background first
-        const mimeType = batchFile.file.type || "image/png";
-        if (mimeType === "image/jpeg") {
+        if (outputMime === "image/jpeg") {
           ctx.fillStyle = "#FFFFFF";
           ctx.fillRect(0, 0, targetWidth, targetHeight);
         }
@@ -204,13 +236,17 @@ const BatchImageResizer = () => {
 
         // Use quality setting for JPEG and WebP
         const qualityValue = quality / 100;
-        const outputMime = mimeType === "image/jpeg" || mimeType === "image/webp" ? mimeType : "image/png";
         const useQuality = outputMime === "image/jpeg" || outputMime === "image/webp";
 
         canvas.toBlob(
           (blob) => {
             if (blob) {
-              resolve({ blob, width: targetWidth, height: targetHeight });
+              resolve({ 
+                blob, 
+                width: targetWidth, 
+                height: targetHeight,
+                outputExt: getOutputExtension(batchFile.file.name)
+              });
             } else {
               reject(new Error("Failed to create blob"));
             }
@@ -243,7 +279,7 @@ const BatchImageResizer = () => {
       ));
 
       try {
-        const { blob, width: resizedWidth, height: resizedHeight } = await resizeSingleImage(batchFile);
+        const { blob, width: resizedWidth, height: resizedHeight, outputExt } = await resizeSingleImage(batchFile);
         const resizedPreviewUrl = URL.createObjectURL(blob);
 
         setFiles(prev => prev.map(f =>
@@ -257,6 +293,7 @@ const BatchImageResizer = () => {
                 resizedWidth,
                 resizedHeight,
                 resizedPreviewUrl,
+                outputFormat: outputExt,
               }
             : f
         ));
@@ -281,7 +318,7 @@ const BatchImageResizer = () => {
     const url = URL.createObjectURL(batchFile.resizedBlob);
     const link = document.createElement("a");
     link.href = url;
-    const extension = batchFile.file.name.split('.').pop() || 'png';
+    const extension = batchFile.outputFormat || batchFile.file.name.split('.').pop() || 'png';
     link.download = `${batchFile.file.name.split('.')[0]}_resized.${extension}`;
     document.body.appendChild(link);
     link.click();
@@ -303,7 +340,7 @@ const BatchImageResizer = () => {
 
       for (const file of completedFiles) {
         if (file.resizedBlob) {
-          const extension = file.file.name.split('.').pop() || 'png';
+          const extension = file.outputFormat || file.file.name.split('.').pop() || 'png';
           const fileName = `${file.file.name.split('.')[0]}_resized.${extension}`;
           zip.file(fileName, file.resizedBlob);
         }
@@ -482,9 +519,36 @@ const BatchImageResizer = () => {
           </div>
         )}
 
-        {/* Quality Slider - Always visible */}
-        <div className="mt-4 pt-4 border-t border-border">
-          <div className="max-w-sm">
+        {/* Output Format & Quality */}
+        <div className="mt-4 pt-4 border-t border-border grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {/* Output Format */}
+          <div>
+            <Label htmlFor="output-format" className="text-sm flex items-center gap-1.5 mb-2">
+              <FileType className="w-3.5 h-3.5" />
+              Output Format
+            </Label>
+            <Select value={outputFormat} onValueChange={(v) => setOutputFormat(v as OutputFormat)}>
+              <SelectTrigger id="output-format" className="w-full">
+                <SelectValue placeholder="Select format" />
+              </SelectTrigger>
+              <SelectContent>
+                {formatOptions.map((fmt) => (
+                  <SelectItem key={fmt.value} value={fmt.value}>
+                    <span className="flex items-center gap-2">
+                      <span className="font-medium">{fmt.label}</span>
+                      <span className="text-xs text-muted-foreground">({fmt.description})</span>
+                    </span>
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            <p className="text-xs text-muted-foreground mt-1.5">
+              Convert all images to a specific format while resizing.
+            </p>
+          </div>
+
+          {/* Quality Slider */}
+          <div>
             <div className="flex items-center justify-between mb-2">
               <Label htmlFor="batch-quality" className="text-sm flex items-center gap-1.5">
                 <Sparkles className="w-3.5 h-3.5" />
@@ -502,7 +566,7 @@ const BatchImageResizer = () => {
               className="w-full"
             />
             <p className="text-xs text-muted-foreground mt-1.5">
-              Applies to JPEG & WebP. Lower = smaller files, higher = better quality.
+              Applies to JPEG & WebP outputs.
             </p>
           </div>
         </div>
