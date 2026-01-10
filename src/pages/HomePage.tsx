@@ -443,6 +443,82 @@ const HomePage = () => {
             </div>
           </section>
 
+          {/* Trust & Social Proof Section */}
+          <section className="py-8 sm:py-12 md:py-16 px-3 sm:px-4 md:px-6 bg-gradient-to-b from-primary/5 to-transparent">
+            <div className="container mx-auto max-w-6xl">
+              <div className="text-center mb-6 sm:mb-8 md:mb-10">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/30 mb-4">
+                  <Star className="w-4 h-4 text-green-500" />
+                  <span className="text-sm font-medium text-green-500">Trusted by Thousands</span>
+                </div>
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3">
+                  What Our Users Say
+                </h2>
+                <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
+                  Join content creators, designers, and businesses who trust MultiToolsA for their daily image editing needs.
+                </p>
+              </div>
+              
+              {/* Testimonials Grid */}
+              <div className="grid md:grid-cols-3 gap-4 md:gap-6 mb-8 md:mb-12">
+                {[
+                  {
+                    name: "Sarah Chen",
+                    role: "E-commerce Business Owner",
+                    quote: "MultiToolsA saved me hours every week. I compress and resize hundreds of product images without any quality loss. The batch processing is a game-changer!",
+                    avatar: "SC"
+                  },
+                  {
+                    name: "Marcus Rodriguez",
+                    role: "Freelance Web Developer",
+                    quote: "I recommend this to all my clients. The privacy aspect is huge - images never leave your browser. Plus, the WebP conversion has improved my clients' site speeds dramatically.",
+                    avatar: "MR"
+                  },
+                  {
+                    name: "Emily Watson",
+                    role: "Social Media Manager",
+                    quote: "From resizing for Instagram to adding watermarks, these tools handle everything I need. No more expensive software subscriptions. Truly free and professional.",
+                    avatar: "EW"
+                  }
+                ].map((testimonial, i) => (
+                  <div key={i} className="bg-card rounded-xl p-5 md:p-6 border border-border hover:border-primary/30 transition-colors">
+                    <div className="flex gap-1 mb-3">
+                      {[...Array(5)].map((_, j) => (
+                        <Star key={j} className="w-4 h-4 fill-yellow-500 text-yellow-500" />
+                      ))}
+                    </div>
+                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed">"{testimonial.quote}"</p>
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-semibold text-sm">
+                        {testimonial.avatar}
+                      </div>
+                      <div>
+                        <p className="font-semibold text-sm">{testimonial.name}</p>
+                        <p className="text-xs text-muted-foreground">{testimonial.role}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Trust Stats */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 p-4 md:p-6 bg-card rounded-2xl border border-border">
+                {[
+                  { value: "50K+", label: "Monthly Users", icon: "👥" },
+                  { value: "1M+", label: "Images Processed", icon: "🖼️" },
+                  { value: "4.9/5", label: "User Rating", icon: "⭐" },
+                  { value: "100%", label: "Free Forever", icon: "✨" }
+                ].map((stat, i) => (
+                  <div key={i} className="text-center p-3 md:p-4">
+                    <span className="text-2xl mb-1 block">{stat.icon}</span>
+                    <p className="text-xl md:text-2xl lg:text-3xl font-bold text-primary">{stat.value}</p>
+                    <p className="text-xs md:text-sm text-muted-foreground">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
           {/* Complete Tools by Category Section */}
           <section className="py-8 sm:py-10 md:py-14 lg:py-16 px-3 sm:px-4 md:px-6 bg-secondary/30">
             <div className="container mx-auto max-w-7xl">
