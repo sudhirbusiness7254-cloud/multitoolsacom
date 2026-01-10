@@ -19,6 +19,7 @@ import ImageConverterPage from "./pages/ImageConverterPage";
 import NotFound from "./pages/NotFound";
 import AllToolsPage from "./pages/AllToolsPage";
 import ReviewsPage from "./pages/ReviewsPage";
+import AdminReviewsPage from "./pages/AdminReviewsPage";
 import DynamicToolPage from "./pages/tools/DynamicToolPage";
 
 // Category Pages
@@ -64,6 +65,7 @@ const App = () => (
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/faq" element={<FAQPage />} />
             <Route path="/reviews" element={<ReviewsPage />} />
+            <Route path="/admin/reviews" element={<AdminReviewsPage />} />
             <Route path="/tutorials" element={<TutorialsPage />} />
             
             {/* Image Tools Landing Page */}

@@ -125,7 +125,9 @@ const RealTimeReviews = () => {
       toast.error("Failed to submit review. Please try again.");
       console.error("Error submitting review:", error);
     } else {
-      toast.success("Thank you for your review!");
+      toast.success("Thank you! Your review is pending approval.", {
+        description: "It will appear once approved by our team."
+      });
       setFormData({
         name: "",
         role: "",
