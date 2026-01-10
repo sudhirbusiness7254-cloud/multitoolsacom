@@ -1,10 +1,11 @@
 import { useState, useCallback, useRef } from "react";
-import { Download, Loader2, FileImage, X, Trash2, Upload, FileArchive, ZoomIn, Maximize, Percent, ArrowRight, Square, Lock, Unlock } from "lucide-react";
+import { Download, Loader2, FileImage, X, Trash2, Upload, FileArchive, ZoomIn, Maximize, Percent, ArrowRight, Square, Lock, Unlock, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
+import { Slider } from "@/components/ui/slider";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
@@ -59,6 +60,7 @@ const BatchImageResizer = () => {
   const [height, setHeight] = useState(600);
   const [percentage, setPercentage] = useState(50);
   const [lockAspectRatio, setLockAspectRatio] = useState(true);
+  const [quality, setQuality] = useState(85);
 
   const formatBytes = (bytes: number) => {
     if (bytes === 0) return "0 Bytes";
@@ -189,9 +191,21 @@ const BatchImageResizer = () => {
         canvas.width = targetWidth;
         canvas.height = targetHeight;
 
+        // For JPEG output, fill with white background first
+        const mimeType = batchFile.file.type || "image/png";
+        if (mimeType === "image/jpeg") {
+          ctx.fillStyle = "#FFFFFF";
+          ctx.fillRect(0, 0, targetWidth, targetHeight);
+        }
+
         ctx.imageSmoothingEnabled = true;
         ctx.imageSmoothingQuality = "high";
         ctx.drawImage(img, 0, 0, targetWidth, targetHeight);
+
+        // Use quality setting for JPEG and WebP
+        const qualityValue = quality / 100;
+        const outputMime = mimeType === "image/jpeg" || mimeType === "image/webp" ? mimeType : "image/png";
+        const useQuality = outputMime === "image/jpeg" || outputMime === "image/webp";
 
         canvas.toBlob(
           (blob) => {
@@ -201,8 +215,8 @@ const BatchImageResizer = () => {
               reject(new Error("Failed to create blob"));
             }
           },
-          batchFile.file.type || "image/png",
-          0.92
+          outputMime,
+          useQuality ? qualityValue : undefined
         );
       };
 
@@ -467,6 +481,31 @@ const BatchImageResizer = () => {
             </p>
           </div>
         )}
+
+        {/* Quality Slider - Always visible */}
+        <div className="mt-4 pt-4 border-t border-border">
+          <div className="max-w-sm">
+            <div className="flex items-center justify-between mb-2">
+              <Label htmlFor="batch-quality" className="text-sm flex items-center gap-1.5">
+                <Sparkles className="w-3.5 h-3.5" />
+                Output Quality
+              </Label>
+              <span className="text-sm font-medium text-primary">{quality}%</span>
+            </div>
+            <Slider
+              id="batch-quality"
+              value={[quality]}
+              onValueChange={(value) => setQuality(value[0])}
+              min={10}
+              max={100}
+              step={5}
+              className="w-full"
+            />
+            <p className="text-xs text-muted-foreground mt-1.5">
+              Applies to JPEG & WebP. Lower = smaller files, higher = better quality.
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* Upload Area */}
