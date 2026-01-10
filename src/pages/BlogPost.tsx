@@ -2,8 +2,10 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
 import { Link, useParams } from "react-router-dom";
-import { Calendar, Clock, ArrowLeft, User, Share2, Facebook, Twitter, Linkedin } from "lucide-react";
+import { Calendar, Clock, ArrowLeft, User, Share2, ArrowRight, Facebook, Twitter, Linkedin } from "lucide-react";
 import HreflangTags from "@/components/HreflangTags";
+import { blogPosts } from "@/data/blogData";
+import { newBlogContent } from "@/data/newBlogContent";
 
 const blogContent: Record<string, {
   title: string;
@@ -1197,6 +1199,97 @@ Use MultiToolsA's free metadata viewer and remover to check and clean your image
 
 Stay safe, stay private, and always check your photo metadata before sharing!
     `
+  },
+  // New blog posts - content from newBlogContent
+  "heic-to-jpg-conversion-guide": {
+    title: "HEIC to JPG Conversion: The Complete Guide for iPhone Users",
+    excerpt: "iPhone photos saved as HEIC causing compatibility issues? Learn how to convert HEIC to JPG quickly and understand when to use each format for best results.",
+    author: "MultiToolsA Team",
+    date: "November 25, 2025",
+    readTime: "7 min read",
+    tags: ["HEIC", "iPhone", "Format Conversion"],
+    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=600&fit=crop",
+    content: newBlogContent["heic-to-jpg-conversion-guide"]
+  },
+  "batch-image-processing-workflow": {
+    title: "Batch Image Processing: How to Edit Hundreds of Images in Minutes",
+    excerpt: "Stop editing images one by one. Master batch processing techniques to resize, compress, convert, and watermark hundreds of images efficiently using free online tools.",
+    author: "MultiToolsA Team",
+    date: "November 22, 2025",
+    readTime: "11 min read",
+    tags: ["Batch Processing", "Productivity", "Workflow"],
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop",
+    content: newBlogContent["batch-image-processing-workflow"]
+  },
+  "pdf-image-tools-complete-guide": {
+    title: "Working with PDFs and Images: Convert, Merge, and Optimize Like a Pro",
+    excerpt: "Master PDF and image workflows. Learn how to convert images to PDF, merge multiple PDFs, compress large files, and extract images from documents.",
+    author: "MultiToolsA Team",
+    date: "November 18, 2025",
+    readTime: "10 min read",
+    tags: ["PDF", "Document Conversion", "Productivity"],
+    image: "https://images.unsplash.com/photo-1586953208270-767889f1dea6?w=1200&h=600&fit=crop",
+    content: newBlogContent["pdf-image-tools-complete-guide"]
+  },
+  "image-cropping-techniques": {
+    title: "Image Cropping Mastery: Techniques That Transform Your Photos",
+    excerpt: "Learn professional cropping techniques including the rule of thirds, golden ratio, and aspect ratio selection. Transform ordinary photos into stunning compositions.",
+    author: "MultiToolsA Team",
+    date: "November 15, 2025",
+    readTime: "8 min read",
+    tags: ["Cropping", "Photography", "Composition"],
+    image: "https://images.unsplash.com/photo-1554080353-a576cf803bda?w=1200&h=600&fit=crop",
+    content: newBlogContent["image-cropping-techniques"]
+  },
+  "transparent-background-images": {
+    title: "Creating Transparent Backgrounds: Complete PNG Transparency Guide",
+    excerpt: "Need images with transparent backgrounds for logos, product photos, or graphics? Learn multiple techniques to remove backgrounds and create perfect PNGs.",
+    author: "MultiToolsA Team",
+    date: "November 12, 2025",
+    readTime: "9 min read",
+    tags: ["Transparency", "PNG", "Background Removal"],
+    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&h=600&fit=crop",
+    content: newBlogContent["transparent-background-images"]
+  },
+  "qr-code-image-integration": {
+    title: "QR Codes and Images: Design Tips for Scannable, Beautiful QR Codes",
+    excerpt: "Create QR codes that are both functional and visually appealing. Learn about custom colors, logo embedding, error correction, and testing best practices.",
+    author: "MultiToolsA Team",
+    date: "November 8, 2025",
+    readTime: "6 min read",
+    tags: ["QR Code", "Design", "Marketing"],
+    image: "https://images.unsplash.com/photo-1595079676339-1534801ad6cf?w=1200&h=600&fit=crop",
+    content: newBlogContent["qr-code-image-integration"]
+  },
+  "photo-filters-effects-guide": {
+    title: "Photo Filters and Effects: From Basic Adjustments to Creative Transformations",
+    excerpt: "Master photo enhancement with our guide to filters and effects. Learn about brightness, contrast, saturation, and creative filters like sepia, vintage, and more.",
+    author: "MultiToolsA Team",
+    date: "November 5, 2025",
+    readTime: "8 min read",
+    tags: ["Photo Filters", "Image Enhancement", "Creativity"],
+    image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1200&h=600&fit=crop",
+    content: newBlogContent["photo-filters-effects-guide"]
+  },
+  "ecommerce-product-image-optimization": {
+    title: "E-commerce Product Images: Optimization Guide for Higher Conversions",
+    excerpt: "Optimize your product images for e-commerce success. Learn about ideal sizes, backgrounds, compression settings, and multi-angle photography best practices.",
+    author: "MultiToolsA Team",
+    date: "November 1, 2025",
+    readTime: "12 min read",
+    tags: ["E-commerce", "Product Photography", "Conversion"],
+    image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&h=600&fit=crop",
+    content: newBlogContent["ecommerce-product-image-optimization"]
+  },
+  "image-security-encryption-guide": {
+    title: "Image Security: Encrypt, Blur, and Protect Sensitive Visual Content",
+    excerpt: "Keep your images secure with encryption, face blurring, and area redaction techniques. Essential knowledge for handling confidential photos and documents.",
+    author: "MultiToolsA Team",
+    date: "October 28, 2025",
+    readTime: "7 min read",
+    tags: ["Security", "Encryption", "Privacy"],
+    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=1200&h=600&fit=crop",
+    content: newBlogContent["image-security-encryption-guide"]
   }
 };
 
@@ -1350,24 +1443,26 @@ const BlogPost = () => {
             </div>
 
             {/* Related Posts */}
-            <div className="mt-12">
-              <h3 className="text-xl font-bold text-foreground mb-6">More Articles</h3>
-              <div className="grid md:grid-cols-2 gap-6">
-                {Object.entries(blogContent)
-                  .filter(([key]) => key !== slug)
-                  .slice(0, 2)
-                  .map(([key, relatedPost]) => (
-                    <Link key={key} to={`/blog/${key}`} className="group">
-                      <div className="bg-card rounded-lg overflow-hidden border border-border hover:shadow-lg transition-all">
+            <div className="mt-12 pt-8 border-t border-border">
+              <h3 className="text-xl font-bold text-foreground mb-6">Continue Reading</h3>
+              <div className="grid md:grid-cols-3 gap-6">
+                {blogPosts
+                  .filter((p) => p.id !== slug)
+                  .slice(0, 3)
+                  .map((relatedPost) => (
+                    <Link key={relatedPost.id} to={`/blog/${relatedPost.id}`} className="group">
+                      <div className="bg-card rounded-xl overflow-hidden border border-border hover:shadow-lg hover:border-primary/30 transition-all">
                         <div className="aspect-video overflow-hidden">
                           <img 
                             src={relatedPost.image} 
                             alt={relatedPost.title}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                            loading="lazy"
                           />
                         </div>
                         <div className="p-4">
-                          <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2">
+                          <span className="text-xs text-primary font-medium">{relatedPost.category}</span>
+                          <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2 mt-1">
                             {relatedPost.title}
                           </h4>
                           <p className="text-sm text-muted-foreground mt-2">{relatedPost.readTime}</p>
@@ -1375,6 +1470,14 @@ const BlogPost = () => {
                       </div>
                     </Link>
                   ))}
+              </div>
+              <div className="text-center mt-8">
+                <Link 
+                  to="/blog" 
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-secondary text-secondary-foreground rounded-lg font-medium hover:bg-secondary/80 transition-colors"
+                >
+                  View All Articles <ArrowRight className="w-4 h-4" />
+                </Link>
               </div>
             </div>
           </div>
