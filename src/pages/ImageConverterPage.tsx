@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { useParams, useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ImageConverter from "@/components/ImageConverter";
+import BatchImageConverter from "@/components/BatchImageConverter";
 import { conversionArticles } from "@/data/conversionArticlesData";
 import {
   Image, 
@@ -19,7 +21,8 @@ import {
   Users,
   Star,
   Sparkles,
-  ArrowRight
+  ArrowRight,
+  Layers
 } from "lucide-react";
 import {
   Accordion,
@@ -27,6 +30,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import HreflangTags from "@/components/HreflangTags";
 
 const conversionMeta: Record<string, { title: string; description: string; h1: string; fromFormat: string; toFormat: string }> = {
@@ -161,6 +165,7 @@ const conversionMeta: Record<string, { title: string; description: string; h1: s
 const ImageConverterPage = () => {
   const { conversion } = useParams<{ conversion?: string }>();
   const location = useLocation();
+  const [activeTab, setActiveTab] = useState("single");
   
   const pathConversion = location.pathname.replace('/', '').replace('/image-converter/', '');
   const activeConversion = conversion || (conversionMeta[pathConversion] ? pathConversion : undefined);
@@ -283,7 +288,27 @@ const ImageConverterPage = () => {
                 </p>
               </div>
 
-              <ImageConverter preselectedConversion={preselectedFormat} />
+              {/* Mode Tabs */}
+              <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full max-w-4xl mx-auto">
+                <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-8">
+                  <TabsTrigger value="single" className="gap-2">
+                    <Image className="w-4 h-4" />
+                    Single Image
+                  </TabsTrigger>
+                  <TabsTrigger value="batch" className="gap-2">
+                    <Layers className="w-4 h-4" />
+                    Batch Mode
+                  </TabsTrigger>
+                </TabsList>
+                
+                <TabsContent value="single" className="mt-0">
+                  <ImageConverter preselectedConversion={preselectedFormat} />
+                </TabsContent>
+                
+                <TabsContent value="batch" className="mt-0">
+                  <BatchImageConverter />
+                </TabsContent>
+              </Tabs>
             </div>
           </section>
 
