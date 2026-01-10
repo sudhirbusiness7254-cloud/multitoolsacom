@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { MessageSquare, Send, X, Bot, User, Loader2, Sparkles, Trash2 } from "lucide-react";
+import { MessageSquare, Send, X, Bot, User, Loader2, Sparkles, Trash2, Minus, Maximize2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -36,6 +36,7 @@ const getInitialMessages = (): Message[] => {
 
 const SupportChat = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isMinimized, setIsMinimized] = useState(false);
   const [messages, setMessages] = useState<Message[]>(getInitialMessages);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -200,30 +201,54 @@ const SupportChat = () => {
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-24 right-6 z-[9999] w-[360px] max-w-[calc(100vw-48px)] h-[500px] max-h-[calc(100vh-120px)] bg-card border border-border rounded-2xl shadow-2xl flex flex-col overflow-hidden animate-in slide-in-from-bottom-5 duration-300">
+        <div className={`fixed right-6 z-[9999] bg-card border border-border rounded-2xl shadow-2xl flex flex-col overflow-hidden animate-in slide-in-from-bottom-5 duration-300 transition-all ${
+          isMinimized 
+            ? "bottom-24 w-[280px] h-auto" 
+            : "bottom-24 w-[360px] max-w-[calc(100vw-48px)] h-[500px] max-h-[calc(100vh-120px)]"
+        }`}>
           {/* Header */}
-          <div className="bg-primary text-primary-foreground p-4 flex items-center gap-3">
+          <div 
+            className={`bg-primary text-primary-foreground p-4 flex items-center gap-3 ${isMinimized ? "cursor-pointer" : ""}`}
+            onClick={isMinimized ? () => setIsMinimized(false) : undefined}
+          >
             <div className="w-10 h-10 rounded-full bg-primary-foreground/20 flex items-center justify-center">
               <Sparkles className="w-5 h-5" />
             </div>
             <div className="flex-1">
               <h3 className="font-semibold">AI Support Assistant</h3>
-              <p className="text-xs opacity-80">Ask anything about our tools</p>
+              {!isMinimized && <p className="text-xs opacity-80">Ask anything about our tools</p>}
             </div>
+            {!isMinimized && (
+              <button
+                onClick={clearChat}
+                className="p-1 hover:bg-primary-foreground/20 rounded-lg transition-colors"
+                title="Clear chat"
+              >
+                <Trash2 className="w-4 h-4" />
+              </button>
+            )}
             <button
-              onClick={clearChat}
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsMinimized(!isMinimized);
+              }}
               className="p-1 hover:bg-primary-foreground/20 rounded-lg transition-colors"
-              title="Clear chat"
+              title={isMinimized ? "Expand" : "Minimize"}
             >
-              <Trash2 className="w-4 h-4" />
+              {isMinimized ? <Maximize2 className="w-4 h-4" /> : <Minus className="w-4 h-4" />}
             </button>
             <button
               onClick={() => setIsOpen(false)}
               className="p-1 hover:bg-primary-foreground/20 rounded-lg transition-colors"
+              title="Close"
             >
               <X className="w-5 h-5" />
             </button>
           </div>
+
+          {/* Messages - Hidden when minimized */}
+          {!isMinimized && (
+            <>
 
           {/* Messages */}
           <ScrollArea className="flex-1 p-4" ref={scrollRef}>
@@ -324,6 +349,8 @@ const SupportChat = () => {
               AI-powered support • For complex issues, email info@multitoolsa.com
             </p>
           </div>
+          </>
+          )}
         </div>
       )}
     </>
