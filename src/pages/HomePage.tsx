@@ -6,7 +6,7 @@ import { ArrowRight, Zap, Shield, Globe, Sparkles, Hash, TrendingUp, RefreshCw, 
 import { toolCategories } from "@/data/toolsData";
 import { ToolIconWithBackground, getToolIconColor, getToolIconComponent } from "@/lib/toolIcons";
 import HreflangTags from "@/components/HreflangTags";
-
+import RealTimeReviews from "@/components/RealTimeReviews";
 // Category icons mapping
 const categoryLucideIcons: Record<string, React.ReactNode> = {
   "image-converter": <RefreshCw className="w-6 h-6 text-white" />,
@@ -1098,7 +1098,10 @@ const HomePage = () => {
                 </div>
               </div>
 
-              {/* Google Reviews & Testimonials Section */}
+              {/* Real-Time Reviews Section */}
+              <RealTimeReviews />
+
+              {/* Static Testimonials Section */}
               <div className="mb-10 sm:mb-12 md:mb-14">
                 <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 text-center">
                   Real Reviews from Real Users
