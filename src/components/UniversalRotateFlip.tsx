@@ -7,7 +7,6 @@ import { Progress } from "@/components/ui/progress";
 import { toast } from "sonner";
 import DragDropUpload from "./DragDropUpload";
 import { Download, RotateCw, RotateCcw, FlipHorizontal, FlipVertical, RotateCcwSquare, Image, RotateCcwIcon } from "lucide-react";
-import { ResultAd } from "@/components/ads";
 
 type TransformMode = "rotate-90" | "rotate-180" | "rotate-270" | "custom" | "flip-h" | "flip-v" | "mirror";
 
@@ -334,9 +333,6 @@ const UniversalRotateFlip = ({ initialMode = "rotate-90" }: UniversalRotateFlipP
             <p className="text-xs text-center text-muted-foreground">
               {result ? "Transformation complete" : "Preview updates in real-time"}
             </p>
-
-            {/* Ad Below Result */}
-            <ResultAd show={!!result} />
           </div>
         </div>
       )}

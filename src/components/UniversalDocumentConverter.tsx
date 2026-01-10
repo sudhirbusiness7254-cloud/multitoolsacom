@@ -5,7 +5,6 @@ import { toast } from "sonner";
 import DragDropUpload from "./DragDropUpload";
 import { Download, FileText, File, Presentation, Code, Binary } from "lucide-react";
 import jsPDF from "jspdf";
-import { ResultAd } from "@/components/ads";
 
 type DocumentFormat = "pdf" | "docx" | "pptx" | "html" | "base64";
 
@@ -407,9 +406,6 @@ HTML Usage:
               </p>
             </div>
           )}
-
-          {/* Ad Below Result */}
-          <ResultAd show={!!result} />
         </div>
       )}
     </div>

@@ -4,7 +4,6 @@ import DragDropUpload from "@/components/DragDropUpload";
 import { Download, RotateCcw, Eye, Trash2, Copy, MapPin, Camera, Settings } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
 import EXIF from "exif-js";
-import { ResultAd } from "@/components/ads";
 
 type MetadataMode = "view" | "remove" | "copy";
 
@@ -384,9 +383,6 @@ const UniversalImageMetadata = ({ initialMode = "view" }: UniversalImageMetadata
               Download
             </Button>
           </div>
-
-          {/* Ad Below Result */}
-          <ResultAd show={!!processedUrl || metadataSections.length > 0} />
         </div>
       )}
     </div>

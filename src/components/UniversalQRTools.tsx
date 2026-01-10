@@ -6,7 +6,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import DragDropUpload from "@/components/DragDropUpload";
 import { Download, RotateCcw, QrCode, ScanLine } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
-import { ResultAd } from "@/components/ads";
 
 type QRMode = "generate" | "read";
 
@@ -206,9 +205,6 @@ const UniversalQRTools = ({ initialMode = "generate" }: UniversalQRToolsProps) =
             </Button>
           )}
         </div>
-
-        {/* Ad Below Result */}
-        <ResultAd show={!!qrImageUrl || !!decodedContent} />
       </div>
     </div>
   );

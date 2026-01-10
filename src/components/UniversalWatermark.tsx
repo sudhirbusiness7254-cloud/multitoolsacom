@@ -6,7 +6,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import DragDropUpload from "@/components/DragDropUpload";
 import { Download, RotateCcw, Type, Image as ImageIcon, Upload, X } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
-import { ResultAd } from "@/components/ads";
 
 type WatermarkMode = "text" | "image";
 type Position = "top-left" | "top-right" | "bottom-left" | "bottom-right" | "center" | "tile";
@@ -368,9 +367,6 @@ const UniversalWatermark = ({ initialMode = "text" }: UniversalWatermarkProps) =
               Download
             </Button>
           </div>
-
-          {/* Ad Below Result */}
-          <ResultAd show={!!processedUrl} />
         </div>
       )}
     </div>

@@ -5,7 +5,6 @@ import { Input } from "@/components/ui/input";
 import DragDropUpload from "@/components/DragDropUpload";
 import { Download, RotateCcw, Pencil, Square, Circle, Type, Undo2, Eraser } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
-import { ResultAd } from "@/components/ads";
 
 type DrawingTool = "pen" | "line" | "rectangle" | "circle" | "text" | "eraser";
 
@@ -287,9 +286,6 @@ const UniversalImageDrawing = ({ initialTool = "pen" }: UniversalImageDrawingPro
               Download
             </Button>
           </div>
-
-          {/* Ad Below Result */}
-          <ResultAd show={history.length > 1} />
         </div>
       )}
     </div>
