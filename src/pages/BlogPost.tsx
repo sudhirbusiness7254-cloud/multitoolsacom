@@ -979,7 +979,7 @@ Our browser-based tools make it easy to resize, crop, and optimize images for an
     date: "November 28, 2025",
     readTime: "6 min read",
     tags: ["Privacy", "Metadata", "Security"],
-    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1200&h=600&fit=crop",
+    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&h=600&fit=crop",
     content: `
 ## What is Image Metadata?
 

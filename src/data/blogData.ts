@@ -74,7 +74,7 @@ export const blogPosts: BlogPost[] = [
     date: "November 28, 2025",
     readTime: "6 min read",
     tags: ["Privacy", "Metadata", "Security"],
-    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&h=400&fit=crop",
+    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=400&fit=crop",
     category: "Privacy"
   },
   // 9 NEW BLOG POSTS
