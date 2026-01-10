@@ -11,9 +11,9 @@ import HreflangTags from "@/components/HreflangTags";
 const About = () => {
   const stats = [
     { value: "100+", label: "Free Tools" },
-    { value: "1M+", label: "Images Processed" },
+    { value: "15+", label: "Tool Categories" },
     { value: "100%", label: "Private & Secure" },
-    { value: "0", label: "Files Stored" },
+    { value: "0", label: "Files Stored on Servers" },
   ];
 
   const values = [
@@ -157,8 +157,8 @@ const About = () => {
               </p>
               <p className="text-muted-foreground leading-relaxed mb-4">
                 Today, MultiToolsA offers over 100 specialized image tools covering everything from format conversion and compression 
-                to advanced editing, watermarking, and security features. Millions of images have been processed through our platform, 
-                all while maintaining complete user privacy.
+                to advanced editing, watermarking, and security features. Every image you process stays on your device, 
+                maintaining complete user privacy throughout the entire workflow.
               </p>
               <p className="text-muted-foreground leading-relaxed">
                 Our mission continues: to provide the most comprehensive, accessible, and privacy-respecting image tools on the web. 
@@ -267,7 +267,7 @@ const About = () => {
           <div className="container mx-auto max-w-3xl text-center">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready to Get Started?</h2>
             <p className="text-muted-foreground mb-6">
-              Join millions of users who trust MultiToolsA for their image editing needs. 
+              Start using our free image editing tools today. 
               No signup required—just pick a tool and start editing!
             </p>
             <div className="flex flex-wrap justify-center gap-4">
