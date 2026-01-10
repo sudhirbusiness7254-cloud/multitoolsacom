@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import DragDropUpload from "@/components/DragDropUpload";
 import { toast } from "sonner";
+import { ResultAd } from "@/components/ads";
 
 type ResizeMode = "exact" | "percentage" | "fit-width" | "fit-height" | "fit-box" | "quality";
 
@@ -411,6 +412,9 @@ const ImageResizer = ({ mode }: ImageResizerProps) => {
                 <Download className="w-4 h-4 mr-2" />
                 Download Resized Image
               </Button>
+
+              {/* Ad Below Result */}
+              <ResultAd show={!!processedBlob} />
             </div>
           )}
         </div>

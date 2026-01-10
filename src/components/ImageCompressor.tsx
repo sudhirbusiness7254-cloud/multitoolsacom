@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import DragDropUpload from "@/components/DragDropUpload";
 import { toast } from "sonner";
+import { ResultAd } from "@/components/ads";
 
 interface ImageCompressorProps {
   format: "jpeg" | "png" | "webp" | "gif" | "tiff";
@@ -198,6 +199,9 @@ const ImageCompressor = ({ format }: ImageCompressorProps) => {
               </>
             )}
           </Button>
+
+          {/* Ad Below Result */}
+          <ResultAd show={!!compressedBlob && !isProcessing} />
         </div>
       )}
     </div>
