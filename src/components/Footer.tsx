@@ -75,6 +75,7 @@ const Footer = () => {
               { name: "Word to PDF", route: "/word-to-pdf" },
               { name: "Image to PDF", route: "/image-to-pdf" },
               { name: "Split PDF", route: "/split-pdf" },
+              { name: "Tutorials", route: "/tutorials" },
             ].map((item) => (
               <Link 
                 key={item.route} 
