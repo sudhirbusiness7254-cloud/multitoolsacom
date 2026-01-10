@@ -69,33 +69,52 @@ const BatchImageConverter = () => {
 
   const generateId = () => Math.random().toString(36).substring(2, 15);
 
+  const getOutputFormatFromMime = (mimeType: string): OutputFormat | null => {
+    const formatMap: Record<string, OutputFormat> = {
+      "image/jpeg": "jpg",
+      "image/png": "png",
+      "image/webp": "webp",
+      "image/gif": "gif",
+      "image/bmp": "bmp",
+    };
+    return formatMap[mimeType] || null;
+  };
+
   const handleFilesSelect = useCallback((selectedFiles: FileList | null) => {
     if (!selectedFiles) return;
 
-    const newFiles: BatchFile[] = Array.from(selectedFiles)
-      .filter(file => file.type.startsWith("image/"))
-      .map(file => ({
-        id: generateId(),
-        file,
-        originalSize: file.size,
-        convertedBlob: null,
-        convertedSize: 0,
-        status: 'pending' as const,
-        progress: 0,
-        previewUrl: URL.createObjectURL(file),
-        convertedPreviewUrl: null,
-        sourceFormat: getSourceFormat(file.type),
-        convertedFormat: '',
-      }));
-
-    if (newFiles.length === 0) {
+    const imageFiles = Array.from(selectedFiles).filter(file => file.type.startsWith("image/"));
+    
+    if (imageFiles.length === 0) {
       toast.error("No valid image files selected");
       return;
     }
 
+    // Auto-select output format based on first uploaded image (only if no files exist yet)
+    if (files.length === 0 && imageFiles.length > 0) {
+      const detectedFormat = getOutputFormatFromMime(imageFiles[0].type);
+      if (detectedFormat) {
+        setOutputFormat(detectedFormat);
+      }
+    }
+
+    const newFiles: BatchFile[] = imageFiles.map(file => ({
+      id: generateId(),
+      file,
+      originalSize: file.size,
+      convertedBlob: null,
+      convertedSize: 0,
+      status: 'pending' as const,
+      progress: 0,
+      previewUrl: URL.createObjectURL(file),
+      convertedPreviewUrl: null,
+      sourceFormat: getSourceFormat(file.type),
+      convertedFormat: '',
+    }));
+
     setFiles(prev => [...prev, ...newFiles]);
     toast.success(`Added ${newFiles.length} image${newFiles.length > 1 ? 's' : ''}`);
-  }, []);
+  }, [files.length]);
 
   const handleDrop = useCallback((e: React.DragEvent) => {
     e.preventDefault();
