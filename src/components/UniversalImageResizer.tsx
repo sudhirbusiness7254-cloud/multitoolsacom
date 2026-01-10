@@ -4,9 +4,10 @@ import { Progress } from "@/components/ui/progress";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
+import { Slider } from "@/components/ui/slider";
 import { toast } from "sonner";
 import DragDropUpload from "./DragDropUpload";
-import { Download, Maximize, Percent, ArrowRight, Square, Zap, Lock, Unlock } from "lucide-react";
+import { Download, Maximize, Percent, ArrowRight, Square, Zap, Lock, Unlock, Sparkles } from "lucide-react";
 
 type ResizeMode = "exact" | "percentage" | "fit-width" | "fit-height" | "fit-box";
 
@@ -42,6 +43,7 @@ const UniversalImageResizer = () => {
   const [height, setHeight] = useState(600);
   const [percentage, setPercentage] = useState(50);
   const [lockAspectRatio, setLockAspectRatio] = useState(true);
+  const [quality, setQuality] = useState(85);
   
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -150,12 +152,22 @@ const UniversalImageResizer = () => {
         img.src = preview;
       });
 
+      // For JPEG output, fill with white background first
+      const mimeType = file.type || "image/png";
+      if (mimeType === "image/jpeg") {
+        ctx.fillStyle = "#FFFFFF";
+        ctx.fillRect(0, 0, targetWidth, targetHeight);
+      }
+
       // Use high-quality image smoothing
       ctx.imageSmoothingEnabled = true;
       ctx.imageSmoothingQuality = "high";
       ctx.drawImage(img, 0, 0, targetWidth, targetHeight);
 
-      const resizedDataUrl = canvas.toDataURL(file.type || "image/png", 0.92);
+      // Use quality setting for JPEG and WebP
+      const qualityValue = quality / 100;
+      const useQuality = mimeType === "image/jpeg" || mimeType === "image/webp";
+      const resizedDataUrl = canvas.toDataURL(mimeType, useQuality ? qualityValue : undefined);
 
       clearInterval(progressInterval);
       setProgress(100);
@@ -367,6 +379,29 @@ const UniversalImageResizer = () => {
                     </p>
                   </div>
                 )}
+
+                {/* Quality Slider */}
+                <div className="pt-3 border-t border-border">
+                  <div className="flex items-center justify-between mb-2">
+                    <Label htmlFor="quality" className="text-sm flex items-center gap-1.5">
+                      <Sparkles className="w-3.5 h-3.5" />
+                      Output Quality
+                    </Label>
+                    <span className="text-sm font-medium text-primary">{quality}%</span>
+                  </div>
+                  <Slider
+                    id="quality"
+                    value={[quality]}
+                    onValueChange={(value) => setQuality(value[0])}
+                    min={10}
+                    max={100}
+                    step={5}
+                    className="w-full"
+                  />
+                  <p className="text-xs text-muted-foreground mt-1.5">
+                    Applies to JPEG & WebP. Lower = smaller files.
+                  </p>
+                </div>
 
                 {/* Progress Bar */}
                 {isResizing && (
