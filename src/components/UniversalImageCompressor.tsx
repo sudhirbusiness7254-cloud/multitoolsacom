@@ -1,15 +1,26 @@
 import { useState, useCallback } from "react";
-import { Download, Loader2, Settings, FileImage, CheckCircle2, Sparkles } from "lucide-react";
+import { Download, Loader2, Settings, FileImage, CheckCircle2, Sparkles, FileType } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import { Progress } from "@/components/ui/progress";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import DragDropUpload from "@/components/DragDropUpload";
 import { toast } from "sonner";
+
+type OutputFormat = 'auto' | 'jpeg' | 'webp' | 'png';
+
+const formatOptions: { value: OutputFormat; label: string; description: string }[] = [
+  { value: 'auto', label: 'Auto (Best Compression)', description: 'Automatically selects the best format' },
+  { value: 'jpeg', label: 'JPEG', description: 'Best for photos, no transparency' },
+  { value: 'webp', label: 'WebP', description: 'Modern format, great compression' },
+  { value: 'png', label: 'PNG', description: 'Lossless, supports transparency' },
+];
 
 const UniversalImageCompressor = () => {
   const [originalFile, setOriginalFile] = useState<File | null>(null);
   const [compressedBlob, setCompressedBlob] = useState<Blob | null>(null);
   const [quality, setQuality] = useState([80]);
+  const [outputFormat, setOutputFormat] = useState<OutputFormat>('auto');
   const [isProcessing, setIsProcessing] = useState(false);
   const [originalSize, setOriginalSize] = useState<number>(0);
   const [compressedSize, setCompressedSize] = useState<number>(0);
@@ -17,6 +28,7 @@ const UniversalImageCompressor = () => {
   const [originalPreviewUrl, setOriginalPreviewUrl] = useState<string | null>(null);
   const [progress, setProgress] = useState(0);
   const [detectedFormat, setDetectedFormat] = useState<string>("");
+  const [outputMimeType, setOutputMimeType] = useState<string>('image/jpeg');
 
   const formatBytes = (bytes: number) => {
     if (bytes === 0) return "0 Bytes";
@@ -52,10 +64,14 @@ const UniversalImageCompressor = () => {
     return extension.toUpperCase() || 'Unknown';
   };
 
-  // PNG doesn't support quality compression, so we convert to JPEG or WebP for actual compression
-  const getOutputMimeType = (format: string, quality: number): string => {
-    // For formats that don't support quality compression, convert to JPEG for better compression
-    switch (format) {
+  const getOutputMimeType = (selectedFormat: OutputFormat, inputFormat: string, qualityValue: number): string => {
+    // If user selected a specific format, use it
+    if (selectedFormat === 'jpeg') return 'image/jpeg';
+    if (selectedFormat === 'webp') return 'image/webp';
+    if (selectedFormat === 'png') return 'image/png';
+    
+    // Auto mode: choose best format for compression
+    switch (inputFormat) {
       case 'JPEG':
         return 'image/jpeg';
       case 'WebP':
@@ -67,23 +83,26 @@ const UniversalImageCompressor = () => {
       case 'HEIC':
       case 'AVIF':
       default:
-        // PNG and other formats don't support quality-based compression
-        // Convert to WebP for best compression (supports transparency) or JPEG if quality is priority
-        return quality < 90 ? 'image/webp' : 'image/jpeg';
+        // For formats that don't support quality compression, use WebP or JPEG
+        return qualityValue < 90 ? 'image/webp' : 'image/jpeg';
     }
   };
 
-  const getOutputExtension = (format: string, outputMime: string): string => {
+  const getOutputExtension = (outputMime: string): string => {
     if (outputMime === 'image/jpeg') return 'jpg';
     if (outputMime === 'image/webp') return 'webp';
     if (outputMime === 'image/png') return 'png';
-    if (outputMime === 'image/gif') return 'gif';
     return 'jpg';
   };
 
-  const [outputMimeType, setOutputMimeType] = useState<string>('image/jpeg');
+  const getFormatLabel = (mime: string): string => {
+    if (mime === 'image/jpeg') return 'JPEG';
+    if (mime === 'image/webp') return 'WebP';
+    if (mime === 'image/png') return 'PNG';
+    return 'Unknown';
+  };
 
-  const compressImage = useCallback(async (file: File, qualityValue: number) => {
+  const compressImage = useCallback(async (file: File, qualityValue: number, selectedFormat: OutputFormat) => {
     setIsProcessing(true);
     setProgress(0);
     
@@ -111,8 +130,8 @@ const UniversalImageCompressor = () => {
 
       setProgress(85);
 
-      const format = detectFormat(file);
-      const mimeType = getOutputMimeType(format, qualityValue);
+      const inputFormat = detectFormat(file);
+      const mimeType = getOutputMimeType(selectedFormat, inputFormat, qualityValue);
       const qualityDecimal = qualityValue / 100;
       
       // Store the output mime type for download
@@ -137,8 +156,9 @@ const UniversalImageCompressor = () => {
       setPreviewUrl(URL.createObjectURL(blob));
       
       const savings = ((file.size - blob.size) / file.size * 100).toFixed(1);
-      const formatNote = format !== 'JPEG' && format !== 'WebP' 
-        ? ` (converted to ${mimeType === 'image/webp' ? 'WebP' : 'JPEG'} for compression)` 
+      const outputFormatLabel = getFormatLabel(mimeType);
+      const formatNote = inputFormat !== outputFormatLabel 
+        ? ` (output: ${outputFormatLabel})` 
         : '';
       toast.success(`Compressed! Saved ${savings}% of file size${formatNote}`);
     } catch (error) {
@@ -166,12 +186,16 @@ const UniversalImageCompressor = () => {
 
   const handleCompress = useCallback(() => {
     if (originalFile) {
-      compressImage(originalFile, quality[0]);
+      compressImage(originalFile, quality[0], outputFormat);
     }
-  }, [originalFile, quality, compressImage]);
+  }, [originalFile, quality, outputFormat, compressImage]);
 
   const handleQualityChange = useCallback((newQuality: number[]) => {
     setQuality(newQuality);
+  }, []);
+
+  const handleFormatChange = useCallback((value: string) => {
+    setOutputFormat(value as OutputFormat);
   }, []);
 
   const handleDownload = useCallback(() => {
@@ -180,12 +204,12 @@ const UniversalImageCompressor = () => {
     const link = document.createElement("a");
     link.href = URL.createObjectURL(compressedBlob);
     const baseName = originalFile.name.replace(/\.[^/.]+$/, "");
-    const extension = getOutputExtension(detectedFormat, outputMimeType);
+    const extension = getOutputExtension(outputMimeType);
     link.download = `${baseName}_compressed.${extension}`;
     link.click();
     
     toast.success("Download started!");
-  }, [compressedBlob, originalFile, detectedFormat, outputMimeType]);
+  }, [compressedBlob, originalFile, outputMimeType]);
 
   const handleReset = useCallback(() => {
     setOriginalFile(null);
@@ -235,6 +259,34 @@ const UniversalImageCompressor = () => {
               </Button>
             </div>
 
+            {/* Output Format Selector */}
+            <div className="space-y-3 mb-6">
+              <label className="text-sm font-medium flex items-center gap-2">
+                <FileType className="w-4 h-4" />
+                Output Format
+              </label>
+              <Select value={outputFormat} onValueChange={handleFormatChange}>
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Select output format" />
+                </SelectTrigger>
+                <SelectContent>
+                  {formatOptions.map((option) => (
+                    <SelectItem key={option.value} value={option.value}>
+                      <div className="flex flex-col">
+                        <span className="font-medium">{option.label}</span>
+                        <span className="text-xs text-muted-foreground">{option.description}</span>
+                      </div>
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              {outputFormat === 'png' && (
+                <p className="text-xs text-amber-500 bg-amber-500/10 px-3 py-2 rounded-lg">
+                  Note: PNG uses lossless compression. Quality slider has limited effect. For smaller files, try JPEG or WebP.
+                </p>
+              )}
+            </div>
+
             {/* Quality Slider */}
             <div className="space-y-4 mb-6">
               <div className="flex items-center justify-between">
@@ -253,6 +305,7 @@ const UniversalImageCompressor = () => {
                 max={100}
                 step={5}
                 className="w-full"
+                disabled={outputFormat === 'png'}
               />
               <div className="flex justify-between text-xs text-muted-foreground">
                 <span>Smaller file</span>
