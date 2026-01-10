@@ -260,12 +260,14 @@ const SupportChat = () => {
                 </div>
               ))}
               {isLoading && messages[messages.length - 1]?.role === "user" && (
-                <div className="flex gap-3">
+                <div className="flex gap-3 animate-fade-in">
                   <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center">
                     <Bot className="w-4 h-4" />
                   </div>
-                  <div className="bg-secondary rounded-2xl rounded-bl-md px-4 py-3">
-                    <Loader2 className="w-4 h-4 animate-spin" />
+                  <div className="bg-secondary rounded-2xl rounded-bl-md px-4 py-3 flex items-center gap-1.5">
+                    <span className="w-2 h-2 bg-muted-foreground/60 rounded-full animate-bounce [animation-delay:-0.3s]" />
+                    <span className="w-2 h-2 bg-muted-foreground/60 rounded-full animate-bounce [animation-delay:-0.15s]" />
+                    <span className="w-2 h-2 bg-muted-foreground/60 rounded-full animate-bounce" />
                   </div>
                 </div>
               )}
