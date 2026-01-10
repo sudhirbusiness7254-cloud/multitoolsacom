@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { MessageSquare, Send, X, Bot, User, Loader2, Sparkles } from "lucide-react";
+import { MessageSquare, Send, X, Bot, User, Loader2, Sparkles, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -159,6 +159,16 @@ const SupportChat = () => {
     }
   };
 
+  const clearChat = () => {
+    const initialMessage: Message = {
+      role: "assistant",
+      content: "Hi! 👋 I'm MultiToolsA's AI assistant. I can help you with questions about our free image tools, how to use them, troubleshooting, and more. What would you like to know?",
+    };
+    setMessages([initialMessage]);
+    localStorage.removeItem(STORAGE_KEY);
+    toast.success("Chat cleared");
+  };
+
   const quickQuestions = [
     { label: "📦 Compress", question: "How do I compress images without losing quality?" },
     { label: "🔄 Convert", question: "How do I convert images between formats like PNG to JPG?" },
@@ -200,6 +210,13 @@ const SupportChat = () => {
               <h3 className="font-semibold">AI Support Assistant</h3>
               <p className="text-xs opacity-80">Ask anything about our tools</p>
             </div>
+            <button
+              onClick={clearChat}
+              className="p-1 hover:bg-primary-foreground/20 rounded-lg transition-colors"
+              title="Clear chat"
+            >
+              <Trash2 className="w-4 h-4" />
+            </button>
             <button
               onClick={() => setIsOpen(false)}
               className="p-1 hover:bg-primary-foreground/20 rounded-lg transition-colors"
