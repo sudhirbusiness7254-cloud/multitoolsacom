@@ -9,7 +9,6 @@ import { toast } from "sonner";
 import HreflangTags from "@/components/HreflangTags";
 import { Link } from "react-router-dom";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import SupportChat from "@/components/SupportChat";
 
 const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
@@ -401,7 +400,6 @@ const Contact = () => {
       </main>
       
       <Footer />
-      <SupportChat />
     </div>
   );
 };

@@ -39,6 +39,7 @@ import PDFToolsPage from "./pages/categories/PDFToolsPage";
 
 import ImageEditorPage from "./pages/ImageEditorPage";
 import PDFToolPage from "./pages/tools/PDFToolPage";
+import SupportChat from "./components/SupportChat";
 
 const queryClient = new QueryClient();
 
@@ -98,6 +99,7 @@ const App = () => (
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <SupportChat />
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
