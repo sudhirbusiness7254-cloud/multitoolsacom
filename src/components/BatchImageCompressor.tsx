@@ -1,9 +1,10 @@
 import { useState, useCallback, useRef } from "react";
-import { Download, Loader2, Settings, FileImage, CheckCircle2, Sparkles, FileType, X, Trash2, Upload, Package, FileArchive } from "lucide-react";
+import { Download, Loader2, Settings, FileImage, CheckCircle2, Sparkles, FileType, X, Trash2, Upload, Package, FileArchive, ZoomIn } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import { Progress } from "@/components/ui/progress";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import JSZip from "jszip";
@@ -36,6 +37,9 @@ const BatchImageCompressor = () => {
   const [outputFormat, setOutputFormat] = useState<OutputFormat>('auto');
   const [isProcessing, setIsProcessing] = useState(false);
   const [overallProgress, setOverallProgress] = useState(0);
+  const [hoveredFile, setHoveredFile] = useState<BatchFile | null>(null);
+  const [zoomDialogOpen, setZoomDialogOpen] = useState(false);
+  const [zoomFile, setZoomFile] = useState<BatchFile | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const formatBytes = (bytes: number) => {
@@ -451,13 +455,44 @@ const BatchImageCompressor = () => {
                   <X className="w-3 h-3 text-destructive" />
                 </button>
 
-                {/* Preview */}
-                <div className="w-full aspect-video rounded-lg overflow-hidden bg-secondary/30 mb-2">
+                {/* Preview with Hover Zoom */}
+                <div 
+                  className="relative w-full aspect-video rounded-lg overflow-hidden bg-secondary/30 mb-2 group cursor-pointer"
+                  onMouseEnter={() => setHoveredFile(file)}
+                  onMouseLeave={() => setHoveredFile(null)}
+                  onClick={() => {
+                    setZoomFile(file);
+                    setZoomDialogOpen(true);
+                  }}
+                >
                   <img 
                     src={file.compressedPreviewUrl || file.previewUrl} 
                     alt={file.file.name}
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
                   />
+                  
+                  {/* Zoom Indicator */}
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors flex items-center justify-center">
+                    <div className="opacity-0 group-hover:opacity-100 transition-opacity bg-black/70 rounded-full p-2">
+                      <ZoomIn className="w-5 h-5 text-white" />
+                    </div>
+                  </div>
+
+                  {/* Hover Preview Tooltip */}
+                  {hoveredFile?.id === file.id && (
+                    <div className="absolute left-full top-0 ml-2 z-50 hidden lg:block pointer-events-none">
+                      <div className="bg-card border border-border rounded-xl shadow-2xl p-2 w-80">
+                        <img 
+                          src={file.compressedPreviewUrl || file.previewUrl}
+                          alt="Preview"
+                          className="w-full rounded-lg"
+                        />
+                        <div className="mt-2 text-xs text-center">
+                          <span className="text-muted-foreground">Click to view full size</span>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
 
                 {/* File Info */}
@@ -593,6 +628,86 @@ const BatchImageCompressor = () => {
           </div>
         </div>
       )}
+
+      {/* Zoom Dialog */}
+      <Dialog open={zoomDialogOpen} onOpenChange={setZoomDialogOpen}>
+        <DialogContent className="max-w-4xl w-[95vw] max-h-[90vh] p-0 overflow-hidden">
+          <DialogTitle className="sr-only">
+            {zoomFile?.file.name || 'Image Preview'}
+          </DialogTitle>
+          {zoomFile && (
+            <div className="relative">
+              {/* Image */}
+              <div className="max-h-[70vh] overflow-auto bg-secondary/30">
+                <img 
+                  src={zoomFile.compressedPreviewUrl || zoomFile.previewUrl}
+                  alt={zoomFile.file.name}
+                  className="w-full h-auto"
+                />
+              </div>
+              
+              {/* Info Bar */}
+              <div className="p-4 bg-card border-t border-border">
+                <div className="flex items-center justify-between flex-wrap gap-3">
+                  <div className="flex-1 min-w-0">
+                    <p className="font-medium truncate">{zoomFile.file.name}</p>
+                    <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                      <span>Original: {formatBytes(zoomFile.originalSize)}</span>
+                      {zoomFile.status === 'completed' && (
+                        <>
+                          <span>→</span>
+                          <span className="text-primary font-medium">
+                            Compressed: {formatBytes(zoomFile.compressedSize)}
+                          </span>
+                          <span className="text-green-500 font-medium">
+                            ({((zoomFile.originalSize - zoomFile.compressedSize) / zoomFile.originalSize * 100).toFixed(1)}% saved)
+                          </span>
+                        </>
+                      )}
+                    </div>
+                  </div>
+                  
+                  {zoomFile.status === 'completed' && (
+                    <Button onClick={() => downloadSingle(zoomFile)} size="sm">
+                      <Download className="w-4 h-4 mr-2" />
+                      Download
+                    </Button>
+                  )}
+                </div>
+
+                {/* Compare Toggle for completed files */}
+                {zoomFile.status === 'completed' && zoomFile.compressedPreviewUrl && (
+                  <div className="mt-4 pt-4 border-t border-border">
+                    <p className="text-xs text-muted-foreground mb-3">Compare: Hover/tap to see original</p>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="space-y-1">
+                        <p className="text-xs font-medium text-muted-foreground">Original</p>
+                        <div className="rounded-lg overflow-hidden bg-secondary/30 aspect-video">
+                          <img 
+                            src={zoomFile.previewUrl}
+                            alt="Original"
+                            className="w-full h-full object-contain"
+                          />
+                        </div>
+                      </div>
+                      <div className="space-y-1">
+                        <p className="text-xs font-medium text-primary">Compressed</p>
+                        <div className="rounded-lg overflow-hidden bg-secondary/30 aspect-video border-2 border-primary/30">
+                          <img 
+                            src={zoomFile.compressedPreviewUrl}
+                            alt="Compressed"
+                            className="w-full h-full object-contain"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
