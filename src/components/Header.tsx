@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, ChevronDown, Search, RefreshCw, Minimize2, Maximize2, Crop, Droplet, Image, FileText, Sparkles, Zap, Eraser, Wand2, Palette, User } from "lucide-react";
+import { Menu, X, ChevronDown, Search, RefreshCw, Minimize2, Maximize2, Crop, Droplet, Image, FileText, Sparkles, Zap, Eraser, Wand2 } from "lucide-react";
 import { Link as RouterLink } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo-icon.png";
@@ -245,7 +245,7 @@ const Header = () => {
               </button>
               
               {aiToolsOpen && (
-                <div className="absolute top-full right-0 mt-2 w-72 bg-card border border-border rounded-xl shadow-2xl z-[100] overflow-hidden">
+                <div className="absolute top-full right-0 mt-2 w-64 bg-card border border-border rounded-xl shadow-2xl z-[100] overflow-hidden">
                   <div className="p-2">
                     <Link
                       to="/text-to-image"
@@ -258,19 +258,6 @@ const Header = () => {
                       <div>
                         <p className="font-medium text-sm">Text to Image</p>
                         <p className="text-xs text-muted-foreground">Generate images from text</p>
-                      </div>
-                    </Link>
-                    <Link
-                      to="/ai-face-enhance"
-                      onClick={() => setAiToolsOpen(false)}
-                      className="flex items-center gap-3 p-3 rounded-lg hover:bg-secondary transition-colors"
-                    >
-                      <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center">
-                        <User className="w-4 h-4 text-white" />
-                      </div>
-                      <div>
-                        <p className="font-medium text-sm">AI Face Enhance</p>
-                        <p className="text-xs text-muted-foreground">Remini-like portrait enhancement</p>
                       </div>
                     </Link>
                     <Link
@@ -310,19 +297,6 @@ const Header = () => {
                       <div>
                         <p className="font-medium text-sm">AI Image Edit</p>
                         <p className="text-xs text-muted-foreground">Edit with natural language</p>
-                      </div>
-                    </Link>
-                    <Link
-                      to="/ai-colorize"
-                      onClick={() => setAiToolsOpen(false)}
-                      className="flex items-center gap-3 p-3 rounded-lg hover:bg-secondary transition-colors"
-                    >
-                      <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-amber-500 to-rose-500 flex items-center justify-center">
-                        <Palette className="w-4 h-4 text-white" />
-                      </div>
-                      <div>
-                        <p className="font-medium text-sm">AI Colorize</p>
-                        <p className="text-xs text-muted-foreground">Colorize B&W photos</p>
                       </div>
                     </Link>
                   </div>

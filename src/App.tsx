@@ -43,8 +43,6 @@ import TextToImagePage from "./pages/TextToImagePage";
 import AIImageEnhancePage from "./pages/AIImageEnhancePage";
 import AIBackgroundRemovePage from "./pages/AIBackgroundRemovePage";
 import AIImageEditPage from "./pages/AIImageEditPage";
-import AIColorizePage from "./pages/AIColorizePage";
-import AIFaceEnhancePage from "./pages/AIFaceEnhancePage";
 
 const queryClient = new QueryClient();
 
@@ -77,8 +75,6 @@ const App = () => (
               <Route path="/ai-image-enhance" element={<AIImageEnhancePage />} />
               <Route path="/ai-background-remove" element={<AIBackgroundRemovePage />} />
               <Route path="/ai-image-edit" element={<AIImageEditPage />} />
-              <Route path="/ai-colorize" element={<AIColorizePage />} />
-              <Route path="/ai-face-enhance" element={<AIFaceEnhancePage />} />
               
               {/* Category Pages */}
               <Route path="/image-compression" element={<ImageCompressionPage />} />
