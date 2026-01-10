@@ -948,6 +948,77 @@ const HomePage = () => {
                 </div>
               </div>
 
+              {/* Resources Section */}
+              <div className="mb-10 sm:mb-12 md:mb-14">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 sm:mb-8 text-center">
+                  Learn & Explore
+                </h3>
+                <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
+                  Expand your image editing skills with our comprehensive resources. From step-by-step tutorials to in-depth articles, we've got everything you need to master digital image processing.
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+                  {/* Tutorials Card */}
+                  <Link 
+                    to="/tutorials"
+                    className="group bg-card rounded-xl p-6 sm:p-8 border border-border hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                  >
+                    <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style={{ background: 'linear-gradient(135deg, #8B5CF6, #A855F7)' }}>
+                      <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                      </svg>
+                    </div>
+                    <h4 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">Step-by-Step Tutorials</h4>
+                    <p className="text-muted-foreground text-sm mb-4">
+                      Learn how to compress images, convert formats, resize for social media, add watermarks, and more with our detailed visual guides.
+                    </p>
+                    <div className="flex items-center gap-2 text-primary text-sm font-medium">
+                      <span>6 Comprehensive Guides</span>
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </Link>
+
+                  {/* Blog Card */}
+                  <Link 
+                    to="/blog"
+                    className="group bg-card rounded-xl p-6 sm:p-8 border border-border hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                  >
+                    <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style={{ background: 'linear-gradient(135deg, #3B82F6, #06B6D4)' }}>
+                      <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                      </svg>
+                    </div>
+                    <h4 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">Expert Blog Articles</h4>
+                    <p className="text-muted-foreground text-sm mb-4">
+                      Deep-dive articles covering image optimization, format comparisons, web performance tips, and professional editing techniques.
+                    </p>
+                    <div className="flex items-center gap-2 text-primary text-sm font-medium">
+                      <span>Browse Articles</span>
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </Link>
+
+                  {/* FAQ Card */}
+                  <Link 
+                    to="/faq"
+                    className="group bg-card rounded-xl p-6 sm:p-8 border border-border hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                  >
+                    <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style={{ background: 'linear-gradient(135deg, #22C55E, #10B981)' }}>
+                      <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                    <h4 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">Frequently Asked Questions</h4>
+                    <p className="text-muted-foreground text-sm mb-4">
+                      Find answers to common questions about image formats, compression, privacy, supported features, and how our tools work.
+                    </p>
+                    <div className="flex items-center gap-2 text-primary text-sm font-medium">
+                      <span>View All FAQs</span>
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </Link>
+                </div>
+              </div>
+
               {/* Closing Statement */}
               <div className="text-center bg-gradient-hero rounded-2xl p-8 sm:p-10 md:p-12">
                 <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4">
