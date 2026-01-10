@@ -1,8 +1,9 @@
 import { useState, useCallback } from "react";
 import { PDFDocument } from "pdf-lib";
-import { Upload, Download, Loader2, FileText, Trash2 } from "lucide-react";
+import { Upload, Download, Loader2, FileText, Trash2, ArrowRight, TrendingDown, FileCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
+import { Progress } from "@/components/ui/progress";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 
@@ -206,22 +207,65 @@ const CompressPDF = () => {
             </div>
           </div>
 
-          {/* Compression Results */}
+          {/* Enhanced Compression Comparison */}
           {compressedPdf && (
-            <div className="grid grid-cols-2 gap-4 p-4 bg-secondary/50 rounded-xl">
-              <div className="text-center">
-                <p className="text-sm text-muted-foreground">Original</p>
-                <p className="text-xl font-bold">{formatSize(originalSize)}</p>
+            <div className="space-y-4">
+              <div className="flex items-center justify-center gap-2 text-sm font-medium text-muted-foreground">
+                <FileCheck className="w-4 h-4 text-green-500" />
+                Compression Complete
               </div>
-              <div className="text-center">
-                <p className="text-sm text-muted-foreground">Compressed</p>
-                <p className="text-xl font-bold text-green-500">{formatSize(compressedSize)}</p>
+              
+              {/* Visual Comparison Slider */}
+              <div className="grid grid-cols-1 md:grid-cols-[1fr,auto,1fr] gap-4 items-center p-4 bg-gradient-to-br from-secondary/80 to-secondary/40 rounded-xl border border-border">
+                {/* Original */}
+                <div className="space-y-3">
+                  <div className="flex items-center gap-2">
+                    <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center">
+                      <FileText className="w-5 h-5 text-muted-foreground" />
+                    </div>
+                    <div>
+                      <p className="text-xs text-muted-foreground uppercase tracking-wide">Original</p>
+                      <p className="text-lg font-bold">{formatSize(originalSize)}</p>
+                    </div>
+                  </div>
+                  <Progress value={100} className="h-2 bg-muted" />
+                </div>
+                
+                {/* Arrow */}
+                <div className="hidden md:flex flex-col items-center gap-1">
+                  <ArrowRight className="w-6 h-6 text-primary" />
+                  <TrendingDown className="w-4 h-4 text-green-500" />
+                </div>
+                
+                {/* Compressed */}
+                <div className="space-y-3">
+                  <div className="flex items-center gap-2">
+                    <div className="w-10 h-10 rounded-lg bg-green-500/10 flex items-center justify-center">
+                      <FileText className="w-5 h-5 text-green-500" />
+                    </div>
+                    <div>
+                      <p className="text-xs text-muted-foreground uppercase tracking-wide">Compressed</p>
+                      <p className="text-lg font-bold text-green-500">{formatSize(compressedSize)}</p>
+                    </div>
+                  </div>
+                  <Progress 
+                    value={(compressedSize / originalSize) * 100} 
+                    className="h-2 bg-muted [&>div]:bg-green-500" 
+                  />
+                </div>
               </div>
-              <div className="col-span-2 text-center pt-2 border-t border-border">
-                <p className="text-sm text-muted-foreground">Saved</p>
-                <p className="text-2xl font-bold text-primary">
-                  {((originalSize - compressedSize) / originalSize * 100).toFixed(1)}%
-                </p>
+              
+              {/* Savings Badge */}
+              <div className="flex justify-center">
+                <div className="inline-flex items-center gap-3 px-6 py-3 bg-primary/10 rounded-full border border-primary/20">
+                  <span className="text-sm text-muted-foreground">Space Saved:</span>
+                  <span className="text-2xl font-bold text-primary">
+                    {((originalSize - compressedSize) / originalSize * 100).toFixed(1)}%
+                  </span>
+                  <span className="text-sm text-green-500 font-medium">
+                    ({formatSize(originalSize - compressedSize)})
+                  </span>
+                </div>
               </div>
             </div>
           )}
