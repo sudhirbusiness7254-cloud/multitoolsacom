@@ -1,7 +1,9 @@
 import { useState, useRef, useCallback, useEffect } from "react";
-import { Upload, Download, Image as ImageIcon, ArrowRight, X, Loader2 } from "lucide-react";
+import { Upload, Download, Image as ImageIcon, ArrowRight, X, Loader2, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Slider } from "@/components/ui/slider";
+import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 
 interface ConversionOption {
@@ -83,6 +85,7 @@ const ImageConverter = ({ preselectedConversion }: ImageConverterProps) => {
   const [isConverting, setIsConverting] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
   const [availableFormats, setAvailableFormats] = useState<ConversionOption[]>([]);
+  const [quality, setQuality] = useState(85);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -199,6 +202,10 @@ const ImageConverter = ({ preselectedConversion }: ImageConverterProps) => {
       
       ctx.drawImage(img, 0, 0);
 
+      // Use quality setting for JPEG and WebP
+      const qualityValue = quality / 100;
+      const useQuality = formatOption.mimeType === "image/jpeg" || formatOption.mimeType === "image/webp";
+
       // Convert to blob
       const blob = await new Promise<Blob>((resolve, reject) => {
         canvas.toBlob(
@@ -207,7 +214,7 @@ const ImageConverter = ({ preselectedConversion }: ImageConverterProps) => {
             else reject(new Error("Failed to convert image"));
           },
           formatOption.mimeType,
-          0.92
+          useQuality ? qualityValue : undefined
         );
       });
 
@@ -346,11 +353,12 @@ const ImageConverter = ({ preselectedConversion }: ImageConverterProps) => {
 
           {/* Conversion Controls */}
           <div className="bg-card rounded-2xl p-6 border border-border">
-            <div className="flex flex-col sm:flex-row items-center gap-4">
-              <div className="flex-1 w-full">
-                <label className="block text-sm font-medium mb-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-4">
+              {/* Format Selection */}
+              <div>
+                <Label className="block text-sm font-medium mb-2">
                   Convert to:
-                </label>
+                </Label>
                 <Select value={selectedFormat} onValueChange={setSelectedFormat}>
                   <SelectTrigger className="w-full bg-secondary border-border">
                     <SelectValue placeholder="Select output format" />
@@ -369,35 +377,57 @@ const ImageConverter = ({ preselectedConversion }: ImageConverterProps) => {
                 </Select>
               </div>
 
-              <div className="flex gap-3 w-full sm:w-auto">
-                {!convertedBlob ? (
-                  <Button
-                    onClick={convertImage}
-                    disabled={!selectedFormat || isConverting}
-                    className="flex-1 sm:flex-none bg-gradient-orange hover:opacity-90 text-primary-foreground font-semibold"
-                  >
-                    {isConverting ? (
-                      <>
-                        <Loader2 className="w-4 h-4 animate-spin" />
-                        Converting...
-                      </>
-                    ) : (
-                      <>
-                        <ImageIcon className="w-4 h-4" />
-                        Convert
-                      </>
-                    )}
-                  </Button>
-                ) : (
-                  <Button
-                    onClick={downloadImage}
-                    className="flex-1 sm:flex-none bg-brand-green hover:bg-brand-green/90 text-primary-foreground font-semibold"
-                  >
-                    <Download className="w-4 h-4" />
-                    Download {selectedFormat.toUpperCase()}
-                  </Button>
-                )}
+              {/* Quality Slider */}
+              <div>
+                <div className="flex items-center justify-between mb-2">
+                  <Label className="text-sm font-medium flex items-center gap-1.5">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    Output Quality
+                  </Label>
+                  <span className="text-sm font-medium text-primary">{quality}%</span>
+                </div>
+                <Slider
+                  value={[quality]}
+                  onValueChange={(value) => setQuality(value[0])}
+                  min={10}
+                  max={100}
+                  step={5}
+                  className="w-full"
+                />
+                <p className="text-xs text-muted-foreground mt-1.5">
+                  Applies to JPEG & WebP outputs.
+                </p>
               </div>
+            </div>
+
+            <div className="flex gap-3 w-full sm:w-auto">
+              {!convertedBlob ? (
+                <Button
+                  onClick={convertImage}
+                  disabled={!selectedFormat || isConverting}
+                  className="flex-1 sm:flex-none bg-gradient-orange hover:opacity-90 text-primary-foreground font-semibold"
+                >
+                  {isConverting ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      Converting...
+                    </>
+                  ) : (
+                    <>
+                      <ImageIcon className="w-4 h-4" />
+                      Convert
+                    </>
+                  )}
+                </Button>
+              ) : (
+                <Button
+                  onClick={downloadImage}
+                  className="flex-1 sm:flex-none bg-brand-green hover:bg-brand-green/90 text-primary-foreground font-semibold"
+                >
+                  <Download className="w-4 h-4" />
+                  Download {selectedFormat.toUpperCase()}
+                </Button>
+              )}
             </div>
           </div>
 
