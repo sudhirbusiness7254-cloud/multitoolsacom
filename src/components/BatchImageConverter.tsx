@@ -21,6 +21,7 @@ interface BatchFile {
   previewUrl: string;
   convertedPreviewUrl: string | null;
   sourceFormat: string;
+  convertedFormat: string;
 }
 
 const formatOptions: { value: OutputFormat; label: string; mimeType: string }[] = [
@@ -84,6 +85,7 @@ const BatchImageConverter = () => {
         previewUrl: URL.createObjectURL(file),
         convertedPreviewUrl: null,
         sourceFormat: getSourceFormat(file.type),
+        convertedFormat: '',
       }));
 
     if (newFiles.length === 0) {
@@ -211,6 +213,7 @@ const BatchImageConverter = () => {
                 convertedBlob: blob,
                 convertedSize: blob.size,
                 convertedPreviewUrl,
+                convertedFormat: outputFormat.toUpperCase(),
               } 
             : f
         ));
@@ -412,11 +415,11 @@ const BatchImageConverter = () => {
                     <span className="px-1.5 py-0.5 bg-secondary/90 rounded text-foreground font-medium">
                       {file.sourceFormat}
                     </span>
-                    {file.status === 'completed' && (
+                    {file.status === 'completed' && file.convertedFormat && (
                       <>
                         <ArrowRight className="w-3 h-3 text-primary" />
                         <span className="px-1.5 py-0.5 bg-primary/90 rounded text-primary-foreground font-medium">
-                          {outputFormat.toUpperCase()}
+                          {file.convertedFormat}
                         </span>
                       </>
                     )}
@@ -587,11 +590,11 @@ const BatchImageConverter = () => {
                     <p className="font-medium truncate">{zoomFile.file.name}</p>
                     <div className="flex items-center gap-3 text-sm text-muted-foreground">
                       <span>{zoomFile.sourceFormat} • {formatBytes(zoomFile.originalSize)}</span>
-                      {zoomFile.status === 'completed' && (
+                      {zoomFile.status === 'completed' && zoomFile.convertedFormat && (
                         <>
                           <ArrowRight className="w-4 h-4" />
                           <span className="text-primary font-medium">
-                            {outputFormat.toUpperCase()} • {formatBytes(zoomFile.convertedSize)}
+                            {zoomFile.convertedFormat} • {formatBytes(zoomFile.convertedSize)}
                           </span>
                         </>
                       )}
@@ -621,7 +624,7 @@ const BatchImageConverter = () => {
                         </div>
                       </div>
                       <div className="space-y-1">
-                        <p className="text-xs font-medium text-primary">Converted ({outputFormat.toUpperCase()})</p>
+                        <p className="text-xs font-medium text-primary">Converted ({zoomFile.convertedFormat})</p>
                         <div className="rounded-lg overflow-hidden bg-secondary/30 aspect-video border-2 border-primary/30">
                           <img 
                             src={zoomFile.convertedPreviewUrl}
