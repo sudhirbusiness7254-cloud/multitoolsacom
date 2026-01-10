@@ -1,11 +1,12 @@
 import { useState, useCallback, useRef } from "react";
-import { Download, Loader2, Settings, FileImage, CheckCircle2, Sparkles, FileType, X, Trash2, Upload, Package } from "lucide-react";
+import { Download, Loader2, Settings, FileImage, CheckCircle2, Sparkles, FileType, X, Trash2, Upload, Package, FileArchive } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import { Progress } from "@/components/ui/progress";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
+import JSZip from "jszip";
 
 type OutputFormat = 'auto' | 'jpeg' | 'webp' | 'png';
 
@@ -257,6 +258,50 @@ const BatchImageCompressor = () => {
     link.click();
   }, []);
 
+  const [isDownloadingZip, setIsDownloadingZip] = useState(false);
+
+  const downloadAsZip = useCallback(async () => {
+    const completedFiles = files.filter(f => f.status === 'completed' && f.compressedBlob);
+    if (completedFiles.length === 0) {
+      toast.error("No compressed images to download");
+      return;
+    }
+
+    setIsDownloadingZip(true);
+    
+    try {
+      const zip = new JSZip();
+      
+      for (const file of completedFiles) {
+        if (file.compressedBlob) {
+          const baseName = file.file.name.replace(/\.[^/.]+$/, "");
+          const extension = getOutputExtension(file.outputMimeType);
+          const fileName = `${baseName}_compressed.${extension}`;
+          zip.file(fileName, file.compressedBlob);
+        }
+      }
+
+      const zipBlob = await zip.generateAsync({ 
+        type: "blob",
+        compression: "DEFLATE",
+        compressionOptions: { level: 6 }
+      });
+
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(zipBlob);
+      link.download = `compressed_images_${Date.now()}.zip`;
+      link.click();
+      URL.revokeObjectURL(link.href);
+
+      toast.success(`Downloaded ${completedFiles.length} images as ZIP`);
+    } catch (error) {
+      console.error("Error creating ZIP:", error);
+      toast.error("Failed to create ZIP file");
+    } finally {
+      setIsDownloadingZip(false);
+    }
+  }, [files]);
+
   const downloadAll = useCallback(async () => {
     const completedFiles = files.filter(f => f.status === 'completed' && f.compressedBlob);
     if (completedFiles.length === 0) {
@@ -485,12 +530,13 @@ const BatchImageCompressor = () => {
           )}
 
           {/* Action Buttons */}
-          <div className="flex gap-3">
+          <div className="flex flex-col gap-3">
+            {/* Compress Button */}
             {completedCount < files.length && (
               <Button
                 onClick={compressAllImages}
-                disabled={isProcessing}
-                className="flex-1 bg-gradient-orange hover:opacity-90 text-primary-foreground h-12 text-lg font-semibold"
+                disabled={isProcessing || isDownloadingZip}
+                className="w-full bg-gradient-orange hover:opacity-90 text-primary-foreground h-12 text-lg font-semibold"
               >
                 {isProcessing ? (
                   <>
@@ -506,18 +552,43 @@ const BatchImageCompressor = () => {
               </Button>
             )}
             
+            {/* Download Buttons */}
             {completedCount > 0 && (
-              <Button
-                onClick={downloadAll}
-                variant={completedCount < files.length ? "outline" : "default"}
-                className={cn(
-                  "h-12 text-lg font-semibold",
-                  completedCount === files.length && "flex-1 bg-gradient-orange hover:opacity-90 text-primary-foreground"
-                )}
-              >
-                <Package className="w-5 h-5 mr-2" />
-                Download All ({completedCount})
-              </Button>
+              <div className="flex gap-3">
+                {/* Download as ZIP - Primary option */}
+                <Button
+                  onClick={downloadAsZip}
+                  disabled={isDownloadingZip || isProcessing}
+                  className={cn(
+                    "flex-1 h-12 text-lg font-semibold",
+                    completedCount === files.length && "bg-gradient-orange hover:opacity-90 text-primary-foreground"
+                  )}
+                  variant={completedCount < files.length ? "outline" : "default"}
+                >
+                  {isDownloadingZip ? (
+                    <>
+                      <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                      Creating ZIP...
+                    </>
+                  ) : (
+                    <>
+                      <FileArchive className="w-5 h-5 mr-2" />
+                      Download ZIP ({completedCount})
+                    </>
+                  )}
+                </Button>
+
+                {/* Download individually */}
+                <Button
+                  onClick={downloadAll}
+                  variant="outline"
+                  disabled={isDownloadingZip || isProcessing}
+                  className="h-12"
+                  title="Download files individually"
+                >
+                  <Download className="w-5 h-5" />
+                </Button>
+              </div>
             )}
           </div>
         </div>
