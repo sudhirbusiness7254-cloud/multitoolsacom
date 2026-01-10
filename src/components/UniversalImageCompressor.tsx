@@ -1,10 +1,12 @@
 import { useState, useCallback } from "react";
-import { Download, Loader2, Settings, FileImage, CheckCircle2, Sparkles, FileType } from "lucide-react";
+import { Download, Loader2, Settings, FileImage, CheckCircle2, Sparkles, FileType, LayoutGrid, SplitSquareHorizontal } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import { Progress } from "@/components/ui/progress";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import DragDropUpload from "@/components/DragDropUpload";
+import ImageComparisonSlider from "@/components/ImageComparisonSlider";
 import { toast } from "sonner";
 
 type OutputFormat = 'auto' | 'jpeg' | 'webp' | 'png';
@@ -29,6 +31,7 @@ const UniversalImageCompressor = () => {
   const [progress, setProgress] = useState(0);
   const [detectedFormat, setDetectedFormat] = useState<string>("");
   const [outputMimeType, setOutputMimeType] = useState<string>('image/jpeg');
+  const [comparisonView, setComparisonView] = useState<'slider' | 'side-by-side'>('slider');
 
   const formatBytes = (bytes: number) => {
     if (bytes === 0) return "0 Bytes";
@@ -350,38 +353,69 @@ const UniversalImageCompressor = () => {
           {compressedBlob && (
             <div className="bg-card rounded-2xl border border-border p-6 space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
               {/* Success Header */}
-              <div className="flex items-center gap-3 text-green-500">
-                <CheckCircle2 className="w-6 h-6" />
-                <span className="font-semibold text-lg">Compression Complete!</span>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3 text-green-500">
+                  <CheckCircle2 className="w-6 h-6" />
+                  <span className="font-semibold text-lg">Compression Complete!</span>
+                </div>
+                
+                {/* View Mode Toggle */}
+                <Tabs value={comparisonView} onValueChange={(v) => setComparisonView(v as 'slider' | 'side-by-side')} className="w-auto">
+                  <TabsList className="grid grid-cols-2 h-9">
+                    <TabsTrigger value="slider" className="px-3 text-xs gap-1.5">
+                      <SplitSquareHorizontal className="w-3.5 h-3.5" />
+                      Slider
+                    </TabsTrigger>
+                    <TabsTrigger value="side-by-side" className="px-3 text-xs gap-1.5">
+                      <LayoutGrid className="w-3.5 h-3.5" />
+                      Side by Side
+                    </TabsTrigger>
+                  </TabsList>
+                </Tabs>
               </div>
 
-              {/* Preview Comparison */}
-              <div className="grid md:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <h4 className="text-sm font-medium text-muted-foreground">Original</h4>
-                  <div className="rounded-xl overflow-hidden bg-secondary/30 aspect-video flex items-center justify-center">
-                    {originalPreviewUrl && (
-                      <img 
-                        src={originalPreviewUrl} 
-                        alt="Original" 
-                        className="max-w-full max-h-full object-contain"
+              {/* Comparison Views */}
+              {originalPreviewUrl && previewUrl && (
+                <>
+                  {comparisonView === 'slider' ? (
+                    <div className="space-y-3">
+                      <ImageComparisonSlider
+                        originalSrc={originalPreviewUrl}
+                        compressedSrc={previewUrl}
+                        originalLabel={`Original (${formatBytes(originalSize)})`}
+                        compressedLabel={`Compressed (${formatBytes(compressedSize)})`}
+                        className="border border-border"
                       />
-                    )}
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <h4 className="text-sm font-medium text-muted-foreground">Compressed</h4>
-                  <div className="rounded-xl overflow-hidden bg-secondary/30 aspect-video flex items-center justify-center border-2 border-primary/30">
-                    {previewUrl && (
-                      <img 
-                        src={previewUrl} 
-                        alt="Compressed" 
-                        className="max-w-full max-h-full object-contain"
-                      />
-                    )}
-                  </div>
-                </div>
-              </div>
+                      <p className="text-xs text-center text-muted-foreground">
+                        Drag the slider to compare original and compressed image quality
+                      </p>
+                    </div>
+                  ) : (
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <h4 className="text-sm font-medium text-muted-foreground">Original ({formatBytes(originalSize)})</h4>
+                        <div className="rounded-xl overflow-hidden bg-secondary/30 aspect-video flex items-center justify-center border border-border">
+                          <img 
+                            src={originalPreviewUrl} 
+                            alt="Original" 
+                            className="max-w-full max-h-full object-contain"
+                          />
+                        </div>
+                      </div>
+                      <div className="space-y-2">
+                        <h4 className="text-sm font-medium text-muted-foreground">Compressed ({formatBytes(compressedSize)})</h4>
+                        <div className="rounded-xl overflow-hidden bg-secondary/30 aspect-video flex items-center justify-center border-2 border-primary/30">
+                          <img 
+                            src={previewUrl} 
+                            alt="Compressed" 
+                            className="max-w-full max-h-full object-contain"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </>
+              )}
 
               {/* Size Comparison */}
               <div className="grid grid-cols-3 gap-4">
