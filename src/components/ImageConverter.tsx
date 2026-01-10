@@ -1,10 +1,11 @@
 import { useState, useRef, useCallback, useEffect } from "react";
-import { Upload, Download, Image as ImageIcon, ArrowRight, X, Loader2, Sparkles } from "lucide-react";
+import { Upload, Download, Image as ImageIcon, ArrowRight, X, Loader2, Sparkles, SplitSquareHorizontal, Columns } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Slider } from "@/components/ui/slider";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
+import ImageComparisonSlider from "./ImageComparisonSlider";
 
 interface ConversionOption {
   value: string;
@@ -86,6 +87,8 @@ const ImageConverter = ({ preselectedConversion }: ImageConverterProps) => {
   const [isDragging, setIsDragging] = useState(false);
   const [availableFormats, setAvailableFormats] = useState<ConversionOption[]>([]);
   const [quality, setQuality] = useState(85);
+  const [comparisonMode, setComparisonMode] = useState<'side-by-side' | 'slider'>('side-by-side');
+  const [convertedBlobUrl, setConvertedBlobUrl] = useState<string>("");
   const fileInputRef = useRef<HTMLInputElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -219,6 +222,11 @@ const ImageConverter = ({ preselectedConversion }: ImageConverterProps) => {
       });
 
       setConvertedBlob(blob);
+      // Create a stable URL for comparison slider
+      if (convertedBlobUrl) {
+        URL.revokeObjectURL(convertedBlobUrl);
+      }
+      setConvertedBlobUrl(URL.createObjectURL(blob));
       toast.success(`Image converted to ${formatOption.label} successfully!`);
     } catch (error) {
       console.error("Conversion error:", error);
@@ -254,6 +262,10 @@ const ImageConverter = ({ preselectedConversion }: ImageConverterProps) => {
     setSelectedFormat("");
     setConvertedBlob(null);
     setAvailableFormats([]);
+    if (convertedBlobUrl) {
+      URL.revokeObjectURL(convertedBlobUrl);
+      setConvertedBlobUrl("");
+    }
     if (fileInputRef.current) {
       fileInputRef.current.value = "";
     }
@@ -314,41 +326,77 @@ const ImageConverter = ({ preselectedConversion }: ImageConverterProps) => {
             >
               <X className="w-4 h-4" />
             </button>
-            
-            <div className="flex flex-col md:flex-row items-center gap-6">
-              <div className="flex-1 flex justify-center">
-                <div className="relative max-w-sm">
-                  <img
-                    src={imagePreview}
-                    alt="Preview"
-                    className="max-h-64 md:max-h-80 w-auto rounded-xl shadow-lg object-contain"
-                  />
-                  <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-secondary rounded-full text-xs font-medium text-primary border border-border">
-                    {getSourceFormat(uploadedImage.type)}
-                  </div>
-                </div>
-              </div>
 
-              {selectedFormat && convertedBlob && (
-                <>
-                  <div className="flex items-center">
-                    <ArrowRight className="w-8 h-8 text-primary" />
-                  </div>
-                  <div className="flex-1 flex justify-center">
-                    <div className="relative max-w-sm">
-                      <img
-                        src={URL.createObjectURL(convertedBlob)}
-                        alt="Converted"
-                        className="max-h-64 md:max-h-80 w-auto rounded-xl shadow-lg object-contain"
-                      />
-                      <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-primary rounded-full text-xs font-medium text-primary-foreground">
-                        {selectedFormat.toUpperCase()}
-                      </div>
+            {/* View Mode Toggle - Only show when converted */}
+            {selectedFormat && convertedBlob && convertedBlobUrl && (
+              <div className="flex justify-center gap-2 mb-4">
+                <Button
+                  variant={comparisonMode === 'side-by-side' ? 'default' : 'outline'}
+                  size="sm"
+                  onClick={() => setComparisonMode('side-by-side')}
+                  className="gap-1.5"
+                >
+                  <Columns className="w-4 h-4" />
+                  Side by Side
+                </Button>
+                <Button
+                  variant={comparisonMode === 'slider' ? 'default' : 'outline'}
+                  size="sm"
+                  onClick={() => setComparisonMode('slider')}
+                  className="gap-1.5"
+                >
+                  <SplitSquareHorizontal className="w-4 h-4" />
+                  Comparison Slider
+                </Button>
+              </div>
+            )}
+
+            {/* Comparison Slider View */}
+            {selectedFormat && convertedBlob && convertedBlobUrl && comparisonMode === 'slider' ? (
+              <ImageComparisonSlider
+                originalSrc={imagePreview}
+                compressedSrc={convertedBlobUrl}
+                originalLabel={`Original (${getSourceFormat(uploadedImage.type)})`}
+                compressedLabel={`Converted (${selectedFormat.toUpperCase()})`}
+                className="max-w-2xl mx-auto"
+              />
+            ) : (
+              /* Side by Side View */
+              <div className="flex flex-col md:flex-row items-center gap-6">
+                <div className="flex-1 flex justify-center">
+                  <div className="relative max-w-sm">
+                    <img
+                      src={imagePreview}
+                      alt="Preview"
+                      className="max-h-64 md:max-h-80 w-auto rounded-xl shadow-lg object-contain"
+                    />
+                    <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-secondary rounded-full text-xs font-medium text-primary border border-border">
+                      {getSourceFormat(uploadedImage.type)}
                     </div>
                   </div>
-                </>
-              )}
-            </div>
+                </div>
+
+                {selectedFormat && convertedBlob && convertedBlobUrl && (
+                  <>
+                    <div className="flex items-center">
+                      <ArrowRight className="w-8 h-8 text-primary" />
+                    </div>
+                    <div className="flex-1 flex justify-center">
+                      <div className="relative max-w-sm">
+                        <img
+                          src={convertedBlobUrl}
+                          alt="Converted"
+                          className="max-h-64 md:max-h-80 w-auto rounded-xl shadow-lg object-contain"
+                        />
+                        <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-primary rounded-full text-xs font-medium text-primary-foreground">
+                          {selectedFormat.toUpperCase()}
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                )}
+              </div>
+            )}
           </div>
 
           {/* Conversion Controls */}
