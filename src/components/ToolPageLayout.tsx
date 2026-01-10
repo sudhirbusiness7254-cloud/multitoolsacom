@@ -134,7 +134,17 @@ const ToolPageLayout = ({
           <section className="py-12 md:py-16 px-4">
             <div className="container mx-auto max-w-4xl">
               <h2 className="text-2xl md:text-3xl font-bold mb-6">What is {title}?</h2>
-              <p className="text-muted-foreground leading-relaxed">{introduction}</p>
+              <p className="text-muted-foreground leading-relaxed mb-6">{introduction}</p>
+              
+              {/* Privacy Guarantee Box */}
+              <div className="bg-green-500/10 border border-green-500/30 rounded-xl p-6 mt-8">
+                <h3 className="text-lg font-semibold text-green-500 mb-2">🔒 Your Privacy is Guaranteed</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  All processing happens directly in your browser. Your images are never uploaded to any server, 
+                  ensuring complete privacy and security. Once you close this page, all image data is automatically 
+                  cleared from memory. No account required, no data stored, no tracking of your files.
+                </p>
+              </div>
             </div>
           </section>
 
@@ -194,6 +204,28 @@ const ToolPageLayout = ({
               <h2 className="text-2xl md:text-3xl font-bold mb-6">Why Choose Our {title}?</h2>
               <div className="prose prose-invert max-w-none">
                 <p className="text-muted-foreground leading-relaxed whitespace-pre-line">{article}</p>
+              </div>
+            </div>
+          </section>
+
+          {/* Who Can Use This Tool */}
+          <section className="py-12 md:py-16 px-4">
+            <div className="container mx-auto max-w-4xl">
+              <h2 className="text-2xl md:text-3xl font-bold mb-6">Who Can Benefit From This Tool?</h2>
+              <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+                {[
+                  { title: "Web Developers", desc: "Optimize images for faster websites and better Core Web Vitals." },
+                  { title: "Graphic Designers", desc: "Convert and edit images for client projects efficiently." },
+                  { title: "Content Creators", desc: "Prepare images for social media, blogs, and videos." },
+                  { title: "Photographers", desc: "Process and convert photos between professional formats." },
+                  { title: "Marketing Teams", desc: "Create optimized visual assets for campaigns." },
+                  { title: "Small Businesses", desc: "Edit product images without expensive software." }
+                ].map((user, i) => (
+                  <div key={i} className="bg-card rounded-xl p-4 border border-border">
+                    <h3 className="font-semibold mb-2">{user.title}</h3>
+                    <p className="text-sm text-muted-foreground">{user.desc}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </section>
