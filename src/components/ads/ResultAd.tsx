@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useInViewport } from "@/hooks/useInViewport";
 
 interface ResultAdProps {
   show: boolean;
@@ -7,12 +8,16 @@ interface ResultAdProps {
 }
 
 const ResultAd = ({ show, className = "" }: ResultAdProps) => {
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [adReady, setAdReady] = useState(false);
 
+  // Only load ad when visible in viewport (with 50px margin)
+  const isInViewport = useInViewport(wrapperRef, { rootMargin: "50px", triggerOnce: true });
+
   useEffect(() => {
-    if (!containerRef.current || !show || isLoaded) return;
+    if (!containerRef.current || !show || isLoaded || !isInViewport) return;
 
     // Create ad script for result area (using iframe ad)
     const optionsScript = document.createElement("script");
@@ -36,12 +41,13 @@ const ResultAd = ({ show, className = "" }: ResultAdProps) => {
     containerRef.current.appendChild(optionsScript);
     containerRef.current.appendChild(invokeScript);
     setIsLoaded(true);
-  }, [show, isLoaded]);
+  }, [show, isLoaded, isInViewport]);
 
   if (!show) return null;
 
   return (
     <div 
+      ref={wrapperRef}
       className={`w-full flex justify-center py-6 mt-6 border-t border-border relative min-h-[120px] ${className}`}
       aria-label="Advertisement"
     >
