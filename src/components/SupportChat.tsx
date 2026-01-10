@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { MessageSquare, Send, X, Bot, User, Loader2, Sparkles, Trash2, Minus, Maximize2 } from "lucide-react";
+import { MessageSquare, Send, X, Bot, User, Loader2, Sparkles, Trash2, Minus, Maximize2, Volume2, VolumeX } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -34,12 +34,36 @@ const getInitialMessages = (): Message[] => {
   ];
 };
 
+// Simple notification sound using Web Audio API
+const playNotificationSound = () => {
+  try {
+    const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
+    const oscillator = audioContext.createOscillator();
+    const gainNode = audioContext.createGain();
+    
+    oscillator.connect(gainNode);
+    gainNode.connect(audioContext.destination);
+    
+    oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
+    oscillator.frequency.setValueAtTime(600, audioContext.currentTime + 0.1);
+    
+    gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
+    
+    oscillator.start(audioContext.currentTime);
+    oscillator.stop(audioContext.currentTime + 0.3);
+  } catch (e) {
+    // Audio not supported or blocked
+  }
+};
+
 const SupportChat = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
   const [messages, setMessages] = useState<Message[]>(getInitialMessages);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [soundEnabled, setSoundEnabled] = useState(true);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -138,6 +162,10 @@ const SupportChat = () => {
 
     try {
       await streamChat(updatedMessages.slice(1)); // Skip initial greeting
+      // Play sound when response is complete
+      if (soundEnabled) {
+        playNotificationSound();
+      }
     } catch (error) {
       console.error("Chat error:", error);
       toast.error(error instanceof Error ? error.message : "Failed to get response");
@@ -219,13 +247,22 @@ const SupportChat = () => {
               {!isMinimized && <p className="text-xs opacity-80">Ask anything about our tools</p>}
             </div>
             {!isMinimized && (
-              <button
-                onClick={clearChat}
-                className="p-1 hover:bg-primary-foreground/20 rounded-lg transition-colors"
-                title="Clear chat"
-              >
-                <Trash2 className="w-4 h-4" />
-              </button>
+              <>
+                <button
+                  onClick={() => setSoundEnabled(!soundEnabled)}
+                  className="p-1 hover:bg-primary-foreground/20 rounded-lg transition-colors"
+                  title={soundEnabled ? "Mute notifications" : "Enable notifications"}
+                >
+                  {soundEnabled ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
+                </button>
+                <button
+                  onClick={clearChat}
+                  className="p-1 hover:bg-primary-foreground/20 rounded-lg transition-colors"
+                  title="Clear chat"
+                >
+                  <Trash2 className="w-4 h-4" />
+                </button>
+              </>
             )}
             <button
               onClick={(e) => {
