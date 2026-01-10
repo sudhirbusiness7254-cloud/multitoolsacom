@@ -1,8 +1,10 @@
 import { useState, useCallback, useRef } from "react";
-import { Download, Loader2, FileImage, X, Trash2, Upload, FileArchive, ZoomIn, ArrowRight } from "lucide-react";
+import { Download, Loader2, FileImage, X, Trash2, Upload, FileArchive, ZoomIn, ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Slider } from "@/components/ui/slider";
+import { Label } from "@/components/ui/label";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
@@ -35,6 +37,7 @@ const formatOptions: { value: OutputFormat; label: string; mimeType: string }[] 
 const BatchImageConverter = () => {
   const [files, setFiles] = useState<BatchFile[]>([]);
   const [outputFormat, setOutputFormat] = useState<OutputFormat>('jpg');
+  const [quality, setQuality] = useState(85);
   const [isProcessing, setIsProcessing] = useState(false);
   const [overallProgress, setOverallProgress] = useState(0);
   const [isDownloadingZip, setIsDownloadingZip] = useState(false);
@@ -172,6 +175,11 @@ const BatchImageConverter = () => {
         
         ctx.drawImage(img, 0, 0);
 
+        // Use quality setting for JPEG and WebP
+        const qualityValue = quality / 100;
+        const mimeType = formatOption?.mimeType || "image/jpeg";
+        const useQuality = mimeType === "image/jpeg" || mimeType === "image/webp";
+
         canvas.toBlob(
           (blob) => {
             if (blob) {
@@ -180,8 +188,8 @@ const BatchImageConverter = () => {
               reject(new Error("Failed to convert image"));
             }
           },
-          formatOption?.mimeType || "image/jpeg",
-          0.92
+          mimeType,
+          useQuality ? qualityValue : undefined
         );
       };
 
@@ -363,20 +371,45 @@ const BatchImageConverter = () => {
         <div className="space-y-4">
           {/* Settings Row */}
           <div className="bg-card rounded-xl border border-border p-4">
-            <div className="flex items-center gap-4">
-              <label className="text-sm font-medium whitespace-nowrap">Convert all to:</label>
-              <Select value={outputFormat} onValueChange={(v) => setOutputFormat(v as OutputFormat)}>
-                <SelectTrigger className="w-40">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  {formatOptions.map((option) => (
-                    <SelectItem key={option.value} value={option.value}>
-                      {option.label}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {/* Format Selection */}
+              <div>
+                <Label className="text-sm font-medium mb-2 block">Convert all to:</Label>
+                <Select value={outputFormat} onValueChange={(v) => setOutputFormat(v as OutputFormat)}>
+                  <SelectTrigger className="w-full">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {formatOptions.map((option) => (
+                      <SelectItem key={option.value} value={option.value}>
+                        {option.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+
+              {/* Quality Slider */}
+              <div>
+                <div className="flex items-center justify-between mb-2">
+                  <Label className="text-sm font-medium flex items-center gap-1.5">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    Output Quality
+                  </Label>
+                  <span className="text-sm font-medium text-primary">{quality}%</span>
+                </div>
+                <Slider
+                  value={[quality]}
+                  onValueChange={(value) => setQuality(value[0])}
+                  min={10}
+                  max={100}
+                  step={5}
+                  className="w-full"
+                />
+                <p className="text-xs text-muted-foreground mt-1.5">
+                  Applies to JPEG & WebP. Lower = smaller files.
+                </p>
+              </div>
             </div>
           </div>
 
