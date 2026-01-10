@@ -1,14 +1,18 @@
+import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import CategoryPageLayout from "@/components/CategoryPageLayout";
 import UniversalImageCompressor from "@/components/UniversalImageCompressor";
+import BatchImageCompressor from "@/components/BatchImageCompressor";
 import { getCategoryBySlug } from "@/data/toolsData";
 import { getCategorySEOContent } from "@/data/categorySEOData";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { CheckCircle, Shield, Zap, FileDown, Lock, Eye, Settings, HardDrive } from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { CheckCircle, Shield, Zap, FileDown, Lock, Eye, Settings, HardDrive, Image, Layers } from "lucide-react";
 
 const ImageCompressionPage = () => {
   const category = getCategoryBySlug("image-compression")!;
   const seoContent = getCategorySEOContent("image-compression")!;
+  const [activeTab, setActiveTab] = useState("single");
 
   const faqs = [
     {
@@ -77,7 +81,27 @@ const ImageCompressionPage = () => {
       </Helmet>
 
       <CategoryPageLayout category={category} seoContent={seoContent}>
-        <UniversalImageCompressor />
+        {/* Mode Tabs */}
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+          <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-8">
+            <TabsTrigger value="single" className="gap-2">
+              <Image className="w-4 h-4" />
+              Single Image
+            </TabsTrigger>
+            <TabsTrigger value="batch" className="gap-2">
+              <Layers className="w-4 h-4" />
+              Batch Mode
+            </TabsTrigger>
+          </TabsList>
+          
+          <TabsContent value="single" className="mt-0">
+            <UniversalImageCompressor />
+          </TabsContent>
+          
+          <TabsContent value="batch" className="mt-0">
+            <BatchImageCompressor />
+          </TabsContent>
+        </Tabs>
 
         {/* Comprehensive About Section - 1000+ words */}
         <section className="mt-16 space-y-8">
