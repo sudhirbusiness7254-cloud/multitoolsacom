@@ -117,6 +117,7 @@ const Footer = () => {
           <Link to="/" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">Home</Link>
           <Link to="/all-tools" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">All Tools</Link>
           <Link to="/pdf-tools" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">PDF Tools</Link>
+          <Link to="/tutorials" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">Tutorials</Link>
           <Link to="/about" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">About</Link>
           <Link to="/blog" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">Blog</Link>
           <Link to="/faq" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">FAQ</Link>
