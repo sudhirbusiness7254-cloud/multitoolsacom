@@ -88,7 +88,7 @@ const Footer = () => {
           
           
           <h4 className="font-semibold text-foreground mb-3 sm:mb-4 text-center text-sm sm:text-base">Popular Image Tools</h4>
-          <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2 mb-6">
+          <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2">
             {[
               { name: "JPG to PNG", route: "/jpg-to-png" },
               { name: "PNG to JPG", route: "/png-to-jpg" },
@@ -98,6 +98,7 @@ const Footer = () => {
               { name: "Image Crop", route: "/image-crop" },
               { name: "Rotate Image", route: "/image-rotate-flip" },
               { name: "Watermark", route: "/watermark-tools" },
+              { name: "Tag Extractor", route: "/tag-extractor" },
             ].map((item) => (
               <Link 
                 key={item.route} 
@@ -107,40 +108,6 @@ const Footer = () => {
                 {item.name}
               </Link>
             ))}
-          </div>
-          
-          <h4 className="font-semibold text-foreground mb-3 sm:mb-4 text-center text-sm sm:text-base">AI Tools</h4>
-          <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2 mb-6">
-            <Link 
-              to="/text-to-image"
-              className="px-2 sm:px-3 py-1 bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/30 rounded-full text-[10px] sm:text-xs text-purple-500 hover:from-purple-500 hover:to-pink-500 hover:text-white transition-all"
-            >
-              ✨ Text to Image
-            </Link>
-            <Link 
-              to="/ai-image-enhance"
-              className="px-2 sm:px-3 py-1 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 border border-blue-500/30 rounded-full text-[10px] sm:text-xs text-blue-500 hover:from-blue-500 hover:to-cyan-500 hover:text-white transition-all"
-            >
-              ⚡ AI Enhance
-            </Link>
-            <Link 
-              to="/ai-background-remove"
-              className="px-2 sm:px-3 py-1 bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-500/30 rounded-full text-[10px] sm:text-xs text-green-500 hover:from-green-500 hover:to-emerald-500 hover:text-white transition-all"
-            >
-              🧹 Remove Background
-            </Link>
-            <Link 
-              to="/ai-image-edit"
-              className="px-2 sm:px-3 py-1 bg-gradient-to-r from-orange-500/20 to-yellow-500/20 border border-orange-500/30 rounded-full text-[10px] sm:text-xs text-orange-500 hover:from-orange-500 hover:to-yellow-500 hover:text-white transition-all"
-            >
-              🪄 AI Edit
-            </Link>
-            <Link 
-              to="/tag-extractor"
-              className="px-2 sm:px-3 py-1 bg-purple-500/10 border border-purple-500/20 rounded-full text-[10px] sm:text-xs text-purple-500 hover:bg-purple-500 hover:text-white transition-colors"
-            >
-              Tag Generator
-            </Link>
           </div>
         </div>
         

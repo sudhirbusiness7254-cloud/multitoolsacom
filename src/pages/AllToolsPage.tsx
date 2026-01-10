@@ -18,11 +18,6 @@ const pdfToolsData = [
   { id: "split-pdf", name: "Split PDF", slug: "split-pdf", description: "Extract pages or split PDF into multiple files", category: "PDF Tools", categorySlug: "pdf-tools", icon: "Scissors", keywords: ["split pdf", "extract pdf pages", "pdf splitter", "divide pdf"] },
 ];
 
-// AI Tools data
-const aiToolsData = [
-  { id: "text-to-image", name: "Text to Image (AI)", slug: "text-to-image", description: "Generate images from text descriptions using Gemini AI", category: "AI Tools", categorySlug: "ai-tools", icon: "Sparkles", keywords: ["text to image", "ai image generator", "gemini", "ai art", "generate image"] },
-];
-
 // Colorful gradient pairs for tools
 const toolGradients = [
   { from: "#FF6B6B", to: "#FF8E53" },
@@ -62,13 +57,7 @@ const AllToolsPage = () => {
       gradient: { from: "#ef4444", to: "#dc2626" } // Red gradient for PDF tools
     }));
     
-    // Add AI tools
-    const aiTools = aiToolsData.map((tool) => ({
-      ...tool,
-      gradient: { from: "#8b5cf6", to: "#ec4899" } // Purple-pink gradient for AI tools
-    }));
-    
-    return [...imageTools, ...pdfTools, ...aiTools];
+    return [...imageTools, ...pdfTools];
   }, []);
 
   const filteredTools = useMemo(() => {

@@ -282,20 +282,6 @@ export const toolCategories: Category[] = [
     ]
   },
   {
-    id: "ai-tools",
-    name: "AI Tools",
-    slug: "ai-tools",
-    description: "AI-powered tools for image generation and more",
-    icon: "Sparkles",
-    priority: 16,
-    tools: [
-      { id: "text-to-image", name: "Text to Image", slug: "text-to-image", description: "Generate images from text descriptions using AI", category: "AI Tools", categorySlug: "ai-tools", icon: "Sparkles", keywords: ["text to image", "ai image generator", "gemini", "ai art", "generate image"] },
-      { id: "ai-image-enhance", name: "AI Image Enhance", slug: "ai-image-enhance", description: "Enhance image quality with AI - sharpen, denoise, upscale, and improve photos", category: "AI Tools", categorySlug: "ai-tools", icon: "Zap", keywords: ["ai enhance", "image enhancement", "photo enhance", "improve quality", "upscale"] },
-      { id: "ai-background-remove", name: "AI Background Remove", slug: "ai-background-remove", description: "Remove or replace image backgrounds instantly with AI", category: "AI Tools", categorySlug: "ai-tools", icon: "Eraser", keywords: ["remove background", "background remover", "transparent background", "bg remove"] },
-      { id: "ai-image-edit", name: "AI Image Edit", slug: "ai-image-edit", description: "Edit images using natural language instructions with AI", category: "AI Tools", categorySlug: "ai-tools", icon: "Wand2", keywords: ["ai edit", "image edit", "photo edit", "ai photo editor", "transform image"] },
-    ]
-  },
-  {
     id: "pdf-tools",
     name: "PDF Tools",
     slug: "pdf-tools",
