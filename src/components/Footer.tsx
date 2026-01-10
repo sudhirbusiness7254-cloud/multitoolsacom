@@ -67,18 +67,6 @@ const Footer = () => {
 
         {/* PDF Tools Quick Links */}
         <div className="border-t border-border pt-6 sm:pt-8 mb-6 sm:mb-8">
-          {/* Testimonials Link */}
-          <div className="flex justify-center mb-6">
-            <Link 
-              to="/reviews"
-              className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full text-sm sm:text-base font-semibold text-white hover:from-yellow-600 hover:to-orange-600 transition-all shadow-lg hover:shadow-xl"
-            >
-              <span>⭐</span>
-              <span>User Reviews & Testimonials</span>
-              <span>⭐</span>
-            </Link>
-          </div>
-
           <h4 className="font-semibold text-foreground mb-3 sm:mb-4 text-center text-sm sm:text-base">PDF Tools</h4>
           <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2 mb-6">
             {[
@@ -98,7 +86,6 @@ const Footer = () => {
               </Link>
             ))}
           </div>
-          
           
           <h4 className="font-semibold text-foreground mb-3 sm:mb-4 text-center text-sm sm:text-base">Popular Image Tools</h4>
           <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2">
@@ -155,7 +142,6 @@ const Footer = () => {
           <Link to="/tutorials" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">Tutorials</Link>
           <Link to="/about" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">About</Link>
           <Link to="/blog" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">Blog</Link>
-          <Link to="/reviews" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">Reviews</Link>
           <Link to="/faq" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">FAQ</Link>
           <Link to="/privacy" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">Privacy</Link>
           <Link to="/terms" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">Terms</Link>
