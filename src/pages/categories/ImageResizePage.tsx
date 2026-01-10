@@ -1,14 +1,18 @@
+import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import CategoryPageLayout from "@/components/CategoryPageLayout";
 import UniversalImageResizer from "@/components/UniversalImageResizer";
+import BatchImageResizer from "@/components/BatchImageResizer";
 import { getCategoryBySlug } from "@/data/toolsData";
 import { getCategorySEOContent } from "@/data/categorySEOData";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { CheckCircle, Shield, Zap, Maximize, Lock, Eye, Settings, Ratio } from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { CheckCircle, Shield, Zap, Maximize, Lock, Eye, Settings, Ratio, Image, Layers } from "lucide-react";
 
 const ImageResizePage = () => {
+  const [activeTab, setActiveTab] = useState("single");
   const category = getCategoryBySlug("image-resize")!;
-  const seoContent = getCategorySEOContent("image-resize")!;
+  const seoContent = getCategorySEOContent("image-resize")!
 
   const faqs = [
     {
@@ -77,7 +81,26 @@ const ImageResizePage = () => {
       </Helmet>
 
       <CategoryPageLayout category={category} seoContent={seoContent}>
-        <UniversalImageResizer />
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+          <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-8">
+            <TabsTrigger value="single" className="gap-2">
+              <Image className="w-4 h-4" />
+              Single Image
+            </TabsTrigger>
+            <TabsTrigger value="batch" className="gap-2">
+              <Layers className="w-4 h-4" />
+              Batch Mode
+            </TabsTrigger>
+          </TabsList>
+          
+          <TabsContent value="single" className="mt-0">
+            <UniversalImageResizer />
+          </TabsContent>
+          
+          <TabsContent value="batch" className="mt-0">
+            <BatchImageResizer />
+          </TabsContent>
+        </Tabs>
 
         {/* Comprehensive About Section - 1000+ words */}
         <section className="mt-16 space-y-8">
