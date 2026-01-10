@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Slider } from "@/components/ui/slider";
 import { Download, RotateCcw, Plus, X, ArrowRight, ArrowDown, Grid, Layers, Upload, GripVertical } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
+import { ResultAd } from "@/components/ads";
 
 type CombineMode = "horizontal" | "vertical" | "collage" | "before-after";
 
@@ -378,6 +379,9 @@ const UniversalImageCombine = ({ initialMode = "horizontal" }: UniversalImageCom
             Download Combined Image
           </Button>
         </div>
+
+        {/* Ad Below Result */}
+        <ResultAd show={!!processedUrl} />
       </div>
     </div>
   );

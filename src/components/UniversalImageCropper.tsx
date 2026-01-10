@@ -6,6 +6,7 @@ import { Progress } from "@/components/ui/progress";
 import { toast } from "sonner";
 import DragDropUpload from "./DragDropUpload";
 import { Download, Square, Circle, RectangleHorizontal, Monitor, Image, Crop, RotateCcw } from "lucide-react";
+import { ResultAd } from "@/components/ads";
 
 type CropMode = "free" | "1:1" | "4:3" | "16:9" | "3:2" | "9:16" | "circle";
 
@@ -511,6 +512,9 @@ const UniversalImageCropper = ({ initialMode = "free" }: UniversalImageCropperPr
           </p>
         </div>
       )}
+
+      {/* Ad Below Result */}
+      <ResultAd show={!!result} />
     </div>
   );
 };
