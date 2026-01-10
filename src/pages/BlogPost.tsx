@@ -1228,7 +1228,7 @@ Stay safe, stay private, and always check your photo metadata before sharing!
     date: "November 18, 2025",
     readTime: "10 min read",
     tags: ["PDF", "Document Conversion", "Productivity"],
-    image: "https://images.unsplash.com/photo-1586953208270-767889f1dea6?w=1200&h=600&fit=crop",
+    image: "https://images.unsplash.com/photo-1568667256549-094345857637?w=1200&h=600&fit=crop",
     content: newBlogContent["pdf-image-tools-complete-guide"]
   },
   "image-cropping-techniques": {
