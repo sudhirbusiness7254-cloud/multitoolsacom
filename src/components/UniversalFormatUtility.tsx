@@ -6,6 +6,7 @@ import { Progress } from "@/components/ui/progress";
 import { toast } from "sonner";
 import DragDropUpload from "./DragDropUpload";
 import { Download, Image, RotateCcw, Palette, Circle, Droplets, Eraser, Layers, Combine } from "lucide-react";
+import { ResultAd } from "@/components/ads";
 
 type UtilityMode = "grayscale" | "blackwhite" | "add-transparency" | "remove-transparency" | "invert" | "sepia";
 
@@ -389,6 +390,9 @@ const UniversalFormatUtility = ({ initialMode = "grayscale" }: UniversalFormatUt
           </div>
         </div>
       )}
+
+      {/* Ad Below Result */}
+      <ResultAd show={!!result} />
     </div>
   );
 };
