@@ -21,8 +21,8 @@ const Footer = () => {
           {/* Brand */}
           <div className="col-span-2 sm:col-span-2 md:col-span-1 lg:col-span-1">
             <div className="flex items-center gap-2 mb-3 sm:mb-4">
-              <img src={logo} alt="MultiTools Logo" className="h-8 w-8" />
-              <h3 className="text-lg sm:text-xl font-bold text-primary">MultiTools</h3>
+              <img src={logo} alt="MultiToolsA Logo" className="h-8 w-8" />
+              <h3 className="text-lg sm:text-xl font-bold text-primary">MultiToolsA</h3>
             </div>
             <p className="text-xs sm:text-sm text-muted-foreground mb-4">
               Free online tools for image conversion, compression, editing, and social media tags.
@@ -139,6 +139,7 @@ const Footer = () => {
           <Link to="/" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">Home</Link>
           <Link to="/all-tools" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">All Tools</Link>
           <Link to="/pdf-tools" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">PDF Tools</Link>
+          <Link to="/tag-extractor" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">Tag Generator</Link>
           <Link to="/tutorials" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">Tutorials</Link>
           <Link to="/about" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">About</Link>
           <Link to="/blog" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">Blog</Link>
@@ -158,7 +159,7 @@ const Footer = () => {
         
         <div className="text-center">
           <p className="text-[10px] sm:text-xs md:text-sm text-muted-foreground">
-            © {new Date().getFullYear()} MultiToolsA. All rights reserved. Made with ❤️ for creators worldwide.
+            © {new Date().getFullYear()} MultiToolsA. All rights reserved.
           </p>
         </div>
       </div>

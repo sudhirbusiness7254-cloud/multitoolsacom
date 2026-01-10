@@ -101,8 +101,8 @@ const Header = () => {
         <div className="flex items-center justify-between gap-3">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity flex-shrink-0">
-            <img src={logo} alt="MultiTools Logo" className="h-8 w-8" />
-            <span className="text-base sm:text-lg md:text-xl font-bold text-primary">MultiTools</span>
+            <img src={logo} alt="MultiToolsA Logo" className="h-8 w-8" />
+            <span className="text-base sm:text-lg md:text-xl font-bold text-primary">MultiToolsA</span>
           </Link>
           
           {/* Desktop Navigation */}
@@ -223,14 +223,6 @@ const Header = () => {
             >
               <FileText className="w-4 h-4" />
               PDF Tools
-            </Link>
-            <Link 
-              to="/tag-extractor" 
-              className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-secondary ${
-                isActive("/tag-extractor") ? "text-primary bg-primary/10" : "text-foreground"
-              }`}
-            >
-              Tag Generator
             </Link>
             
             {/* Theme Toggle */}
