@@ -40,6 +40,7 @@ import PDFToolsPage from "./pages/categories/PDFToolsPage";
 import ImageEditorPage from "./pages/ImageEditorPage";
 import PDFToolPage from "./pages/tools/PDFToolPage";
 import SupportChat from "./components/SupportChat";
+import CookieConsent from "./components/CookieConsent";
 
 const queryClient = new QueryClient();
 
@@ -100,6 +101,7 @@ const App = () => (
             <Route path="*" element={<NotFound />} />
           </Routes>
           <SupportChat />
+          <CookieConsent />
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>

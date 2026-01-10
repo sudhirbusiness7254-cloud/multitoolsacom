@@ -473,17 +473,6 @@ const HomePage = () => {
                   </div>
                 ))}
               </div>
-
-              {/* Link to Reviews Page */}
-              <div className="text-center">
-                <Link 
-                  to="/reviews"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-secondary text-secondary-foreground rounded-lg hover:bg-secondary/80 transition-colors text-sm font-medium"
-                >
-                  Read User Reviews
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
             </div>
           </section>
 
