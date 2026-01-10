@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import DragDropUpload from "@/components/DragDropUpload";
 import { Download, RotateCcw, Minimize2, Globe, RotateCw, ArrowDownToLine } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
+import { ResultAd } from "@/components/ads";
 
 type OptimizationMode = "reduce-size" | "reduce-resolution" | "web-optimize" | "auto-orient";
 
@@ -226,6 +227,9 @@ const UniversalImageOptimization = ({ initialMode = "reduce-size" }: UniversalIm
               Download
             </Button>
           </div>
+
+          {/* Ad Below Result */}
+          <ResultAd show={!!processedUrl} />
         </div>
       )}
     </div>
