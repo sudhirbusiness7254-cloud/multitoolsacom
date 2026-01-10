@@ -67,6 +67,18 @@ const Footer = () => {
 
         {/* PDF Tools Quick Links */}
         <div className="border-t border-border pt-6 sm:pt-8 mb-6 sm:mb-8">
+          {/* Testimonials Link */}
+          <div className="flex justify-center mb-6">
+            <Link 
+              to="/reviews"
+              className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full text-sm sm:text-base font-semibold text-white hover:from-yellow-600 hover:to-orange-600 transition-all shadow-lg hover:shadow-xl"
+            >
+              <span>⭐</span>
+              <span>User Reviews & Testimonials</span>
+              <span>⭐</span>
+            </Link>
+          </div>
+
           <h4 className="font-semibold text-foreground mb-3 sm:mb-4 text-center text-sm sm:text-base">PDF Tools</h4>
           <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2 mb-6">
             {[
