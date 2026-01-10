@@ -1,0 +1,51 @@
+import { useEffect, useRef, useState } from "react";
+
+interface IframeAdProps {
+  className?: string;
+}
+
+const IframeAd = ({ className = "" }: IframeAdProps) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    if (!containerRef.current || isLoaded) return;
+
+    // Create ad script
+    const optionsScript = document.createElement("script");
+    optionsScript.innerHTML = `
+      atOptions = {
+        'key' : '5251d00b938f369c8b531c0ce3b384bb',
+        'format' : 'iframe',
+        'height' : 600,
+        'width' : 160,
+        'params' : {}
+      };
+    `;
+    
+    const invokeScript = document.createElement("script");
+    invokeScript.src = "https://crowdsubsequentadmire.com/5251d00b938f369c8b531c0ce3b384bb/invoke.js";
+    invokeScript.async = true;
+
+    containerRef.current.appendChild(optionsScript);
+    containerRef.current.appendChild(invokeScript);
+    setIsLoaded(true);
+
+    return () => {
+      // Cleanup on unmount
+      if (containerRef.current) {
+        containerRef.current.innerHTML = "";
+      }
+    };
+  }, [isLoaded]);
+
+  return (
+    <div 
+      ref={containerRef}
+      className={`hidden lg:flex flex-col items-center justify-start w-[160px] min-h-[600px] ${className}`}
+      aria-label="Advertisement"
+    />
+  );
+};
+
+export default IframeAd;

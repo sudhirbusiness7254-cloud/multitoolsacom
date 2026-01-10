@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { toolCategories } from "@/data/toolsData";
+import { ToolPageAdsWrapper, NativeBannerAd } from "@/components/ads";
 
 interface FAQ {
   question: string;
@@ -123,10 +124,10 @@ const ToolPageLayout = ({
                 </p>
               </div>
               
-              {/* Tool Component */}
-              <div className="max-w-4xl mx-auto">
+              {/* Tool Component with Side Ads */}
+              <ToolPageAdsWrapper>
                 {children}
-              </div>
+              </ToolPageAdsWrapper>
             </div>
           </section>
 
@@ -198,6 +199,11 @@ const ToolPageLayout = ({
             </div>
           </section>
 
+          {/* Native Banner Ad - Between Sections */}
+          <div className="container mx-auto max-w-4xl px-4">
+            <NativeBannerAd />
+          </div>
+
           {/* Detailed Article */}
           <section className="py-12 md:py-16 px-4 bg-gradient-dark">
             <div className="container mx-auto max-w-4xl">
@@ -243,6 +249,11 @@ const ToolPageLayout = ({
               </div>
             </div>
           </section>
+
+          {/* Native Banner Ad - Before FAQs */}
+          <div className="container mx-auto max-w-4xl px-4">
+            <NativeBannerAd />
+          </div>
 
           {/* FAQs */}
           <section className="py-12 md:py-16 px-4 bg-gradient-dark">

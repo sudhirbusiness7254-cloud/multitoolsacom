@@ -6,6 +6,7 @@ import { ArrowRight, Zap, Shield, Globe, Sparkles, Hash, TrendingUp, RefreshCw, 
 import { toolCategories } from "@/data/toolsData";
 import { ToolIconWithBackground, getToolIconColor, getToolIconComponent } from "@/lib/toolIcons";
 import HreflangTags from "@/components/HreflangTags";
+import { NativeBannerAd } from "@/components/ads";
 
 // Category icons mapping
 const categoryLucideIcons: Record<string, React.ReactNode> = {
@@ -276,6 +277,11 @@ const HomePage = () => {
             </div>
           </section>
 
+          {/* Native Banner Ad - Between Sections */}
+          <div className="container mx-auto max-w-4xl px-4 py-4">
+            <NativeBannerAd />
+          </div>
+
           {/* Image Tools Categories */}
           <section className="py-8 sm:py-12 md:py-16 lg:py-20 px-3 sm:px-4 md:px-6">
             <div className="container mx-auto max-w-7xl">
@@ -338,6 +344,11 @@ const HomePage = () => {
               </div>
             </div>
           </section>
+
+          {/* Native Banner Ad - Between Categories and PDF Tools */}
+          <div className="container mx-auto max-w-4xl px-4 py-4">
+            <NativeBannerAd />
+          </div>
 
           {/* PDF Tools Section */}
           <section className="py-8 sm:py-12 md:py-16 lg:py-20 px-3 sm:px-4 md:px-6 bg-gradient-to-b from-red-500/5 to-orange-500/5">

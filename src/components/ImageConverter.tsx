@@ -3,6 +3,7 @@ import { Upload, Download, Image as ImageIcon, ArrowRight, X, Loader2 } from "lu
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { toast } from "sonner";
+import { ResultAd } from "@/components/ads";
 
 interface ConversionOption {
   value: string;
@@ -417,6 +418,9 @@ const ImageConverter = ({ preselectedConversion }: ImageConverterProps) => {
               )}
             </p>
           </div>
+
+          {/* Ad Below Result */}
+          <ResultAd show={!!convertedBlob} />
         </div>
       )}
     </div>
