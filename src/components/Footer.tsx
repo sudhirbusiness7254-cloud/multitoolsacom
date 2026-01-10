@@ -111,6 +111,28 @@ const Footer = () => {
             ))}
           </div>
         </div>
+
+        {/* Trust Badges */}
+        <div className="border-t border-border pt-6 sm:pt-8 mb-6 sm:mb-8">
+          <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-8 mb-6">
+            <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground">
+              <span className="text-lg">🔒</span>
+              <span>100% Secure</span>
+            </div>
+            <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground">
+              <span className="text-lg">🌐</span>
+              <span>Browser-Based Processing</span>
+            </div>
+            <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground">
+              <span className="text-lg">✨</span>
+              <span>No Registration Required</span>
+            </div>
+            <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground">
+              <span className="text-lg">🚀</span>
+              <span>Free Forever</span>
+            </div>
+          </div>
+        </div>
         
         {/* Bottom Links */}
         <div className="flex flex-wrap justify-center gap-3 sm:gap-6 mb-4 sm:mb-6">
@@ -126,9 +148,17 @@ const Footer = () => {
           <Link to="/contact" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">Contact</Link>
         </div>
         
+        {/* Site Purpose Statement */}
+        <div className="text-center mb-4 px-4">
+          <p className="text-[10px] sm:text-xs text-muted-foreground max-w-3xl mx-auto">
+            MultiToolsA is a free online platform providing 100+ professional image editing tools including format conversion, 
+            compression, resizing, cropping, watermarking, and PDF tools. All processing happens locally in your browser for complete privacy.
+          </p>
+        </div>
+        
         <div className="text-center">
           <p className="text-[10px] sm:text-xs md:text-sm text-muted-foreground">
-            © {new Date().getFullYear()} MultiTools. All rights reserved.
+            © {new Date().getFullYear()} MultiToolsA. All rights reserved. Made with ❤️ for creators worldwide.
           </p>
         </div>
       </div>
