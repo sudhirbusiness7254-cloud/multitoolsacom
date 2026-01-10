@@ -12,14 +12,31 @@ type Message = {
 
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/support-chat`;
 
-const SupportChat = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([
+const STORAGE_KEY = "multitoolsa-chat-history";
+
+const getInitialMessages = (): Message[] => {
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored) {
+      const parsed = JSON.parse(stored);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        return parsed;
+      }
+    }
+  } catch (e) {
+    console.error("Failed to load chat history:", e);
+  }
+  return [
     {
       role: "assistant",
       content: "Hi! 👋 I'm MultiToolsA's AI assistant. I can help you with questions about our free image tools, how to use them, troubleshooting, and more. What would you like to know?",
     },
-  ]);
+  ];
+};
+
+const SupportChat = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [messages, setMessages] = useState<Message[]>(getInitialMessages);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -28,6 +45,15 @@ const SupportChat = () => {
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+    }
+  }, [messages]);
+
+  // Persist messages to localStorage
+  useEffect(() => {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
+    } catch (e) {
+      console.error("Failed to save chat history:", e);
     }
   }, [messages]);
 
