@@ -52,37 +52,36 @@ const UniversalImageCompressor = () => {
     return extension.toUpperCase() || 'Unknown';
   };
 
-  const getOutputMimeType = (format: string): string => {
-    // Convert to web-compatible format
+  // PNG doesn't support quality compression, so we convert to JPEG or WebP for actual compression
+  const getOutputMimeType = (format: string, quality: number): string => {
+    // For formats that don't support quality compression, convert to JPEG for better compression
     switch (format) {
       case 'JPEG':
         return 'image/jpeg';
-      case 'PNG':
-        return 'image/png';
       case 'WebP':
         return 'image/webp';
+      case 'PNG':
       case 'GIF':
-        return 'image/gif';
+      case 'BMP':
+      case 'TIFF':
+      case 'HEIC':
+      case 'AVIF':
       default:
-        // For unsupported formats, output as PNG or JPEG
-        return 'image/png';
+        // PNG and other formats don't support quality-based compression
+        // Convert to WebP for best compression (supports transparency) or JPEG if quality is priority
+        return quality < 90 ? 'image/webp' : 'image/jpeg';
     }
   };
 
-  const getOutputExtension = (format: string): string => {
-    switch (format) {
-      case 'JPEG':
-        return 'jpg';
-      case 'PNG':
-        return 'png';
-      case 'WebP':
-        return 'webp';
-      case 'GIF':
-        return 'gif';
-      default:
-        return 'png';
-    }
+  const getOutputExtension = (format: string, outputMime: string): string => {
+    if (outputMime === 'image/jpeg') return 'jpg';
+    if (outputMime === 'image/webp') return 'webp';
+    if (outputMime === 'image/png') return 'png';
+    if (outputMime === 'image/gif') return 'gif';
+    return 'jpg';
   };
+
+  const [outputMimeType, setOutputMimeType] = useState<string>('image/jpeg');
 
   const compressImage = useCallback(async (file: File, qualityValue: number) => {
     setIsProcessing(true);
@@ -113,8 +112,11 @@ const UniversalImageCompressor = () => {
       setProgress(85);
 
       const format = detectFormat(file);
-      const mimeType = getOutputMimeType(format);
+      const mimeType = getOutputMimeType(format, qualityValue);
       const qualityDecimal = qualityValue / 100;
+      
+      // Store the output mime type for download
+      setOutputMimeType(mimeType);
 
       const blob = await new Promise<Blob>((resolve, reject) => {
         canvas.toBlob(
@@ -135,7 +137,10 @@ const UniversalImageCompressor = () => {
       setPreviewUrl(URL.createObjectURL(blob));
       
       const savings = ((file.size - blob.size) / file.size * 100).toFixed(1);
-      toast.success(`Compressed! Saved ${savings}% of file size`);
+      const formatNote = format !== 'JPEG' && format !== 'WebP' 
+        ? ` (converted to ${mimeType === 'image/webp' ? 'WebP' : 'JPEG'} for compression)` 
+        : '';
+      toast.success(`Compressed! Saved ${savings}% of file size${formatNote}`);
     } catch (error) {
       console.error("Compression error:", error);
       toast.error("Failed to compress image");
@@ -175,12 +180,12 @@ const UniversalImageCompressor = () => {
     const link = document.createElement("a");
     link.href = URL.createObjectURL(compressedBlob);
     const baseName = originalFile.name.replace(/\.[^/.]+$/, "");
-    const extension = getOutputExtension(detectedFormat);
+    const extension = getOutputExtension(detectedFormat, outputMimeType);
     link.download = `${baseName}_compressed.${extension}`;
     link.click();
     
     toast.success("Download started!");
-  }, [compressedBlob, originalFile, detectedFormat]);
+  }, [compressedBlob, originalFile, detectedFormat, outputMimeType]);
 
   const handleReset = useCallback(() => {
     setOriginalFile(null);
