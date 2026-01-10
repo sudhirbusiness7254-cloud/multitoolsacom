@@ -134,9 +134,14 @@ const SupportChat = () => {
   };
 
   const quickQuestions = [
-    "How do I compress images?",
-    "Is my data private?",
-    "What formats are supported?",
+    { label: "📦 Compress", question: "How do I compress images without losing quality?" },
+    { label: "🔄 Convert", question: "How do I convert images between formats like PNG to JPG?" },
+    { label: "📐 Resize", question: "How can I resize images to specific dimensions?" },
+    { label: "📄 PDF Tools", question: "What PDF tools are available and how do I use them?" },
+    { label: "🔒 Privacy", question: "Is my data safe? Where are my files processed?" },
+    { label: "✂️ Crop", question: "How do I crop images to a specific aspect ratio?" },
+    { label: "🎨 Filters", question: "What photo filters and effects are available?" },
+    { label: "💧 Watermark", question: "How do I add a watermark to my images?" },
   ];
 
   return (
@@ -230,14 +235,14 @@ const SupportChat = () => {
                 <div className="flex flex-wrap gap-2">
                   {quickQuestions.map((q) => (
                     <button
-                      key={q}
+                      key={q.label}
                       onClick={() => {
-                        setInput(q);
+                        setInput(q.question);
                         inputRef.current?.focus();
                       }}
                       className="text-xs px-3 py-1.5 bg-secondary hover:bg-secondary/80 rounded-full transition-colors"
                     >
-                      {q}
+                      {q.label}
                     </button>
                   ))}
                 </div>
