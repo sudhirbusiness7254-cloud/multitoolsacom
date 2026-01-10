@@ -300,6 +300,61 @@ export const pdfToolsSEOContent: Record<string, PDFToolSEO> = {
     keywords: ["split pdf", "extract pdf pages", "pdf splitter", "separate pdf pages", "divide pdf", "pdf page extractor"],
     gradientFrom: "#ec4899",
     gradientTo: "#db2777"
+  },
+  "batch-compress-pdf": {
+    slug: "batch-compress-pdf",
+    title: "Batch Compress PDF",
+    metaTitle: "Batch Compress PDF Online Free - Compress Multiple PDFs | MultiTools",
+    metaDescription: "Compress multiple PDF files at once online for free. Reduce file sizes of all your PDFs in one go. Fast, secure, download as ZIP.",
+    h1: "Batch Compress Multiple PDFs Online Free",
+    shortDescription: "Compress multiple PDF files at once with visual comparison and ZIP download.",
+    longDescription: "Our batch PDF compressor lets you compress multiple PDF files simultaneously, saving you time and effort. Upload all your PDFs at once, set your preferred compression level, and compress them all with a single click. See detailed before/after comparisons for each file and download all compressed PDFs as a convenient ZIP file. Perfect for processing large document collections, archives, or monthly reports.",
+    howToUse: [
+      "Upload multiple PDF files by dragging and dropping or clicking to browse",
+      "Adjust the compression level slider to your preference",
+      "Click Compress All PDFs to process all files",
+      "Download individual files or all as a ZIP archive"
+    ],
+    benefits: [
+      "Process multiple PDFs simultaneously",
+      "See individual compression results for each file",
+      "Download all files as a convenient ZIP",
+      "Visual comparison of original vs compressed sizes",
+      "Save hours of manual work",
+      "Free and unlimited batch processing"
+    ],
+    whyImportant: "When dealing with large collections of PDF documents, compressing them one by one is tedious and time-consuming. Batch compression streamlines your workflow, allowing you to optimize entire folders of documents in seconds. Essential for archiving, email preparation, and storage optimization.",
+    keyFeatures: [
+      "Multi-file upload support",
+      "Individual progress tracking",
+      "Per-file compression statistics",
+      "Total savings calculation",
+      "ZIP download option",
+      "Visual progress indicators"
+    ],
+    whoCanUse: [
+      "Office Administrators",
+      "Document Managers",
+      "Archivists",
+      "Remote Teams",
+      "Anyone with many PDFs",
+      "Business Professionals"
+    ],
+    privacyNote: "All PDF processing happens securely in your browser. We never upload your files to external servers. Your documents remain completely private and are automatically cleared from memory after processing.",
+    conclusion: "Stop compressing PDFs one at a time. Our batch compressor handles all your files at once, showing you exactly how much space you save. Try it now and streamline your document workflow!",
+    faqs: [
+      { question: "How many PDFs can I compress at once?", answer: "You can upload and compress as many PDF files as you need. There is no limit on the number of files." },
+      { question: "Will all files be compressed equally?", answer: "All files use the same compression level you select, but actual compression rates depend on each PDF's content." },
+      { question: "Can I see results for each file?", answer: "Yes, you see original size, compressed size, and savings percentage for every file individually." },
+      { question: "How do I download all compressed files?", answer: "Click 'Download All as ZIP' to get all compressed PDFs in a single ZIP archive, or download files individually." },
+      { question: "Is batch compression slower?", answer: "Files are processed sequentially for optimal results, but the total time is much faster than manual one-by-one compression." }
+    ],
+    relatedTools: ["compress-pdf", "merge-pdf", "split-pdf"],
+    category: "PDF Tools",
+    categorySlug: "pdf-tools",
+    keywords: ["batch compress pdf", "compress multiple pdfs", "bulk pdf compressor", "mass pdf compression", "compress pdfs at once"],
+    gradientFrom: "#f59e0b",
+    gradientTo: "#d97706"
   }
 };
 

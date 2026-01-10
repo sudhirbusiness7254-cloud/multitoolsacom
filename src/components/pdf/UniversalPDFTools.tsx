@@ -1,5 +1,5 @@
 import { useState, useCallback, useRef } from "react";
-import { FileText, Minimize2, FileUp, Image, Scissors, Upload, X, ArrowRight, Plus } from "lucide-react";
+import { FileText, Minimize2, FileUp, Image, Scissors, Upload, X, ArrowRight, Plus, Layers } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
@@ -7,6 +7,7 @@ import { toast } from "sonner";
 // Import PDF tool components
 import MergePDF from "./MergePDF";
 import CompressPDF from "./CompressPDF";
+import BatchPDFCompressor from "./BatchPDFCompressor";
 import WordToPDF from "./WordToPDF";
 import ImageToPDFTool from "./ImageToPDFTool";
 import SplitPDF from "./SplitPDF";
@@ -42,6 +43,16 @@ const pdfTools: PDFTool[] = [
     color: "from-orange-500 to-orange-600",
     acceptedFiles: [".pdf"],
     component: CompressPDF
+  },
+  {
+    id: "batch-compress-pdf",
+    name: "Batch Compress",
+    slug: "batch-compress-pdf",
+    description: "Compress multiple PDFs at once",
+    icon: <Layers className="w-6 h-6" />,
+    color: "from-amber-500 to-amber-600",
+    acceptedFiles: [".pdf"],
+    component: BatchPDFCompressor
   },
   {
     id: "word-to-pdf",
