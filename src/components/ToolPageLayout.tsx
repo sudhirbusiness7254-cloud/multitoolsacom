@@ -52,15 +52,11 @@ const ToolPageLayout = ({
     "url": canonicalUrl,
     "applicationCategory": "UtilitiesApplication",
     "operatingSystem": "Web Browser",
+    "browserRequirements": "Requires JavaScript. Requires HTML5.",
     "offers": {
       "@type": "Offer",
       "price": "0",
       "priceCurrency": "USD"
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "ratingCount": "1250"
     }
   };
 
