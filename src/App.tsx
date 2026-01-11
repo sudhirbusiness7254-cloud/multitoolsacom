@@ -46,6 +46,7 @@ import CookieConsent from "./components/CookieConsent";
 import HowToolsWorkPage from "./pages/HowToolsWorkPage";
 import AdvertiserDisclosurePage from "./pages/AdvertiserDisclosurePage";
 import ImageFormatsGuidePage from "./pages/ImageFormatsGuidePage";
+import AdPlacementGuidePage from "./pages/AdPlacementGuidePage";
 
 const queryClient = new QueryClient();
 
@@ -72,6 +73,7 @@ const App = () => (
             <Route path="/how-tools-work" element={<HowToolsWorkPage />} />
             <Route path="/advertiser-disclosure" element={<AdvertiserDisclosurePage />} />
             <Route path="/image-formats-guide" element={<ImageFormatsGuidePage />} />
+            <Route path="/ad-placement-guide" element={<AdPlacementGuidePage />} />
             
             {/* Image Tools Landing Page */}
             <Route path="/image-tools" element={<ImageToolsPage />} />
