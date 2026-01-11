@@ -140,12 +140,15 @@ const Footer = () => {
           <Link to="/pdf-tools" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">PDF Tools</Link>
           <Link to="/tag-extractor" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">Tag Generator</Link>
           <Link to="/tutorials" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">Tutorials</Link>
-          <Link to="/about" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">About</Link>
           <Link to="/blog" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">Blog</Link>
+          <Link to="/image-formats-guide" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">Format Guide</Link>
+          <Link to="/how-tools-work" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">How It Works</Link>
+          <Link to="/about" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">About</Link>
           <Link to="/faq" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">FAQ</Link>
           <Link to="/privacy" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">Privacy</Link>
           <Link to="/terms" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">Terms</Link>
           <Link to="/contact" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">Contact</Link>
+          <Link to="/advertiser-disclosure" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">Ad Disclosure</Link>
         </div>
         
         {/* Site Purpose Statement */}
@@ -161,7 +164,7 @@ const Footer = () => {
           <p className="text-[10px] sm:text-xs text-muted-foreground/70 max-w-3xl mx-auto">
             <strong>Advertiser Disclosure:</strong> This website contains advertisements delivered by Google AdSense. 
             These ads help us keep our tools free for everyone. We may earn a small commission when you interact with ads, 
-            at no additional cost to you. Your privacy is important to us—see our <Link to="/privacy" className="underline hover:text-primary">Privacy Policy</Link> for details.
+            at no additional cost to you. <Link to="/advertiser-disclosure" className="underline hover:text-primary">Learn more</Link> | <Link to="/privacy" className="underline hover:text-primary">Privacy Policy</Link>
           </p>
         </div>
         
