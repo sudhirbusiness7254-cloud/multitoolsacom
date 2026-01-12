@@ -39,6 +39,11 @@ import { ToolIconWithBackground } from "@/lib/toolIcons";
 import HreflangTags from "@/components/HreflangTags";
 import { blogPosts } from "@/data/blogData";
 
+// 4K Screenshots for How It Works section
+import stepUpload4k from "@/assets/guides/step-upload-4k.png";
+import stepPreview4k from "@/assets/guides/step-preview-4k.png";
+import stepDownload4k from "@/assets/guides/step-download-4k.png";
+
 // Category icons mapping
 const categoryLucideIcons: Record<string, React.ReactNode> = {
   "image-converter": <RefreshCw className="w-6 h-6 text-white" />,
@@ -421,44 +426,92 @@ const HomePage = () => {
                 </p>
               </div>
               
-              <div className="grid md:grid-cols-3 gap-8 mb-12">
+              <div className="grid md:grid-cols-3 gap-6 lg:gap-8 mb-12">
                 {/* Step 1 */}
-                <div className="bg-card rounded-2xl p-8 border border-border text-center relative overflow-hidden group hover:border-primary/30 transition-all">
-                  <div className="absolute top-4 right-4 text-6xl font-bold text-muted/20">1</div>
-                  <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/20 transition-colors">
-                    <Upload className="w-8 h-8 text-primary" />
+                <div className="bg-card rounded-2xl border border-border overflow-hidden group hover:border-primary/30 transition-all hover:shadow-xl">
+                  {/* Screenshot */}
+                  <div className="relative aspect-video overflow-hidden bg-muted">
+                    <img 
+                      src={stepUpload4k} 
+                      alt="Step 1: Select your image files using the secure file picker"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                    <div className="absolute top-3 left-3 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-lg shadow-lg">
+                      1
+                    </div>
                   </div>
-                  <h3 className="text-xl font-bold mb-3">Select Your Files</h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Choose images or documents from your device using our secure file picker. 
-                    Files load directly into your browser's memory without any network transfer.
-                  </p>
+                  {/* Content */}
+                  <div className="p-6">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                        <Upload className="w-5 h-5 text-primary" />
+                      </div>
+                      <h3 className="text-lg font-bold">Select Your Files</h3>
+                    </div>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      Choose images or documents from your device using our secure file picker. 
+                      Files load directly into your browser's memory without any network transfer.
+                    </p>
+                  </div>
                 </div>
                 
                 {/* Step 2 */}
-                <div className="bg-card rounded-2xl p-8 border border-border text-center relative overflow-hidden group hover:border-primary/30 transition-all">
-                  <div className="absolute top-4 right-4 text-6xl font-bold text-muted/20">2</div>
-                  <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/20 transition-colors">
-                    <Cpu className="w-8 h-8 text-primary" />
+                <div className="bg-card rounded-2xl border border-border overflow-hidden group hover:border-primary/30 transition-all hover:shadow-xl">
+                  {/* Screenshot */}
+                  <div className="relative aspect-video overflow-hidden bg-muted">
+                    <img 
+                      src={stepPreview4k} 
+                      alt="Step 2: Preview and process your image locally in the browser"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                    <div className="absolute top-3 left-3 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-lg shadow-lg">
+                      2
+                    </div>
                   </div>
-                  <h3 className="text-xl font-bold mb-3">Process Locally</h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Our JavaScript-powered tools process everything using your device's computing power. 
-                    No data is ever sent to external servers during editing.
-                  </p>
+                  {/* Content */}
+                  <div className="p-6">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                        <Cpu className="w-5 h-5 text-primary" />
+                      </div>
+                      <h3 className="text-lg font-bold">Process Locally</h3>
+                    </div>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      Our JavaScript-powered tools process everything using your device's computing power. 
+                      No data is ever sent to external servers during editing.
+                    </p>
+                  </div>
                 </div>
                 
                 {/* Step 3 */}
-                <div className="bg-card rounded-2xl p-8 border border-border text-center relative overflow-hidden group hover:border-primary/30 transition-all">
-                  <div className="absolute top-4 right-4 text-6xl font-bold text-muted/20">3</div>
-                  <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/20 transition-colors">
-                    <Download className="w-8 h-8 text-primary" />
+                <div className="bg-card rounded-2xl border border-border overflow-hidden group hover:border-primary/30 transition-all hover:shadow-xl">
+                  {/* Screenshot */}
+                  <div className="relative aspect-video overflow-hidden bg-muted">
+                    <img 
+                      src={stepDownload4k} 
+                      alt="Step 3: Download your edited image instantly to your device"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                    <div className="absolute top-3 left-3 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-lg shadow-lg">
+                      3
+                    </div>
                   </div>
-                  <h3 className="text-xl font-bold mb-3">Download Instantly</h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Save your edited files directly to your device with one click. 
-                    Nothing is stored online—when you close the browser, all data is cleared.
-                  </p>
+                  {/* Content */}
+                  <div className="p-6">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                        <Download className="w-5 h-5 text-primary" />
+                      </div>
+                      <h3 className="text-lg font-bold">Download Instantly</h3>
+                    </div>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      Save your edited files directly to your device with one click. 
+                      Nothing is stored online—when you close the browser, all data is cleared.
+                    </p>
+                  </div>
                 </div>
               </div>
               
