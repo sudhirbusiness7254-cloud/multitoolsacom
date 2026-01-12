@@ -6,6 +6,8 @@ import Footer from "@/components/Footer";
 import ImageConverter from "@/components/ImageConverter";
 import BatchImageConverter from "@/components/BatchImageConverter";
 import { conversionArticles } from "@/data/conversionArticlesData";
+import { getToolGuideData } from "@/data/toolGuideData";
+import HowToUseGuide from "@/components/HowToUseGuide";
 import {
   Image, 
   Zap, 
@@ -181,6 +183,9 @@ const ImageConverterPage = () => {
       };
 
   const preselectedFormat = activeConversion ? meta.toFormat : undefined;
+  
+  // Get visual guide data for the active conversion or generic image converter
+  const guideData = getToolGuideData(activeConversion || "image-converter");
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -430,6 +435,22 @@ const ImageConverterPage = () => {
                       </div>
                     </div>
                   </div>
+                </div>
+              </div>
+            </section>
+          )}
+
+          {/* Visual How-to-Use Guide Section */}
+          {guideData && (
+            <section className="py-12 md:py-16 px-4 bg-secondary/30">
+              <div className="container mx-auto max-w-4xl">
+                <div className="bg-card rounded-2xl border border-border p-6 md:p-8">
+                  <HowToUseGuide 
+                    guideData={guideData}
+                    toolName={activeConversion ? `${meta.fromFormat.toUpperCase()} to ${meta.toFormat.toUpperCase()} Converter` : "Image Converter"}
+                    gradientFrom="#f97316"
+                    gradientTo="#ea580c"
+                  />
                 </div>
               </div>
             </section>
