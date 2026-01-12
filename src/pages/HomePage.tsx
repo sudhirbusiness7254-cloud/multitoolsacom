@@ -365,71 +365,45 @@ const HomePage = () => {
                 </p>
               </div>
               
-              <div className="space-y-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
                 {imageCategories.map((category) => {
                   const gradient = getGradient(category.id);
                   const categoryInfo = categoryDescriptions[category.id];
                   
                   return (
-                    <article 
+                    <Link 
                       key={category.id}
-                      className="bg-card rounded-2xl border border-border overflow-hidden hover:border-primary/30 transition-all group"
+                      to={`/${category.slug}`}
+                      className="group bg-card rounded-2xl p-5 border border-border hover:border-primary/50 transition-all hover:-translate-y-1 hover:shadow-xl"
                     >
-                      <div className="p-6 sm:p-8">
-                        <div className="flex flex-col md:flex-row gap-6">
-                          {/* Category Icon & Visual */}
-                          <div className="flex-shrink-0">
-                            <div 
-                              className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center shadow-lg"
-                              style={{ background: `linear-gradient(135deg, ${gradient.from}, ${gradient.to})` }}
-                            >
-                              <div className="[&>svg]:w-8 [&>svg]:h-8 sm:[&>svg]:w-10 sm:[&>svg]:h-10">
-                                {categoryLucideIcons[category.id] || <Image className="w-8 h-8 text-white" />}
-                              </div>
-                            </div>
-                          </div>
-                          
-                          {/* Category Content */}
-                          <div className="flex-1">
-                            <h3 className="text-xl sm:text-2xl font-bold mb-2 group-hover:text-primary transition-colors">
-                              {categoryInfo?.headline || category.name}
-                            </h3>
-                            <p className="text-muted-foreground mb-3 leading-relaxed">
-                              {categoryInfo?.description || category.description}
-                            </p>
-                            <p className="text-sm text-muted-foreground/80 mb-4 italic">
-                              {categoryInfo?.benefits}
-                            </p>
-                            
-                            {/* Tool preview chips */}
-                            <div className="flex flex-wrap gap-2 mb-4">
-                              {category.tools.slice(0, 4).map((tool) => (
-                                <Link
-                                  key={tool.slug}
-                                  to={`/${tool.slug}`}
-                                  className="text-xs bg-secondary hover:bg-primary/10 px-3 py-1.5 rounded-full font-medium transition-colors"
-                                >
-                                  {tool.name}
-                                </Link>
-                              ))}
-                              {category.tools.length > 4 && (
-                                <span className="text-xs bg-secondary px-3 py-1.5 rounded-full text-muted-foreground">
-                                  +{category.tools.length - 4} more
-                                </span>
-                              )}
-                            </div>
-                            
-                            <Link 
-                              to={`/${category.slug}`}
-                              className="inline-flex items-center gap-2 text-primary font-semibold hover:underline"
-                            >
-                              Explore {category.tools.length} {category.name} Tools
-                              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                            </Link>
-                          </div>
+                      {/* Category Icon */}
+                      <div 
+                        className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 shadow-md"
+                        style={{ background: `linear-gradient(135deg, ${gradient.from}, ${gradient.to})` }}
+                      >
+                        <div className="[&>svg]:w-7 [&>svg]:h-7">
+                          {categoryLucideIcons[category.id] || <Image className="w-7 h-7 text-white" />}
                         </div>
                       </div>
-                    </article>
+                      
+                      {/* Category Title */}
+                      <h3 className="text-lg font-bold mb-2 group-hover:text-primary transition-colors">
+                        {category.name}
+                      </h3>
+                      
+                      {/* Category Description */}
+                      <p className="text-sm text-muted-foreground line-clamp-3 mb-4">
+                        {categoryInfo?.description || category.description}
+                      </p>
+                      
+                      {/* Tools Count & Arrow */}
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm font-medium text-primary">
+                          {category.tools.length} Tools
+                        </span>
+                        <ArrowRight className="w-4 h-4 text-primary group-hover:translate-x-1 transition-transform" />
+                      </div>
+                    </Link>
                   );
                 })}
               </div>
