@@ -10,6 +10,17 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 
+// Tutorial screenshots
+import tutorialCompress from "@/assets/guides/tutorial-compress.png";
+import tutorialConvert from "@/assets/guides/tutorial-convert.png";
+import tutorialResize from "@/assets/guides/tutorial-resize.png";
+import tutorialCrop from "@/assets/guides/tutorial-crop.png";
+import tutorialRotate from "@/assets/guides/tutorial-rotate.png";
+import tutorialWatermark from "@/assets/guides/tutorial-watermark.png";
+import tutorialPdf from "@/assets/guides/tutorial-pdf.png";
+import tutorialFilters from "@/assets/guides/tutorial-filters.png";
+import tutorialMetadata from "@/assets/guides/tutorial-metadata.png";
+
 interface Tutorial {
   id: string;
   title: string;
@@ -20,6 +31,7 @@ interface Tutorial {
   topics: string[];
   category: string;
   content: string;
+  screenshot?: string;
 }
 
 const tutorials: Tutorial[] = [
@@ -28,6 +40,7 @@ const tutorials: Tutorial[] = [
     title: "How to Compress Images for the Web: A Complete Guide",
     description: "Learn the best practices for compressing images without losing quality. Covers JPEG, PNG, and WebP optimization techniques.",
     icon: <Minimize2 className="w-6 h-6" />,
+    screenshot: tutorialCompress,
     duration: "10 min read",
     difficulty: "Beginner",
     category: "Image Compression",
@@ -114,6 +127,7 @@ After compression:
     difficulty: "Beginner",
     category: "Image Converter",
     topics: ["Format Conversion", "JPEG", "PNG", "WebP"],
+    screenshot: tutorialConvert,
     content: `
 ## Understanding Image Formats
 
@@ -209,6 +223,7 @@ All conversions happen in your browser—your images never leave your device.
     difficulty: "Beginner",
     category: "Image Resize",
     topics: ["Image Resizing", "Resolution", "Aspect Ratio"],
+    screenshot: tutorialResize,
     content: `
 ## The Science of Image Resizing
 
@@ -296,6 +311,7 @@ Keep images under 600px wide for email compatibility. Compress aggressively—ma
     difficulty: "Beginner",
     category: "Image Crop",
     topics: ["Cropping", "Composition", "Aspect Ratios"],
+    screenshot: tutorialCrop,
     content: `
 ## Why Cropping Matters
 
@@ -393,6 +409,7 @@ When cropping, imagine your image divided into a 3x3 grid. Place key elements al
     difficulty: "Beginner",
     category: "Rotate & Flip",
     topics: ["Rotation", "Flipping", "Image Orientation"],
+    screenshot: tutorialRotate,
     content: `
 ## Understanding Image Orientation
 
@@ -485,6 +502,7 @@ Our tools automatically read EXIF orientation and apply it permanently, ensuring
     difficulty: "Beginner",
     category: "Watermark Tools",
     topics: ["Watermarking", "Copyright", "Brand Protection"],
+    screenshot: tutorialWatermark,
     content: `
 ## Why Watermark Your Images?
 
@@ -810,6 +828,7 @@ Use our PDF tools section for PDF to image conversion.
     difficulty: "Intermediate",
     category: "Photo Filters",
     topics: ["Photo Editing", "Filters", "Color Correction"],
+    screenshot: tutorialFilters,
     content: `
 ## Understanding Photo Filters
 
@@ -1046,6 +1065,7 @@ Place images next to each other:
     difficulty: "Intermediate",
     category: "Image Metadata",
     topics: ["EXIF Data", "Privacy", "Metadata Management"],
+    screenshot: tutorialMetadata,
     content: `
 ## What is Image Metadata?
 
@@ -1720,6 +1740,7 @@ Present work effectively:
     difficulty: "Beginner",
     category: "PDF Tools",
     topics: ["PDF Editing", "Document Management", "File Conversion"],
+    screenshot: tutorialPdf,
     content: `
 ## Understanding PDF Documents
 
@@ -2386,6 +2407,18 @@ const TutorialsPage = () => {
                     {/* Tutorial Content (Expandable) */}
                     {expandedTutorial === tutorial.id && (
                       <div className="px-6 pb-6 pt-2 border-t border-border">
+                        {/* Tutorial Screenshot */}
+                        {tutorial.screenshot && (
+                          <div className="mb-6 rounded-xl overflow-hidden border border-border shadow-lg">
+                            <img 
+                              src={tutorial.screenshot} 
+                              alt={`${tutorial.title} - Visual guide screenshot`}
+                              className="w-full h-auto object-cover"
+                              loading="lazy"
+                            />
+                          </div>
+                        )}
+                        
                         <div 
                           className="prose prose-slate dark:prose-invert max-w-none"
                           dangerouslySetInnerHTML={{ 
