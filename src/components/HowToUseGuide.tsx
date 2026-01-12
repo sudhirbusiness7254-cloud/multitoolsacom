@@ -11,6 +11,12 @@ import stepPreviewImg from "@/assets/guides/step-preview.png";
 import stepFormatSelectImg from "@/assets/guides/step-format-select.png";
 import stepConvertImg from "@/assets/guides/step-convert.png";
 import stepDownloadImg from "@/assets/guides/step-download.png";
+import stepCompressImg from "@/assets/guides/step-compress.png";
+import stepResizeImg from "@/assets/guides/step-resize.png";
+import stepPdfImg from "@/assets/guides/step-pdf.png";
+import stepCropImg from "@/assets/guides/step-crop.png";
+import stepWatermarkImg from "@/assets/guides/step-watermark.png";
+import stepRotateImg from "@/assets/guides/step-rotate.png";
 
 // Map step types to their images
 const stepImages: Record<string, string> = {
@@ -19,6 +25,12 @@ const stepImages: Record<string, string> = {
   "format": stepFormatSelectImg,
   "convert": stepConvertImg,
   "download": stepDownloadImg,
+  "compress": stepCompressImg,
+  "resize": stepResizeImg,
+  "pdf": stepPdfImg,
+  "crop": stepCropImg,
+  "watermark": stepWatermarkImg,
+  "rotate": stepRotateImg,
 };
 
 export interface GuideStep {
@@ -28,7 +40,7 @@ export interface GuideStep {
   tip?: string;
   warning?: string;
   screenshotAlt?: string;
-  screenshotType?: "upload" | "preview" | "format" | "convert" | "download";
+  screenshotType?: "upload" | "preview" | "format" | "convert" | "download" | "compress" | "resize" | "pdf" | "crop" | "watermark" | "rotate";
 }
 
 export interface ToolGuideData {

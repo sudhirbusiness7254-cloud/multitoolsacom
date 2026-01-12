@@ -273,27 +273,31 @@ export const toolGuideDataMap: Record<string, ToolGuideData> = {
         title: "Load Your JPEG Image",
         description: "Upload the JPEG file you want to compress by dragging it to the upload area or clicking to browse. The tool shows the original file size immediately after upload.",
         tip: "You can upload multiple images for batch compression—process up to 20 files simultaneously.",
-        screenshotAlt: "Upload interface displaying file size of selected JPEG"
+        screenshotAlt: "Upload interface displaying file size of selected JPEG",
+        screenshotType: "upload" as const
       },
       {
         step: 2,
         title: "Choose Compression Level",
         description: "Move the quality slider to set your target compression. The preview updates in real-time showing the estimated output size. Lower values create smaller files but may introduce visible artifacts.",
-        screenshotAlt: "Compression slider showing quality percentage and estimated output size"
+        screenshotAlt: "Compression slider showing quality percentage and estimated output size",
+        screenshotType: "compress" as const
       },
       {
         step: 3,
         title: "Preview Comparison",
         description: "Toggle between original and compressed versions to compare quality. Zoom into detailed areas to check for compression artifacts. Most images look identical at 70-80% quality.",
         tip: "Focus on areas with gradients, text, or fine details—these show compression effects first.",
-        screenshotAlt: "Side-by-side comparison of original and compressed image"
+        screenshotAlt: "Side-by-side comparison of original and compressed image",
+        screenshotType: "preview" as const
       },
       {
         step: 4,
         title: "Compress and Save",
         description: "Click 'Compress' to finalize. The optimized JPEG downloads automatically. Check the size reduction displayed—you'll typically see 40-70% savings.",
         warning: "Compression is permanent. Keep original files if you might need higher quality later.",
-        screenshotAlt: "Compression results showing before/after file sizes"
+        screenshotAlt: "Compression results showing before/after file sizes",
+        screenshotType: "download" as const
       }
     ],
     proTips: [
@@ -320,27 +324,31 @@ export const toolGuideDataMap: Record<string, ToolGuideData> = {
         step: 1,
         title: "Select PNG for Compression",
         description: "Upload your PNG file through drag-and-drop or file browser. PNG compression works especially well on graphics, screenshots, and images with solid color areas.",
-        screenshotAlt: "PNG file upload interface with format verification"
+        screenshotAlt: "PNG file upload interface with format verification",
+        screenshotType: "upload" as const
       },
       {
         step: 2,
         title: "Pick Compression Method",
         description: "Choose between lossless (no quality loss) or lossy (maximum size reduction) compression. Lossless typically reduces files by 20-40%, while lossy can achieve 60-80% reduction.",
         tip: "For graphics with limited colors like logos and icons, lossless compression is very effective.",
-        screenshotAlt: "Compression mode selector with method descriptions"
+        screenshotAlt: "Compression mode selector with method descriptions",
+        screenshotType: "compress" as const
       },
       {
         step: 3,
         title: "Review Results",
         description: "The compressor analyzes your image and applies optimizations. Preview the result to ensure quality meets your standards. Transparency is always preserved.",
         warning: "Lossy compression may cause slight banding in gradient areas—check these carefully.",
-        screenshotAlt: "Compression preview with preserved transparency indicator"
+        screenshotAlt: "Compression preview with preserved transparency indicator",
+        screenshotType: "preview" as const
       },
       {
         step: 4,
         title: "Download Optimized PNG",
         description: "Download your compressed PNG with full transparency intact. The file works identically to the original but loads faster on websites and takes less storage space.",
-        screenshotAlt: "Download button with size savings displayed"
+        screenshotAlt: "Download button with size savings displayed",
+        screenshotType: "download" as const
       }
     ],
     proTips: [
@@ -371,27 +379,31 @@ export const toolGuideDataMap: Record<string, ToolGuideData> = {
         step: 1,
         title: "Add Your Image",
         description: "Upload any image by dragging it to the upload zone. The tool displays current dimensions (width × height in pixels) once the image loads.",
-        screenshotAlt: "Image upload with original dimensions displayed"
+        screenshotAlt: "Image upload with original dimensions displayed",
+        screenshotType: "upload" as const
       },
       {
         step: 2,
         title: "Enter Target Dimensions",
         description: "Type the exact width and height you need in pixels. Enable 'Lock Aspect Ratio' to maintain proportions automatically when you change one dimension.",
         tip: "Common sizes: Instagram square (1080×1080), Facebook cover (820×312), Twitter header (1500×500).",
-        screenshotAlt: "Dimension input fields with aspect ratio lock toggle"
+        screenshotAlt: "Dimension input fields with aspect ratio lock toggle",
+        screenshotType: "resize" as const
       },
       {
         step: 3,
         title: "Choose Resize Quality",
         description: "Select the resampling algorithm. 'Lanczos' provides the sharpest results for downscaling. 'Bilinear' offers smoother results for enlargement.",
         warning: "Enlarging images beyond 150% of original size often results in visible blur or pixelation.",
-        screenshotAlt: "Resampling algorithm dropdown with quality options"
+        screenshotAlt: "Resampling algorithm dropdown with quality options",
+        screenshotType: "preview" as const
       },
       {
         step: 4,
         title: "Resize and Download",
         description: "Click 'Resize' to process. Download the resized image immediately. The output format matches your input unless you change it.",
-        screenshotAlt: "Resize confirmation with new dimensions preview"
+        screenshotAlt: "Resize confirmation with new dimensions preview",
+        screenshotType: "download" as const
       }
     ],
     proTips: [
@@ -418,26 +430,30 @@ export const toolGuideDataMap: Record<string, ToolGuideData> = {
         step: 1,
         title: "Upload Image File",
         description: "Add your image via drag-and-drop or file selection. Current dimensions appear in the preview, helping you understand how the percentage change will affect size.",
-        screenshotAlt: "Upload area with current image dimensions visible"
+        screenshotAlt: "Upload area with current image dimensions visible",
+        screenshotType: "upload" as const
       },
       {
         step: 2,
         title: "Set Scale Percentage",
         description: "Enter a percentage value. 50% halves both dimensions (quarters the total pixels). 200% doubles dimensions (quadruples pixels). The preview updates showing new dimensions.",
         tip: "For quick halving or doubling, use 50% or 200%. For subtle adjustments, try 80% or 120%.",
-        screenshotAlt: "Percentage input with calculated new dimensions"
+        screenshotAlt: "Percentage input with calculated new dimensions",
+        screenshotType: "resize" as const
       },
       {
         step: 3,
         title: "Preview New Size",
         description: "See the calculated output dimensions before processing. This helps avoid surprises, especially when working with specific size requirements.",
-        screenshotAlt: "Dimension preview showing original vs. new sizes"
+        screenshotAlt: "Dimension preview showing original vs. new sizes",
+        screenshotType: "preview" as const
       },
       {
         step: 4,
         title: "Apply and Download",
         description: "Execute the resize and download your scaled image. Percentage resizing maintains perfect proportions automatically.",
-        screenshotAlt: "Download interface after successful resize"
+        screenshotAlt: "Download interface after successful resize",
+        screenshotType: "download" as const
       }
     ],
     proTips: [
@@ -468,27 +484,31 @@ export const toolGuideDataMap: Record<string, ToolGuideData> = {
         step: 1,
         title: "Load Image for Cropping",
         description: "Upload your image to see it in the crop editor. The full image displays with a crop selection box ready for positioning.",
-        screenshotAlt: "Full image displayed with initial crop selection overlay"
+        screenshotAlt: "Full image displayed with initial crop selection overlay",
+        screenshotType: "upload" as const
       },
       {
         step: 2,
         title: "Position Crop Area",
         description: "Click and drag to draw a selection box around the area you want to keep. Drag the edges or corners to fine-tune the selection precisely.",
         tip: "Hold Shift while dragging corners to maintain a square selection.",
-        screenshotAlt: "Crop selection being adjusted with drag handles visible"
+        screenshotAlt: "Crop selection being adjusted with drag handles visible",
+        screenshotType: "crop" as const
       },
       {
         step: 3,
         title: "Fine-Tune Selection",
         description: "Use the input fields to enter exact pixel values for crop position and size if you need precise control. The preview updates as you type.",
         warning: "Areas outside the crop selection will be permanently removed from the output image.",
-        screenshotAlt: "Precise dimension inputs with updated crop preview"
+        screenshotAlt: "Precise dimension inputs with updated crop preview",
+        screenshotType: "preview" as const
       },
       {
         step: 4,
         title: "Crop and Save",
         description: "Click 'Apply Crop' to create your cropped image. Download the result immediately or continue editing with other tools.",
-        screenshotAlt: "Cropped result preview with download option"
+        screenshotAlt: "Cropped result preview with download option",
+        screenshotType: "download" as const
       }
     ],
     proTips: [
@@ -566,26 +586,30 @@ export const toolGuideDataMap: Record<string, ToolGuideData> = {
         step: 1,
         title: "Upload Sideways Image",
         description: "Add the image that needs rotation. Common scenarios include photos taken with a rotated phone or scanned documents that loaded incorrectly.",
-        screenshotAlt: "Sideways image loaded in rotation tool"
+        screenshotAlt: "Sideways image loaded in rotation tool",
+        screenshotType: "upload" as const
       },
       {
         step: 2,
         title: "Select Rotation Direction",
         description: "Click 'Rotate 90° Clockwise' or 'Rotate 90° Counter-clockwise' depending on which way your image needs to turn to appear correct.",
         tip: "If you need 180° rotation, apply the 90° rotation twice or use our dedicated 180° rotate tool.",
-        screenshotAlt: "Rotation buttons showing clockwise and counter-clockwise options"
+        screenshotAlt: "Rotation buttons showing clockwise and counter-clockwise options",
+        screenshotType: "rotate" as const
       },
       {
         step: 3,
         title: "Verify Orientation",
         description: "Check the preview to confirm the image now displays correctly. Apply additional rotation if needed—you can rotate multiple times.",
-        screenshotAlt: "Corrected image orientation in preview"
+        screenshotAlt: "Corrected image orientation in preview",
+        screenshotType: "preview" as const
       },
       {
         step: 4,
         title: "Download Corrected Image",
         description: "Save your properly oriented image. The rotation is lossless for most formats, preserving original image quality.",
-        screenshotAlt: "Download button with rotated image ready"
+        screenshotAlt: "Download button with rotated image ready",
+        screenshotType: "download" as const
       }
     ],
     proTips: [
@@ -663,21 +687,24 @@ export const toolGuideDataMap: Record<string, ToolGuideData> = {
         step: 1,
         title: "Upload Image to Protect",
         description: "Add the image you want to watermark. Consider what areas are most important—watermarks should discourage theft without ruining the viewing experience.",
-        screenshotAlt: "Original image loaded for watermarking"
+        screenshotAlt: "Original image loaded for watermarking",
+        screenshotType: "upload" as const
       },
       {
         step: 2,
         title: "Enter Watermark Text",
         description: "Type your watermark content—typically your name, business name, website, or copyright notice. The text appears immediately on the preview.",
         tip: "Keep watermark text short and recognizable—'© 2024 YourName' works well.",
-        screenshotAlt: "Text input field with watermark preview on image"
+        screenshotAlt: "Text input field with watermark preview on image",
+        screenshotType: "watermark" as const
       },
       {
         step: 3,
         title: "Customize Appearance",
         description: "Adjust font, size, color, opacity, and position. Lower opacity (20-40%) protects without overwhelming. Position strategically where cropping would be difficult.",
         warning: "Very light watermarks can be removed easily—balance visibility with aesthetics.",
-        screenshotAlt: "Watermark styling options with positioned result"
+        screenshotAlt: "Watermark styling options with positioned result",
+        screenshotType: "preview" as const
       },
       {
         step: 4,
@@ -689,7 +716,8 @@ export const toolGuideDataMap: Record<string, ToolGuideData> = {
         step: 5,
         title: "Apply and Download",
         description: "Process the watermark and download your protected image. The watermark is permanently embedded into the image file.",
-        screenshotAlt: "Final watermarked image ready for download"
+        screenshotAlt: "Final watermarked image ready for download",
+        screenshotType: "download" as const
       }
     ],
     proTips: [
@@ -1079,27 +1107,31 @@ export const toolGuideDataMap: Record<string, ToolGuideData> = {
         step: 1,
         title: "Add PDF Files",
         description: "Upload two or more PDF files you want to combine into a single document. Drag and drop multiple files at once for convenience.",
-        screenshotAlt: "Multiple PDF files being uploaded"
+        screenshotAlt: "Multiple PDF files being uploaded",
+        screenshotType: "upload" as const
       },
       {
         step: 2,
         title: "Arrange Document Order",
         description: "Drag file thumbnails to set the order they'll appear in the merged PDF. The first file becomes pages 1+, second follows, and so on.",
         tip: "Number your source files before uploading to make ordering easier.",
-        screenshotAlt: "PDF thumbnails being reordered via drag-and-drop"
+        screenshotAlt: "PDF thumbnails being reordered via drag-and-drop",
+        screenshotType: "pdf" as const
       },
       {
         step: 3,
         title: "Preview Combined Pages",
         description: "Expand each PDF to see its pages and verify content. Rearrange if any file is out of sequence before finalizing the merge.",
-        screenshotAlt: "Expanded view showing pages from each PDF"
+        screenshotAlt: "Expanded view showing pages from each PDF",
+        screenshotType: "preview" as const
       },
       {
         step: 4,
         title: "Merge and Download",
         description: "Click 'Merge PDFs' to combine all documents. Large files may take a moment to process. Download your single consolidated PDF file.",
         warning: "Merged file size equals the sum of all source files—consider compressing afterward.",
-        screenshotAlt: "Merge button with progress indicator"
+        screenshotAlt: "Merge button with progress indicator",
+        screenshotType: "download" as const
       }
     ],
     proTips: [
@@ -1126,27 +1158,31 @@ export const toolGuideDataMap: Record<string, ToolGuideData> = {
         step: 1,
         title: "Upload Large PDF",
         description: "Add the PDF file you need to reduce in size. Common sources of large PDFs include scanned documents, image-heavy reports, and presentations.",
-        screenshotAlt: "PDF upload showing original file size"
+        screenshotAlt: "PDF upload showing original file size",
+        screenshotType: "upload" as const
       },
       {
         step: 2,
         title: "Select Compression Level",
         description: "Choose Low (max quality), Medium (balanced), or High (smallest size) compression. Higher compression reduces quality of embedded images more aggressively.",
         tip: "For email attachments, Medium typically provides 50-70% size reduction with acceptable quality.",
-        screenshotAlt: "Compression level selector with estimated output sizes"
+        screenshotAlt: "Compression level selector with estimated output sizes",
+        screenshotType: "compress" as const
       },
       {
         step: 3,
         title: "Preview Quality",
         description: "If available, preview the compressed PDF to check image quality remains acceptable for your needs before downloading.",
         warning: "High compression on image-heavy PDFs may create noticeably blurry images.",
-        screenshotAlt: "Quality preview of compressed PDF pages"
+        screenshotAlt: "Quality preview of compressed PDF pages",
+        screenshotType: "preview" as const
       },
       {
         step: 4,
         title: "Download Compressed PDF",
         description: "Save your reduced-size PDF. The compression percentage shows how much space you saved compared to the original.",
-        screenshotAlt: "Download with size comparison statistics"
+        screenshotAlt: "Download with size comparison statistics",
+        screenshotType: "download" as const
       }
     ],
     proTips: [
