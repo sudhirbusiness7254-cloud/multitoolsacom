@@ -8,6 +8,57 @@ export const toolGuideDataMap: Record<string, ToolGuideData> = {
   // IMAGE CONVERTER TOOLS
   // ============================================
   
+  // Generic Image Converter (main page without specific conversion)
+  "image-converter": {
+    slug: "image-converter",
+    supportedFormats: ["JPG", "JPEG", "PNG", "WEBP", "GIF", "BMP", "TIFF", "SVG", "HEIC", "RAW"],
+    maxFileSize: "50MB per image",
+    processingNote: "Instant (1-4 seconds)",
+    privacyBehavior: "100% browser-based, no uploads",
+    steps: [
+      {
+        step: 1,
+        title: "Upload Your Image",
+        description: "Drag and drop your image file onto the upload area, or click 'Browse' to select from your device. The tool accepts all major image formats including JPG, PNG, WEBP, GIF, TIFF, HEIC, and RAW files.",
+        tip: "Switch to 'Batch Mode' tab at the top if you need to convert multiple images at once.",
+        screenshotAlt: "Image upload interface with drag-and-drop zone"
+      },
+      {
+        step: 2,
+        title: "Choose Output Format",
+        description: "Select your desired output format from the dropdown menu. Each format has specific benefits: JPG for small file sizes, PNG for transparency, WEBP for modern web optimization, and more.",
+        tip: "WEBP typically offers the best balance of quality and file size for web use.",
+        screenshotAlt: "Format selection dropdown showing available options"
+      },
+      {
+        step: 3,
+        title: "Start the Conversion",
+        description: "Click the 'Convert' button to begin processing. The conversion happens entirely in your browser—your image never leaves your device. Watch the progress indicator for status updates.",
+        screenshotAlt: "Convert button with processing state indicator"
+      },
+      {
+        step: 4,
+        title: "Download Converted Image",
+        description: "Once complete, click 'Download' to save your converted image. The file will have the same name as your original but with the new format extension. You can also convert another image immediately.",
+        warning: "Remember to check the file size of your converted image—some formats produce larger files than others.",
+        screenshotAlt: "Download button showing completed conversion"
+      }
+    ],
+    proTips: [
+      "Use JPG for photographs and images with gradients—it offers excellent compression",
+      "Choose PNG when you need transparency or for images with text and sharp edges",
+      "WEBP is ideal for websites as it provides superior compression with good quality",
+      "GIF works best for simple animations with limited colors",
+      "Keep original files as backup before converting, especially for one-time format changes"
+    ],
+    commonMistakes: [
+      "Converting to PNG for simple photos—this creates unnecessarily large files",
+      "Using JPG for images with transparency—the transparent areas will become white or black",
+      "Repeatedly converting between lossy formats (JPG, WEBP)—this degrades quality each time",
+      "Not checking the output file size before using the converted image"
+    ]
+  },
+
   "jpg-to-png": {
     slug: "jpg-to-png",
     supportedFormats: ["JPG", "JPEG"],
