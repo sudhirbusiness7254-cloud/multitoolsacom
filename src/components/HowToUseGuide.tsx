@@ -5,6 +5,22 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+// Import step screenshots
+import stepUploadImg from "@/assets/guides/step-upload.png";
+import stepPreviewImg from "@/assets/guides/step-preview.png";
+import stepFormatSelectImg from "@/assets/guides/step-format-select.png";
+import stepConvertImg from "@/assets/guides/step-convert.png";
+import stepDownloadImg from "@/assets/guides/step-download.png";
+
+// Map step types to their images
+const stepImages: Record<string, string> = {
+  "upload": stepUploadImg,
+  "preview": stepPreviewImg,
+  "format": stepFormatSelectImg,
+  "convert": stepConvertImg,
+  "download": stepDownloadImg,
+};
+
 export interface GuideStep {
   step: number;
   title: string;
@@ -12,6 +28,7 @@ export interface GuideStep {
   tip?: string;
   warning?: string;
   screenshotAlt?: string;
+  screenshotType?: "upload" | "preview" | "format" | "convert" | "download";
 }
 
 export interface ToolGuideData {
@@ -135,18 +152,26 @@ const HowToUseGuide = ({ guideData, toolName, gradientFrom, gradientTo }: HowToU
                         {step.description}
                       </p>
                       
-                      {/* Screenshot Placeholder */}
-                      <div 
-                        className="bg-muted/50 rounded-lg border-2 border-dashed border-border/70 p-8 mb-4 flex flex-col items-center justify-center min-h-[120px]"
-                      >
-                        <Monitor className="w-8 h-8 text-muted-foreground/50 mb-2" />
-                        <span className="text-sm text-muted-foreground/70 text-center">
-                          {step.screenshotAlt || `Step ${step.step}: ${step.title}`}
-                        </span>
-                        <span className="text-xs text-muted-foreground/50 mt-1">
-                          Screenshot placeholder
-                        </span>
-                      </div>
+                      {/* Screenshot Image */}
+                      {step.screenshotType && stepImages[step.screenshotType] ? (
+                        <div className="rounded-lg border border-border overflow-hidden mb-4">
+                          <img 
+                            src={stepImages[step.screenshotType]} 
+                            alt={step.screenshotAlt || `Step ${step.step}: ${step.title}`}
+                            className="w-full h-auto object-contain bg-muted/30"
+                            loading="lazy"
+                          />
+                        </div>
+                      ) : (
+                        <div 
+                          className="bg-muted/50 rounded-lg border-2 border-dashed border-border/70 p-8 mb-4 flex flex-col items-center justify-center min-h-[120px]"
+                        >
+                          <Monitor className="w-8 h-8 text-muted-foreground/50 mb-2" />
+                          <span className="text-sm text-muted-foreground/70 text-center">
+                            {step.screenshotAlt || `Step ${step.step}: ${step.title}`}
+                          </span>
+                        </div>
+                      )}
                       
                       {/* Tip */}
                       {step.tip && (

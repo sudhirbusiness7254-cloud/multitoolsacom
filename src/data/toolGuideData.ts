@@ -21,27 +21,31 @@ export const toolGuideDataMap: Record<string, ToolGuideData> = {
         title: "Upload Your Image",
         description: "Drag and drop your image file onto the upload area, or click 'Browse' to select from your device. The tool accepts all major image formats including JPG, PNG, WEBP, GIF, TIFF, HEIC, and RAW files.",
         tip: "Switch to 'Batch Mode' tab at the top if you need to convert multiple images at once.",
-        screenshotAlt: "Image upload interface with drag-and-drop zone"
+        screenshotAlt: "Image upload interface with drag-and-drop zone",
+        screenshotType: "upload" as const
       },
       {
         step: 2,
         title: "Choose Output Format",
         description: "Select your desired output format from the dropdown menu. Each format has specific benefits: JPG for small file sizes, PNG for transparency, WEBP for modern web optimization, and more.",
         tip: "WEBP typically offers the best balance of quality and file size for web use.",
-        screenshotAlt: "Format selection dropdown showing available options"
+        screenshotAlt: "Format selection dropdown showing available options",
+        screenshotType: "format" as const
       },
       {
         step: 3,
         title: "Start the Conversion",
         description: "Click the 'Convert' button to begin processing. The conversion happens entirely in your browser—your image never leaves your device. Watch the progress indicator for status updates.",
-        screenshotAlt: "Convert button with processing state indicator"
+        screenshotAlt: "Convert button with processing state indicator",
+        screenshotType: "convert" as const
       },
       {
         step: 4,
         title: "Download Converted Image",
         description: "Once complete, click 'Download' to save your converted image. The file will have the same name as your original but with the new format extension. You can also convert another image immediately.",
         warning: "Remember to check the file size of your converted image—some formats produce larger files than others.",
-        screenshotAlt: "Download button showing completed conversion"
+        screenshotAlt: "Download button showing completed conversion",
+        screenshotType: "download" as const
       }
     ],
     proTips: [
@@ -71,27 +75,31 @@ export const toolGuideDataMap: Record<string, ToolGuideData> = {
         title: "Select Your JPG Image",
         description: "Click the upload zone or drag your JPG file directly onto it. You can also tap 'Browse Files' on mobile devices to access your camera roll or file manager.",
         tip: "For batch conversions, select multiple files at once by holding Ctrl (Windows) or Cmd (Mac) while clicking.",
-        screenshotAlt: "Upload interface showing drag-and-drop zone with file browser button"
+        screenshotAlt: "Upload interface showing drag-and-drop zone with file browser button",
+        screenshotType: "upload" as const
       },
       {
         step: 2,
         title: "Preview and Verify",
         description: "Your image appears in the preview area. Check that it's the correct file and notice the current file size displayed. The preview shows exactly how your image will look after conversion.",
-        screenshotAlt: "Image preview panel displaying uploaded JPG with file details"
+        screenshotAlt: "Image preview panel displaying uploaded JPG with file details",
+        screenshotType: "preview" as const
       },
       {
         step: 3,
         title: "Click Convert to PNG",
         description: "Press the 'Convert to PNG' button to begin. The conversion happens instantly in your browser—your image never leaves your device. Watch for the success notification.",
         tip: "PNG format adds transparency support, but the original white background stays white unless you remove it separately.",
-        screenshotAlt: "Convert button highlighted with progress indicator"
+        screenshotAlt: "Convert button highlighted with progress indicator",
+        screenshotType: "convert" as const
       },
       {
         step: 4,
         title: "Download Your PNG File",
         description: "Once complete, click 'Download' to save the PNG to your device. The file automatically downloads with the same name plus '.png' extension.",
         warning: "PNG files are typically larger than JPG. If file size is a concern, consider using our PNG compressor afterward.",
-        screenshotAlt: "Download button with completed conversion status"
+        screenshotAlt: "Download button with completed conversion status",
+        screenshotType: "download" as const
       }
     ],
     proTips: [
