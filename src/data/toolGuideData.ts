@@ -3662,6 +3662,158 @@ export const toolGuideDataMap: Record<string, ToolGuideData> = {
       "Using maximum compression on image-heavy PDFs where quality matters",
       "Not previewing split results to verify correct pages were extracted"
     ]
+  },
+
+  "image-crop": {
+    slug: "image-crop",
+    supportedFormats: ["JPEG", "PNG", "WebP", "GIF", "BMP", "TIFF"],
+    maxFileSize: "50MB per image",
+    processingNote: "Real-time preview",
+    privacyBehavior: "100% browser-based processing",
+    steps: [
+      {
+        step: 1,
+        title: "Upload Your Image",
+        description: "Drag and drop your image onto the upload area, or click to browse files. The full image displays with a crop selection overlay ready for positioning.",
+        screenshotAlt: "Image upload for cropping",
+        screenshotType: "upload" as const
+      },
+      {
+        step: 2,
+        title: "Select Aspect Ratio",
+        description: "Choose from preset ratios: Free (custom), 1:1 (square for Instagram), 4:3 (standard), 16:9 (widescreen), 9:16 (portrait/stories), or Circle for profile pictures.",
+        tip: "Use 1:1 for Instagram posts, 16:9 for YouTube thumbnails, and Circle for profile pictures.",
+        screenshotAlt: "Aspect ratio selection panel",
+        screenshotType: "crop" as const
+      },
+      {
+        step: 3,
+        title: "Adjust Crop Area",
+        description: "Drag corners or edges to resize the selection. Drag inside the box to reposition. Use dimension inputs for pixel-perfect precision. The preview updates in real-time.",
+        warning: "Areas outside the crop selection will be permanently removed from the output.",
+        screenshotAlt: "Crop area adjustment with handles",
+        screenshotType: "preview" as const
+      },
+      {
+        step: 4,
+        title: "Download Cropped Image",
+        description: "Click 'Apply Crop' to process. Download your perfectly cropped image. The output maintains maximum quality within the selected region.",
+        screenshotAlt: "Download cropped image",
+        screenshotType: "download" as const
+      }
+    ],
+    proTips: [
+      "Crop before resizing for better quality—reduce data before scaling",
+      "Use rule of thirds by positioning subjects at grid intersections for better composition",
+      "Circle crop is ideal for profile pictures across all social platforms",
+      "Keep original files as backup before cropping important photos"
+    ],
+    commonMistakes: [
+      "Cropping too tightly without leaving breathing room around subjects",
+      "Accidentally removing important elements at the edges of the frame",
+      "Not considering the final use case aspect ratio before cropping"
+    ]
+  },
+
+  "watermark-tools": {
+    slug: "watermark-tools",
+    supportedFormats: ["JPEG", "PNG", "WebP", "GIF", "TIFF"],
+    maxFileSize: "50MB per image",
+    processingNote: "Real-time preview",
+    privacyBehavior: "Completely offline processing",
+    steps: [
+      {
+        step: 1,
+        title: "Upload Image to Protect",
+        description: "Drag and drop the image you want to watermark. Consider which areas are most important—watermarks should protect without ruining the viewing experience.",
+        screenshotAlt: "Image upload for watermarking",
+        screenshotType: "upload" as const
+      },
+      {
+        step: 2,
+        title: "Create Your Watermark",
+        description: "Choose text or image watermark. For text, enter your copyright notice, name, or website. For image, upload your logo. Customize font, color, size, and opacity.",
+        tip: "Keep watermark text short and recognizable—'© 2024 YourName' or your website works well.",
+        screenshotAlt: "Watermark creation interface",
+        screenshotType: "watermark" as const
+      },
+      {
+        step: 3,
+        title: "Position and Style",
+        description: "Choose placement: corners for subtle branding, center for protection, or tiled for maximum security. Adjust opacity (20-50% for subtle, 50-70% for protective).",
+        warning: "Very light watermarks can be easily removed—balance visibility with aesthetics.",
+        screenshotAlt: "Watermark positioning options",
+        screenshotType: "preview" as const
+      },
+      {
+        step: 4,
+        title: "Download Protected Image",
+        description: "Click 'Apply Watermark' to process. Download your protected image with the watermark permanently embedded. Your original stays untouched.",
+        screenshotAlt: "Download watermarked image",
+        screenshotType: "download" as const
+      }
+    ],
+    proTips: [
+      "Position watermarks where they'd be hard to crop out without losing the subject",
+      "Use semi-transparent watermarks (30-50% opacity) for professional appearance",
+      "Diagonal tiled patterns provide maximum protection against removal",
+      "Match watermark color to complement rather than clash with image colors"
+    ],
+    commonMistakes: [
+      "Placing watermarks in easily-croppable corners providing no real protection",
+      "Using opaque watermarks that make images unusable for preview purposes",
+      "Forgetting that logos and branding will be visible on shared images"
+    ]
+  },
+
+  "image-rotate-flip": {
+    slug: "image-rotate-flip",
+    supportedFormats: ["JPEG", "PNG", "WebP", "GIF", "BMP", "TIFF"],
+    maxFileSize: "50MB per image",
+    processingNote: "Instant, lossless processing",
+    privacyBehavior: "100% local processing",
+    steps: [
+      {
+        step: 1,
+        title: "Upload Your Image",
+        description: "Drag and drop your image that needs rotation or flipping. Common scenarios include sideways phone photos, upside-down scans, or selfies needing mirror correction.",
+        screenshotAlt: "Image upload for rotation",
+        screenshotType: "upload" as const
+      },
+      {
+        step: 2,
+        title: "Choose Transformation",
+        description: "Select your operation: 90°/180°/270° rotation for fixed angles, custom angle for precise adjustment, horizontal flip for mirror images, or vertical flip for upside-down correction.",
+        tip: "90°, 180°, and 270° rotations are completely lossless—no quality degradation.",
+        screenshotAlt: "Rotation and flip controls",
+        screenshotType: "rotate" as const
+      },
+      {
+        step: 3,
+        title: "Preview Result",
+        description: "See your transformed image in real-time. Apply multiple transformations if needed—rotate then flip, or adjust custom angles until the orientation is perfect.",
+        screenshotAlt: "Preview of rotated/flipped image",
+        screenshotType: "preview" as const
+      },
+      {
+        step: 4,
+        title: "Download Corrected Image",
+        description: "Save your properly oriented image. Standard rotations and flips preserve 100% original quality. Custom angles use high-quality interpolation.",
+        screenshotAlt: "Download corrected image",
+        screenshotType: "download" as const
+      }
+    ],
+    proTips: [
+      "Use horizontal flip to correct selfies—shows yourself as others see you",
+      "Chain 90° rotations for any angle that's a multiple of 90 (lossless)",
+      "Custom rotation is perfect for straightening slightly tilted horizon lines",
+      "Rotation and flip can be combined for any orientation correction"
+    ],
+    commonMistakes: [
+      "Rotating in the wrong direction and needing multiple corrections",
+      "Confusing rotation (turns image) with flip (mirrors image)",
+      "Using custom angles for 90° increments when presets are lossless"
+    ]
   }
 };
 

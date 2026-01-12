@@ -1,14 +1,17 @@
 import { Helmet } from "react-helmet-async";
 import CategoryPageLayout from "@/components/CategoryPageLayout";
 import UniversalWatermark from "@/components/UniversalWatermark";
+import HowToUseGuide from "@/components/HowToUseGuide";
 import { getCategoryBySlug } from "@/data/toolsData";
 import { getCategorySEOContent } from "@/data/categorySEOData";
+import { getToolGuideData } from "@/data/toolGuideData";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CheckCircle, Shield, Zap, Image, Lock, Eye, Settings, Copyright } from "lucide-react";
 
 const WatermarkToolsPage = () => {
   const category = getCategoryBySlug("watermark-tools")!;
   const seoContent = getCategorySEOContent("watermark-tools")!;
+  const guideData = getToolGuideData("watermark-tools");
 
   const faqs = [
     {
@@ -133,26 +136,17 @@ const WatermarkToolsPage = () => {
           </div>
         </section>
 
-        {/* How to Use Section */}
-        <section className="mt-12 space-y-6">
-          <h2 className="text-3xl font-bold text-foreground">How to Add Watermarks to Your Images</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { step: "1", title: "Upload Image", desc: "Drag and drop your image or click to browse. We support JPEG, PNG, WebP, GIF, and TIFF formats." },
-              { step: "2", title: "Create Watermark", desc: "Choose text or image watermark. Customize font, size, color, opacity, and other appearance settings." },
-              { step: "3", title: "Position & Preview", desc: "Place your watermark using preset positions or custom coordinates. Preview the result in real-time." },
-              { step: "4", title: "Download", desc: "Once satisfied with the preview, download your watermarked image. Your original stays untouched." }
-            ].map((item) => (
-              <div key={item.step} className="bg-card border border-border rounded-xl p-6 text-center">
-                <div className="w-12 h-12 bg-primary/10 text-primary rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
-                  {item.step}
-                </div>
-                <h3 className="text-lg font-semibold text-foreground mb-2">{item.title}</h3>
-                <p className="text-muted-foreground text-sm">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+        {/* How to Use Guide with 4K Screenshots */}
+        {guideData && (
+          <section className="mt-12">
+            <HowToUseGuide 
+              guideData={guideData}
+              toolName="Watermark Tool"
+              gradientFrom="#f59e0b"
+              gradientTo="#d97706"
+            />
+          </section>
+        )}
 
         {/* Why Use Section */}
         <section className="mt-12 space-y-6">
