@@ -2,8 +2,10 @@ import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import CategoryPageLayout from "@/components/CategoryPageLayout";
 import UniversalRotateFlip from "@/components/UniversalRotateFlip";
+import HowToUseGuide from "@/components/HowToUseGuide";
 import { getCategoryBySlug } from "@/data/toolsData";
 import { getCategorySEOContent } from "@/data/categorySEOData";
+import { getToolGuideData } from "@/data/toolGuideData";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CheckCircle, Shield, Zap, RotateCw, Lock, Eye, Settings, FlipHorizontal } from "lucide-react";
 
@@ -12,6 +14,7 @@ type TransformMode = "rotate-90" | "rotate-180" | "rotate-270" | "custom" | "fli
 const ImageRotateFlipPage = () => {
   const category = getCategoryBySlug("image-rotate-flip")!;
   const seoContent = getCategorySEOContent("image-rotate-flip")!;
+  const guideData = getToolGuideData("image-rotate-flip");
   const [selectedMode, setSelectedMode] = useState<TransformMode>("rotate-90");
   const [key, setKey] = useState(0);
 
@@ -138,26 +141,17 @@ const ImageRotateFlipPage = () => {
           </div>
         </section>
 
-        {/* How to Use Section */}
-        <section className="mt-12 space-y-6">
-          <h2 className="text-3xl font-bold text-foreground">How to Rotate and Flip Images</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { step: "1", title: "Upload Image", desc: "Drag and drop your image or click to browse. We support JPEG, PNG, WebP, GIF, and TIFF formats." },
-              { step: "2", title: "Choose Transform", desc: "Select rotation (90°, 180°, 270°, or custom angle) or flip (horizontal or vertical mirror)." },
-              { step: "3", title: "Preview Result", desc: "See your transformed image in real-time. Adjust settings until you achieve the perfect orientation." },
-              { step: "4", title: "Download", desc: "Save your rotated or flipped image. Full quality is preserved for standard rotations and flips." }
-            ].map((item) => (
-              <div key={item.step} className="bg-card border border-border rounded-xl p-6 text-center">
-                <div className="w-12 h-12 bg-primary/10 text-primary rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
-                  {item.step}
-                </div>
-                <h3 className="text-lg font-semibold text-foreground mb-2">{item.title}</h3>
-                <p className="text-muted-foreground text-sm">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+        {/* How to Use Guide with 4K Screenshots */}
+        {guideData && (
+          <section className="mt-12">
+            <HowToUseGuide 
+              guideData={guideData}
+              toolName="Rotate & Flip Tool"
+              gradientFrom="#6366f1"
+              gradientTo="#4f46e5"
+            />
+          </section>
+        )}
 
         {/* Why Use Section */}
         <section className="mt-12 space-y-6">

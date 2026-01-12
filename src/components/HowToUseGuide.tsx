@@ -17,20 +17,27 @@ import stepPdfImg from "@/assets/guides/step-pdf.png";
 import stepCropImg from "@/assets/guides/step-crop.png";
 import stepWatermarkImg from "@/assets/guides/step-watermark.png";
 import stepRotateImg from "@/assets/guides/step-rotate.png";
+// 4K versions
+import stepUpload4kImg from "@/assets/guides/step-upload-4k.png";
+import stepPreview4kImg from "@/assets/guides/step-preview-4k.png";
+import stepDownload4kImg from "@/assets/guides/step-download-4k.png";
+import stepCrop4kImg from "@/assets/guides/step-crop-4k.png";
+import stepWatermark4kImg from "@/assets/guides/step-watermark-4k.png";
+import stepRotate4kImg from "@/assets/guides/step-rotate-4k.png";
 
-// Map step types to their images
+// Map step types to their images (prefer 4K when available)
 const stepImages: Record<string, string> = {
-  "upload": stepUploadImg,
-  "preview": stepPreviewImg,
+  "upload": stepUpload4kImg,
+  "preview": stepPreview4kImg,
   "format": stepFormatSelectImg,
   "convert": stepConvertImg,
-  "download": stepDownloadImg,
+  "download": stepDownload4kImg,
   "compress": stepCompressImg,
   "resize": stepResizeImg,
   "pdf": stepPdfImg,
-  "crop": stepCropImg,
-  "watermark": stepWatermarkImg,
-  "rotate": stepRotateImg,
+  "crop": stepCrop4kImg,
+  "watermark": stepWatermark4kImg,
+  "rotate": stepRotate4kImg,
 };
 
 export interface GuideStep {

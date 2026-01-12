@@ -2,8 +2,10 @@ import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import CategoryPageLayout from "@/components/CategoryPageLayout";
 import UniversalImageCropper from "@/components/UniversalImageCropper";
+import HowToUseGuide from "@/components/HowToUseGuide";
 import { getCategoryBySlug } from "@/data/toolsData";
 import { getCategorySEOContent } from "@/data/categorySEOData";
+import { getToolGuideData } from "@/data/toolGuideData";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CheckCircle, Shield, Zap, Crop, Lock, Eye, Settings, Square } from "lucide-react";
 
@@ -12,6 +14,7 @@ type CropMode = "free" | "1:1" | "4:3" | "16:9" | "3:2" | "9:16" | "circle";
 const ImageCropPage = () => {
   const category = getCategoryBySlug("image-crop")!;
   const seoContent = getCategorySEOContent("image-crop")!;
+  const guideData = getToolGuideData("image-crop");
   const [selectedMode, setSelectedMode] = useState<CropMode>("free");
   const [key, setKey] = useState(0);
 
@@ -138,26 +141,17 @@ const ImageCropPage = () => {
           </div>
         </section>
 
-        {/* How to Use Section */}
-        <section className="mt-12 space-y-6">
-          <h2 className="text-3xl font-bold text-foreground">How to Crop Your Images</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { step: "1", title: "Upload Image", desc: "Drag and drop your image or click to browse. We support JPEG, PNG, WebP, GIF, TIFF, and BMP formats." },
-              { step: "2", title: "Choose Aspect Ratio", desc: "Select from preset ratios (1:1, 16:9, 4:3, etc.), circle crop, or use free-form selection for custom crops." },
-              { step: "3", title: "Adjust Crop Area", desc: "Drag corners to resize, drag the box to reposition, or use dimension inputs for pixel-perfect precision." },
-              { step: "4", title: "Download", desc: "Preview your cropped image and download when satisfied. Your original image remains completely unchanged." }
-            ].map((item) => (
-              <div key={item.step} className="bg-card border border-border rounded-xl p-6 text-center">
-                <div className="w-12 h-12 bg-primary/10 text-primary rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
-                  {item.step}
-                </div>
-                <h3 className="text-lg font-semibold text-foreground mb-2">{item.title}</h3>
-                <p className="text-muted-foreground text-sm">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+        {/* How to Use Guide with 4K Screenshots */}
+        {guideData && (
+          <section className="mt-12">
+            <HowToUseGuide 
+              guideData={guideData}
+              toolName="Image Cropper"
+              gradientFrom="#10b981"
+              gradientTo="#059669"
+            />
+          </section>
+        )}
 
         {/* Why Use Section */}
         <section className="mt-12 space-y-6">
