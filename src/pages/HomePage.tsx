@@ -426,91 +426,111 @@ const HomePage = () => {
                 </p>
               </div>
               
-              <div className="grid md:grid-cols-3 gap-6 lg:gap-8 mb-12">
-                {/* Step 1 */}
-                <div className="bg-card rounded-2xl border border-border overflow-hidden group hover:border-primary/30 transition-all hover:shadow-xl">
-                  {/* Screenshot */}
-                  <div className="relative aspect-video overflow-hidden bg-muted">
-                    <img 
-                      src={stepUpload4k} 
-                      alt="Step 1: Select your image files using the secure file picker"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      loading="lazy"
-                    />
-                    <div className="absolute top-3 left-3 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-lg shadow-lg">
-                      1
-                    </div>
-                  </div>
-                  {/* Content */}
-                  <div className="p-6">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
-                        <Upload className="w-5 h-5 text-primary" />
-                      </div>
-                      <h3 className="text-lg font-bold">Select Your Files</h3>
-                    </div>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      Choose images or documents from your device using our secure file picker. 
-                      Files load directly into your browser's memory without any network transfer.
-                    </p>
-                  </div>
+              {/* Steps with connecting arrows */}
+              <div className="relative">
+                {/* Connecting lines - visible on desktop */}
+                <div className="hidden md:block absolute top-[120px] left-[33%] w-[34%] h-0.5 bg-gradient-to-r from-primary/50 via-primary to-primary/50 z-10">
+                  <div className="absolute -right-2 top-1/2 -translate-y-1/2 w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[10px] border-l-primary" />
                 </div>
-                
-                {/* Step 2 */}
-                <div className="bg-card rounded-2xl border border-border overflow-hidden group hover:border-primary/30 transition-all hover:shadow-xl">
-                  {/* Screenshot */}
-                  <div className="relative aspect-video overflow-hidden bg-muted">
-                    <img 
-                      src={stepPreview4k} 
-                      alt="Step 2: Preview and process your image locally in the browser"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      loading="lazy"
-                    />
-                    <div className="absolute top-3 left-3 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-lg shadow-lg">
-                      2
-                    </div>
-                  </div>
-                  {/* Content */}
-                  <div className="p-6">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
-                        <Cpu className="w-5 h-5 text-primary" />
-                      </div>
-                      <h3 className="text-lg font-bold">Process Locally</h3>
-                    </div>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      Our JavaScript-powered tools process everything using your device's computing power. 
-                      No data is ever sent to external servers during editing.
-                    </p>
-                  </div>
+                <div className="hidden md:block absolute top-[120px] right-[33%] w-[34%] h-0.5 bg-gradient-to-r from-primary/50 via-primary to-primary/50 z-10 translate-x-[100%]">
+                  <div className="absolute -right-2 top-1/2 -translate-y-1/2 w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[10px] border-l-primary" />
                 </div>
-                
-                {/* Step 3 */}
-                <div className="bg-card rounded-2xl border border-border overflow-hidden group hover:border-primary/30 transition-all hover:shadow-xl">
-                  {/* Screenshot */}
-                  <div className="relative aspect-video overflow-hidden bg-muted">
-                    <img 
-                      src={stepDownload4k} 
-                      alt="Step 3: Download your edited image instantly to your device"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      loading="lazy"
-                    />
-                    <div className="absolute top-3 left-3 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-lg shadow-lg">
-                      3
+
+                <div className="grid md:grid-cols-3 gap-6 lg:gap-8 mb-12">
+                  {/* Step 1 */}
+                  <div 
+                    className="bg-card rounded-2xl border border-border overflow-hidden group hover:border-primary/30 transition-all hover:shadow-xl animate-fade-in"
+                    style={{ animationDelay: '0ms', animationFillMode: 'both' }}
+                  >
+                    {/* Screenshot */}
+                    <div className="relative aspect-video overflow-hidden bg-muted">
+                      <img 
+                        src={stepUpload4k} 
+                        alt="Step 1: Select your image files using the secure file picker"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                      <div className="absolute top-3 left-3 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-lg shadow-lg animate-scale-in" style={{ animationDelay: '200ms', animationFillMode: 'both' }}>
+                        1
+                      </div>
+                    </div>
+                    {/* Content */}
+                    <div className="p-6">
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                          <Upload className="w-5 h-5 text-primary" />
+                        </div>
+                        <h3 className="text-lg font-bold">Select Your Files</h3>
+                      </div>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        Choose images or documents from your device using our secure file picker. 
+                        Files load directly into your browser's memory without any network transfer.
+                      </p>
                     </div>
                   </div>
-                  {/* Content */}
-                  <div className="p-6">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
-                        <Download className="w-5 h-5 text-primary" />
+                  
+                  {/* Step 2 */}
+                  <div 
+                    className="bg-card rounded-2xl border border-border overflow-hidden group hover:border-primary/30 transition-all hover:shadow-xl animate-fade-in"
+                    style={{ animationDelay: '150ms', animationFillMode: 'both' }}
+                  >
+                    {/* Screenshot */}
+                    <div className="relative aspect-video overflow-hidden bg-muted">
+                      <img 
+                        src={stepPreview4k} 
+                        alt="Step 2: Preview and process your image locally in the browser"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                      <div className="absolute top-3 left-3 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-lg shadow-lg animate-scale-in" style={{ animationDelay: '350ms', animationFillMode: 'both' }}>
+                        2
                       </div>
-                      <h3 className="text-lg font-bold">Download Instantly</h3>
                     </div>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      Save your edited files directly to your device with one click. 
-                      Nothing is stored online—when you close the browser, all data is cleared.
-                    </p>
+                    {/* Content */}
+                    <div className="p-6">
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                          <Cpu className="w-5 h-5 text-primary" />
+                        </div>
+                        <h3 className="text-lg font-bold">Process Locally</h3>
+                      </div>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        Our JavaScript-powered tools process everything using your device's computing power. 
+                        No data is ever sent to external servers during editing.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  {/* Step 3 */}
+                  <div 
+                    className="bg-card rounded-2xl border border-border overflow-hidden group hover:border-primary/30 transition-all hover:shadow-xl animate-fade-in"
+                    style={{ animationDelay: '300ms', animationFillMode: 'both' }}
+                  >
+                    {/* Screenshot */}
+                    <div className="relative aspect-video overflow-hidden bg-muted">
+                      <img 
+                        src={stepDownload4k} 
+                        alt="Step 3: Download your edited image instantly to your device"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                      <div className="absolute top-3 left-3 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-lg shadow-lg animate-scale-in" style={{ animationDelay: '500ms', animationFillMode: 'both' }}>
+                        3
+                      </div>
+                    </div>
+                    {/* Content */}
+                    <div className="p-6">
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                          <Download className="w-5 h-5 text-primary" />
+                        </div>
+                        <h3 className="text-lg font-bold">Download Instantly</h3>
+                      </div>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        Save your edited files directly to your device with one click. 
+                        Nothing is stored online—when you close the browser, all data is cleared.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
