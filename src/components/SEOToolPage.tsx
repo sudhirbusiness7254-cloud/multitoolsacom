@@ -39,6 +39,9 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
   // Get comprehensive content if available
   const comprehensiveContent = getComprehensiveSEOContent(seoContent.slug);
   
+  // Get visual guide data if available
+  const guideData = getToolGuideData(seoContent.slug);
+  
   // Determine the correct URL path based on category
   const isPDFTool = seoContent.categorySlug === "pdf-tools";
   const toolPath = isPDFTool ? `/${seoContent.slug}` : `/tools/${seoContent.slug}`;
@@ -85,6 +88,7 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
 
   // Use comprehensive content if available, otherwise fall back to basic content
   const hasComprehensive = !!comprehensiveContent;
+  const hasVisualGuide = !!guideData;
 
   return (
     <>
@@ -190,49 +194,60 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                 </p>
               </article>
 
-              {/* Section 3: How to Use - Enhanced with detailed steps */}
+              {/* Section 3: How to Use - Visual Guide or Fallback */}
               <div className="bg-card rounded-2xl border border-border p-6 md:p-8 mb-8">
-                <div className="flex items-center gap-3 mb-6">
-                  <div 
-                    className="w-10 h-10 rounded-lg flex items-center justify-center"
-                    style={{ background: `linear-gradient(135deg, ${seoContent.gradientFrom}, ${seoContent.gradientTo})` }}
-                  >
-                    <Lightbulb className="w-5 h-5 text-white" />
-                  </div>
-                  <h2 className="text-xl md:text-2xl font-bold">How to Use {seoContent.title}</h2>
-                </div>
-                
-                {hasComprehensive && comprehensiveContent.howToUse.length > 0 ? (
-                  <ol className="space-y-6">
-                    {comprehensiveContent.howToUse.map((stepItem, index) => (
-                      <li key={index} className="flex gap-4">
-                        <span 
-                          className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm"
-                          style={{ background: `linear-gradient(135deg, ${seoContent.gradientFrom}, ${seoContent.gradientTo})` }}
-                        >
-                          {stepItem.step}
-                        </span>
-                        <div className="flex-1">
-                          <h3 className="font-semibold text-foreground mb-1">{stepItem.title}</h3>
-                          <p className="text-muted-foreground">{stepItem.description}</p>
-                        </div>
-                      </li>
-                    ))}
-                  </ol>
+                {hasVisualGuide ? (
+                  <HowToUseGuide 
+                    guideData={guideData}
+                    toolName={seoContent.title}
+                    gradientFrom={seoContent.gradientFrom}
+                    gradientTo={seoContent.gradientTo}
+                  />
                 ) : (
-                  <ol className="space-y-4">
-                    {seoContent.howToUse.map((step, index) => (
-                      <li key={index} className="flex gap-4">
-                        <span 
-                          className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-sm"
-                          style={{ background: `linear-gradient(135deg, ${seoContent.gradientFrom}, ${seoContent.gradientTo})` }}
-                        >
-                          {index + 1}
-                        </span>
-                        <span className="text-foreground pt-1">{step}</span>
-                      </li>
-                    ))}
-                  </ol>
+                  <>
+                    <div className="flex items-center gap-3 mb-6">
+                      <div 
+                        className="w-10 h-10 rounded-lg flex items-center justify-center"
+                        style={{ background: `linear-gradient(135deg, ${seoContent.gradientFrom}, ${seoContent.gradientTo})` }}
+                      >
+                        <Lightbulb className="w-5 h-5 text-white" />
+                      </div>
+                      <h2 className="text-xl md:text-2xl font-bold">How to Use {seoContent.title}</h2>
+                    </div>
+                    
+                    {hasComprehensive && comprehensiveContent.howToUse.length > 0 ? (
+                      <ol className="space-y-6">
+                        {comprehensiveContent.howToUse.map((stepItem, index) => (
+                          <li key={index} className="flex gap-4">
+                            <span 
+                              className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm"
+                              style={{ background: `linear-gradient(135deg, ${seoContent.gradientFrom}, ${seoContent.gradientTo})` }}
+                            >
+                              {stepItem.step}
+                            </span>
+                            <div className="flex-1">
+                              <h3 className="font-semibold text-foreground mb-1">{stepItem.title}</h3>
+                              <p className="text-muted-foreground">{stepItem.description}</p>
+                            </div>
+                          </li>
+                        ))}
+                      </ol>
+                    ) : (
+                      <ol className="space-y-4">
+                        {seoContent.howToUse.map((step, index) => (
+                          <li key={index} className="flex gap-4">
+                            <span 
+                              className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-sm"
+                              style={{ background: `linear-gradient(135deg, ${seoContent.gradientFrom}, ${seoContent.gradientTo})` }}
+                            >
+                              {index + 1}
+                            </span>
+                            <span className="text-foreground pt-1">{step}</span>
+                          </li>
+                        ))}
+                      </ol>
+                    )}
+                  </>
                 )}
               </div>
 

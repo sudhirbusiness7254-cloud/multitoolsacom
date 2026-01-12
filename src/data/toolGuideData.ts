@@ -1148,6 +1148,2267 @@ export const toolGuideDataMap: Record<string, ToolGuideData> = {
       "Splitting without preserving the original file, then needing pages you didn't extract",
       "Downloading individual pages when a range would be more practical"
     ]
+  },
+
+  // ============================================
+  // ADDITIONAL IMAGE CONVERTER TOOLS
+  // ============================================
+  
+  "png-to-webp": {
+    slug: "png-to-webp",
+    supportedFormats: ["PNG"],
+    maxFileSize: "50MB per image",
+    processingNote: "Instant (2-4 seconds)",
+    privacyBehavior: "Fully local",
+    steps: [
+      {
+        step: 1,
+        title: "Upload PNG File",
+        description: "Drag your PNG image into the upload area or click to browse. This tool converts PNG files while optionally preserving transparency in WebP format.",
+        screenshotAlt: "PNG file upload interface"
+      },
+      {
+        step: 2,
+        title: "Choose Compression Mode",
+        description: "Select lossless for perfect quality or lossy for smaller files. WebP lossless is typically 26% smaller than PNG with identical quality.",
+        tip: "Use lossless mode for graphics and logos where every pixel matters.",
+        screenshotAlt: "Compression mode selection"
+      },
+      {
+        step: 3,
+        title: "Convert to WebP",
+        description: "Click the convert button to transform your PNG. The process maintains alpha transparency while significantly reducing file size.",
+        screenshotAlt: "Conversion in progress"
+      },
+      {
+        step: 4,
+        title: "Download Optimized File",
+        description: "Save your WebP image. Notice the size reduction compared to the original PNG while transparency remains intact.",
+        screenshotAlt: "Download with size comparison"
+      }
+    ],
+    proTips: [
+      "WebP provides better compression than PNG while maintaining transparency support",
+      "Use for web graphics, icons, and UI elements to improve page load speed",
+      "Modern browsers including Safari now fully support WebP transparency",
+      "Keep PNG originals for editing since WebP has less software support"
+    ],
+    commonMistakes: [
+      "Using lossy compression on graphics where lossless is more appropriate",
+      "Assuming all graphics software can edit WebP files—many still cannot",
+      "Not testing on Safari if targeting older iOS versions"
+    ]
+  },
+
+  "webp-to-png": {
+    slug: "webp-to-png",
+    supportedFormats: ["WebP"],
+    maxFileSize: "50MB per image",
+    processingNote: "Instant conversion",
+    privacyBehavior: "Browser-only",
+    steps: [
+      {
+        step: 1,
+        title: "Add WebP Image",
+        description: "Upload the WebP file you need to convert. This is useful when you need a format with broader editing software support.",
+        screenshotAlt: "WebP upload interface"
+      },
+      {
+        step: 2,
+        title: "Verify Image Preview",
+        description: "Check the preview to confirm it's the correct file. Transparency will be preserved in the PNG output.",
+        screenshotAlt: "Image preview with transparency indicator"
+      },
+      {
+        step: 3,
+        title: "Convert to PNG",
+        description: "Process the conversion to create a universally compatible PNG file. All transparency data transfers seamlessly.",
+        tip: "PNG output will be larger than WebP—this is expected due to format differences.",
+        screenshotAlt: "Conversion progress"
+      },
+      {
+        step: 4,
+        title: "Save PNG File",
+        description: "Download your PNG image, ready for use in any application or editor that doesn't support WebP.",
+        screenshotAlt: "Download completed PNG"
+      }
+    ],
+    proTips: [
+      "Convert WebP to PNG when you need to edit in software like older Photoshop versions",
+      "PNG ensures compatibility with all image editing applications",
+      "Use this for printing since print shops may not accept WebP files",
+      "Maintain transparency when converting graphics with alpha channels"
+    ],
+    commonMistakes: [
+      "Converting for web use when WebP is already optimal",
+      "Expecting PNG to be smaller than WebP—it will be larger",
+      "Losing animated WebP frames if the file was animated"
+    ]
+  },
+
+  "gif-to-png": {
+    slug: "gif-to-png",
+    supportedFormats: ["GIF"],
+    maxFileSize: "50MB per image",
+    processingNote: "Instant (first frame)",
+    privacyBehavior: "Local processing",
+    steps: [
+      {
+        step: 1,
+        title: "Upload GIF Image",
+        description: "Add your GIF file to convert. Note that for animated GIFs, only the first frame will be extracted as a static PNG image.",
+        warning: "Animated GIFs will lose animation—only the first frame becomes the PNG.",
+        screenshotAlt: "GIF upload area"
+      },
+      {
+        step: 2,
+        title: "Preview Frame",
+        description: "See which frame will be converted. For static GIFs, the image appears as expected. For animated ones, verify the first frame is suitable.",
+        screenshotAlt: "Frame preview display"
+      },
+      {
+        step: 3,
+        title: "Convert Static Image",
+        description: "Transform the GIF frame into PNG format with improved color depth (millions vs. 256 colors in GIF) and transparency support.",
+        tip: "PNG supports full alpha transparency unlike GIF's binary transparency.",
+        screenshotAlt: "Conversion button"
+      },
+      {
+        step: 4,
+        title: "Download PNG Result",
+        description: "Save your PNG with enhanced color fidelity. The image now supports smooth gradients and true transparency.",
+        screenshotAlt: "PNG download ready"
+      }
+    ],
+    proTips: [
+      "PNG offers millions of colors vs. GIF's 256 color limit for better gradients",
+      "Use for extracting key frames from animated GIFs as static images",
+      "PNG provides smoother transparency edges compared to GIF's harsh binary transparency",
+      "Convert old web graphics from GIF to PNG for better quality"
+    ],
+    commonMistakes: [
+      "Expecting animated GIFs to become animated PNGs—animation is lost",
+      "Not selecting the best frame before conversion for animated GIFs",
+      "Converting to PNG when the original GIF file size is already optimal"
+    ]
+  },
+
+  "gif-to-jpg": {
+    slug: "gif-to-jpg",
+    supportedFormats: ["GIF"],
+    maxFileSize: "50MB per image",
+    processingNote: "Instant conversion",
+    privacyBehavior: "No uploads",
+    steps: [
+      {
+        step: 1,
+        title: "Select GIF File",
+        description: "Upload your GIF image. For animated GIFs, the first frame becomes your JPG. Static GIFs convert entirely.",
+        screenshotAlt: "GIF selection interface"
+      },
+      {
+        step: 2,
+        title: "Set Background Color",
+        description: "If your GIF has transparency, choose a background color to replace transparent areas since JPG cannot store transparency.",
+        tip: "White works best for most document and web contexts.",
+        screenshotAlt: "Background color picker"
+      },
+      {
+        step: 3,
+        title: "Adjust Quality",
+        description: "Set the JPG quality level. Higher quality creates larger files but preserves more detail from the original GIF.",
+        screenshotAlt: "Quality slider control"
+      },
+      {
+        step: 4,
+        title: "Get Your JPG",
+        description: "Download the converted image in universally compatible JPG format ready for any use.",
+        screenshotAlt: "JPG download button"
+      }
+    ],
+    proTips: [
+      "JPG files are typically much smaller than GIFs for the same image",
+      "Use this to extract poster images from animated GIFs for previews",
+      "JPG works in all email clients while some block GIFs",
+      "Choose a background color that matches where the image will be displayed"
+    ],
+    commonMistakes: [
+      "Forgetting that transparent GIF areas become solid color in JPG",
+      "Using JPG for graphics with flat colors where GIF might be smaller",
+      "Over-compressing and losing detail from already-limited GIF quality"
+    ]
+  },
+
+  "bmp-to-jpg": {
+    slug: "bmp-to-jpg",
+    supportedFormats: ["BMP"],
+    maxFileSize: "100MB per image",
+    processingNote: "Instant processing",
+    privacyBehavior: "Client-side only",
+    steps: [
+      {
+        step: 1,
+        title: "Load BMP File",
+        description: "Upload your uncompressed BMP image. BMP files are often extremely large, making conversion to JPG highly beneficial.",
+        tip: "BMP to JPG conversion can reduce file sizes by 90% or more.",
+        screenshotAlt: "BMP file upload showing original size"
+      },
+      {
+        step: 2,
+        title: "Set Compression Level",
+        description: "Adjust JPG quality to balance file size and image clarity. Even at 90% quality, you'll see dramatic size reduction from BMP.",
+        screenshotAlt: "Quality adjustment slider"
+      },
+      {
+        step: 3,
+        title: "Convert Image",
+        description: "Process the conversion from uncompressed BMP to efficiently compressed JPG format.",
+        screenshotAlt: "Conversion in progress"
+      },
+      {
+        step: 4,
+        title: "Download Compact JPG",
+        description: "Save your compressed JPG file. Compare the dramatic size difference—BMP files often shrink to 5-10% of original size.",
+        screenshotAlt: "Size comparison and download"
+      }
+    ],
+    proTips: [
+      "BMP to JPG conversion is ideal for reducing storage requirements significantly",
+      "Old scanner software often outputs BMP—convert for efficient sharing",
+      "JPG is universally compatible while BMP may not open on all devices",
+      "Even high-quality JPG (95%) will be vastly smaller than BMP"
+    ],
+    commonMistakes: [
+      "Not converting BMP files and wasting storage space with uncompressed images",
+      "Using too-low quality for BMP files that contain important details",
+      "Expecting transparency support—BMP transparency converts to solid background"
+    ]
+  },
+
+  "bmp-to-png": {
+    slug: "bmp-to-png",
+    supportedFormats: ["BMP"],
+    maxFileSize: "100MB per image",
+    processingNote: "Instant lossless",
+    privacyBehavior: "Local conversion",
+    steps: [
+      {
+        step: 1,
+        title: "Upload BMP Image",
+        description: "Add your BMP file. BMP stores uncompressed data, resulting in large files. PNG provides compression while maintaining quality.",
+        screenshotAlt: "BMP upload interface"
+      },
+      {
+        step: 2,
+        title: "Preview Image",
+        description: "Verify the image looks correct before conversion. What you see is exactly what you'll get in PNG format.",
+        screenshotAlt: "Image preview panel"
+      },
+      {
+        step: 3,
+        title: "Convert to PNG",
+        description: "Transform BMP to PNG using lossless compression. File size reduces significantly without any quality degradation.",
+        tip: "PNG compression is lossless—your image quality remains identical to the BMP.",
+        screenshotAlt: "Convert button with progress"
+      },
+      {
+        step: 4,
+        title: "Save PNG File",
+        description: "Download your PNG with perfect quality in a much smaller file size. PNG also adds transparency capability if needed.",
+        screenshotAlt: "Download completed PNG"
+      }
+    ],
+    proTips: [
+      "PNG provides lossless compression unlike JPG, preserving exact BMP quality",
+      "Choose PNG over JPG when you need to preserve sharp edges and text",
+      "PNG adds transparency capability that BMP doesn't have",
+      "Great for screenshots and graphics originally saved as BMP"
+    ],
+    commonMistakes: [
+      "Choosing JPG when lossless quality preservation is needed",
+      "Not converting old BMP files that waste storage space",
+      "Expecting dramatic compression for already-simple images"
+    ]
+  },
+
+  "tiff-to-jpg": {
+    slug: "tiff-to-jpg",
+    supportedFormats: ["TIFF", "TIF"],
+    maxFileSize: "100MB per image",
+    processingNote: "2-5 seconds",
+    privacyBehavior: "Processed locally",
+    steps: [
+      {
+        step: 1,
+        title: "Upload TIFF File",
+        description: "Add your TIFF image. TIFF is common in professional photography and scanning but creates very large files. JPG makes them shareable.",
+        screenshotAlt: "TIFF upload area"
+      },
+      {
+        step: 2,
+        title: "Select Page (Multi-page TIFF)",
+        description: "If your TIFF contains multiple pages, select which page to convert. Each page can be converted separately.",
+        tip: "Scanned documents often create multi-page TIFFs—convert page by page as needed.",
+        screenshotAlt: "Page selector for multi-page TIFF"
+      },
+      {
+        step: 3,
+        title: "Choose Quality",
+        description: "Set JPG compression quality. For TIFF files from professional cameras, use 90%+ to preserve detail. For documents, 80% works well.",
+        screenshotAlt: "Quality setting slider"
+      },
+      {
+        step: 4,
+        title: "Download JPG",
+        description: "Get your converted JPG file at a fraction of the original TIFF size while maintaining excellent visual quality.",
+        screenshotAlt: "JPG ready for download"
+      }
+    ],
+    proTips: [
+      "TIFF from professional cameras should be converted at 90%+ quality",
+      "Convert multi-page TIFF documents to individual JPGs for easier sharing",
+      "JPG is universally viewable while TIFF requires specialized software",
+      "Archive original TIFFs for editing; use JPG for sharing and web"
+    ],
+    commonMistakes: [
+      "Converting professional TIFF photos at too-low quality settings",
+      "Expecting to convert all pages of multi-page TIFF in one operation",
+      "Discarding original TIFF files that may be needed for professional printing"
+    ]
+  },
+
+  "tiff-to-png": {
+    slug: "tiff-to-png",
+    supportedFormats: ["TIFF", "TIF"],
+    maxFileSize: "100MB per image",
+    processingNote: "2-5 seconds",
+    privacyBehavior: "No cloud upload",
+    steps: [
+      {
+        step: 1,
+        title: "Add TIFF Image",
+        description: "Upload your TIFF file. PNG provides lossless conversion while being more widely compatible than TIFF for web and digital use.",
+        screenshotAlt: "TIFF file selection"
+      },
+      {
+        step: 2,
+        title: "Handle Multi-page Files",
+        description: "For multi-page TIFFs, choose the specific page to convert. Each page becomes a separate PNG file.",
+        screenshotAlt: "Page selection interface"
+      },
+      {
+        step: 3,
+        title: "Process Conversion",
+        description: "Convert TIFF to PNG format. The conversion is lossless, preserving every detail from the original TIFF.",
+        tip: "PNG maintains TIFF quality with better compression and web compatibility.",
+        screenshotAlt: "Conversion processing"
+      },
+      {
+        step: 4,
+        title: "Save PNG Output",
+        description: "Download your losslessly converted PNG. Use it in any web context or application that accepts PNG format.",
+        screenshotAlt: "PNG download ready"
+      }
+    ],
+    proTips: [
+      "PNG is ideal when you need TIFF quality with web compatibility",
+      "Use for converting scanned artwork where quality loss is unacceptable",
+      "PNG works in all browsers while TIFF has limited web support",
+      "Preserve layer data? Note that PNG flattens multi-layer TIFFs"
+    ],
+    commonMistakes: [
+      "Expecting PNG to be smaller than TIFF—both use lossless compression",
+      "Trying to preserve TIFF layers in PNG—layers get flattened",
+      "Converting when TIFF is specifically required by a print vendor"
+    ]
+  },
+
+  "svg-to-png": {
+    slug: "svg-to-png",
+    supportedFormats: ["SVG"],
+    maxFileSize: "10MB per file",
+    processingNote: "Instant rasterization",
+    privacyBehavior: "Browser rendering",
+    steps: [
+      {
+        step: 1,
+        title: "Upload SVG Vector",
+        description: "Add your SVG file. SVG is a vector format that scales infinitely, but sometimes you need a raster PNG version.",
+        tip: "SVG to PNG is often needed for apps and platforms that don't support vector graphics.",
+        screenshotAlt: "SVG upload interface"
+      },
+      {
+        step: 2,
+        title: "Set Output Dimensions",
+        description: "Choose the PNG size in pixels. Since SVG is vector, you can output at any resolution without quality loss. Enter larger sizes for print use.",
+        screenshotAlt: "Dimension input with scale preview"
+      },
+      {
+        step: 3,
+        title: "Preserve Transparency",
+        description: "Toggle transparent background on or off. PNG supports transparency, allowing your SVG elements to appear on any colored background.",
+        screenshotAlt: "Transparency toggle option"
+      },
+      {
+        step: 4,
+        title: "Render and Download",
+        description: "Generate your PNG at the specified dimensions. The vector artwork is rasterized at perfect quality for the chosen size.",
+        screenshotAlt: "PNG render complete"
+      }
+    ],
+    proTips: [
+      "Render at 2× display size for sharp retina/HiDPI screens",
+      "Use transparent background for logos that appear on various colors",
+      "For print, export at 300 DPI (multiply display pixels by 3.125)",
+      "Keep SVG originals—you can always re-render at different sizes"
+    ],
+    commonMistakes: [
+      "Rendering at too small a size then being unable to scale up without blur",
+      "Forgetting to enable transparency for graphics meant to overlay content",
+      "Discarding the SVG source file after PNG conversion"
+    ]
+  },
+
+  "svg-to-jpg": {
+    slug: "svg-to-jpg",
+    supportedFormats: ["SVG"],
+    maxFileSize: "10MB per file",
+    processingNote: "Instant rendering",
+    privacyBehavior: "Local only",
+    steps: [
+      {
+        step: 1,
+        title: "Load SVG File",
+        description: "Upload your SVG vector graphic. This tool renders it as a JPG raster image at your specified resolution.",
+        screenshotAlt: "SVG file upload"
+      },
+      {
+        step: 2,
+        title: "Specify Size",
+        description: "Enter output dimensions in pixels. Choose sizes appropriate for your intended use—larger for print, smaller for web.",
+        screenshotAlt: "Size specification inputs"
+      },
+      {
+        step: 3,
+        title: "Set Background Color",
+        description: "Since JPG doesn't support transparency, choose the background color for any transparent areas in your SVG.",
+        tip: "Match the background color to wherever the image will be displayed.",
+        screenshotAlt: "Background color picker"
+      },
+      {
+        step: 4,
+        title: "Convert to JPG",
+        description: "Render your SVG to JPG at the chosen dimensions and quality. Download the rasterized image file.",
+        screenshotAlt: "JPG output ready"
+      }
+    ],
+    proTips: [
+      "Use white background for document and email use cases",
+      "JPG creates smaller files than PNG when transparency isn't needed",
+      "Render at your exact target size—JPG shouldn't be scaled after creation",
+      "For icons, PNG is usually better; use JPG for illustrations without transparency"
+    ],
+    commonMistakes: [
+      "Not considering that transparent areas become solid color",
+      "Rendering at the wrong size and then scaling (causes blur)",
+      "Using JPG when PNG transparency would be beneficial"
+    ]
+  },
+
+  "heic-to-jpg": {
+    slug: "heic-to-jpg",
+    supportedFormats: ["HEIC", "HEIF"],
+    maxFileSize: "50MB per image",
+    processingNote: "2-5 seconds",
+    privacyBehavior: "Local conversion",
+    steps: [
+      {
+        step: 1,
+        title: "Upload iPhone Photo",
+        description: "Add your HEIC file from your iPhone or other Apple device. HEIC is Apple's default photo format but isn't universally compatible.",
+        tip: "Transfer HEIC files via AirDrop, iCloud, or direct cable connection.",
+        screenshotAlt: "HEIC file upload"
+      },
+      {
+        step: 2,
+        title: "View Photo Preview",
+        description: "See your photo in the preview area. Verify it's the correct image before converting to the universally compatible JPG format.",
+        screenshotAlt: "HEIC preview display"
+      },
+      {
+        step: 3,
+        title: "Select Quality Level",
+        description: "Choose JPG quality. For sharing, 80-85% provides excellent quality with reasonable file size. For archiving, use 90%+.",
+        screenshotAlt: "Quality slider"
+      },
+      {
+        step: 4,
+        title: "Download Universal JPG",
+        description: "Save your JPG file that works on Windows, Android, web, and all platforms that couldn't open the original HEIC.",
+        warning: "HEIC's HDR and depth data may not fully transfer to JPG format.",
+        screenshotAlt: "JPG download ready"
+      }
+    ],
+    proTips: [
+      "HEIC to JPG is essential for sharing Apple photos with non-Apple users",
+      "Windows and Android devices can't natively view HEIC files",
+      "Convert before uploading to websites or services that require JPG",
+      "Batch convert your photo library for cross-platform accessibility"
+    ],
+    commonMistakes: [
+      "Not checking if the recipient's device can view HEIC before sending",
+      "Over-compressing iPhone photos meant for printing",
+      "Deleting HEIC originals that contain additional depth/HDR data"
+    ]
+  },
+
+  "heic-to-png": {
+    slug: "heic-to-png",
+    supportedFormats: ["HEIC", "HEIF"],
+    maxFileSize: "50MB per image",
+    processingNote: "2-5 seconds",
+    privacyBehavior: "Browser processing",
+    steps: [
+      {
+        step: 1,
+        title: "Add HEIC Photo",
+        description: "Upload your HEIC image from Apple devices. PNG conversion provides lossless quality preservation.",
+        screenshotAlt: "HEIC upload area"
+      },
+      {
+        step: 2,
+        title: "Preview Content",
+        description: "Check your photo in the preview. PNG will maintain perfect quality without compression artifacts.",
+        screenshotAlt: "Photo preview panel"
+      },
+      {
+        step: 3,
+        title: "Convert Losslessly",
+        description: "Process the conversion to PNG format. All visual quality from the HEIC is perfectly preserved.",
+        tip: "PNG is larger than JPG but preserves quality for editing or archiving.",
+        screenshotAlt: "Conversion progress"
+      },
+      {
+        step: 4,
+        title: "Save PNG File",
+        description: "Download your losslessly converted PNG file, compatible with all devices and editing software.",
+        screenshotAlt: "PNG download button"
+      }
+    ],
+    proTips: [
+      "Use PNG when you plan to edit the photo further—no quality loss",
+      "PNG is better for screenshots within HEIC containers",
+      "Larger file size than JPG but perfect for quality-critical uses",
+      "PNG supports transparency if the HEIC contains any"
+    ],
+    commonMistakes: [
+      "Using PNG when smaller JPG files would be acceptable",
+      "Not considering storage implications of larger PNG files",
+      "Expecting PNG to be smaller than the HEIC original"
+    ]
+  },
+
+  "raw-to-jpg": {
+    slug: "raw-to-jpg",
+    supportedFormats: ["CR2", "NEF", "ARW", "DNG", "RAF", "ORF", "RW2"],
+    maxFileSize: "100MB per file",
+    processingNote: "5-15 seconds",
+    privacyBehavior: "Local processing",
+    steps: [
+      {
+        step: 1,
+        title: "Upload RAW File",
+        description: "Add your camera RAW file (CR2, NEF, ARW, DNG, etc.). RAW files contain maximum sensor data but need processing for sharing.",
+        tip: "Different camera brands use different RAW formats—all common types are supported.",
+        screenshotAlt: "RAW file upload"
+      },
+      {
+        step: 2,
+        title: "Preview Processed Image",
+        description: "See the RAW data rendered as a viewable image. Basic development settings are applied automatically.",
+        screenshotAlt: "RAW preview with basic processing"
+      },
+      {
+        step: 3,
+        title: "Set Output Quality",
+        description: "Choose JPG quality for export. Professional work often uses 95%, while web sharing can use 80-85% effectively.",
+        screenshotAlt: "Quality selection"
+      },
+      {
+        step: 4,
+        title: "Export JPG",
+        description: "Download your processed and compressed JPG file, ready for sharing, printing, or uploading anywhere.",
+        warning: "For professional editing, use dedicated RAW software—this tool provides quick conversion.",
+        screenshotAlt: "JPG export complete"
+      }
+    ],
+    proTips: [
+      "Quick RAW to JPG conversion is useful for client previews",
+      "Keep RAW files for full editing capability in Lightroom/Capture One",
+      "Use 95% quality for prints, 85% for web galleries",
+      "Batch convert when you need many RAW files as shareable JPGs quickly"
+    ],
+    commonMistakes: [
+      "Deleting RAW files after conversion—RAW allows far more editing flexibility",
+      "Expecting full color grading control in a basic converter",
+      "Not using dedicated RAW software for professional color work"
+    ]
+  },
+
+  "raw-to-png": {
+    slug: "raw-to-png",
+    supportedFormats: ["CR2", "NEF", "ARW", "DNG", "RAF", "ORF", "RW2"],
+    maxFileSize: "100MB per file",
+    processingNote: "5-15 seconds",
+    privacyBehavior: "No external upload",
+    steps: [
+      {
+        step: 1,
+        title: "Load RAW Photo",
+        description: "Upload your camera RAW file for lossless PNG conversion. Supports Canon, Nikon, Sony, Adobe DNG, and other RAW formats.",
+        screenshotAlt: "RAW file selection"
+      },
+      {
+        step: 2,
+        title: "View Rendered Preview",
+        description: "See your RAW data processed into a viewable image. Check that exposure and colors look acceptable.",
+        screenshotAlt: "Rendered RAW preview"
+      },
+      {
+        step: 3,
+        title: "Process to PNG",
+        description: "Convert your RAW file to PNG format with lossless compression. No quality is lost in the output file.",
+        tip: "PNG files will be large—consider JPG if lossless quality isn't essential.",
+        screenshotAlt: "Processing indicator"
+      },
+      {
+        step: 4,
+        title: "Download PNG",
+        description: "Save your losslessly converted PNG file. Ideal for further editing in software that doesn't support RAW.",
+        screenshotAlt: "PNG ready for download"
+      }
+    ],
+    proTips: [
+      "Use PNG when the destination software can't read RAW but you need lossless quality",
+      "PNG is larger than JPG but preserves quality for additional editing steps",
+      "Good intermediate format when moving between incompatible editing tools",
+      "Keep original RAW for maximum flexibility in professional workflows"
+    ],
+    commonMistakes: [
+      "Creating unnecessarily large PNG files when JPG would suffice",
+      "Using this for professional color work instead of proper RAW software",
+      "Expecting PNG to contain the same editing flexibility as RAW"
+    ]
+  },
+
+  // ============================================
+  // ADDITIONAL COMPRESSION TOOLS
+  // ============================================
+
+  "webp-compressor": {
+    slug: "webp-compressor",
+    supportedFormats: ["WebP"],
+    maxFileSize: "50MB per image",
+    processingNote: "1-4 seconds",
+    privacyBehavior: "Client-side only",
+    steps: [
+      {
+        step: 1,
+        title: "Add WebP Image",
+        description: "Upload your WebP file for additional compression. Even though WebP is already efficient, further optimization is often possible.",
+        screenshotAlt: "WebP file upload"
+      },
+      {
+        step: 2,
+        title: "Choose Compression Mode",
+        description: "Select lossy for maximum size reduction or lossless to maintain exact quality. Adjust the quality slider for lossy mode.",
+        tip: "WebP lossy at 80% quality is often visually indistinguishable from 100%.",
+        screenshotAlt: "Compression mode selection"
+      },
+      {
+        step: 3,
+        title: "Compare Results",
+        description: "Preview the compressed version alongside the original. Check for acceptable quality before finalizing.",
+        screenshotAlt: "Before/after comparison"
+      },
+      {
+        step: 4,
+        title: "Download Optimized",
+        description: "Save your further-compressed WebP file with the new smaller size.",
+        screenshotAlt: "Compressed WebP download"
+      }
+    ],
+    proTips: [
+      "Compress WebP files exported from other tools at unnecessarily high quality",
+      "Use for WebP images received that are larger than needed",
+      "Lossy recompression can introduce artifacts—use lossless when possible",
+      "Target 80-90% quality for web use to balance size and quality"
+    ],
+    commonMistakes: [
+      "Repeatedly compressing the same file, degrading quality each time",
+      "Using lossy compression on already heavily compressed images",
+      "Expecting significant reduction from already-optimized WebP files"
+    ]
+  },
+
+  "gif-compressor": {
+    slug: "gif-compressor",
+    supportedFormats: ["GIF"],
+    maxFileSize: "50MB per file",
+    processingNote: "3-15 seconds (varies by animation)",
+    privacyBehavior: "Local optimization",
+    steps: [
+      {
+        step: 1,
+        title: "Upload GIF File",
+        description: "Add your GIF image or animation. Large animated GIFs especially benefit from compression optimization.",
+        tip: "Animated GIFs with many frames compress more than static GIFs.",
+        screenshotAlt: "GIF upload interface"
+      },
+      {
+        step: 2,
+        title: "Select Optimization Level",
+        description: "Choose compression strength. Light optimization preserves quality; heavy optimization maximizes size reduction but may reduce smoothness.",
+        screenshotAlt: "Optimization level slider"
+      },
+      {
+        step: 3,
+        title: "Preview Animated Result",
+        description: "Watch the optimized GIF play to verify animation quality and smoothness remain acceptable.",
+        warning: "Heavy compression may reduce frame count, affecting animation smoothness.",
+        screenshotAlt: "Animated preview playback"
+      },
+      {
+        step: 4,
+        title: "Download Smaller GIF",
+        description: "Save your compressed GIF file. Size reduction varies based on content complexity and chosen optimization level.",
+        screenshotAlt: "Download with size comparison"
+      }
+    ],
+    proTips: [
+      "Reduce colors to 128 or 64 if visually acceptable for major size savings",
+      "Remove duplicate frames that don't change between states",
+      "Consider converting to video (MP4/WebM) for very large GIFs",
+      "Crop and resize before compressing for maximum size reduction"
+    ],
+    commonMistakes: [
+      "Over-compressing and creating visible dithering or banding",
+      "Reducing frame rate too much, making animation choppy",
+      "Using GIF for photographic content where video would be better"
+    ]
+  },
+
+  "tiff-compressor": {
+    slug: "tiff-compressor",
+    supportedFormats: ["TIFF", "TIF"],
+    maxFileSize: "100MB per file",
+    processingNote: "3-10 seconds",
+    privacyBehavior: "Browser processing",
+    steps: [
+      {
+        step: 1,
+        title: "Upload TIFF File",
+        description: "Add your TIFF image for compression. TIFF supports various compression schemes, allowing size reduction while staying in TIFF format.",
+        screenshotAlt: "TIFF file upload"
+      },
+      {
+        step: 2,
+        title: "Select Compression Type",
+        description: "Choose LZW for lossless general use, ZIP for best lossless compression, or JPEG for lossy but smallest size.",
+        tip: "LZW compression is universally supported and lossless.",
+        screenshotAlt: "Compression type selection"
+      },
+      {
+        step: 3,
+        title: "Process Compression",
+        description: "Apply the selected compression to your TIFF file. Lossless options preserve exact image data.",
+        screenshotAlt: "Compression progress"
+      },
+      {
+        step: 4,
+        title: "Download Compressed TIFF",
+        description: "Save your smaller TIFF file. It remains in TIFF format for compatibility with professional software.",
+        screenshotAlt: "Compressed TIFF ready"
+      }
+    ],
+    proTips: [
+      "LZW compression works well for graphics and screenshots",
+      "Use ZIP compression for maximum lossless reduction",
+      "JPEG compression within TIFF creates smallest files but is lossy",
+      "Compressed TIFFs remain compatible with professional software"
+    ],
+    commonMistakes: [
+      "Using JPEG compression when lossless quality is required",
+      "Expecting compression to match JPG file sizes",
+      "Not verifying that the compressed TIFF opens correctly in target software"
+    ]
+  },
+
+  // ============================================
+  // ADDITIONAL RESIZE TOOLS
+  // ============================================
+
+  "fit-to-width": {
+    slug: "fit-to-width",
+    supportedFormats: ["JPG", "PNG", "WebP", "GIF", "BMP"],
+    maxFileSize: "50MB per image",
+    processingNote: "Instant",
+    privacyBehavior: "No uploads",
+    steps: [
+      {
+        step: 1,
+        title: "Add Your Image",
+        description: "Upload the image you need to resize to a specific width. The height will adjust automatically to maintain proportions.",
+        screenshotAlt: "Image upload showing original dimensions"
+      },
+      {
+        step: 2,
+        title: "Enter Target Width",
+        description: "Type the exact width in pixels you need. The tool calculates the proportional height automatically.",
+        tip: "Common widths: 800px (blog), 1200px (social), 1920px (full HD).",
+        screenshotAlt: "Width input with calculated height shown"
+      },
+      {
+        step: 3,
+        title: "Preview New Size",
+        description: "See the calculated dimensions before applying. Verify the new size meets your requirements.",
+        screenshotAlt: "Dimension preview"
+      },
+      {
+        step: 4,
+        title: "Resize and Download",
+        description: "Apply the resize and download your image at the new width with perfectly maintained aspect ratio.",
+        screenshotAlt: "Resized image download"
+      }
+    ],
+    proTips: [
+      "Use for creating consistent column widths in blog layouts",
+      "Resize product images to match your e-commerce template width",
+      "Create social media images at platform-specific widths",
+      "Aspect ratio is preserved automatically—no stretching"
+    ],
+    commonMistakes: [
+      "Entering width larger than original, causing quality loss",
+      "Not considering that height changes proportionally",
+      "Forgetting to check the final dimensions meet platform requirements"
+    ]
+  },
+
+  "fit-to-height": {
+    slug: "fit-to-height",
+    supportedFormats: ["JPG", "PNG", "WebP", "GIF", "BMP"],
+    maxFileSize: "50MB per image",
+    processingNote: "Instant",
+    privacyBehavior: "Local only",
+    steps: [
+      {
+        step: 1,
+        title: "Upload Image",
+        description: "Add the image to resize based on height. Width adjusts proportionally to prevent distortion.",
+        screenshotAlt: "Image upload interface"
+      },
+      {
+        step: 2,
+        title: "Set Target Height",
+        description: "Enter your desired height in pixels. The width is calculated automatically to maintain aspect ratio.",
+        tip: "Useful for matching row heights in galleries or grid layouts.",
+        screenshotAlt: "Height input with auto-calculated width"
+      },
+      {
+        step: 3,
+        title: "Review Dimensions",
+        description: "Check that the resulting width works for your layout before applying the resize.",
+        screenshotAlt: "Dimension preview display"
+      },
+      {
+        step: 4,
+        title: "Apply and Save",
+        description: "Execute the resize and download your height-constrained image with preserved proportions.",
+        screenshotAlt: "Download ready"
+      }
+    ],
+    proTips: [
+      "Use for creating uniform row heights in masonry galleries",
+      "Match heights for side-by-side image comparisons",
+      "Create consistent thumbnail strips with matching heights",
+      "Combine with cropping for exact dimensions when needed"
+    ],
+    commonMistakes: [
+      "Expecting both dimensions to be exact—width will vary based on aspect ratio",
+      "Enlarging small images beyond their quality limit",
+      "Not cropping when exact width AND height are both required"
+    ]
+  },
+
+  "fit-to-box": {
+    slug: "fit-to-box",
+    supportedFormats: ["JPG", "PNG", "WebP", "GIF", "BMP"],
+    maxFileSize: "50MB per image",
+    processingNote: "Instant",
+    privacyBehavior: "Client-side",
+    steps: [
+      {
+        step: 1,
+        title: "Load Image",
+        description: "Upload the image to fit within maximum dimensions. The image resizes to fit entirely within the specified box.",
+        screenshotAlt: "Image upload"
+      },
+      {
+        step: 2,
+        title: "Set Box Dimensions",
+        description: "Enter maximum width and height. The image scales to fit entirely within these bounds while maintaining aspect ratio.",
+        tip: "Image won't exceed either dimension—it fits completely inside the box.",
+        screenshotAlt: "Width and height box inputs"
+      },
+      {
+        step: 3,
+        title: "Preview Fit",
+        description: "See how your image fits within the box. One dimension matches the limit; the other may be smaller.",
+        screenshotAlt: "Fit preview visualization"
+      },
+      {
+        step: 4,
+        title: "Download Fitted Image",
+        description: "Save your image that fits completely within the specified maximum dimensions.",
+        screenshotAlt: "Download button"
+      }
+    ],
+    proTips: [
+      "Perfect for thumbnail generation with maximum size constraints",
+      "Use for email signatures with size limits on both dimensions",
+      "Ensure images fit within app containers without overflow",
+      "Combine with padding if you need exact box dimensions as output"
+    ],
+    commonMistakes: [
+      "Expecting both dimensions to match—only one will match, other will be smaller",
+      "Confusing 'fit' with 'fill'—fit contains the whole image, fill might crop",
+      "Setting box smaller than needed and losing detail"
+    ]
+  },
+
+  // ============================================
+  // ADDITIONAL CROP TOOLS
+  // ============================================
+
+  "aspect-ratio-crop": {
+    slug: "aspect-ratio-crop",
+    supportedFormats: ["JPG", "PNG", "WebP", "GIF", "BMP"],
+    maxFileSize: "50MB per image",
+    processingNote: "Real-time preview",
+    privacyBehavior: "Browser only",
+    steps: [
+      {
+        step: 1,
+        title: "Upload Your Photo",
+        description: "Add the image you need to crop to a specific aspect ratio. Common ratios include 16:9, 4:3, 1:1, and 9:16.",
+        screenshotAlt: "Image upload for ratio cropping"
+      },
+      {
+        step: 2,
+        title: "Select Aspect Ratio",
+        description: "Choose from preset ratios (16:9, 4:3, 1:1, 3:2) or enter a custom ratio. The crop box locks to this ratio.",
+        tip: "16:9 for YouTube thumbnails, 1:1 for Instagram, 9:16 for Stories.",
+        screenshotAlt: "Ratio selection dropdown"
+      },
+      {
+        step: 3,
+        title: "Position Crop Box",
+        description: "Drag and resize the locked-ratio crop box to frame your subject perfectly within the constraint.",
+        screenshotAlt: "Crop box positioned on image"
+      },
+      {
+        step: 4,
+        title: "Crop and Save",
+        description: "Apply the crop to get your perfectly ratio-constrained image ready for its intended platform.",
+        screenshotAlt: "Cropped image download"
+      }
+    ],
+    proTips: [
+      "Use 16:9 for video thumbnails and widescreen displays",
+      "1:1 square crop works for most social media profile pictures",
+      "4:5 is Instagram's preferred portrait ratio",
+      "Match the ratio to your final display context"
+    ],
+    commonMistakes: [
+      "Using the wrong ratio for the target platform",
+      "Cropping too tightly and cutting off important elements",
+      "Not considering mobile vs. desktop display ratios"
+    ]
+  },
+
+  "square-crop": {
+    slug: "square-crop",
+    supportedFormats: ["JPG", "PNG", "WebP", "GIF", "BMP"],
+    maxFileSize: "50MB per image",
+    processingNote: "Instant",
+    privacyBehavior: "Local processing",
+    steps: [
+      {
+        step: 1,
+        title: "Add Image",
+        description: "Upload the photo you want to crop to a perfect square (1:1 ratio). Ideal for profile pictures and social media.",
+        screenshotAlt: "Image upload for square crop"
+      },
+      {
+        step: 2,
+        title: "Position Square Selection",
+        description: "A square crop overlay appears. Drag to reposition and resize to capture the best square portion of your image.",
+        tip: "Center faces in portraits for balanced profile pictures.",
+        screenshotAlt: "Square overlay on image"
+      },
+      {
+        step: 3,
+        title: "Adjust Size",
+        description: "Resize the square selection to include more or less of the original image while maintaining perfect 1:1 proportions.",
+        screenshotAlt: "Resize handles on square"
+      },
+      {
+        step: 4,
+        title: "Create Square Image",
+        description: "Apply the crop and download your perfectly square image.",
+        screenshotAlt: "Square crop result"
+      }
+    ],
+    proTips: [
+      "Square format works on nearly all social platforms",
+      "Position the subject slightly off-center for visual interest",
+      "Use for consistent product photo grids in e-commerce",
+      "Profile pictures typically look best with the face centered"
+    ],
+    commonMistakes: [
+      "Cutting off the top of heads in portrait square crops",
+      "Making the square too small and losing important context",
+      "Not considering that some platforms may add circular masking"
+    ]
+  },
+
+  "free-selection-crop": {
+    slug: "free-selection-crop",
+    supportedFormats: ["JPG", "PNG", "WebP"],
+    maxFileSize: "50MB per image",
+    processingNote: "Real-time",
+    privacyBehavior: "Fully local",
+    steps: [
+      {
+        step: 1,
+        title: "Upload Image",
+        description: "Add the image for free-form cropping. This tool allows irregular crop shapes, not just rectangles.",
+        screenshotAlt: "Image upload"
+      },
+      {
+        step: 2,
+        title: "Draw Selection",
+        description: "Use the lasso or polygon tool to draw around the area you want to keep. Click points to create your selection boundary.",
+        tip: "Take your time with the selection—accuracy matters for clean results.",
+        screenshotAlt: "Polygon selection being drawn"
+      },
+      {
+        step: 3,
+        title: "Refine Edges",
+        description: "Adjust individual points of your selection to fine-tune the boundary. Add or remove points as needed.",
+        screenshotAlt: "Point adjustment on selection"
+      },
+      {
+        step: 4,
+        title: "Crop with Transparency",
+        description: "Apply the crop. Areas outside your selection become transparent (requires PNG output for transparency).",
+        warning: "Export as PNG to preserve transparency. JPG will add a background color.",
+        screenshotAlt: "Free-form cropped result"
+      }
+    ],
+    proTips: [
+      "Use for cutting out subjects from backgrounds",
+      "Create stickers and irregular-shaped graphics",
+      "Export as PNG to maintain transparent edges",
+      "Zoom in for precise selection around detailed edges"
+    ],
+    commonMistakes: [
+      "Exporting as JPG and losing the transparent background",
+      "Rushing the selection and getting jagged edges",
+      "Not zooming in enough for detailed selections"
+    ]
+  },
+
+  // ============================================
+  // ADDITIONAL ROTATE/FLIP TOOLS
+  // ============================================
+
+  "rotate-180": {
+    slug: "rotate-180",
+    supportedFormats: ["JPG", "PNG", "WebP", "GIF", "BMP", "TIFF"],
+    maxFileSize: "50MB per image",
+    processingNote: "Instant",
+    privacyBehavior: "Local only",
+    steps: [
+      {
+        step: 1,
+        title: "Upload Upside-Down Image",
+        description: "Add the image that needs to be flipped completely around. This is common with scanned photos placed incorrectly.",
+        screenshotAlt: "Inverted image upload"
+      },
+      {
+        step: 2,
+        title: "Apply 180° Rotation",
+        description: "Click the rotate button to flip the image completely upside-down—or right-side up if it was inverted.",
+        tip: "This is equivalent to both a vertical and horizontal flip combined.",
+        screenshotAlt: "Rotation applied"
+      },
+      {
+        step: 3,
+        title: "Verify Orientation",
+        description: "Check that the image now displays correctly oriented. The top is now the bottom and vice versa.",
+        screenshotAlt: "Correctly oriented image"
+      },
+      {
+        step: 4,
+        title: "Save Corrected Image",
+        description: "Download your properly oriented image file.",
+        screenshotAlt: "Download button"
+      }
+    ],
+    proTips: [
+      "Use for scanned documents placed upside-down on the scanner",
+      "Fix photos taken with the camera held upside-down",
+      "Corrects images from cameras with faulty orientation sensors",
+      "Creates mirror-opposite effect (left-right AND up-down swap)"
+    ],
+    commonMistakes: [
+      "Confusing 180° rotation with horizontal or vertical flip only",
+      "Using 180° when only 90° rotation was needed",
+      "Not checking if the original auto-orientation was just disabled"
+    ]
+  },
+
+  "rotate-270": {
+    slug: "rotate-270",
+    supportedFormats: ["JPG", "PNG", "WebP", "GIF", "BMP", "TIFF"],
+    maxFileSize: "50MB per image",
+    processingNote: "Instant",
+    privacyBehavior: "No data sent",
+    steps: [
+      {
+        step: 1,
+        title: "Add Rotated Image",
+        description: "Upload the image that needs 270° clockwise rotation (same as 90° counter-clockwise).",
+        screenshotAlt: "Image needing rotation"
+      },
+      {
+        step: 2,
+        title: "Rotate 270 Degrees",
+        description: "Apply the rotation to turn the image three-quarters of the way around clockwise.",
+        tip: "270° clockwise = 90° counter-clockwise—same result, different direction.",
+        screenshotAlt: "Rotation controls"
+      },
+      {
+        step: 3,
+        title: "Check Result",
+        description: "Verify the image orientation is now correct. The original right side is now at the top.",
+        screenshotAlt: "Rotated result preview"
+      },
+      {
+        step: 4,
+        title: "Download Image",
+        description: "Save your correctly oriented image file.",
+        screenshotAlt: "Download interface"
+      }
+    ],
+    proTips: [
+      "Use when 90° clockwise was the wrong direction",
+      "Quicker than clicking 90° three times for the same result",
+      "Width and height dimensions swap (like any 90° rotation)",
+      "Common fix for phone photos with incorrect orientation tags"
+    ],
+    commonMistakes: [
+      "Confusing rotation direction with flip direction",
+      "Not realizing 270° clockwise = 90° counter-clockwise",
+      "Forgetting that rotated images have swapped width/height"
+    ]
+  },
+
+  "custom-rotate": {
+    slug: "custom-rotate",
+    supportedFormats: ["JPG", "PNG", "WebP"],
+    maxFileSize: "50MB per image",
+    processingNote: "Real-time preview",
+    privacyBehavior: "Browser-based",
+    steps: [
+      {
+        step: 1,
+        title: "Upload Image",
+        description: "Add the image that needs rotation by a specific angle. This tool allows any rotation from 0° to 360°.",
+        screenshotAlt: "Image upload for custom rotation"
+      },
+      {
+        step: 2,
+        title: "Set Rotation Angle",
+        description: "Enter the exact degree of rotation or use the slider for visual adjustment. Preview updates in real-time.",
+        tip: "Small angles (1-5°) are perfect for straightening crooked photos.",
+        screenshotAlt: "Angle slider and input"
+      },
+      {
+        step: 3,
+        title: "Choose Background Handling",
+        description: "Decide how to handle the empty corners created by rotation: transparent, color fill, or auto-crop to hide them.",
+        screenshotAlt: "Background options"
+      },
+      {
+        step: 4,
+        title: "Apply and Download",
+        description: "Finalize the rotation and download your precisely angled image.",
+        warning: "Non-90° rotations may slightly reduce quality due to pixel interpolation.",
+        screenshotAlt: "Rotated image ready"
+      }
+    ],
+    proTips: [
+      "Use for straightening horizon lines in landscape photos",
+      "Small angle adjustments (1-3°) fix slightly crooked scans",
+      "Choose transparent background for layered compositions",
+      "Auto-crop removes empty corners but reduces image area"
+    ],
+    commonMistakes: [
+      "Over-rotating and making the image look tilted the other direction",
+      "Not considering the empty corners created by non-90° rotations",
+      "Using custom rotation when simple 90° increments would work"
+    ]
+  },
+
+  "flip-vertical": {
+    slug: "flip-vertical",
+    supportedFormats: ["JPG", "PNG", "WebP", "GIF", "BMP"],
+    maxFileSize: "50MB per image",
+    processingNote: "Instant",
+    privacyBehavior: "Local processing",
+    steps: [
+      {
+        step: 1,
+        title: "Upload Image",
+        description: "Add the image you want to flip vertically (mirror along the horizontal axis). Top becomes bottom, bottom becomes top.",
+        screenshotAlt: "Image for vertical flip"
+      },
+      {
+        step: 2,
+        title: "Apply Vertical Flip",
+        description: "Click to flip the image upside-down while keeping left and right sides in their original positions.",
+        tip: "Different from 180° rotation—text would still read left-to-right after vertical flip.",
+        screenshotAlt: "Vertical flip applied"
+      },
+      {
+        step: 3,
+        title: "Compare Results",
+        description: "Toggle between original and flipped versions to verify the flip achieves your intended result.",
+        screenshotAlt: "Before/after comparison"
+      },
+      {
+        step: 4,
+        title: "Download Flipped Image",
+        description: "Save your vertically mirrored image file.",
+        warning: "Text and logos will appear upside-down—this is expected behavior.",
+        screenshotAlt: "Download button"
+      }
+    ],
+    proTips: [
+      "Use for creating reflection effects below objects",
+      "Fix images scanned face-down that came out inverted",
+      "Create symmetrical designs by combining with original",
+      "Different from rotation—horizontal axis is the mirror line"
+    ],
+    commonMistakes: [
+      "Confusing vertical flip with horizontal flip—different results",
+      "Expecting text to remain readable after vertical flip",
+      "Using vertical flip when 180° rotation was actually needed"
+    ]
+  },
+
+  "mirror-effect": {
+    slug: "mirror-effect",
+    supportedFormats: ["JPG", "PNG", "WebP"],
+    maxFileSize: "50MB per image",
+    processingNote: "1-3 seconds",
+    privacyBehavior: "Fully local",
+    steps: [
+      {
+        step: 1,
+        title: "Add Base Image",
+        description: "Upload the image to create a mirror reflection effect. The tool duplicates and flips to create symmetrical compositions.",
+        screenshotAlt: "Base image upload"
+      },
+      {
+        step: 2,
+        title: "Choose Mirror Direction",
+        description: "Select horizontal (left-right reflection) or vertical (top-bottom reflection) mirroring style.",
+        tip: "Horizontal creates side-by-side symmetry; vertical creates reflection below like water.",
+        screenshotAlt: "Direction selection"
+      },
+      {
+        step: 3,
+        title: "Adjust Blend and Fade",
+        description: "Configure how the reflection blends with the original. Add fade effects for realistic water-like reflections.",
+        screenshotAlt: "Blend and fade controls"
+      },
+      {
+        step: 4,
+        title: "Generate and Save",
+        description: "Create your mirror effect composition and download the combined image.",
+        screenshotAlt: "Mirror effect result"
+      }
+    ],
+    proTips: [
+      "Add fade to vertical mirrors for realistic water reflection look",
+      "Horizontal mirrors create interesting architectural symmetry",
+      "Combine with color adjustment on the reflection for depth",
+      "Use solid-color backgrounds for cleanest symmetry effects"
+    ],
+    commonMistakes: [
+      "Not adding fade to reflections, making them look artificial",
+      "Creating overly busy compositions by mirroring complex images",
+      "Forgetting that the final image will be twice as large in one dimension"
+    ]
+  },
+
+  // ============================================
+  // ADDITIONAL WATERMARK TOOLS
+  // ============================================
+
+  "image-watermark": {
+    slug: "image-watermark",
+    supportedFormats: ["JPG", "PNG", "WebP"],
+    maxFileSize: "50MB per image",
+    processingNote: "Instant preview",
+    privacyBehavior: "No data transmission",
+    steps: [
+      {
+        step: 1,
+        title: "Upload Main Image",
+        description: "Add the photo you want to watermark. This is the image that will display your logo or watermark graphic.",
+        screenshotAlt: "Main image upload"
+      },
+      {
+        step: 2,
+        title: "Add Watermark Logo",
+        description: "Upload your logo or watermark image. PNG with transparent background works best for professional results.",
+        tip: "Use PNG logos with transparency for seamless integration.",
+        screenshotAlt: "Logo upload interface"
+      },
+      {
+        step: 3,
+        title: "Position and Size",
+        description: "Drag to position the watermark and resize using corner handles. Place where cropping would be difficult.",
+        screenshotAlt: "Watermark positioning"
+      },
+      {
+        step: 4,
+        title: "Adjust Opacity",
+        description: "Set transparency level. 30-50% creates subtle branding while remaining visible.",
+        screenshotAlt: "Opacity slider"
+      },
+      {
+        step: 5,
+        title: "Apply Watermark",
+        description: "Finalize and download your branded image with the watermark permanently embedded.",
+        warning: "Watermark is permanent—keep original unwatermarked versions for editing.",
+        screenshotAlt: "Final watermarked image"
+      }
+    ],
+    proTips: [
+      "Use your logo PNG with transparency for professional watermarks",
+      "Position over important areas that are hard to crop out",
+      "Lower opacity looks more professional than full opacity",
+      "Consider tiled pattern for maximum protection"
+    ],
+    commonMistakes: [
+      "Using JPEG logos that have white boxes instead of transparency",
+      "Placing watermarks in corners where they're easily cropped",
+      "Making watermarks too large or too opaque, ruining the image"
+    ]
+  },
+
+  // ============================================
+  // IMAGE COMBINE TOOLS
+  // ============================================
+
+  "merge-horizontally": {
+    slug: "merge-horizontally",
+    supportedFormats: ["JPG", "PNG", "WebP", "GIF"],
+    maxFileSize: "50MB total",
+    processingNote: "2-5 seconds",
+    privacyBehavior: "Browser-only",
+    steps: [
+      {
+        step: 1,
+        title: "Add First Image",
+        description: "Upload the leftmost image in your horizontal merge. This will appear on the left side of the final composition.",
+        screenshotAlt: "First image upload"
+      },
+      {
+        step: 2,
+        title: "Add Additional Images",
+        description: "Upload more images to place side-by-side. Drag to reorder their left-to-right sequence.",
+        tip: "Images with matching heights create the cleanest horizontal joins.",
+        screenshotAlt: "Multiple image uploads"
+      },
+      {
+        step: 3,
+        title: "Configure Alignment",
+        description: "Choose how to handle height differences: align top, center, or bottom. Add optional spacing between images.",
+        screenshotAlt: "Alignment options"
+      },
+      {
+        step: 4,
+        title: "Merge Images",
+        description: "Combine all images into a single horizontal strip and download the merged result.",
+        screenshotAlt: "Merged horizontal image"
+      }
+    ],
+    proTips: [
+      "Match image heights beforehand for seamless joins",
+      "Use for creating panorama-style compilations",
+      "Add consistent spacing for gallery-style presentations",
+      "Center alignment works best for mixed-height images"
+    ],
+    commonMistakes: [
+      "Merging images with vastly different heights without adjustment",
+      "Forgetting to check left-to-right order before merging",
+      "Creating extremely wide images that are hard to display"
+    ]
+  },
+
+  "merge-vertically": {
+    slug: "merge-vertically",
+    supportedFormats: ["JPG", "PNG", "WebP", "GIF"],
+    maxFileSize: "50MB total",
+    processingNote: "2-5 seconds",
+    privacyBehavior: "Local processing",
+    steps: [
+      {
+        step: 1,
+        title: "Upload Top Image",
+        description: "Add the image that will appear at the top of your vertical stack.",
+        screenshotAlt: "Top image upload"
+      },
+      {
+        step: 2,
+        title: "Add More Images",
+        description: "Upload additional images to stack below. Drag to reorder their top-to-bottom sequence.",
+        tip: "Matching widths creates the cleanest vertical joins.",
+        screenshotAlt: "Additional image uploads"
+      },
+      {
+        step: 3,
+        title: "Set Alignment",
+        description: "Choose how to handle width differences: align left, center, or right. Add optional gaps between images.",
+        screenshotAlt: "Alignment configuration"
+      },
+      {
+        step: 4,
+        title: "Stack and Download",
+        description: "Combine all images into a single vertical strip and save the merged result.",
+        screenshotAlt: "Vertical merged result"
+      }
+    ],
+    proTips: [
+      "Great for creating long infographics from sections",
+      "Use for mobile-friendly content that scrolls vertically",
+      "Center alignment handles mixed widths gracefully",
+      "Add divider images between sections for visual separation"
+    ],
+    commonMistakes: [
+      "Stacking images with different widths without alignment consideration",
+      "Creating extremely tall images that are impractical to view",
+      "Forgetting to check top-to-bottom order before merging"
+    ]
+  },
+
+  "collage-maker": {
+    slug: "collage-maker",
+    supportedFormats: ["JPG", "PNG", "WebP"],
+    maxFileSize: "50MB total",
+    processingNote: "3-10 seconds",
+    privacyBehavior: "No uploads required",
+    steps: [
+      {
+        step: 1,
+        title: "Upload Collage Photos",
+        description: "Add 2-9 photos for your collage. The tool arranges them into attractive grid layouts automatically.",
+        tip: "Select photos with similar color tones for cohesive collages.",
+        screenshotAlt: "Multiple photo upload"
+      },
+      {
+        step: 2,
+        title: "Choose Layout",
+        description: "Select from grid, freestyle, or themed layout templates. Each layout positions your photos differently.",
+        screenshotAlt: "Layout template selection"
+      },
+      {
+        step: 3,
+        title: "Adjust Individual Photos",
+        description: "Drag photos to swap positions. Resize or crop individual images within their frames as needed.",
+        screenshotAlt: "Photo adjustment interface"
+      },
+      {
+        step: 4,
+        title: "Customize Style",
+        description: "Set border width, spacing, background color, and rounded corners for your collage style.",
+        screenshotAlt: "Style customization options"
+      },
+      {
+        step: 5,
+        title: "Generate Collage",
+        description: "Create and download your completed photo collage ready for sharing.",
+        screenshotAlt: "Completed collage"
+      }
+    ],
+    proTips: [
+      "Use 3-4 photos for clean, focused collages",
+      "Consistent lighting across photos creates professional results",
+      "Add subtle borders between photos for defined separation",
+      "Square output dimensions work best for social media"
+    ],
+    commonMistakes: [
+      "Including too many photos, making each one too small to appreciate",
+      "Mixing very different photo styles that clash visually",
+      "Using busy backgrounds that compete with the photos"
+    ]
+  },
+
+  "before-after-maker": {
+    slug: "before-after-maker",
+    supportedFormats: ["JPG", "PNG", "WebP"],
+    maxFileSize: "50MB per image",
+    processingNote: "2-5 seconds",
+    privacyBehavior: "Client-side only",
+    steps: [
+      {
+        step: 1,
+        title: "Upload 'Before' Image",
+        description: "Add the original 'before' state image. This typically appears on the left side of the comparison.",
+        screenshotAlt: "Before image upload"
+      },
+      {
+        step: 2,
+        title: "Upload 'After' Image",
+        description: "Add the transformed 'after' state image. For best results, use images with matching dimensions and angles.",
+        tip: "Same camera angle and lighting makes comparisons more impactful.",
+        screenshotAlt: "After image upload"
+      },
+      {
+        step: 3,
+        title: "Choose Comparison Style",
+        description: "Select side-by-side, slider overlay, or fade transition style for presenting the before/after.",
+        screenshotAlt: "Comparison style options"
+      },
+      {
+        step: 4,
+        title: "Add Labels (Optional)",
+        description: "Include 'Before' and 'After' text labels to clearly identify each version.",
+        screenshotAlt: "Label customization"
+      },
+      {
+        step: 5,
+        title: "Create Comparison",
+        description: "Generate your before/after comparison image and download it for presentations or social sharing.",
+        screenshotAlt: "Final comparison image"
+      }
+    ],
+    proTips: [
+      "Match camera angles and lighting for fair comparisons",
+      "Side-by-side works best for dramatic transformations",
+      "Slider style engages viewers with interactive reveals",
+      "Label clearly—don't assume viewers know which is which"
+    ],
+    commonMistakes: [
+      "Using different angles that make comparison unfair",
+      "Swapping before/after positions causing confusion",
+      "Not matching image dimensions, creating misaligned comparisons"
+    ]
+  },
+
+  // ============================================
+  // METADATA TOOLS (expanded)
+  // ============================================
+
+  "view-exif": {
+    slug: "view-exif",
+    supportedFormats: ["JPG", "PNG", "WebP", "TIFF", "HEIC"],
+    maxFileSize: "50MB per image",
+    processingNote: "Instant",
+    privacyBehavior: "Never transmitted",
+    steps: [
+      {
+        step: 1,
+        title: "Upload Photo",
+        description: "Add an image to view its complete EXIF metadata. Camera photos contain the most extensive information.",
+        screenshotAlt: "Image upload for EXIF viewing"
+      },
+      {
+        step: 2,
+        title: "Browse Camera Data",
+        description: "See camera make/model, lens info, shutter speed, aperture, ISO, and other capture settings.",
+        tip: "Study EXIF from photos you admire to learn what settings create great shots.",
+        screenshotAlt: "Camera EXIF data display"
+      },
+      {
+        step: 3,
+        title: "Check Location Data",
+        description: "If present, view GPS coordinates where the photo was taken. See the location plotted on a map.",
+        warning: "GPS data can reveal private locations—be aware before sharing photos.",
+        screenshotAlt: "GPS map view"
+      },
+      {
+        step: 4,
+        title: "Export Metadata Report",
+        description: "Download a text summary of all metadata for documentation or analysis purposes.",
+        screenshotAlt: "Metadata export option"
+      }
+    ],
+    proTips: [
+      "Learn photography by studying EXIF from successful shots",
+      "Verify photo authenticity by checking capture dates",
+      "Check GPS before sharing to protect location privacy",
+      "Some social platforms strip metadata—original files contain more"
+    ],
+    commonMistakes: [
+      "Assuming all images have EXIF—many don't, especially edited ones",
+      "Sharing photos without checking embedded GPS coordinates",
+      "Expecting metadata from social media downloads—usually stripped"
+    ]
+  },
+
+  "remove-exif": {
+    slug: "remove-exif",
+    supportedFormats: ["JPG", "PNG", "WebP", "TIFF"],
+    maxFileSize: "50MB per image",
+    processingNote: "Instant",
+    privacyBehavior: "Local processing",
+    steps: [
+      {
+        step: 1,
+        title: "Upload Image",
+        description: "Add the photo containing metadata you want to remove. View current metadata before stripping.",
+        screenshotAlt: "Image upload with metadata preview"
+      },
+      {
+        step: 2,
+        title: "Choose What to Remove",
+        description: "Select all metadata, or specifically GPS, camera info, or timestamps. Selective removal lets you keep useful data.",
+        tip: "Remove GPS for privacy while keeping timestamps for organization.",
+        screenshotAlt: "Removal options"
+      },
+      {
+        step: 3,
+        title: "Preview Clean Image",
+        description: "Verify which metadata will remain after stripping. Confirm settings are correct before processing.",
+        screenshotAlt: "Before/after metadata comparison"
+      },
+      {
+        step: 4,
+        title: "Download Clean Image",
+        description: "Save your privacy-protected image with selected metadata removed. Image quality is unchanged.",
+        warning: "Metadata removal is permanent—keep originals if you need the data later.",
+        screenshotAlt: "Clean image download"
+      }
+    ],
+    proTips: [
+      "Always strip GPS from photos shared publicly online",
+      "Remove all metadata when selling stock photos",
+      "Keep timestamps if you organize photos by date",
+      "Batch process multiple images for efficiency"
+    ],
+    commonMistakes: [
+      "Removing all metadata when only GPS needed stripping",
+      "Not keeping original files with full metadata for personal archives",
+      "Forgetting to process all images before sharing a batch"
+    ]
+  },
+
+  // ============================================
+  // SECURITY TOOLS
+  // ============================================
+
+  "manual-face-blur": {
+    slug: "manual-face-blur",
+    supportedFormats: ["JPG", "PNG", "WebP"],
+    maxFileSize: "50MB per image",
+    processingNote: "Real-time",
+    privacyBehavior: "Processed locally",
+    steps: [
+      {
+        step: 1,
+        title: "Upload Image",
+        description: "Add the photo containing faces you want to blur for privacy protection.",
+        screenshotAlt: "Image upload"
+      },
+      {
+        step: 2,
+        title: "Select Faces to Blur",
+        description: "Click or draw over each face area you want to obscure. Create circular or rectangular blur regions.",
+        tip: "Cover the entire face area including distinctive features for effective anonymization.",
+        screenshotAlt: "Face selection interface"
+      },
+      {
+        step: 3,
+        title: "Adjust Blur Intensity",
+        description: "Set how strong the blur effect should be. Higher intensity provides more privacy but creates a more obvious effect.",
+        screenshotAlt: "Blur intensity slider"
+      },
+      {
+        step: 4,
+        title: "Save Protected Image",
+        description: "Download your image with faces blurred for privacy-compliant sharing.",
+        warning: "Blur is permanent—keep unblurred originals for personal archives.",
+        screenshotAlt: "Blurred image ready"
+      }
+    ],
+    proTips: [
+      "Use circular blur regions for face shapes",
+      "Higher blur for complete anonymity, lower for subtle privacy",
+      "Cover ears and unique hairstyles for thorough protection",
+      "Test by zooming in to ensure features aren't recognizable"
+    ],
+    commonMistakes: [
+      "Blurring too small an area, leaving recognizable features visible",
+      "Using too light a blur that can be reversed with software",
+      "Forgetting about reflective surfaces that might show faces"
+    ]
+  },
+
+  "hide-area": {
+    slug: "hide-area",
+    supportedFormats: ["JPG", "PNG", "WebP"],
+    maxFileSize: "50MB per image",
+    processingNote: "Instant",
+    privacyBehavior: "No data transmission",
+    steps: [
+      {
+        step: 1,
+        title: "Add Image",
+        description: "Upload the image containing sensitive information you need to hide—like license plates, addresses, or personal data.",
+        screenshotAlt: "Image with sensitive data"
+      },
+      {
+        step: 2,
+        title: "Draw Over Sensitive Areas",
+        description: "Click and drag to create solid blocks over information you want to hide. Create multiple rectangles as needed.",
+        tip: "Solid blocks are more secure than blur—impossible to reverse.",
+        screenshotAlt: "Drawing hide boxes"
+      },
+      {
+        step: 3,
+        title: "Choose Cover Style",
+        description: "Select solid color (most secure), pixelation, or blur for the hidden areas. Pick a color that looks natural.",
+        screenshotAlt: "Cover style options"
+      },
+      {
+        step: 4,
+        title: "Download Censored Image",
+        description: "Save your image with sensitive areas permanently hidden.",
+        warning: "Hidden data is permanently removed—cannot be recovered from the saved file.",
+        screenshotAlt: "Censored image download"
+      }
+    ],
+    proTips: [
+      "Solid black or matching background color looks most natural",
+      "Solid fills are impossible to reverse unlike blur",
+      "Cover slightly beyond the sensitive data boundaries",
+      "Check for reflections or shadows that might reveal hidden info"
+    ],
+    commonMistakes: [
+      "Using semi-transparent overlays that can be seen through",
+      "Missing secondary instances of sensitive data in the image",
+      "Using colors that draw attention to the hidden areas"
+    ]
+  },
+
+  "image-encrypt": {
+    slug: "image-encrypt",
+    supportedFormats: ["JPG", "PNG", "WebP", "GIF", "BMP"],
+    maxFileSize: "50MB per image",
+    processingNote: "2-5 seconds",
+    privacyBehavior: "All local—zero transmission",
+    steps: [
+      {
+        step: 1,
+        title: "Select Image to Protect",
+        description: "Upload the image you want to encrypt. The encryption makes the image completely unviewable without the password.",
+        screenshotAlt: "Image selection for encryption"
+      },
+      {
+        step: 2,
+        title: "Create Strong Password",
+        description: "Enter a password for encryption. Use a strong, unique password you can remember—it cannot be recovered if lost.",
+        warning: "If you forget the password, the image cannot be decrypted. There is no recovery option.",
+        screenshotAlt: "Password entry field"
+      },
+      {
+        step: 3,
+        title: "Encrypt Image",
+        description: "Process the encryption using AES-256, the same standard used by governments and banks.",
+        tip: "AES-256 encryption is virtually unbreakable with current technology.",
+        screenshotAlt: "Encryption progress"
+      },
+      {
+        step: 4,
+        title: "Download Encrypted File",
+        description: "Save your encrypted image. It appears as random noise and requires the password plus this tool to decrypt.",
+        screenshotAlt: "Encrypted file download"
+      }
+    ],
+    proTips: [
+      "Use unique passwords for different images",
+      "Store passwords separately from encrypted files",
+      "Encrypted files can be safely stored in cloud storage",
+      "Keep unencrypted backups in secure locations"
+    ],
+    commonMistakes: [
+      "Using simple, guessable passwords",
+      "Forgetting the password with no backup",
+      "Storing password and encrypted file together"
+    ]
+  },
+
+  "image-decrypt": {
+    slug: "image-decrypt",
+    supportedFormats: ["Encrypted Image Files"],
+    maxFileSize: "50MB per file",
+    processingNote: "2-5 seconds",
+    privacyBehavior: "Local decryption",
+    steps: [
+      {
+        step: 1,
+        title: "Upload Encrypted Image",
+        description: "Add the encrypted image file you want to decrypt. It will appear as random noise or solid color until decrypted.",
+        screenshotAlt: "Encrypted file upload"
+      },
+      {
+        step: 2,
+        title: "Enter Decryption Password",
+        description: "Type the exact password used during encryption. Passwords are case-sensitive and must match exactly.",
+        tip: "Double-check caps lock and special characters in your password.",
+        screenshotAlt: "Password entry"
+      },
+      {
+        step: 3,
+        title: "Decrypt Image",
+        description: "Process the decryption. If the password is correct, your original image will be restored.",
+        warning: "Wrong passwords will fail decryption—there is no 'close enough' matching.",
+        screenshotAlt: "Decryption progress"
+      },
+      {
+        step: 4,
+        title: "Download Original Image",
+        description: "Save your decrypted image, now restored to its original viewable state.",
+        screenshotAlt: "Decrypted image ready"
+      }
+    ],
+    proTips: [
+      "Try common password variations if initial attempt fails",
+      "Check for accidental spaces before or after the password",
+      "Encryption uses the same password for decrypt—no separate keys",
+      "Keep a password manager to avoid losing access to files"
+    ],
+    commonMistakes: [
+      "Entering password with incorrect capitalization",
+      "Including extra spaces that weren't in the original password",
+      "Trying to decrypt files encrypted with different tools"
+    ]
+  },
+
+  // ============================================
+  // QR TOOLS (expanded)
+  // ============================================
+
+  "image-to-qr-code": {
+    slug: "image-to-qr-code",
+    supportedFormats: ["URL/Text Input"],
+    maxFileSize: "N/A",
+    processingNote: "Instant",
+    privacyBehavior: "Generated locally",
+    steps: [
+      {
+        step: 1,
+        title: "Enter URL or Content",
+        description: "Type or paste the URL, text, or data you want to encode into a QR code. URLs should include 'https://'.",
+        tip: "Shorter content creates simpler, more reliably scannable QR codes.",
+        screenshotAlt: "Content input field"
+      },
+      {
+        step: 2,
+        title: "Customize Design",
+        description: "Choose colors for the code modules and background. Add corner styles for visual appeal while maintaining scannability.",
+        warning: "Maintain high contrast between code and background for reliable scanning.",
+        screenshotAlt: "Color and style options"
+      },
+      {
+        step: 3,
+        title: "Add Center Logo (Optional)",
+        description: "Upload a small logo to display in the center. Error correction compensates for the covered area.",
+        screenshotAlt: "Logo upload option"
+      },
+      {
+        step: 4,
+        title: "Set Size and Download",
+        description: "Choose output resolution and format (PNG or SVG). Download your custom QR code ready for use.",
+        screenshotAlt: "Size selection and download"
+      }
+    ],
+    proTips: [
+      "Test every QR code by scanning before printing",
+      "Use SVG for infinitely scalable QR codes",
+      "Keep logos small (under 20% of QR area) for reliability",
+      "URL shorteners create simpler, more robust QR codes"
+    ],
+    commonMistakes: [
+      "Low contrast colors making codes unscannable",
+      "Logos too large, blocking essential code data",
+      "Not testing before mass printing materials"
+    ]
+  },
+
+  "qr-code-to-image": {
+    slug: "qr-code-to-image",
+    supportedFormats: ["JPG", "PNG", "WebP", "GIF"],
+    maxFileSize: "10MB per image",
+    processingNote: "Instant",
+    privacyBehavior: "Local scanning",
+    steps: [
+      {
+        step: 1,
+        title: "Upload QR Code Image",
+        description: "Add an image containing a QR code. The tool scans and extracts the encoded data.",
+        tip: "Clear, focused images with good contrast scan most reliably.",
+        screenshotAlt: "QR code image upload"
+      },
+      {
+        step: 2,
+        title: "View Decoded Content",
+        description: "See the URL, text, or data encoded in the QR code. Links are displayed and can be verified before clicking.",
+        warning: "Don't click unknown URLs—verify the destination is trustworthy first.",
+        screenshotAlt: "Decoded content display"
+      },
+      {
+        step: 3,
+        title: "Copy or Open Content",
+        description: "Copy the decoded text to clipboard or, for URLs, choose to open them after verification.",
+        screenshotAlt: "Action buttons"
+      },
+      {
+        step: 4,
+        title: "Scan More Codes",
+        description: "Upload additional QR code images to decode. Each scan is independent and secure.",
+        screenshotAlt: "Ready for next scan"
+      }
+    ],
+    proTips: [
+      "Verify URLs before clicking—phishing attacks use malicious QR codes",
+      "Crop images closely around the QR code for better recognition",
+      "Clean, high-contrast photos scan most reliably",
+      "Use for safely checking QR codes before visiting unknown links"
+    ],
+    commonMistakes: [
+      "Clicking decoded URLs without verifying they're legitimate",
+      "Using blurry or low-resolution images that fail to scan",
+      "Expecting to decode damaged or partially obscured QR codes"
+    ]
+  },
+
+  // ============================================
+  // OPTIMIZATION TOOLS
+  // ============================================
+
+  "optimize-for-web": {
+    slug: "optimize-for-web",
+    supportedFormats: ["JPG", "PNG", "WebP", "GIF"],
+    maxFileSize: "50MB per image",
+    processingNote: "2-5 seconds",
+    privacyBehavior: "Browser processing",
+    steps: [
+      {
+        step: 1,
+        title: "Upload Image",
+        description: "Add the image you want optimized for fast web loading. The tool analyzes and applies the best optimization strategy.",
+        screenshotAlt: "Image upload for optimization"
+      },
+      {
+        step: 2,
+        title: "Select Target Quality",
+        description: "Choose optimization level: Balanced (recommended), Quality-focused, or Size-focused depending on your priorities.",
+        tip: "Balanced mode works well for most websites and social media.",
+        screenshotAlt: "Quality preset selection"
+      },
+      {
+        step: 3,
+        title: "Preview Optimization",
+        description: "Compare original and optimized versions side-by-side. Check that quality meets your standards at the reduced size.",
+        screenshotAlt: "Before/after comparison"
+      },
+      {
+        step: 4,
+        title: "Download Optimized Image",
+        description: "Save your web-ready image. The optimization reduces file size while maintaining visual quality for fast page loads.",
+        screenshotAlt: "Optimized image download"
+      }
+    ],
+    proTips: [
+      "Optimize all images before uploading to websites",
+      "Smaller images improve Google PageSpeed scores",
+      "WebP format often provides best web optimization results",
+      "Test optimized images on both desktop and mobile"
+    ],
+    commonMistakes: [
+      "Over-optimizing critical images where quality matters most",
+      "Not testing optimized images on the actual website",
+      "Ignoring retina display requirements (need 2× resolution)"
+    ]
+  },
+
+  "reduce-file-size": {
+    slug: "reduce-file-size",
+    supportedFormats: ["JPG", "PNG", "WebP", "GIF"],
+    maxFileSize: "100MB per file",
+    processingNote: "1-5 seconds",
+    privacyBehavior: "Local reduction",
+    steps: [
+      {
+        step: 1,
+        title: "Upload Large Image",
+        description: "Add the image file you need to make smaller. The tool shows current file size and estimates reduction potential.",
+        screenshotAlt: "Large file upload with size display"
+      },
+      {
+        step: 2,
+        title: "Set Target Size or Quality",
+        description: "Either specify a maximum file size target or adjust quality percentage. The tool calculates the best settings.",
+        tip: "Targeting a specific size is useful for email attachments with limits.",
+        screenshotAlt: "Size/quality target settings"
+      },
+      {
+        step: 3,
+        title: "Apply Reduction",
+        description: "Process the image with optimized compression settings to reach your target while preserving maximum quality.",
+        screenshotAlt: "Reduction progress"
+      },
+      {
+        step: 4,
+        title: "Download Smaller File",
+        description: "Save your reduced-size image. View the size comparison showing how much space you saved.",
+        screenshotAlt: "Size comparison and download"
+      }
+    ],
+    proTips: [
+      "Set target sizes to match email attachment limits (typically 10-25MB)",
+      "Combine with dimension reduction for maximum size savings",
+      "PNG to JPG conversion can dramatically reduce file sizes",
+      "Quality above 75% is usually visually indistinguishable for photos"
+    ],
+    commonMistakes: [
+      "Setting unrealistic size targets that require extreme quality loss",
+      "Not considering dimension reduction as an additional option",
+      "Repeatedly compressing the same file, degrading quality each time"
+    ]
+  },
+
+  // ============================================
+  // DRAWING TOOLS
+  // ============================================
+
+  "paint-tool": {
+    slug: "paint-tool",
+    supportedFormats: ["JPG", "PNG", "WebP"],
+    maxFileSize: "50MB per image",
+    processingNote: "Real-time",
+    privacyBehavior: "Fully local",
+    steps: [
+      {
+        step: 1,
+        title: "Upload Base Image",
+        description: "Add an image to paint on, or start with a blank canvas. The paint tools work as overlays on your image.",
+        screenshotAlt: "Image upload or blank canvas"
+      },
+      {
+        step: 2,
+        title: "Select Brush Tools",
+        description: "Choose from various brush types: solid, spray, marker, highlighter. Adjust size and opacity for your needs.",
+        tip: "Use lower opacity for subtle highlights; full opacity for solid strokes.",
+        screenshotAlt: "Brush tool selection"
+      },
+      {
+        step: 3,
+        title: "Pick Colors",
+        description: "Select colors from the palette, color picker, or sample directly from your image using the eyedropper tool.",
+        screenshotAlt: "Color selection interface"
+      },
+      {
+        step: 4,
+        title: "Draw and Edit",
+        description: "Paint on your image. Use undo/redo to fix mistakes. Add multiple layers of drawing as needed.",
+        screenshotAlt: "Active painting on image"
+      },
+      {
+        step: 5,
+        title: "Save Your Work",
+        description: "Download your painted image. Choose PNG for transparency or JPG for smaller file size.",
+        screenshotAlt: "Save painted image"
+      }
+    ],
+    proTips: [
+      "Use transparent canvas for stickers and overlays",
+      "Layer multiple brush strokes for depth and dimension",
+      "Eyedropper tool helps match colors from the base image",
+      "Start with lighter opacity and build up for natural effects"
+    ],
+    commonMistakes: [
+      "Not saving work frequently—browser crashes lose progress",
+      "Using too-large brush sizes for detailed work",
+      "Forgetting to switch to eraser tool and painting unwanted marks"
+    ]
+  },
+
+  "draw-shapes": {
+    slug: "draw-shapes",
+    supportedFormats: ["JPG", "PNG", "WebP"],
+    maxFileSize: "50MB per image",
+    processingNote: "Real-time",
+    privacyBehavior: "Browser only",
+    steps: [
+      {
+        step: 1,
+        title: "Load Image",
+        description: "Upload an image to add shapes to, such as diagrams, annotations, or design elements.",
+        screenshotAlt: "Image ready for shapes"
+      },
+      {
+        step: 2,
+        title: "Select Shape Type",
+        description: "Choose from rectangles, circles, ellipses, lines, arrows, polygons, or stars. Each has customizable properties.",
+        tip: "Hold Shift while drawing for perfect squares and circles.",
+        screenshotAlt: "Shape selection toolbar"
+      },
+      {
+        step: 3,
+        title: "Customize Appearance",
+        description: "Set fill color, stroke color, stroke width, and opacity. Toggle between filled and outlined shapes.",
+        screenshotAlt: "Shape styling options"
+      },
+      {
+        step: 4,
+        title: "Draw and Position",
+        description: "Click and drag to create shapes. After drawing, drag to reposition or grab handles to resize.",
+        screenshotAlt: "Shape drawing in action"
+      },
+      {
+        step: 5,
+        title: "Export Annotated Image",
+        description: "Download your image with shapes embedded. All shapes are flattened into the final image.",
+        screenshotAlt: "Final image with shapes"
+      }
+    ],
+    proTips: [
+      "Use arrows to direct attention in tutorials and guides",
+      "Circle important elements for emphasis in screenshots",
+      "Combine filled and outlined shapes for visual variety",
+      "Use semi-transparent shapes for highlighting without obscuring"
+    ],
+    commonMistakes: [
+      "Shapes obscuring important image content",
+      "Using too many different colors, creating visual chaos",
+      "Not aligning shapes properly for professional-looking results"
+    ]
+  },
+
+  "signature-pad": {
+    slug: "signature-pad",
+    supportedFormats: ["JPG", "PNG", "WebP", "PDF"],
+    maxFileSize: "50MB per file",
+    processingNote: "Real-time",
+    privacyBehavior: "No data stored",
+    steps: [
+      {
+        step: 1,
+        title: "Upload Document or Image",
+        description: "Add the document or image that needs your signature. Position it where you can see the signature area.",
+        screenshotAlt: "Document upload"
+      },
+      {
+        step: 2,
+        title: "Draw Your Signature",
+        description: "Use your mouse, trackpad, or touchscreen to draw your signature. The pad captures natural handwriting movements.",
+        tip: "Use a stylus or finger on touchscreens for more natural signatures.",
+        screenshotAlt: "Signature drawing pad"
+      },
+      {
+        step: 3,
+        title: "Position Signature",
+        description: "Drag your signature to the correct location on the document. Resize as needed to fit the signature line.",
+        screenshotAlt: "Signature positioning"
+      },
+      {
+        step: 4,
+        title: "Finalize and Download",
+        description: "Apply the signature and download your signed document. The signature is embedded permanently.",
+        warning: "Ensure you have authority to sign before applying signatures to documents.",
+        screenshotAlt: "Signed document ready"
+      }
+    ],
+    proTips: [
+      "Practice your signature a few times before the final version",
+      "Use clear button to start over if the signature isn't right",
+      "Touchscreen devices give more natural signature feel",
+      "Save signature as PNG with transparency for reuse"
+    ],
+    commonMistakes: [
+      "Signing documents without proper authorization",
+      "Making signatures too small to be visible when document is printed",
+      "Not positioning signature on the correct line"
+    ]
+  },
+
+  // ============================================
+  // PDF TOOLS (expanded)
+  // ============================================
+
+  "word-to-pdf": {
+    slug: "word-to-pdf",
+    supportedFormats: ["DOCX", "DOC"],
+    maxFileSize: "50MB per file",
+    processingNote: "5-15 seconds",
+    privacyBehavior: "Local conversion",
+    steps: [
+      {
+        step: 1,
+        title: "Upload Word Document",
+        description: "Add your DOCX or DOC file. The converter handles text, images, tables, and formatting from Word documents.",
+        screenshotAlt: "Word file upload"
+      },
+      {
+        step: 2,
+        title: "Preview Conversion",
+        description: "See how your document will appear as PDF. Check that formatting, fonts, and layout look correct.",
+        tip: "Complex formatting may render slightly differently—preview catches issues early.",
+        screenshotAlt: "PDF preview"
+      },
+      {
+        step: 3,
+        title: "Convert to PDF",
+        description: "Process the conversion. Text remains searchable and selectable in the resulting PDF.",
+        screenshotAlt: "Conversion progress"
+      },
+      {
+        step: 4,
+        title: "Download PDF",
+        description: "Save your PDF file ready for sharing. PDFs maintain consistent appearance across all devices and platforms.",
+        screenshotAlt: "PDF ready for download"
+      }
+    ],
+    proTips: [
+      "PDF format ensures your document looks identical everywhere",
+      "Use for sending documents when you don't want recipients to edit",
+      "PDF preserves fonts even on devices that don't have them installed",
+      "Convert before printing for consistent results across printers"
+    ],
+    commonMistakes: [
+      "Not checking preview—complex formatting may need adjustment",
+      "Expecting interactive Word features (like form fields) to work in PDF",
+      "Sending Word files when PDF would prevent unwanted editing"
+    ]
   }
 };
 
