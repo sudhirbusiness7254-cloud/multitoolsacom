@@ -1,8 +1,9 @@
 # MultiToolsA - Free Online Image Tools
 # https://multitoolsa.com
 
-# Sitemap location
+# Sitemap locations
 Sitemap: https://multitoolsa.com/sitemap.xml
+Sitemap: https://ftigwyzrrdwddxcpgaaf.supabase.co/functions/v1/sitemap
 
 # Allow all major search engine crawlers
 User-agent: Googlebot
