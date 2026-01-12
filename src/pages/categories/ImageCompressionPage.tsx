@@ -3,14 +3,17 @@ import { Helmet } from "react-helmet-async";
 import CategoryPageLayout from "@/components/CategoryPageLayout";
 import UniversalImageCompressor from "@/components/UniversalImageCompressor";
 import BatchImageCompressor from "@/components/BatchImageCompressor";
+import HowToUseGuide from "@/components/HowToUseGuide";
 import { getCategoryBySlug } from "@/data/toolsData";
 import { getCategorySEOContent } from "@/data/categorySEOData";
+import { getToolGuideData } from "@/data/toolGuideData";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Image, Layers } from "lucide-react";
 
 const ImageCompressionPage = () => {
   const category = getCategoryBySlug("image-compression")!;
   const seoContent = getCategorySEOContent("image-compression")!;
+  const guideData = getToolGuideData("image-compression");
   const [activeTab, setActiveTab] = useState("single");
 
   return (
@@ -63,6 +66,18 @@ const ImageCompressionPage = () => {
             <BatchImageCompressor />
           </TabsContent>
         </Tabs>
+
+        {/* How to Use Guide */}
+        {guideData && (
+          <div className="mt-12">
+            <HowToUseGuide 
+              guideData={guideData}
+              toolName="Image Compressor"
+              gradientFrom="#f97316"
+              gradientTo="#ea580c"
+            />
+          </div>
+        )}
       </CategoryPageLayout>
     </>
   );

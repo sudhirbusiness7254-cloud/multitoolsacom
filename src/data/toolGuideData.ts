@@ -3504,6 +3504,164 @@ export const toolGuideDataMap: Record<string, ToolGuideData> = {
       "Expecting interactive Word features (like form fields) to work in PDF",
       "Sending Word files when PDF would prevent unwanted editing"
     ]
+  },
+
+  // ============================================
+  // CATEGORY PAGE GUIDES
+  // ============================================
+
+  "image-compression": {
+    slug: "image-compression",
+    supportedFormats: ["JPEG", "PNG", "WebP", "GIF", "TIFF"],
+    maxFileSize: "50MB per image",
+    processingNote: "Instant (1-5 seconds)",
+    privacyBehavior: "100% browser-based processing",
+    steps: [
+      {
+        step: 1,
+        title: "Upload Your Image",
+        description: "Drag and drop your image onto the upload area, or click to browse files. Switch to 'Batch Mode' to compress multiple images at once.",
+        tip: "For batch compression, you can add up to 20 images simultaneously.",
+        screenshotAlt: "Image upload interface with drag-and-drop zone",
+        screenshotType: "upload" as const
+      },
+      {
+        step: 2,
+        title: "Adjust Quality Settings",
+        description: "Use the quality slider to set your target compression level. Lower values create smaller files but may reduce image quality. The preview updates in real-time.",
+        screenshotAlt: "Quality slider showing compression percentage",
+        screenshotType: "compress" as const
+      },
+      {
+        step: 3,
+        title: "Preview Results",
+        description: "Compare the original and compressed versions. Check file size reduction and image quality. Most images look identical at 70-80% quality.",
+        tip: "Focus on gradient areas and fine details when evaluating quality loss.",
+        screenshotAlt: "Before/after comparison of compressed image",
+        screenshotType: "preview" as const
+      },
+      {
+        step: 4,
+        title: "Download Compressed Image",
+        description: "Click 'Download' to save your optimized image. You'll see the file size reduction percentage and can immediately compress another image.",
+        warning: "Compression is permanent—keep original files if you need highest quality later.",
+        screenshotAlt: "Download button with size savings displayed",
+        screenshotType: "download" as const
+      }
+    ],
+    proTips: [
+      "Use 70-80% quality for web images—most viewers can't tell the difference from originals",
+      "Compress images before uploading to websites to improve page load speed and SEO",
+      "JPEG works best for photographs; PNG for graphics with transparency",
+      "For email attachments, aim for under 1MB per image to avoid delivery issues"
+    ],
+    commonMistakes: [
+      "Compressing the same image multiple times—quality degrades with each cycle",
+      "Using very low quality settings for images with text or fine patterns",
+      "Not checking the compressed image on your actual use case before deployment"
+    ]
+  },
+
+  "image-resize": {
+    slug: "image-resize",
+    supportedFormats: ["JPEG", "PNG", "WebP", "GIF", "BMP", "TIFF"],
+    maxFileSize: "50MB per image",
+    processingNote: "Instant (1-2 seconds)",
+    privacyBehavior: "Fully client-side processing",
+    steps: [
+      {
+        step: 1,
+        title: "Upload Your Image",
+        description: "Drag and drop your image onto the upload area. The tool displays the original dimensions immediately. Use 'Batch Mode' for multiple images.",
+        screenshotAlt: "Image upload showing original dimensions",
+        screenshotType: "upload" as const
+      },
+      {
+        step: 2,
+        title: "Choose Resize Mode",
+        description: "Select from multiple resize modes: Exact dimensions for precise control, Percentage for proportional scaling, or Fit to Width/Height for responsive sizing.",
+        tip: "Use 'Lock Aspect Ratio' to maintain proportions and avoid distortion.",
+        screenshotAlt: "Resize mode selection with dimension inputs",
+        screenshotType: "resize" as const
+      },
+      {
+        step: 3,
+        title: "Enter Target Size",
+        description: "Specify your desired dimensions or percentage. The preview updates to show the new size. Common presets like social media sizes are available for quick selection.",
+        screenshotAlt: "Dimension inputs with live preview",
+        screenshotType: "preview" as const
+      },
+      {
+        step: 4,
+        title: "Download Resized Image",
+        description: "Click 'Resize' to process and download your image. The output maintains the original format unless you specify otherwise.",
+        warning: "Enlarging images beyond original size may cause quality loss.",
+        screenshotAlt: "Download button with new dimensions shown",
+        screenshotType: "download" as const
+      }
+    ],
+    proTips: [
+      "Always resize larger images down rather than small images up for best quality",
+      "Use exact dimensions for consistent branding across marketing materials",
+      "Common social media sizes: Instagram (1080×1080), Facebook cover (820×312), LinkedIn banner (1584×396)",
+      "Resize before adding text overlays to ensure text appears at intended size"
+    ],
+    commonMistakes: [
+      "Stretching images by unlocking aspect ratio when it should stay locked",
+      "Enlarging low-resolution images expecting them to remain sharp",
+      "Not considering retina displays that need 2× resolution images"
+    ]
+  },
+
+  "pdf-tools": {
+    slug: "pdf-tools",
+    supportedFormats: ["PDF", "Word (DOC/DOCX)", "Images (JPG/PNG/WebP)"],
+    maxFileSize: "100MB total",
+    processingNote: "3-30 seconds depending on file size",
+    privacyBehavior: "Processed entirely in your browser",
+    steps: [
+      {
+        step: 1,
+        title: "Select a PDF Tool",
+        description: "Choose the operation you need: Merge PDFs to combine files, Compress to reduce size, Split to extract pages, or Convert from Word/images to PDF.",
+        screenshotAlt: "PDF tools selection interface",
+        screenshotType: "upload" as const
+      },
+      {
+        step: 2,
+        title: "Upload Your Files",
+        description: "Drag and drop PDF files onto the upload area. For merge operations, add multiple files and arrange them in your preferred order using drag handles.",
+        tip: "You can upload multiple files at once by selecting them together.",
+        screenshotAlt: "PDF file upload with ordering controls",
+        screenshotType: "pdf" as const
+      },
+      {
+        step: 3,
+        title: "Configure Options",
+        description: "Adjust settings based on your chosen tool. For compression, select quality level. For splitting, specify page ranges. For merging, verify file order.",
+        screenshotAlt: "PDF tool configuration options",
+        screenshotType: "preview" as const
+      },
+      {
+        step: 4,
+        title: "Process and Download",
+        description: "Click the action button to process your files. Download the result when complete. Large files may take a few seconds to process.",
+        warning: "Very large PDFs or many files may take longer to process.",
+        screenshotAlt: "PDF processing complete with download button",
+        screenshotType: "download" as const
+      }
+    ],
+    proTips: [
+      "Merge related documents before sharing to keep everything organized in one file",
+      "Use medium compression for email attachments—balances size and quality",
+      "Split large PDFs to extract only the pages you need to share",
+      "Convert Word to PDF before sending important documents to preserve formatting"
+    ],
+    commonMistakes: [
+      "Forgetting to check page order before merging—reordering requires reprocessing",
+      "Using maximum compression on image-heavy PDFs where quality matters",
+      "Not previewing split results to verify correct pages were extracted"
+    ]
   }
 };
 

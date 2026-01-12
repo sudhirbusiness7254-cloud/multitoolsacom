@@ -7,6 +7,8 @@ import {
   BookOpen, Lightbulb, HelpCircle, Lock, Users, CheckCircle, Sparkles, Star
 } from "lucide-react";
 import UniversalPDFTools from "@/components/pdf/UniversalPDFTools";
+import HowToUseGuide from "@/components/HowToUseGuide";
+import { getToolGuideData } from "@/data/toolGuideData";
 import {
   Accordion,
   AccordionContent,
@@ -24,6 +26,7 @@ const pdfTools = [
 ];
 
 const PDFToolsPage = () => {
+  const guideData = getToolGuideData("pdf-tools");
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -191,66 +194,17 @@ const PDFToolsPage = () => {
             </div>
           </section>
 
-          {/* How to Use Section */}
+          {/* How to Use Section - Using HowToUseGuide Component */}
           <section className="py-12 md:py-20 bg-secondary/30 px-4">
             <div className="container mx-auto max-w-4xl">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center">
-                  <Lightbulb className="w-5 h-5 text-white" />
-                </div>
-                <h2 className="text-2xl md:text-3xl font-bold">How to Use PDF Tools</h2>
-              </div>
-              
-              <div className="bg-card rounded-2xl border border-border p-6 sm:p-8 mb-6">
-                <p className="text-muted-foreground leading-relaxed mb-6">
-                  Using our PDF tools is incredibly straightforward. We have designed the entire experience to be intuitive for users of all technical skill levels. Follow these comprehensive steps to work with your PDF documents efficiently and achieve professional results every time.
-                </p>
-
-                <div className="space-y-4">
-                  {[
-                    { step: 1, title: "Select Your Tool", desc: "Choose the appropriate tool for your task from our toolbar. Whether you need to merge multiple PDFs, compress a large file, split pages, convert from Word, or create a PDF from images, we have you covered." },
-                    { step: 2, title: "Upload Your Files", desc: "Drag and drop your PDF or document files directly onto the upload area, or click to browse and select files from your device. For merge operations, you can add multiple files and reorder them as needed." },
-                    { step: 3, title: "Configure Options", desc: "Depending on the tool, you may have additional options to configure. For compression, choose your quality level. For splitting, specify which pages to extract. For merging, arrange files in your preferred order." },
-                    { step: 4, title: "Process Your Files", desc: "Click the process button to start the operation. All processing happens instantly in your browser using advanced algorithms. Watch the progress indicator for larger files." },
-                    { step: 5, title: "Download Results", desc: "Once processing is complete, download your new PDF file. The file is ready for immediate use - share, print, or archive as needed. You can process additional files without refreshing the page." }
-                  ].map((item) => (
-                    <div key={item.step} className="flex gap-4 items-start">
-                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center text-white font-bold flex-shrink-0">
-                        {item.step}
-                      </div>
-                      <div className="flex-1 bg-secondary/50 rounded-xl p-4">
-                        <h3 className="font-semibold mb-1">{item.title}</h3>
-                        <p className="text-sm text-muted-foreground">{item.desc}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="bg-red-500/10 border border-red-500/20 rounded-2xl p-6">
-                <h3 className="font-semibold text-lg mb-4 flex items-center gap-2">
-                  <Star className="w-5 h-5 text-red-500" />
-                  Pro Tips for Best Results
-                </h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5 text-red-500" />
-                    <span className="text-sm text-muted-foreground">When merging PDFs, organize your files in the correct order before processing to save time.</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5 text-red-500" />
-                    <span className="text-sm text-muted-foreground">For compression, start with medium quality and adjust as needed to balance file size and visual quality.</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5 text-red-500" />
-                    <span className="text-sm text-muted-foreground">Always keep a backup of your original PDF files before performing irreversible operations.</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5 text-red-500" />
-                    <span className="text-sm text-muted-foreground">For Word to PDF conversion, ensure your Word document is properly formatted before converting.</span>
-                  </li>
-                </ul>
-              </div>
+              {guideData && (
+                <HowToUseGuide 
+                  guideData={guideData}
+                  toolName="PDF Tools"
+                  gradientFrom="#ef4444"
+                  gradientTo="#ea580c"
+                />
+              )}
             </div>
           </section>
 
