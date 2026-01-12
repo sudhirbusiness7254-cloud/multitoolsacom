@@ -9,6 +9,8 @@ import {
 } from "lucide-react";
 import { ToolSEOContent } from "@/data/toolsSEOData";
 import { getComprehensiveSEOContent, ComprehensiveSEOContent } from "@/data/comprehensiveSEOContent";
+import { getToolGuideData } from "@/data/toolGuideData";
+import HowToUseGuide from "@/components/HowToUseGuide";
 import {
   Accordion,
   AccordionContent,
