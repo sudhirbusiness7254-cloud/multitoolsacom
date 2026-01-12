@@ -6,6 +6,7 @@ import { Calendar, Clock, ArrowLeft, User, Share2, ArrowRight, Facebook, Twitter
 import HreflangTags from "@/components/HreflangTags";
 import { blogPosts } from "@/data/blogData";
 import { newBlogContent } from "@/data/newBlogContent";
+import RelatedTools from "@/components/RelatedTools";
 
 const blogContent: Record<string, {
   title: string;
@@ -1410,6 +1411,9 @@ const BlogPost = () => {
                 return null;
               })}
             </div>
+
+            {/* Related Tools Section */}
+            <RelatedTools blogId={slug || ""} title="Put This Into Practice" />
 
             {/* Share */}
             <div className="mt-12 pt-8 border-t border-border">

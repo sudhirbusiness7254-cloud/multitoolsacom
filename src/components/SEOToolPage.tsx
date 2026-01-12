@@ -16,6 +16,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import HreflangTags from "@/components/HreflangTags";
+import RelatedArticles from "@/components/RelatedArticles";
 
 interface SEOToolPageProps {
   seoContent: ToolSEOContent;
@@ -448,7 +449,14 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                 </div>
               ) : null}
 
-              {/* Section 12: Related Tools */}
+              {/* Section 12: Related Articles from Blog */}
+              <RelatedArticles 
+                toolSlug={seoContent.slug} 
+                title="Helpful Guides & Tutorials"
+                maxItems={3}
+              />
+
+              {/* Section 13: Related Tools */}
               {((hasComprehensive && comprehensiveContent.relatedTools.length > 0) || seoContent.relatedTools.length > 0) && (
                 <div className="bg-card rounded-2xl border border-border p-6 md:p-8">
                   <h2 className="text-xl md:text-2xl font-bold mb-6">Related Tools</h2>
