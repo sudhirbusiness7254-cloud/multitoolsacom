@@ -3,8 +3,10 @@ import { Helmet } from "react-helmet-async";
 import CategoryPageLayout from "@/components/CategoryPageLayout";
 import UniversalImageResizer from "@/components/UniversalImageResizer";
 import BatchImageResizer from "@/components/BatchImageResizer";
+import HowToUseGuide from "@/components/HowToUseGuide";
 import { getCategoryBySlug } from "@/data/toolsData";
 import { getCategorySEOContent } from "@/data/categorySEOData";
+import { getToolGuideData } from "@/data/toolGuideData";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Image, Layers } from "lucide-react";
 
@@ -12,6 +14,7 @@ const ImageResizePage = () => {
   const [activeTab, setActiveTab] = useState("single");
   const category = getCategoryBySlug("image-resize")!;
   const seoContent = getCategorySEOContent("image-resize")!;
+  const guideData = getToolGuideData("image-resize");
 
   return (
     <>
@@ -63,6 +66,18 @@ const ImageResizePage = () => {
             <BatchImageResizer />
           </TabsContent>
         </Tabs>
+
+        {/* How to Use Guide */}
+        {guideData && (
+          <div className="mt-12">
+            <HowToUseGuide 
+              guideData={guideData}
+              toolName="Image Resizer"
+              gradientFrom="#8b5cf6"
+              gradientTo="#7c3aed"
+            />
+          </div>
+        )}
       </CategoryPageLayout>
     </>
   );
