@@ -7,6 +7,7 @@ import { ArrowRight, Users, Briefcase, Target, Shield, ChevronRight, Zap, CheckC
 import { toolCategories, Category } from "@/data/toolsData";
 import { CategorySEOContent } from "@/data/categorySEOData";
 import HreflangTags from "@/components/HreflangTags";
+import RelatedArticles from "@/components/RelatedArticles";
 
 interface CategoryPageLayoutProps {
   category: Category;
@@ -319,6 +320,17 @@ const CategoryPageLayout = ({
                   </AccordionItem>
                 ))}
               </Accordion>
+            </div>
+          </section>
+
+          {/* Related Blog Articles */}
+          <section className="py-6 sm:py-8 px-4 sm:px-6">
+            <div className="container mx-auto max-w-4xl">
+              <RelatedArticles 
+                categorySlug={category.slug} 
+                title="Learn More About This Topic"
+                maxItems={2}
+              />
             </div>
           </section>
 
