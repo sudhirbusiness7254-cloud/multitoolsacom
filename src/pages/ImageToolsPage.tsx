@@ -1,8 +1,11 @@
+import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ImageConverter from "@/components/ImageConverter";
+import BatchImageConverter from "@/components/BatchImageConverter";
+import PromptToImage from "@/components/PromptToImage";
 import { 
   Image, 
   Zap, 
@@ -11,7 +14,9 @@ import {
   Globe,
   FileImage,
   CheckCircle,
-  ArrowRight
+  ArrowRight,
+  Layers,
+  Wand2
 } from "lucide-react";
 import {
   Accordion,
@@ -19,6 +24,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import HreflangTags from "@/components/HreflangTags";
 
 const formatColors: Record<string, string> = {
@@ -55,6 +61,7 @@ const conversionOptions = [
 ];
 
 const ImageToolsPage = () => {
+  const [activeTab, setActiveTab] = useState("single");
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -163,8 +170,35 @@ const ImageToolsPage = () => {
                 </p>
               </div>
 
-              {/* Main Converter */}
-              <ImageConverter />
+              {/* Mode Tabs */}
+              <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full max-w-4xl mx-auto">
+                <TabsList className="grid w-full max-w-lg mx-auto grid-cols-3 mb-8">
+                  <TabsTrigger value="single" className="gap-2">
+                    <Image className="w-4 h-4" />
+                    Single Image
+                  </TabsTrigger>
+                  <TabsTrigger value="batch" className="gap-2">
+                    <Layers className="w-4 h-4" />
+                    Batch Mode
+                  </TabsTrigger>
+                  <TabsTrigger value="ai-generate" className="gap-2">
+                    <Wand2 className="w-4 h-4" />
+                    AI Generate
+                  </TabsTrigger>
+                </TabsList>
+                
+                <TabsContent value="single" className="mt-0">
+                  <ImageConverter />
+                </TabsContent>
+                
+                <TabsContent value="batch" className="mt-0">
+                  <BatchImageConverter />
+                </TabsContent>
+                
+                <TabsContent value="ai-generate" className="mt-0">
+                  <PromptToImage />
+                </TabsContent>
+              </Tabs>
             </div>
           </section>
 
