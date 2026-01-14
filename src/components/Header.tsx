@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, ChevronDown, Search, RefreshCw, Minimize2, Maximize2, Crop, Droplet, Image, FileText } from "lucide-react";
+import { Menu, X, ChevronDown, Search, RefreshCw, Minimize2, Maximize2, Crop, Droplet, Image, FileText, Wand2 } from "lucide-react";
 import logo from "@/assets/logo-icon.png";
 import { toolCategories } from "@/data/toolsData";
 import { Input } from "@/components/ui/input";
@@ -37,6 +37,7 @@ const categoryGradients: Record<string, { from: string; to: string }> = {
   "image-qr": { from: "#3B82F6", to: "#1D4ED8" },
   "tag-tools": { from: "#8B5CF6", to: "#6366F1" },
   "pdf-tools": { from: "#DC2626", to: "#EA580C" },
+  "ai-image-generation": { from: "#A855F7", to: "#EC4899" },
 };
 
 // Top categories to show directly in nav bar
@@ -215,6 +216,18 @@ const Header = () => {
             </div>
 
             <div className="w-px h-6 bg-border mx-1 xl:mx-2" />
+            
+            {/* AI Image Generation */}
+            <Link 
+              to="/ai-image-generation" 
+              className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-secondary flex items-center gap-1.5 ${
+                location.pathname === "/ai-image-generation" ? "text-purple-500 bg-purple-500/10" : "text-foreground"
+              }`}
+            >
+              <Wand2 className="w-4 h-4" />
+              AI Generate
+            </Link>
+            
             <Link 
               to="/pdf-tools" 
               className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-secondary flex items-center gap-1.5 ${
@@ -357,6 +370,19 @@ const Header = () => {
                   className="flex items-center gap-3 px-3 py-3 rounded-lg bg-primary/10 hover:bg-primary/20 transition-colors touch-target"
                 >
                   <span className="font-semibold text-sm text-primary">View All Tools</span>
+                </Link>
+                <Link
+                  to="/ai-image-generation"
+                  onClick={closeMobileMenu}
+                  className="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-secondary transition-colors touch-target"
+                >
+                  <div 
+                    className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
+                    style={{ background: 'linear-gradient(135deg, #A855F7, #EC4899)' }}
+                  >
+                    <Wand2 className="w-4 h-4 text-white" />
+                  </div>
+                  <span className="font-medium text-sm">AI Image Generator</span>
                 </Link>
                 <Link
                   to="/pdf-tools"

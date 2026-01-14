@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { Sparkles, Download, Loader2, Wand2, RefreshCw, Image as ImageIcon } from "lucide-react";
+import { Sparkles, Download, Loader2, Wand2, RefreshCw, Image as ImageIcon, RectangleHorizontal, RectangleVertical, Square } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -7,24 +7,48 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 
-const examplePrompts = [
-  "A serene mountain landscape at sunset with golden light",
-  "A futuristic city skyline with flying cars and neon lights",
-  "A cozy coffee shop interior with warm lighting and plants",
-  "An abstract colorful explosion of geometric shapes",
-  "A majestic lion portrait with detailed fur and intense eyes",
-  "A tropical beach paradise with crystal clear turquoise water",
-  "A mystical forest with glowing mushrooms and fireflies",
-  "A vintage style travel poster of Paris with the Eiffel Tower",
-];
+const examplePrompts = {
+  landscape: [
+    "A breathtaking mountain range at golden hour with dramatic clouds",
+    "A serene tropical beach with palm trees and turquoise waters",
+    "A futuristic city skyline at night with neon lights and flying cars",
+    "A peaceful countryside with rolling green hills and a winding river",
+    "An epic fantasy landscape with floating islands and waterfalls",
+    "A cozy autumn forest path with golden leaves falling",
+  ],
+  portrait: [
+    "A majestic lion portrait with detailed fur and intense golden eyes",
+    "An elegant woman in Renaissance style painting with soft lighting",
+    "A wise old wizard with a long beard and magical staff",
+    "A cute robot character with expressive eyes and friendly design",
+    "A mystical fairy in an enchanted forest with glowing wings",
+    "A heroic astronaut portrait with Earth reflection in helmet",
+  ],
+  square: [
+    "An abstract colorful explosion of geometric shapes",
+    "A vintage vinyl record with retro aesthetic",
+    "A delicious gourmet burger with perfect ingredients",
+    "A beautiful mandala design with intricate patterns",
+    "A cute cat face illustration with big eyes",
+    "A cosmic galaxy swirl with stars and nebulae",
+  ]
+};
 
 type OutputFormat = "png" | "jpg" | "webp";
+type AspectRatio = "landscape" | "portrait" | "square";
+
+const aspectRatioConfig: Record<AspectRatio, { label: string; icon: React.ElementType; description: string }> = {
+  landscape: { label: "Landscape", icon: RectangleHorizontal, description: "16:9 - Perfect for banners & headers" },
+  portrait: { label: "Portrait", icon: RectangleVertical, description: "9:16 - Great for mobile & social stories" },
+  square: { label: "Square", icon: Square, description: "1:1 - Ideal for social media posts" },
+};
 
 const PromptToImage = () => {
   const [prompt, setPrompt] = useState("");
   const [generatedImage, setGeneratedImage] = useState<string | null>(null);
   const [isGenerating, setIsGenerating] = useState(false);
   const [outputFormat, setOutputFormat] = useState<OutputFormat>("png");
+  const [aspectRatio, setAspectRatio] = useState<AspectRatio>("landscape");
   const [description, setDescription] = useState<string>("");
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -38,9 +62,19 @@ const PromptToImage = () => {
     setGeneratedImage(null);
     setDescription("");
 
+    // Append aspect ratio hint to prompt for better results
+    const aspectHint = aspectRatio === "landscape" 
+      ? "wide horizontal composition, 16:9 aspect ratio" 
+      : aspectRatio === "portrait" 
+        ? "tall vertical composition, 9:16 aspect ratio, portrait orientation"
+        : "square composition, 1:1 aspect ratio, centered";
+
     try {
       const { data, error } = await supabase.functions.invoke("generate-image", {
-        body: { prompt: prompt.trim() }
+        body: { 
+          prompt: `${prompt.trim()}. ${aspectHint}`,
+          aspectRatio 
+        }
       });
 
       if (error) {
@@ -117,7 +151,7 @@ const PromptToImage = () => {
       const url = URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
-      link.download = `ai-generated-image.${outputFormat}`;
+      link.download = `ai-generated-${aspectRatio}.${outputFormat}`;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -131,7 +165,8 @@ const PromptToImage = () => {
   };
 
   const useExamplePrompt = () => {
-    const randomPrompt = examplePrompts[Math.floor(Math.random() * examplePrompts.length)];
+    const prompts = examplePrompts[aspectRatio];
+    const randomPrompt = prompts[Math.floor(Math.random() * prompts.length)];
     setPrompt(randomPrompt);
   };
 
@@ -160,6 +195,42 @@ const PromptToImage = () => {
         </div>
 
         <div className="p-6 space-y-6">
+          {/* Aspect Ratio Selection */}
+          <div className="space-y-3">
+            <Label className="text-sm font-medium">Image Orientation</Label>
+            <div className="grid grid-cols-3 gap-3">
+              {(Object.entries(aspectRatioConfig) as [AspectRatio, typeof aspectRatioConfig[AspectRatio]][]).map(([key, config]) => {
+                const Icon = config.icon;
+                const isSelected = aspectRatio === key;
+                return (
+                  <button
+                    key={key}
+                    onClick={() => setAspectRatio(key)}
+                    disabled={isGenerating}
+                    className={`relative p-4 rounded-xl border-2 transition-all ${
+                      isSelected 
+                        ? "border-primary bg-primary/5" 
+                        : "border-border hover:border-primary/50 bg-secondary/30"
+                    }`}
+                  >
+                    <div className="flex flex-col items-center gap-2">
+                      <Icon className={`w-8 h-8 ${isSelected ? "text-primary" : "text-muted-foreground"}`} />
+                      <span className={`font-medium text-sm ${isSelected ? "text-primary" : ""}`}>
+                        {config.label}
+                      </span>
+                      <span className="text-xs text-muted-foreground text-center hidden sm:block">
+                        {config.description}
+                      </span>
+                    </div>
+                    {isSelected && (
+                      <div className="absolute top-2 right-2 w-2 h-2 rounded-full bg-primary" />
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
           {/* Prompt Input */}
           <div className="space-y-3">
             <div className="flex items-center justify-between">
@@ -171,22 +242,29 @@ const PromptToImage = () => {
                 size="sm"
                 onClick={useExamplePrompt}
                 className="text-xs gap-1.5 h-7"
+                disabled={isGenerating}
               >
                 <Sparkles className="w-3 h-3" />
-                Try an example
+                Try {aspectRatio} example
               </Button>
             </div>
             <Textarea
               id="prompt"
               value={prompt}
               onChange={(e) => setPrompt(e.target.value)}
-              placeholder="A beautiful sunset over a calm ocean with vibrant orange and purple colors..."
+              placeholder={
+                aspectRatio === "landscape" 
+                  ? "A beautiful sunset over a calm ocean with vibrant orange and purple colors..."
+                  : aspectRatio === "portrait"
+                    ? "A majestic portrait of a noble lion with golden mane..."
+                    : "An abstract colorful geometric pattern with bold shapes..."
+              }
               className="min-h-[100px] resize-none bg-secondary/30 border-border"
               disabled={isGenerating}
             />
           </div>
 
-          {/* Output Format Selection */}
+          {/* Output Format and Generate Button */}
           <div className="flex flex-col sm:flex-row gap-4">
             <div className="flex-1">
               <Label className="block text-sm font-medium mb-2">
@@ -244,7 +322,7 @@ const PromptToImage = () => {
                 <Wand2 className="w-8 h-8 text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
               </div>
               <div className="text-center">
-                <p className="font-medium">Creating your image...</p>
+                <p className="font-medium">Creating your {aspectRatio} image...</p>
                 <p className="text-sm text-muted-foreground">This may take a few seconds</p>
               </div>
             </div>
@@ -253,7 +331,9 @@ const PromptToImage = () => {
           {/* Generated Image */}
           {generatedImage && !isGenerating && (
             <div className="space-y-4">
-              <div className="relative rounded-xl overflow-hidden border border-border bg-secondary/20">
+              <div className={`relative rounded-xl overflow-hidden border border-border bg-secondary/20 ${
+                aspectRatio === "portrait" ? "max-w-sm mx-auto" : ""
+              }`}>
                 <img
                   src={generatedImage}
                   alt={description || "AI generated image"}
@@ -289,7 +369,7 @@ const PromptToImage = () => {
               <div>
                 <p className="font-medium">No image generated yet</p>
                 <p className="text-sm text-muted-foreground">
-                  Enter a prompt above and click "Generate Image" to create
+                  Select orientation, enter a prompt, and click "Generate Image"
                 </p>
               </div>
             </div>
