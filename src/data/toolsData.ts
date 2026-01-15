@@ -296,6 +296,21 @@ export const toolCategories: Category[] = [
       { id: "split-pdf", name: "Split PDF", slug: "split-pdf", description: "Extract pages or split PDF into multiple files", category: "PDF Tools", categorySlug: "pdf-tools", icon: "Scissors", keywords: ["split pdf", "extract pdf pages", "pdf splitter", "divide pdf"] },
     ]
   },
+  {
+    id: "ai-image-tools",
+    name: "AI Image Tools",
+    slug: "ai-image-tools",
+    description: "AI-powered image enhancement, upscaling, restoration, and generation tools",
+    icon: "Sparkles",
+    priority: 18,
+    tools: [
+      { id: "ai-photo-enhancer", name: "AI Photo Enhancer", slug: "ai-photo-enhancer", description: "Enhance photo quality, sharpness, and clarity automatically using AI", category: "AI Image Tools", categorySlug: "ai-image-tools", icon: "Sparkles", keywords: ["ai enhance", "photo enhancer", "remini", "improve quality", "hd photo"] },
+      { id: "ai-image-upscaler", name: "AI Image Upscaler", slug: "ai-image-upscaler", description: "Upscale and enlarge images up to 4x without losing quality", category: "AI Image Tools", categorySlug: "ai-image-tools", icon: "Maximize2", keywords: ["ai upscale", "enlarge image", "increase resolution", "4x upscale"] },
+      { id: "ai-background-remover", name: "AI Background Remover", slug: "ai-background-remover", description: "Remove image backgrounds automatically with AI precision", category: "AI Image Tools", categorySlug: "ai-image-tools", icon: "Eraser", keywords: ["remove background", "background eraser", "transparent background", "cutout"] },
+      { id: "ai-image-restorer", name: "AI Image Restorer", slug: "ai-image-restorer", description: "Restore old, damaged, or low-quality photos using AI", category: "AI Image Tools", categorySlug: "ai-image-tools", icon: "Wand2", keywords: ["restore photo", "fix old photo", "repair image", "ai restoration"] },
+      { id: "ai-image-generator", name: "AI Image Generator", slug: "ai-image-generation", description: "Generate stunning images from text prompts using AI", category: "AI Image Tools", categorySlug: "ai-image-tools", icon: "Wand2", keywords: ["ai generate", "text to image", "create image", "ai art"] },
+    ]
+  },
 ];
 
 export const getAllTools = (): Tool[] => {
