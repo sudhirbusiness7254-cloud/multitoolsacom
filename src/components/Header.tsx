@@ -38,6 +38,7 @@ const categoryGradients: Record<string, { from: string; to: string }> = {
   "tag-tools": { from: "#8B5CF6", to: "#6366F1" },
   "pdf-tools": { from: "#DC2626", to: "#EA580C" },
   "ai-image-generation": { from: "#A855F7", to: "#EC4899" },
+  "ai-image-tools": { from: "#8B5CF6", to: "#06B6D4" },
 };
 
 // Top categories to show directly in nav bar
@@ -217,15 +218,15 @@ const Header = () => {
 
             <div className="w-px h-6 bg-border mx-1 xl:mx-2" />
             
-            {/* AI Image Generation */}
+            {/* AI Image Tools */}
             <Link 
-              to="/ai-image-generation" 
+              to="/ai-image-tools" 
               className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-secondary flex items-center gap-1.5 ${
-                location.pathname === "/ai-image-generation" ? "text-purple-500 bg-purple-500/10" : "text-foreground"
+                location.pathname.includes("ai-") ? "text-purple-500 bg-purple-500/10" : "text-foreground"
               }`}
             >
               <Wand2 className="w-4 h-4" />
-              AI Generate
+              AI Tools
             </Link>
             
             <Link 
@@ -372,17 +373,19 @@ const Header = () => {
                   <span className="font-semibold text-sm text-primary">View All Tools</span>
                 </Link>
                 <Link
-                  to="/ai-image-generation"
+                  to="/ai-image-tools"
                   onClick={closeMobileMenu}
-                  className="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-secondary transition-colors touch-target"
+                  className={`flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-secondary transition-colors touch-target ${
+                    location.pathname.includes("ai-") ? "text-purple-500 bg-purple-500/10" : ""
+                  }`}
                 >
                   <div 
                     className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
-                    style={{ background: 'linear-gradient(135deg, #A855F7, #EC4899)' }}
+                    style={{ background: 'linear-gradient(135deg, #8B5CF6, #06B6D4)' }}
                   >
                     <Wand2 className="w-4 h-4 text-white" />
                   </div>
-                  <span className="font-medium text-sm">AI Image Generator</span>
+                  <span className="font-medium text-sm">AI Image Tools</span>
                 </Link>
                 <Link
                   to="/pdf-tools"
@@ -396,13 +399,6 @@ const Header = () => {
                     <FileText className="w-4 h-4 text-white" />
                   </div>
                   <span className="font-medium text-sm">PDF Tools</span>
-                </Link>
-                <Link
-                  to="/tag-extractor"
-                  onClick={closeMobileMenu}
-                  className="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-secondary transition-colors touch-target"
-                >
-                  <span className="font-medium text-sm">Tag Generator</span>
                 </Link>
               </div>
             </ScrollArea>
