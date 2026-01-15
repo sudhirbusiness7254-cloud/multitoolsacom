@@ -45,6 +45,9 @@ import AIPhotoEnhancerPage from "./pages/tools/AIPhotoEnhancerPage";
 import AIImageUpscalerPage from "./pages/tools/AIImageUpscalerPage";
 import AIBackgroundRemoverPage from "./pages/tools/AIBackgroundRemoverPage";
 import AIImageRestorerPage from "./pages/tools/AIImageRestorerPage";
+import AIFaceSwapPage from "./pages/tools/AIFaceSwapPage";
+import AIColorizePage from "./pages/tools/AIColorizePage";
+import AIObjectRemovalPage from "./pages/tools/AIObjectRemovalPage";
 import SupportChat from "./components/SupportChat";
 import CookieConsent from "./components/CookieConsent";
 
@@ -108,6 +111,9 @@ const App = () => (
             <Route path="/ai-image-upscaler" element={<AIImageUpscalerPage />} />
             <Route path="/ai-background-remover" element={<AIBackgroundRemoverPage />} />
             <Route path="/ai-image-restorer" element={<AIImageRestorerPage />} />
+            <Route path="/ai-face-swap" element={<AIFaceSwapPage />} />
+            <Route path="/ai-colorize" element={<AIColorizePage />} />
+            <Route path="/ai-object-removal" element={<AIObjectRemovalPage />} />
             
             {/* PDF Tool Pages */}
             <Route path="/merge-pdf" element={<PDFToolPage />} />

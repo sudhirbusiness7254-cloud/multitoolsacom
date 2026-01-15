@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HreflangTags from "@/components/HreflangTags";
 import { Link } from "react-router-dom";
-import { Sparkles, Wand2, ArrowUpCircle, Eraser, History, Zap, Shield, Download } from "lucide-react";
+import { Sparkles, Wand2, ArrowUpCircle, Eraser, History, Zap, Shield, Download, Users, Palette, Trash2 } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -46,6 +46,27 @@ const aiTools = [
     description: "Restore old, damaged, or low-quality photos. Fix scratches, fading, and noise.",
     icon: History,
     gradient: { from: "#F59E0B", to: "#EA580C" }
+  },
+  {
+    name: "AI Face Swap",
+    slug: "ai-face-swap",
+    description: "Swap faces between two photos instantly with realistic results using AI.",
+    icon: Users,
+    gradient: { from: "#EC4899", to: "#F97316" }
+  },
+  {
+    name: "AI Colorize Photos",
+    slug: "ai-colorize",
+    description: "Transform black & white photos into vibrant color images using AI colorization.",
+    icon: Palette,
+    gradient: { from: "#F59E0B", to: "#EAB308" }
+  },
+  {
+    name: "AI Object Removal",
+    slug: "ai-object-removal",
+    description: "Remove unwanted objects, people, or watermarks from photos with AI inpainting.",
+    icon: Trash2,
+    gradient: { from: "#EF4444", to: "#DC2626" }
   }
 ];
 

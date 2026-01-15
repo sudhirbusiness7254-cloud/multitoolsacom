@@ -309,6 +309,9 @@ export const toolCategories: Category[] = [
       { id: "ai-background-remover", name: "AI Background Remover", slug: "ai-background-remover", description: "Remove image backgrounds automatically with AI precision", category: "AI Image Tools", categorySlug: "ai-image-tools", icon: "Eraser", keywords: ["remove background", "background eraser", "transparent background", "cutout"] },
       { id: "ai-image-restorer", name: "AI Image Restorer", slug: "ai-image-restorer", description: "Restore old, damaged, or low-quality photos using AI", category: "AI Image Tools", categorySlug: "ai-image-tools", icon: "Wand2", keywords: ["restore photo", "fix old photo", "repair image", "ai restoration"] },
       { id: "ai-image-generator", name: "AI Image Generator", slug: "ai-image-generation", description: "Generate stunning images from text prompts using AI", category: "AI Image Tools", categorySlug: "ai-image-tools", icon: "Wand2", keywords: ["ai generate", "text to image", "create image", "ai art"] },
+      { id: "ai-face-swap", name: "AI Face Swap", slug: "ai-face-swap", description: "Swap faces between two photos instantly with realistic results", category: "AI Image Tools", categorySlug: "ai-image-tools", icon: "Users", keywords: ["face swap", "swap faces", "face changer", "deepfake"] },
+      { id: "ai-colorize", name: "AI Colorize Photos", slug: "ai-colorize", description: "Add realistic colors to black and white photos using AI", category: "AI Image Tools", categorySlug: "ai-image-tools", icon: "Palette", keywords: ["colorize", "black and white to color", "add color", "photo colorization"] },
+      { id: "ai-object-removal", name: "AI Object Removal", slug: "ai-object-removal", description: "Remove unwanted objects, people, or watermarks from photos", category: "AI Image Tools", categorySlug: "ai-image-tools", icon: "Eraser", keywords: ["remove object", "erase object", "remove watermark", "photo cleanup"] },
     ]
   },
 ];

@@ -74,6 +74,9 @@ const Footer = () => {
               { name: "AI Image Upscaler", route: "/ai-image-upscaler" },
               { name: "AI Background Remover", route: "/ai-background-remover" },
               { name: "AI Image Restorer", route: "/ai-image-restorer" },
+              { name: "AI Face Swap", route: "/ai-face-swap" },
+              { name: "AI Colorize", route: "/ai-colorize" },
+              { name: "AI Object Removal", route: "/ai-object-removal" },
               { name: "AI Image Generator", route: "/ai-image-generation" },
             ].map((item) => (
               <Link 
