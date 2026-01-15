@@ -11,7 +11,7 @@ serve(async (req) => {
   }
 
   try {
-    const { imageBase64, operation, options } = await req.json();
+    const { imageBase64, operation, options, sourceImage, maskImage } = await req.json();
     
     if (!imageBase64 || typeof imageBase64 !== "string") {
       return new Response(
@@ -26,6 +26,7 @@ serve(async (req) => {
     }
 
     let prompt = "";
+    let additionalImages: Array<{ type: string; image_url: { url: string } }> = [];
     
     switch (operation) {
       case "enhance":
@@ -46,6 +47,31 @@ serve(async (req) => {
         break;
       case "color-enhance":
         prompt = `Enhance the colors in this image to make them more vibrant, balanced, and natural. Improve color accuracy, boost saturation where appropriate, fix any color casts, and make the overall image more visually appealing while maintaining a natural look.`;
+        break;
+      case "colorize":
+        prompt = `This is a black and white or grayscale image. Add realistic, vibrant, natural colors to this image. Analyze the content carefully - identify skin tones, clothing, nature elements, sky, and objects, then apply historically and contextually accurate colors. Make the colorization look natural and believable as if it was originally taken in color.`;
+        break;
+      case "face-swap":
+        if (sourceImage) {
+          additionalImages.push({
+            type: "image_url",
+            image_url: { url: sourceImage }
+          });
+          prompt = `Perform a face swap. Take the face from the first image (source face) and seamlessly place it onto the person in the second image (target photo). The result should look natural with proper skin tone matching, lighting consistency, and blending. Maintain the target photo's pose, angle, and composition while only replacing the face.`;
+        } else {
+          prompt = `This is a face swap request but no source face was provided. Please enhance this image instead.`;
+        }
+        break;
+      case "object-removal":
+        if (maskImage) {
+          additionalImages.push({
+            type: "image_url",
+            image_url: { url: maskImage }
+          });
+          prompt = `Remove the objects or areas marked in white in the mask image (second image) from the main photo (first image). Fill in the removed areas naturally with appropriate background content that matches the surrounding area seamlessly. Use AI inpainting to create a realistic result where it's not obvious anything was removed.`;
+        } else {
+          prompt = `Clean up and enhance this image, removing any obvious unwanted elements or imperfections.`;
+        }
         break;
       default:
         prompt = `Improve this image's overall quality, making it look better with enhanced details, better colors, and improved clarity.`;
@@ -74,7 +100,8 @@ serve(async (req) => {
                 image_url: {
                   url: imageBase64
                 }
-              }
+              },
+              ...additionalImages
             ]
           }
         ],
