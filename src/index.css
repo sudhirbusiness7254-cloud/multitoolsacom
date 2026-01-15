@@ -205,9 +205,130 @@
     -moz-osx-font-smoothing: grayscale;
   }
   
+  /* Smooth theme transitions */
+  html.theme-transitioning,
+  html.theme-transitioning *,
+  html.theme-transitioning *::before,
+  html.theme-transitioning *::after {
+    transition: background-color 0.8s ease, 
+                color 0.5s ease, 
+                border-color 0.5s ease,
+                box-shadow 0.5s ease !important;
+  }
+  
   /* Smooth scrolling */
   html {
     scroll-behavior: smooth;
+  }
+}
+
+/* Theme transition overlay */
+.theme-transition-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.theme-transition-overlay.active {
+  opacity: 1;
+}
+
+/* Sunset transition - Day to Night */
+.theme-transition-overlay.sunset {
+  background: linear-gradient(
+    180deg,
+    hsl(35 90% 60% / 0.3) 0%,
+    hsl(25 85% 50% / 0.4) 20%,
+    hsl(15 80% 45% / 0.5) 40%,
+    hsl(280 60% 30% / 0.4) 60%,
+    hsl(250 50% 20% / 0.3) 80%,
+    hsl(230 40% 12% / 0.2) 100%
+  );
+  animation: sunset-transition 1.5s ease-out forwards;
+}
+
+/* Sunrise transition - Night to Day */
+.theme-transition-overlay.sunrise {
+  background: linear-gradient(
+    180deg,
+    hsl(230 40% 12% / 0.2) 0%,
+    hsl(250 50% 25% / 0.3) 20%,
+    hsl(280 60% 40% / 0.4) 40%,
+    hsl(25 80% 55% / 0.5) 60%,
+    hsl(35 90% 65% / 0.4) 80%,
+    hsl(45 95% 70% / 0.3) 100%
+  );
+  animation: sunrise-transition 1.5s ease-out forwards;
+}
+
+/* Simple fade for manual theme changes */
+.theme-transition-overlay.fade-dark {
+  background: radial-gradient(
+    circle at center,
+    hsl(25 10% 8% / 0.6) 0%,
+    hsl(20 5% 5% / 0.4) 100%
+  );
+  animation: theme-fade 0.6s ease-out forwards;
+}
+
+.theme-transition-overlay.fade-light {
+  background: radial-gradient(
+    circle at center,
+    hsl(40 50% 95% / 0.6) 0%,
+    hsl(0 0% 100% / 0.4) 100%
+  );
+  animation: theme-fade 0.6s ease-out forwards;
+}
+
+@keyframes sunset-transition {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+}
+
+@keyframes sunrise-transition {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes theme-fade {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  30% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.5);
   }
 }
 
