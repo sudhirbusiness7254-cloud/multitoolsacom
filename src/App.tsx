@@ -37,9 +37,14 @@ import ImageSecurityPage from "./pages/categories/ImageSecurityPage";
 import ImageQRPage from "./pages/categories/ImageQRPage";
 import PDFToolsPage from "./pages/categories/PDFToolsPage";
 import AIImageGenerationPage from "./pages/categories/AIImageGenerationPage";
+import AIImageToolsPage from "./pages/categories/AIImageToolsPage";
 
 import ImageEditorPage from "./pages/ImageEditorPage";
 import PDFToolPage from "./pages/tools/PDFToolPage";
+import AIPhotoEnhancerPage from "./pages/tools/AIPhotoEnhancerPage";
+import AIImageUpscalerPage from "./pages/tools/AIImageUpscalerPage";
+import AIBackgroundRemoverPage from "./pages/tools/AIBackgroundRemoverPage";
+import AIImageRestorerPage from "./pages/tools/AIImageRestorerPage";
 import SupportChat from "./components/SupportChat";
 import CookieConsent from "./components/CookieConsent";
 
@@ -98,6 +103,11 @@ const App = () => (
             <Route path="/image-qr" element={<ImageQRPage />} />
             <Route path="/pdf-tools" element={<PDFToolsPage />} />
             <Route path="/ai-image-generation" element={<AIImageGenerationPage />} />
+            <Route path="/ai-image-tools" element={<AIImageToolsPage />} />
+            <Route path="/ai-photo-enhancer" element={<AIPhotoEnhancerPage />} />
+            <Route path="/ai-image-upscaler" element={<AIImageUpscalerPage />} />
+            <Route path="/ai-background-remover" element={<AIBackgroundRemoverPage />} />
+            <Route path="/ai-image-restorer" element={<AIImageRestorerPage />} />
             
             {/* PDF Tool Pages */}
             <Route path="/merge-pdf" element={<PDFToolPage />} />
