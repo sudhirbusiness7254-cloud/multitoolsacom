@@ -109,31 +109,38 @@ const GradientWaveBackground = () => {
       });
     };
 
-    // Touch event handlers for mobile
+    // Touch event handlers for mobile with multi-touch support
     const handleTouchStart = (e: TouchEvent) => {
       e.preventDefault();
       const rect = canvas.getBoundingClientRect();
+      
+      // Create ripples for ALL touch points (multi-touch support)
+      for (let i = 0; i < e.touches.length; i++) {
+        const touch = e.touches[i];
+        ripplesRef.current.push({
+          x: touch.clientX - rect.left,
+          y: touch.clientY - rect.top,
+          radius: 0,
+          maxRadius: 200,
+          opacity: 0.6,
+          speed: 4,
+        });
+      }
+      
+      // Use first touch for mouse simulation
       const touch = e.touches[0];
       mouseRef.current = {
         x: touch.clientX - rect.left,
         y: touch.clientY - rect.top,
         isActive: true,
       };
-      
-      // Add ripple on touch start (like tap)
-      ripplesRef.current.push({
-        x: touch.clientX - rect.left,
-        y: touch.clientY - rect.top,
-        radius: 0,
-        maxRadius: 200,
-        opacity: 0.6,
-        speed: 4,
-      });
     };
 
     const handleTouchMove = (e: TouchEvent) => {
       e.preventDefault();
       const rect = canvas.getBoundingClientRect();
+      
+      // Use first touch for mouse simulation (wave/particle interaction)
       const touch = e.touches[0];
       mouseRef.current = {
         x: touch.clientX - rect.left,
@@ -142,8 +149,20 @@ const GradientWaveBackground = () => {
       };
     };
 
-    const handleTouchEnd = () => {
-      mouseRef.current.isActive = false;
+    const handleTouchEnd = (e: TouchEvent) => {
+      // Only deactivate when all fingers are lifted
+      if (e.touches.length === 0) {
+        mouseRef.current.isActive = false;
+      } else {
+        // Update to track remaining touch
+        const rect = canvas.getBoundingClientRect();
+        const touch = e.touches[0];
+        mouseRef.current = {
+          x: touch.clientX - rect.left,
+          y: touch.clientY - rect.top,
+          isActive: true,
+        };
+      }
     };
 
     // Enable pointer events for interaction
