@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import GradientWaveBackground from "@/components/GradientWaveBackground";
 import { 
   ArrowRight, 
   Shield, 
@@ -253,10 +254,14 @@ const HomePage = () => {
         <Header />
         
         <main className="flex-1">
-          {/* Hero Section - Engaging introduction */}
-          <section className="py-12 sm:py-20 md:py-24 bg-gradient-hero relative overflow-hidden">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[500px] h-[350px] sm:h-[500px] bg-primary/10 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute top-20 right-10 w-[200px] h-[200px] bg-accent/5 rounded-full blur-2xl pointer-events-none hidden lg:block" />
+          {/* Hero Section - Engaging introduction with animated wave background */}
+          <section className="py-12 sm:py-20 md:py-24 bg-gradient-hero relative overflow-hidden min-h-[600px] sm:min-h-[700px]">
+            {/* Animated Gradient Wave Background */}
+            <GradientWaveBackground />
+            
+            {/* Decorative blurred circles */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[500px] h-[350px] sm:h-[500px] bg-primary/10 rounded-full blur-3xl pointer-events-none z-[1]" />
+            <div className="absolute top-20 right-10 w-[200px] h-[200px] bg-accent/5 rounded-full blur-2xl pointer-events-none hidden lg:block z-[1]" />
             
             <div className="container mx-auto px-4 sm:px-6 relative z-10">
               <div className="text-center max-w-4xl mx-auto">
