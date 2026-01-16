@@ -35,6 +35,7 @@ const GradientWaveBackground = () => {
   const particlesRef = useRef<Particle[]>([]);
   const ripplesRef = useRef<Ripple[]>([]);
   const mouseRef = useRef<MouseState>({ x: 0, y: 0, isActive: false });
+  const scrollRef = useRef<number>(0);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -114,8 +115,14 @@ const GradientWaveBackground = () => {
     canvas.addEventListener("mouseleave", handleMouseLeave);
     canvas.addEventListener("click", handleClick);
 
+    const handleScroll = () => {
+      scrollRef.current = window.scrollY;
+    };
+
     resize();
     window.addEventListener("resize", resize);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll(); // Initialize scroll position
 
     const getMouseInfluence = (x: number, y: number, radius: number = 150) => {
       if (!mouseRef.current.isActive) return { dx: 0, dy: 0, factor: 0 };
@@ -137,11 +144,15 @@ const GradientWaveBackground = () => {
       speed: number,
       color: string,
       opacity: number,
-      mouseInfluenceStrength: number = 30
+      mouseInfluenceStrength: number = 30,
+      parallaxFactor: number = 0
     ) => {
       const rect = canvas.getBoundingClientRect();
       const width = rect.width;
       const height = rect.height;
+      
+      // Apply parallax offset based on scroll position
+      const parallaxOffset = scrollRef.current * parallaxFactor;
 
       ctx.beginPath();
       ctx.moveTo(0, height);
@@ -149,6 +160,7 @@ const GradientWaveBackground = () => {
       for (let x = 0; x <= width; x += 2) {
         let y =
           yOffset +
+          parallaxOffset +
           Math.sin((x * frequency) / 100 + time * speed) * amplitude +
           Math.sin((x * frequency * 0.5) / 100 + time * speed * 0.7) * (amplitude * 0.5);
         
@@ -329,12 +341,12 @@ const GradientWaveBackground = () => {
       // Draw mouse glow first (behind everything)
       drawMouseGlow(isDark);
 
-      // Draw waves with mouse influence
-      drawWave(height * 0.75, 25, 0.8, 0.3, `hsl(${primaryHue})`, isDark ? 0.08 : 0.05, 20);
-      drawWave(height * 0.78, 30, 0.6, 0.25, `hsl(${secondaryHue})`, isDark ? 0.06 : 0.04, 25);
+      // Draw waves with mouse influence and parallax (back waves move slower)
+      drawWave(height * 0.75, 25, 0.8, 0.3, `hsl(${primaryHue})`, isDark ? 0.08 : 0.05, 20, -0.02);
+      drawWave(height * 0.78, 30, 0.6, 0.25, `hsl(${secondaryHue})`, isDark ? 0.06 : 0.04, 25, -0.03);
       
-      drawWave(height * 0.82, 35, 1.0, 0.4, `hsl(${accentHue})`, isDark ? 0.10 : 0.06, 30);
-      drawWave(height * 0.85, 28, 0.9, 0.35, `hsl(${primaryHue})`, isDark ? 0.08 : 0.05, 28);
+      drawWave(height * 0.82, 35, 1.0, 0.4, `hsl(${accentHue})`, isDark ? 0.10 : 0.06, 30, -0.05);
+      drawWave(height * 0.85, 28, 0.9, 0.35, `hsl(${primaryHue})`, isDark ? 0.08 : 0.05, 28, -0.07);
       
       // Draw ripples
       drawRipples(isDark);
@@ -342,10 +354,10 @@ const GradientWaveBackground = () => {
       // Draw particles
       drawParticles(width, height, isDark);
       
-      // Front waves
-      drawWave(height * 0.88, 20, 1.2, 0.5, `hsl(${secondaryHue})`, isDark ? 0.12 : 0.07, 35);
-      drawWave(height * 0.92, 15, 1.4, 0.55, `hsl(${accentHue})`, isDark ? 0.10 : 0.06, 40);
-      drawWave(height * 0.95, 10, 1.6, 0.6, `hsl(${primaryHue})`, isDark ? 0.15 : 0.08, 45);
+      // Front waves move faster for depth effect
+      drawWave(height * 0.88, 20, 1.2, 0.5, `hsl(${secondaryHue})`, isDark ? 0.12 : 0.07, 35, -0.10);
+      drawWave(height * 0.92, 15, 1.4, 0.55, `hsl(${accentHue})`, isDark ? 0.10 : 0.06, 40, -0.15);
+      drawWave(height * 0.95, 10, 1.6, 0.6, `hsl(${primaryHue})`, isDark ? 0.15 : 0.08, 45, -0.20);
 
       time += 0.015;
       animationRef.current = requestAnimationFrame(animate);
@@ -355,6 +367,7 @@ const GradientWaveBackground = () => {
 
     return () => {
       window.removeEventListener("resize", resize);
+      window.removeEventListener("scroll", handleScroll);
       canvas.removeEventListener("mousemove", handleMouseMove);
       canvas.removeEventListener("mouseleave", handleMouseLeave);
       canvas.removeEventListener("click", handleClick);
