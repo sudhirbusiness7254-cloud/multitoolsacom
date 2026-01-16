@@ -1,8 +1,21 @@
 import { useEffect, useRef } from "react";
 
+interface Particle {
+  x: number;
+  y: number;
+  size: number;
+  speedX: number;
+  speedY: number;
+  opacity: number;
+  hue: number;
+  pulse: number;
+  pulseSpeed: number;
+}
+
 const GradientWaveBackground = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationRef = useRef<number>();
+  const particlesRef = useRef<Particle[]>([]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -19,6 +32,28 @@ const GradientWaveBackground = () => {
       canvas.width = rect.width * dpr;
       canvas.height = rect.height * dpr;
       ctx.scale(dpr, dpr);
+      
+      // Reinitialize particles on resize
+      initParticles(rect.width, rect.height);
+    };
+
+    const initParticles = (width: number, height: number) => {
+      const particleCount = Math.floor((width * height) / 15000); // Responsive particle count
+      particlesRef.current = [];
+      
+      for (let i = 0; i < Math.min(particleCount, 50); i++) {
+        particlesRef.current.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          size: Math.random() * 3 + 1,
+          speedX: (Math.random() - 0.5) * 0.3,
+          speedY: -Math.random() * 0.5 - 0.1, // Mostly upward movement
+          opacity: Math.random() * 0.5 + 0.2,
+          hue: Math.random() > 0.5 ? 24 : 12, // Orange or red hue
+          pulse: Math.random() * Math.PI * 2,
+          pulseSpeed: Math.random() * 0.02 + 0.01,
+        });
+      }
     };
 
     resize();
@@ -55,6 +90,51 @@ const GradientWaveBackground = () => {
       ctx.fill();
     };
 
+    const drawParticles = (width: number, height: number, isDark: boolean) => {
+      particlesRef.current.forEach((particle) => {
+        // Update particle position
+        particle.x += particle.speedX;
+        particle.y += particle.speedY;
+        particle.pulse += particle.pulseSpeed;
+
+        // Wrap around edges
+        if (particle.y < -10) {
+          particle.y = height + 10;
+          particle.x = Math.random() * width;
+        }
+        if (particle.x < -10) particle.x = width + 10;
+        if (particle.x > width + 10) particle.x = -10;
+
+        // Calculate pulsing opacity
+        const pulsingOpacity = particle.opacity * (0.5 + Math.sin(particle.pulse) * 0.5);
+        const finalOpacity = isDark ? pulsingOpacity * 0.8 : pulsingOpacity * 0.6;
+
+        // Draw particle with glow effect
+        const gradient = ctx.createRadialGradient(
+          particle.x, particle.y, 0,
+          particle.x, particle.y, particle.size * 3
+        );
+        
+        const saturation = isDark ? "70%" : "85%";
+        const lightness = isDark ? "55%" : "50%";
+        
+        gradient.addColorStop(0, `hsla(${particle.hue}, ${saturation}, ${lightness}, ${finalOpacity})`);
+        gradient.addColorStop(0.4, `hsla(${particle.hue}, ${saturation}, ${lightness}, ${finalOpacity * 0.5})`);
+        gradient.addColorStop(1, `hsla(${particle.hue}, ${saturation}, ${lightness}, 0)`);
+
+        ctx.beginPath();
+        ctx.arc(particle.x, particle.y, particle.size * 3, 0, Math.PI * 2);
+        ctx.fillStyle = gradient;
+        ctx.fill();
+
+        // Draw bright center
+        ctx.beginPath();
+        ctx.arc(particle.x, particle.y, particle.size * 0.5, 0, Math.PI * 2);
+        ctx.fillStyle = `hsla(${particle.hue}, 90%, 70%, ${finalOpacity * 1.5})`;
+        ctx.fill();
+      });
+    };
+
     const animate = () => {
       const rect = canvas.getBoundingClientRect();
       const width = rect.width;
@@ -64,7 +144,6 @@ const GradientWaveBackground = () => {
       ctx.clearRect(0, 0, width, height);
 
       // Get computed styles for theme-aware colors
-      const computedStyle = getComputedStyle(document.documentElement);
       const isDark = document.documentElement.classList.contains("dark");
 
       // Base colors that adapt to theme
@@ -80,6 +159,9 @@ const GradientWaveBackground = () => {
       // Middle waves
       drawWave(height * 0.82, 35, 1.0, 0.4, `hsl(${accentHue})`, isDark ? 0.10 : 0.06);
       drawWave(height * 0.85, 28, 0.9, 0.35, `hsl(${primaryHue})`, isDark ? 0.08 : 0.05);
+      
+      // Draw particles on top of back/middle waves but behind front waves
+      drawParticles(width, height, isDark);
       
       // Front waves (faster, more visible)
       drawWave(height * 0.88, 20, 1.2, 0.5, `hsl(${secondaryHue})`, isDark ? 0.12 : 0.07);
