@@ -29,6 +29,17 @@ interface MouseState {
   isActive: boolean;
 }
 
+interface ShootingStar {
+  x: number;
+  y: number;
+  length: number;
+  speed: number;
+  angle: number;
+  opacity: number;
+  hue: number;
+  trail: { x: number; y: number }[];
+}
+
 const GradientWaveBackground = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationRef = useRef<number>();
@@ -36,6 +47,8 @@ const GradientWaveBackground = () => {
   const ripplesRef = useRef<Ripple[]>([]);
   const mouseRef = useRef<MouseState>({ x: 0, y: 0, isActive: false });
   const scrollRef = useRef<number>(0);
+  const shootingStarsRef = useRef<ShootingStar[]>([]);
+  const lastStarTimeRef = useRef<number>(0);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -383,6 +396,95 @@ const GradientWaveBackground = () => {
       ctx.fill();
     };
 
+    const spawnShootingStar = (width: number, height: number) => {
+      const now = Date.now();
+      // Spawn a new star every 2-5 seconds randomly
+      if (now - lastStarTimeRef.current > 2000 + Math.random() * 3000) {
+        lastStarTimeRef.current = now;
+        
+        // Start from top area, moving diagonally down
+        const startX = Math.random() * width * 0.8;
+        const startY = Math.random() * height * 0.3;
+        const angle = Math.PI / 4 + (Math.random() - 0.5) * 0.3; // ~45 degrees with variation
+        
+        shootingStarsRef.current.push({
+          x: startX,
+          y: startY,
+          length: 80 + Math.random() * 60,
+          speed: 8 + Math.random() * 6,
+          angle,
+          opacity: 0.8 + Math.random() * 0.2,
+          hue: 24 + Math.random() * 20,
+          trail: [],
+        });
+      }
+    };
+
+    const drawShootingStars = (width: number, height: number, isDark: boolean) => {
+      shootingStarsRef.current = shootingStarsRef.current.filter((star) => {
+        // Update position
+        star.x += Math.cos(star.angle) * star.speed;
+        star.y += Math.sin(star.angle) * star.speed;
+        
+        // Add current position to trail
+        star.trail.push({ x: star.x, y: star.y });
+        
+        // Keep trail limited
+        if (star.trail.length > 20) {
+          star.trail.shift();
+        }
+        
+        // Fade out as it travels
+        star.opacity -= 0.008;
+        
+        // Remove if out of bounds or faded
+        if (star.x > width + 50 || star.y > height + 50 || star.opacity <= 0) {
+          return false;
+        }
+        
+        // Draw the shooting star with trail
+        const saturation = isDark ? "80%" : "90%";
+        const lightness = isDark ? "70%" : "65%";
+        
+        // Draw trail
+        if (star.trail.length > 1) {
+          ctx.beginPath();
+          ctx.moveTo(star.trail[0].x, star.trail[0].y);
+          
+          for (let i = 1; i < star.trail.length; i++) {
+            ctx.lineTo(star.trail[i].x, star.trail[i].y);
+          }
+          
+          // Create gradient for trail
+          const trailGradient = ctx.createLinearGradient(
+            star.trail[0].x, star.trail[0].y,
+            star.x, star.y
+          );
+          trailGradient.addColorStop(0, `hsla(${star.hue}, ${saturation}, ${lightness}, 0)`);
+          trailGradient.addColorStop(0.7, `hsla(${star.hue}, ${saturation}, ${lightness}, ${star.opacity * 0.5})`);
+          trailGradient.addColorStop(1, `hsla(${star.hue}, ${saturation}, ${lightness}, ${star.opacity})`);
+          
+          ctx.strokeStyle = trailGradient;
+          ctx.lineWidth = 2;
+          ctx.lineCap = "round";
+          ctx.stroke();
+        }
+        
+        // Draw bright head
+        const headGradient = ctx.createRadialGradient(star.x, star.y, 0, star.x, star.y, 6);
+        headGradient.addColorStop(0, `hsla(${star.hue}, 100%, 90%, ${star.opacity})`);
+        headGradient.addColorStop(0.5, `hsla(${star.hue}, ${saturation}, ${lightness}, ${star.opacity * 0.6})`);
+        headGradient.addColorStop(1, `hsla(${star.hue}, ${saturation}, ${lightness}, 0)`);
+        
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, 6, 0, Math.PI * 2);
+        ctx.fillStyle = headGradient;
+        ctx.fill();
+        
+        return true;
+      });
+    };
+
     const animate = () => {
       const rect = canvas.getBoundingClientRect();
       const width = rect.width;
@@ -392,6 +494,9 @@ const GradientWaveBackground = () => {
       ctx.clearRect(0, 0, width, height);
 
       const isDark = document.documentElement.classList.contains("dark");
+
+      // Spawn shooting stars occasionally
+      spawnShootingStar(width, height);
 
       // Calculate scroll-based hue shift (subtle shift of up to 30 degrees)
       const scrollProgress = Math.min(scrollRef.current / 1000, 1); // Normalize scroll to 0-1 over 1000px
@@ -411,6 +516,9 @@ const GradientWaveBackground = () => {
       const secondaryHue = isDark 
         ? `${secondaryBaseHue} 55% 50%` 
         : `${secondaryBaseHue} 92% 50%`;
+
+      // Draw shooting stars first (behind waves)
+      drawShootingStars(width, height, isDark);
 
       // Draw mouse glow first (behind everything)
       drawMouseGlow(isDark);
