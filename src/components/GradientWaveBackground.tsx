@@ -374,10 +374,24 @@ const GradientWaveBackground = () => {
 
       const isDark = document.documentElement.classList.contains("dark");
 
-      // Base colors that adapt to theme
-      const primaryHue = isDark ? "24 85% 55%" : "24 95% 50%";
-      const accentHue = isDark ? "12 75% 52%" : "12 90% 50%";
-      const secondaryHue = isDark ? "28 55% 50%" : "38 92% 50%";
+      // Calculate scroll-based hue shift (subtle shift of up to 30 degrees)
+      const scrollProgress = Math.min(scrollRef.current / 1000, 1); // Normalize scroll to 0-1 over 1000px
+      const hueShift = scrollProgress * 30; // Shift up to 30 degrees
+
+      // Base colors that adapt to theme with scroll-based hue shift
+      const baseHue = 24 + hueShift;
+      const accentBaseHue = 12 + hueShift;
+      const secondaryBaseHue = (isDark ? 28 : 38) + hueShift;
+      
+      const primaryHue = isDark 
+        ? `${baseHue} 85% 55%` 
+        : `${baseHue} 95% 50%`;
+      const accentHue = isDark 
+        ? `${accentBaseHue} 75% 52%` 
+        : `${accentBaseHue} 90% 50%`;
+      const secondaryHue = isDark 
+        ? `${secondaryBaseHue} 55% 50%` 
+        : `${secondaryBaseHue} 92% 50%`;
 
       // Draw mouse glow first (behind everything)
       drawMouseGlow(isDark);
