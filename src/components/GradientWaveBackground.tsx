@@ -109,11 +109,52 @@ const GradientWaveBackground = () => {
       });
     };
 
+    // Touch event handlers for mobile
+    const handleTouchStart = (e: TouchEvent) => {
+      e.preventDefault();
+      const rect = canvas.getBoundingClientRect();
+      const touch = e.touches[0];
+      mouseRef.current = {
+        x: touch.clientX - rect.left,
+        y: touch.clientY - rect.top,
+        isActive: true,
+      };
+      
+      // Add ripple on touch start (like tap)
+      ripplesRef.current.push({
+        x: touch.clientX - rect.left,
+        y: touch.clientY - rect.top,
+        radius: 0,
+        maxRadius: 200,
+        opacity: 0.6,
+        speed: 4,
+      });
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      e.preventDefault();
+      const rect = canvas.getBoundingClientRect();
+      const touch = e.touches[0];
+      mouseRef.current = {
+        x: touch.clientX - rect.left,
+        y: touch.clientY - rect.top,
+        isActive: true,
+      };
+    };
+
+    const handleTouchEnd = () => {
+      mouseRef.current.isActive = false;
+    };
+
     // Enable pointer events for interaction
     canvas.style.pointerEvents = "auto";
+    canvas.style.touchAction = "none"; // Prevent default touch behaviors
     canvas.addEventListener("mousemove", handleMouseMove);
     canvas.addEventListener("mouseleave", handleMouseLeave);
     canvas.addEventListener("click", handleClick);
+    canvas.addEventListener("touchstart", handleTouchStart, { passive: false });
+    canvas.addEventListener("touchmove", handleTouchMove, { passive: false });
+    canvas.addEventListener("touchend", handleTouchEnd);
 
     const handleScroll = () => {
       scrollRef.current = window.scrollY;
@@ -371,6 +412,9 @@ const GradientWaveBackground = () => {
       canvas.removeEventListener("mousemove", handleMouseMove);
       canvas.removeEventListener("mouseleave", handleMouseLeave);
       canvas.removeEventListener("click", handleClick);
+      canvas.removeEventListener("touchstart", handleTouchStart);
+      canvas.removeEventListener("touchmove", handleTouchMove);
+      canvas.removeEventListener("touchend", handleTouchEnd);
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }
