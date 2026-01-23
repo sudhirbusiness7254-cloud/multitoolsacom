@@ -7,6 +7,8 @@ interface ImageComparisonSliderProps {
   originalLabel?: string;
   compressedLabel?: string;
   className?: string;
+  /** Tailwind aspect class, e.g. "aspect-video" (default) or "aspect-[4/3]" */
+  aspectClassName?: string;
 }
 
 const ImageComparisonSlider = ({
@@ -15,6 +17,7 @@ const ImageComparisonSlider = ({
   originalLabel = "Original",
   compressedLabel = "Compressed",
   className = "",
+  aspectClassName = "aspect-video",
 }: ImageComparisonSliderProps) => {
   const [sliderPosition, setSliderPosition] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
@@ -83,36 +86,34 @@ const ImageComparisonSlider = ({
       onTouchStart={handleTouchStart}
       style={{ cursor: isDragging ? "ew-resize" : "default" }}
     >
-      {/* Compressed Image (Background - Full Width) */}
-      <div className="relative w-full aspect-video">
+      {/* Fixed frame so both images ALWAYS have identical size/fit */}
+      <div className={`relative w-full ${aspectClassName}`}>
+        {/* Compressed/After */}
         <img
           src={compressedSrc}
           alt={compressedLabel}
-          className="absolute inset-0 w-full h-full object-contain"
+          className="absolute inset-0 h-full w-full object-contain"
           draggable={false}
         />
-        
+
+        {/* Original/Before (clipped) */}
+        <div
+          className="absolute inset-0"
+          style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
+        >
+          <img
+            src={originalSrc}
+            alt={originalLabel}
+            className="absolute inset-0 h-full w-full object-contain"
+            draggable={false}
+          />
+        </div>
+
         {/* Compressed Label */}
         <div className="absolute top-3 right-3 px-2 py-1 bg-primary/90 text-primary-foreground text-xs font-medium rounded-md backdrop-blur-sm">
           {compressedLabel}
         </div>
-      </div>
 
-      {/* Original Image (Foreground - Clipped) */}
-      <div
-        className="absolute inset-0 overflow-hidden"
-        style={{ width: `${sliderPosition}%` }}
-      >
-        <div className="relative w-full h-full" style={{ width: `${100 / (sliderPosition / 100)}%` }}>
-          <img
-            src={originalSrc}
-            alt={originalLabel}
-            className="absolute inset-0 w-full h-full object-contain"
-            style={{ maxWidth: "none", width: containerRef.current?.offsetWidth }}
-            draggable={false}
-          />
-        </div>
-        
         {/* Original Label */}
         <div className="absolute top-3 left-3 px-2 py-1 bg-secondary/90 text-secondary-foreground text-xs font-medium rounded-md backdrop-blur-sm border border-border">
           {originalLabel}
