@@ -229,15 +229,6 @@ const Header = () => {
               AI Tools
             </Link>
             
-            <Link 
-              to="/pdf-tools" 
-              className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-secondary flex items-center gap-1.5 ${
-                location.pathname.includes("pdf") ? "text-primary bg-primary/10" : "text-foreground"
-              }`}
-            >
-              <FileText className="w-4 h-4" />
-              PDF Tools
-            </Link>
             
             {/* Theme Toggle */}
             <ThemeToggle />
@@ -386,19 +377,6 @@ const Header = () => {
                     <Wand2 className="w-4 h-4 text-white" />
                   </div>
                   <span className="font-medium text-sm">AI Image Tools</span>
-                </Link>
-                <Link
-                  to="/pdf-tools"
-                  onClick={closeMobileMenu}
-                  className="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-secondary transition-colors touch-target"
-                >
-                  <div 
-                    className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
-                    style={{ background: 'linear-gradient(135deg, #DC2626, #EA580C)' }}
-                  >
-                    <FileText className="w-4 h-4 text-white" />
-                  </div>
-                  <span className="font-medium text-sm">PDF Tools</span>
                 </Link>
               </div>
             </ScrollArea>
