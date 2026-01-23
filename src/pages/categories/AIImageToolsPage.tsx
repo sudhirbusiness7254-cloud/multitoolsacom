@@ -212,7 +212,7 @@ const AIImageToolsPage = () => {
                         compressedSrc={demo.enhanced}
                         originalLabel="Before"
                         compressedLabel="After"
-                        className="aspect-[4/3]"
+                        aspectClassName="aspect-[4/3]"
                       />
                       <div className="p-4 text-center">
                         <h3 className="font-semibold group-hover:text-primary transition-colors">{demo.title}</h3>
