@@ -16,7 +16,7 @@ interface ReplicateResponse {
 async function pollPrediction(
   predictionId: string,
   apiKey: string,
-  maxAttempts = 120,
+  maxAttempts = 180, // 6 minutes max for high-res processing
   intervalMs = 2000
 ): Promise<ReplicateResponse> {
   for (let i = 0; i < maxAttempts; i++) {
@@ -25,6 +25,8 @@ async function pollPrediction(
     });
     
     const prediction: ReplicateResponse = await response.json();
+    
+    console.log(`Poll ${i + 1}: status=${prediction.status}`);
     
     if (prediction.status === "succeeded") {
       return prediction;
@@ -40,39 +42,49 @@ async function pollPrediction(
   throw new Error("Prediction timed out");
 }
 
-// Run a Replicate model
+// Run a Replicate model using the official model identifier
 async function runModel(
-  modelVersion: string,
+  model: string,
   input: Record<string, unknown>,
   apiKey: string
 ): Promise<string> {
-  console.log(`Running model: ${modelVersion}`);
+  console.log(`Running model: ${model}`);
+  console.log(`Input keys: ${Object.keys(input).join(", ")}`);
   
+  // Use the deployments/predictions endpoint for official models
   const response = await fetch("https://api.replicate.com/v1/predictions", {
     method: "POST",
     headers: {
       Authorization: `Bearer ${apiKey}`,
       "Content-Type": "application/json",
+      "Prefer": "wait" // Try to wait for result synchronously
     },
     body: JSON.stringify({
-      version: modelVersion,
+      model: model,
       input,
     }),
   });
   
   if (!response.ok) {
     const error = await response.text();
-    console.error("Replicate API error:", error);
-    throw new Error(`Replicate API error: ${response.status}`);
+    console.error("Replicate API error:", response.status, error);
+    throw new Error(`Replicate API error: ${response.status} - ${error}`);
   }
   
-  const prediction: ReplicateResponse = await response.json();
-  console.log(`Prediction started: ${prediction.id}`);
+  let prediction: ReplicateResponse = await response.json();
+  console.log(`Prediction started: ${prediction.id}, status: ${prediction.status}`);
   
-  const result = await pollPrediction(prediction.id, apiKey);
+  // If not immediately complete, poll for result
+  if (prediction.status !== "succeeded") {
+    prediction = await pollPrediction(prediction.id, apiKey);
+  }
   
   // Handle different output formats
-  const output = result.output;
+  const output = prediction.output;
+  if (!output) {
+    throw new Error("No output from model");
+  }
+  
   if (Array.isArray(output)) {
     return output[0];
   }
@@ -85,7 +97,7 @@ serve(async (req) => {
   }
 
   try {
-    const { imageBase64, pipeline } = await req.json();
+    const { imageBase64, pipeline, scaleFactor } = await req.json();
     
     if (!imageBase64 || typeof imageBase64 !== "string") {
       return new Response(
@@ -102,25 +114,26 @@ serve(async (req) => {
       );
     }
 
-    // Model versions (stable, well-tested versions)
+    // Model identifiers (using official model names)
     const MODELS = {
-      // GFPGAN for face restoration
-      gfpgan: "tencentarc/gfpgan:0fbacf7afc6c144e5be9767cff80f25aff23e52b0708f17e20f9879b2f21516c",
-      // CodeFormer for advanced face restoration
-      codeformer: "sczhou/codeformer:7de2ea26c616d5bf2245ad0d5e24f0ff9a6204578a5c876db53142edd9d2cd56",
-      // Real-ESRGAN for 4x super-resolution
-      realesrgan: "nightmareai/real-esrgan:f121d640bd286e1fdc67f9799164c1d5be36ff74576ee11c803ae5b665dd46aa",
-      // ESRGAN general purpose upscaler
-      esrgan: "xinntao/realesrgan:1b976a4d456ed9e4d1a846597b7614e79c6f3f89c0e0a4caec84eb1ed6c8aae7",
+      // Crystal Upscaler - high quality upscaling (up to 6x)
+      crystalUpscaler: "philz1337x/crystal-upscaler",
+      // CodeFormer for face restoration
+      codeformer: "sczhou/codeformer",
+      // GFPGAN for face restoration (backup)
+      gfpgan: "tencentarc/gfpgan",
+      // Real-ESRGAN for general upscaling (backup)
+      realesrgan: "nightmareai/real-esrgan",
     };
 
     const pipelineType = pipeline || "full"; // full, face-only, upscale-only
+    const scale = scaleFactor || 4; // Default 4x, max 6x for crystal upscaler
     let currentImage = imageBase64;
     const steps: string[] = [];
 
-    console.log(`Starting ${pipelineType} enhancement pipeline`);
+    console.log(`Starting ${pipelineType} enhancement pipeline with ${scale}x scaling`);
 
-    // Ensure image is a proper data URL or URL
+    // Ensure image is a proper URL or data URL
     const getImageInput = (img: string) => {
       if (img.startsWith("http://") || img.startsWith("https://")) {
         return img;
@@ -183,30 +196,49 @@ serve(async (req) => {
     }
 
     // ============================================
-    // STEP 2: Super-Resolution with Real-ESRGAN (4x)
+    // STEP 2: Super-Resolution with Crystal Upscaler (up to 6x)
     // ============================================
     if (pipelineType === "full" || pipelineType === "upscale-only") {
       try {
-        console.log("Step 2: Running Real-ESRGAN 4x upscaling...");
+        console.log(`Step 2: Running Crystal Upscaler (${scale}x)...`);
         steps.push("super_resolution");
         
+        // Crystal Upscaler - highest quality upscaling
         const upscaleOutput = await runModel(
-          MODELS.realesrgan,
+          MODELS.crystalUpscaler,
           {
             image: getImageInput(currentImage),
-            scale: 4,
-            face_enhance: true, // Also enhance faces during upscaling
+            scale_factor: Math.min(scale, 6), // Crystal supports up to 6x
           },
           REPLICATE_API_KEY
         );
         
         if (upscaleOutput) {
           currentImage = upscaleOutput;
-          console.log("Real-ESRGAN completed successfully");
+          console.log("Crystal Upscaler completed successfully");
         }
       } catch (error) {
-        console.error("Real-ESRGAN failed:", error);
-        // Continue with current image
+        console.error("Crystal Upscaler failed, trying Real-ESRGAN:", error);
+        
+        // Fallback to Real-ESRGAN
+        try {
+          const esrganOutput = await runModel(
+            MODELS.realesrgan,
+            {
+              image: getImageInput(currentImage),
+              scale: Math.min(scale, 4), // ESRGAN supports up to 4x
+              face_enhance: true,
+            },
+            REPLICATE_API_KEY
+          );
+          
+          if (esrganOutput) {
+            currentImage = esrganOutput;
+            console.log("Real-ESRGAN fallback completed");
+          }
+        } catch (esrganError) {
+          console.error("Real-ESRGAN also failed:", esrganError);
+        }
       }
     }
 
@@ -246,6 +278,7 @@ serve(async (req) => {
         imageUrl: currentImage,
         pipeline: pipelineType,
         stepsExecuted: steps,
+        scaleFactor: scale,
       }),
       { headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
