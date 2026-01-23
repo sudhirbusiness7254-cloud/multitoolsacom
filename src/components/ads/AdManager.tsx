@@ -32,6 +32,11 @@ const AD_SCRIPTS: Record<string, AdScriptConfig> = {
     id: 'ad-script-video',
     src: '//farawayaside.com/b.XWV/sedXGDlg0mYfW-cP/veQmn9guCZuUel/kMPfTrYG3kNxThUpzYOsD/YGtLN/jic-1XNMT/ML4BN_wP',
     settings: {}
+  },
+  inline: {
+    id: 'ad-script-inline',
+    src: '//farawayaside.com/b/X/V.sQdaGKlz0eYZWJcy/BeKmd9_u/ZlUQl-kVPaTnYP3/NPTyURzCNKTBMetMNljwcb1HNoTTMm1gNSAu',
+    settings: {}
   }
 };
 

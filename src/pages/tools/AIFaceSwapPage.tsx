@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HreflangTags from "@/components/HreflangTags";
 import AIFaceSwap from "@/components/ai-tools/AIFaceSwap";
-import { AdBottom, AdVideo } from "@/components/ads/AdContainer";
+import { AdBottom, AdVideo, AdInline } from "@/components/ads/AdContainer";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Sparkles, Zap, Shield, Download, Image, Star, CheckCircle, Users, Camera, Laugh, RefreshCcw } from "lucide-react";
 import {
@@ -180,6 +180,9 @@ const AIFaceSwapPage = () => {
                   </div>
                 ))}
               </div>
+              
+              {/* Inline Ad - After Features */}
+              <AdInline className="mt-8" />
             </div>
           </section>
 

@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import ImageConverter from "@/components/ImageConverter";
 import BatchImageConverter from "@/components/BatchImageConverter";
 import PromptToImage from "@/components/PromptToImage";
-import { AdBottom, AdVideo } from "@/components/ads/AdContainer";
+import { AdBottom, AdVideo, AdInline } from "@/components/ads/AdContainer";
 import { 
   Image, 
   Zap, 
@@ -316,6 +316,9 @@ const ImageToolsPage = () => {
                   </div>
                 ))}
               </div>
+              
+              {/* Inline Ad - After Features */}
+              <AdInline className="mt-8" />
             </div>
           </section>
 

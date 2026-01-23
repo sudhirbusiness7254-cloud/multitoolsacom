@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Calendar, Clock, ArrowRight, User, Tag, Search, Filter } from "lucide-react";
-import { AdBottom, AdVideo } from "@/components/ads/AdContainer";
+import { AdBottom, AdVideo, AdInline } from "@/components/ads/AdContainer";
 import HreflangTags from "@/components/HreflangTags";
 import { blogPosts, blogCategories } from "@/data/blogData";
 import { Input } from "@/components/ui/input";
@@ -273,6 +273,9 @@ const Blog = () => {
               </button>
             </div>
           )}
+          
+          {/* Inline Ad - After Articles */}
+          <AdInline className="mt-8" />
         </section>
 
         {/* Newsletter Section */}

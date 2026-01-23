@@ -8,7 +8,7 @@ import { toolCategories, Category } from "@/data/toolsData";
 import { CategorySEOContent } from "@/data/categorySEOData";
 import HreflangTags from "@/components/HreflangTags";
 import RelatedArticles from "@/components/RelatedArticles";
-import { AdBottom, AdVideo } from "@/components/ads/AdContainer";
+import { AdBottom, AdVideo, AdInline } from "@/components/ads/AdContainer";
 
 interface CategoryPageLayoutProps {
   category: Category;
@@ -189,6 +189,9 @@ const CategoryPageLayout = ({
                   </Link>
                 ))}
               </div>
+              
+              {/* Inline Ad - After Tools Grid */}
+              <AdInline className="mt-8" />
             </div>
           </section>
 
@@ -250,6 +253,9 @@ const CategoryPageLayout = ({
                 <h3 className="font-semibold text-sm text-amber-500 mb-2">When to Use Alternative Tools</h3>
                 <p className="text-sm text-muted-foreground">{categoryUniqueContent.whenNotToUse}</p>
               </div>
+              
+              {/* Inline Ad - After Use Cases */}
+              <AdInline className="mt-8" />
             </div>
           </section>
 

@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import HreflangTags from "@/components/HreflangTags";
 import AIPhotoEnhancer from "@/components/ai-tools/AIPhotoEnhancer";
 import ImageComparisonSlider from "@/components/ImageComparisonSlider";
-import { AdBottom, AdVideo } from "@/components/ads/AdContainer";
+import { AdBottom, AdVideo, AdInline } from "@/components/ads/AdContainer";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Sparkles, Zap, Shield, Download, Image, Star, CheckCircle, Camera, Palette, Monitor, Eye } from "lucide-react";
 import {
@@ -221,6 +221,9 @@ const AIPhotoEnhancerPage = () => {
                   </div>
                 ))}
               </div>
+              
+              {/* Inline Ad - After Features */}
+              <AdInline className="mt-8" />
             </div>
           </section>
 
