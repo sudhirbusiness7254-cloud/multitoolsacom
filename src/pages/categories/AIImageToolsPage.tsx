@@ -122,15 +122,15 @@ const AIImageToolsPage = () => {
         
         <main className="flex-1">
           {/* Hero Section - Remini Style */}
-          <section className="py-16 md:py-24 bg-gradient-to-b from-background via-purple-500/5 to-background relative overflow-hidden">
+          <section className="py-16 md:py-24 lg:py-28 bg-gradient-to-b from-background via-purple-500/5 to-background relative overflow-hidden">
             {/* Animated background */}
             <div className="absolute inset-0 overflow-hidden">
               <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[100px] animate-pulse" />
               <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-pink-500/10 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '1s' }} />
             </div>
             
-            <div className="container mx-auto px-4 relative z-10">
-              <div className="text-center max-w-4xl mx-auto mb-12">
+            <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 relative z-10">
+              <div className="text-center max-w-5xl xl:max-w-6xl mx-auto mb-12">
                 {/* Badge */}
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/30 mb-6">
                   <Sparkles className="w-4 h-4 text-purple-400" />
@@ -139,7 +139,7 @@ const AIImageToolsPage = () => {
                   </span>
                 </div>
                 
-                <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+                <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 leading-tight">
                   <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
                     AI Photo Enhancement
                   </span>
@@ -186,7 +186,7 @@ const AIImageToolsPage = () => {
               </div>
 
               {/* Demo Comparison Sliders */}
-              <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+              <div className="grid md:grid-cols-3 gap-4 md:gap-6 max-w-6xl xl:max-w-7xl 2xl:max-w-[1600px] mx-auto">
                 {demoSliders.map((demo, index) => (
                   <div 
                     key={index} 
@@ -218,8 +218,8 @@ const AIImageToolsPage = () => {
           </section>
 
           {/* AI Tools Grid */}
-          <section className="py-16 md:py-20 px-4">
-            <div className="container mx-auto max-w-6xl">
+          <section className="py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+            <div className="w-full max-w-6xl xl:max-w-7xl 2xl:max-w-[1600px] mx-auto">
               <div className="text-center mb-12">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">All AI Image Tools</h2>
                 <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -227,7 +227,7 @@ const AIImageToolsPage = () => {
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
                 {aiTools.map((tool) => {
                   const Icon = tool.icon;
                   return (
@@ -294,14 +294,14 @@ const AIImageToolsPage = () => {
           </section>
 
           {/* Features Section */}
-          <section className="py-16 md:py-20 px-4 bg-gradient-to-b from-secondary/30 to-background">
-            <div className="container mx-auto max-w-6xl">
+          <section className="py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 bg-gradient-to-b from-secondary/30 to-background">
+            <div className="w-full max-w-6xl xl:max-w-7xl 2xl:max-w-[1600px] mx-auto">
               <div className="text-center mb-12">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose Our AI Tools?</h2>
                 <p className="text-muted-foreground">Professional quality results, completely free</p>
               </div>
               
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
                 {[
                   { 
                     icon: Zap, 
@@ -341,14 +341,14 @@ const AIImageToolsPage = () => {
           </section>
 
           {/* How It Works */}
-          <section className="py-16 md:py-20 px-4">
-            <div className="container mx-auto max-w-4xl">
+          <section className="py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+            <div className="w-full max-w-5xl xl:max-w-6xl mx-auto">
               <div className="text-center mb-12">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">How It Works</h2>
                 <p className="text-muted-foreground">Enhance your photos in 3 simple steps</p>
               </div>
               
-              <div className="grid md:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
                 {[
                   { step: "1", title: "Upload Photo", desc: "Drag & drop or click to upload any photo" },
                   { step: "2", title: "AI Enhances", desc: "Our AI automatically processes your image" },
@@ -377,10 +377,10 @@ const AIImageToolsPage = () => {
           </section>
 
           {/* Comprehensive About Section */}
-          <section className="py-16 md:py-20 px-4">
-            <div className="container mx-auto max-w-4xl">
+          <section className="py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+            <div className="w-full max-w-5xl xl:max-w-6xl mx-auto">
               <div className="prose prose-lg dark:prose-invert max-w-none">
-                <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">About Our AI Image Tools</h2>
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8">About Our AI Image Tools</h2>
                 
                 <p className="text-muted-foreground leading-relaxed">
                   Welcome to the most comprehensive suite of free AI-powered image enhancement tools available online. Our AI Image Tools collection represents the cutting edge of artificial intelligence technology applied to photo editing, offering professional-grade results that rival expensive software and paid services. Whether you're a professional photographer, social media influencer, small business owner, or someone who simply wants to make their photos look stunning, our tools provide everything you need to transform ordinary images into extraordinary masterpieces.

@@ -85,10 +85,10 @@ const AIColorizePage = () => {
         
         <main className="flex-1">
           {/* Hero Section */}
-          <section className="py-10 md:py-16 bg-gradient-hero relative overflow-hidden">
+          <section className="py-10 md:py-16 lg:py-20 bg-gradient-hero relative overflow-hidden">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-orange-500/10 rounded-full blur-3xl" />
             
-            <div className="container mx-auto px-4 relative z-10">
+            <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 relative z-10">
               <div className="mb-6">
                 <Link 
                   to="/ai-image-tools" 
@@ -99,17 +99,17 @@ const AIColorizePage = () => {
                 </Link>
               </div>
               
-              <div className="max-w-3xl mx-auto text-center">
+              <div className="max-w-4xl xl:max-w-5xl mx-auto text-center">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/30 mb-6">
                   <Palette className="w-4 h-4 text-orange-500" />
                   <span className="text-sm font-medium text-orange-500">AI Colorization</span>
                 </div>
                 
-                <h1 className="text-3xl md:text-5xl font-bold mb-4">
+                <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4">
                   AI Photo Colorization
                 </h1>
                 
-                <p className="text-lg text-muted-foreground mb-8">
+                <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
                   Breathe new life into old black & white photographs. Our AI analyzes your image and 
                   adds realistic, vibrant colors automatically - bringing memories from the past into vivid color.
                 </p>
@@ -118,8 +118,8 @@ const AIColorizePage = () => {
           </section>
 
           {/* Tool Section */}
-          <section className="py-8 md:py-12 px-4">
-            <div className="container mx-auto max-w-4xl">
+          <section className="py-8 md:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+            <div className="w-full max-w-5xl xl:max-w-6xl mx-auto">
               <AIColorize />
               
               {/* Ads below tool */}
@@ -129,9 +129,9 @@ const AIColorizePage = () => {
           </section>
 
           {/* About Section */}
-          <section className="py-12 md:py-16 px-4 bg-secondary/30">
-            <div className="container mx-auto max-w-4xl">
-              <h2 className="text-2xl md:text-4xl font-bold text-center mb-8">About AI Photo Colorization</h2>
+          <section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 bg-secondary/30">
+            <div className="w-full max-w-5xl xl:max-w-6xl mx-auto">
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-center mb-8">About AI Photo Colorization</h2>
               
               <div className="prose prose-lg dark:prose-invert max-w-none space-y-6">
                 <p>
@@ -160,11 +160,11 @@ const AIColorizePage = () => {
           </section>
 
           {/* Features Grid */}
-          <section className="py-12 md:py-16 px-4">
-            <div className="container mx-auto max-w-5xl">
-              <h2 className="text-2xl md:text-4xl font-bold text-center mb-10">Key Features</h2>
+          <section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+            <div className="w-full max-w-6xl xl:max-w-7xl 2xl:max-w-[1600px] mx-auto">
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-center mb-10">Key Features</h2>
               
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
                 {[
                   { icon: Palette, title: "Realistic Colors", desc: "AI predicts natural, accurate colors based on image context and content", color: "text-orange-500", bg: "bg-orange-500/10" },
                   { icon: Sparkles, title: "Smart Detection", desc: "Recognizes faces, skin tones, objects, and environments automatically", color: "text-pink-500", bg: "bg-pink-500/10" },
@@ -187,11 +187,11 @@ const AIColorizePage = () => {
           </section>
 
           {/* How It Works */}
-          <section className="py-12 md:py-16 px-4 bg-gradient-dark">
-            <div className="container mx-auto max-w-4xl">
-              <h2 className="text-2xl md:text-4xl font-bold text-center mb-10">How AI Colorization Works</h2>
+          <section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 bg-gradient-dark">
+            <div className="w-full max-w-5xl xl:max-w-6xl mx-auto">
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-center mb-10">How AI Colorization Works</h2>
               
-              <div className="grid md:grid-cols-4 gap-8">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
                 {[
                   { step: "1", title: "Upload", desc: "Upload your black & white or sepia photo" },
                   { step: "2", title: "Analysis", desc: "AI identifies objects, faces, and scene elements" },
@@ -211,11 +211,11 @@ const AIColorizePage = () => {
           </section>
 
           {/* Use Cases */}
-          <section className="py-12 md:py-16 px-4">
-            <div className="container mx-auto max-w-5xl">
-              <h2 className="text-2xl md:text-4xl font-bold text-center mb-10">Who Uses Photo Colorization</h2>
+          <section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+            <div className="w-full max-w-6xl xl:max-w-7xl 2xl:max-w-[1600px] mx-auto">
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-center mb-10">Who Uses Photo Colorization</h2>
               
-              <div className="grid md:grid-cols-3 gap-6">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 gap-4 md:gap-6">
                 {[
                   { icon: History, title: "Family Historians", desc: "Colorize old family photos to bring ancestors to life and create more engaging family history displays and albums." },
                   { icon: Book, title: "Educators & Students", desc: "Make historical photos more engaging for education. Help students connect with historical events and figures through color." },
@@ -237,9 +237,9 @@ const AIColorizePage = () => {
           </section>
 
           {/* Tips for Best Results */}
-          <section className="py-12 md:py-16 px-4 bg-secondary/30">
-            <div className="container mx-auto max-w-4xl">
-              <h2 className="text-2xl md:text-4xl font-bold text-center mb-8">Tips for Best Results</h2>
+          <section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 bg-secondary/30">
+            <div className="w-full max-w-5xl xl:max-w-6xl mx-auto">
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-center mb-8">Tips for Best Results</h2>
               
               <div className="grid md:grid-cols-2 gap-6">
                 {[
@@ -263,8 +263,8 @@ const AIColorizePage = () => {
           </section>
 
           {/* Privacy & Security */}
-          <section className="py-12 md:py-16 px-4">
-            <div className="container mx-auto max-w-4xl">
+          <section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+            <div className="w-full max-w-5xl xl:max-w-6xl mx-auto">
               <div className="bg-card rounded-2xl p-8 border border-border">
                 <div className="flex items-center gap-3 mb-6">
                   <Shield className="w-8 h-8 text-green-500" />

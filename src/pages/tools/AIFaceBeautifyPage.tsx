@@ -55,21 +55,21 @@ const AIFaceBeautifyPage = () => {
         
         <main className="flex-1">
           {/* Hero */}
-          <section className="py-10 md:py-16 bg-gradient-hero relative overflow-hidden">
+          <section className="py-10 md:py-16 lg:py-20 bg-gradient-hero relative overflow-hidden">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-pink-500/10 rounded-full blur-3xl" />
             
-            <div className="container mx-auto px-4 relative z-10">
-              <div className="max-w-3xl mx-auto text-center">
+            <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 relative z-10">
+              <div className="max-w-4xl xl:max-w-5xl mx-auto text-center">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-pink-500/10 border border-pink-500/30 mb-6">
                   <Sparkles className="w-4 h-4 text-pink-500" />
                   <span className="text-sm font-medium text-pink-500">AI Powered</span>
                 </div>
                 
-                <h1 className="text-3xl md:text-5xl font-bold mb-4">
+                <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4">
                   AI Face Beautify
                 </h1>
                 
-                <p className="text-lg text-muted-foreground mb-8">
+                <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
                   Enhance your facial features with AI-powered beautification. 
                   Smooth skin, brighten eyes, whiten teeth, and more - professional results, completely free.
                 </p>
@@ -78,8 +78,8 @@ const AIFaceBeautifyPage = () => {
           </section>
 
           {/* Tool */}
-          <section className="py-8 md:py-12 px-4">
-            <div className="container mx-auto max-w-4xl">
+          <section className="py-8 md:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+            <div className="w-full max-w-5xl xl:max-w-6xl mx-auto">
               <AIFaceBeautify />
               
               {/* Ads below tool */}
@@ -89,8 +89,8 @@ const AIFaceBeautifyPage = () => {
           </section>
 
           {/* Demo Comparison Section */}
-          <section className="py-10 md:py-14 px-4 bg-secondary/30">
-            <div className="container mx-auto max-w-lg">
+          <section className="py-10 md:py-14 lg:py-16 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 bg-secondary/30">
+            <div className="w-full max-w-xl lg:max-w-2xl mx-auto">
               <div className="text-center mb-6">
                 <h2 className="text-xl md:text-2xl font-bold mb-2">See the Transformation</h2>
                 <p className="text-sm text-muted-foreground">Drag the slider to compare</p>
@@ -109,11 +109,11 @@ const AIFaceBeautifyPage = () => {
           </section>
 
           {/* Features */}
-          <section className="py-12 md:py-16 px-4 bg-gradient-dark">
-            <div className="container mx-auto max-w-5xl">
-              <h2 className="text-2xl md:text-4xl font-bold text-center mb-10">Beautification Features</h2>
+          <section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 bg-gradient-dark">
+            <div className="w-full max-w-6xl xl:max-w-7xl 2xl:max-w-[1600px] mx-auto">
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-center mb-10">Beautification Features</h2>
               
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
                 {[
                   { icon: Heart, title: "Skin Smoothing", desc: "Remove blemishes and smooth skin naturally", color: "text-pink-500", bg: "bg-pink-500/10" },
                   { icon: Eye, title: "Eye Enhancement", desc: "Brighten and enhance eye appearance", color: "text-blue-500", bg: "bg-blue-500/10" },
@@ -136,11 +136,11 @@ const AIFaceBeautifyPage = () => {
           </section>
 
           {/* Why Choose */}
-          <section className="py-12 md:py-16 px-4">
-            <div className="container mx-auto max-w-5xl">
-              <h2 className="text-2xl md:text-4xl font-bold text-center mb-10">Why Choose Our AI Face Beautify?</h2>
+          <section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+            <div className="w-full max-w-6xl xl:max-w-7xl 2xl:max-w-[1600px] mx-auto">
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-center mb-10">Why Choose Our AI Face Beautify?</h2>
               
-              <div className="grid md:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
                 {[
                   { icon: Zap, title: "Instant Results", desc: "Get beautified photos in seconds with powerful AI processing" },
                   { icon: Shield, title: "100% Private", desc: "Your photos are processed securely and never stored" },
@@ -159,11 +159,11 @@ const AIFaceBeautifyPage = () => {
           </section>
 
           {/* How to Use */}
-          <section className="py-12 md:py-16 px-4 bg-gradient-dark">
-            <div className="container mx-auto max-w-4xl">
-              <h2 className="text-2xl md:text-4xl font-bold text-center mb-10">How to Use</h2>
+          <section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 bg-gradient-dark">
+            <div className="w-full max-w-5xl xl:max-w-6xl mx-auto">
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-center mb-10">How to Use</h2>
               
-              <div className="grid md:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
                 {[
                   { step: "1", title: "Upload Photo", desc: "Upload a clear photo with visible face" },
                   { step: "2", title: "Adjust Settings", desc: "Choose beautification options like skin smoothing level" },
@@ -182,9 +182,9 @@ const AIFaceBeautifyPage = () => {
           </section>
 
           {/* FAQ */}
-          <section className="py-12 md:py-16 px-4">
-            <div className="container mx-auto max-w-4xl">
-              <h2 className="text-2xl md:text-4xl font-bold text-center mb-10">Frequently Asked Questions</h2>
+          <section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+            <div className="w-full max-w-5xl xl:max-w-6xl mx-auto">
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-center mb-10">Frequently Asked Questions</h2>
               
               <Accordion type="single" collapsible className="space-y-4">
                 <AccordionItem value="1" className="bg-card border border-border rounded-xl px-6">
