@@ -98,13 +98,13 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-card/95 border-b border-border sticky top-0 z-50 backdrop-blur-md">
-      <nav className="container mx-auto px-3 sm:px-4 md:px-6 py-2.5 sm:py-3">
-        <div className="flex items-center justify-between gap-3">
+    <header className="bg-card/95 border-b border-border sticky top-0 z-50 backdrop-blur-md w-full">
+      <nav className="w-full px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 py-2.5 sm:py-3">
+        <div className="flex items-center justify-between gap-3 w-full">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity flex-shrink-0">
-            <img src={logo} alt="MultiToolsA Logo" className="h-8 w-8" />
-            <span className="text-base sm:text-lg md:text-xl font-bold text-primary">MultiToolsA</span>
+            <img src={logo} alt="MultiToolsA Logo" className="h-7 w-7 sm:h-8 sm:w-8" />
+            <span className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-primary">MultiToolsA</span>
           </Link>
           
           {/* Desktop Navigation */}

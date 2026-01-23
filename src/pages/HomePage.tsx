@@ -256,66 +256,66 @@ const HomePage = () => {
         
         <main className="flex-1">
           {/* Hero Section - Engaging introduction with animated wave background */}
-          <section className="py-12 sm:py-20 md:py-24 bg-gradient-hero relative overflow-hidden min-h-[600px] sm:min-h-[700px]">
+          <section className="py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 bg-gradient-hero relative overflow-hidden min-h-[500px] sm:min-h-[550px] md:min-h-[600px] lg:min-h-[700px]">
             {/* Animated Gradient Wave Background */}
             <GradientWaveBackground />
             
             {/* Decorative blurred circles */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[500px] h-[350px] sm:h-[500px] bg-primary/10 rounded-full blur-3xl pointer-events-none z-[1]" />
-            <div className="absolute top-20 right-10 w-[200px] h-[200px] bg-accent/5 rounded-full blur-2xl pointer-events-none hidden lg:block z-[1]" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] sm:w-[350px] md:w-[450px] lg:w-[500px] h-[280px] sm:h-[350px] md:h-[450px] lg:h-[500px] bg-primary/10 rounded-full blur-3xl pointer-events-none z-[1]" />
+            <div className="absolute top-20 right-10 w-[150px] md:w-[200px] h-[150px] md:h-[200px] bg-accent/5 rounded-full blur-2xl pointer-events-none hidden lg:block z-[1]" />
             
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 relative z-10">
-              <div className="text-center max-w-5xl 2xl:max-w-6xl mx-auto">
+            <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12 relative z-10">
+              <div className="text-center max-w-full sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl 2xl:max-w-6xl mx-auto">
                 {/* H1 - Main site title */}
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
                   Professional Image & PDF Tools
-                  <span className="block text-primary mt-2">Completely Free, Totally Private</span>
+                  <span className="block text-primary mt-1 sm:mt-2">Completely Free, Totally Private</span>
                 </h1>
                 
                 {/* Engaging introduction - 3-5 sentences */}
-                <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto mb-4 leading-relaxed">
+                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-full sm:max-w-xl md:max-w-2xl lg:max-w-3xl mx-auto mb-3 sm:mb-4 leading-relaxed px-2 sm:px-0">
                   Welcome to <strong>MultiToolsA</strong>, your trusted destination for over 100 professional-grade image editing and PDF tools. 
                   Every tool runs entirely in your browser, which means your files never leave your device and are never uploaded to any server.
                 </p>
-                <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
+                <p className="text-xs sm:text-sm md:text-base lg:text-lg text-muted-foreground max-w-full sm:max-w-lg md:max-w-xl lg:max-w-2xl mx-auto mb-6 sm:mb-8 px-2 sm:px-0">
                   Enjoy instant results with no waiting for uploads or downloads. Whether you need to convert formats, compress large files, 
                   resize images, or edit PDFs, our tools deliver professional quality with complete privacy protection.
                 </p>
                 
-                <div className="flex flex-col sm:flex-row justify-center gap-4 mb-10">
+                <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mb-8 sm:mb-10 px-2 sm:px-0">
                   <Link 
                     to="/all-tools"
-                    className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-all hover:scale-105 shadow-lg"
+                    className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 md:px-8 py-3 sm:py-3.5 md:py-4 rounded-lg sm:rounded-xl bg-primary text-primary-foreground text-sm sm:text-base font-semibold hover:bg-primary/90 transition-all hover:scale-105 shadow-lg"
                   >
                     Explore {totalTools}+ Free Tools
-                    <ArrowRight className="w-5 h-5" />
+                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                   </Link>
                   <Link 
                     to="/how-tools-work"
-                    className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-card text-foreground font-semibold border border-border hover:border-primary/50 transition-all"
+                    className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 md:px-8 py-3 sm:py-3.5 md:py-4 rounded-lg sm:rounded-xl bg-card text-foreground text-sm sm:text-base font-semibold border border-border hover:border-primary/50 transition-all"
                   >
-                    <Eye className="w-5 h-5" />
+                    <Eye className="w-4 h-4 sm:w-5 sm:h-5" />
                     See How It Works
                   </Link>
                 </div>
 
                 {/* Privacy & Trust Badges */}
-                <div className="flex flex-wrap justify-center gap-6 text-sm">
-                  <div className="flex items-center gap-2 bg-card/80 backdrop-blur-sm px-4 py-2 rounded-full border border-border">
-                    <Shield className="w-5 h-5 text-green-500" />
-                    <span className="font-medium">100% Private Processing</span>
+                <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 lg:gap-6 text-xs sm:text-sm px-2 sm:px-0">
+                  <div className="flex items-center gap-1.5 sm:gap-2 bg-card/80 backdrop-blur-sm px-2.5 sm:px-3 md:px-4 py-1.5 sm:py-2 rounded-full border border-border">
+                    <Shield className="w-4 h-4 sm:w-5 sm:h-5 text-green-500" />
+                    <span className="font-medium">100% Private</span>
                   </div>
-                  <div className="flex items-center gap-2 bg-card/80 backdrop-blur-sm px-4 py-2 rounded-full border border-border">
-                    <Zap className="w-5 h-5 text-yellow-500" />
+                  <div className="flex items-center gap-1.5 sm:gap-2 bg-card/80 backdrop-blur-sm px-2.5 sm:px-3 md:px-4 py-1.5 sm:py-2 rounded-full border border-border">
+                    <Zap className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-500" />
                     <span className="font-medium">Instant Results</span>
                   </div>
-                  <div className="flex items-center gap-2 bg-card/80 backdrop-blur-sm px-4 py-2 rounded-full border border-border">
-                    <Globe className="w-5 h-5 text-blue-500" />
-                    <span className="font-medium">Works on Any Device</span>
+                  <div className="flex items-center gap-1.5 sm:gap-2 bg-card/80 backdrop-blur-sm px-2.5 sm:px-3 md:px-4 py-1.5 sm:py-2 rounded-full border border-border">
+                    <Globe className="w-4 h-4 sm:w-5 sm:h-5 text-blue-500" />
+                    <span className="font-medium">Any Device</span>
                   </div>
-                  <div className="flex items-center gap-2 bg-card/80 backdrop-blur-sm px-4 py-2 rounded-full border border-border">
-                    <Sparkles className="w-5 h-5 text-purple-500" />
-                    <span className="font-medium">No Signup Required</span>
+                  <div className="flex items-center gap-1.5 sm:gap-2 bg-card/80 backdrop-blur-sm px-2.5 sm:px-3 md:px-4 py-1.5 sm:py-2 rounded-full border border-border">
+                    <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-purple-500" />
+                    <span className="font-medium">No Signup</span>
                   </div>
                 </div>
               </div>
@@ -323,64 +323,64 @@ const HomePage = () => {
           </section>
 
           {/* Popular Tools - Quick access */}
-          <section className="py-10 sm:py-14 px-4 sm:px-6 lg:px-8 xl:px-12 bg-secondary/30">
-            <div className="container mx-auto max-w-7xl 2xl:max-w-[1600px]">
-              <div className="flex items-center justify-between mb-8">
+          <section className="py-6 sm:py-8 md:py-10 lg:py-14 px-4 sm:px-6 lg:px-8 xl:px-12 bg-secondary/30">
+            <div className="w-full">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 sm:mb-8 gap-3">
                 <div>
-                  <div className="flex items-center gap-2 mb-2">
-                    <TrendingUp className="w-5 h-5 text-primary" />
-                    <span className="text-sm font-semibold text-primary uppercase tracking-wide">Most Popular</span>
+                  <div className="flex items-center gap-2 mb-1 sm:mb-2">
+                    <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+                    <span className="text-xs sm:text-sm font-semibold text-primary uppercase tracking-wide">Most Popular</span>
                   </div>
-                  <h2 className="text-2xl sm:text-3xl font-bold">Frequently Used Tools</h2>
-                  <p className="text-muted-foreground mt-1">Quick access to our most popular image and PDF tools</p>
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold">Frequently Used Tools</h2>
+                  <p className="text-xs sm:text-sm text-muted-foreground mt-1">Quick access to our most popular image and PDF tools</p>
                 </div>
-                <Link to="/all-tools" className="hidden sm:flex text-primary hover:underline items-center gap-1 font-medium">
+                <Link to="/all-tools" className="hidden sm:flex text-primary hover:underline items-center gap-1 text-sm font-medium">
                   View All Tools <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
               
-              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3 sm:gap-4">
+              <div className="grid grid-cols-3 xs:grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 2xl:grid-cols-12 gap-2 sm:gap-3 md:gap-4">
                 {popularTools.map((tool) => (
                   <Link 
                     key={tool.slug}
                     to={`/${tool.slug}`}
-                    className="group bg-card rounded-xl p-4 border border-border hover:border-primary/50 transition-all hover:-translate-y-1 hover:shadow-lg"
+                    className="group bg-card rounded-lg sm:rounded-xl p-2 sm:p-3 md:p-4 border border-border hover:border-primary/50 transition-all hover:-translate-y-1 hover:shadow-lg"
                   >
                     <ToolIconWithBackground 
                       toolSlug={tool.slug} 
-                      size={40} 
-                      iconSize={20}
-                      className="mb-3 mx-auto"
+                      size={32} 
+                      iconSize={16}
+                      className="mb-2 sm:mb-3 mx-auto sm:w-10 sm:h-10"
                     />
-                    <h3 className="text-xs sm:text-sm font-medium text-center group-hover:text-primary transition-colors line-clamp-2">
+                    <h3 className="text-[10px] sm:text-xs md:text-sm font-medium text-center group-hover:text-primary transition-colors line-clamp-2">
                       {tool.name}
                     </h3>
                   </Link>
                 ))}
               </div>
               
-              <Link to="/all-tools" className="sm:hidden flex text-primary hover:underline items-center justify-center gap-1 font-medium mt-6">
+              <Link to="/all-tools" className="sm:hidden flex text-primary hover:underline items-center justify-center gap-1 font-medium text-sm mt-4">
                 View All Tools <ArrowRight className="w-4 h-4" />
               </Link>
               
               {/* Ads after popular tools */}
-              <AdBottom className="mt-8" />
-              <AdVideo className="mt-4" />
+              <AdBottom className="mt-6 sm:mt-8" />
+              <AdVideo className="mt-3 sm:mt-4" />
             </div>
           </section>
 
           {/* Tool Categories - Detailed with unique descriptions */}
-          <section className="py-12 sm:py-20 px-4 sm:px-6 lg:px-8 xl:px-12">
-            <div className="container mx-auto max-w-7xl 2xl:max-w-[1600px]">
-              <div className="text-center mb-12">
-                <h2 className="text-2xl sm:text-4xl font-bold mb-4">Complete Image & PDF Tool Collection</h2>
-                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <section className="py-8 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 xl:px-12">
+            <div className="w-full">
+              <div className="text-center mb-8 sm:mb-12">
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4">Complete Image & PDF Tool Collection</h2>
+                <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-full sm:max-w-xl md:max-w-2xl mx-auto px-2 sm:px-0">
                   Explore {imageCategories.length} specialized categories covering every aspect of image editing and document processing. 
                   Each category contains multiple precision tools designed for specific tasks.
                 </p>
               </div>
               
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+              <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-3 sm:gap-4 md:gap-5">
                 {imageCategories.map((category) => {
                   const gradient = getGradient(category.id);
                   const categoryInfo = categoryDescriptions[category.id];
@@ -389,34 +389,34 @@ const HomePage = () => {
                     <Link 
                       key={category.id}
                       to={`/${category.slug}`}
-                      className="group bg-card rounded-2xl p-5 border border-border hover:border-primary/50 transition-all hover:-translate-y-1 hover:shadow-xl"
+                      className="group bg-card rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-5 border border-border hover:border-primary/50 transition-all hover:-translate-y-1 hover:shadow-xl"
                     >
                       {/* Category Icon */}
                       <div 
-                        className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 shadow-md"
+                        className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-lg sm:rounded-xl flex items-center justify-center mb-3 sm:mb-4 shadow-md"
                         style={{ background: `linear-gradient(135deg, ${gradient.from}, ${gradient.to})` }}
                       >
-                        <div className="[&>svg]:w-7 [&>svg]:h-7">
-                          {categoryLucideIcons[category.id] || <Image className="w-7 h-7 text-white" />}
+                        <div className="[&>svg]:w-5 [&>svg]:h-5 sm:[&>svg]:w-6 sm:[&>svg]:h-6 md:[&>svg]:w-7 md:[&>svg]:h-7">
+                          {categoryLucideIcons[category.id] || <Image className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-white" />}
                         </div>
                       </div>
                       
                       {/* Category Title */}
-                      <h3 className="text-lg font-bold mb-2 group-hover:text-primary transition-colors">
+                      <h3 className="text-sm sm:text-base md:text-lg font-bold mb-1.5 sm:mb-2 group-hover:text-primary transition-colors">
                         {category.name}
                       </h3>
                       
                       {/* Category Description */}
-                      <p className="text-sm text-muted-foreground line-clamp-3 mb-4">
+                      <p className="text-xs sm:text-sm text-muted-foreground line-clamp-2 sm:line-clamp-3 mb-3 sm:mb-4">
                         {categoryInfo?.description || category.description}
                       </p>
                       
                       {/* Tools Count & Arrow */}
                       <div className="flex items-center justify-between">
-                        <span className="text-sm font-medium text-primary">
+                        <span className="text-xs sm:text-sm font-medium text-primary">
                           {category.tools.length} Tools
                         </span>
-                        <ArrowRight className="w-4 h-4 text-primary group-hover:translate-x-1 transition-transform" />
+                        <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 text-primary group-hover:translate-x-1 transition-transform" />
                       </div>
                     </Link>
                   );
@@ -424,16 +424,16 @@ const HomePage = () => {
               </div>
               
               {/* Inline Ad - After Categories */}
-              <AdInline className="mt-8" />
+              <AdInline className="mt-6 sm:mt-8" />
             </div>
           </section>
 
           {/* How It Works - Step by step with icons */}
-          <section className="py-12 sm:py-20 px-4 sm:px-6 lg:px-8 xl:px-12 bg-gradient-hero">
-            <div className="container mx-auto max-w-7xl 2xl:max-w-[1600px]">
-              <div className="text-center mb-12">
-                <h2 className="text-2xl sm:text-4xl font-bold mb-4">How Browser-Based Processing Works</h2>
-                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <section className="py-8 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 xl:px-12 bg-gradient-hero">
+            <div className="w-full">
+              <div className="text-center mb-8 sm:mb-12">
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4">How Browser-Based Processing Works</h2>
+                <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-full sm:max-w-xl md:max-w-2xl mx-auto px-2 sm:px-0">
                   Unlike traditional online tools, MultiToolsA processes everything locally on your device. 
                   Here's why this matters for your privacy and speed.
                 </p>
@@ -449,10 +449,10 @@ const HomePage = () => {
                   <div className="absolute -right-2 top-1/2 -translate-y-1/2 w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[10px] border-l-primary" />
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-6 lg:gap-8 mb-12">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-12">
                   {/* Step 1 */}
                   <div 
-                    className="bg-card rounded-2xl border border-border overflow-hidden group hover:border-primary/30 transition-all hover:shadow-xl animate-fade-in"
+                    className="bg-card rounded-xl sm:rounded-2xl border border-border overflow-hidden group hover:border-primary/30 transition-all hover:shadow-xl animate-fade-in"
                     style={{ animationDelay: '0ms', animationFillMode: 'both' }}
                   >
                     {/* Screenshot */}
@@ -463,28 +463,27 @@ const HomePage = () => {
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         loading="lazy"
                       />
-                      <div className="absolute top-3 left-3 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-lg shadow-lg animate-scale-in" style={{ animationDelay: '200ms', animationFillMode: 'both' }}>
+                      <div className="absolute top-2 left-2 sm:top-3 sm:left-3 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm sm:text-lg shadow-lg">
                         1
                       </div>
                     </div>
                     {/* Content */}
-                    <div className="p-6">
-                      <div className="flex items-center gap-3 mb-3">
-                        <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                          <Upload className="w-5 h-5 text-primary" />
+                    <div className="p-4 sm:p-5 md:p-6">
+                      <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+                        <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                          <Upload className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                         </div>
-                        <h3 className="text-lg font-bold">Select Your Files</h3>
+                        <h3 className="text-sm sm:text-base md:text-lg font-bold">Select Your Files</h3>
                       </div>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        Choose images or documents from your device using our secure file picker. 
-                        Files load directly into your browser's memory without any network transfer.
+                      <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                        Choose images or documents from your device using our secure file picker.
                       </p>
                     </div>
                   </div>
                   
                   {/* Step 2 */}
                   <div 
-                    className="bg-card rounded-2xl border border-border overflow-hidden group hover:border-primary/30 transition-all hover:shadow-xl animate-fade-in"
+                    className="bg-card rounded-xl sm:rounded-2xl border border-border overflow-hidden group hover:border-primary/30 transition-all hover:shadow-xl animate-fade-in"
                     style={{ animationDelay: '150ms', animationFillMode: 'both' }}
                   >
                     {/* Screenshot */}
@@ -495,28 +494,27 @@ const HomePage = () => {
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         loading="lazy"
                       />
-                      <div className="absolute top-3 left-3 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-lg shadow-lg animate-scale-in" style={{ animationDelay: '350ms', animationFillMode: 'both' }}>
+                      <div className="absolute top-2 left-2 sm:top-3 sm:left-3 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm sm:text-lg shadow-lg">
                         2
                       </div>
                     </div>
                     {/* Content */}
-                    <div className="p-6">
-                      <div className="flex items-center gap-3 mb-3">
-                        <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                          <Cpu className="w-5 h-5 text-primary" />
+                    <div className="p-4 sm:p-5 md:p-6">
+                      <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+                        <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                          <Cpu className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                         </div>
-                        <h3 className="text-lg font-bold">Process Locally</h3>
+                        <h3 className="text-sm sm:text-base md:text-lg font-bold">Process Locally</h3>
                       </div>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        Our JavaScript-powered tools process everything using your device's computing power. 
-                        No data is ever sent to external servers during editing.
+                      <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                        Our tools process everything using your device's computing power.
                       </p>
                     </div>
                   </div>
                   
                   {/* Step 3 */}
                   <div 
-                    className="bg-card rounded-2xl border border-border overflow-hidden group hover:border-primary/30 transition-all hover:shadow-xl animate-fade-in"
+                    className="bg-card rounded-xl sm:rounded-2xl border border-border overflow-hidden group hover:border-primary/30 transition-all hover:shadow-xl animate-fade-in"
                     style={{ animationDelay: '300ms', animationFillMode: 'both' }}
                   >
                     {/* Screenshot */}
@@ -527,21 +525,20 @@ const HomePage = () => {
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         loading="lazy"
                       />
-                      <div className="absolute top-3 left-3 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-lg shadow-lg animate-scale-in" style={{ animationDelay: '500ms', animationFillMode: 'both' }}>
+                      <div className="absolute top-2 left-2 sm:top-3 sm:left-3 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm sm:text-lg shadow-lg">
                         3
                       </div>
                     </div>
                     {/* Content */}
-                    <div className="p-6">
-                      <div className="flex items-center gap-3 mb-3">
-                        <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                          <Download className="w-5 h-5 text-primary" />
+                    <div className="p-4 sm:p-5 md:p-6">
+                      <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+                        <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                          <Download className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                         </div>
-                        <h3 className="text-lg font-bold">Download Instantly</h3>
+                        <h3 className="text-sm sm:text-base md:text-lg font-bold">Download Instantly</h3>
                       </div>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        Save your edited files directly to your device with one click. 
-                        Nothing is stored online—when you close the browser, all data is cleared.
+                      <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                        Save your edited files directly to your device with one click.
                       </p>
                     </div>
                   </div>
@@ -549,54 +546,52 @@ const HomePage = () => {
               </div>
               
               {/* Privacy emphasis */}
-              <div className="bg-card rounded-2xl p-8 border border-green-500/30 flex flex-col md:flex-row items-center gap-6">
+              <div className="bg-card rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 border border-green-500/30 flex flex-col md:flex-row items-center gap-4 sm:gap-6">
                 <div className="flex-shrink-0">
-                  <div className="w-20 h-20 rounded-full bg-green-500/10 flex items-center justify-center">
-                    <Shield className="w-10 h-10 text-green-500" />
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full bg-green-500/10 flex items-center justify-center">
+                    <Shield className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 text-green-500" />
                   </div>
                 </div>
-                <div>
-                  <h3 className="text-xl font-bold mb-2 flex items-center gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-green-500" />
+                <div className="text-center md:text-left">
+                  <h3 className="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 flex items-center gap-2 justify-center md:justify-start">
+                    <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-green-500" />
                     Your Files Stay Completely Private
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    We take your privacy seriously. Your images and documents are processed entirely within your web browser using 
-                    modern JavaScript APIs like Canvas and Web Workers. No file data is transmitted to our servers, stored in databases, 
-                    or accessible to anyone except you. This approach ensures maximum privacy and lightning-fast processing speeds.
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                    Your images are processed entirely within your browser. No data is transmitted to servers or stored anywhere.
                   </p>
                 </div>
               </div>
               
-              <div className="text-center mt-8">
+              <div className="text-center mt-6 sm:mt-8">
                 <Link 
                   to="/how-tools-work"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-all"
+                  className="inline-flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg sm:rounded-xl bg-primary text-primary-foreground text-sm sm:text-base font-semibold hover:bg-primary/90 transition-all"
                 >
-                  Learn More About Our Technology
-                  <ArrowRight className="w-5 h-5" />
+                  Learn More
+                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                 </Link>
               </div>
               
               {/* Inline Ad - After How It Works */}
-              <AdInline className="mt-8" />
+              <AdInline className="mt-6 sm:mt-8" />
             </div>
           </section>
 
           {/* Why Choose Us - Trust signals */}
-          <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 xl:px-12">
-            <div className="container mx-auto max-w-7xl 2xl:max-w-[1600px]">
-              <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4">Why Thousands Choose MultiToolsA</h2>
-              <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-                Professional-quality tools with uncompromising privacy. Here's what sets us apart from other online image editors.
+          <section className="py-8 sm:py-12 md:py-16 px-4 sm:px-6 lg:px-8 xl:px-12">
+            <div className="w-full">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-3 sm:mb-4">Why Thousands Choose MultiToolsA</h2>
+              <p className="text-center text-xs sm:text-sm md:text-base text-muted-foreground mb-8 sm:mb-12 max-w-full sm:max-w-xl md:max-w-2xl mx-auto px-2 sm:px-0">
+                Professional-quality tools with uncompromising privacy.
               </p>
               
-              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div className="bg-card rounded-xl p-6 border border-border text-center">
-                  <Clock className="w-10 h-10 text-primary mx-auto mb-4" />
-                  <h3 className="font-bold mb-2">No Waiting</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Local processing means instant results without upload delays
+              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
+                <div className="bg-card rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6 border border-border text-center">
+                  <Clock className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-primary mx-auto mb-2 sm:mb-4" />
+                  <h3 className="text-xs sm:text-sm md:text-base font-bold mb-1 sm:mb-2">No Waiting</h3>
+                  <p className="text-[10px] sm:text-xs md:text-sm text-muted-foreground">
+                    Instant results without uploads
                   </p>
                 </div>
                 <div className="bg-card rounded-xl p-6 border border-border text-center">
