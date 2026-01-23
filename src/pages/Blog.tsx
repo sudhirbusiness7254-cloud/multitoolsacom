@@ -1,11 +1,12 @@
+import { useState, useMemo } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Calendar, Clock, ArrowRight, User, Tag, Search, Filter } from "lucide-react";
+import { AdBottom, AdVideo } from "@/components/ads/AdContainer";
 import HreflangTags from "@/components/HreflangTags";
 import { blogPosts, blogCategories } from "@/data/blogData";
-import { useState, useMemo } from "react";
 import { Input } from "@/components/ui/input";
 
 const Blog = () => {
@@ -330,6 +331,14 @@ const Blog = () => {
                 <span className="text-xs text-muted-foreground block mt-1">{topic.count} articles</span>
               </button>
             ))}
+          </div>
+        </section>
+
+        {/* Ads Section */}
+        <section className="py-8 px-4">
+          <div className="container mx-auto max-w-4xl">
+            <AdBottom />
+            <AdVideo className="mt-4" />
           </div>
         </section>
 
