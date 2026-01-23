@@ -194,10 +194,10 @@ const AIImageToolsPage = () => {
                     <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl opacity-0 group-hover:opacity-100 blur transition-all duration-300" />
                     <div className="relative bg-card rounded-xl overflow-hidden border border-border group-hover:border-transparent transition-colors">
                       <ImageComparisonSlider
-                        originalSrc={demo.enhanced}
-                        compressedSrc={demo.original}
-                        originalLabel="After"
-                        compressedLabel="Before"
+                        originalSrc={demo.original}
+                        compressedSrc={demo.enhanced}
+                        originalLabel="Before"
+                        compressedLabel="After"
                         aspectClassName={demo.aspectClassName}
                       />
                       <div className="p-4 text-center">
