@@ -38,13 +38,29 @@ const ImageComparisonSlider = ({
   const handleMouseDown = useCallback((e: React.MouseEvent) => {
     e.preventDefault();
     setIsDragging(true);
-    handleMove(e.clientX);
-  }, [handleMove]);
+    // Only move if clicking on the handle area (within 30px of current position)
+    if (containerRef.current) {
+      const rect = containerRef.current.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const handleX = (sliderPosition / 100) * rect.width;
+      if (Math.abs(clickX - handleX) > 30) {
+        handleMove(e.clientX);
+      }
+    }
+  }, [handleMove, sliderPosition]);
 
   const handleTouchStart = useCallback((e: React.TouchEvent) => {
     setIsDragging(true);
-    handleMove(e.touches[0].clientX);
-  }, [handleMove]);
+    // Only move if touching away from the handle area
+    if (containerRef.current) {
+      const rect = containerRef.current.getBoundingClientRect();
+      const touchX = e.touches[0].clientX - rect.left;
+      const handleX = (sliderPosition / 100) * rect.width;
+      if (Math.abs(touchX - handleX) > 30) {
+        handleMove(e.touches[0].clientX);
+      }
+    }
+  }, [handleMove, sliderPosition]);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
