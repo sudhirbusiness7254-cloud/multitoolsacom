@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import ImageConverter from "@/components/ImageConverter";
 import BatchImageConverter from "@/components/BatchImageConverter";
 import PromptToImage from "@/components/PromptToImage";
-import { AdBottom, AdVideo } from "@/components/ads/AdContainer";
+import { AdBottom, AdVideo, AdInline } from "@/components/ads/AdContainer";
 import { conversionArticles } from "@/data/conversionArticlesData";
 import { getToolGuideData } from "@/data/toolGuideData";
 import HowToUseGuide from "@/components/HowToUseGuide";
@@ -454,6 +454,9 @@ const ImageConverterPage = () => {
                   </div>
                 </div>
               </div>
+              
+              {/* Inline Ad - After Article */}
+              <AdInline className="mt-8" />
             </section>
           )}
 
@@ -602,6 +605,9 @@ const ImageConverterPage = () => {
                   </li>
                 </ul>
               </div>
+              
+              {/* Inline Ad - After How To */}
+              <AdInline className="mt-8" />
             </div>
           </section>
 

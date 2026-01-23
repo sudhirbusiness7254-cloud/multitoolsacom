@@ -1,7 +1,7 @@
 import { useAdLoader, useVideoAdLoader } from './AdManager';
 
 interface AdContainerProps {
-  position: 'left' | 'right' | 'bottom' | 'video';
+  position: 'left' | 'right' | 'bottom' | 'video' | 'inline';
   className?: string;
 }
 
@@ -77,6 +77,24 @@ export const AdVideo = ({ className = '' }: { className?: string }) => {
   );
 };
 
+// Inline ad - Responsive, appears within content
+export const AdInline = ({ className = '' }: { className?: string }) => {
+  const containerRef = useAdLoader('inline');
+  
+  return (
+    <div 
+      ref={containerRef}
+      className={`ad-inline w-full max-w-3xl mx-auto my-6 px-4 min-h-[100px] ${className}`}
+      aria-label="Advertisement"
+      role="complementary"
+    >
+      <div className="ad-placeholder bg-secondary/20 rounded-lg p-4 text-center text-xs text-muted-foreground min-h-[90px] flex items-center justify-center">
+        <span className="opacity-40">Advertisement</span>
+      </div>
+    </div>
+  );
+};
+
 // Generic ad container
 const AdContainer = ({ position, className = '' }: AdContainerProps) => {
   switch (position) {
@@ -88,6 +106,8 @@ const AdContainer = ({ position, className = '' }: AdContainerProps) => {
       return <AdBottom className={className} />;
     case 'video':
       return <AdVideo className={className} />;
+    case 'inline':
+      return <AdInline className={className} />;
     default:
       return null;
   }

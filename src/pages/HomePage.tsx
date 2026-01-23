@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GradientWaveBackground from "@/components/GradientWaveBackground";
-import { AdBottom, AdVideo } from "@/components/ads/AdContainer";
+import { AdBottom, AdVideo, AdInline } from "@/components/ads/AdContainer";
 import { 
   ArrowRight, 
   Shield, 
@@ -422,6 +422,9 @@ const HomePage = () => {
                   );
                 })}
               </div>
+              
+              {/* Inline Ad - After Categories */}
+              <AdInline className="mt-8" />
             </div>
           </section>
 
@@ -574,6 +577,9 @@ const HomePage = () => {
                   <ArrowRight className="w-5 h-5" />
                 </Link>
               </div>
+              
+              {/* Inline Ad - After How It Works */}
+              <AdInline className="mt-8" />
             </div>
           </section>
 
