@@ -42,25 +42,23 @@ async function pollPrediction(
   throw new Error("Prediction timed out");
 }
 
-// Run a Replicate model using the official model identifier
+// Run a Replicate model using version hash
 async function runModel(
-  model: string,
+  version: string,
   input: Record<string, unknown>,
   apiKey: string
 ): Promise<string> {
-  console.log(`Running model: ${model}`);
+  console.log(`Running model version: ${version.substring(0, 20)}...`);
   console.log(`Input keys: ${Object.keys(input).join(", ")}`);
   
-  // Use the deployments/predictions endpoint for official models
   const response = await fetch("https://api.replicate.com/v1/predictions", {
     method: "POST",
     headers: {
       Authorization: `Bearer ${apiKey}`,
       "Content-Type": "application/json",
-      "Prefer": "wait" // Try to wait for result synchronously
     },
     body: JSON.stringify({
-      model: model,
+      version: version, // Use version hash, not model name
       input,
     }),
   });
@@ -68,13 +66,28 @@ async function runModel(
   if (!response.ok) {
     const error = await response.text();
     console.error("Replicate API error:", response.status, error);
-    throw new Error(`Replicate API error: ${response.status} - ${error}`);
+    
+    // Parse retry_after for rate limits
+    if (response.status === 429) {
+      try {
+        const errorJson = JSON.parse(error);
+        const retryAfter = errorJson.retry_after || 10;
+        console.log(`Rate limited, waiting ${retryAfter}s before retry...`);
+        await new Promise(resolve => setTimeout(resolve, retryAfter * 1000));
+        // Retry once after waiting
+        return runModel(version, input, apiKey);
+      } catch {
+        throw new Error(`Rate limited. Please wait and try again.`);
+      }
+    }
+    
+    throw new Error(`Replicate API error: ${response.status}`);
   }
   
   let prediction: ReplicateResponse = await response.json();
   console.log(`Prediction started: ${prediction.id}, status: ${prediction.status}`);
   
-  // If not immediately complete, poll for result
+  // Poll for result
   if (prediction.status !== "succeeded") {
     prediction = await pollPrediction(prediction.id, apiKey);
   }
@@ -114,16 +127,16 @@ serve(async (req) => {
       );
     }
 
-    // Model identifiers (using official model names)
+    // Model version hashes (specific stable versions)
     const MODELS = {
       // Crystal Upscaler - high quality upscaling (up to 6x)
-      crystalUpscaler: "philz1337x/crystal-upscaler",
-      // CodeFormer for face restoration
-      codeformer: "sczhou/codeformer",
+      crystalUpscaler: "151fd5043e51d517f8aac50d0234e4c55103348fbb14591e4f6a3d9e0f52bbec",
+      // CodeFormer for face restoration  
+      codeformer: "7de2ea26c616d5bf2245ad0d5e24f0ff9a6204578a5c876db53142edd9d2cd56",
       // GFPGAN for face restoration (backup)
-      gfpgan: "tencentarc/gfpgan",
+      gfpgan: "0fbacf7afc6c144e5be9767cff80f25aff23e52b0708f17e20f9879b2f21516c",
       // Real-ESRGAN for general upscaling (backup)
-      realesrgan: "nightmareai/real-esrgan",
+      realesrgan: "f121d640bd286e1fdc67f9799164c1d5be36ff74576ee11c803ae5b665dd46aa",
     };
 
     const pipelineType = pipeline || "full"; // full, face-only, upscale-only
