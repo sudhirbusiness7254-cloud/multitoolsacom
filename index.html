@@ -43,6 +43,94 @@
     <link rel="dns-prefetch" href="https://multitoolsa.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Organization Schema (JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "MultiToolsA",
+        "alternateName": "MultiTools A",
+        "url": "https://multitoolsa.com",
+        "logo": "https://multitoolsa.com/logo.png",
+        "image": "https://multitoolsa.com/og-image.png",
+        "description": "Free online image tools for converting, compressing, resizing, cropping, and editing images directly in your browser. 100% private - your images never leave your device.",
+        "foundingDate": "2024",
+        "sameAs": [
+          "https://twitter.com/MultiToolsA"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer support",
+          "url": "https://multitoolsa.com/contact",
+          "availableLanguage": ["English"]
+        },
+        "areaServed": "Worldwide",
+        "serviceType": "Online Image Editing Tools",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Image Tools",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Image Converter",
+                "description": "Convert images between formats like JPG, PNG, WebP, GIF, and more"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Image Compressor",
+                "description": "Compress images to reduce file size while maintaining quality"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Image Resizer",
+                "description": "Resize images to any dimension or percentage"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "AI Photo Enhancer",
+                "description": "Enhance photo quality using artificial intelligence"
+              }
+            }
+          ]
+        }
+      }
+    </script>
+
+    <!-- WebSite Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "MultiToolsA",
+        "url": "https://multitoolsa.com",
+        "description": "Free online image tools - Convert, compress, resize, crop, and edit images in your browser",
+        "publisher": {
+          "@type": "Organization",
+          "name": "MultiToolsA",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://multitoolsa.com/logo.png"
+          }
+        },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://multitoolsa.com/all-tools?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
   </head>
 
   <body>
