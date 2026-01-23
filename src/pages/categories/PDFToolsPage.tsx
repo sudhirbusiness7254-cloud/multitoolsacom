@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { AdBottom, AdVideo } from "@/components/ads/AdContainer";
 import { 
   FileText, Minimize2, FileUp, Image, Scissors, Zap, Shield, Globe, Download,
   BookOpen, Lightbulb, HelpCircle, Lock, Users, CheckCircle, Sparkles, Star
@@ -117,6 +118,10 @@ const PDFToolsPage = () => {
               {/* Universal PDF Tools Component */}
               <div className="max-w-6xl mx-auto">
                 <UniversalPDFTools />
+                
+                {/* Ads below tool */}
+                <AdBottom className="mt-6" />
+                <AdVideo className="mt-4" />
               </div>
             </div>
           </section>

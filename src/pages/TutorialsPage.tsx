@@ -1,14 +1,15 @@
+import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { AdBottom, AdVideo } from "@/components/ads/AdContainer";
 import HreflangTags from "@/components/HreflangTags";
 import { 
   BookOpen, Image, Minimize2, Crop, FileText, Palette, Shield, ArrowRight, 
   Clock, CheckCircle, RotateCw, Maximize2, Settings, Type, Layers, 
-  Database, QrCode, Pencil, Lock, FileImage, Download, Zap
+  Database, QrCode, Pencil, Lock, FileImage, Download, Zap, ChevronDown, ChevronUp
 } from "lucide-react";
-import { useState } from "react";
 
 // Tutorial screenshots
 import tutorialCompress from "@/assets/guides/tutorial-compress.png";
@@ -2455,6 +2456,14 @@ const TutorialsPage = () => {
                   <p className="text-muted-foreground">No tutorials found in this category.</p>
                 </div>
               )}
+            </div>
+          </section>
+
+          {/* Ads Section */}
+          <section className="py-8 px-4">
+            <div className="container max-w-4xl mx-auto">
+              <AdBottom />
+              <AdVideo className="mt-4" />
             </div>
           </section>
 

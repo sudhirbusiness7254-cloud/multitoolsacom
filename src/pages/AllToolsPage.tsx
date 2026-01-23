@@ -1,10 +1,11 @@
+import { useState, useMemo } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link, useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { AdBottom, AdVideo } from "@/components/ads/AdContainer";
 import { toolCategories } from "@/data/toolsData";
 import { ArrowRight, Search, Sparkles, FileText } from "lucide-react";
-import { useState, useMemo } from "react";
 import { Input } from "@/components/ui/input";
 import { ToolIconWithBackground, getToolIconColor, getToolIconComponent } from "@/lib/toolIcons";
 import HreflangTags from "@/components/HreflangTags";
@@ -164,6 +165,12 @@ const AllToolsPage = () => {
                   <p className="text-muted-foreground">No tools found matching "{searchQuery}"</p>
                 </div>
               )}
+            </div>
+            
+            {/* Ads below tools */}
+            <div className="max-w-4xl mx-auto mt-10">
+              <AdBottom />
+              <AdVideo className="mt-4" />
             </div>
           </section>
         </main>
