@@ -7,12 +7,12 @@ interface AdContainerProps {
 
 // Left side ad - Desktop only (XL screens 1280px+)
 export const AdLeft = ({ className = '' }: { className?: string }) => {
-  const containerRef = useAdLoader('left');
+  const { containerRef, isVisible } = useAdLoader('left');
   
   return (
     <div 
       ref={containerRef}
-      className={`ad-left hidden xl:block fixed left-2 top-1/2 -translate-y-1/2 w-[160px] min-h-[600px] z-40 ${className}`}
+      className={`ad-left hidden xl:block fixed left-2 top-1/2 -translate-y-1/2 w-[160px] min-h-[600px] z-40 transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'} ${className}`}
       aria-label="Advertisement"
       role="complementary"
     >
@@ -25,12 +25,12 @@ export const AdLeft = ({ className = '' }: { className?: string }) => {
 
 // Right side ad - Desktop only (XL screens 1280px+)
 export const AdRight = ({ className = '' }: { className?: string }) => {
-  const containerRef = useAdLoader('right');
+  const { containerRef, isVisible } = useAdLoader('right');
   
   return (
     <div 
       ref={containerRef}
-      className={`ad-right hidden xl:block fixed right-2 top-1/2 -translate-y-1/2 w-[160px] min-h-[600px] z-40 ${className}`}
+      className={`ad-right hidden xl:block fixed right-2 top-1/2 -translate-y-1/2 w-[160px] min-h-[600px] z-40 transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'} ${className}`}
       aria-label="Advertisement"
       role="complementary"
     >
@@ -43,12 +43,12 @@ export const AdRight = ({ className = '' }: { className?: string }) => {
 
 // Bottom ad - All devices, shows below tool/content
 export const AdBottom = ({ className = '' }: { className?: string }) => {
-  const containerRef = useAdLoader('bottom');
+  const { containerRef, isVisible } = useAdLoader('bottom');
   
   return (
     <div 
       ref={containerRef}
-      className={`ad-bottom w-full max-w-4xl mx-auto my-8 px-4 min-h-[100px] ${className}`}
+      className={`ad-bottom w-full max-w-4xl mx-auto my-8 px-4 min-h-[100px] transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'} ${className}`}
       aria-label="Advertisement"
       role="complementary"
     >
@@ -61,12 +61,12 @@ export const AdBottom = ({ className = '' }: { className?: string }) => {
 
 // Video ad - Auto-loads when visible (Desktop: 220-260px width, 120-150px height, 16:9)
 export const AdVideo = ({ className = '' }: { className?: string }) => {
-  const containerRef = useVideoAdLoader();
+  const { containerRef, isVisible } = useVideoAdLoader();
   
   return (
     <div 
       ref={containerRef}
-      className={`ad-video w-full max-w-[260px] mx-auto my-6 ${className}`}
+      className={`ad-video w-full max-w-[260px] mx-auto my-6 transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'} ${className}`}
       aria-label="Video Advertisement"
       role="complementary"
       style={{ minHeight: '120px', maxHeight: '150px', aspectRatio: '16/9' }}
@@ -80,7 +80,7 @@ export const AdVideo = ({ className = '' }: { className?: string }) => {
 
 // Side Video ad - Fixed position on desktop for side placement
 export const AdVideoSide = ({ position = 'left', className = '' }: { position?: 'left' | 'right', className?: string }) => {
-  const containerRef = useVideoAdLoader();
+  const { containerRef, isVisible } = useVideoAdLoader();
   
   const positionClass = position === 'left' 
     ? 'left-2' 
@@ -89,7 +89,7 @@ export const AdVideoSide = ({ position = 'left', className = '' }: { position?: 
   return (
     <div 
       ref={containerRef}
-      className={`ad-video-side hidden xl:block fixed ${positionClass} bottom-4 w-[220px] z-40 ${className}`}
+      className={`ad-video-side hidden xl:block fixed ${positionClass} bottom-4 w-[220px] z-40 transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'} ${className}`}
       aria-label="Video Advertisement"
       role="complementary"
       style={{ minHeight: '120px', maxHeight: '150px', aspectRatio: '16/9' }}
@@ -103,12 +103,12 @@ export const AdVideoSide = ({ position = 'left', className = '' }: { position?: 
 
 // Inline ad - Responsive, appears within content
 export const AdInline = ({ className = '' }: { className?: string }) => {
-  const containerRef = useAdLoader('inline');
+  const { containerRef, isVisible } = useAdLoader('inline');
   
   return (
     <div 
       ref={containerRef}
-      className={`ad-inline w-full max-w-3xl mx-auto my-6 px-4 min-h-[100px] ${className}`}
+      className={`ad-inline w-full max-w-3xl mx-auto my-6 px-4 min-h-[100px] transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'} ${className}`}
       aria-label="Advertisement"
       role="complementary"
     >
