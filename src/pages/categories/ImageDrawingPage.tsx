@@ -5,6 +5,7 @@ import { getCategoryBySlug } from "@/data/toolsData";
 import { getCategorySEOContent } from "@/data/categorySEOData";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CheckCircle, Shield, Zap, Pencil, Lock, Eye, Settings, Type } from "lucide-react";
+import { AdVideo, AdInline } from "@/components/ads/AdContainer";
 
 const ImageDrawingPage = () => {
   const category = getCategoryBySlug("image-drawing")!;
@@ -77,6 +78,8 @@ const ImageDrawingPage = () => {
 
       <CategoryPageLayout category={category} seoContent={seoContent}>
         <UniversalImageDrawing />
+        {/* Video Ad - Below Tool Output */}
+        <AdVideo className="mt-6" />
 
         {/* Comprehensive About Section - 1000+ words */}
         <section className="mt-16 space-y-8">

@@ -6,6 +6,7 @@ import { getCategoryBySlug } from "@/data/toolsData";
 import { getCategorySEOContent } from "@/data/categorySEOData";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CheckCircle, Shield, Zap, Palette, Lock, Eye, Settings, Wand2 } from "lucide-react";
+import { AdVideo, AdInline } from "@/components/ads/AdContainer";
 
 type UtilityMode = "grayscale" | "blackwhite" | "add-transparency" | "remove-transparency" | "invert" | "sepia";
 
@@ -82,6 +83,8 @@ const FormatUtilitiesPage = () => {
 
       <CategoryPageLayout category={category} seoContent={seoContent}>
         <UniversalFormatUtility key={key} initialMode={selectedMode} />
+        {/* Video Ad - Below Tool Output */}
+        <AdVideo className="mt-6" />
 
         {/* Comprehensive About Section - 1000+ words */}
         <section className="mt-16 space-y-8">

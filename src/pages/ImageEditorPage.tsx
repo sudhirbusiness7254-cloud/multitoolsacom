@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ImageEditor from "@/components/ImageEditor/ImageEditor";
 import HreflangTags from "@/components/HreflangTags";
+import { AdVideo, AdBottom, AdInline } from "@/components/ads/AdContainer";
 
 const ImageEditorPage = () => {
   return (
@@ -46,6 +47,8 @@ const ImageEditorPage = () => {
           <section className="pb-16 px-4">
             <div className="max-w-6xl mx-auto">
               <ImageEditor />
+              {/* Video Ad - Below Tool Output */}
+              <AdVideo className="mt-6" />
             </div>
           </section>
 
@@ -117,6 +120,9 @@ const ImageEditorPage = () => {
               </div>
             </div>
           </section>
+          
+          {/* Bottom Ad */}
+          <AdBottom className="my-8" />
         </main>
 
         <Footer />

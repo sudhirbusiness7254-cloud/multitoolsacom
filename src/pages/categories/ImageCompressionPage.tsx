@@ -9,6 +9,7 @@ import { getCategorySEOContent } from "@/data/categorySEOData";
 import { getToolGuideData } from "@/data/toolGuideData";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Image, Layers } from "lucide-react";
+import { AdVideo, AdInline } from "@/components/ads/AdContainer";
 
 const ImageCompressionPage = () => {
   const category = getCategoryBySlug("image-compression")!;
@@ -60,10 +61,14 @@ const ImageCompressionPage = () => {
           
           <TabsContent value="single" className="mt-0">
             <UniversalImageCompressor />
+            {/* Video Ad - Below Tool Output */}
+            <AdVideo className="mt-6" />
           </TabsContent>
           
           <TabsContent value="batch" className="mt-0">
             <BatchImageCompressor />
+            {/* Video Ad - Below Tool Output */}
+            <AdVideo className="mt-6" />
           </TabsContent>
         </Tabs>
 

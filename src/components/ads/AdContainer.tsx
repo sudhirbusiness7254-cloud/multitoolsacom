@@ -59,19 +59,43 @@ export const AdBottom = ({ className = '' }: { className?: string }) => {
   );
 };
 
-// Video ad - Auto-loads when visible, all devices
+// Video ad - Auto-loads when visible, all devices (Desktop: 220-260px width, 120-150px height, 16:9)
 export const AdVideo = ({ className = '' }: { className?: string }) => {
   const containerRef = useVideoAdLoader();
   
   return (
     <div 
       ref={containerRef}
-      className={`ad-video w-full max-w-3xl mx-auto my-8 px-4 min-h-[250px] ${className}`}
+      className={`ad-video w-full max-w-[260px] mx-auto my-6 aspect-video ${className}`}
       aria-label="Video Advertisement"
       role="complementary"
+      style={{ minHeight: '120px', maxHeight: '150px' }}
     >
-      <div className="ad-placeholder bg-secondary/20 rounded-lg p-4 text-center text-xs text-muted-foreground min-h-[250px] flex items-center justify-center">
+      <div className="ad-placeholder bg-secondary/20 rounded-lg p-2 text-center text-xs text-muted-foreground h-full flex items-center justify-center aspect-video">
         <span className="opacity-40">Video Ad</span>
+      </div>
+    </div>
+  );
+};
+
+// Side Video ad - Fixed position on desktop for side placement
+export const AdVideoSide = ({ position = 'left', className = '' }: { position?: 'left' | 'right', className?: string }) => {
+  const containerRef = useVideoAdLoader();
+  
+  const positionClass = position === 'left' 
+    ? 'left-2' 
+    : 'right-2';
+  
+  return (
+    <div 
+      ref={containerRef}
+      className={`ad-video-side hidden xl:block fixed ${positionClass} bottom-4 w-[220px] aspect-video z-40 ${className}`}
+      aria-label="Video Advertisement"
+      role="complementary"
+      style={{ minHeight: '120px', maxHeight: '150px' }}
+    >
+      <div className="ad-placeholder bg-secondary/20 rounded-lg p-2 text-center text-xs text-muted-foreground h-full flex items-center justify-center aspect-video">
+        <span className="opacity-40">Video</span>
       </div>
     </div>
   );

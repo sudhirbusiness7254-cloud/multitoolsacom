@@ -7,6 +7,7 @@ import { getCategorySEOContent } from "@/data/categorySEOData";
 import { getToolGuideData } from "@/data/toolGuideData";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CheckCircle, Shield, Zap, Image, Lock, Eye, Settings, Copyright } from "lucide-react";
+import { AdVideo, AdInline } from "@/components/ads/AdContainer";
 
 const WatermarkToolsPage = () => {
   const category = getCategoryBySlug("watermark-tools")!;
@@ -80,6 +81,8 @@ const WatermarkToolsPage = () => {
 
       <CategoryPageLayout category={category} seoContent={seoContent}>
         <UniversalWatermark />
+        {/* Video Ad - Below Tool Output */}
+        <AdVideo className="mt-6" />
 
         {/* Comprehensive About Section - 1000+ words */}
         <section className="mt-16 space-y-8">
