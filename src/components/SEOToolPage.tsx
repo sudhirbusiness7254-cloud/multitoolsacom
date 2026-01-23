@@ -119,7 +119,7 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
         
         <main className="flex-1">
           {/* Breadcrumb */}
-          <nav className="container mx-auto px-4 py-4" aria-label="Breadcrumb">
+          <nav className="w-full px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 py-4" aria-label="Breadcrumb">
             <ol className="flex items-center gap-2 text-sm text-muted-foreground">
               <li><Link to="/" className="hover:text-primary transition-colors">Home</Link></li>
               <ChevronRight className="w-4 h-4" />
@@ -130,8 +130,8 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
           </nav>
 
           {/* Hero Section with Tool */}
-          <section className="py-8 md:py-12">
-            <div className="container mx-auto px-4 max-w-6xl">
+          <section className="py-8 md:py-12 lg:py-16">
+            <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
               {/* Title */}
               <div className="text-center mb-8">
                 <div 
@@ -144,21 +144,21 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                   <Star className="w-4 h-4" style={{ color: seoContent.gradientFrom }} />
                   <span className="text-sm font-medium" style={{ color: seoContent.gradientFrom }}>Free Online Tool</span>
                 </div>
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4">
                   {comprehensiveContent?.h1 || seoContent.h1}
                 </h1>
-                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
                   {seoContent.shortDescription}
                 </p>
               </div>
 
               {/* Tool Component */}
-              <div className="mb-8">
+              <div className="w-full max-w-5xl mx-auto mb-8">
                 {children}
               </div>
               
               {/* Ads - After Tool Output */}
-              <div className="max-w-4xl mx-auto">
+              <div className="max-w-5xl mx-auto">
                 <AdInline className="mt-6" />
                 <AdBottom className="mt-4" />
                 <AdVideo className="mt-4" />
@@ -167,8 +167,8 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
           </section>
 
           {/* Article Content */}
-          <section className="py-12 bg-secondary/30">
-            <div className="container mx-auto px-4 max-w-4xl">
+          <section className="py-12 bg-secondary/30 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+            <div className="w-full max-w-6xl mx-auto">
               
               {/* Section 1: Introduction */}
               {hasComprehensive && comprehensiveContent.introduction && (
@@ -180,9 +180,9 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                     >
                       <FileText className="w-5 h-5 text-white" />
                     </div>
-                    <h2 className="text-2xl md:text-3xl font-bold m-0">Introduction</h2>
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold m-0">Introduction</h2>
                   </div>
-                  <p className="text-muted-foreground leading-relaxed text-lg">{comprehensiveContent.introduction}</p>
+                  <p className="text-muted-foreground leading-relaxed text-base lg:text-lg">{comprehensiveContent.introduction}</p>
                 </article>
               )}
 
@@ -195,7 +195,7 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                   >
                     <BookOpen className="w-5 h-5 text-white" />
                   </div>
-                  <h2 className="text-2xl md:text-3xl font-bold m-0">About {seoContent.title}</h2>
+                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold m-0">About {seoContent.title}</h2>
                 </div>
                 <p className="text-muted-foreground leading-relaxed">
                   {hasComprehensive ? comprehensiveContent.aboutTool : seoContent.longDescription}
@@ -220,7 +220,7 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                       >
                         <Lightbulb className="w-5 h-5 text-white" />
                       </div>
-                      <h2 className="text-xl md:text-2xl font-bold">How to Use {seoContent.title}</h2>
+                      <h2 className="text-xl md:text-2xl lg:text-3xl font-bold">How to Use {seoContent.title}</h2>
                     </div>
                     
                     {hasComprehensive && comprehensiveContent.howToUse.length > 0 ? (
@@ -268,7 +268,7 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                   >
                     <Sparkles className="w-5 h-5 text-white" />
                   </div>
-                  <h2 className="text-xl md:text-2xl font-bold">Why This Tool is Important</h2>
+                  <h2 className="text-xl md:text-2xl lg:text-3xl font-bold">Why This Tool is Important</h2>
                 </div>
                 <p className="text-muted-foreground leading-relaxed">
                   {hasComprehensive ? comprehensiveContent.whyImportant : seoContent.whyImportant}
@@ -284,7 +284,7 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                   >
                     <Zap className="w-5 h-5 text-white" />
                   </div>
-                  <h2 className="text-xl md:text-2xl font-bold">Key Features</h2>
+                  <h2 className="text-xl md:text-2xl lg:text-3xl font-bold">Key Features</h2>
                 </div>
                 
                 {hasComprehensive && comprehensiveContent.keyFeatures.length > 0 ? (
@@ -324,7 +324,7 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                   >
                     <CheckCircle className="w-5 h-5 text-white" />
                   </div>
-                  <h2 className="text-xl md:text-2xl font-bold">Benefits of Using This Tool</h2>
+                  <h2 className="text-xl md:text-2xl lg:text-3xl font-bold">Benefits of Using This Tool</h2>
                 </div>
                 
                 {hasComprehensive && comprehensiveContent.benefitsText && (
@@ -333,7 +333,7 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                   </p>
                 )}
                 
-                <ul className="grid md:grid-cols-2 gap-3">
+                <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
                   {(hasComprehensive ? comprehensiveContent.benefits : seoContent.benefits).map((benefit, index) => (
                     <li key={index} className="flex items-start gap-3">
                       <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: seoContent.gradientFrom }} />
@@ -352,11 +352,11 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                   >
                     <Users className="w-5 h-5 text-white" />
                   </div>
-                  <h2 className="text-xl md:text-2xl font-bold">Who Can Use This Tool</h2>
+                  <h2 className="text-xl md:text-2xl lg:text-3xl font-bold">Who Can Use This Tool</h2>
                 </div>
                 
                 {hasComprehensive && comprehensiveContent.whoCanUse.length > 0 ? (
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                     {comprehensiveContent.whoCanUse.map((user, index) => {
                       const IconComponent = getUserIcon(user.title);
                       return (
@@ -374,7 +374,7 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                   </div>
                 ) : (
                   seoContent.whoCanUse && seoContent.whoCanUse.length > 0 && (
-                    <ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+                    <ul className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
                       {seoContent.whoCanUse.map((user, index) => (
                         <li key={index} className="flex items-center gap-3 bg-secondary/50 rounded-lg px-4 py-3">
                           <Users className="w-4 h-4 flex-shrink-0" style={{ color: seoContent.gradientFrom }} />
@@ -396,9 +396,9 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                     >
                       <Target className="w-5 h-5 text-white" />
                     </div>
-                    <h2 className="text-xl md:text-2xl font-bold">Common Use Cases</h2>
+                    <h2 className="text-xl md:text-2xl lg:text-3xl font-bold">Common Use Cases</h2>
                   </div>
-                  <div className="grid md:grid-cols-2 gap-4">
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     {comprehensiveContent.useCases.map((useCase, index) => (
                       <div key={index} className="bg-secondary/50 rounded-xl p-4">
                         <div className="flex items-start gap-3">
@@ -423,7 +423,7 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                   >
                     <HelpCircle className="w-5 h-5 text-white" />
                   </div>
-                  <h2 className="text-xl md:text-2xl font-bold">Frequently Asked Questions</h2>
+                  <h2 className="text-xl md:text-2xl lg:text-3xl font-bold">Frequently Asked Questions</h2>
                 </div>
                 <Accordion type="single" collapsible className="w-full">
                   {(hasComprehensive ? comprehensiveContent.faqs : seoContent.faqs).map((faq, index) => (
@@ -446,7 +446,7 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                     <Shield className="w-6 h-6 text-green-600" />
                   </div>
                   <div>
-                    <h2 className="text-xl font-bold text-green-700 dark:text-green-400 mb-2">Privacy & Security</h2>
+                    <h2 className="text-xl lg:text-2xl font-bold text-green-700 dark:text-green-400 mb-2">Privacy & Security</h2>
                     <p className="text-muted-foreground leading-relaxed">
                       {hasComprehensive && comprehensiveContent.privacyNote 
                         ? comprehensiveContent.privacyNote 
@@ -466,7 +466,7 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                     >
                       <Star className="w-5 h-5 text-white" />
                     </div>
-                    <h2 className="text-xl md:text-2xl font-bold">Conclusion</h2>
+                    <h2 className="text-xl md:text-2xl lg:text-3xl font-bold">Conclusion</h2>
                   </div>
                   <p className="text-muted-foreground leading-relaxed">
                     {hasComprehensive ? comprehensiveContent.conclusion : seoContent.conclusion}
@@ -484,7 +484,7 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
               {/* Section 13: Related Tools */}
               {((hasComprehensive && comprehensiveContent.relatedTools.length > 0) || seoContent.relatedTools.length > 0) && (
                 <div className="bg-card rounded-2xl border border-border p-6 md:p-8">
-                  <h2 className="text-xl md:text-2xl font-bold mb-6">Related Tools</h2>
+                  <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-6">Related Tools</h2>
                   <div className="flex flex-wrap gap-3">
                     {(hasComprehensive ? comprehensiveContent.relatedTools : seoContent.relatedTools).map((tool) => (
                       <Link
@@ -503,9 +503,9 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
           </section>
 
           {/* CTA Section */}
-          <section className="py-12">
-            <div className="container mx-auto px-4 max-w-4xl text-center">
-              <h2 className="text-2xl md:text-3xl font-bold mb-4">Explore More Tools</h2>
+          <section className="py-12 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+            <div className="w-full max-w-6xl mx-auto text-center">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">Explore More Tools</h2>
               <p className="text-muted-foreground mb-6">
                 Discover our complete collection of free image tools to enhance your workflow
               </p>
