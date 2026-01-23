@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
+import AdLayout from "@/components/ads/AdLayout";
 import HomePage from "./pages/HomePage";
 import TagExtractorPage from "./pages/TagExtractorPage";
 import About from "./pages/About";
@@ -66,6 +67,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <AdLayout>
           <Routes>
             {/* Main Pages */}
             <Route path="/" element={<HomePage />} />
@@ -128,6 +130,7 @@ const App = () => (
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
+          </AdLayout>
           <SupportChat />
           <CookieConsent />
         </BrowserRouter>

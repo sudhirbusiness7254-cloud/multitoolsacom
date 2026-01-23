@@ -8,6 +8,7 @@ import { toolCategories, Category } from "@/data/toolsData";
 import { CategorySEOContent } from "@/data/categorySEOData";
 import HreflangTags from "@/components/HreflangTags";
 import RelatedArticles from "@/components/RelatedArticles";
+import { AdBottom } from "@/components/ads/AdContainer";
 
 interface CategoryPageLayoutProps {
   category: Category;
@@ -145,6 +146,9 @@ const CategoryPageLayout = ({
             <section className="py-6 px-4 sm:px-6">
               <div className="container mx-auto max-w-4xl">
                 {children}
+                
+                {/* Bottom Ad - After Tool Output */}
+                <AdBottom className="mt-6" />
               </div>
             </section>
           )}
