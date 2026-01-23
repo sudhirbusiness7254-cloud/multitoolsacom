@@ -1,14 +1,16 @@
 # MultiToolsA - Free Online Image Tools
 # https://multitoolsa.com
 
-# Sitemap locations
+# Primary Sitemap (only one source to prevent conflicts)
 Sitemap: https://multitoolsa.com/sitemap.xml
-Sitemap: https://ftigwyzrrdwddxcpgaaf.supabase.co/functions/v1/sitemap
 
-# Allow all major search engine crawlers
+# Allow all major search engine crawlers full access
 User-agent: Googlebot
 Allow: /
 Crawl-delay: 0
+
+User-agent: Googlebot-Image
+Allow: /
 
 User-agent: Bingbot
 Allow: /
@@ -43,13 +45,18 @@ User-agent: *
 Allow: /
 Crawl-delay: 1
 
-# Paths that should not be indexed
+# Disallow non-content paths
 Disallow: /api/
 Disallow: /*.json$
 Disallow: /404
-Disallow: /*?*
 
-# Allow important assets
+# Allow all static assets and images
 Allow: /logo.png
 Allow: /favicon.png
 Allow: /screenshot.png
+Allow: /*.js$
+Allow: /*.css$
+Allow: /*.jpg$
+Allow: /*.png$
+Allow: /*.webp$
+Allow: /*.svg$
