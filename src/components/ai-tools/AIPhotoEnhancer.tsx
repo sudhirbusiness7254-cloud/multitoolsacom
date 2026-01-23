@@ -11,6 +11,7 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 type OutputFormat = "png" | "jpg" | "webp";
 type QualityPreset = "standard" | "premium" | "ultra";
+type SaturationLevel = "low" | "medium" | "high" | "maximum";
 
 interface EnhancementOptions {
   preset: QualityPreset;
@@ -18,6 +19,7 @@ interface EnhancementOptions {
   faceEnhance: boolean;
   colorBoost: boolean;
   denoiseStrength: "low" | "medium" | "high";
+  saturation: SaturationLevel;
 }
 
 const AIPhotoEnhancer = () => {
@@ -36,7 +38,8 @@ const AIPhotoEnhancer = () => {
     multiPass: true,
     faceEnhance: true,
     colorBoost: true,
-    denoiseStrength: "medium"
+    denoiseStrength: "medium",
+    saturation: "high"
   });
   const fileInputRef = useRef<HTMLInputElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -108,7 +111,8 @@ const AIPhotoEnhancer = () => {
             preset: options.preset,
             faceEnhance: options.faceEnhance,
             colorBoost: options.colorBoost,
-            denoiseStrength: options.denoiseStrength
+            denoiseStrength: options.denoiseStrength,
+            saturation: options.saturation
           }
         }
       });
@@ -318,6 +322,37 @@ const AIPhotoEnhancer = () => {
                   </TabsList>
                 </Tabs>
                 <p className="text-xs text-muted-foreground mt-2">{presetDescriptions[options.preset]}</p>
+              </div>
+
+              {/* Saturation Control */}
+              <div>
+                <Label className="text-sm font-medium mb-2 block">Color Saturation</Label>
+                <Tabs 
+                  value={options.saturation} 
+                  onValueChange={(v) => setOptions(prev => ({ ...prev, saturation: v as SaturationLevel }))}
+                  className="w-full"
+                >
+                  <TabsList className="w-full grid grid-cols-4">
+                    <TabsTrigger value="low" className="text-xs">
+                      Low
+                    </TabsTrigger>
+                    <TabsTrigger value="medium" className="text-xs">
+                      Medium
+                    </TabsTrigger>
+                    <TabsTrigger value="high" className="text-xs">
+                      High
+                    </TabsTrigger>
+                    <TabsTrigger value="maximum" className="text-xs">
+                      Maximum
+                    </TabsTrigger>
+                  </TabsList>
+                </Tabs>
+                <p className="text-xs text-muted-foreground mt-2">
+                  {options.saturation === "low" && "Natural colors, subtle enhancement"}
+                  {options.saturation === "medium" && "Balanced vibrancy, everyday photos"}
+                  {options.saturation === "high" && "Bold, vivid colors for social media"}
+                  {options.saturation === "maximum" && "Maximum saturation, poster-like colors"}
+                </p>
               </div>
             </div>
           )}
