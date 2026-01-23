@@ -92,7 +92,7 @@ const ImageComparisonSlider = ({
         <img
           src={compressedSrc}
           alt={compressedLabel}
-          className="absolute inset-0 h-full w-full object-contain"
+          className="absolute inset-0 h-full w-full object-cover object-center"
           draggable={false}
         />
 
@@ -104,7 +104,7 @@ const ImageComparisonSlider = ({
           <img
             src={originalSrc}
             alt={originalLabel}
-            className="absolute inset-0 h-full w-full object-contain"
+            className="absolute inset-0 h-full w-full object-cover object-center"
             draggable={false}
           />
         </div>
