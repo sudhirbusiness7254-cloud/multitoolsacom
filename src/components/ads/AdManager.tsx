@@ -95,22 +95,38 @@ export const useVideoAdLoader = () => {
       loadAdScript('video', container);
     };
 
-    // Use Intersection Observer to load video ad when visible
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            loadVideoAd();
-            observer.disconnect();
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
+    // IMPORTANT: many pages expect the video ad to appear immediately below the output.
+    // We still keep IntersectionObserver for performance, but add a short fallback timer
+    // so the ad doesn't get stuck showing the placeholder.
 
-    observer.observe(container);
+    // Fallback: attempt load after a short delay even if observer never fires
+    const fallbackTimer = window.setTimeout(() => {
+      loadVideoAd();
+    }, 600);
 
-    return () => observer.disconnect();
+    // Prefer lazy-load when visible
+    let observer: IntersectionObserver | null = null;
+    if ('IntersectionObserver' in window) {
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              loadVideoAd();
+              observer?.disconnect();
+              observer = null;
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      observer.observe(container);
+    }
+
+    return () => {
+      window.clearTimeout(fallbackTimer);
+      observer?.disconnect();
+    };
   }, []);
 
   return containerRef;
