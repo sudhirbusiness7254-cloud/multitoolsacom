@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { ChevronRight } from "lucide-react";
 import { toolCategories } from "@/data/toolsData";
 import { AdBottom, AdVideo, AdInline } from "@/components/ads/AdContainer";
 
@@ -74,7 +75,15 @@ const ToolPageLayout = ({
     }))
   };
 
-  // Get image tools for internal linking (priority)
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://multitoolsa.com" },
+      { "@type": "ListItem", "position": 2, "name": "All Tools", "item": "https://multitoolsa.com/all-tools" },
+      { "@type": "ListItem", "position": 3, "name": title, "item": canonicalUrl }
+    ]
+  };
   const imageCategories = toolCategories.filter(cat => cat.id !== "tag-tools").slice(0, 6);
 
   return (
@@ -100,10 +109,24 @@ const ToolPageLayout = ({
         <script type="application/ld+json">
           {JSON.stringify(faqSchema)}
         </script>
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbSchema)}
+        </script>
       </Helmet>
 
       <div className="min-h-screen bg-background flex flex-col">
         <Header />
+        
+        {/* Breadcrumb Navigation */}
+        <nav className="w-full px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 py-3 bg-secondary/30" aria-label="Breadcrumb">
+          <ol className="flex items-center gap-2 text-sm text-muted-foreground max-w-6xl mx-auto">
+            <li><Link to="/" className="hover:text-primary transition-colors">Home</Link></li>
+            <ChevronRight className="w-4 h-4" />
+            <li><Link to="/all-tools" className="hover:text-primary transition-colors">All Tools</Link></li>
+            <ChevronRight className="w-4 h-4" />
+            <li className="text-foreground font-medium truncate">{title}</li>
+          </ol>
+        </nav>
         
         <main className="flex-1">
           {/* Hero Section with Tool */}
