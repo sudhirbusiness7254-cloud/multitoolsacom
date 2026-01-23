@@ -163,7 +163,7 @@ const AIPhotoEnhancer = () => {
       // Show comparison view automatically
       setShowComparison(true);
       
-      toast.success("Image enhanced to Remini-quality!");
+      toast.success("Image enhanced to professional quality!");
     } catch (error) {
       console.error("Enhancement error:", error);
       const errorMessage = error instanceof Error ? error.message : "Failed to enhance image";
@@ -258,7 +258,7 @@ const AIPhotoEnhancer = () => {
 
   const presetDescriptions = {
     standard: "Fast enhancement, good for social media",
-    premium: "High quality, Remini-level results",
+    premium: "High quality, professional-level results",
     ultra: "Maximum quality, 4K upscaling included"
   };
 
@@ -278,7 +278,7 @@ const AIPhotoEnhancer = () => {
                 <h3 className="text-xl font-bold flex items-center gap-2">
                   AI Photo Enhancer
                   <span className="text-xs px-2 py-0.5 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-full font-medium">
-                    Remini-Quality
+                    Pro Quality
                   </span>
                 </h3>
                 <p className="text-sm text-muted-foreground">State-of-the-art AI enhancement • 4K output • Face restoration</p>

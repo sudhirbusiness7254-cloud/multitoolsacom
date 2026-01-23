@@ -16,8 +16,8 @@ const AIFaceBeautifyPage = () => {
     <>
       <Helmet>
         <title>AI Face Beautify - Free Online Face Enhancement Tool | MultiToolsA</title>
-        <meta name="description" content="Free AI Face Beautify tool. Enhance facial features with skin smoothing, eye enhancement, teeth whitening, and more. Like Remini but free. No signup required." />
-        <meta name="keywords" content="AI face beautify, face enhancement, skin smoothing, teeth whitening, eye enhancement, remini alternative, free face editor" />
+        <meta name="description" content="Free AI Face Beautify tool. Enhance facial features with skin smoothing, eye enhancement, teeth whitening, and more. Professional results. No signup required." />
+        <meta name="keywords" content="AI face beautify, face enhancement, skin smoothing, teeth whitening, eye enhancement, free face editor, portrait enhancement" />
         <link rel="canonical" href="https://multitoolsa.com/ai-face-beautify" />
         
         <meta property="og:title" content="AI Face Beautify - Free Face Enhancement Tool" />
@@ -65,7 +65,7 @@ const AIFaceBeautifyPage = () => {
                 
                 <p className="text-lg text-muted-foreground mb-8">
                   Enhance your facial features with AI-powered beautification. 
-                  Smooth skin, brighten eyes, whiten teeth, and more - like Remini but completely free.
+                  Smooth skin, brighten eyes, whiten teeth, and more - professional results, completely free.
                 </p>
               </div>
             </div>

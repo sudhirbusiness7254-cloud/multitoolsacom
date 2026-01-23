@@ -304,7 +304,7 @@ export const toolCategories: Category[] = [
     icon: "Sparkles",
     priority: 18,
     tools: [
-      { id: "ai-photo-enhancer", name: "AI Photo Enhancer", slug: "ai-photo-enhancer", description: "Enhance photo quality, sharpness, and clarity automatically using AI", category: "AI Image Tools", categorySlug: "ai-image-tools", icon: "Sparkles", keywords: ["ai enhance", "photo enhancer", "remini", "improve quality", "hd photo"] },
+      { id: "ai-photo-enhancer", name: "AI Photo Enhancer", slug: "ai-photo-enhancer", description: "Enhance photo quality, sharpness, and clarity automatically using AI", category: "AI Image Tools", categorySlug: "ai-image-tools", icon: "Sparkles", keywords: ["ai enhance", "photo enhancer", "improve quality", "hd photo", "4k enhancement"] },
       { id: "ai-image-upscaler", name: "AI Image Upscaler", slug: "ai-image-upscaler", description: "Upscale and enlarge images up to 4x without losing quality", category: "AI Image Tools", categorySlug: "ai-image-tools", icon: "Maximize2", keywords: ["ai upscale", "enlarge image", "increase resolution", "4x upscale"] },
       { id: "ai-image-restorer", name: "AI Image Restorer", slug: "ai-image-restorer", description: "Restore old, damaged, or low-quality photos using AI", category: "AI Image Tools", categorySlug: "ai-image-tools", icon: "Wand2", keywords: ["restore photo", "fix old photo", "repair image", "ai restoration"] },
       { id: "ai-image-generator", name: "AI Image Generator", slug: "ai-image-generation", description: "Generate stunning images from text prompts using AI", category: "AI Image Tools", categorySlug: "ai-image-tools", icon: "Wand2", keywords: ["ai generate", "text to image", "create image", "ai art"] },

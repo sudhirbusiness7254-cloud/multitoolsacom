@@ -148,7 +148,7 @@ CRITICAL CONSTRAINTS:
 5. OUTPUT: MAXIMUM impact, poster-quality, hyper-saturated colors that demand attention`
         };
         
-        prompt = `You are the world's most advanced AI photo enhancement system, superior to Remini, Topaz, and all competitors. Your task is to transform this image into STUNNING, professional-grade, 4K-quality output.
+        prompt = `You are the world's most advanced AI photo enhancement system. Your task is to transform this image into STUNNING, professional-grade, 4K-quality output.
 
 === CRITICAL MISSION ===
 Produce an image that looks like it was taken with a $50,000 professional camera and edited by a master retoucher. The result should be indistinguishable from a magazine cover photo.
@@ -167,7 +167,7 @@ Produce an image that looks like it was taken with a $50,000 professional camera
    - Fix any blur, motion blur, or out-of-focus areas
    - Result must be pristine, artifact-free
 
-${faceEnhance ? `=== FACE RESTORATION (PRIORITY - REMINI-QUALITY) ===
+${faceEnhance ? `=== FACE RESTORATION (PRIORITY - PROFESSIONAL QUALITY) ===
 This is the MOST IMPORTANT part. Faces must be PERFECTLY enhanced:
 
 1. FACIAL FEATURE RECONSTRUCTION:
@@ -216,7 +216,7 @@ ${colorBoost ? saturationInstructions[saturationLevel] || saturationInstructions
 - Clarity: Magazine-cover sharpness
 - Colors: Professional color grading
 - Noise: Zero visible noise or artifacts
-- Overall: Better than Remini, comparable to professional studio output
+- Overall: Professional studio-grade output quality
 
 ${qualitySuffix}`;
         break;
@@ -242,7 +242,7 @@ ${qualitySuffix}`;
           ultra: "Maximum 4K quality with two-pass processing, professional studio-grade output"
         };
         
-        prompt = `You are a professional AI super-resolution system superior to Remini. Upscale this image by ${scale}x to ultra-high 4K+ quality:
+        prompt = `You are a professional AI super-resolution system. Upscale this image by ${scale}x to ultra-high 4K+ quality:
 
 SUPER-RESOLUTION REQUIREMENTS:
 
@@ -506,7 +506,7 @@ ADDITIONAL REQUIREMENTS:
 - Results should look like professional studio photography
 - The beautification must look natural, never over-processed
 - Enhance but don't change who the person is
-- Output BETTER quality than Remini or FaceTune
+- Output professional studio-grade quality
 
 The result must look like a cover photo from Vogue or GQ magazine.${qualitySuffix}`;
         break;

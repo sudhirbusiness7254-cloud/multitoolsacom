@@ -51,10 +51,10 @@ const AIPhotoEnhancerPage = () => {
       },
       {
         "@type": "Question",
-        "name": "How is this different from Remini?",
+        "name": "How is this different from paid apps?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Unlike Remini, our tool is completely free with no watermarks, no subscription required, and no app download needed. You get 4K quality output with adjustable saturation and quality settings that you control."
+          "text": "Unlike paid apps, our tool is completely free with no watermarks, no subscription required, and no app download needed. You get 4K quality output with adjustable saturation and quality settings that you control."
         }
       }
     ]
@@ -63,9 +63,9 @@ const AIPhotoEnhancerPage = () => {
   return (
     <>
       <Helmet>
-        <title>AI Photo Enhancer - Improve Image Quality Free | Like Remini</title>
-        <meta name="description" content="Free AI Photo Enhancer tool. Improve image quality, sharpness, clarity and colors automatically. Better than Remini - no signup, no watermarks, 4K output." />
-        <meta name="keywords" content="AI photo enhancer, improve image quality, photo enhancement, remini alternative, free photo enhancer, 4K upscale, image quality improvement" />
+        <title>AI Photo Enhancer - Improve Image Quality Free | 4K Output</title>
+        <meta name="description" content="Free AI Photo Enhancer tool. Improve image quality, sharpness, clarity and colors automatically. Professional results - no signup, no watermarks, 4K output." />
+        <meta name="keywords" content="AI photo enhancer, improve image quality, photo enhancement, free photo enhancer, 4K upscale, image quality improvement" />
         <link rel="canonical" href="https://multitoolsa.com/ai-photo-enhancer" />
         
         <meta property="og:title" content="AI Photo Enhancer - Improve Image Quality Free" />
@@ -126,7 +126,7 @@ const AIPhotoEnhancerPage = () => {
                 
                 <p className="text-lg text-muted-foreground mb-8">
                   Transform ordinary photos into stunning, professional-quality images with our advanced AI technology. 
-                  Improve sharpness, clarity, colors, and details automatically - like Remini but completely free.
+                  Improve sharpness, clarity, colors, and details automatically - completely free with 4K output.
                 </p>
               </div>
             </div>
@@ -251,7 +251,7 @@ const AIPhotoEnhancerPage = () => {
               
               <div className="prose prose-lg dark:prose-invert max-w-none">
                 <p>
-                  Compared to traditional photo editing methods that require expensive software subscriptions and years of experience, our AI Photo Enhancer offers instant, professional results with zero learning curve. While apps like Remini require downloads, subscriptions, and often add watermarks, our tool is completely free, works in your browser, and produces clean, watermark-free results.
+                  Compared to traditional photo editing methods that require expensive software subscriptions and years of experience, our AI Photo Enhancer offers instant, professional results with zero learning curve. While paid apps require downloads, subscriptions, and often add watermarks, our tool is completely free, works in your browser, and produces clean, watermark-free results.
                 </p>
                 
                 <div className="grid md:grid-cols-2 gap-6 mt-8 not-prose">
@@ -340,9 +340,9 @@ const AIPhotoEnhancerPage = () => {
                 </AccordionItem>
                 
                 <AccordionItem value="5" className="bg-card border border-border rounded-xl px-6">
-                  <AccordionTrigger>How is this different from Remini?</AccordionTrigger>
+                  <AccordionTrigger>How is this different from paid apps?</AccordionTrigger>
                   <AccordionContent className="text-muted-foreground">
-                    Unlike Remini, our tool is completely free with no watermarks, no subscription required, and no app download needed. You get 4K quality output with adjustable saturation and quality settings. Everything works directly in your browser without any installation.
+                    Unlike paid apps, our tool is completely free with no watermarks, no subscription required, and no app download needed. You get 4K quality output with adjustable saturation and quality settings. Everything works directly in your browser without any installation.
                   </AccordionContent>
                 </AccordionItem>
                 
