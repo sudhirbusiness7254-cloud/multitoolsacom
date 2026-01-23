@@ -93,19 +93,14 @@ const AIFaceBeautify = () => {
     setBeautifiedImage(null);
 
     try {
-      setProgress(30);
+      setProgress(20);
       
-      const { data, error } = await supabase.functions.invoke("ai-enhance-image", {
+      // Use the professional Replicate pipeline with CodeFormer for face restoration
+      const { data, error } = await supabase.functions.invoke("replicate-enhance", {
         body: { 
           imageBase64: originalImage,
-          operation: "face-beautify",
-          options: {
-            skinSmoothing: options.skinSmoothing,
-            eyeEnhancement: options.eyeEnhancement,
-            teethWhitening: options.teethWhitening,
-            faceLighting: options.faceLighting,
-            skinToneCorrection: options.skinToneCorrection
-          }
+          pipeline: "face-only", // Use face-only for beautification (CodeFormer + GFPGAN)
+          scaleFactor: 2 // Light upscaling to preserve quality
         }
       });
 
@@ -122,13 +117,22 @@ const AIFaceBeautify = () => {
       if (data?.imageUrl) {
         setBeautifiedImage(data.imageUrl);
         setProgress(100);
-        toast.success("Face beautification complete!");
+        const stepsCount = data.stepsExecuted?.length || 1;
+        toast.success(`Remini-quality beautification complete! (${stepsCount} AI models applied)`);
       } else {
         throw new Error("No beautified image was returned");
       }
     } catch (error) {
       console.error("Beautify error:", error);
-      toast.error(error instanceof Error ? error.message : "Failed to beautify image");
+      const errorMessage = error instanceof Error ? error.message : "Failed to beautify image";
+      
+      if (errorMessage.includes("Rate limit") || errorMessage.includes("429")) {
+        toast.error("Replicate rate limit reached. Please wait and try again.");
+      } else if (errorMessage.includes("REPLICATE_API_KEY")) {
+        toast.error("Replicate API key not configured.");
+      } else {
+        toast.error(errorMessage);
+      }
     } finally {
       setIsProcessing(false);
       setProgress(0);
