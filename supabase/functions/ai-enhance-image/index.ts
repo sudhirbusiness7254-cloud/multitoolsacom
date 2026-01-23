@@ -223,14 +223,37 @@ ${qualitySuffix}`;
         
       case "upscale":
         const scale = options?.scale || 4;
+        const upscaleQuality = options?.qualityPreset || "premium";
+        const upscaleSaturation = options?.saturation || "vivid";
+        const upscaleDenoise = options?.denoise !== false;
+        const upscaleColorBoost = options?.colorBoost !== false;
+        
+        // Define saturation level for upscaling
+        const upscaleSaturationMap: Record<string, string> = {
+          normal: "natural, true-to-life colors with minimal enhancement",
+          vivid: "vibrant, punchy colors with 30-40% saturation boost - rich blues, greens, and warm skin tones",
+          intense: "highly saturated colors with 50-60% boost - bold, eye-catching, social-media-ready",
+          ultra: "maximum saturation (80%+) - hyper-vivid, poster-like colors that demand attention"
+        };
+        
+        const upscaleQualityMap: Record<string, string> = {
+          standard: "Fast processing with good quality enhancement",
+          premium: "High-quality super-resolution with enhanced detail synthesis",
+          ultra: "Maximum 4K quality with two-pass processing, professional studio-grade output"
+        };
+        
         prompt = `You are a professional AI super-resolution system superior to Remini. Upscale this image by ${scale}x to ultra-high 4K+ quality:
 
 SUPER-RESOLUTION REQUIREMENTS:
+
+=== QUALITY PRESET: ${upscaleQuality.toUpperCase()} ===
+${upscaleQualityMap[upscaleQuality] || upscaleQualityMap.premium}
 
 1. TRUE RESOLUTION INCREASE:
    - Generate a ${scale}x larger image with REAL added detail
    - Synthesize realistic fine details that should exist at higher resolution
    - No simple interpolation - add genuine high-frequency detail
+   ${upscaleQuality === "ultra" ? "- Apply maximum detail enhancement for 4K+ output\n   - Professional studio-grade super-resolution" : ""}
 
 2. FACE & PORTRAIT ENHANCEMENT (Priority):
    - Enhance facial features to crystal clarity - every pore, eyelash, hair strand
@@ -243,16 +266,23 @@ SUPER-RESOLUTION REQUIREMENTS:
    - Add realistic fine details throughout
    - Make text and small elements crisp and readable
 
-4. COLOR & VIBRANCY:
-   - Enhance colors to be vibrant but realistic
-   - Boost blues in sky/clothing for rich, punchy look
-   - Add subtle golden warmth to skin tones
+=== COLOR & SATURATION (${upscaleSaturation.toUpperCase()}) ===
+${upscaleSaturationMap[upscaleSaturation] || upscaleSaturationMap.vivid}
+${upscaleColorBoost ? `
+4. COLOR BOOST:
+   - Enhance color vibrancy and richness
+   - Make blues deeper and more electric
+   - Add golden warmth to skin tones
    - Improve dynamic range and contrast
+   - Colors should POP with professional quality` : `
+4. COLOR: Maintain natural colors as-is, no color enhancement`}
 
-5. ARTIFACT ELIMINATION:
-   - Remove ALL JPEG artifacts, compression noise, pixelation
-   - Eliminate any blur or softness
-   - Output must be pristine, artifact-free quality
+${upscaleDenoise ? `
+5. NOISE REDUCTION:
+   - Remove ALL noise, grain, and artifacts
+   - Eliminate JPEG compression artifacts
+   - Clean up any digital noise while preserving texture
+   - Output must be pristine and artifact-free` : ""}
 
 6. BACKGROUND:
    - Apply subtle professional bokeh to background
@@ -264,7 +294,7 @@ FRAMING (CRITICAL):
 - Maintain exact original aspect ratio
 - Only the resolution increases, not the framing
 
-Output: Ultra-clear, ${scale}x upscaled, 4K+ quality, magazine-cover level result${qualitySuffix}`;
+Output: Ultra-clear, ${scale}x upscaled, ${upscaleQuality === "ultra" ? "4K+ studio-quality" : "high-quality"}, magazine-cover level result${qualitySuffix}`;
         break;
         
       case "restore":
