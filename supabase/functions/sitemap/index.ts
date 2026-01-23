@@ -75,13 +75,24 @@ const toolCategories = [
     tools: ["image-to-qr-code", "qr-code-to-image"]
   },
   {
-    slug: "tag-tools",
-    tools: ["tag-extractor"]
+    slug: "pdf-tools",
+    tools: ["merge-pdf", "compress-pdf", "word-to-pdf", "split-pdf"]
   },
   {
-    slug: "pdf-tools",
-    tools: ["merge-pdf", "compress-pdf", "word-to-pdf", "image-to-pdf", "split-pdf"]
+    slug: "ai-image-tools",
+    tools: []  // AI tools have dedicated routes
   }
+];
+
+// AI Tools - separate category with dedicated pages
+const aiToolPages = [
+  "ai-photo-enhancer",
+  "ai-image-upscaler", 
+  "ai-image-restorer",
+  "ai-face-beautify",
+  "ai-face-swap",
+  "ai-colorize",
+  "birthday-wishes-generator"
 ];
 
 // Blog post IDs - dynamically updated
@@ -103,26 +114,30 @@ const blogPosts = [
   "image-security-encryption-guide"
 ];
 
-// Static pages
+// Static pages - HIGH PRIORITY
 const mainPages = [
   { path: "", priority: "1.0", changefreq: "daily" },
   { path: "/all-tools", priority: "0.9", changefreq: "weekly" },
+  { path: "/image-tools", priority: "0.9", changefreq: "weekly" },
   { path: "/image-converter", priority: "0.9", changefreq: "weekly" },
   { path: "/image-editor", priority: "0.9", changefreq: "weekly" },
+  { path: "/tag-extractor", priority: "0.8", changefreq: "weekly" },
   { path: "/blog", priority: "0.8", changefreq: "weekly" },
+  { path: "/ai-image-tools", priority: "0.9", changefreq: "weekly" },
+  { path: "/ai-image-generation", priority: "0.8", changefreq: "weekly" },
 ];
 
 const trustPages = [
-  { path: "/about", priority: "0.6", changefreq: "monthly" },
-  { path: "/contact", priority: "0.6", changefreq: "monthly" },
-  { path: "/privacy", priority: "0.4", changefreq: "yearly" },
-  { path: "/terms", priority: "0.4", changefreq: "yearly" },
+  { path: "/about", priority: "0.7", changefreq: "monthly" },
+  { path: "/contact", priority: "0.7", changefreq: "monthly" },
+  { path: "/privacy", priority: "0.5", changefreq: "yearly" },
+  { path: "/terms", priority: "0.5", changefreq: "yearly" },
   { path: "/faq", priority: "0.7", changefreq: "monthly" },
+  { path: "/advertiser-disclosure", priority: "0.4", changefreq: "yearly" },
 ];
 
 const educationalPages = [
   { path: "/how-tools-work", priority: "0.7", changefreq: "monthly" },
-  { path: "/advertiser-disclosure", priority: "0.4", changefreq: "yearly" },
   { path: "/image-formats-guide", priority: "0.7", changefreq: "monthly" },
   { path: "/tutorials", priority: "0.7", changefreq: "weekly" },
 ];
@@ -218,7 +233,21 @@ function generateSitemap(baseUrl: string): string {
   </url>`;
   }
 
-  // Individual tool pages
+  // AI Tool pages (dedicated routes at root level)
+  xml += `
+  
+  <!-- AI Tool Pages -->`;
+  for (const aiTool of aiToolPages) {
+    xml += `
+  <url>
+    <loc>${escapeXml(baseUrl + "/" + aiTool)}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>`;
+  }
+
+  // Individual tool pages - FIXED: Use root-level URLs (not /tools/ prefix)
   xml += `
   
   <!-- Tool Pages -->`;
@@ -226,10 +255,10 @@ function generateSitemap(baseUrl: string): string {
     for (const toolSlug of category.tools) {
       xml += `
   <url>
-    <loc>${escapeXml(baseUrl + "/tools/" + toolSlug)}</loc>
+    <loc>${escapeXml(baseUrl + "/" + toolSlug)}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>`;
     }
   }
