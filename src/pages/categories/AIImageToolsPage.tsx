@@ -203,9 +203,8 @@ const AIImageToolsPage = () => {
               {/* Demo Comparison Sliders */}
               <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
                 {demoSliders.map((demo, index) => (
-                  <Link 
+                  <div 
                     key={index} 
-                    to={`/${demo.tool}`}
                     className="group relative"
                   >
                     <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl opacity-0 group-hover:opacity-100 blur transition-all duration-300" />
@@ -218,11 +217,16 @@ const AIImageToolsPage = () => {
                         aspectClassName={demo.aspectClassName}
                       />
                       <div className="p-4 text-center">
-                        <h3 className="font-semibold group-hover:text-primary transition-colors">{demo.title}</h3>
-                        <p className="text-sm text-muted-foreground">Drag to compare</p>
+                        <h3 className="font-semibold">{demo.title}</h3>
+                        <p className="text-sm text-muted-foreground mb-2">Drag to compare</p>
+                        <Link to={`/${demo.tool}`}>
+                          <Button size="sm" variant="outline" className="text-xs">
+                            Try {demo.title} →
+                          </Button>
+                        </Link>
                       </div>
                     </div>
-                  </Link>
+                  </div>
                 ))}
               </div>
             </div>
