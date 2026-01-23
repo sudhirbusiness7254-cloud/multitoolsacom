@@ -103,7 +103,7 @@ const demoSliders = [
     original: enhanceBefore,
     enhanced: enhanceAfter,
     tool: "ai-photo-enhancer",
-    aspectClassName: "aspect-[4/3]" // Landscape for general enhancement
+    aspectClassName: "aspect-[3/4]" // Portrait to match other tools
   },
   {
     title: "Face Beautify",
