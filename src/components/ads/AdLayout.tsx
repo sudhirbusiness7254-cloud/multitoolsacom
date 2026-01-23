@@ -1,4 +1,4 @@
-import { ReactNode, useEffect } from 'react';
+import { ReactNode, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { AdLeft, AdRight } from './AdContainer';
 import { resetAdScripts } from './AdManager';
@@ -14,18 +14,22 @@ const HIDE_SIDE_ADS_ON = [
 
 const AdLayout = ({ children }: AdLayoutProps) => {
   const location = useLocation();
-  
-  // Reset ad tracking on route change to allow fresh loads
+  const prevPath = useRef(location.pathname);
+
+  // Reset ad tracking on significant route changes to allow fresh loads
   useEffect(() => {
-    // Don't reset immediately to prevent double-loading
-    // Scripts loaded on previous page will remain
+    // Only reset if navigating to a completely different page
+    if (prevPath.current !== location.pathname) {
+      // Don't reset ads on every navigation - keep them loaded
+      prevPath.current = location.pathname;
+    }
   }, [location.pathname]);
 
   const hideSideAds = HIDE_SIDE_ADS_ON.some(path => location.pathname.startsWith(path));
 
   return (
     <>
-      {/* Side Ads - Desktop Only, Hidden on certain pages */}
+      {/* Side Ads - Desktop Only (XL screens), Hidden on certain pages */}
       {!hideSideAds && (
         <>
           <AdLeft />
@@ -34,7 +38,7 @@ const AdLayout = ({ children }: AdLayoutProps) => {
       )}
       
       {/* Main Content with padding for side ads on XL screens */}
-      <div className={!hideSideAds ? 'xl:px-[180px]' : ''}>
+      <div className={!hideSideAds ? 'xl:pl-[170px] xl:pr-[170px]' : ''}>
         {children}
       </div>
     </>
