@@ -107,35 +107,37 @@ const ToolPageLayout = ({
         
         <main className="flex-1">
           {/* Hero Section with Tool */}
-          <section className="py-8 md:py-12 bg-gradient-hero relative overflow-hidden">
+          <section className="py-8 md:py-12 lg:py-16 bg-gradient-hero relative overflow-hidden">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-3xl" />
             
-            <div className="container mx-auto px-4 relative z-10">
+            <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 relative z-10">
               <div className="text-center max-w-3xl mx-auto mb-8">
-                <h1 className="text-3xl md:text-5xl font-bold mb-4">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
                   {title}
                 </h1>
-                <p className="text-lg text-muted-foreground">
+                <p className="text-base sm:text-lg text-muted-foreground">
                   {introduction.substring(0, 200)}...
                 </p>
               </div>
               
               {/* Tool Component */}
-              <div className="max-w-4xl mx-auto">
+              <div className="w-full max-w-5xl mx-auto">
                 {children}
               </div>
               
               {/* Ads - After Tool Output */}
-              <AdInline className="mt-6" />
-              <AdBottom className="mt-4" />
-              <AdVideo className="mt-4" />
+              <div className="max-w-5xl mx-auto">
+                <AdInline className="mt-6" />
+                <AdBottom className="mt-4" />
+                <AdVideo className="mt-4" />
+              </div>
             </div>
           </section>
 
           {/* Introduction Section */}
-          <section className="py-12 md:py-16 px-4">
-            <div className="container mx-auto max-w-4xl">
-              <h2 className="text-2xl md:text-3xl font-bold mb-6">What is {title}?</h2>
+          <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+            <div className="w-full max-w-6xl mx-auto">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6">What is {title}?</h2>
               <p className="text-muted-foreground leading-relaxed mb-6">{introduction}</p>
               
               {/* Privacy Guarantee Box */}
@@ -151,12 +153,12 @@ const ToolPageLayout = ({
           </section>
 
           {/* Features & Benefits */}
-          <section className="py-12 md:py-16 px-4 bg-gradient-dark">
-            <div className="container mx-auto max-w-5xl">
-              <div className="grid md:grid-cols-2 gap-8">
+          <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 bg-gradient-dark">
+            <div className="w-full">
+              <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
                 {/* Features */}
                 <div className="bg-card rounded-2xl p-6 border border-border">
-                  <h2 className="text-xl font-bold mb-4 text-primary">Key Features</h2>
+                  <h2 className="text-xl lg:text-2xl font-bold mb-4 text-primary">Key Features</h2>
                   <ul className="space-y-3">
                     {features.map((feature, i) => (
                       <li key={i} className="flex items-start gap-3">
@@ -169,7 +171,7 @@ const ToolPageLayout = ({
                 
                 {/* Benefits */}
                 <div className="bg-card rounded-2xl p-6 border border-border">
-                  <h2 className="text-xl font-bold mb-4 text-primary">Benefits</h2>
+                  <h2 className="text-xl lg:text-2xl font-bold mb-4 text-primary">Benefits</h2>
                   <ul className="space-y-3">
                     {benefits.map((benefit, i) => (
                       <li key={i} className="flex items-start gap-3">
@@ -184,16 +186,16 @@ const ToolPageLayout = ({
           </section>
 
           {/* How to Use */}
-          <section className="py-12 md:py-16 px-4">
-            <div className="container mx-auto max-w-4xl">
-              <h2 className="text-2xl md:text-3xl font-bold mb-6">How to Use {title}</h2>
+          <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+            <div className="w-full max-w-6xl mx-auto">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6">How to Use {title}</h2>
               <div className="space-y-4">
                 {howToUse.map((step, i) => (
                   <div key={i} className="flex gap-4 items-start">
-                    <div className="w-8 h-8 rounded-full bg-gradient-orange flex items-center justify-center text-sm font-bold flex-shrink-0">
+                    <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-gradient-orange flex items-center justify-center text-sm font-bold flex-shrink-0">
                       {i + 1}
                     </div>
-                    <p className="text-muted-foreground pt-1">{step}</p>
+                    <p className="text-muted-foreground pt-1 lg:pt-2">{step}</p>
                   </div>
                 ))}
               </div>
@@ -201,9 +203,9 @@ const ToolPageLayout = ({
           </section>
 
           {/* Detailed Article */}
-          <section className="py-12 md:py-16 px-4 bg-gradient-dark">
-            <div className="container mx-auto max-w-4xl">
-              <h2 className="text-2xl md:text-3xl font-bold mb-6">Why Choose Our {title}?</h2>
+          <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 bg-gradient-dark">
+            <div className="w-full max-w-6xl mx-auto">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6">Why Choose Our {title}?</h2>
               <div className="prose prose-invert max-w-none">
                 <p className="text-muted-foreground leading-relaxed whitespace-pre-line">{article}</p>
               </div>
@@ -211,10 +213,10 @@ const ToolPageLayout = ({
           </section>
 
           {/* Who Can Use This Tool */}
-          <section className="py-12 md:py-16 px-4">
-            <div className="container mx-auto max-w-4xl">
-              <h2 className="text-2xl md:text-3xl font-bold mb-6">Who Can Benefit From This Tool?</h2>
-              <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+          <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+            <div className="w-full">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6">Who Can Benefit From This Tool?</h2>
+              <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
                 {[
                   { title: "Web Developers", desc: "Optimize images for faster websites and better Core Web Vitals." },
                   { title: "Graphic Designers", desc: "Convert and edit images for client projects efficiently." },
@@ -224,8 +226,8 @@ const ToolPageLayout = ({
                   { title: "Small Businesses", desc: "Edit product images without expensive software." }
                 ].map((user, i) => (
                   <div key={i} className="bg-card rounded-xl p-4 border border-border">
-                    <h3 className="font-semibold mb-2">{user.title}</h3>
-                    <p className="text-sm text-muted-foreground">{user.desc}</p>
+                    <h3 className="font-semibold text-sm lg:text-base mb-2">{user.title}</h3>
+                    <p className="text-xs lg:text-sm text-muted-foreground">{user.desc}</p>
                   </div>
                 ))}
               </div>
@@ -233,13 +235,13 @@ const ToolPageLayout = ({
           </section>
 
           {/* Use Cases */}
-          <section className="py-12 md:py-16 px-4">
-            <div className="container mx-auto max-w-4xl">
-              <h2 className="text-2xl md:text-3xl font-bold mb-6">Use Cases</h2>
-              <div className="grid sm:grid-cols-2 gap-4">
+          <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+            <div className="w-full max-w-6xl mx-auto">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6">Use Cases</h2>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {useCases.map((useCase, i) => (
                   <div key={i} className="bg-card rounded-xl p-4 border border-border">
-                    <p className="text-muted-foreground">{useCase}</p>
+                    <p className="text-sm lg:text-base text-muted-foreground">{useCase}</p>
                   </div>
                 ))}
               </div>
@@ -247,16 +249,16 @@ const ToolPageLayout = ({
           </section>
 
           {/* FAQs */}
-          <section className="py-12 md:py-16 px-4 bg-gradient-dark">
-            <div className="container mx-auto max-w-4xl">
-              <h2 className="text-2xl md:text-3xl font-bold mb-6">Frequently Asked Questions</h2>
+          <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 bg-gradient-dark">
+            <div className="w-full max-w-6xl mx-auto">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6">Frequently Asked Questions</h2>
               <Accordion type="single" collapsible className="space-y-2">
                 {faqs.map((faq, i) => (
-                  <AccordionItem key={i} value={`faq-${i}`} className="bg-card border border-border rounded-xl px-4">
-                    <AccordionTrigger className="text-left hover:no-underline">
+                  <AccordionItem key={i} value={`faq-${i}`} className="bg-card border border-border rounded-xl px-4 lg:px-6">
+                    <AccordionTrigger className="text-left hover:no-underline text-sm lg:text-base">
                       {faq.question}
                     </AccordionTrigger>
-                    <AccordionContent className="text-muted-foreground">
+                    <AccordionContent className="text-muted-foreground text-sm lg:text-base">
                       {faq.answer}
                     </AccordionContent>
                   </AccordionItem>
@@ -266,18 +268,18 @@ const ToolPageLayout = ({
           </section>
 
           {/* Internal Links - Image Tools Priority */}
-          <section className="py-12 md:py-16 px-4">
-            <div className="container mx-auto max-w-5xl">
-              <h2 className="text-2xl md:text-3xl font-bold mb-6">Explore More Image Tools</h2>
-              <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+          <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+            <div className="w-full">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6">Explore More Image Tools</h2>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
                 {imageCategories.map((category) => (
                   <Link
                     key={category.id}
                     to={`/${category.slug}`}
                     className="bg-card rounded-xl p-4 border border-border hover:border-primary/50 transition-colors group"
                   >
-                    <h3 className="font-semibold group-hover:text-primary transition-colors">{category.name}</h3>
-                    <p className="text-sm text-muted-foreground mt-1">{category.description}</p>
+                    <h3 className="font-semibold text-sm lg:text-base group-hover:text-primary transition-colors">{category.name}</h3>
+                    <p className="text-xs lg:text-sm text-muted-foreground mt-1 line-clamp-2">{category.description}</p>
                   </Link>
                 ))}
               </div>
