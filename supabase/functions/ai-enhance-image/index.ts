@@ -73,6 +73,30 @@ serve(async (req) => {
           prompt = `Clean up and enhance this image, removing any obvious unwanted elements or imperfections.`;
         }
         break;
+      case "face-beautify":
+        const skinSmoothing = options?.skinSmoothing || 50;
+        const eyeEnhancement = options?.eyeEnhancement !== false;
+        const teethWhitening = options?.teethWhitening !== false;
+        const faceLighting = options?.faceLighting !== false;
+        const skinToneCorrection = options?.skinToneCorrection !== false;
+        
+        let beautifyInstructions = [`Apply ${skinSmoothing}% skin smoothing to remove blemishes, minimize pores, and even out skin texture while keeping a natural look`];
+        
+        if (eyeEnhancement) {
+          beautifyInstructions.push("enhance and brighten the eyes, making them look more vibrant and alive with subtle improvements to clarity and color");
+        }
+        if (teethWhitening) {
+          beautifyInstructions.push("apply natural teeth whitening if teeth are visible, making them look cleaner and brighter without looking artificial");
+        }
+        if (faceLighting) {
+          beautifyInstructions.push("improve facial lighting to add a healthy glow and reduce shadows for a more flattering appearance");
+        }
+        if (skinToneCorrection) {
+          beautifyInstructions.push("correct and even out skin tone, reducing redness and discoloration for a more uniform complexion");
+        }
+        
+        prompt = `This is a face beautification request. Please enhance this portrait photo with the following improvements: ${beautifyInstructions.join("; ")}. The result should look like a professional portrait retouch - enhanced but still natural and realistic, not over-processed or artificial. Maintain the person's identity and unique features while making them look their best.`;
+        break;
       default:
         prompt = `Improve this image's overall quality, making it look better with enhanced details, better colors, and improved clarity.`;
     }
