@@ -255,133 +255,192 @@ const HomePage = () => {
         <Header />
         
         <main className="flex-1">
-          {/* Hero Section - Engaging introduction with animated wave background */}
-          <section className="py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 bg-gradient-hero relative overflow-hidden min-h-[500px] sm:min-h-[550px] md:min-h-[600px] lg:min-h-[700px]">
+          {/* Hero Section - Ultra Attractive with Glassmorphism & Animations */}
+          <section className="py-12 sm:py-16 md:py-20 lg:py-28 xl:py-32 bg-gradient-hero relative overflow-hidden min-h-[550px] sm:min-h-[600px] md:min-h-[700px] lg:min-h-[800px]">
             {/* Animated Gradient Wave Background */}
             <GradientWaveBackground />
             
-            {/* Decorative blurred circles */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] sm:w-[350px] md:w-[450px] lg:w-[500px] h-[280px] sm:h-[350px] md:h-[450px] lg:h-[500px] bg-primary/10 rounded-full blur-3xl pointer-events-none z-[1]" />
-            <div className="absolute top-20 right-10 w-[150px] md:w-[200px] h-[150px] md:h-[200px] bg-accent/5 rounded-full blur-2xl pointer-events-none hidden lg:block z-[1]" />
+            {/* Animated Gradient Orbs */}
+            <div className="absolute top-1/4 left-1/4 w-[300px] sm:w-[400px] md:w-[500px] lg:w-[600px] h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] rounded-full blur-[100px] pointer-events-none z-[1] animate-pulse"
+              style={{ background: 'radial-gradient(circle, hsl(24 95% 50% / 0.15), transparent 70%)' }} />
+            <div className="absolute bottom-1/4 right-1/4 w-[250px] sm:w-[350px] md:w-[450px] h-[250px] sm:h-[350px] md:h-[450px] rounded-full blur-[80px] pointer-events-none z-[1] animate-pulse"
+              style={{ background: 'radial-gradient(circle, hsl(280 70% 50% / 0.12), transparent 70%)', animationDelay: '1s' }} />
+            <div className="absolute top-1/3 right-1/3 w-[200px] md:w-[300px] h-[200px] md:h-[300px] rounded-full blur-[60px] pointer-events-none hidden lg:block z-[1] animate-pulse"
+              style={{ background: 'radial-gradient(circle, hsl(200 80% 50% / 0.1), transparent 70%)', animationDelay: '2s' }} />
             
-            <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12 relative z-10">
-              <div className="text-center max-w-full sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl 2xl:max-w-6xl mx-auto">
-                {/* H1 - Main site title */}
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
-                  Professional Image & PDF Tools
-                  <span className="block text-primary mt-1 sm:mt-2">Completely Free, Totally Private</span>
+            {/* Floating Decorative Elements */}
+            <div className="absolute top-[15%] left-[10%] w-20 h-20 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 backdrop-blur-sm border border-white/10 rotate-12 animate-float hidden lg:block z-[2]" />
+            <div className="absolute top-[25%] right-[8%] w-16 h-16 rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 backdrop-blur-sm border border-white/10 -rotate-12 animate-float hidden lg:block z-[2]" style={{ animationDelay: '1s' }} />
+            <div className="absolute bottom-[20%] left-[5%] w-14 h-14 rounded-lg bg-gradient-to-br from-cyan-500/20 to-blue-500/20 backdrop-blur-sm border border-white/10 rotate-6 animate-float hidden xl:block z-[2]" style={{ animationDelay: '2s' }} />
+            
+            <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 relative z-10">
+              <div className="text-center max-w-full sm:max-w-2xl md:max-w-4xl lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl mx-auto">
+                
+                {/* Animated Badge */}
+                <div className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 backdrop-blur-md border border-primary/30 mb-6 sm:mb-8 animate-shimmer">
+                  <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-primary animate-pulse" />
+                  <span className="text-xs sm:text-sm font-semibold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                    {totalTools}+ Free Professional Tools
+                  </span>
+                  <div className="w-2 h-2 rounded-full bg-green-500 animate-ping" />
+                </div>
+                
+                {/* Main Title with Gradient */}
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-black mb-4 sm:mb-6 leading-[1.1] tracking-tight">
+                  <span className="inline-block animate-fade-in">Transform Your</span>
+                  <br />
+                  <span className="inline-block bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-gradient bg-[length:200%_auto]" style={{ animationDelay: '200ms' }}>
+                    Images & PDFs
+                  </span>
+                  <br />
+                  <span className="inline-block text-foreground/90" style={{ animationDelay: '400ms' }}>Instantly</span>
                 </h1>
                 
-                {/* Engaging introduction - 3-5 sentences */}
-                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-full sm:max-w-xl md:max-w-2xl lg:max-w-3xl mx-auto mb-3 sm:mb-4 leading-relaxed px-2 sm:px-0">
-                  Welcome to <strong>MultiToolsA</strong>, your trusted destination for over 100 professional-grade image editing and PDF tools. 
-                  Every tool runs entirely in your browser, which means your files never leave your device and are never uploaded to any server.
-                </p>
-                <p className="text-xs sm:text-sm md:text-base lg:text-lg text-muted-foreground max-w-full sm:max-w-lg md:max-w-xl lg:max-w-2xl mx-auto mb-6 sm:mb-8 px-2 sm:px-0">
-                  Enjoy instant results with no waiting for uploads or downloads. Whether you need to convert formats, compress large files, 
-                  resize images, or edit PDFs, our tools deliver professional quality with complete privacy protection.
+                {/* Subtitle with better readability */}
+                <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-full sm:max-w-xl md:max-w-2xl lg:max-w-3xl mx-auto mb-8 sm:mb-10 leading-relaxed px-2 sm:px-0">
+                  Free browser-based tools that process everything locally. 
+                  <span className="text-foreground font-medium"> No uploads, no signup, complete privacy.</span>
                 </p>
                 
-                <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mb-8 sm:mb-10 px-2 sm:px-0">
+                {/* CTA Buttons with Glow Effect */}
+                <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-5 mb-10 sm:mb-14 px-2 sm:px-0">
                   <Link 
                     to="/all-tools"
-                    className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 md:px-8 py-3 sm:py-3.5 md:py-4 rounded-lg sm:rounded-xl bg-primary text-primary-foreground text-sm sm:text-base font-semibold hover:bg-primary/90 transition-all hover:scale-105 shadow-lg"
+                    className="group relative inline-flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-8 md:px-10 py-4 sm:py-5 rounded-xl sm:rounded-2xl bg-gradient-to-r from-primary to-accent text-white text-base sm:text-lg font-bold transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl hover:shadow-primary/30 overflow-hidden"
                   >
-                    Explore {totalTools}+ Free Tools
-                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-accent to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <span className="relative z-10">Start Using Free Tools</span>
+                    <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 relative z-10 group-hover:translate-x-1 transition-transform" />
                   </Link>
                   <Link 
-                    to="/how-tools-work"
-                    className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 md:px-8 py-3 sm:py-3.5 md:py-4 rounded-lg sm:rounded-xl bg-card text-foreground text-sm sm:text-base font-semibold border border-border hover:border-primary/50 transition-all"
+                    to="/ai-image-tools"
+                    className="group inline-flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-8 md:px-10 py-4 sm:py-5 rounded-xl sm:rounded-2xl bg-card/80 backdrop-blur-md text-foreground text-base sm:text-lg font-semibold border-2 border-border hover:border-primary/50 transition-all duration-300 hover:bg-card"
                   >
-                    <Eye className="w-4 h-4 sm:w-5 sm:h-5" />
-                    See How It Works
+                    <Cpu className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
+                    <span>Try AI Tools</span>
+                    <Sparkles className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
                   </Link>
                 </div>
 
-                {/* Privacy & Trust Badges */}
-                <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 lg:gap-6 text-xs sm:text-sm px-2 sm:px-0">
-                  <div className="flex items-center gap-1.5 sm:gap-2 bg-card/80 backdrop-blur-sm px-2.5 sm:px-3 md:px-4 py-1.5 sm:py-2 rounded-full border border-border">
-                    <Shield className="w-4 h-4 sm:w-5 sm:h-5 text-green-500" />
-                    <span className="font-medium">100% Private</span>
-                  </div>
-                  <div className="flex items-center gap-1.5 sm:gap-2 bg-card/80 backdrop-blur-sm px-2.5 sm:px-3 md:px-4 py-1.5 sm:py-2 rounded-full border border-border">
-                    <Zap className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-500" />
-                    <span className="font-medium">Instant Results</span>
-                  </div>
-                  <div className="flex items-center gap-1.5 sm:gap-2 bg-card/80 backdrop-blur-sm px-2.5 sm:px-3 md:px-4 py-1.5 sm:py-2 rounded-full border border-border">
-                    <Globe className="w-4 h-4 sm:w-5 sm:h-5 text-blue-500" />
-                    <span className="font-medium">Any Device</span>
-                  </div>
-                  <div className="flex items-center gap-1.5 sm:gap-2 bg-card/80 backdrop-blur-sm px-2.5 sm:px-3 md:px-4 py-1.5 sm:py-2 rounded-full border border-border">
-                    <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-purple-500" />
-                    <span className="font-medium">No Signup</span>
-                  </div>
+                {/* Feature Pills with Glassmorphism */}
+                <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-5 px-2 sm:px-0">
+                  {[
+                    { icon: Shield, text: "100% Private", color: "text-emerald-500", bg: "from-emerald-500/20 to-emerald-500/5" },
+                    { icon: Zap, text: "Lightning Fast", color: "text-amber-500", bg: "from-amber-500/20 to-amber-500/5" },
+                    { icon: Globe, text: "Works Offline", color: "text-blue-500", bg: "from-blue-500/20 to-blue-500/5" },
+                    { icon: Sparkles, text: "No Signup", color: "text-purple-500", bg: "from-purple-500/20 to-purple-500/5" },
+                  ].map((item, i) => (
+                    <div 
+                      key={i}
+                      className={`group flex items-center gap-2 sm:gap-3 bg-gradient-to-r ${item.bg} backdrop-blur-md px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl sm:rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-300 hover:scale-105 cursor-default`}
+                    >
+                      <item.icon className={`w-5 h-5 sm:w-6 sm:h-6 ${item.color}`} />
+                      <span className="font-semibold text-sm sm:text-base">{item.text}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Stats Row */}
+                <div className="mt-12 sm:mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto">
+                  {[
+                    { value: "100+", label: "Free Tools", icon: Award },
+                    { value: "1M+", label: "Files Processed", icon: CheckCircle2 },
+                    { value: "0", label: "Data Uploaded", icon: Shield },
+                    { value: "24/7", label: "Available", icon: Clock },
+                  ].map((stat, i) => (
+                    <div key={i} className="text-center p-4 sm:p-5 rounded-xl sm:rounded-2xl bg-card/40 backdrop-blur-sm border border-border/50">
+                      <stat.icon className="w-6 h-6 sm:w-8 sm:h-8 text-primary mx-auto mb-2" />
+                      <div className="text-2xl sm:text-3xl md:text-4xl font-black bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                        {stat.value}
+                      </div>
+                      <div className="text-xs sm:text-sm text-muted-foreground font-medium">{stat.label}</div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
           </section>
 
-          {/* Popular Tools - Quick access */}
-          <section className="py-6 sm:py-8 md:py-10 lg:py-14 px-4 sm:px-6 lg:px-8 xl:px-12 bg-secondary/30">
-            <div className="w-full">
-              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 sm:mb-8 gap-3">
+          {/* Popular Tools - Premium Glass Cards */}
+          <section className="py-10 sm:py-14 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 bg-gradient-to-b from-secondary/50 to-background relative overflow-hidden">
+            {/* Background Decoration */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+            
+            <div className="w-full max-w-[1800px] mx-auto">
+              <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-8 sm:mb-12 gap-4">
                 <div>
-                  <div className="flex items-center gap-2 mb-1 sm:mb-2">
-                    <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
-                    <span className="text-xs sm:text-sm font-semibold text-primary uppercase tracking-wide">Most Popular</span>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 mb-3">
+                    <TrendingUp className="w-4 h-4 text-primary" />
+                    <span className="text-xs font-bold text-primary uppercase tracking-wider">Trending Now</span>
+                    <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
                   </div>
-                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold">Frequently Used Tools</h2>
-                  <p className="text-xs sm:text-sm text-muted-foreground mt-1">Quick access to our most popular image and PDF tools</p>
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black">Most Popular Tools</h2>
+                  <p className="text-sm sm:text-base text-muted-foreground mt-2 max-w-lg">Quick access to our most-loved image and PDF tools - used by millions</p>
                 </div>
-                <Link to="/all-tools" className="hidden sm:flex text-primary hover:underline items-center gap-1 text-sm font-medium">
-                  View All Tools <ArrowRight className="w-4 h-4" />
+                <Link to="/all-tools" className="hidden sm:flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary/10 text-primary font-semibold hover:bg-primary/20 transition-colors">
+                  View All {totalTools}+ Tools <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
               
-              <div className="grid grid-cols-3 xs:grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 2xl:grid-cols-12 gap-2 sm:gap-3 md:gap-4">
-                {popularTools.map((tool) => (
+              <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-12 gap-3 sm:gap-4 md:gap-5">
+                {popularTools.map((tool, index) => (
                   <Link 
                     key={tool.slug}
                     to={`/${tool.slug}`}
-                    className="group bg-card rounded-lg sm:rounded-xl p-2 sm:p-3 md:p-4 border border-border hover:border-primary/50 transition-all hover:-translate-y-1 hover:shadow-lg"
+                    className="group relative bg-gradient-to-br from-card to-card/80 rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-5 border border-border hover:border-primary/40 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 overflow-hidden"
+                    style={{ animationDelay: `${index * 50}ms` }}
                   >
-                    <ToolIconWithBackground 
-                      toolSlug={tool.slug} 
-                      size={32} 
-                      iconSize={16}
-                      className="mb-2 sm:mb-3 mx-auto sm:w-10 sm:h-10"
-                    />
-                    <h3 className="text-[10px] sm:text-xs md:text-sm font-medium text-center group-hover:text-primary transition-colors line-clamp-2">
-                      {tool.name}
-                    </h3>
+                    {/* Hover Glow Effect */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    
+                    <div className="relative z-10">
+                      <div className="relative mb-3 sm:mb-4">
+                        <ToolIconWithBackground 
+                          toolSlug={tool.slug} 
+                          size={40} 
+                          iconSize={20}
+                          className="mx-auto sm:w-12 sm:h-12 md:w-14 md:h-14 group-hover:scale-110 transition-transform duration-300"
+                        />
+                      </div>
+                      <h3 className="text-xs sm:text-sm md:text-base font-semibold text-center group-hover:text-primary transition-colors line-clamp-2">
+                        {tool.name}
+                      </h3>
+                    </div>
                   </Link>
                 ))}
               </div>
               
-              <Link to="/all-tools" className="sm:hidden flex text-primary hover:underline items-center justify-center gap-1 font-medium text-sm mt-4">
+              <Link to="/all-tools" className="sm:hidden flex items-center justify-center gap-2 mt-6 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold">
                 View All Tools <ArrowRight className="w-4 h-4" />
               </Link>
               
               {/* Ads after popular tools */}
-              <AdBottom className="mt-6 sm:mt-8" />
-              <AdVideo className="mt-3 sm:mt-4" />
+              <AdBottom className="mt-8 sm:mt-12" />
+              <AdVideo className="mt-4 sm:mt-6" />
             </div>
           </section>
 
-          {/* Tool Categories - Detailed with unique descriptions */}
-          <section className="py-8 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 xl:px-12">
-            <div className="w-full">
-              <div className="text-center mb-8 sm:mb-12">
-                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4">Complete Image & PDF Tool Collection</h2>
-                <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-full sm:max-w-xl md:max-w-2xl mx-auto px-2 sm:px-0">
-                  Explore {imageCategories.length} specialized categories covering every aspect of image editing and document processing. 
-                  Each category contains multiple precision tools designed for specific tasks.
+          {/* Tool Categories - Modern Bento Grid Style */}
+          <section className="py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 relative">
+            {/* Section Background Accent */}
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/[0.02] to-transparent pointer-events-none" />
+            
+            <div className="w-full max-w-[1800px] mx-auto relative z-10">
+              <div className="text-center mb-10 sm:mb-14 lg:mb-16">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 mb-4">
+                  <Layers className="w-4 h-4 text-primary" />
+                  <span className="text-xs font-bold uppercase tracking-wider text-primary">{imageCategories.length} Categories</span>
+                </div>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black mb-4 sm:mb-6">
+                  All Tools <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Organized</span>
+                </h2>
+                <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+                  Every tool you need for images and PDFs, organized into intuitive categories
                 </p>
               </div>
               
-              <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-3 sm:gap-4 md:gap-5">
-                {imageCategories.map((category) => {
+              <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 sm:gap-5 md:gap-6">
+                {imageCategories.map((category, index) => {
                   const gradient = getGradient(category.id);
                   const categoryInfo = categoryDescriptions[category.id];
                   
@@ -389,34 +448,54 @@ const HomePage = () => {
                     <Link 
                       key={category.id}
                       to={`/${category.slug}`}
-                      className="group bg-card rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-5 border border-border hover:border-primary/50 transition-all hover:-translate-y-1 hover:shadow-xl"
+                      className="group relative bg-gradient-to-br from-card via-card to-card/90 rounded-2xl sm:rounded-3xl p-4 sm:p-5 md:p-6 border border-border hover:border-transparent transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl overflow-hidden"
+                      style={{ animationDelay: `${index * 30}ms` }}
                     >
-                      {/* Category Icon */}
+                      {/* Animated Border Gradient on Hover */}
                       <div 
-                        className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-lg sm:rounded-xl flex items-center justify-center mb-3 sm:mb-4 shadow-md"
+                        className="absolute inset-0 rounded-2xl sm:rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"
+                        style={{ 
+                          background: `linear-gradient(135deg, ${gradient.from}40, ${gradient.to}40)`,
+                          padding: '1px'
+                        }}
+                      />
+                      
+                      {/* Background Glow */}
+                      <div 
+                        className="absolute -top-20 -right-20 w-40 h-40 rounded-full blur-3xl opacity-0 group-hover:opacity-30 transition-opacity duration-500 pointer-events-none"
                         style={{ background: `linear-gradient(135deg, ${gradient.from}, ${gradient.to})` }}
-                      >
-                        <div className="[&>svg]:w-5 [&>svg]:h-5 sm:[&>svg]:w-6 sm:[&>svg]:h-6 md:[&>svg]:w-7 md:[&>svg]:h-7">
-                          {categoryLucideIcons[category.id] || <Image className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-white" />}
+                      />
+                      
+                      {/* Category Icon with Glow */}
+                      <div className="relative mb-4 sm:mb-5">
+                        <div 
+                          className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300"
+                          style={{ background: `linear-gradient(135deg, ${gradient.from}, ${gradient.to})` }}
+                        >
+                          <div className="[&>svg]:w-6 [&>svg]:h-6 sm:[&>svg]:w-7 sm:[&>svg]:h-7 md:[&>svg]:w-8 md:[&>svg]:h-8">
+                            {categoryLucideIcons[category.id] || <Image className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" />}
+                          </div>
+                        </div>
+                        {/* Tool Count Badge */}
+                        <div className="absolute -top-1 -right-1 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-card border-2 border-border flex items-center justify-center">
+                          <span className="text-[10px] sm:text-xs font-bold text-primary">{category.tools.length}</span>
                         </div>
                       </div>
                       
                       {/* Category Title */}
-                      <h3 className="text-sm sm:text-base md:text-lg font-bold mb-1.5 sm:mb-2 group-hover:text-primary transition-colors">
+                      <h3 className="text-base sm:text-lg md:text-xl font-bold mb-2 sm:mb-3 group-hover:text-primary transition-colors">
                         {category.name}
                       </h3>
                       
                       {/* Category Description */}
-                      <p className="text-xs sm:text-sm text-muted-foreground line-clamp-2 sm:line-clamp-3 mb-3 sm:mb-4">
+                      <p className="text-xs sm:text-sm text-muted-foreground line-clamp-2 mb-4">
                         {categoryInfo?.description || category.description}
                       </p>
                       
-                      {/* Tools Count & Arrow */}
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs sm:text-sm font-medium text-primary">
-                          {category.tools.length} Tools
-                        </span>
-                        <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 text-primary group-hover:translate-x-1 transition-transform" />
+                      {/* CTA Button */}
+                      <div className="flex items-center gap-2 text-sm font-semibold text-primary group-hover:gap-3 transition-all">
+                        <span>Explore</span>
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </div>
                     </Link>
                   );
@@ -424,7 +503,7 @@ const HomePage = () => {
               </div>
               
               {/* Inline Ad - After Categories */}
-              <AdInline className="mt-6 sm:mt-8" />
+              <AdInline className="mt-10 sm:mt-14" />
             </div>
           </section>
 
