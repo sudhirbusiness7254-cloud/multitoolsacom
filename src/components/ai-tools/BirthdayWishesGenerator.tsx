@@ -154,57 +154,70 @@ const BirthdayWishesGenerator = () => {
     return null;
   };
 
-  const generateBirthdayMessage = async (): Promise<string> => {
-    try {
-      const { data, error } = await supabase.functions.invoke("generate-birthday-wish", {
-        body: {
-          imageBase64: "placeholder", // Just need the message
-          templateId: selectedTemplate,
-          category: selectedCategory,
-          recipientName: recipientName || undefined,
-          senderName: senderName || undefined,
-          customMessage: customMessage || undefined,
-          messageOnly: true,
-        }
-      });
-
-      if (error || data?.error) {
-        throw new Error(data?.error || error?.message);
-      }
-
-      return data?.message || "Happy Birthday! Wishing you a day filled with joy and laughter! 🎂";
-    } catch {
-      // Fallback messages by category
-      const fallbackMessages: Record<Category, string[]> = {
-        professional: [
-          "Wishing you a year of success, health, and happiness. Happy Birthday!",
-          "May this birthday bring you closer to all your dreams and aspirations.",
-          "Celebrating you today and all the remarkable things you do. Happy Birthday!"
-        ],
-        comedy: [
-          "Another year older, but still not grown up! Happy Birthday! 🎉",
-          "They say age is just a number... yours is just really, really high! 😂",
-          "Happy Birthday! You're not old, you're vintage! 🎂"
-        ],
-        friends: [
-          "To my favorite person - Happy Birthday! Let's make more memories this year! 🎉",
-          "Happy Birthday bestie! Here's to another year of adventures together! 💕",
-          "Cheers to you on your special day! You make every day brighter! ✨"
-        ],
-        family: [
-          "Happy Birthday with all my love! You mean the world to me. 💕",
-          "Wishing the most amazing birthday to the most amazing family member! 🎂",
-          "May your special day be as wonderful as you are to our family! ❤️"
-        ],
-        kids: [
-          "Happy Birthday superstar! May all your wishes come true today! 🌟",
-          "Hooray! It's your birthday! Time for cake, fun, and lots of presents! 🎁",
-          "Happy Birthday champion! You're growing up to be amazing! 🎈"
-        ]
-      };
-      const messages = fallbackMessages[selectedCategory];
-      return messages[Math.floor(Math.random() * messages.length)];
+  const generateBirthdayMessage = (): string => {
+    // Generate messages locally to avoid API dependency
+    const fallbackMessages: Record<Category, string[]> = {
+      professional: [
+        "Wishing you a year of success, health, and happiness. Happy Birthday!",
+        "May this birthday bring you closer to all your dreams and aspirations.",
+        "Celebrating you today and all the remarkable things you do. Happy Birthday!",
+        "On your special day, may success follow you in all you do.",
+        "Warmest birthday wishes for continued prosperity and joy.",
+        "Here's to celebrating another year of your incredible journey!",
+        "May this year bring you new achievements and wonderful moments.",
+        "Wishing you a birthday as distinguished as you are. Cheers!",
+      ],
+      comedy: [
+        "Another year older, but still not grown up! Happy Birthday! 🎉",
+        "They say age is just a number... yours is just really high! 😂",
+        "Happy Birthday! You're not old, you're vintage! 🎂",
+        "Don't worry about getting older - you're still younger than tomorrow! 🤣",
+        "Happy Birthday! At least you're not as old as you'll be next year! 🎈",
+        "Congrats! You've leveled up in life. No cheat codes allowed! 🎮",
+        "Another year wiser? Let's not get carried away! Happy Birthday! 😜",
+        "Happy Birthday! May your cake be as sweet as you pretend to be! 🍰",
+      ],
+      friends: [
+        "To my favorite person - Happy Birthday! Let's make more memories! 🎉",
+        "Happy Birthday bestie! Here's to another year of adventures! 💕",
+        "Cheers to you on your special day! You make every day brighter! ✨",
+        "Happy Birthday to someone who makes life more fun! 🥳",
+        "Here's to you, friend! May your day be as amazing as you are! 🎂",
+        "Happy Birthday! Thanks for being the awesome friend you are! 💖",
+        "Another year of friendship, another year of great memories! 🎊",
+        "Happy Birthday! Life's better with friends like you! 🌟",
+      ],
+      family: [
+        "Happy Birthday with all my love! You mean the world to me. 💕",
+        "Wishing the most amazing birthday to the most amazing family member! 🎂",
+        "May your special day be as wonderful as you are to our family! ❤️",
+        "Happy Birthday! Our family is blessed to have you. 💖",
+        "Celebrating you today and every day! Happy Birthday! 🎉",
+        "To someone I love and cherish - Happy Birthday! 🌸",
+        "Happy Birthday! You're the heart of our family! 💗",
+        "Wishing you endless love and happiness on your birthday! 🎈",
+      ],
+      kids: [
+        "Happy Birthday superstar! May all your wishes come true today! 🌟",
+        "Hooray! It's your birthday! Time for cake, fun, and presents! 🎁",
+        "Happy Birthday champion! You're growing up to be amazing! 🎈",
+        "WOOHOO! It's your special day! Party time! 🎉",
+        "Happy Birthday little one! May your day be full of magic! ✨",
+        "You're another year awesome! Happy Birthday! 🦄",
+        "Happy Birthday! Hope your day is as cool as you are! 🚀",
+        "It's your birthday! Let's celebrate YOU! 🎂",
+      ]
+    };
+    
+    const messages = fallbackMessages[selectedCategory];
+    let selectedMessage = messages[Math.floor(Math.random() * messages.length)];
+    
+    // Personalize if names provided
+    if (recipientName) {
+      selectedMessage = `Happy Birthday, ${recipientName}! ${selectedMessage.replace("Happy Birthday! ", "").replace("Happy Birthday ", "")}`;
     }
+    
+    return selectedMessage;
   };
 
   const createBirthdayCard = async () => {
@@ -222,8 +235,8 @@ const BirthdayWishesGenerator = () => {
 
       setProgress(20);
 
-      // Generate birthday message
-      const message = await generateBirthdayMessage();
+      // Generate birthday message (local, no API call)
+      const message = generateBirthdayMessage();
       setGeneratedMessage(message);
       setProgress(40);
 
