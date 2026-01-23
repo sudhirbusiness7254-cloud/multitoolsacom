@@ -1,5 +1,5 @@
 import { useState, useRef, useCallback, useEffect } from "react";
-import { Smile, Download, Loader2, Upload, RefreshCw, Zap, Image as ImageIcon, X, Sparkles } from "lucide-react";
+import { Smile, Download, Loader2, Upload, RefreshCw, Zap, Image as ImageIcon, X, Sparkles, SlidersHorizontal } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -8,6 +8,7 @@ import { Slider } from "@/components/ui/slider";
 import { Switch } from "@/components/ui/switch";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
+import ImageComparisonSlider from "@/components/ImageComparisonSlider";
 
 type OutputFormat = "png" | "jpg" | "webp";
 
@@ -26,6 +27,7 @@ const AIFaceBeautify = () => {
   const [progress, setProgress] = useState(0);
   const [outputFormat, setOutputFormat] = useState<OutputFormat>("png");
   const [isDragging, setIsDragging] = useState(false);
+  const [showComparison, setShowComparison] = useState(false);
   const [options, setOptions] = useState<BeautifyOptions>({
     skinSmoothing: 50,
     eyeEnhancement: true,
@@ -194,6 +196,7 @@ const AIFaceBeautify = () => {
     setOriginalImage(null);
     setBeautifiedImage(null);
     setProgress(0);
+    setShowComparison(false);
   };
 
   return (
@@ -317,55 +320,79 @@ const AIFaceBeautify = () => {
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <Label className="text-sm font-medium">Your Photo</Label>
-                <Button variant="ghost" size="sm" onClick={reset} className="text-xs gap-1.5 h-7">
-                  <X className="w-3 h-3" />
-                  Remove
-                </Button>
+                <div className="flex items-center gap-2">
+                  {beautifiedImage && (
+                    <Button
+                      variant={showComparison ? "default" : "outline"}
+                      size="sm"
+                      onClick={() => setShowComparison(!showComparison)}
+                      className="text-xs gap-1.5 h-7"
+                    >
+                      <SlidersHorizontal className="w-3 h-3" />
+                      {showComparison ? "Grid View" : "Compare"}
+                    </Button>
+                  )}
+                  <Button variant="ghost" size="sm" onClick={reset} className="text-xs gap-1.5 h-7">
+                    <X className="w-3 h-3" />
+                    Remove
+                  </Button>
+                </div>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {/* Original */}
-                <div className="space-y-2">
-                  <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide">Original</p>
-                  <div className="relative rounded-xl overflow-hidden border border-border bg-secondary/20 aspect-square">
-                    <img
-                      src={originalImage}
-                      alt="Original"
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                </div>
-                
-                {/* Beautified */}
-                <div className="space-y-2">
-                  <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide">Beautified</p>
-                  <div className="relative rounded-xl overflow-hidden border border-border bg-secondary/20 aspect-square flex items-center justify-center">
-                    {isProcessing ? (
-                      <div className="flex flex-col items-center gap-4 p-8">
-                        <div className="relative">
-                          <div className="w-16 h-16 rounded-full bg-gradient-to-r from-pink-500 to-rose-500 animate-pulse" />
-                          <Zap className="w-8 h-8 text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-                        </div>
-                        <div className="text-center w-full max-w-[200px]">
-                          <p className="font-medium text-sm mb-2">Beautifying...</p>
-                          <Progress value={progress} className="h-2" />
-                        </div>
-                      </div>
-                    ) : beautifiedImage ? (
+              {/* Comparison Slider View */}
+              {showComparison && beautifiedImage ? (
+                <ImageComparisonSlider
+                  originalSrc={originalImage}
+                  compressedSrc={beautifiedImage}
+                  originalLabel="Original"
+                  compressedLabel="Beautified"
+                  className="w-full"
+                />
+              ) : (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {/* Original */}
+                  <div className="space-y-2">
+                    <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide">Original</p>
+                    <div className="relative rounded-xl overflow-hidden border border-border bg-secondary/20 aspect-square">
                       <img
-                        src={beautifiedImage}
-                        alt="Beautified"
+                        src={originalImage}
+                        alt="Original"
                         className="w-full h-full object-contain"
                       />
-                    ) : (
-                      <div className="flex flex-col items-center gap-2 text-muted-foreground">
-                        <ImageIcon className="w-10 h-10" />
-                        <p className="text-sm">Beautified photo will appear here</p>
-                      </div>
-                    )}
+                    </div>
+                  </div>
+                  
+                  {/* Beautified */}
+                  <div className="space-y-2">
+                    <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide">Beautified</p>
+                    <div className="relative rounded-xl overflow-hidden border border-border bg-secondary/20 aspect-square flex items-center justify-center">
+                      {isProcessing ? (
+                        <div className="flex flex-col items-center gap-4 p-8">
+                          <div className="relative">
+                            <div className="w-16 h-16 rounded-full bg-gradient-to-r from-pink-500 to-rose-500 animate-pulse" />
+                            <Zap className="w-8 h-8 text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+                          </div>
+                          <div className="text-center w-full max-w-[200px]">
+                            <p className="font-medium text-sm mb-2">Beautifying...</p>
+                            <Progress value={progress} className="h-2" />
+                          </div>
+                        </div>
+                      ) : beautifiedImage ? (
+                        <img
+                          src={beautifiedImage}
+                          alt="Beautified"
+                          className="w-full h-full object-contain"
+                        />
+                      ) : (
+                        <div className="flex flex-col items-center gap-2 text-muted-foreground">
+                          <ImageIcon className="w-10 h-10" />
+                          <p className="text-sm">Beautified photo will appear here</p>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
+              )}
             </div>
           )}
 
