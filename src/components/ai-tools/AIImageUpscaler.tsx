@@ -1,16 +1,27 @@
 import { useState, useRef, useCallback, useEffect } from "react";
-import { ArrowUpCircle, Download, Loader2, Upload, RefreshCw, Zap, Image as ImageIcon, X, SlidersHorizontal } from "lucide-react";
+import { ArrowUpCircle, Download, Loader2, Upload, RefreshCw, Zap, Image as ImageIcon, X, SlidersHorizontal, Settings2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Progress } from "@/components/ui/progress";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Switch } from "@/components/ui/switch";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import ImageComparisonSlider from "@/components/ImageComparisonSlider";
 
 type OutputFormat = "png" | "jpg" | "webp";
 type UpscaleLevel = "2" | "4";
+type QualityPreset = "standard" | "premium" | "ultra";
+type SaturationLevel = "normal" | "vivid" | "intense" | "ultra";
+
+interface UpscaleOptions {
+  scale: number;
+  qualityPreset: QualityPreset;
+  saturation: SaturationLevel;
+  denoise: boolean;
+  colorBoost: boolean;
+}
 
 const AIImageUpscaler = () => {
   const [originalImage, setOriginalImage] = useState<string | null>(null);
@@ -21,6 +32,11 @@ const AIImageUpscaler = () => {
   const [upscaleLevel, setUpscaleLevel] = useState<UpscaleLevel>("4");
   const [isDragging, setIsDragging] = useState(false);
   const [showComparison, setShowComparison] = useState(false);
+  const [showSettings, setShowSettings] = useState(false);
+  const [qualityPreset, setQualityPreset] = useState<QualityPreset>("premium");
+  const [saturation, setSaturation] = useState<SaturationLevel>("vivid");
+  const [denoise, setDenoise] = useState(true);
+  const [colorBoost, setColorBoost] = useState(true);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const hasAutoProcessed = useRef(false);
@@ -77,30 +93,85 @@ const AIImageUpscaler = () => {
     try {
       setProgress(30);
       
-      const { data, error } = await supabase.functions.invoke("ai-enhance-image", {
-        body: { 
-          imageBase64: originalImage,
-          operation: "upscale",
-          options: { scale: parseInt(upscaleLevel) }
+      const options: UpscaleOptions = {
+        scale: parseInt(upscaleLevel),
+        qualityPreset,
+        saturation,
+        denoise,
+        colorBoost
+      };
+
+      // For ultra quality, we do a two-pass enhancement
+      if (qualityPreset === "ultra") {
+        // First pass: enhance with current settings
+        const { data: enhanceData, error: enhanceError } = await supabase.functions.invoke("ai-enhance-image", {
+          body: { 
+            imageBase64: originalImage,
+            operation: "enhance",
+            options: {
+              quality: "ultra",
+              saturation,
+              denoise: denoise ? "medium" : "none",
+              colorBoost
+            }
+          }
+        });
+
+        setProgress(50);
+
+        if (enhanceError || enhanceData?.error) {
+          throw new Error(enhanceError?.message || enhanceData?.error || "Failed to enhance image");
         }
-      });
 
-      setProgress(80);
+        // Second pass: upscale the enhanced image
+        const { data, error } = await supabase.functions.invoke("ai-enhance-image", {
+          body: { 
+            imageBase64: enhanceData?.imageUrl || originalImage,
+            operation: "upscale",
+            options
+          }
+        });
 
-      if (error) {
-        throw new Error(error.message || "Failed to upscale image");
-      }
+        setProgress(80);
 
-      if (data?.error) {
-        throw new Error(data.error);
-      }
+        if (error || data?.error) {
+          throw new Error(error?.message || data?.error || "Failed to upscale image");
+        }
 
-      if (data?.imageUrl) {
-        setUpscaledImage(data.imageUrl);
-        setProgress(100);
-        toast.success(`Image upscaled ${upscaleLevel}x successfully!`);
+        if (data?.imageUrl) {
+          setUpscaledImage(data.imageUrl);
+          setProgress(100);
+          toast.success(`Image upscaled ${upscaleLevel}x with ultra quality!`);
+        } else {
+          throw new Error("No upscaled image was returned");
+        }
       } else {
-        throw new Error("No upscaled image was returned");
+        // Standard/Premium: single pass with enhancement options
+        const { data, error } = await supabase.functions.invoke("ai-enhance-image", {
+          body: { 
+            imageBase64: originalImage,
+            operation: "upscale",
+            options
+          }
+        });
+
+        setProgress(80);
+
+        if (error) {
+          throw new Error(error.message || "Failed to upscale image");
+        }
+
+        if (data?.error) {
+          throw new Error(data.error);
+        }
+
+        if (data?.imageUrl) {
+          setUpscaledImage(data.imageUrl);
+          setProgress(100);
+          toast.success(`Image upscaled ${upscaleLevel}x successfully!`);
+        } else {
+          throw new Error("No upscaled image was returned");
+        }
       }
     } catch (error) {
       console.error("Upscale error:", error);
@@ -177,6 +248,7 @@ const AIImageUpscaler = () => {
     setUpscaledImage(null);
     setProgress(0);
     setShowComparison(false);
+    setShowSettings(false);
   };
 
   return (
@@ -232,28 +304,106 @@ const AIImageUpscaler = () => {
 
           {/* Upscale Level Selection */}
           {originalImage && !upscaledImage && !isProcessing && (
-            <div className="space-y-3">
-              <Label className="text-sm font-medium">Upscale Level</Label>
-              <RadioGroup
-                value={upscaleLevel}
-                onValueChange={(v) => setUpscaleLevel(v as UpscaleLevel)}
-                className="grid grid-cols-2 gap-4"
-              >
-                <div className="flex items-center space-x-2">
-                  <RadioGroupItem value="2" id="2x" />
-                  <Label htmlFor="2x" className="cursor-pointer">
-                    <span className="font-semibold">2x Upscale</span>
-                    <span className="block text-xs text-muted-foreground">Double the resolution</span>
-                  </Label>
+            <div className="space-y-4">
+              <div className="space-y-3">
+                <Label className="text-sm font-medium">Upscale Level</Label>
+                <RadioGroup
+                  value={upscaleLevel}
+                  onValueChange={(v) => setUpscaleLevel(v as UpscaleLevel)}
+                  className="grid grid-cols-2 gap-4"
+                >
+                  <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="2" id="2x" />
+                    <Label htmlFor="2x" className="cursor-pointer">
+                      <span className="font-semibold">2x Upscale</span>
+                      <span className="block text-xs text-muted-foreground">Double the resolution</span>
+                    </Label>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="4" id="4x" />
+                    <Label htmlFor="4x" className="cursor-pointer">
+                      <span className="font-semibold">4x Upscale</span>
+                      <span className="block text-xs text-muted-foreground">Quadruple the resolution</span>
+                    </Label>
+                  </div>
+                </RadioGroup>
+              </div>
+
+              {/* Enhancement Settings Toggle */}
+              <div className="flex items-center justify-between pt-2">
+                <div className="flex items-center gap-2">
+                  <Settings2 className="w-4 h-4 text-muted-foreground" />
+                  <span className="text-sm font-medium">Enhancement Settings</span>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <RadioGroupItem value="4" id="4x" />
-                  <Label htmlFor="4x" className="cursor-pointer">
-                    <span className="font-semibold">4x Upscale</span>
-                    <span className="block text-xs text-muted-foreground">Quadruple the resolution</span>
-                  </Label>
+                <Button
+                  variant={showSettings ? "default" : "outline"}
+                  size="sm"
+                  onClick={() => setShowSettings(!showSettings)}
+                  className="text-xs gap-1.5 h-7"
+                >
+                  <SlidersHorizontal className="w-3 h-3" />
+                  {showSettings ? "Hide" : "Show"}
+                </Button>
+              </div>
+
+              {/* Enhancement Settings Panel */}
+              {showSettings && (
+                <div className="bg-secondary/30 rounded-xl p-4 space-y-4 border border-border/50">
+                  {/* Quality Preset */}
+                  <div className="space-y-2">
+                    <Label className="text-sm font-medium">Quality Preset</Label>
+                    <Select value={qualityPreset} onValueChange={(v) => setQualityPreset(v as QualityPreset)}>
+                      <SelectTrigger className="w-full bg-background border-border">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent className="bg-card border-border">
+                        <SelectItem value="standard">Standard (Fast)</SelectItem>
+                        <SelectItem value="premium">Premium (Balanced)</SelectItem>
+                        <SelectItem value="ultra">Ultra 4K (Best Quality)</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    <p className="text-xs text-muted-foreground">
+                      {qualityPreset === "standard" && "Quick processing with good quality"}
+                      {qualityPreset === "premium" && "Enhanced details with balanced processing time"}
+                      {qualityPreset === "ultra" && "Maximum 4K quality with two-pass enhancement"}
+                    </p>
+                  </div>
+
+                  {/* Saturation Level */}
+                  <div className="space-y-2">
+                    <Label className="text-sm font-medium">Color Saturation</Label>
+                    <Select value={saturation} onValueChange={(v) => setSaturation(v as SaturationLevel)}>
+                      <SelectTrigger className="w-full bg-background border-border">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent className="bg-card border-border">
+                        <SelectItem value="normal">Normal</SelectItem>
+                        <SelectItem value="vivid">Vivid</SelectItem>
+                        <SelectItem value="intense">Intense</SelectItem>
+                        <SelectItem value="ultra">Ultra Vibrant</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  {/* Toggle Options */}
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="flex items-center justify-between p-3 bg-background rounded-lg border border-border/50">
+                      <div>
+                        <p className="text-sm font-medium">Denoise</p>
+                        <p className="text-xs text-muted-foreground">Remove noise</p>
+                      </div>
+                      <Switch checked={denoise} onCheckedChange={setDenoise} />
+                    </div>
+                    <div className="flex items-center justify-between p-3 bg-background rounded-lg border border-border/50">
+                      <div>
+                        <p className="text-sm font-medium">Color Boost</p>
+                        <p className="text-xs text-muted-foreground">Enhance colors</p>
+                      </div>
+                      <Switch checked={colorBoost} onCheckedChange={setColorBoost} />
+                    </div>
+                  </div>
                 </div>
-              </RadioGroup>
+              )}
             </div>
           )}
 
