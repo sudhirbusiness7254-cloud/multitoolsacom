@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HreflangTags from "@/components/HreflangTags";
 import AIImageUpscaler from "@/components/ai-tools/AIImageUpscaler";
+import ImageComparisonSlider from "@/components/ImageComparisonSlider";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Sparkles, Zap, Shield, Download, Image, Star, CheckCircle, Maximize, Monitor, Printer, Share2 } from "lucide-react";
 import {
@@ -11,6 +12,10 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+
+// Import demo images
+import upscalerBefore from "@/assets/demo/upscaler-before.jpg";
+import upscalerAfter from "@/assets/demo/upscaler-after.jpg";
 
 const AIImageUpscalerPage = () => {
   const faqSchema = {
@@ -112,6 +117,28 @@ const AIImageUpscalerPage = () => {
                   Increase your image resolution up to 4x without losing quality. Our AI super-resolution technology 
                   intelligently reconstructs fine details, textures, and edges for crystal-clear enlargements.
                 </p>
+              </div>
+            </div>
+          </section>
+
+          {/* Demo Comparison Section */}
+          <section className="py-10 md:py-14 px-4 bg-secondary/30">
+            <div className="container mx-auto max-w-3xl">
+              <div className="text-center mb-8">
+                <h2 className="text-2xl md:text-3xl font-bold mb-3">See the Difference</h2>
+                <p className="text-muted-foreground">Drag the slider to compare low resolution vs AI upscaled 4K quality</p>
+              </div>
+              
+              <div className="bg-card rounded-2xl border border-border overflow-hidden shadow-lg">
+                <div className="aspect-[3/4]">
+                  <ImageComparisonSlider
+                    originalSrc={upscalerBefore}
+                    compressedSrc={upscalerAfter}
+                    originalLabel="Low Resolution"
+                    compressedLabel="4K Upscaled"
+                    className="w-full h-full"
+                  />
+                </div>
               </div>
             </div>
           </section>
