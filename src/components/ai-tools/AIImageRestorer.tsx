@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import { History, Download, Loader2, Upload, RefreshCw, Zap, Image as ImageIcon, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
@@ -18,6 +18,7 @@ const AIImageRestorer = () => {
   const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const hasAutoProcessed = useRef(false);
 
   const handleFileSelect = useCallback(async (file: File) => {
     if (!file.type.startsWith("image/")) {
@@ -25,6 +26,7 @@ const AIImageRestorer = () => {
       return;
     }
 
+    hasAutoProcessed.current = false;
     const reader = new FileReader();
     reader.onload = (e) => {
       setOriginalImage(e.target?.result as string);
@@ -50,9 +52,16 @@ const AIImageRestorer = () => {
     setIsDragging(false);
   }, []);
 
+  // Auto-restore when image is uploaded
+  useEffect(() => {
+    if (originalImage && !hasAutoProcessed.current && !isProcessing && !restoredImage) {
+      hasAutoProcessed.current = true;
+      restoreImage();
+    }
+  }, [originalImage]);
+
   const restoreImage = async () => {
     if (!originalImage) {
-      toast.error("Please upload an image first");
       return;
     }
 

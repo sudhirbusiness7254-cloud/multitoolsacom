@@ -28,62 +28,85 @@ serve(async (req) => {
     let prompt = "";
     let additionalImages: Array<{ type: string; image_url: { url: string } }> = [];
     
-    // Quality suffix for all operations
+    // Quality suffix for all operations - Remini style
     const qualitySuffix = `
 
 CRITICAL OUTPUT REQUIREMENTS:
-- Output the highest possible resolution image (4K/Ultra HD quality minimum)
-- Preserve every fine detail with crystal-clear sharpness
-- Ensure professional studio-quality output
-- No compression artifacts, no blur, no quality loss
-- The output must be significantly better than the input
-- Match or exceed professional photo editing software quality`;
+- Output at maximum resolution (4K/Ultra HD quality)
+- Crystal-clear sharpness on face and subject
+- Professional studio-quality output
+- No compression artifacts
+- The result MUST look like a professionally edited photo from a high-end photography studio`;
 
     switch (operation) {
       case "enhance":
-        prompt = `You are a professional photo retoucher. Enhance this image to ULTRA HIGH QUALITY with the following precise improvements:
+        prompt = `You are replicating Remini app's AI photo enhancement. Apply the EXACT Remini enhancement style:
 
-1. RESOLUTION & SHARPNESS: Dramatically increase perceived resolution and sharpness. Every detail should be crystal clear - hair strands, skin texture, fabric weaves, background elements.
+1. FACE ENHANCEMENT (PRIORITY):
+   - Dramatically sharpen facial features - eyes, eyebrows, lips, nose
+   - Smooth skin naturally while keeping realistic texture (not plastic)
+   - Enhance eye clarity - make eyes sharp, clear, and vivid
+   - Sharpen beard/facial hair to show individual hair strands
+   - Improve facial lighting with subtle golden warmth
 
-2. NOISE REDUCTION: Remove all digital noise and grain while preserving fine texture details. The image should look clean but not artificially smoothed.
+2. COLOR ENHANCEMENT (Remini Style):
+   - Boost blue colors significantly (sky, clothing) - make them vibrant and rich
+   - Add subtle warm/golden tone to skin
+   - Increase overall color saturation by 20-30%
+   - Enhance color contrast for a punchy, vivid look
+   - Make colors POP like a professional edited photo
 
-3. COLOR ENHANCEMENT: 
-   - Boost color vibrancy and saturation naturally
-   - Improve color depth and richness
-   - Fix any color casts or white balance issues
-   - Enhance contrast for more depth
+3. BACKGROUND TREATMENT:
+   - Apply subtle background blur (bokeh effect) to separate subject
+   - Keep subject sharp, background slightly softer
+   - This creates depth like portrait mode
 
-4. LIGHTING: Improve dynamic range, recover shadow details, prevent highlight clipping. Add a natural luminosity.
+4. SHARPNESS & DETAIL:
+   - Dramatically increase sharpness on the person/subject
+   - Enhance texture on clothing, hair, accessories
+   - Make fine details crystal clear
 
-5. DETAIL RECOVERY: Recover and enhance fine details that may be lost or unclear. Make textures pop.
+5. LIGHTING:
+   - Add subtle golden hour warmth
+   - Enhance natural lighting on face
+   - Reduce harsh shadows gently
 
-6. PROFESSIONAL POLISH: Apply professional-grade finishing that makes this look like it was shot with a $50,000 camera and edited by a pro.
-
-The result must look like a magazine-quality photograph.${qualitySuffix}`;
+The result should look EXACTLY like Remini's output - vibrant colors, sharp face, subtle background blur, professional quality.${qualitySuffix}`;
         break;
         
       case "upscale":
-        const scale = options?.scale || 2;
-        prompt = `You are an AI super-resolution expert. Upscale this image by ${scale}x to create a stunning 4K/8K quality result:
+        const scale = options?.scale || 4;
+        prompt = `You are replicating Remini app's AI upscaling. Upscale this image by ${scale}x with the EXACT Remini quality:
 
-1. RESOLUTION INCREASE: Generate a ${scale}x larger image with TRUE added detail, not just interpolation.
+1. SUPER-RESOLUTION (Remini Style):
+   - Generate a ${scale}x larger image with TRUE added detail
+   - Add realistic fine details that should exist at higher resolution
+   - Enhance facial features to be crystal clear - every pore, hair strand, eyelash
+   - Make eyes sharp and detailed with clear iris patterns
 
-2. DETAIL SYNTHESIS: 
-   - Intelligently generate new fine details that should exist at higher resolution
-   - Add realistic texture to skin, fabric, surfaces
-   - Enhance hair strands, eyelashes, fine lines
-   - Create sharp, crisp edges
+2. FACE ENHANCEMENT (Priority):
+   - Dramatically sharpen facial features
+   - Enhance skin texture realistically
+   - Make eyes vivid and clear
+   - Sharpen beard/hair to show individual strands
 
-3. ARTIFACT REMOVAL: 
-   - Remove all JPEG artifacts, compression blocks, and noise
-   - Eliminate any blur or softness
-   - Fix any pixelation completely
+3. COLOR BOOST (Remini Style):
+   - Boost blue colors significantly
+   - Add subtle warm/golden tone to skin
+   - Increase overall saturation by 20-30%
+   - Make colors vibrant and punchy
 
-4. SHARPNESS: The output should be razor-sharp with no softness whatsoever. Every edge should be crisp.
+4. BACKGROUND:
+   - Apply subtle bokeh blur to background
+   - Keep subject razor-sharp, background softer
+   - Create professional depth-of-field effect
 
-5. QUALITY: The final image should look like it was originally captured at ${scale}x the resolution with a professional camera.
+5. ARTIFACT REMOVAL:
+   - Remove ALL JPEG artifacts and compression
+   - Eliminate any blur, noise, or pixelation
+   - Output must be pristine quality
 
-This must produce results BETTER than Remini, Topaz Gigapixel, or any other upscaler.${qualitySuffix}`;
+The result should look EXACTLY like Remini's 4x upscale output - vibrant colors, sharp face, professional quality.${qualitySuffix}`;
         break;
         
       case "restore":

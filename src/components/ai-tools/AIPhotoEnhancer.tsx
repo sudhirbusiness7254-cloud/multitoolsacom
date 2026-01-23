@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import { Sparkles, Download, Loader2, Upload, RefreshCw, Zap, Image as ImageIcon, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
@@ -17,8 +17,10 @@ const AIPhotoEnhancer = () => {
   const [progress, setProgress] = useState(0);
   const [outputFormat, setOutputFormat] = useState<OutputFormat>("png");
   const [isDragging, setIsDragging] = useState(false);
+  const [autoEnhance, setAutoEnhance] = useState(true);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const hasAutoEnhanced = useRef(false);
 
   const handleFileSelect = useCallback(async (file: File) => {
     if (!file.type.startsWith("image/")) {
@@ -26,6 +28,7 @@ const AIPhotoEnhancer = () => {
       return;
     }
 
+    hasAutoEnhanced.current = false;
     const reader = new FileReader();
     reader.onload = (e) => {
       setOriginalImage(e.target?.result as string);
@@ -51,9 +54,16 @@ const AIPhotoEnhancer = () => {
     setIsDragging(false);
   }, []);
 
+  // Auto-enhance when image is uploaded
+  useEffect(() => {
+    if (originalImage && autoEnhance && !hasAutoEnhanced.current && !isProcessing && !enhancedImage) {
+      hasAutoEnhanced.current = true;
+      enhanceImage();
+    }
+  }, [originalImage]);
+
   const enhanceImage = async () => {
     if (!originalImage) {
-      toast.error("Please upload an image first");
       return;
     }
 
