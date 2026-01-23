@@ -621,6 +621,16 @@ const HomePage = () => {
                   </p>
                 </div>
               </div>
+              
+              {/* Ad after Why Choose Us */}
+              <AdBottom className="mt-10" />
+            </div>
+          </section>
+          
+          {/* Additional Video Ad Section */}
+          <section className="py-6 px-4 sm:px-6">
+            <div className="container mx-auto max-w-6xl">
+              <AdVideo />
             </div>
           </section>
 
@@ -673,6 +683,9 @@ const HomePage = () => {
               <Link to="/blog" className="sm:hidden flex text-primary hover:underline items-center justify-center gap-1 font-medium mt-6">
                 All Articles <ArrowRight className="w-4 h-4" />
               </Link>
+              
+              {/* Ad after Blog Posts */}
+              <AdInline className="mt-10" />
             </div>
           </section>
 
@@ -769,6 +782,16 @@ const HomePage = () => {
                   </div>
                 </Link>
               </div>
+              
+              {/* Ad after Resources */}
+              <AdVideo className="mt-10" />
+            </div>
+          </section>
+          
+          {/* Inline Ad before Final CTA */}
+          <section className="py-6 px-4 sm:px-6 bg-secondary/20">
+            <div className="container mx-auto max-w-4xl">
+              <AdBottom />
             </div>
           </section>
 
