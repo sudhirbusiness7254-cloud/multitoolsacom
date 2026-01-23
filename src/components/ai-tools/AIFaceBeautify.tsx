@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import { Smile, Download, Loader2, Upload, RefreshCw, Zap, Image as ImageIcon, X, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
@@ -35,6 +35,7 @@ const AIFaceBeautify = () => {
   });
   const fileInputRef = useRef<HTMLInputElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const hasAutoProcessed = useRef(false);
 
   const handleFileSelect = useCallback(async (file: File) => {
     if (!file.type.startsWith("image/")) {
@@ -42,6 +43,7 @@ const AIFaceBeautify = () => {
       return;
     }
 
+    hasAutoProcessed.current = false;
     const reader = new FileReader();
     reader.onload = (e) => {
       setOriginalImage(e.target?.result as string);
@@ -67,9 +69,16 @@ const AIFaceBeautify = () => {
     setIsDragging(false);
   }, []);
 
+  // Auto-beautify when image is uploaded
+  useEffect(() => {
+    if (originalImage && !hasAutoProcessed.current && !isProcessing && !beautifiedImage) {
+      hasAutoProcessed.current = true;
+      beautifyImage();
+    }
+  }, [originalImage]);
+
   const beautifyImage = async () => {
     if (!originalImage) {
-      toast.error("Please upload an image first");
       return;
     }
 
