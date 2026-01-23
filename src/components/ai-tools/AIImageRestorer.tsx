@@ -72,12 +72,14 @@ const AIImageRestorer = () => {
     setRestoredImage(null);
 
     try {
-      setProgress(30);
+      setProgress(20);
       
-      const { data, error } = await supabase.functions.invoke("ai-enhance-image", {
+      // Use the professional Replicate pipeline - full restoration with face enhancement + upscaling
+      const { data, error } = await supabase.functions.invoke("replicate-enhance", {
         body: { 
           imageBase64: originalImage,
-          operation: "restore"
+          pipeline: "full", // Full pipeline: CodeFormer + Crystal Upscaler + GFPGAN
+          scaleFactor: 4 // 4x upscaling for restoration
         }
       });
 
@@ -94,13 +96,22 @@ const AIImageRestorer = () => {
       if (data?.imageUrl) {
         setRestoredImage(data.imageUrl);
         setProgress(100);
-        toast.success("Image restored successfully!");
+        const stepsCount = data.stepsExecuted?.length || 1;
+        toast.success(`Remini-quality restoration complete! (${stepsCount} AI models applied)`);
       } else {
         throw new Error("No restored image was returned");
       }
     } catch (error) {
       console.error("Restore error:", error);
-      toast.error(error instanceof Error ? error.message : "Failed to restore image");
+      const errorMessage = error instanceof Error ? error.message : "Failed to restore image";
+      
+      if (errorMessage.includes("Rate limit") || errorMessage.includes("429")) {
+        toast.error("Replicate rate limit reached. Please wait and try again.");
+      } else if (errorMessage.includes("REPLICATE_API_KEY")) {
+        toast.error("Replicate API key not configured.");
+      } else {
+        toast.error(errorMessage);
+      }
     } finally {
       setIsProcessing(false);
       setProgress(0);

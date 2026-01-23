@@ -10,7 +10,7 @@ import { supabase } from "@/integrations/supabase/client";
 import ImageComparisonSlider from "@/components/ImageComparisonSlider";
 
 type OutputFormat = "png" | "jpg" | "webp";
-type UpscaleLevel = "2" | "4";
+type UpscaleLevel = "2" | "4" | "6";
 
 const AIImageUpscaler = () => {
   const [originalImage, setOriginalImage] = useState<string | null>(null);
@@ -75,13 +75,14 @@ const AIImageUpscaler = () => {
     setUpscaledImage(null);
 
     try {
-      setProgress(30);
+      setProgress(20);
       
-      const { data, error } = await supabase.functions.invoke("ai-enhance-image", {
+      // Use the professional Replicate pipeline with Crystal Upscaler
+      const { data, error } = await supabase.functions.invoke("replicate-enhance", {
         body: { 
           imageBase64: originalImage,
-          operation: "upscale",
-          options: { scale: parseInt(upscaleLevel) }
+          pipeline: "upscale-only", // Use upscale-only for pure super-resolution
+          scaleFactor: parseInt(upscaleLevel) // 2x, 4x, or 6x
         }
       });
 
@@ -98,13 +99,21 @@ const AIImageUpscaler = () => {
       if (data?.imageUrl) {
         setUpscaledImage(data.imageUrl);
         setProgress(100);
-        toast.success(`Image upscaled ${upscaleLevel}x successfully!`);
+        toast.success(`Remini-quality ${upscaleLevel}x upscale complete!`);
       } else {
         throw new Error("No upscaled image was returned");
       }
     } catch (error) {
       console.error("Upscale error:", error);
-      toast.error(error instanceof Error ? error.message : "Failed to upscale image");
+      const errorMessage = error instanceof Error ? error.message : "Failed to upscale image";
+      
+      if (errorMessage.includes("Rate limit") || errorMessage.includes("429")) {
+        toast.error("Replicate rate limit reached. Please wait and try again.");
+      } else if (errorMessage.includes("REPLICATE_API_KEY")) {
+        toast.error("Replicate API key not configured.");
+      } else {
+        toast.error(errorMessage);
+      }
     } finally {
       setIsProcessing(false);
       setProgress(0);
@@ -233,27 +242,35 @@ const AIImageUpscaler = () => {
           {/* Upscale Level Selection */}
           {originalImage && !upscaledImage && !isProcessing && (
             <div className="space-y-3">
-              <Label className="text-sm font-medium">Upscale Level</Label>
+              <Label className="text-sm font-medium">Upscale Level (Crystal Upscaler)</Label>
               <RadioGroup
                 value={upscaleLevel}
                 onValueChange={(v) => setUpscaleLevel(v as UpscaleLevel)}
-                className="grid grid-cols-2 gap-4"
+                className="grid grid-cols-3 gap-4"
               >
                 <div className="flex items-center space-x-2">
                   <RadioGroupItem value="2" id="2x" />
                   <Label htmlFor="2x" className="cursor-pointer">
-                    <span className="font-semibold">2x Upscale</span>
-                    <span className="block text-xs text-muted-foreground">Double the resolution</span>
+                    <span className="font-semibold">2x</span>
+                    <span className="block text-xs text-muted-foreground">Double resolution</span>
                   </Label>
                 </div>
                 <div className="flex items-center space-x-2">
                   <RadioGroupItem value="4" id="4x" />
                   <Label htmlFor="4x" className="cursor-pointer">
-                    <span className="font-semibold">4x Upscale</span>
-                    <span className="block text-xs text-muted-foreground">Quadruple the resolution</span>
+                    <span className="font-semibold">4x</span>
+                    <span className="block text-xs text-muted-foreground">Quadruple (4K)</span>
+                  </Label>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="6" id="6x" />
+                  <Label htmlFor="6x" className="cursor-pointer">
+                    <span className="font-semibold">6x</span>
+                    <span className="block text-xs text-muted-foreground">Maximum quality</span>
                   </Label>
                 </div>
               </RadioGroup>
+              <p className="text-xs text-muted-foreground">Powered by Crystal Upscaler + Real-ESRGAN</p>
             </div>
           )}
 
