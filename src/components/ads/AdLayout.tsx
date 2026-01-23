@@ -1,6 +1,6 @@
 import { ReactNode, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
-import { AdLeft, AdRight } from './AdContainer';
+import { AdLeft, AdRight, AdVideoSide } from './AdContainer';
 import { resetAdScripts } from './AdManager';
 
 interface AdLayoutProps {
@@ -34,6 +34,8 @@ const AdLayout = ({ children }: AdLayoutProps) => {
         <>
           <AdLeft />
           <AdRight />
+          {/* Side Video Ads - Bottom corners */}
+          <AdVideoSide position="left" />
         </>
       )}
       

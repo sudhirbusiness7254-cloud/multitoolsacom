@@ -5,6 +5,7 @@ import { getCategoryBySlug } from "@/data/toolsData";
 import { getCategorySEOContent } from "@/data/categorySEOData";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CheckCircle, Shield, Zap, Layers, Lock, Eye, Settings, Grid } from "lucide-react";
+import { AdVideo, AdInline } from "@/components/ads/AdContainer";
 
 const ImageCombinePage = () => {
   const category = getCategoryBySlug("image-combine")!;
@@ -76,6 +77,8 @@ const ImageCombinePage = () => {
 
       <CategoryPageLayout category={category} seoContent={seoContent}>
         <UniversalImageCombine />
+        {/* Video Ad - Below Tool Output */}
+        <AdVideo className="mt-6" />
 
         {/* Comprehensive About Section - 1000+ words */}
         <section className="mt-16 space-y-8">

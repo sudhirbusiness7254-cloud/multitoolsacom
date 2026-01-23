@@ -5,6 +5,7 @@ import { getCategoryBySlug } from "@/data/toolsData";
 import { getCategorySEOContent } from "@/data/categorySEOData";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CheckCircle, Shield, Zap, Gauge, Lock, Eye, Settings, TrendingDown } from "lucide-react";
+import { AdVideo, AdInline } from "@/components/ads/AdContainer";
 
 const ImageOptimizationPage = () => {
   const category = getCategoryBySlug("image-optimization")!;
@@ -78,6 +79,8 @@ const ImageOptimizationPage = () => {
 
       <CategoryPageLayout category={category} seoContent={seoContent}>
         <UniversalImageOptimization />
+        {/* Video Ad - Below Tool Output */}
+        <AdVideo className="mt-6" />
 
         {/* Comprehensive About Section - 1000+ words */}
         <section className="mt-16 space-y-8">

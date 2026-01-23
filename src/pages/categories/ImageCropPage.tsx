@@ -8,6 +8,7 @@ import { getCategorySEOContent } from "@/data/categorySEOData";
 import { getToolGuideData } from "@/data/toolGuideData";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CheckCircle, Shield, Zap, Crop, Lock, Eye, Settings, Square } from "lucide-react";
+import { AdVideo, AdInline } from "@/components/ads/AdContainer";
 
 type CropMode = "free" | "1:1" | "4:3" | "16:9" | "3:2" | "9:16" | "circle";
 
@@ -85,6 +86,8 @@ const ImageCropPage = () => {
 
       <CategoryPageLayout category={category} seoContent={seoContent}>
         <UniversalImageCropper key={key} initialMode={selectedMode} />
+        {/* Video Ad - Below Tool Output */}
+        <AdVideo className="mt-6" />
 
         {/* Comprehensive About Section - 1000+ words */}
         <section className="mt-16 space-y-8">
