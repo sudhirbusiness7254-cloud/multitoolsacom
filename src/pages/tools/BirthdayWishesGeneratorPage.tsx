@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { AdBottom, AdVideo, AdInline } from "@/components/ads/AdContainer";
 import HreflangTags from "@/components/HreflangTags";
 import BirthdayWishesGenerator from "@/components/ai-tools/BirthdayWishesGenerator";
 import { Link } from "react-router-dom";
@@ -154,6 +155,13 @@ const BirthdayWishesGeneratorPage = () => {
           <section className="py-8 px-4">
             <div className="container mx-auto">
               <BirthdayWishesGenerator />
+              
+              {/* Ads below tool */}
+              <div className="max-w-4xl mx-auto mt-8">
+                <AdInline />
+                <AdBottom className="mt-4" />
+                <AdVideo className="mt-4" />
+              </div>
             </div>
           </section>
 

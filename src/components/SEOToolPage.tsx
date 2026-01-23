@@ -19,6 +19,7 @@ import {
 } from "@/components/ui/accordion";
 import HreflangTags from "@/components/HreflangTags";
 import RelatedArticles from "@/components/RelatedArticles";
+import { AdBottom, AdVideo, AdInline } from "@/components/ads/AdContainer";
 
 interface SEOToolPageProps {
   seoContent: ToolSEOContent;
@@ -152,8 +153,15 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
               </div>
 
               {/* Tool Component */}
-              <div className="mb-16">
+              <div className="mb-8">
                 {children}
+              </div>
+              
+              {/* Ads - After Tool Output */}
+              <div className="max-w-4xl mx-auto">
+                <AdInline className="mt-6" />
+                <AdBottom className="mt-4" />
+                <AdVideo className="mt-4" />
               </div>
             </div>
           </section>

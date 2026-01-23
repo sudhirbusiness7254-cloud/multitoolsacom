@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HreflangTags from "@/components/HreflangTags";
+import { AdBottom, AdVideo, AdInline } from "@/components/ads/AdContainer";
 import { Link } from "react-router-dom";
 import { Sparkles, Wand2, ArrowUpCircle, History, Zap, Shield, Download, Users, Palette, Smile, ChevronRight, Star, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -281,6 +282,13 @@ const AIImageToolsPage = () => {
                     </Link>
                   );
                 })}
+              </div>
+              
+              {/* Ads - After Tools Grid */}
+              <div className="max-w-4xl mx-auto mt-10">
+                <AdInline />
+                <AdBottom className="mt-4" />
+                <AdVideo className="mt-4" />
               </div>
             </div>
           </section>

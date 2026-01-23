@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { Link, useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { AdBottom, AdVideo } from "@/components/ads/AdContainer";
+import { AdBottom, AdVideo, AdInline } from "@/components/ads/AdContainer";
 import { toolCategories } from "@/data/toolsData";
 import { ArrowRight, Search, Sparkles, FileText } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -169,7 +169,8 @@ const AllToolsPage = () => {
             
             {/* Ads below tools */}
             <div className="max-w-4xl mx-auto mt-10">
-              <AdBottom />
+              <AdInline />
+              <AdBottom className="mt-4" />
               <AdVideo className="mt-4" />
             </div>
           </section>

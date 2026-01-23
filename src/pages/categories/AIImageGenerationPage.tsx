@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PromptToImage from "@/components/PromptToImage";
 import HreflangTags from "@/components/HreflangTags";
+import { AdBottom, AdVideo, AdInline } from "@/components/ads/AdContainer";
 import { Link } from "react-router-dom";
 import { 
   Wand2, 
@@ -157,6 +158,13 @@ const AIImageGenerationPage = () => {
 
               {/* Main Tool */}
               <PromptToImage />
+              
+              {/* Ads - After Tool */}
+              <div className="max-w-4xl mx-auto mt-8">
+                <AdInline />
+                <AdBottom className="mt-4" />
+                <AdVideo className="mt-4" />
+              </div>
             </div>
           </section>
 

@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
 import { Link, useParams } from "react-router-dom";
 import { Calendar, Clock, ArrowLeft, User, Share2, ArrowRight, Facebook, Twitter, Linkedin } from "lucide-react";
-import { AdBottom, AdVideo } from "@/components/ads/AdContainer";
+import { AdBottom, AdVideo, AdInline } from "@/components/ads/AdContainer";
 import HreflangTags from "@/components/HreflangTags";
 import { blogPosts } from "@/data/blogData";
 import { newBlogContent } from "@/data/newBlogContent";
@@ -1449,7 +1449,8 @@ const BlogPost = () => {
 
             {/* Ads Section */}
             <div className="mt-10">
-              <AdBottom />
+              <AdInline />
+              <AdBottom className="mt-4" />
               <AdVideo className="mt-4" />
             </div>
             <div className="mt-12 pt-8 border-t border-border">
