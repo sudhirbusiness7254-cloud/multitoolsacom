@@ -47,6 +47,7 @@ import AIImageRestorerPage from "./pages/tools/AIImageRestorerPage";
 import AIFaceSwapPage from "./pages/tools/AIFaceSwapPage";
 import AIColorizePage from "./pages/tools/AIColorizePage";
 import AIFaceBeautifyPage from "./pages/tools/AIFaceBeautifyPage";
+import BirthdayWishesGeneratorPage from "./pages/tools/BirthdayWishesGeneratorPage";
 import SupportChat from "./components/SupportChat";
 import CookieConsent from "./components/CookieConsent";
 
@@ -112,6 +113,7 @@ const App = () => (
             <Route path="/ai-face-swap" element={<AIFaceSwapPage />} />
             <Route path="/ai-colorize" element={<AIColorizePage />} />
             <Route path="/ai-face-beautify" element={<AIFaceBeautifyPage />} />
+            <Route path="/birthday-wishes-generator" element={<BirthdayWishesGeneratorPage />} />
             
             {/* PDF Tool Pages */}
             <Route path="/merge-pdf" element={<PDFToolPage />} />
