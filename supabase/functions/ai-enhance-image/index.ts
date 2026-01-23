@@ -108,25 +108,38 @@ This is the MOST IMPORTANT part. Faces must be PERFECTLY enhanced:
    - The enhanced person must be recognizable as the same individual
    - NO changes to bone structure, face width, or feature positions` : ''}
 
-${colorBoost ? `=== COLOR & LIGHTING ENHANCEMENT ===
-1. COLOR VIBRANCY:
-   - Boost colors to be rich, vibrant, and eye-catching
-   - Enhance blues in sky/water/clothing for punchy, vivid appearance  
-   - Add natural warmth to skin tones (golden hour quality)
-   - Improve color contrast and saturation naturally
-   - Colors should POP like professional photography
+${colorBoost ? `=== VIBRANT COLOR ENHANCEMENT (HIGH PRIORITY) ===
+1. MAXIMUM COLOR SATURATION & VIBRANCY:
+   - SIGNIFICANTLY boost saturation - make colors POP dramatically
+   - Colors should be RICH, BOLD, and VIVID like Instagram filters on steroids
+   - Blues should be DEEP electric/cobalt blue - sky should look stunning
+   - Greens should be LUSH and vibrant like tropical foliage
+   - Reds and oranges should be INTENSE and eye-catching
+   - Increase color contrast aggressively for maximum visual impact
+   - The image should look like it's been professionally color graded for a movie poster
 
-2. DYNAMIC RANGE:
-   - Recover shadow detail without making them look unnatural
-   - Prevent highlight clipping
-   - Create beautiful tonal gradations
-   - Add subtle HDR-like enhancement
+2. SKIN TONE ENHANCEMENT:
+   - Add warm, golden glow to skin (like golden hour sunlight)
+   - Skin should look healthy, radiant, and sun-kissed
+   - Enhance natural blush and lip colors
+   - Make skin look alive and vibrant, not flat
 
-3. PROFESSIONAL LIGHTING:
-   - Enhance existing lighting naturally
-   - Add subtle rim lighting or fill light effect where appropriate
-   - Reduce harsh shadows gently
-   - Create depth through light and shadow` : ''}
+3. DYNAMIC RANGE & HDR:
+   - Push shadows darker and highlights brighter
+   - Create dramatic contrast like HDR photography
+   - Colors should have DEPTH and RICHNESS
+   - Add cinematic color grading quality
+
+4. PROFESSIONAL LIGHTING ENHANCEMENT:
+   - Enhance existing lighting dramatically
+   - Add subtle golden/warm rim lighting
+   - Create beautiful light and shadow interplay
+   - Make the image look like professional studio photography
+
+5. COLOR OUTPUT GOAL:
+   - The final image should be NOTICEABLY more colorful than the original
+   - Colors should be magazine-cover quality - bold and striking
+   - Think: National Geographic cover, fashion magazine, movie poster quality` : ''}
 
 === SHARPNESS & CLARITY ===
 1. EDGE ENHANCEMENT:
