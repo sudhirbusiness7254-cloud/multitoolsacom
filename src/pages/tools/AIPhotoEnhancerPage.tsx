@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HreflangTags from "@/components/HreflangTags";
 import AIPhotoEnhancer from "@/components/ai-tools/AIPhotoEnhancer";
+import ImageComparisonSlider from "@/components/ImageComparisonSlider";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Sparkles, Zap, Shield, Download, Image, Star, CheckCircle, Camera, Palette, Monitor, Eye } from "lucide-react";
 import {
@@ -11,6 +12,10 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+
+// Import demo images
+import enhanceBefore from "@/assets/demo/girl1-before.jpg";
+import enhanceAfter from "@/assets/demo/girl1-after.jpg";
 
 const AIPhotoEnhancerPage = () => {
   const faqSchema = {
@@ -136,6 +141,26 @@ const AIPhotoEnhancerPage = () => {
           <section className="py-8 md:py-12 px-4">
             <div className="container mx-auto">
               <AIPhotoEnhancer />
+            </div>
+          </section>
+
+          {/* Demo Comparison Section */}
+          <section className="py-10 md:py-14 px-4 bg-secondary/30">
+            <div className="container mx-auto max-w-lg">
+              <div className="text-center mb-6">
+                <h2 className="text-xl md:text-2xl font-bold mb-2">See the Enhancement</h2>
+                <p className="text-sm text-muted-foreground">Drag the slider to compare</p>
+              </div>
+              
+              <div className="bg-card rounded-xl border border-border overflow-hidden shadow-md">
+                <ImageComparisonSlider
+                  originalSrc={enhanceBefore}
+                  compressedSrc={enhanceAfter}
+                  originalLabel="Original"
+                  compressedLabel="Enhanced"
+                  className="w-full"
+                />
+              </div>
             </div>
           </section>
 
