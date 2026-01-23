@@ -339,7 +339,7 @@ const HomePage = () => {
                 </Link>
               </div>
               
-              <div className="grid grid-cols-3 xs:grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 2xl:grid-cols-12 gap-2 sm:gap-3 md:gap-4">
+              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-2 sm:gap-3 md:gap-4">
                 {popularTools.map((tool) => (
                   <Link 
                     key={tool.slug}
@@ -380,7 +380,7 @@ const HomePage = () => {
                 </p>
               </div>
               
-              <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-3 sm:gap-4 md:gap-5">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-5">
                 {imageCategories.map((category) => {
                   const gradient = getGradient(category.id);
                   const categoryInfo = categoryDescriptions[category.id];
