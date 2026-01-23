@@ -55,60 +55,100 @@ CRITICAL CONSTRAINTS:
 
     switch (operation) {
       case "enhance":
-        prompt = `You are a professional AI photo enhancement system superior to Remini. Enhance this image to ultra-high quality following these EXACT requirements:
+        const preset = options?.preset || "premium";
+        const faceEnhance = options?.faceEnhance !== false;
+        const colorBoost = options?.colorBoost !== false;
+        const denoiseStrength = options?.denoiseStrength || "medium";
+        
+        prompt = `You are the world's most advanced AI photo enhancement system, superior to Remini, Topaz, and all competitors. Your task is to transform this image into STUNNING, professional-grade, 4K-quality output.
 
-ENHANCEMENT REQUIREMENTS:
+=== CRITICAL MISSION ===
+Produce an image that looks like it was taken with a $50,000 professional camera and edited by a master retoucher. The result should be indistinguishable from a magazine cover photo.
 
-1. CLARITY & SHARPNESS:
-   - Increase image clarity and sharpness without over-sharpening
-   - Enhance edges and details smoothly
-   - No halos or artifacts from sharpening
+=== DEEP LEARNING SUPER-RESOLUTION ===
+1. INTELLIGENT DETAIL SYNTHESIS:
+   - Use GAN-inspired techniques to generate realistic high-frequency details
+   - Reconstruct missing pixel information based on learned patterns
+   - Add genuine texture and detail, not interpolation artifacts
+   - Target 4K-equivalent output quality (approximately 4096px on longest edge)
 
-2. DETAIL RESTORATION:
-   - Restore fine details in faces - every pore, eyelash, hair strand
-   - Enhance textures in hair, skin, clothing, and environment
-   - Recover details lost to compression or blur
+2. ARTIFACT ELIMINATION (${denoiseStrength.toUpperCase()} strength):
+   - Completely remove ALL JPEG compression artifacts
+   - Eliminate color banding, blocking, and mosquito noise
+   - Remove luminance and chroma noise while preserving texture
+   - Fix any blur, motion blur, or out-of-focus areas
+   - Result must be pristine, artifact-free
 
-3. SUPER-RESOLUTION:
-   - Improve overall resolution to a 4K-quality appearance
-   - Add realistic detail that should exist at higher resolution
-   - Eliminate pixelation and compression artifacts completely
+${faceEnhance ? `=== FACE RESTORATION (PRIORITY - REMINI-QUALITY) ===
+This is the MOST IMPORTANT part. Faces must be PERFECTLY enhanced:
 
-4. COLOR ENHANCEMENT:
-   - Enhance natural colors: vibrant but realistic, NOT oversaturated
-   - Boost blues in sky/clothing to be rich and vivid
-   - Add subtle golden warmth to skin tones
-   - Improve contrast, brightness, and dynamic range
-   - Colors should POP like a professionally edited photo
+1. FACIAL FEATURE RECONSTRUCTION:
+   - Detect all faces automatically
+   - Reconstruct eyes with crystal-clear irises, sharp pupils, and natural catchlights
+   - Enhance individual eyelashes - each one should be visible
+   - Restore lip texture with natural color and definition
+   - Reconstruct nose with proper shadow and highlight detail
+   - Eyebrows should show individual hairs
 
-5. NOISE & ARTIFACT REMOVAL:
-   - Remove ALL noise, blur, compression artifacts, and pixelation
-   - Eliminate JPEG artifacts completely
-   - Clean, pristine output quality
+2. SKIN ENHANCEMENT (NATURAL, NOT PLASTIC):
+   - Preserve realistic skin texture including pores and fine lines
+   - Remove blemishes, acne, and temporary imperfections
+   - Even out skin tone without creating a mask-like appearance
+   - Add subtle subsurface scattering for lifelike skin glow
+   - AVOID plastic, waxy, or over-smoothed appearance at ALL costs
 
-6. SKIN & FACE (Priority):
-   - Preserve natural skin texture - avoid plastic or artificial look
-   - Maintain original facial features, proportions, and identity EXACTLY
-   - Smooth skin naturally while keeping realistic pores and texture
-   - Eyes should be crystal clear with vivid irises
-   - Sharpen facial hair/beard to show individual strands
+3. HAIR DETAIL:
+   - Show individual hair strands
+   - Enhance hair shine and texture
+   - Facial hair (beard, mustache) should have crisp strand detail
 
-7. BACKGROUND:
-   - Apply subtle professional bokeh/blur to background
-   - Keep subject razor-sharp, background slightly softer
-   - Create professional depth-of-field separation
+4. IDENTITY PRESERVATION (CRITICAL):
+   - Maintain EXACT original facial structure
+   - Keep the same face shape, proportions, and expressions
+   - The enhanced person must be recognizable as the same individual
+   - NO changes to bone structure, face width, or feature positions` : ''}
 
-8. LIGHTING:
-   - Enhance natural lighting
-   - Add subtle golden hour warmth where appropriate
+${colorBoost ? `=== COLOR & LIGHTING ENHANCEMENT ===
+1. COLOR VIBRANCY:
+   - Boost colors to be rich, vibrant, and eye-catching
+   - Enhance blues in sky/water/clothing for punchy, vivid appearance  
+   - Add natural warmth to skin tones (golden hour quality)
+   - Improve color contrast and saturation naturally
+   - Colors should POP like professional photography
+
+2. DYNAMIC RANGE:
+   - Recover shadow detail without making them look unnatural
+   - Prevent highlight clipping
+   - Create beautiful tonal gradations
+   - Add subtle HDR-like enhancement
+
+3. PROFESSIONAL LIGHTING:
+   - Enhance existing lighting naturally
+   - Add subtle rim lighting or fill light effect where appropriate
    - Reduce harsh shadows gently
-   - Create professional studio-like lighting quality
+   - Create depth through light and shadow` : ''}
 
-QUALITY GOALS:
-- Crystal-clear, high-definition output
-- Professional, photo-realistic result
-- Clean, polished, and visually pleasing
-- The result should look BETTER than Remini - magazine cover quality${qualitySuffix}`;
+=== SHARPNESS & CLARITY ===
+1. EDGE ENHANCEMENT:
+   - Apply intelligent sharpening to all edges
+   - NO halos or sharpening artifacts
+   - Focus areas should be razor-sharp
+   - Background can have subtle softness for depth
+
+2. TEXTURE ENHANCEMENT:
+   - Enhance fabric textures (clothing weave visible)
+   - Improve surface details (wood grain, metal reflections, etc.)
+   - Hair texture crisp and detailed
+   - Environment textures clear and defined
+
+=== OUTPUT QUALITY TARGETS ===
+- Resolution: 4K-equivalent quality appearance
+- Clarity: Magazine-cover sharpness
+- Colors: Professional color grading
+- Noise: Zero visible noise or artifacts
+- Overall: Better than Remini, comparable to professional studio output
+
+${qualitySuffix}`;
         break;
         
       case "upscale":
