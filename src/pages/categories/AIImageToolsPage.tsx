@@ -14,12 +14,12 @@ import {
 } from "@/components/ui/accordion";
 
 // Import demo images
-import enhanceBefore from "@/assets/demo/enhance-before.jpg";
-import enhanceAfter from "@/assets/demo/enhance-after.jpg";
-import beautifyBefore from "@/assets/demo/beautify-before.jpg";
-import beautifyAfter from "@/assets/demo/beautify-after.jpg";
-import upscaleBefore from "@/assets/demo/upscale-before.jpg";
-import upscaleAfter from "@/assets/demo/upscale-after.jpg";
+import girl1Before from "@/assets/demo/girl1-before.jpg";
+import girl1After from "@/assets/demo/girl1-after.jpg";
+import girl2Before from "@/assets/demo/girl2-before.jpg";
+import girl2After from "@/assets/demo/girl2-after.jpg";
+import girl3Before from "@/assets/demo/girl3-before.jpg";
+import girl3After from "@/assets/demo/girl3-after.jpg";
 
 const aiTools = [
   {
@@ -84,22 +84,22 @@ const aiTools = [
 const demoSliders = [
   {
     title: "Photo Enhancement",
-    original: enhanceBefore,
-    enhanced: enhanceAfter,
+    original: girl1Before,
+    enhanced: girl1After,
     tool: "ai-photo-enhancer",
     aspectClassName: "aspect-[3/4]" // Portrait to match other tools
   },
   {
     title: "Face Beautify",
-    original: beautifyBefore,
-    enhanced: beautifyAfter,
+    original: girl2Before,
+    enhanced: girl2After,
     tool: "ai-face-beautify",
     aspectClassName: "aspect-[3/4]" // Portrait for face tools
   },
   {
     title: "Image Upscaling",
-    original: upscaleBefore,
-    enhanced: upscaleAfter,
+    original: girl3Before,
+    enhanced: girl3After,
     tool: "ai-image-upscaler",
     aspectClassName: "aspect-[3/4]" // Portrait for close-up detail
   }
