@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import HreflangTags from "@/components/HreflangTags";
 import AIImageRestorer from "@/components/ai-tools/AIImageRestorer";
 import ImageComparisonSlider from "@/components/ImageComparisonSlider";
+import { AdBottom, AdVideo } from "@/components/ads/AdContainer";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Sparkles, Zap, Shield, Download, Image, Star, CheckCircle, History, Camera, Eraser, Wand2 } from "lucide-react";
 import {
@@ -123,8 +124,12 @@ const AIImageRestorerPage = () => {
 
           {/* Tool Section */}
           <section className="py-8 md:py-12 px-4">
-            <div className="container mx-auto">
+            <div className="container mx-auto max-w-4xl">
               <AIImageRestorer />
+              
+              {/* Ads below tool */}
+              <AdBottom className="mt-6" />
+              <AdVideo className="mt-4" />
             </div>
           </section>
 

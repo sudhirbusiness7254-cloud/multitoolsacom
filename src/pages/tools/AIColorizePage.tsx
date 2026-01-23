@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HreflangTags from "@/components/HreflangTags";
 import AIColorize from "@/components/ai-tools/AIColorize";
+import { AdBottom, AdVideo } from "@/components/ads/AdContainer";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Sparkles, Zap, Shield, Download, Image, Star, CheckCircle, Palette, History, Camera, Book } from "lucide-react";
 import {
@@ -118,8 +119,12 @@ const AIColorizePage = () => {
 
           {/* Tool Section */}
           <section className="py-8 md:py-12 px-4">
-            <div className="container mx-auto">
+            <div className="container mx-auto max-w-4xl">
               <AIColorize />
+              
+              {/* Ads below tool */}
+              <AdBottom className="mt-6" />
+              <AdVideo className="mt-4" />
             </div>
           </section>
 
