@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
+import { AdBottom, AdVideo, AdInline } from "@/components/ads/AdContainer";
 import { CheckCircle, XCircle, AlertTriangle, Monitor, Smartphone, Info } from "lucide-react";
 import HreflangTags from "@/components/HreflangTags";
 
@@ -257,6 +258,13 @@ const AdPlacementGuidePage = () => {
                 </ul>
               </div>
             </section>
+            
+            {/* Ads Section */}
+            <div className="mt-10">
+              <AdInline />
+              <AdBottom className="mt-4" />
+              <AdVideo className="mt-4" />
+            </div>
           </div>
         </main>
         

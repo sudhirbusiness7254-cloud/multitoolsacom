@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { toolCategories } from "@/data/toolsData";
-import { AdBottom } from "@/components/ads/AdContainer";
+import { AdBottom, AdVideo, AdInline } from "@/components/ads/AdContainer";
 
 interface FAQ {
   question: string;
@@ -125,8 +125,10 @@ const ToolPageLayout = ({
                 {children}
               </div>
               
-              {/* Bottom Ad - After Tool Output */}
-              <AdBottom className="mt-8" />
+              {/* Ads - After Tool Output */}
+              <AdInline className="mt-6" />
+              <AdBottom className="mt-4" />
+              <AdVideo className="mt-4" />
             </div>
           </section>
 

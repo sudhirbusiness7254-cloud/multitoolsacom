@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { AdBottom, AdVideo, AdInline } from "@/components/ads/AdContainer";
 import { Link } from "react-router-dom";
 import { 
   Image, Shield, Zap, Globe, Users, Heart, Award, 
@@ -609,6 +610,13 @@ const About = () => {
                 Read FAQ
               </Link>
             </div>
+          </div>
+          
+          {/* Ads Section */}
+          <div className="max-w-4xl mx-auto mt-10">
+            <AdInline />
+            <AdBottom className="mt-4" />
+            <AdVideo className="mt-4" />
           </div>
         </section>
       </main>
