@@ -14,10 +14,10 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-card border-t border-border mt-8 sm:mt-12 md:mt-16">
-      <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-10 md:py-12">
+    <footer className="bg-card border-t border-border mt-8 sm:mt-12 md:mt-16 w-full">
+      <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12 py-8 sm:py-10 md:py-12">
         {/* Main Footer Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8 mb-8 sm:mb-10">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-10">
           {/* Brand */}
           <div className="col-span-2 sm:col-span-2 md:col-span-1 lg:col-span-1">
             <div className="flex items-center gap-2 mb-3 sm:mb-4">

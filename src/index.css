@@ -199,10 +199,25 @@
     @apply border-border;
   }
 
+  /* Full-width responsive setup for all devices */
+  html {
+    scroll-behavior: smooth;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
   body {
     @apply bg-background text-foreground;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  #root {
+    width: 100%;
+    min-height: 100vh;
   }
   
   /* Smooth theme transitions */
@@ -214,11 +229,6 @@
                 color 0.5s ease, 
                 border-color 0.5s ease,
                 box-shadow 0.5s ease !important;
-  }
-  
-  /* Smooth scrolling */
-  html {
-    scroll-behavior: smooth;
   }
 }
 
@@ -332,40 +342,54 @@
   }
 }
 
-/* Responsive container */
+/* Responsive container - Full width on all devices */
 @layer components {
   .container-responsive {
-    @apply w-full mx-auto px-4 sm:px-6 lg:px-8;
+    @apply w-full mx-auto;
     max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
   
   @screen sm {
     .container-responsive {
-      max-width: 640px;
-    }
-  }
-  
-  @screen md {
-    .container-responsive {
-      max-width: 768px;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
     }
   }
   
   @screen lg {
     .container-responsive {
-      max-width: 1024px;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  /* Full-width container with no max-width constraints */
+  .container-full {
+    @apply w-full;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  @screen sm {
+    .container-full {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  
+  @screen lg {
+    .container-full {
+      padding-left: 2rem;
+      padding-right: 2rem;
     }
   }
   
   @screen xl {
-    .container-responsive {
-      max-width: 1280px;
-    }
-  }
-  
-  @screen 2xl {
-    .container-responsive {
-      max-width: 1536px;
+    .container-full {
+      padding-left: 3rem;
+      padding-right: 3rem;
     }
   }
 }
