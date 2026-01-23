@@ -13,6 +13,14 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
+// Import demo images
+import enhanceBefore from "@/assets/demo/enhance-before.jpg";
+import enhanceAfter from "@/assets/demo/enhance-after.jpg";
+import beautifyBefore from "@/assets/demo/beautify-before.jpg";
+import beautifyAfter from "@/assets/demo/beautify-after.jpg";
+import upscaleBefore from "@/assets/demo/upscale-before.jpg";
+import upscaleAfter from "@/assets/demo/upscale-after.jpg";
+
 const aiTools = [
   {
     name: "AI Photo Enhancer",
@@ -88,24 +96,24 @@ const aiTools = [
   }
 ];
 
-// Sample before/after images for demo (these would be actual enhanced images in production)
+// Demo comparison sliders with actual before/after images
 const demoSliders = [
   {
     title: "Photo Enhancement",
-    original: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=60",
-    enhanced: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=95",
+    original: enhanceBefore,
+    enhanced: enhanceAfter,
     tool: "ai-photo-enhancer"
   },
   {
     title: "Face Beautify",
-    original: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&q=60",
-    enhanced: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&q=95",
+    original: beautifyBefore,
+    enhanced: beautifyAfter,
     tool: "ai-face-beautify"
   },
   {
     title: "Image Upscaling",
-    original: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=600&q=60",
-    enhanced: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=600&q=95",
+    original: upscaleBefore,
+    enhanced: upscaleAfter,
     tool: "ai-image-upscaler"
   }
 ];
