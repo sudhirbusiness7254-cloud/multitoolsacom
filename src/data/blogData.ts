@@ -1,3 +1,20 @@
+// Blog images
+import imageCompressionGuide from "@/assets/blog/image-compression-guide.jpg";
+import imageFormatsExplained from "@/assets/blog/image-formats-explained.jpg";
+import websiteSpeedOptimization from "@/assets/blog/website-speed-optimization.jpg";
+import watermarkProtection from "@/assets/blog/watermark-protection.jpg";
+import socialMediaImageSizes from "@/assets/blog/social-media-image-sizes.jpg";
+import imageMetadataPrivacy from "@/assets/blog/image-metadata-privacy.jpg";
+import heicToJpgGuide from "@/assets/blog/heic-to-jpg-guide.jpg";
+import batchProcessingWorkflow from "@/assets/blog/batch-processing-workflow.jpg";
+import pdfImageTools from "@/assets/blog/pdf-image-tools.jpg";
+import imageCroppingTechniques from "@/assets/blog/image-cropping-techniques.jpg";
+import transparentBackgrounds from "@/assets/blog/transparent-backgrounds.jpg";
+import qrCodeDesign from "@/assets/blog/qr-code-design.jpg";
+import photoFiltersEffects from "@/assets/blog/photo-filters-effects.jpg";
+import ecommerceProductImages from "@/assets/blog/ecommerce-product-images.jpg";
+import imageSecurityEncryption from "@/assets/blog/image-security-encryption.jpg";
+
 export interface BlogPost {
   id: string;
   title: string;
@@ -19,7 +36,7 @@ export const blogPosts: BlogPost[] = [
     date: "December 10, 2025",
     readTime: "12 min read",
     tags: ["Image Compression", "Optimization", "Web Performance"],
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop",
+    image: imageCompressionGuide,
     category: "Compression"
   },
   {
@@ -30,7 +47,7 @@ export const blogPosts: BlogPost[] = [
     date: "December 8, 2025",
     readTime: "10 min read",
     tags: ["Image Formats", "JPEG", "PNG", "WebP"],
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=400&fit=crop",
+    image: imageFormatsExplained,
     category: "Formats"
   },
   {
@@ -41,7 +58,7 @@ export const blogPosts: BlogPost[] = [
     date: "December 5, 2025",
     readTime: "8 min read",
     tags: ["SEO", "Web Performance", "Optimization"],
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
+    image: websiteSpeedOptimization,
     category: "Optimization"
   },
   {
@@ -52,7 +69,7 @@ export const blogPosts: BlogPost[] = [
     date: "December 3, 2025",
     readTime: "7 min read",
     tags: ["Watermarking", "Copyright", "Photography"],
-    image: "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=600&h=400&fit=crop",
+    image: watermarkProtection,
     category: "Security"
   },
   {
@@ -63,7 +80,7 @@ export const blogPosts: BlogPost[] = [
     date: "November 30, 2025",
     readTime: "9 min read",
     tags: ["Social Media", "Image Resizing", "Marketing"],
-    image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=600&h=400&fit=crop",
+    image: socialMediaImageSizes,
     category: "Social Media"
   },
   {
@@ -74,10 +91,9 @@ export const blogPosts: BlogPost[] = [
     date: "November 28, 2025",
     readTime: "6 min read",
     tags: ["Privacy", "Metadata", "Security"],
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=400&fit=crop",
+    image: imageMetadataPrivacy,
     category: "Privacy"
   },
-  // 9 NEW BLOG POSTS
   {
     id: "heic-to-jpg-conversion-guide",
     title: "HEIC to JPG Conversion: The Complete Guide for iPhone Users",
@@ -86,7 +102,7 @@ export const blogPosts: BlogPost[] = [
     date: "November 25, 2025",
     readTime: "7 min read",
     tags: ["HEIC", "iPhone", "Format Conversion"],
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop",
+    image: heicToJpgGuide,
     category: "Formats"
   },
   {
@@ -97,7 +113,7 @@ export const blogPosts: BlogPost[] = [
     date: "November 22, 2025",
     readTime: "11 min read",
     tags: ["Batch Processing", "Productivity", "Workflow"],
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
+    image: batchProcessingWorkflow,
     category: "Productivity"
   },
   {
@@ -108,7 +124,7 @@ export const blogPosts: BlogPost[] = [
     date: "November 18, 2025",
     readTime: "10 min read",
     tags: ["PDF", "Document Conversion", "Productivity"],
-    image: "https://images.unsplash.com/photo-1568667256549-094345857637?w=600&h=400&fit=crop",
+    image: pdfImageTools,
     category: "PDF Tools"
   },
   {
@@ -119,7 +135,7 @@ export const blogPosts: BlogPost[] = [
     date: "November 15, 2025",
     readTime: "8 min read",
     tags: ["Cropping", "Photography", "Composition"],
-    image: "https://images.unsplash.com/photo-1554080353-a576cf803bda?w=600&h=400&fit=crop",
+    image: imageCroppingTechniques,
     category: "Editing"
   },
   {
@@ -130,7 +146,7 @@ export const blogPosts: BlogPost[] = [
     date: "November 12, 2025",
     readTime: "9 min read",
     tags: ["Transparency", "PNG", "Background Removal"],
-    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=400&fit=crop",
+    image: transparentBackgrounds,
     category: "Editing"
   },
   {
@@ -141,7 +157,7 @@ export const blogPosts: BlogPost[] = [
     date: "November 8, 2025",
     readTime: "6 min read",
     tags: ["QR Code", "Design", "Marketing"],
-    image: "https://images.unsplash.com/photo-1595079676339-1534801ad6cf?w=600&h=400&fit=crop",
+    image: qrCodeDesign,
     category: "Marketing"
   },
   {
@@ -152,7 +168,7 @@ export const blogPosts: BlogPost[] = [
     date: "November 5, 2025",
     readTime: "8 min read",
     tags: ["Photo Filters", "Image Enhancement", "Creativity"],
-    image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&h=400&fit=crop",
+    image: photoFiltersEffects,
     category: "Editing"
   },
   {
@@ -163,7 +179,7 @@ export const blogPosts: BlogPost[] = [
     date: "November 1, 2025",
     readTime: "12 min read",
     tags: ["E-commerce", "Product Photography", "Conversion"],
-    image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&h=400&fit=crop",
+    image: ecommerceProductImages,
     category: "E-commerce"
   },
   {
@@ -174,7 +190,7 @@ export const blogPosts: BlogPost[] = [
     date: "October 28, 2025",
     readTime: "7 min read",
     tags: ["Security", "Encryption", "Privacy"],
-    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=600&h=400&fit=crop",
+    image: imageSecurityEncryption,
     category: "Security"
   }
 ];
