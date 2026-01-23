@@ -40,7 +40,13 @@ const AdLayout = ({ children }: AdLayoutProps) => {
       )}
       
       {/* Main Content with padding for side ads on XL screens */}
-      <div className={!hideSideAds ? 'xl:pl-[170px] xl:pr-[170px]' : ''}>
+      {/*
+        NOTE: Side ads are `xl:block` (>=1280px). On many laptops this creates a large
+        perceived empty margin when opening in a new tab (especially if ads are blocked
+        or not yet visible). To keep the site full-width on typical laptops, we only
+        reserve side space on very large screens (2xl).
+      */}
+      <div className={!hideSideAds ? '2xl:pl-[170px] 2xl:pr-[170px]' : ''}>
         {children}
       </div>
     </>
