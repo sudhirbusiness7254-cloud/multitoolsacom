@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HreflangTags from "@/components/HreflangTags";
 import { Link } from "react-router-dom";
-import { Sparkles, Wand2, ArrowUpCircle, Eraser, History, Zap, Shield, Download, Users, Palette, Trash2, Smile, ChevronRight, Star, Play } from "lucide-react";
+import { Sparkles, Wand2, ArrowUpCircle, History, Zap, Shield, Download, Users, Palette, Smile, ChevronRight, Star, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ImageComparisonSlider from "@/components/ImageComparisonSlider";
 import {
@@ -55,14 +55,6 @@ const aiTools = [
     badge: null
   },
   {
-    name: "AI Background Remover",
-    slug: "ai-background-remover",
-    description: "Remove backgrounds instantly with AI.",
-    icon: Eraser,
-    gradient: { from: "#EC4899", to: "#F43F5E" },
-    badge: null
-  },
-  {
     name: "AI Image Generator",
     slug: "ai-image-generation",
     description: "Create images from text descriptions.",
@@ -84,14 +76,6 @@ const aiTools = [
     description: "Add color to black & white photos.",
     icon: Palette,
     gradient: { from: "#F59E0B", to: "#EAB308" },
-    badge: null
-  },
-  {
-    name: "AI Object Removal",
-    slug: "ai-object-removal",
-    description: "Remove unwanted objects from photos.",
-    icon: Trash2,
-    gradient: { from: "#EF4444", to: "#DC2626" },
     badge: null
   }
 ];
