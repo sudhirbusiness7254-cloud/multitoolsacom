@@ -77,6 +77,7 @@ const Footer = () => {
               { name: "AI Colorize", route: "/ai-colorize" },
               { name: "AI Face Beautify", route: "/ai-face-beautify" },
               { name: "AI Image Generator", route: "/ai-image-generation" },
+              { name: "Birthday Wishes Generator", route: "/birthday-wishes-generator" },
             ].map((item) => (
               <Link 
                 key={item.route} 
