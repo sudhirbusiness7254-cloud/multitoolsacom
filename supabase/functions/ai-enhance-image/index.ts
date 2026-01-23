@@ -59,6 +59,94 @@ CRITICAL CONSTRAINTS:
         const faceEnhance = options?.faceEnhance !== false;
         const colorBoost = options?.colorBoost !== false;
         const denoiseStrength = options?.denoiseStrength || "medium";
+        const saturationLevel = options?.saturation || "high";
+        
+        // Define saturation instructions based on level
+        const saturationInstructions: Record<string, string> = {
+          low: `=== COLOR ENHANCEMENT (NATURAL/SUBTLE) ===
+1. SUBTLE SATURATION:
+   - Keep colors natural and true-to-life
+   - Only slight boost to saturation - about 10-15% increase
+   - Maintain realistic color representation
+   - Colors should look authentic, not enhanced
+   - Perfect for documentary or natural photography style
+
+2. SKIN TONES:
+   - Keep skin tones completely natural
+   - No added warmth or glow - just accurate colors
+   - Realistic flesh tones
+
+3. OUTPUT: Natural, understated, realistic colors`,
+          
+          medium: `=== COLOR ENHANCEMENT (BALANCED) ===
+1. MODERATE SATURATION:
+   - Boost saturation by about 25-35%
+   - Colors should be noticeably more vibrant but still realistic
+   - Enhanced but not over-the-top
+   - Good balance between vivid and natural
+
+2. SKIN TONES:
+   - Add subtle warmth to skin
+   - Healthy, natural-looking glow
+   - Slightly enhanced but believable
+
+3. DYNAMIC RANGE:
+   - Moderate contrast enhancement
+   - Good shadow and highlight detail
+
+4. OUTPUT: Vibrant but believable, everyday photography quality`,
+          
+          high: `=== COLOR ENHANCEMENT (VIVID/BOLD) ===
+1. HIGH SATURATION:
+   - Boost saturation significantly - about 50-60% increase
+   - Colors should be RICH, BOLD, and eye-catching
+   - Blues should be deep electric/cobalt blue
+   - Greens should be lush and vibrant
+   - Reds and oranges should be intense
+   - Perfect for social media and impactful photos
+
+2. SKIN TONES:
+   - Add warm, golden glow to skin (golden hour quality)
+   - Skin should look radiant and sun-kissed
+   - Enhanced blush and lip colors
+
+3. DYNAMIC RANGE & HDR:
+   - Push shadows darker and highlights brighter
+   - Create dramatic contrast
+   - Colors should have DEPTH and RICHNESS
+
+4. OUTPUT: Bold, vivid, social-media-ready colors`,
+          
+          maximum: `=== COLOR ENHANCEMENT (MAXIMUM/POSTER-LIKE) ===
+1. MAXIMUM SATURATION - GO ALL OUT:
+   - DRAMATICALLY boost saturation - 80-100% increase
+   - Colors should be EXTREMELY VIVID and INTENSE
+   - Make every color POP to the absolute maximum
+   - Blues should be ELECTRIC NEON blue
+   - Greens should be HYPER-SATURATED tropical
+   - Reds should be FIRE ENGINE RED intensity
+   - Oranges and yellows should GLOW
+   - This should look like a movie poster or high-fashion advertisement
+
+2. SKIN TONES:
+   - Add strong golden/warm glow
+   - Skin should look dramatically radiant
+   - Very enhanced, glamorous look
+   - Magazine cover perfection
+
+3. EXTREME DYNAMIC RANGE:
+   - Maximum contrast - deep blacks, bright whites
+   - HDR on steroids
+   - Every color at peak intensity
+   - Cinematic blockbuster color grading
+
+4. LIGHTING:
+   - Add dramatic rim lighting effects
+   - Strong golden hour warmth
+   - Professional fashion photography lighting
+
+5. OUTPUT: MAXIMUM impact, poster-quality, hyper-saturated colors that demand attention`
+        };
         
         prompt = `You are the world's most advanced AI photo enhancement system, superior to Remini, Topaz, and all competitors. Your task is to transform this image into STUNNING, professional-grade, 4K-quality output.
 
@@ -108,38 +196,7 @@ This is the MOST IMPORTANT part. Faces must be PERFECTLY enhanced:
    - The enhanced person must be recognizable as the same individual
    - NO changes to bone structure, face width, or feature positions` : ''}
 
-${colorBoost ? `=== VIBRANT COLOR ENHANCEMENT (HIGH PRIORITY) ===
-1. MAXIMUM COLOR SATURATION & VIBRANCY:
-   - SIGNIFICANTLY boost saturation - make colors POP dramatically
-   - Colors should be RICH, BOLD, and VIVID like Instagram filters on steroids
-   - Blues should be DEEP electric/cobalt blue - sky should look stunning
-   - Greens should be LUSH and vibrant like tropical foliage
-   - Reds and oranges should be INTENSE and eye-catching
-   - Increase color contrast aggressively for maximum visual impact
-   - The image should look like it's been professionally color graded for a movie poster
-
-2. SKIN TONE ENHANCEMENT:
-   - Add warm, golden glow to skin (like golden hour sunlight)
-   - Skin should look healthy, radiant, and sun-kissed
-   - Enhance natural blush and lip colors
-   - Make skin look alive and vibrant, not flat
-
-3. DYNAMIC RANGE & HDR:
-   - Push shadows darker and highlights brighter
-   - Create dramatic contrast like HDR photography
-   - Colors should have DEPTH and RICHNESS
-   - Add cinematic color grading quality
-
-4. PROFESSIONAL LIGHTING ENHANCEMENT:
-   - Enhance existing lighting dramatically
-   - Add subtle golden/warm rim lighting
-   - Create beautiful light and shadow interplay
-   - Make the image look like professional studio photography
-
-5. COLOR OUTPUT GOAL:
-   - The final image should be NOTICEABLY more colorful than the original
-   - Colors should be magazine-cover quality - bold and striking
-   - Think: National Geographic cover, fashion magazine, movie poster quality` : ''}
+${colorBoost ? saturationInstructions[saturationLevel] || saturationInstructions.high : ''}
 
 === SHARPNESS & CLARITY ===
 1. EDGE ENHANCEMENT:
