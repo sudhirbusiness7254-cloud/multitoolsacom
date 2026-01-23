@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AIFaceBeautify from "@/components/ai-tools/AIFaceBeautify";
+import ImageComparisonSlider from "@/components/ImageComparisonSlider";
 import HreflangTags from "@/components/HreflangTags";
 import { Smile, Sparkles, Shield, Zap, Download, Eye, Sun, Heart } from "lucide-react";
 import {
@@ -10,6 +11,10 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+
+// Import demo images
+import beautifyBefore from "@/assets/demo/beautify-before.jpg";
+import beautifyAfter from "@/assets/demo/beautify-after.jpg";
 
 const AIFaceBeautifyPage = () => {
   return (
@@ -67,6 +72,28 @@ const AIFaceBeautifyPage = () => {
                   Enhance your facial features with AI-powered beautification. 
                   Smooth skin, brighten eyes, whiten teeth, and more - professional results, completely free.
                 </p>
+              </div>
+            </div>
+          </section>
+
+          {/* Demo Comparison Section */}
+          <section className="py-10 md:py-14 px-4 bg-secondary/30">
+            <div className="container mx-auto max-w-3xl">
+              <div className="text-center mb-8">
+                <h2 className="text-2xl md:text-3xl font-bold mb-3">See the Transformation</h2>
+                <p className="text-muted-foreground">Drag the slider to compare natural vs AI beautified result</p>
+              </div>
+              
+              <div className="bg-card rounded-2xl border border-border overflow-hidden shadow-lg">
+                <div className="aspect-[3/4]">
+                  <ImageComparisonSlider
+                    originalSrc={beautifyBefore}
+                    compressedSrc={beautifyAfter}
+                    originalLabel="Natural"
+                    compressedLabel="Beautified"
+                    className="w-full h-full"
+                  />
+                </div>
               </div>
             </div>
           </section>

@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HreflangTags from "@/components/HreflangTags";
 import AIImageRestorer from "@/components/ai-tools/AIImageRestorer";
+import ImageComparisonSlider from "@/components/ImageComparisonSlider";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Sparkles, Zap, Shield, Download, Image, Star, CheckCircle, History, Camera, Eraser, Wand2 } from "lucide-react";
 import {
@@ -11,6 +12,10 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+
+// Import demo images
+import restorerBefore from "@/assets/demo/restorer-before.jpg";
+import restorerAfter from "@/assets/demo/restorer-after.jpg";
 
 const AIImageRestorerPage = () => {
   const faqSchema = {
@@ -112,6 +117,28 @@ const AIImageRestorerPage = () => {
                   Breathe new life into old, damaged, or faded photographs. Our AI intelligently repairs scratches, 
                   fixes discoloration, removes noise, and restores your precious memories to their original glory.
                 </p>
+              </div>
+            </div>
+          </section>
+
+          {/* Demo Comparison Section */}
+          <section className="py-10 md:py-14 px-4 bg-secondary/30">
+            <div className="container mx-auto max-w-3xl">
+              <div className="text-center mb-8">
+                <h2 className="text-2xl md:text-3xl font-bold mb-3">See the Restoration</h2>
+                <p className="text-muted-foreground">Drag the slider to compare damaged original vs AI restored photo</p>
+              </div>
+              
+              <div className="bg-card rounded-2xl border border-border overflow-hidden shadow-lg">
+                <div className="aspect-[3/4]">
+                  <ImageComparisonSlider
+                    originalSrc={restorerBefore}
+                    compressedSrc={restorerAfter}
+                    originalLabel="Damaged Original"
+                    compressedLabel="AI Restored"
+                    className="w-full h-full"
+                  />
+                </div>
               </div>
             </div>
           </section>
