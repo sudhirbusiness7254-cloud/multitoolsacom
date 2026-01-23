@@ -102,19 +102,22 @@ const demoSliders = [
     title: "Photo Enhancement",
     original: enhanceBefore,
     enhanced: enhanceAfter,
-    tool: "ai-photo-enhancer"
+    tool: "ai-photo-enhancer",
+    aspectClassName: "aspect-[4/3]" // Landscape for general enhancement
   },
   {
     title: "Face Beautify",
     original: beautifyBefore,
     enhanced: beautifyAfter,
-    tool: "ai-face-beautify"
+    tool: "ai-face-beautify",
+    aspectClassName: "aspect-[3/4]" // Portrait for face tools
   },
   {
     title: "Image Upscaling",
     original: upscaleBefore,
     enhanced: upscaleAfter,
-    tool: "ai-image-upscaler"
+    tool: "ai-image-upscaler",
+    aspectClassName: "aspect-[3/4]" // Portrait for close-up detail
   }
 ];
 
@@ -212,7 +215,7 @@ const AIImageToolsPage = () => {
                         compressedSrc={demo.enhanced}
                         originalLabel="Before"
                         compressedLabel="After"
-                        aspectClassName="aspect-[4/3]"
+                        aspectClassName={demo.aspectClassName}
                       />
                       <div className="p-4 text-center">
                         <h3 className="font-semibold group-hover:text-primary transition-colors">{demo.title}</h3>
