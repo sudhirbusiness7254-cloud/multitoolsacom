@@ -264,8 +264,8 @@ const HomePage = () => {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[500px] h-[350px] sm:h-[500px] bg-primary/10 rounded-full blur-3xl pointer-events-none z-[1]" />
             <div className="absolute top-20 right-10 w-[200px] h-[200px] bg-accent/5 rounded-full blur-2xl pointer-events-none hidden lg:block z-[1]" />
             
-            <div className="container mx-auto px-4 sm:px-6 relative z-10">
-              <div className="text-center max-w-4xl mx-auto">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 relative z-10">
+              <div className="text-center max-w-5xl 2xl:max-w-6xl mx-auto">
                 {/* H1 - Main site title */}
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
                   Professional Image & PDF Tools
@@ -323,8 +323,8 @@ const HomePage = () => {
           </section>
 
           {/* Popular Tools - Quick access */}
-          <section className="py-10 sm:py-14 px-4 sm:px-6 bg-secondary/30">
-            <div className="container mx-auto max-w-6xl">
+          <section className="py-10 sm:py-14 px-4 sm:px-6 lg:px-8 xl:px-12 bg-secondary/30">
+            <div className="container mx-auto max-w-7xl 2xl:max-w-[1600px]">
               <div className="flex items-center justify-between mb-8">
                 <div>
                   <div className="flex items-center gap-2 mb-2">
@@ -370,8 +370,8 @@ const HomePage = () => {
           </section>
 
           {/* Tool Categories - Detailed with unique descriptions */}
-          <section className="py-12 sm:py-20 px-4 sm:px-6">
-            <div className="container mx-auto max-w-6xl">
+          <section className="py-12 sm:py-20 px-4 sm:px-6 lg:px-8 xl:px-12">
+            <div className="container mx-auto max-w-7xl 2xl:max-w-[1600px]">
               <div className="text-center mb-12">
                 <h2 className="text-2xl sm:text-4xl font-bold mb-4">Complete Image & PDF Tool Collection</h2>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -429,8 +429,8 @@ const HomePage = () => {
           </section>
 
           {/* How It Works - Step by step with icons */}
-          <section className="py-12 sm:py-20 px-4 sm:px-6 bg-gradient-hero">
-            <div className="container mx-auto max-w-5xl">
+          <section className="py-12 sm:py-20 px-4 sm:px-6 lg:px-8 xl:px-12 bg-gradient-hero">
+            <div className="container mx-auto max-w-7xl 2xl:max-w-[1600px]">
               <div className="text-center mb-12">
                 <h2 className="text-2xl sm:text-4xl font-bold mb-4">How Browser-Based Processing Works</h2>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -584,8 +584,8 @@ const HomePage = () => {
           </section>
 
           {/* Why Choose Us - Trust signals */}
-          <section className="py-12 sm:py-16 px-4 sm:px-6">
-            <div className="container mx-auto max-w-6xl">
+          <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 xl:px-12">
+            <div className="container mx-auto max-w-7xl 2xl:max-w-[1600px]">
               <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4">Why Thousands Choose MultiToolsA</h2>
               <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
                 Professional-quality tools with uncompromising privacy. Here's what sets us apart from other online image editors.
@@ -635,8 +635,8 @@ const HomePage = () => {
           </section>
 
           {/* Featured Blog Posts - Educational content */}
-          <section className="py-12 sm:py-16 px-4 sm:px-6 bg-secondary/30">
-            <div className="container mx-auto max-w-6xl">
+          <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 xl:px-12 bg-secondary/30">
+            <div className="container mx-auto max-w-7xl 2xl:max-w-[1600px]">
               <div className="flex items-center justify-between mb-8">
                 <div>
                   <div className="flex items-center gap-2 mb-2">
@@ -690,8 +690,8 @@ const HomePage = () => {
           </section>
 
           {/* Resources & Guides Section */}
-          <section className="py-12 sm:py-16 px-4 sm:px-6">
-            <div className="container mx-auto max-w-5xl">
+          <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 xl:px-12">
+            <div className="container mx-auto max-w-7xl 2xl:max-w-[1600px]">
               <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4">Resources & Learning Center</h2>
               <p className="text-center text-muted-foreground mb-10 max-w-2xl mx-auto">
                 Expand your image editing knowledge with our comprehensive guides and documentation
@@ -789,15 +789,15 @@ const HomePage = () => {
           </section>
           
           {/* Inline Ad before Final CTA */}
-          <section className="py-6 px-4 sm:px-6 bg-secondary/20">
-            <div className="container mx-auto max-w-4xl">
+          <section className="py-6 px-4 sm:px-6 lg:px-8 xl:px-12 bg-secondary/20">
+            <div className="container mx-auto max-w-7xl 2xl:max-w-[1600px]">
               <AdBottom />
             </div>
           </section>
 
           {/* Final CTA Section */}
-          <section className="py-16 sm:py-24 px-4 sm:px-6 bg-gradient-hero">
-            <div className="container mx-auto max-w-3xl text-center">
+          <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 xl:px-12 bg-gradient-hero">
+            <div className="container mx-auto max-w-5xl 2xl:max-w-6xl text-center">
               <h2 className="text-3xl sm:text-4xl font-bold mb-6">Ready to Transform Your Images?</h2>
               <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
                 Start editing, converting, and compressing your files instantly—completely free, right in your browser. 
