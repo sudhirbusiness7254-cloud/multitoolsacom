@@ -90,10 +90,10 @@ const AIImageUpscalerPage = () => {
         
         <main className="flex-1">
           {/* Hero Section */}
-          <section className="py-10 md:py-16 bg-gradient-hero relative overflow-hidden">
+          <section className="py-10 md:py-16 lg:py-20 bg-gradient-hero relative overflow-hidden">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-3xl" />
             
-            <div className="container mx-auto px-4 relative z-10">
+            <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 relative z-10">
               <div className="mb-6">
                 <Link 
                   to="/ai-image-tools" 
@@ -104,17 +104,17 @@ const AIImageUpscalerPage = () => {
                 </Link>
               </div>
               
-              <div className="max-w-3xl mx-auto text-center">
+              <div className="max-w-4xl xl:max-w-5xl mx-auto text-center">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/30 mb-6">
                   <Maximize className="w-4 h-4 text-cyan-500" />
                   <span className="text-sm font-medium text-cyan-500">Super Resolution AI</span>
                 </div>
                 
-                <h1 className="text-3xl md:text-5xl font-bold mb-4">
+                <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4">
                   AI Image Upscaler
                 </h1>
                 
-                <p className="text-lg text-muted-foreground mb-8">
+                <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
                   Increase your image resolution up to 4x without losing quality. Our AI super-resolution technology 
                   intelligently reconstructs fine details, textures, and edges for crystal-clear enlargements.
                 </p>
@@ -123,8 +123,8 @@ const AIImageUpscalerPage = () => {
           </section>
 
           {/* Tool Section */}
-          <section className="py-8 md:py-12 px-4">
-            <div className="container mx-auto max-w-4xl">
+          <section className="py-8 md:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+            <div className="w-full max-w-5xl xl:max-w-6xl mx-auto">
               <AIImageUpscaler />
               
               {/* Ads below tool */}
@@ -134,8 +134,8 @@ const AIImageUpscalerPage = () => {
           </section>
 
           {/* Demo Comparison Section */}
-          <section className="py-10 md:py-14 px-4 bg-secondary/30">
-            <div className="container mx-auto max-w-lg">
+          <section className="py-10 md:py-14 lg:py-16 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 bg-secondary/30">
+            <div className="w-full max-w-xl lg:max-w-2xl mx-auto">
               <div className="text-center mb-6">
                 <h2 className="text-xl md:text-2xl font-bold mb-2">See the Difference</h2>
                 <p className="text-sm text-muted-foreground">Drag the slider to compare</p>
@@ -154,9 +154,9 @@ const AIImageUpscalerPage = () => {
           </section>
 
           {/* About Section */}
-          <section className="py-12 md:py-16 px-4 bg-secondary/30">
-            <div className="container mx-auto max-w-4xl">
-              <h2 className="text-2xl md:text-4xl font-bold text-center mb-8">About AI Image Upscaling</h2>
+          <section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 bg-secondary/30">
+            <div className="w-full max-w-5xl xl:max-w-6xl mx-auto">
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-center mb-8">About AI Image Upscaling</h2>
               
               <div className="prose prose-lg dark:prose-invert max-w-none space-y-6">
                 <p>
@@ -185,11 +185,11 @@ const AIImageUpscalerPage = () => {
           </section>
 
           {/* Features Grid */}
-          <section className="py-12 md:py-16 px-4">
-            <div className="container mx-auto max-w-5xl">
-              <h2 className="text-2xl md:text-4xl font-bold text-center mb-10">Key Features</h2>
+          <section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+            <div className="w-full max-w-6xl xl:max-w-7xl 2xl:max-w-[1600px] mx-auto">
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-center mb-10">Key Features</h2>
               
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
                 {[
                   { icon: Maximize, title: "Up to 4x Upscale", desc: "Increase resolution by 2x, 3x, or 4x while maintaining sharp details", color: "text-cyan-500", bg: "bg-cyan-500/10" },
                   { icon: Sparkles, title: "Detail Reconstruction", desc: "AI generates new realistic details that match your image content", color: "text-yellow-500", bg: "bg-yellow-500/10" },
@@ -212,11 +212,11 @@ const AIImageUpscalerPage = () => {
           </section>
 
           {/* How It Works */}
-          <section className="py-12 md:py-16 px-4 bg-gradient-dark">
-            <div className="container mx-auto max-w-4xl">
-              <h2 className="text-2xl md:text-4xl font-bold text-center mb-10">How AI Upscaling Works</h2>
+          <section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 bg-gradient-dark">
+            <div className="w-full max-w-5xl xl:max-w-6xl mx-auto">
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-center mb-10">How AI Upscaling Works</h2>
               
-              <div className="grid md:grid-cols-4 gap-8">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
                 {[
                   { step: "1", title: "Upload", desc: "Upload your image in any common format" },
                   { step: "2", title: "Choose Scale", desc: "Select 2x, 3x, or 4x upscale level" },
@@ -236,11 +236,11 @@ const AIImageUpscalerPage = () => {
           </section>
 
           {/* Use Cases */}
-          <section className="py-12 md:py-16 px-4">
-            <div className="container mx-auto max-w-5xl">
-              <h2 className="text-2xl md:text-4xl font-bold text-center mb-10">Common Use Cases</h2>
+          <section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+            <div className="w-full max-w-6xl xl:max-w-7xl 2xl:max-w-[1600px] mx-auto">
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-center mb-10">Common Use Cases</h2>
               
-              <div className="grid md:grid-cols-3 gap-6">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 gap-4 md:gap-6">
                 {[
                   { icon: Printer, title: "Print Enlargement", desc: "Upscale small photos for large prints, posters, or canvas without losing quality. Perfect for turning old family photos into wall art." },
                   { icon: Monitor, title: "Digital Display", desc: "Enhance images for high-resolution displays, 4K monitors, and digital signage where pixel quality matters." },
@@ -262,9 +262,9 @@ const AIImageUpscalerPage = () => {
           </section>
 
           {/* Benefits */}
-          <section className="py-12 md:py-16 px-4 bg-secondary/30">
-            <div className="container mx-auto max-w-4xl">
-              <h2 className="text-2xl md:text-4xl font-bold text-center mb-8">Why Choose Our AI Upscaler</h2>
+          <section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 bg-secondary/30">
+            <div className="w-full max-w-5xl xl:max-w-6xl mx-auto">
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-center mb-8">Why Choose Our AI Upscaler</h2>
               
               <div className="prose prose-lg dark:prose-invert max-w-none">
                 <p>
@@ -294,8 +294,8 @@ const AIImageUpscalerPage = () => {
           </section>
 
           {/* Privacy & Security */}
-          <section className="py-12 md:py-16 px-4">
-            <div className="container mx-auto max-w-4xl">
+          <section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+            <div className="w-full max-w-5xl xl:max-w-6xl mx-auto">
               <div className="bg-card rounded-2xl p-8 border border-border">
                 <div className="flex items-center gap-3 mb-6">
                   <Shield className="w-8 h-8 text-green-500" />

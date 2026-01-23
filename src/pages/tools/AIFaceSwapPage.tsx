@@ -85,10 +85,10 @@ const AIFaceSwapPage = () => {
         
         <main className="flex-1">
           {/* Hero Section */}
-          <section className="py-10 md:py-16 bg-gradient-hero relative overflow-hidden">
+          <section className="py-10 md:py-16 lg:py-20 bg-gradient-hero relative overflow-hidden">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-3xl" />
             
-            <div className="container mx-auto px-4 relative z-10">
+            <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 relative z-10">
               <div className="mb-6">
                 <Link 
                   to="/ai-image-tools" 
@@ -99,17 +99,17 @@ const AIFaceSwapPage = () => {
                 </Link>
               </div>
               
-              <div className="max-w-3xl mx-auto text-center">
+              <div className="max-w-4xl xl:max-w-5xl mx-auto text-center">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/30 mb-6">
                   <RefreshCcw className="w-4 h-4 text-purple-500" />
                   <span className="text-sm font-medium text-purple-500">Face Swap AI</span>
                 </div>
                 
-                <h1 className="text-3xl md:text-5xl font-bold mb-4">
+                <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4">
                   AI Face Swap
                 </h1>
                 
-                <p className="text-lg text-muted-foreground mb-8">
+                <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
                   Swap faces between two photos with stunning realism. Our AI handles lighting matching, 
                   skin tone blending, and angle adjustment to create seamless, natural-looking face swaps.
                 </p>
@@ -118,8 +118,8 @@ const AIFaceSwapPage = () => {
           </section>
 
           {/* Tool Section */}
-          <section className="py-8 md:py-12 px-4">
-            <div className="container mx-auto max-w-4xl">
+          <section className="py-8 md:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+            <div className="w-full max-w-5xl xl:max-w-6xl mx-auto">
               <AIFaceSwap />
               
               {/* Ads below tool */}
@@ -129,9 +129,9 @@ const AIFaceSwapPage = () => {
           </section>
 
           {/* About Section */}
-          <section className="py-12 md:py-16 px-4 bg-secondary/30">
-            <div className="container mx-auto max-w-4xl">
-              <h2 className="text-2xl md:text-4xl font-bold text-center mb-8">About AI Face Swap</h2>
+          <section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 bg-secondary/30">
+            <div className="w-full max-w-5xl xl:max-w-6xl mx-auto">
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-center mb-8">About AI Face Swap</h2>
               
               <div className="prose prose-lg dark:prose-invert max-w-none space-y-6">
                 <p>
@@ -160,11 +160,11 @@ const AIFaceSwapPage = () => {
           </section>
 
           {/* Features Grid */}
-          <section className="py-12 md:py-16 px-4">
-            <div className="container mx-auto max-w-5xl">
-              <h2 className="text-2xl md:text-4xl font-bold text-center mb-10">Key Features</h2>
+          <section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+            <div className="w-full max-w-6xl xl:max-w-7xl 2xl:max-w-[1600px] mx-auto">
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-center mb-10">Key Features</h2>
               
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
                 {[
                   { icon: Sparkles, title: "Realistic Blending", desc: "AI matches lighting, skin tone, and shadows for natural results", color: "text-purple-500", bg: "bg-purple-500/10" },
                   { icon: Users, title: "Any Two Photos", desc: "Swap faces between any two photos with visible faces", color: "text-blue-500", bg: "bg-blue-500/10" },
@@ -187,11 +187,11 @@ const AIFaceSwapPage = () => {
           </section>
 
           {/* How It Works */}
-          <section className="py-12 md:py-16 px-4 bg-gradient-dark">
-            <div className="container mx-auto max-w-4xl">
-              <h2 className="text-2xl md:text-4xl font-bold text-center mb-10">How Face Swap Works</h2>
+          <section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 bg-gradient-dark">
+            <div className="w-full max-w-5xl xl:max-w-6xl mx-auto">
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-center mb-10">How Face Swap Works</h2>
               
-              <div className="grid md:grid-cols-4 gap-8">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
                 {[
                   { step: "1", title: "Source Face", desc: "Upload a photo with the face you want to use" },
                   { step: "2", title: "Target Photo", desc: "Upload the photo where you want the face placed" },
@@ -211,11 +211,11 @@ const AIFaceSwapPage = () => {
           </section>
 
           {/* Use Cases */}
-          <section className="py-12 md:py-16 px-4">
-            <div className="container mx-auto max-w-5xl">
-              <h2 className="text-2xl md:text-4xl font-bold text-center mb-10">Fun Ways to Use Face Swap</h2>
+          <section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+            <div className="w-full max-w-6xl xl:max-w-7xl 2xl:max-w-[1600px] mx-auto">
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-center mb-10">Fun Ways to Use Face Swap</h2>
               
-              <div className="grid md:grid-cols-3 gap-6">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 gap-4 md:gap-6">
                 {[
                   { icon: Laugh, title: "Family Fun", desc: "Swap faces between family members for hilarious photos at gatherings and reunions. Create memorable, shareable moments." },
                   { icon: Star, title: "Celebrity Photos", desc: "Place your face into photos with celebrities, movie scenes, or famous artwork for fun social media posts." },
@@ -237,9 +237,9 @@ const AIFaceSwapPage = () => {
           </section>
 
           {/* Tips for Best Results */}
-          <section className="py-12 md:py-16 px-4 bg-secondary/30">
-            <div className="container mx-auto max-w-4xl">
-              <h2 className="text-2xl md:text-4xl font-bold text-center mb-8">Tips for Best Results</h2>
+          <section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 bg-secondary/30">
+            <div className="w-full max-w-5xl xl:max-w-6xl mx-auto">
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-center mb-8">Tips for Best Results</h2>
               
               <div className="grid md:grid-cols-2 gap-6">
                 {[
@@ -263,8 +263,8 @@ const AIFaceSwapPage = () => {
           </section>
 
           {/* Privacy & Ethics */}
-          <section className="py-12 md:py-16 px-4">
-            <div className="container mx-auto max-w-4xl">
+          <section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+            <div className="w-full max-w-5xl xl:max-w-6xl mx-auto">
               <div className="bg-card rounded-2xl p-8 border border-border">
                 <div className="flex items-center gap-3 mb-6">
                   <Shield className="w-8 h-8 text-green-500" />
