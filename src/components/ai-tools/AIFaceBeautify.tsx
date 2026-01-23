@@ -1,5 +1,5 @@
 import { useState, useRef, useCallback, useEffect } from "react";
-import { Smile, Download, Loader2, Upload, RefreshCw, Zap, Image as ImageIcon, X, Sparkles, SlidersHorizontal } from "lucide-react";
+import { Smile, Download, Loader2, Upload, RefreshCw, Zap, Image as ImageIcon, X, Sparkles, SlidersHorizontal, Eye, EyeOff } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -9,8 +9,10 @@ import { Switch } from "@/components/ui/switch";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import ImageComparisonSlider from "@/components/ImageComparisonSlider";
+import { Toggle } from "@/components/ui/toggle";
 
 type OutputFormat = "png" | "jpg" | "webp";
+type PreviewMode = "original" | "enhanced" | "comparison";
 
 interface BeautifyOptions {
   skinSmoothing: number;
@@ -28,6 +30,8 @@ const AIFaceBeautify = () => {
   const [outputFormat, setOutputFormat] = useState<OutputFormat>("png");
   const [isDragging, setIsDragging] = useState(false);
   const [showComparison, setShowComparison] = useState(false);
+  const [previewMode, setPreviewMode] = useState<PreviewMode>("enhanced");
+  const [isHoldingPreview, setIsHoldingPreview] = useState(false);
   const [options, setOptions] = useState<BeautifyOptions>({
     skinSmoothing: 50,
     eyeEnhancement: true,
@@ -322,15 +326,38 @@ const AIFaceBeautify = () => {
                 <Label className="text-sm font-medium">Your Photo</Label>
                 <div className="flex items-center gap-2">
                   {beautifiedImage && (
-                    <Button
-                      variant={showComparison ? "default" : "outline"}
-                      size="sm"
-                      onClick={() => setShowComparison(!showComparison)}
-                      className="text-xs gap-1.5 h-7"
-                    >
-                      <SlidersHorizontal className="w-3 h-3" />
-                      {showComparison ? "Grid View" : "Compare"}
-                    </Button>
+                    <>
+                      {/* Real-time Preview Toggle */}
+                      <div className="flex items-center gap-1 bg-secondary rounded-lg p-1">
+                        <Button
+                          variant={previewMode === "original" ? "default" : "ghost"}
+                          size="sm"
+                          onClick={() => setPreviewMode("original")}
+                          className="text-xs h-7 px-2"
+                        >
+                          <EyeOff className="w-3 h-3 mr-1" />
+                          Original
+                        </Button>
+                        <Button
+                          variant={previewMode === "enhanced" ? "default" : "ghost"}
+                          size="sm"
+                          onClick={() => setPreviewMode("enhanced")}
+                          className="text-xs h-7 px-2"
+                        >
+                          <Eye className="w-3 h-3 mr-1" />
+                          Enhanced
+                        </Button>
+                        <Button
+                          variant={previewMode === "comparison" ? "default" : "ghost"}
+                          size="sm"
+                          onClick={() => setPreviewMode("comparison")}
+                          className="text-xs h-7 px-2"
+                        >
+                          <SlidersHorizontal className="w-3 h-3 mr-1" />
+                          Compare
+                        </Button>
+                      </div>
+                    </>
                   )}
                   <Button variant="ghost" size="sm" onClick={reset} className="text-xs gap-1.5 h-7">
                     <X className="w-3 h-3" />
@@ -340,14 +367,51 @@ const AIFaceBeautify = () => {
               </div>
               
               {/* Comparison Slider View */}
-              {showComparison && beautifiedImage ? (
-                <ImageComparisonSlider
-                  originalSrc={originalImage}
-                  compressedSrc={beautifiedImage}
-                  originalLabel="Original"
-                  compressedLabel="Beautified"
-                  className="w-full"
-                />
+              {previewMode === "comparison" && beautifiedImage ? (
+                <div className="space-y-2">
+                  <ImageComparisonSlider
+                    originalSrc={originalImage}
+                    compressedSrc={beautifiedImage}
+                    originalLabel="Original"
+                    compressedLabel="Beautified"
+                    className="w-full rounded-xl overflow-hidden"
+                  />
+                  <p className="text-xs text-center text-muted-foreground">Drag the slider to compare</p>
+                </div>
+              ) : beautifiedImage && (previewMode === "original" || previewMode === "enhanced") ? (
+                /* Single Image View with Hold-to-Compare */
+                <div className="space-y-2">
+                  <div 
+                    className="relative rounded-xl overflow-hidden border border-border bg-secondary/20 aspect-[4/3] cursor-pointer select-none"
+                    onMouseDown={() => setIsHoldingPreview(true)}
+                    onMouseUp={() => setIsHoldingPreview(false)}
+                    onMouseLeave={() => setIsHoldingPreview(false)}
+                    onTouchStart={() => setIsHoldingPreview(true)}
+                    onTouchEnd={() => setIsHoldingPreview(false)}
+                  >
+                    <img
+                      src={
+                        previewMode === "original" 
+                          ? (isHoldingPreview ? beautifiedImage : originalImage)
+                          : (isHoldingPreview ? originalImage : beautifiedImage)
+                      }
+                      alt={previewMode === "original" ? "Original" : "Beautified"}
+                      className="w-full h-full object-contain transition-opacity duration-200"
+                    />
+                    {/* Overlay indicator */}
+                    <div className="absolute top-3 left-3 px-2 py-1 bg-black/60 text-white text-xs rounded-md">
+                      {previewMode === "original" 
+                        ? (isHoldingPreview ? "Enhanced" : "Original")
+                        : (isHoldingPreview ? "Original" : "Enhanced")
+                      }
+                    </div>
+                    {/* Hold instruction */}
+                    <div className="absolute bottom-3 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-black/60 text-white text-xs rounded-full flex items-center gap-1.5">
+                      <span className="w-2 h-2 bg-white/80 rounded-full animate-pulse" />
+                      Hold to see {previewMode === "original" ? "enhanced" : "original"}
+                    </div>
+                  </div>
+                </div>
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {/* Original */}
