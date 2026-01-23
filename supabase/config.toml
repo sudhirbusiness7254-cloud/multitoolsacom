@@ -8,9 +8,3 @@ verify_jwt = false
 
 [functions.sitemap]
 verify_jwt = false
-
-[functions.ai-enhance-image]
-verify_jwt = false
-
-[functions.replicate-enhance]
-verify_jwt = false

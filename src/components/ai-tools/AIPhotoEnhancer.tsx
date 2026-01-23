@@ -1,5 +1,5 @@
 import { useState, useRef, useCallback, useEffect } from "react";
-import { Sparkles, Download, Loader2, Upload, RefreshCw, Zap, Image as ImageIcon, X, SlidersHorizontal, Crown, Settings2, CheckCircle2 } from "lucide-react";
+import { Sparkles, Download, Loader2, Upload, RefreshCw, Zap, Image as ImageIcon, X, SlidersHorizontal, Crown, Settings2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -10,12 +10,16 @@ import ImageComparisonSlider from "@/components/ImageComparisonSlider";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 type OutputFormat = "png" | "jpg" | "webp";
-type PipelineType = "full" | "face-only" | "upscale-only";
+type QualityPreset = "standard" | "premium" | "ultra";
+type SaturationLevel = "low" | "medium" | "high" | "maximum";
 
-interface PipelineStep {
-  id: string;
-  label: string;
-  status: "pending" | "running" | "complete" | "error";
+interface EnhancementOptions {
+  preset: QualityPreset;
+  multiPass: boolean;
+  faceEnhance: boolean;
+  colorBoost: boolean;
+  denoiseStrength: "low" | "medium" | "high";
+  saturation: SaturationLevel;
 }
 
 const AIPhotoEnhancer = () => {
@@ -29,8 +33,14 @@ const AIPhotoEnhancer = () => {
   const [autoEnhance, setAutoEnhance] = useState(true);
   const [showComparison, setShowComparison] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
-  const [pipelineType, setPipelineType] = useState<PipelineType>("full");
-  const [pipelineSteps, setPipelineSteps] = useState<PipelineStep[]>([]);
+  const [options, setOptions] = useState<EnhancementOptions>({
+    preset: "premium",
+    multiPass: true,
+    faceEnhance: true,
+    colorBoost: true,
+    denoiseStrength: "medium",
+    saturation: "high"
+  });
   const fileInputRef = useRef<HTMLInputElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const hasAutoEnhanced = useRef(false);
@@ -76,95 +86,92 @@ const AIPhotoEnhancer = () => {
     }
   }, [originalImage]);
 
-  // Initialize pipeline steps based on pipeline type
-  const initializePipelineSteps = (type: PipelineType): PipelineStep[] => {
-    const steps: PipelineStep[] = [];
-    
-    if (type === "full" || type === "face-only") {
-      steps.push({ id: "face_restoration", label: "Face Restoration (CodeFormer)", status: "pending" });
-    }
-    
-    if (type === "full" || type === "upscale-only") {
-      steps.push({ id: "super_resolution", label: "4x Super-Resolution (Real-ESRGAN)", status: "pending" });
-    }
-    
-    if (type === "full") {
-      steps.push({ id: "face_refinement", label: "Final Face Refinement (GFPGAN)", status: "pending" });
-    }
-    
-    return steps;
-  };
-
   const enhanceImage = async () => {
     if (!originalImage) {
       return;
     }
 
     setIsProcessing(true);
-    setEnhancedImage(null);
-    
-    // Initialize steps for display
-    const steps = initializePipelineSteps(pipelineType);
-    setPipelineSteps(steps);
     setProgress(5);
-    setProgressMessage("Starting Replicate AI pipeline...");
+    setProgressMessage("Analyzing image...");
+    setEnhancedImage(null);
 
     try {
-      // Mark first step as running
-      if (steps.length > 0) {
-        setPipelineSteps(prev => prev.map((s, i) => i === 0 ? { ...s, status: "running" } : s));
-      }
-      setProgress(10);
-      setProgressMessage(steps[0]?.label || "Processing...");
-
-      // Call the new Replicate enhancement pipeline
-      const response = await supabase.functions.invoke("replicate-enhance", {
+      let currentImage = originalImage;
+      
+      // Step 1: Initial Enhancement
+      setProgress(15);
+      setProgressMessage("Applying AI enhancement...");
+      
+      const enhanceResponse = await supabase.functions.invoke("ai-enhance-image", {
         body: { 
-          imageBase64: originalImage,
-          pipeline: pipelineType
+          imageBase64: currentImage,
+          operation: "enhance",
+          options: {
+            preset: options.preset,
+            faceEnhance: options.faceEnhance,
+            colorBoost: options.colorBoost,
+            denoiseStrength: options.denoiseStrength,
+            saturation: options.saturation
+          }
         }
       });
 
-      if (response.error) {
-        throw new Error(response.error.message || "Enhancement failed");
+      if (enhanceResponse.error || enhanceResponse.data?.error) {
+        throw new Error(enhanceResponse.error?.message || enhanceResponse.data?.error || "Enhancement failed");
       }
 
-      if (response.data?.error) {
-        throw new Error(response.data.error);
+      if (!enhanceResponse.data?.imageUrl) {
+        throw new Error("No enhanced image returned");
       }
 
-      if (!response.data?.imageUrl) {
-        throw new Error("No enhanced image returned from pipeline");
+      currentImage = enhanceResponse.data.imageUrl;
+      setProgress(50);
+
+      // Step 2: Multi-pass upscaling for Ultra preset
+      if (options.multiPass && options.preset === "ultra") {
+        setProgressMessage("Super-resolution upscaling...");
+        setProgress(60);
+
+        const upscaleResponse = await supabase.functions.invoke("ai-enhance-image", {
+          body: { 
+            imageBase64: currentImage,
+            operation: "upscale",
+            options: {
+              scale: 2,
+              preserveDetails: true
+            }
+          }
+        });
+
+        if (!upscaleResponse.error && upscaleResponse.data?.imageUrl) {
+          currentImage = upscaleResponse.data.imageUrl;
+        }
+        setProgress(80);
       }
 
-      // Update step statuses based on completed steps
-      const executedSteps = response.data.stepsExecuted || [];
-      setPipelineSteps(prev => prev.map(step => ({
-        ...step,
-        status: executedSteps.includes(step.id) ? "complete" : "pending"
-      })));
+      // Step 3: Final sharpening pass for Premium/Ultra
+      if (options.preset !== "standard") {
+        setProgressMessage("Finalizing details...");
+        setProgress(90);
+      }
 
-      setEnhancedImage(response.data.imageUrl);
+      setEnhancedImage(currentImage);
       setProgress(100);
       setProgressMessage("Enhancement complete!");
       
       // Show comparison view automatically
       setShowComparison(true);
       
-      const stepCount = executedSteps.length;
-      toast.success(`Remini-quality enhancement complete! (${stepCount} AI models applied)`);
-      
+      toast.success("Image enhanced to Remini-quality!");
     } catch (error) {
-      console.error("Enhancement pipeline error:", error);
+      console.error("Enhancement error:", error);
       const errorMessage = error instanceof Error ? error.message : "Failed to enhance image";
       
-      // Mark current running step as error
-      setPipelineSteps(prev => prev.map(s => s.status === "running" ? { ...s, status: "error" } : s));
-      
-      if (errorMessage.includes("Rate limit") || errorMessage.includes("429")) {
-        toast.error("Replicate rate limit reached. Please wait a moment and try again.");
-      } else if (errorMessage.includes("REPLICATE_API_KEY")) {
-        toast.error("Replicate API key not configured. Please add your API key.");
+      if (errorMessage.includes("Rate limit")) {
+        toast.error("Too many requests. Please wait a moment and try again.");
+      } else if (errorMessage.includes("credits")) {
+        toast.error("AI credits exhausted. Please add credits to continue.");
       } else {
         toast.error(errorMessage);
       }
@@ -173,8 +180,7 @@ const AIPhotoEnhancer = () => {
       setTimeout(() => {
         setProgress(0);
         setProgressMessage("");
-        setPipelineSteps([]);
-      }, 2000);
+      }, 1000);
     }
   };
 
@@ -212,6 +218,8 @@ const AIPhotoEnhancer = () => {
         webp: "image/webp"
       };
 
+      const quality = options.preset === "ultra" ? 1.0 : options.preset === "premium" ? 0.95 : 0.9;
+
       const blob = await new Promise<Blob>((resolve, reject) => {
         canvas.toBlob(
           (b) => {
@@ -219,20 +227,20 @@ const AIPhotoEnhancer = () => {
             else reject(new Error("Failed to convert image"));
           },
           mimeTypes[outputFormat],
-          1.0 // Maximum quality for 4K output
+          quality
         );
       });
 
       const url = URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
-      link.download = `enhanced-4k-${pipelineType}.${outputFormat}`;
+      link.download = `enhanced-${options.preset}-quality.${outputFormat}`;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
       URL.revokeObjectURL(url);
       
-      toast.success(`4K image downloaded as ${outputFormat.toUpperCase()}!`);
+      toast.success(`Image downloaded as ${outputFormat.toUpperCase()} (${options.preset} quality)!`);
     } catch (error) {
       console.error("Download error:", error);
       toast.error("Failed to download image");
@@ -245,14 +253,13 @@ const AIPhotoEnhancer = () => {
     setProgress(0);
     setProgressMessage("");
     setShowComparison(false);
-    setPipelineSteps([]);
     hasAutoEnhanced.current = false;
   };
 
-  const pipelineDescriptions = {
-    full: "Face restoration + 4x upscaling + refinement (Remini-quality)",
-    "face-only": "Face restoration only (faster, smaller output)",
-    "upscale-only": "4x super-resolution only (no face-specific processing)"
+  const presetDescriptions = {
+    standard: "Fast enhancement, good for social media",
+    premium: "High quality, Remini-level results",
+    ultra: "Maximum quality, 4K upscaling included"
   };
 
   return (
@@ -289,57 +296,63 @@ const AIPhotoEnhancer = () => {
             )}
           </div>
 
-          {/* Pipeline Type Selector */}
+          {/* Quality Preset Selector */}
           {originalImage && showSettings && (
             <div className="mt-4 pt-4 border-t border-border/50 space-y-4">
               <div>
-                <Label className="text-sm font-medium mb-2 block">Enhancement Pipeline</Label>
+                <Label className="text-sm font-medium mb-2 block">Enhancement Quality</Label>
                 <Tabs 
-                  value={pipelineType} 
-                  onValueChange={(v) => setPipelineType(v as PipelineType)}
+                  value={options.preset} 
+                  onValueChange={(v) => setOptions(prev => ({ ...prev, preset: v as QualityPreset }))}
                   className="w-full"
                 >
                   <TabsList className="w-full grid grid-cols-3">
-                    <TabsTrigger value="full" className="gap-1">
-                      <Crown className="w-3 h-3" />
-                      Full (4K)
-                    </TabsTrigger>
-                    <TabsTrigger value="face-only" className="gap-1">
-                      <Sparkles className="w-3 h-3" />
-                      Face Only
-                    </TabsTrigger>
-                    <TabsTrigger value="upscale-only" className="gap-1">
+                    <TabsTrigger value="standard" className="gap-1">
                       <Zap className="w-3 h-3" />
-                      Upscale Only
+                      Standard
+                    </TabsTrigger>
+                    <TabsTrigger value="premium" className="gap-1">
+                      <Sparkles className="w-3 h-3" />
+                      Premium
+                    </TabsTrigger>
+                    <TabsTrigger value="ultra" className="gap-1">
+                      <Crown className="w-3 h-3" />
+                      Ultra
                     </TabsTrigger>
                   </TabsList>
                 </Tabs>
-                <p className="text-xs text-muted-foreground mt-2">{pipelineDescriptions[pipelineType]}</p>
+                <p className="text-xs text-muted-foreground mt-2">{presetDescriptions[options.preset]}</p>
               </div>
 
-              {/* Pipeline Steps Info */}
-              <div className="bg-secondary/30 rounded-lg p-3">
-                <p className="text-xs font-medium mb-2">AI Models Used:</p>
-                <div className="space-y-1 text-xs text-muted-foreground">
-                  {(pipelineType === "full" || pipelineType === "face-only") && (
-                    <div className="flex items-center gap-2">
-                      <CheckCircle2 className="w-3 h-3 text-emerald-500" />
-                      <span>CodeFormer / GFPGAN (Face Restoration)</span>
-                    </div>
-                  )}
-                  {(pipelineType === "full" || pipelineType === "upscale-only") && (
-                    <div className="flex items-center gap-2">
-                      <CheckCircle2 className="w-3 h-3 text-emerald-500" />
-                      <span>Real-ESRGAN (4x Super-Resolution)</span>
-                    </div>
-                  )}
-                  {pipelineType === "full" && (
-                    <div className="flex items-center gap-2">
-                      <CheckCircle2 className="w-3 h-3 text-emerald-500" />
-                      <span>GFPGAN (Final Refinement)</span>
-                    </div>
-                  )}
-                </div>
+              {/* Saturation Control */}
+              <div>
+                <Label className="text-sm font-medium mb-2 block">Color Saturation</Label>
+                <Tabs 
+                  value={options.saturation} 
+                  onValueChange={(v) => setOptions(prev => ({ ...prev, saturation: v as SaturationLevel }))}
+                  className="w-full"
+                >
+                  <TabsList className="w-full grid grid-cols-4">
+                    <TabsTrigger value="low" className="text-xs">
+                      Low
+                    </TabsTrigger>
+                    <TabsTrigger value="medium" className="text-xs">
+                      Medium
+                    </TabsTrigger>
+                    <TabsTrigger value="high" className="text-xs">
+                      High
+                    </TabsTrigger>
+                    <TabsTrigger value="maximum" className="text-xs">
+                      Maximum
+                    </TabsTrigger>
+                  </TabsList>
+                </Tabs>
+                <p className="text-xs text-muted-foreground mt-2">
+                  {options.saturation === "low" && "Natural colors, subtle enhancement"}
+                  {options.saturation === "medium" && "Balanced vibrancy, everyday photos"}
+                  {options.saturation === "high" && "Bold, vivid colors for social media"}
+                  {options.saturation === "maximum" && "Maximum saturation, poster-like colors"}
+                </p>
               </div>
             </div>
           )}
@@ -438,10 +451,11 @@ const AIPhotoEnhancer = () => {
                       />
                     </div>
                   </div>
+                  
                   {/* Enhanced */}
                   <div className="space-y-2">
                     <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide">
-                      Enhanced (4K {pipelineType === "full" ? "Remini-Quality" : pipelineType})
+                      Enhanced {options.preset !== "standard" && `(${options.preset})`}
                     </p>
                     <div className="relative rounded-xl overflow-hidden border border-border bg-secondary/20 aspect-square flex items-center justify-center">
                       {isProcessing ? (
