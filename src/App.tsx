@@ -48,6 +48,7 @@ import AIImageRestorerPage from "./pages/tools/AIImageRestorerPage";
 import AIFaceSwapPage from "./pages/tools/AIFaceSwapPage";
 import AIColorizePage from "./pages/tools/AIColorizePage";
 import AIObjectRemovalPage from "./pages/tools/AIObjectRemovalPage";
+import AIFaceBeautifyPage from "./pages/tools/AIFaceBeautifyPage";
 import SupportChat from "./components/SupportChat";
 import CookieConsent from "./components/CookieConsent";
 
@@ -114,6 +115,7 @@ const App = () => (
             <Route path="/ai-face-swap" element={<AIFaceSwapPage />} />
             <Route path="/ai-colorize" element={<AIColorizePage />} />
             <Route path="/ai-object-removal" element={<AIObjectRemovalPage />} />
+            <Route path="/ai-face-beautify" element={<AIFaceBeautifyPage />} />
             
             {/* PDF Tool Pages */}
             <Route path="/merge-pdf" element={<PDFToolPage />} />

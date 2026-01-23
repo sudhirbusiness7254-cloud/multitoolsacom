@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HreflangTags from "@/components/HreflangTags";
 import { Link } from "react-router-dom";
-import { Sparkles, Wand2, ArrowUpCircle, Eraser, History, Zap, Shield, Download, Users, Palette, Trash2 } from "lucide-react";
+import { Sparkles, Wand2, ArrowUpCircle, Eraser, History, Zap, Shield, Download, Users, Palette, Trash2, Smile } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -67,6 +67,13 @@ const aiTools = [
     description: "Remove unwanted objects, people, or watermarks from photos with AI inpainting.",
     icon: Trash2,
     gradient: { from: "#EF4444", to: "#DC2626" }
+  },
+  {
+    name: "AI Face Beautify",
+    slug: "ai-face-beautify",
+    description: "Enhance facial features with skin smoothing, eye enhancement, and teeth whitening like Remini.",
+    icon: Smile,
+    gradient: { from: "#EC4899", to: "#F43F5E" }
   }
 ];
 
