@@ -1,5 +1,5 @@
 import { useState, useRef, useCallback, useEffect } from "react";
-import { ArrowUpCircle, Download, Loader2, Upload, RefreshCw, Zap, Image as ImageIcon, X } from "lucide-react";
+import { ArrowUpCircle, Download, Loader2, Upload, RefreshCw, Zap, Image as ImageIcon, X, SlidersHorizontal } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -7,6 +7,7 @@ import { Progress } from "@/components/ui/progress";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
+import ImageComparisonSlider from "@/components/ImageComparisonSlider";
 
 type OutputFormat = "png" | "jpg" | "webp";
 type UpscaleLevel = "2" | "4";
@@ -19,6 +20,7 @@ const AIImageUpscaler = () => {
   const [outputFormat, setOutputFormat] = useState<OutputFormat>("png");
   const [upscaleLevel, setUpscaleLevel] = useState<UpscaleLevel>("4");
   const [isDragging, setIsDragging] = useState(false);
+  const [showComparison, setShowComparison] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const hasAutoProcessed = useRef(false);
@@ -174,6 +176,7 @@ const AIImageUpscaler = () => {
     setOriginalImage(null);
     setUpscaledImage(null);
     setProgress(0);
+    setShowComparison(false);
   };
 
   return (
@@ -259,55 +262,79 @@ const AIImageUpscaler = () => {
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <Label className="text-sm font-medium">Your Image</Label>
-                <Button variant="ghost" size="sm" onClick={reset} className="text-xs gap-1.5 h-7">
-                  <X className="w-3 h-3" />
-                  Remove
-                </Button>
+                <div className="flex items-center gap-2">
+                  {upscaledImage && (
+                    <Button
+                      variant={showComparison ? "default" : "outline"}
+                      size="sm"
+                      onClick={() => setShowComparison(!showComparison)}
+                      className="text-xs gap-1.5 h-7"
+                    >
+                      <SlidersHorizontal className="w-3 h-3" />
+                      {showComparison ? "Grid View" : "Compare"}
+                    </Button>
+                  )}
+                  <Button variant="ghost" size="sm" onClick={reset} className="text-xs gap-1.5 h-7">
+                    <X className="w-3 h-3" />
+                    Remove
+                  </Button>
+                </div>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {/* Original */}
-                <div className="space-y-2">
-                  <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide">Original</p>
-                  <div className="relative rounded-xl overflow-hidden border border-border bg-secondary/20 aspect-square">
-                    <img
-                      src={originalImage}
-                      alt="Original"
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                </div>
-                
-                {/* Upscaled */}
-                <div className="space-y-2">
-                  <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide">Upscaled {upscaleLevel}x</p>
-                  <div className="relative rounded-xl overflow-hidden border border-border bg-secondary/20 aspect-square flex items-center justify-center">
-                    {isProcessing ? (
-                      <div className="flex flex-col items-center gap-4 p-8">
-                        <div className="relative">
-                          <div className="w-16 h-16 rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 animate-pulse" />
-                          <Zap className="w-8 h-8 text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-                        </div>
-                        <div className="text-center w-full max-w-[200px]">
-                          <p className="font-medium text-sm mb-2">Upscaling...</p>
-                          <Progress value={progress} className="h-2" />
-                        </div>
-                      </div>
-                    ) : upscaledImage ? (
+              {/* Comparison Slider View */}
+              {showComparison && upscaledImage ? (
+                <ImageComparisonSlider
+                  originalSrc={originalImage}
+                  compressedSrc={upscaledImage}
+                  originalLabel="Original"
+                  compressedLabel={`Upscaled ${upscaleLevel}x`}
+                  className="w-full"
+                />
+              ) : (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {/* Original */}
+                  <div className="space-y-2">
+                    <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide">Original</p>
+                    <div className="relative rounded-xl overflow-hidden border border-border bg-secondary/20 aspect-square">
                       <img
-                        src={upscaledImage}
-                        alt="Upscaled"
+                        src={originalImage}
+                        alt="Original"
                         className="w-full h-full object-contain"
                       />
-                    ) : (
-                      <div className="flex flex-col items-center gap-2 text-muted-foreground">
-                        <ImageIcon className="w-10 h-10" />
-                        <p className="text-sm">Upscaled image will appear here</p>
-                      </div>
-                    )}
+                    </div>
+                  </div>
+                  
+                  {/* Upscaled */}
+                  <div className="space-y-2">
+                    <p className="text-xs text-muted-foreground font-medium uppercase tracking-wide">Upscaled {upscaleLevel}x</p>
+                    <div className="relative rounded-xl overflow-hidden border border-border bg-secondary/20 aspect-square flex items-center justify-center">
+                      {isProcessing ? (
+                        <div className="flex flex-col items-center gap-4 p-8">
+                          <div className="relative">
+                            <div className="w-16 h-16 rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 animate-pulse" />
+                            <Zap className="w-8 h-8 text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+                          </div>
+                          <div className="text-center w-full max-w-[200px]">
+                            <p className="font-medium text-sm mb-2">Upscaling...</p>
+                            <Progress value={progress} className="h-2" />
+                          </div>
+                        </div>
+                      ) : upscaledImage ? (
+                        <img
+                          src={upscaledImage}
+                          alt="Upscaled"
+                          className="w-full h-full object-contain"
+                        />
+                      ) : (
+                        <div className="flex flex-col items-center gap-2 text-muted-foreground">
+                          <ImageIcon className="w-10 h-10" />
+                          <p className="text-sm">Upscaled image will appear here</p>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
+              )}
             </div>
           )}
 
