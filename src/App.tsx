@@ -50,7 +50,6 @@ import AIColorizePage from "./pages/tools/AIColorizePage";
 import AIFaceBeautifyPage from "./pages/tools/AIFaceBeautifyPage";
 import BirthdayWishesGeneratorPage from "./pages/tools/BirthdayWishesGeneratorPage";
 import SupportChat from "./components/SupportChat";
-import CookieConsent from "./components/CookieConsent";
 
 // Educational & Trust Pages
 import HowToolsWorkPage from "./pages/HowToolsWorkPage";
@@ -132,7 +131,6 @@ const App = () => (
           </Routes>
           </AdLayout>
           <SupportChat />
-          <CookieConsent />
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
