@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import ImageConverter from "@/components/ImageConverter";
 import BatchImageConverter from "@/components/BatchImageConverter";
 import PromptToImage from "@/components/PromptToImage";
+import { AdBottom, AdVideo } from "@/components/ads/AdContainer";
 import { 
   Image, 
   Zap, 
@@ -199,6 +200,12 @@ const ImageToolsPage = () => {
                   <PromptToImage />
                 </TabsContent>
               </Tabs>
+              
+              {/* Ads below tool */}
+              <div className="max-w-4xl mx-auto mt-8">
+                <AdBottom />
+                <AdVideo className="mt-4" />
+              </div>
             </div>
           </section>
 

@@ -8,7 +8,7 @@ import { toolCategories, Category } from "@/data/toolsData";
 import { CategorySEOContent } from "@/data/categorySEOData";
 import HreflangTags from "@/components/HreflangTags";
 import RelatedArticles from "@/components/RelatedArticles";
-import { AdBottom } from "@/components/ads/AdContainer";
+import { AdBottom, AdVideo } from "@/components/ads/AdContainer";
 
 interface CategoryPageLayoutProps {
   category: Category;
@@ -149,6 +149,9 @@ const CategoryPageLayout = ({
                 
                 {/* Bottom Ad - After Tool Output */}
                 <AdBottom className="mt-6" />
+                
+                {/* Video Ad - Below Bottom Ad */}
+                <AdVideo className="mt-4" />
               </div>
             </section>
           )}

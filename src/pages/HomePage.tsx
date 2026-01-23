@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GradientWaveBackground from "@/components/GradientWaveBackground";
+import { AdBottom, AdVideo } from "@/components/ads/AdContainer";
 import { 
   ArrowRight, 
   Shield, 
@@ -361,6 +362,10 @@ const HomePage = () => {
               <Link to="/all-tools" className="sm:hidden flex text-primary hover:underline items-center justify-center gap-1 font-medium mt-6">
                 View All Tools <ArrowRight className="w-4 h-4" />
               </Link>
+              
+              {/* Ads after popular tools */}
+              <AdBottom className="mt-8" />
+              <AdVideo className="mt-4" />
             </div>
           </section>
 
