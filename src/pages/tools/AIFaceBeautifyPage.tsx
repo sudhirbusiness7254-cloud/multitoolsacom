@@ -76,32 +76,30 @@ const AIFaceBeautifyPage = () => {
             </div>
           </section>
 
-          {/* Demo Comparison Section */}
-          <section className="py-10 md:py-14 px-4 bg-secondary/30">
-            <div className="container mx-auto max-w-3xl">
-              <div className="text-center mb-8">
-                <h2 className="text-2xl md:text-3xl font-bold mb-3">See the Transformation</h2>
-                <p className="text-muted-foreground">Drag the slider to compare natural vs AI beautified result</p>
-              </div>
-              
-              <div className="bg-card rounded-2xl border border-border overflow-hidden shadow-lg">
-                <div className="aspect-[3/4]">
-                  <ImageComparisonSlider
-                    originalSrc={beautifyBefore}
-                    compressedSrc={beautifyAfter}
-                    originalLabel="Natural"
-                    compressedLabel="Beautified"
-                    className="w-full h-full"
-                  />
-                </div>
-              </div>
-            </div>
-          </section>
-
           {/* Tool */}
           <section className="py-8 md:py-12 px-4">
             <div className="container mx-auto">
               <AIFaceBeautify />
+            </div>
+          </section>
+
+          {/* Demo Comparison Section */}
+          <section className="py-10 md:py-14 px-4 bg-secondary/30">
+            <div className="container mx-auto max-w-lg">
+              <div className="text-center mb-6">
+                <h2 className="text-xl md:text-2xl font-bold mb-2">See the Transformation</h2>
+                <p className="text-sm text-muted-foreground">Drag the slider to compare</p>
+              </div>
+              
+              <div className="bg-card rounded-xl border border-border overflow-hidden shadow-md">
+                <ImageComparisonSlider
+                  originalSrc={beautifyBefore}
+                  compressedSrc={beautifyAfter}
+                  originalLabel="Natural"
+                  compressedLabel="Beautified"
+                  className="w-full"
+                />
+              </div>
             </div>
           </section>
 
