@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 interface AdScriptConfig {
   id: string;
@@ -65,71 +65,100 @@ export const resetAdScripts = (): void => {
   document.querySelectorAll('[id^="ad-script-"]').forEach(el => el.remove());
 };
 
-// Hook to manage ad loading for a specific position
+// Hook to manage ad loading with scroll-triggered visibility
 export const useAdLoader = (position: keyof typeof AD_SCRIPTS) => {
   const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    // Delay to ensure DOM is ready
-    const timer = setTimeout(() => {
-      if (containerRef.current) {
-        loadAdScript(position, containerRef.current);
-      }
-    }, 300);
-
-    return () => clearTimeout(timer);
-  }, [position]);
-
-  return containerRef;
-};
-
-// Video ad loader - loads when scrolled into view
-export const useVideoAdLoader = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
 
-    const loadVideoAd = () => {
-      loadAdScript('video', container);
-    };
-
-    // IMPORTANT: many pages expect the video ad to appear immediately below the output.
-    // We still keep IntersectionObserver for performance, but add a short fallback timer
-    // so the ad doesn't get stuck showing the placeholder.
-
-    // Fallback: attempt load after a short delay even if observer never fires
-    const fallbackTimer = window.setTimeout(() => {
-      loadVideoAd();
-    }, 600);
-
-    // Prefer lazy-load when visible
     let observer: IntersectionObserver | null = null;
+
     if ('IntersectionObserver' in window) {
       observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              loadVideoAd();
+            if (entry.isIntersecting && !isLoaded) {
+              setIsVisible(true);
+              // Small delay to allow visibility transition, then load ad
+              setTimeout(() => {
+                loadAdScript(position, container);
+                setIsLoaded(true);
+              }, 100);
               observer?.disconnect();
-              observer = null;
             }
           });
         },
-        { threshold: 0.1 }
+        { threshold: 0.1, rootMargin: '100px' }
       );
 
       observer.observe(container);
+    } else {
+      // Fallback for browsers without IntersectionObserver
+      setIsVisible(true);
+      setTimeout(() => {
+        loadAdScript(position, container);
+        setIsLoaded(true);
+      }, 300);
     }
 
     return () => {
-      window.clearTimeout(fallbackTimer);
       observer?.disconnect();
     };
-  }, []);
+  }, [position, isLoaded]);
 
-  return containerRef;
+  return { containerRef, isVisible };
+};
+
+// Video ad loader - loads when scrolled into view
+export const useVideoAdLoader = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    let observer: IntersectionObserver | null = null;
+
+    if ('IntersectionObserver' in window) {
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && !isLoaded) {
+              setIsVisible(true);
+              // Load ad when visible
+              setTimeout(() => {
+                loadAdScript('video', container);
+                setIsLoaded(true);
+              }, 100);
+              observer?.disconnect();
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: '100px' }
+      );
+
+      observer.observe(container);
+    } else {
+      // Fallback
+      setIsVisible(true);
+      setTimeout(() => {
+        loadAdScript('video', container);
+        setIsLoaded(true);
+      }, 300);
+    }
+
+    return () => {
+      observer?.disconnect();
+    };
+  }, [isLoaded]);
+
+  return { containerRef, isVisible };
 };
 
 export default AD_SCRIPTS;
