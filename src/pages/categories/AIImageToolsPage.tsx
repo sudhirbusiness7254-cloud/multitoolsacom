@@ -25,7 +25,7 @@ const aiTools = [
   {
     name: "AI Photo Enhancer",
     slug: "ai-photo-enhancer",
-    description: "Enhance photos to 4K quality with AI. Better than Remini.",
+    description: "Enhance photos to 4K quality with advanced AI technology.",
     icon: Sparkles,
     gradient: { from: "#10B981", to: "#059669" },
     badge: "Most Popular"
@@ -109,9 +109,9 @@ const AIImageToolsPage = () => {
   return (
     <>
       <Helmet>
-        <title>AI Image Tools - Free Online AI Photo Editor | Better Than Remini</title>
-        <meta name="description" content="Free AI-powered image tools: Photo Enhancer, Image Upscaler, Face Beautify, Background Remover. 4K quality output. Better than Remini. No signup required." />
-        <meta name="keywords" content="AI image tools, AI photo enhancer, remini alternative, AI upscaler, background remover, image restorer, free AI tools, 4K photo enhancement" />
+        <title>AI Image Tools - Free Online AI Photo Editor | 4K Quality</title>
+        <meta name="description" content="Free AI-powered image tools: Photo Enhancer, Image Upscaler, Face Beautify):, and more. 4K quality output. Professional results. No signup required." />
+        <meta name="keywords" content="AI image tools, AI photo enhancer, AI upscaler, background remover, image restorer, free AI tools, 4K photo enhancement" />
         <link rel="canonical" href="https://multitoolsa.com/ai-image-tools" />
       </Helmet>
       <HreflangTags path="/ai-image-tools" />
@@ -143,7 +143,7 @@ const AIImageToolsPage = () => {
                     AI Photo Enhancement
                   </span>
                   <br />
-                  <span className="text-foreground">Better Than Remini</span>
+                  <span className="text-foreground">Professional 4K Quality</span>
                 </h1>
                 
                 <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
@@ -290,7 +290,7 @@ const AIImageToolsPage = () => {
             <div className="container mx-auto max-w-6xl">
               <div className="text-center mb-12">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose Our AI Tools?</h2>
-                <p className="text-muted-foreground">Better quality than Remini, completely free</p>
+                <p className="text-muted-foreground">Professional quality results, completely free</p>
               </div>
               
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -375,7 +375,7 @@ const AIImageToolsPage = () => {
                 <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">About Our AI Image Tools</h2>
                 
                 <p className="text-muted-foreground leading-relaxed">
-                  Welcome to the most comprehensive suite of free AI-powered image enhancement tools available online. Our AI Image Tools collection represents the cutting edge of artificial intelligence technology applied to photo editing, offering professional-grade results that rival expensive software and paid services like Remini, Topaz Labs, and Adobe Photoshop. Whether you're a professional photographer, social media influencer, small business owner, or someone who simply wants to make their photos look stunning, our tools provide everything you need to transform ordinary images into extraordinary masterpieces.
+                  Welcome to the most comprehensive suite of free AI-powered image enhancement tools available online. Our AI Image Tools collection represents the cutting edge of artificial intelligence technology applied to photo editing, offering professional-grade results that rival expensive software and paid services. Whether you're a professional photographer, social media influencer, small business owner, or someone who simply wants to make their photos look stunning, our tools provide everything you need to transform ordinary images into extraordinary masterpieces.
                 </p>
 
                 <h3 className="text-2xl font-semibold mt-10 mb-4">What Are AI Image Tools?</h3>
@@ -390,7 +390,7 @@ const AIImageToolsPage = () => {
 
                 <h3 className="text-2xl font-semibold mt-10 mb-4">Why Choose Our AI Image Tools Over Alternatives?</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  There are many AI photo enhancement services available, so why should you choose ours? First, we offer truly free access with no hidden fees, watermarks, or usage limits—unlike Remini and similar apps that restrict features behind paywalls. Second, our 4K Ultra HD output quality matches or exceeds paid services, utilizing the latest AI models trained on professional photography datasets. Third, privacy is paramount: your images are processed securely and never stored on our servers, unlike many competitors who retain your photos for training purposes. Fourth, there's no account creation required—simply upload and enhance without the friction of signup forms and email verification. Fifth, our browser-based tools work on any device with an internet connection, including smartphones, tablets, laptops, and desktop computers, without requiring software installation.
+                  There are many AI photo enhancement services available, so why should you choose ours? First, we offer truly free access with no hidden fees, watermarks, or usage limits—unlike paid apps that restrict features behind paywalls. Second, our 4K Ultra HD output quality matches or exceeds paid services, utilizing the latest AI models trained on professional photography datasets. Third, privacy is paramount: your images are processed securely and never stored on our servers, unlike many competitors who retain your photos for training purposes. Fourth, there's no account creation required—simply upload and enhance without the friction of signup forms and email verification. Fifth, our browser-based tools work on any device with an internet connection, including smartphones, tablets, laptops, and desktop computers, without requiring software installation.
                 </p>
 
                 <h3 className="text-2xl font-semibold mt-10 mb-4">Key Features of Our AI Suite</h3>
@@ -442,9 +442,9 @@ const AIImageToolsPage = () => {
               
               <Accordion type="single" collapsible className="space-y-4">
                 <AccordionItem value="1" className="bg-card border border-border rounded-xl px-6">
-                  <AccordionTrigger>Is this really free? Better than Remini?</AccordionTrigger>
+                  <AccordionTrigger>Is this really free? What's the quality like?</AccordionTrigger>
                   <AccordionContent className="text-muted-foreground">
-                    Yes! All our AI image tools are completely free with no signup required. Our AI uses the latest models to deliver 4K quality results that often exceed what Remini provides. Unlike Remini which limits free users to a few enhancements per day and adds watermarks, we offer unlimited free access with full-quality, watermark-free downloads.
+                    Yes! All our AI image tools are completely free with no signup required. Our AI uses the latest models to deliver 4K quality results with professional-grade output. Unlike paid apps that limit free users and add watermarks, we offer unlimited free access with full-quality, watermark-free downloads.
                   </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="2" className="bg-card border border-border rounded-xl px-6">
