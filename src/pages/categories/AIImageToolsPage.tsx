@@ -368,6 +368,73 @@ const AIImageToolsPage = () => {
             </div>
           </section>
 
+          {/* Comprehensive About Section */}
+          <section className="py-16 md:py-20 px-4">
+            <div className="container mx-auto max-w-4xl">
+              <div className="prose prose-lg dark:prose-invert max-w-none">
+                <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">About Our AI Image Tools</h2>
+                
+                <p className="text-muted-foreground leading-relaxed">
+                  Welcome to the most comprehensive suite of free AI-powered image enhancement tools available online. Our AI Image Tools collection represents the cutting edge of artificial intelligence technology applied to photo editing, offering professional-grade results that rival expensive software and paid services like Remini, Topaz Labs, and Adobe Photoshop. Whether you're a professional photographer, social media influencer, small business owner, or someone who simply wants to make their photos look stunning, our tools provide everything you need to transform ordinary images into extraordinary masterpieces.
+                </p>
+
+                <h3 className="text-2xl font-semibold mt-10 mb-4">What Are AI Image Tools?</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  AI Image Tools utilize advanced machine learning algorithms and neural networks trained on millions of high-quality photographs to understand and enhance visual content. Unlike traditional photo editing software that relies on manual adjustments and filters, AI-powered tools can intelligently analyze your images, identify areas for improvement, and apply sophisticated enhancements automatically. This includes recognizing faces, understanding lighting conditions, detecting noise and blur, and applying corrections that would take hours to achieve manually. Our suite includes seven powerful tools: AI Photo Enhancer for overall quality improvement, AI Image Upscaler for resolution enhancement, AI Face Beautify for portrait retouching, AI Image Restorer for repairing old or damaged photos, AI Face Swap for creative transformations, AI Colorize for adding color to black and white images, and AI Image Generator for creating images from text descriptions.
+                </p>
+
+                <h3 className="text-2xl font-semibold mt-10 mb-4">How Our AI Enhancement Technology Works</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Our AI enhancement technology operates through a sophisticated multi-stage processing pipeline. When you upload an image, our neural networks first analyze the content to understand what type of image it is—whether it's a portrait, landscape, group photo, or document. The AI then identifies specific characteristics such as faces, backgrounds, text, and objects. Based on this analysis, specialized enhancement models are applied: facial enhancement networks improve skin texture and features while preserving identity, super-resolution networks increase detail and sharpness, color correction models optimize saturation and white balance, and noise reduction algorithms remove grain while preserving important details. The entire process takes just seconds, transforming your photos with the precision of a professional retoucher but at lightning speed.
+                </p>
+
+                <h3 className="text-2xl font-semibold mt-10 mb-4">Why Choose Our AI Image Tools Over Alternatives?</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  There are many AI photo enhancement services available, so why should you choose ours? First, we offer truly free access with no hidden fees, watermarks, or usage limits—unlike Remini and similar apps that restrict features behind paywalls. Second, our 4K Ultra HD output quality matches or exceeds paid services, utilizing the latest AI models trained on professional photography datasets. Third, privacy is paramount: your images are processed securely and never stored on our servers, unlike many competitors who retain your photos for training purposes. Fourth, there's no account creation required—simply upload and enhance without the friction of signup forms and email verification. Fifth, our browser-based tools work on any device with an internet connection, including smartphones, tablets, laptops, and desktop computers, without requiring software installation.
+                </p>
+
+                <h3 className="text-2xl font-semibold mt-10 mb-4">Key Features of Our AI Suite</h3>
+                <div className="text-muted-foreground leading-relaxed space-y-3">
+                  <p><strong>4K Ultra HD Output:</strong> Every enhanced image is processed to achieve maximum resolution and clarity, suitable for printing, professional portfolios, and high-resolution displays.</p>
+                  <p><strong>Instant Processing:</strong> Our optimized AI infrastructure processes images in seconds, not minutes, so you can enhance multiple photos without waiting.</p>
+                  <p><strong>Before/After Comparison:</strong> Every tool includes an interactive comparison slider that lets you see exactly what improvements have been made to your image.</p>
+                  <p><strong>Batch Processing:</strong> Need to enhance multiple images? Our tools support batch uploads for efficient workflow management.</p>
+                  <p><strong>Format Flexibility:</strong> Upload images in any common format including JPG, PNG, WEBP, HEIC, and download your enhanced results in your preferred format.</p>
+                  <p><strong>Mobile Optimization:</strong> Our tools are fully responsive and work beautifully on mobile devices, making on-the-go photo enhancement effortless.</p>
+                </div>
+
+                <h3 className="text-2xl font-semibold mt-10 mb-4">Who Can Benefit from AI Image Tools?</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Our AI Image Tools serve a diverse range of users across different industries and use cases. Professional photographers use our upscaling and enhancement tools to prepare images for large-format printing and client delivery. Social media managers and influencers rely on our face beautify and photo enhancer to create scroll-stopping content that drives engagement. E-commerce businesses enhance product photos to increase conversion rates and build customer trust. Real estate agents use our tools to make property photos more appealing to potential buyers. Family historians and genealogists restore old, faded photographs to preserve precious memories for future generations. Graphic designers incorporate our AI-generated images and enhanced photos into marketing materials and creative projects. Students and educators enhance educational materials and presentation visuals. The applications are virtually limitless.
+                </p>
+
+                <h3 className="text-2xl font-semibold mt-10 mb-4">Real-World Use Cases</h3>
+                <div className="text-muted-foreground leading-relaxed space-y-3">
+                  <p><strong>Social Media Optimization:</strong> Transform smartphone photos into professional-looking content for Instagram, TikTok, LinkedIn, and other platforms. Enhanced images receive significantly more engagement than unedited uploads.</p>
+                  <p><strong>Old Photo Restoration:</strong> Breathe new life into vintage family photos, historical documents, and cherished memories. Our AI can repair scratches, remove stains, and even add color to black and white images.</p>
+                  <p><strong>Professional Headshots:</strong> Upgrade casual photos into polished headshots suitable for resumes, LinkedIn profiles, and company websites without expensive photography sessions.</p>
+                  <p><strong>Print Preparation:</strong> Upscale low-resolution images to print-ready quality for posters, canvas prints, photo books, and marketing materials.</p>
+                  <p><strong>E-commerce Product Photos:</strong> Enhance product images to showcase items in their best light, improving click-through rates and customer confidence.</p>
+                </div>
+
+                <h3 className="text-2xl font-semibold mt-10 mb-4">Our Commitment to Privacy and Security</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  We understand that your photos often contain personal and sensitive content. That's why we've built our entire platform with privacy as a foundational principle. When you upload an image to our tools, it is processed entirely in real-time and immediately discarded after enhancement is complete. We do not store, archive, or use your images for any purpose other than the immediate enhancement you've requested. Our servers use industry-standard encryption protocols to protect data in transit, and we never share your content with third parties. Unlike many AI services that use uploaded images to train their models, we respect your intellectual property and personal privacy completely. You can use our tools with confidence, knowing that your photos remain yours and yours alone.
+                </p>
+
+                <h3 className="text-2xl font-semibold mt-10 mb-4">Technical Excellence Behind the Scenes</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  The technology powering our AI Image Tools represents years of research and development in computer vision and deep learning. Our enhancement models are based on state-of-the-art architectures including Generative Adversarial Networks (GANs), Transformer-based models, and custom neural network designs optimized for specific enhancement tasks. We continuously update our models with the latest advancements in AI research, ensuring that you always have access to cutting-edge technology. Our infrastructure is built on scalable cloud architecture that can handle millions of image enhancements while maintaining fast processing times and consistent quality. Whether you're the first user of the day or the millionth, you'll experience the same lightning-fast, high-quality results.
+                </p>
+
+                <h3 className="text-2xl font-semibold mt-10 mb-4">Getting Started with AI Image Enhancement</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Using our AI Image Tools is incredibly simple. Choose the tool that matches your needs from our collection above. Upload your image by dragging and dropping it onto the tool interface or clicking to browse your files. Our AI will automatically process your image, typically completing enhancement within seconds. Use the interactive before/after slider to see the improvements and verify the results meet your expectations. When you're satisfied, download your enhanced image in high quality with no watermarks. That's it—professional-grade AI enhancement in four simple steps, completely free.
+                </p>
+              </div>
+            </div>
+          </section>
+
           {/* FAQ */}
           <section className="py-16 md:py-20 px-4 bg-secondary/30">
             <div className="container mx-auto max-w-4xl">
@@ -377,25 +444,49 @@ const AIImageToolsPage = () => {
                 <AccordionItem value="1" className="bg-card border border-border rounded-xl px-6">
                   <AccordionTrigger>Is this really free? Better than Remini?</AccordionTrigger>
                   <AccordionContent className="text-muted-foreground">
-                    Yes! All our AI image tools are completely free with no signup required. Our AI uses the latest models to deliver 4K quality results that often exceed what Remini provides.
+                    Yes! All our AI image tools are completely free with no signup required. Our AI uses the latest models to deliver 4K quality results that often exceed what Remini provides. Unlike Remini which limits free users to a few enhancements per day and adds watermarks, we offer unlimited free access with full-quality, watermark-free downloads.
                   </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="2" className="bg-card border border-border rounded-xl px-6">
-                  <AccordionTrigger>What's the output quality?</AccordionTrigger>
+                  <AccordionTrigger>What's the maximum output quality?</AccordionTrigger>
                   <AccordionContent className="text-muted-foreground">
-                    Our AI enhances images to 4K Ultra HD quality with professional-grade results. You can see the before/after comparison using our slider tool.
+                    Our AI enhances images to 4K Ultra HD quality (up to 4096 pixels on the longest edge) with professional-grade results. The upscaler can increase resolution by up to 4x while maintaining sharpness and adding realistic detail through AI reconstruction.
                   </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="3" className="bg-card border border-border rounded-xl px-6">
                   <AccordionTrigger>Are my photos private and secure?</AccordionTrigger>
                   <AccordionContent className="text-muted-foreground">
-                    Absolutely. Your photos are processed securely and never stored on our servers. We prioritize your privacy.
+                    Absolutely. Your photos are processed in real-time and immediately discarded after enhancement. We never store, archive, or use your images for training purposes. All data transfers use encrypted connections, and we never share your content with third parties.
                   </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="4" className="bg-card border border-border rounded-xl px-6">
                   <AccordionTrigger>How does the comparison slider work?</AccordionTrigger>
                   <AccordionContent className="text-muted-foreground">
-                    After your image is enhanced, click the "Compare" button to see a side-by-side before/after slider. Drag the handle to compare the original and enhanced versions.
+                    After your image is enhanced, you'll see an interactive before/after comparison slider. Simply drag the handle left or right to reveal more of the original or enhanced version. This allows you to see exactly what improvements the AI has made to your photo.
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="5" className="bg-card border border-border rounded-xl px-6">
+                  <AccordionTrigger>What image formats are supported?</AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground">
+                    We support all common image formats including JPG, JPEG, PNG, WEBP, HEIC (iPhone photos), GIF, BMP, and TIFF. You can download your enhanced images in JPG or PNG format for maximum compatibility.
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="6" className="bg-card border border-border rounded-xl px-6">
+                  <AccordionTrigger>Can I use enhanced images commercially?</AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground">
+                    Yes! Images you enhance using our tools remain your property. You can use them for any purpose including commercial projects, social media, print materials, websites, and more. We don't claim any rights to your original or enhanced images.
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="7" className="bg-card border border-border rounded-xl px-6">
+                  <AccordionTrigger>Do I need to create an account?</AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground">
+                    No account is required! Simply visit any of our AI tools, upload your image, and download the enhanced result. We've designed our platform to be as frictionless as possible so you can get professional results instantly.
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="8" className="bg-card border border-border rounded-xl px-6">
+                  <AccordionTrigger>What's the difference between Photo Enhancer and Image Upscaler?</AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground">
+                    The AI Photo Enhancer focuses on overall quality improvement including color correction, sharpness, noise reduction, and lighting optimization without changing resolution. The AI Image Upscaler specifically increases the resolution (pixel dimensions) of your image by 2x to 4x while adding AI-reconstructed detail. For best results on low-quality photos, use the Enhancer first, then the Upscaler.
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
