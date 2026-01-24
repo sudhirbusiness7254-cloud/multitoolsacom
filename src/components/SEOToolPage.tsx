@@ -677,7 +677,7 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
 
           {/* Hero Section - Tool First */}
           <section className="py-6 md:py-10">
-            <div className="container mx-auto px-4 max-w-6xl">
+            <div className="w-full max-w-[1400px] mx-auto px-4">
               {/* Title with unique badge style per category */}
               <div className="text-center mb-6">
                 <div className={`inline-flex items-center gap-2 mb-4 ${badgeClasses}`}>
@@ -695,7 +695,7 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
               {/* Tool Component with Side Ads on Desktop */}
               <div className="mb-12">
                 {/* Desktop: Tool with ads on both sides */}
-                <div className="hidden lg:flex gap-4 justify-center items-start">
+                <div className="hidden xl:flex gap-4 justify-center items-start">
                   {/* Left Side Ad */}
                   <div className="flex-shrink-0 sticky top-24">
                     <ToolSideAd />
@@ -712,8 +712,8 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                   </div>
                 </div>
                 
-                {/* Mobile/Tablet: Tool only */}
-                <div className="lg:hidden">
+                {/* Mobile/Tablet/Laptop: Tool only */}
+                <div className="xl:hidden">
                   {children}
                 </div>
                 
