@@ -119,17 +119,15 @@ function generateToolsSitemap(baseUrl: string): string {
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">`;
 
-  // Individual tool pages organized by category
+  // Individual tool pages organized by category - ALL tools use ROOT level paths
   for (const category of toolCategories) {
     xml += `
   
   <!-- ${category.slug.replace(/-/g, ' ').toUpperCase()} TOOLS -->`;
     
     for (const toolSlug of category.tools) {
-      // PDF tools use root-level paths, others use /tools/ prefix
-      const toolPath = category.slug === "pdf-tools" 
-        ? `/${toolSlug}` 
-        : `/tools/${toolSlug}`;
+      // ALL tools use root-level paths (e.g., /jpg-to-png, /merge-pdf)
+      const toolPath = `/${toolSlug}`;
       
       xml += `
   <url>

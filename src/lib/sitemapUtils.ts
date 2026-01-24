@@ -56,14 +56,14 @@ export const generateSitemapUrls = (): SitemapUrl[] => {
     });
   }
 
-  // Tool pages (dynamic from data)
+  // Tool pages (dynamic from data) - ALL tools use root level paths
   for (const category of toolCategories) {
     for (const tool of category.tools) {
       urls.push({
-        loc: `${baseUrl}/tools/${tool.slug}`,
+        loc: `${baseUrl}/${tool.slug}`,
         lastmod: today,
-        changefreq: "monthly",
-        priority: "0.6"
+        changefreq: "weekly",
+        priority: "0.8"
       });
     }
   }
