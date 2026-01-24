@@ -397,8 +397,8 @@ const HowToUseGuide = ({ guideData, toolName, gradientFrom, gradientTo }: HowToU
                         {step.description}
                       </p>
                       
-                      {/* Screenshot Image */}
-                      {step.screenshotType && stepImages[step.screenshotType] ? (
+                      {/* Screenshot Image - only show if available */}
+                      {step.screenshotType && stepImages[step.screenshotType] && (
                         <div className="rounded-lg border border-border overflow-hidden mb-4">
                           <img 
                             src={stepImages[step.screenshotType]} 
@@ -406,15 +406,6 @@ const HowToUseGuide = ({ guideData, toolName, gradientFrom, gradientTo }: HowToU
                             className="w-full h-auto object-contain bg-muted/30"
                             loading="lazy"
                           />
-                        </div>
-                      ) : (
-                        <div 
-                          className="bg-muted/50 rounded-lg border-2 border-dashed border-border/70 p-8 mb-4 flex flex-col items-center justify-center min-h-[120px]"
-                        >
-                          <Monitor className="w-8 h-8 text-muted-foreground/50 mb-2" />
-                          <span className="text-sm text-muted-foreground/70 text-center">
-                            {step.screenshotAlt || `Step ${step.step}: ${step.title}`}
-                          </span>
                         </div>
                       )}
                       
