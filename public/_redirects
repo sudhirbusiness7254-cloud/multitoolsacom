@@ -8,5 +8,15 @@ http://www.multitoolsa.com/* https://multitoolsa.com/:splat 301!
 # Redirect HTTP to HTTPS
 http://multitoolsa.com/* https://multitoolsa.com/:splat 301!
 
+# Static files - serve directly (not SPA)
+/sitemap.xml /sitemap.xml 200
+/robots.txt /robots.txt 200
+/ads.txt /ads.txt 200
+/favicon.ico /favicon.ico 200
+/favicon.png /favicon.png 200
+/og-image.png /og-image.png 200
+/logo.png /logo.png 200
+/screenshot.png /screenshot.png 200
+
 # SPA fallback - serve index.html for all routes
 /*    /index.html   200
