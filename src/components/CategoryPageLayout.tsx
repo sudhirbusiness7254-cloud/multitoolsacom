@@ -263,6 +263,11 @@ const CategoryPageLayout = ({
                 
                 {/* Mobile Ad - Below tool dropdown */}
                 <MobileToolAd />
+                
+                {/* Native Banner Ad - Below tool/drag-drop area */}
+                <div className="mt-6">
+                  <NativeBannerAd />
+                </div>
               </div>
             </section>
           )}
@@ -509,7 +514,7 @@ const CategoryPageLayout = ({
             </div>
           </section>
 
-          {/* Native Banner Ad - User-friendly placement */}
+          {/* Native Banner Ad - Before Footer */}
           <div className="container mx-auto max-w-4xl px-4 py-6">
             <NativeBannerAd />
           </div>

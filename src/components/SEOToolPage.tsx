@@ -719,6 +719,11 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                 
                 {/* Mobile Ad - Below tool dropdown */}
                 <MobileToolAd />
+                
+                {/* Native Banner Ad - Below tool/drag-drop area */}
+                <div className="mt-6">
+                  <NativeBannerAd />
+                </div>
               </div>
 
               {/* Ad placement after tool */}
@@ -785,6 +790,9 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
 
               {/* Ad between content sections */}
               <InContentAd className="my-8" />
+              
+              {/* Native Banner Ad - Middle of page */}
+              <NativeBannerAd />
 
               {/* Related Articles from Blog */}
               <RelatedArticles 
@@ -891,6 +899,11 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
               </div>
             </div>
           </section>
+
+          {/* Native Banner Ad - Before Footer */}
+          <div className="container mx-auto px-4 max-w-4xl py-6">
+            <NativeBannerAd />
+          </div>
         </main>
 
         <Footer />
