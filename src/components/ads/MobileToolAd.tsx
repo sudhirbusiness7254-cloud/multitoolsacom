@@ -19,8 +19,7 @@ const MobileToolAd = () => {
     // Create and inject the script
     const script = document.createElement('script');
     script.src = 'https://crowdsubsequentadmire.com/5251d00b938f369c8b531c0ce3b384bb/invoke.js';
-    // Keep sync execution so atOptions is read reliably
-    script.async = false;
+    script.async = true;
     script.setAttribute('data-cfasync', 'false');
     
     adRef.current.appendChild(script);
