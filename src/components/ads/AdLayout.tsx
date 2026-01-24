@@ -1,7 +1,9 @@
 import { ReactNode, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { AdLeft, AdRight, AdVideoSide, AdStickyMobile, AdFloatingSidebar } from './AdContainer';
+import InterstitialAd from './InterstitialAd';
 import { resetAdScripts } from './AdManager';
+import { useInterstitial } from '@/contexts/InterstitialContext';
 
 interface AdLayoutProps {
   children: ReactNode;
@@ -15,12 +17,11 @@ const HIDE_SIDE_ADS_ON = [
 const AdLayout = ({ children }: AdLayoutProps) => {
   const location = useLocation();
   const prevPath = useRef(location.pathname);
+  const { showInterstitial, closeInterstitial } = useInterstitial();
 
   // Reset ad tracking on significant route changes to allow fresh loads
   useEffect(() => {
-    // Only reset if navigating to a completely different page
     if (prevPath.current !== location.pathname) {
-      // Don't reset ads on every navigation - keep them loaded
       prevPath.current = location.pathname;
     }
   }, [location.pathname]);
@@ -34,19 +35,23 @@ const AdLayout = ({ children }: AdLayoutProps) => {
         <>
           <AdLeft />
           <AdRight />
-          {/* Side Video Ads - Bottom corners */}
           <AdVideoSide position="left" />
-          {/* Floating Sidebar Ads - Stay visible while scrolling */}
           <AdFloatingSidebar position="left" />
           <AdFloatingSidebar position="right" />
         </>
       )}
       
-      {/* Mobile Sticky Bottom Ad - Shows on mobile/tablet only */}
+      {/* Mobile Sticky Bottom Ad */}
       <AdStickyMobile />
       
-      {/* Main Content - keep full-width (no reserved side padding) */}
-      {/* Add bottom padding on mobile to prevent content from being hidden by sticky ad */}
+      {/* Interstitial Ad - Shows during page transitions */}
+      <InterstitialAd 
+        isOpen={showInterstitial} 
+        onClose={closeInterstitial}
+        countdownSeconds={5}
+      />
+      
+      {/* Main Content */}
       <div className="pb-[70px] xl:pb-0">
         {children}
       </div>

@@ -57,6 +57,8 @@ import AdvertiserDisclosurePage from "./pages/AdvertiserDisclosurePage";
 import ImageFormatsGuidePage from "./pages/ImageFormatsGuidePage";
 import AdPlacementGuidePage from "./pages/AdPlacementGuidePage";
 
+import InterstitialProvider from "@/contexts/InterstitialContext";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -66,70 +68,72 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <AdLayout>
-          <Routes>
-            {/* Main Pages */}
-            <Route path="/" element={<HomePage />} />
-            <Route path="/all-tools" element={<AllToolsPage />} />
-            <Route path="/tag-extractor" element={<TagExtractorPage />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/privacy" element={<Privacy />} />
-            <Route path="/terms" element={<Terms />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/:slug" element={<BlogPost />} />
-            <Route path="/faq" element={<FAQPage />} />
-            <Route path="/tutorials" element={<TutorialsPage />} />
-            <Route path="/how-tools-work" element={<HowToolsWorkPage />} />
-            <Route path="/advertiser-disclosure" element={<AdvertiserDisclosurePage />} />
-            <Route path="/image-formats-guide" element={<ImageFormatsGuidePage />} />
-            <Route path="/ad-placement-guide" element={<AdPlacementGuidePage />} />
-            
-            {/* Image Tools Landing Page */}
-            <Route path="/image-tools" element={<ImageToolsPage />} />
-            <Route path="/image-editor" element={<ImageEditorPage />} />
-            <Route path="/image-converter" element={<ImageConverterPage />} />
-            
-            {/* Category Pages */}
-            <Route path="/image-compression" element={<ImageCompressionPage />} />
-            <Route path="/image-to-document" element={<ImageToDocumentPage />} />
-            <Route path="/image-resize" element={<ImageResizePage />} />
-            <Route path="/image-crop" element={<ImageCropPage />} />
-            <Route path="/image-rotate-flip" element={<ImageRotateFlipPage />} />
-            <Route path="/image-format-utilities" element={<FormatUtilitiesPage />} />
-            <Route path="/photo-filters" element={<PhotoFiltersPage />} />
-            <Route path="/watermark-tools" element={<WatermarkToolsPage />} />
-            <Route path="/image-combine" element={<ImageCombinePage />} />
-            <Route path="/image-metadata" element={<ImageMetadataPage />} />
-            <Route path="/image-optimization" element={<ImageOptimizationPage />} />
-            <Route path="/image-drawing" element={<ImageDrawingPage />} />
-            <Route path="/image-security" element={<ImageSecurityPage />} />
-            <Route path="/image-qr" element={<ImageQRPage />} />
-            <Route path="/pdf-tools" element={<PDFToolsPage />} />
-            <Route path="/ai-image-generation" element={<AIImageGenerationPage />} />
-            <Route path="/ai-image-tools" element={<AIImageToolsPage />} />
-            <Route path="/ai-photo-enhancer" element={<AIPhotoEnhancerPage />} />
-            <Route path="/ai-image-upscaler" element={<AIImageUpscalerPage />} />
-            <Route path="/ai-image-restorer" element={<AIImageRestorerPage />} />
-            <Route path="/ai-face-swap" element={<AIFaceSwapPage />} />
-            <Route path="/ai-colorize" element={<AIColorizePage />} />
-            <Route path="/ai-face-beautify" element={<AIFaceBeautifyPage />} />
-            <Route path="/birthday-wishes-generator" element={<BirthdayWishesGeneratorPage />} />
-            
-            {/* PDF Tool Pages */}
-            <Route path="/merge-pdf" element={<PDFToolPage />} />
-            <Route path="/compress-pdf" element={<PDFToolPage />} />
-            <Route path="/word-to-pdf" element={<PDFToolPage />} />
-            <Route path="/image-to-pdf" element={<PDFToolPage />} />
-            <Route path="/split-pdf" element={<PDFToolPage />} />
-            
-            {/* Dynamic Tool Pages - SEO optimized individual tool pages */}
-            <Route path="/:toolSlug" element={<DynamicToolPage />} />
-            
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-          </AdLayout>
+          <InterstitialProvider>
+            <AdLayout>
+            <Routes>
+              {/* Main Pages */}
+              <Route path="/" element={<HomePage />} />
+              <Route path="/all-tools" element={<AllToolsPage />} />
+              <Route path="/tag-extractor" element={<TagExtractorPage />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/terms" element={<Terms />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:slug" element={<BlogPost />} />
+              <Route path="/faq" element={<FAQPage />} />
+              <Route path="/tutorials" element={<TutorialsPage />} />
+              <Route path="/how-tools-work" element={<HowToolsWorkPage />} />
+              <Route path="/advertiser-disclosure" element={<AdvertiserDisclosurePage />} />
+              <Route path="/image-formats-guide" element={<ImageFormatsGuidePage />} />
+              <Route path="/ad-placement-guide" element={<AdPlacementGuidePage />} />
+              
+              {/* Image Tools Landing Page */}
+              <Route path="/image-tools" element={<ImageToolsPage />} />
+              <Route path="/image-editor" element={<ImageEditorPage />} />
+              <Route path="/image-converter" element={<ImageConverterPage />} />
+              
+              {/* Category Pages */}
+              <Route path="/image-compression" element={<ImageCompressionPage />} />
+              <Route path="/image-to-document" element={<ImageToDocumentPage />} />
+              <Route path="/image-resize" element={<ImageResizePage />} />
+              <Route path="/image-crop" element={<ImageCropPage />} />
+              <Route path="/image-rotate-flip" element={<ImageRotateFlipPage />} />
+              <Route path="/image-format-utilities" element={<FormatUtilitiesPage />} />
+              <Route path="/photo-filters" element={<PhotoFiltersPage />} />
+              <Route path="/watermark-tools" element={<WatermarkToolsPage />} />
+              <Route path="/image-combine" element={<ImageCombinePage />} />
+              <Route path="/image-metadata" element={<ImageMetadataPage />} />
+              <Route path="/image-optimization" element={<ImageOptimizationPage />} />
+              <Route path="/image-drawing" element={<ImageDrawingPage />} />
+              <Route path="/image-security" element={<ImageSecurityPage />} />
+              <Route path="/image-qr" element={<ImageQRPage />} />
+              <Route path="/pdf-tools" element={<PDFToolsPage />} />
+              <Route path="/ai-image-generation" element={<AIImageGenerationPage />} />
+              <Route path="/ai-image-tools" element={<AIImageToolsPage />} />
+              <Route path="/ai-photo-enhancer" element={<AIPhotoEnhancerPage />} />
+              <Route path="/ai-image-upscaler" element={<AIImageUpscalerPage />} />
+              <Route path="/ai-image-restorer" element={<AIImageRestorerPage />} />
+              <Route path="/ai-face-swap" element={<AIFaceSwapPage />} />
+              <Route path="/ai-colorize" element={<AIColorizePage />} />
+              <Route path="/ai-face-beautify" element={<AIFaceBeautifyPage />} />
+              <Route path="/birthday-wishes-generator" element={<BirthdayWishesGeneratorPage />} />
+              
+              {/* PDF Tool Pages */}
+              <Route path="/merge-pdf" element={<PDFToolPage />} />
+              <Route path="/compress-pdf" element={<PDFToolPage />} />
+              <Route path="/word-to-pdf" element={<PDFToolPage />} />
+              <Route path="/image-to-pdf" element={<PDFToolPage />} />
+              <Route path="/split-pdf" element={<PDFToolPage />} />
+              
+              {/* Dynamic Tool Pages - SEO optimized individual tool pages */}
+              <Route path="/:toolSlug" element={<DynamicToolPage />} />
+              
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+            </AdLayout>
+          </InterstitialProvider>
           <SupportChat />
         </BrowserRouter>
       </TooltipProvider>
