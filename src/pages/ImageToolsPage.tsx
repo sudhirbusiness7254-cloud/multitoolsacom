@@ -7,7 +7,6 @@ import ImageConverter from "@/components/ImageConverter";
 import BatchImageConverter from "@/components/BatchImageConverter";
 import PromptToImage from "@/components/PromptToImage";
 import { AdBottom, AdVideo, AdInline, AdExoticFat } from "@/components/ads/AdContainer";
-import { HilltopBanner, HilltopResponsive, HilltopSquare, HilltopAdGrid } from "@/components/ads/HilltopAds";
 import { 
   Image, 
   Zap, 
@@ -206,10 +205,11 @@ const ImageToolsPage = () => {
               </Tabs>
               
               {/* Ads below tool */}
-              <div className="max-w-5xl mx-auto mt-8">
-                <HilltopResponsive theme="huge_income" />
-                <AdBottom className="mt-4" />
-                <AdVideo className="mt-4" />
+              <div className="flex flex-col items-center gap-4 mt-8 max-w-5xl mx-auto">
+                <AdExoticFat />
+                <AdVideo />
+                <AdInline />
+                <AdBottom />
               </div>
             </div>
           </section>
@@ -253,8 +253,12 @@ const ImageToolsPage = () => {
                 ))}
               </div>
               
-              {/* HilltopAds - After Conversion Grid */}
-              <HilltopAdGrid className="mt-8" />
+              {/* Ads - After Conversion Grid */}
+              <div className="flex flex-col items-center gap-4 mt-8">
+                <AdExoticFat />
+                <AdVideo />
+                <AdInline />
+              </div>
             </div>
           </section>
 
@@ -299,8 +303,12 @@ const ImageToolsPage = () => {
                 ))}
               </div>
               
-              {/* HilltopAds - After How It Works */}
-              <HilltopBanner theme="get_high_ecpm" className="mt-8" />
+              {/* Ads - After How It Works */}
+              <div className="flex flex-col items-center gap-4 mt-8">
+                <AdExoticFat />
+                <AdVideo />
+                <AdBottom />
+              </div>
             </div>
           </section>
 
@@ -359,8 +367,12 @@ const ImageToolsPage = () => {
                 ))}
               </div>
               
-              {/* HilltopAds - After Formats */}
-              <HilltopResponsive theme="make_big_money" className="mt-8" />
+              {/* Ads - After Formats */}
+              <div className="flex flex-col items-center gap-4 mt-8">
+                <AdExoticFat />
+                <AdVideo />
+                <AdInline />
+              </div>
             </div>
           </section>
 
@@ -418,8 +430,12 @@ const ImageToolsPage = () => {
                 </AccordionItem>
               </Accordion>
               
-              {/* HilltopAds - After FAQ */}
-              <HilltopBanner theme="huge_income" className="mt-8" />
+              {/* Ads - After FAQ */}
+              <div className="flex flex-col items-center gap-4 mt-8">
+                <AdExoticFat />
+                <AdVideo />
+                <AdBottom />
+              </div>
             </div>
           </section>
 
@@ -452,11 +468,12 @@ const ImageToolsPage = () => {
                 </div>
               </article>
               
-              {/* HilltopAds - Cards After Article */}
-              <div className="flex flex-wrap justify-center gap-4 mt-8">
-                <HilltopSquare theme="huge_income" />
-                <HilltopSquare theme="get_high_ecpm" />
-                <HilltopSquare theme="make_big_money" className="hidden lg:flex" />
+              {/* Ads - After Article */}
+              <div className="flex flex-col items-center gap-4 mt-8">
+                <AdExoticFat />
+                <AdVideo />
+                <AdInline />
+                <AdBottom />
               </div>
             </div>
           </section>

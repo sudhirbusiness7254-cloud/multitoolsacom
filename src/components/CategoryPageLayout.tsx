@@ -9,7 +9,6 @@ import { CategorySEOContent } from "@/data/categorySEOData";
 import HreflangTags from "@/components/HreflangTags";
 import RelatedArticles from "@/components/RelatedArticles";
 import { AdBottom, AdVideo, AdInline, AdExoticFat } from "@/components/ads/AdContainer";
-import { HilltopBanner, HilltopSquare, HilltopResponsive } from "@/components/ads/HilltopAds";
 
 interface CategoryPageLayoutProps {
   category: Category;
@@ -169,14 +168,13 @@ const CategoryPageLayout = ({
               <div className="w-full max-w-5xl mx-auto">
                 {children}
                 
-                {/* HilltopAds - After Tool */}
-                <HilltopResponsive theme="huge_income" className="mt-6" />
-                
-                {/* Bottom Ad - After Tool Output */}
-                <AdBottom className="mt-4" />
-                
-                {/* Video Ad - Below Bottom Ad */}
-                <AdVideo className="mt-4" />
+                {/* Ads - After Tool */}
+                <div className="flex flex-col items-center gap-4 mt-6">
+                  <AdExoticFat />
+                  <AdVideo />
+                  <AdInline />
+                  <AdBottom />
+                </div>
               </div>
             </section>
           )}

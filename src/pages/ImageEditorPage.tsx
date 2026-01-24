@@ -4,7 +4,6 @@ import Footer from "@/components/Footer";
 import ImageEditor from "@/components/ImageEditor/ImageEditor";
 import HreflangTags from "@/components/HreflangTags";
 import { AdVideo, AdBottom, AdInline, AdExoticFat } from "@/components/ads/AdContainer";
-import { HilltopBanner, HilltopResponsive, HilltopSquare } from "@/components/ads/HilltopAds";
 
 const ImageEditorPage = () => {
   return (
@@ -48,10 +47,13 @@ const ImageEditorPage = () => {
           <section className="pb-16 px-4">
             <div className="max-w-6xl mx-auto">
               <ImageEditor />
-              {/* HilltopAds - After Tool */}
-              <HilltopResponsive theme="huge_income" className="mt-6" />
-              {/* Video Ad - Below Tool Output */}
-              <AdVideo className="mt-4" />
+              {/* Ads - After Tool */}
+              <div className="flex flex-col items-center gap-4 mt-6">
+                <AdExoticFat />
+                <AdVideo />
+                <AdInline />
+                <AdBottom />
+              </div>
             </div>
           </section>
 
@@ -90,8 +92,12 @@ const ImageEditorPage = () => {
                 ))}
               </div>
               
-              {/* HilltopAds - After Features */}
-              <HilltopBanner theme="get_high_ecpm" className="mt-8" />
+              {/* Ads - After Features */}
+              <div className="flex flex-col items-center gap-4 mt-8">
+                <AdExoticFat />
+                <AdVideo />
+                <AdInline />
+              </div>
             </div>
           </section>
 
@@ -125,10 +131,11 @@ const ImageEditorPage = () => {
                 ))}
               </div>
               
-              {/* HilltopAds - After Shortcuts */}
-              <div className="flex flex-wrap justify-center gap-4 mt-8">
-                <HilltopSquare theme="huge_income" />
-                <HilltopSquare theme="make_big_money" />
+              {/* Ads - After Shortcuts */}
+              <div className="flex flex-col items-center gap-4 mt-8">
+                <AdExoticFat />
+                <AdVideo />
+                <AdBottom />
               </div>
             </div>
           </section>
