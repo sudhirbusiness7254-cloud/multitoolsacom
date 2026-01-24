@@ -118,6 +118,61 @@
     --shadow-strong: 0 10px 40px -10px hsl(24 95% 53% / 0.25);
     --shadow-glow: 0 0 30px hsl(24 95% 53% / 0.4);
   }
+
+  /* Eye Comfort Theme - Warm, reduced blue light, softer contrast */
+  .eye-comfort {
+    --background: 35 30% 12%;
+    --foreground: 40 20% 85%;
+
+    --card: 35 25% 15%;
+    --card-foreground: 40 20% 85%;
+
+    --popover: 35 25% 15%;
+    --popover-foreground: 40 20% 85%;
+
+    --primary: 35 80% 55%;
+    --primary-foreground: 35 30% 10%;
+
+    --secondary: 35 20% 20%;
+    --secondary-foreground: 40 20% 85%;
+
+    --muted: 35 15% 22%;
+    --muted-foreground: 40 15% 60%;
+
+    --accent: 30 70% 50%;
+    --accent-foreground: 40 20% 95%;
+
+    --destructive: 15 70% 45%;
+    --destructive-foreground: 40 20% 95%;
+
+    --border: 35 20% 25%;
+    --input: 35 20% 18%;
+    --ring: 35 80% 55%;
+
+    /* Brand Colors - Eye Comfort Mode */
+    --brand-orange: 35 80% 55%;
+    --brand-orange-light: 35 75% 65%;
+    --brand-red: 25 70% 50%;
+    --brand-red-dark: 25 70% 40%;
+    --brand-amber: 40 85% 55%;
+    --brand-green: 100 50% 45%;
+    --brand-blue: 200 60% 50%;
+    --brand-teal: 165 50% 45%;
+    
+    /* Glow colors - Eye Comfort - Softer */
+    --glow-orange: 0 0 30px hsl(35 80% 55% / 0.25);
+    --glow-red: 0 0 30px hsl(25 70% 50% / 0.25);
+    
+    /* Gradients - Eye Comfort - Warm tones */
+    --gradient-hero: linear-gradient(135deg, hsl(35 30% 12%), hsl(30 35% 15%));
+    --gradient-card: linear-gradient(145deg, hsl(35 25% 17%), hsl(35 25% 13%));
+    --gradient-orange: linear-gradient(135deg, hsl(35 80% 55%), hsl(30 70% 50%));
+    --gradient-dark: linear-gradient(180deg, hsl(35 25% 14%), hsl(35 30% 11%));
+    
+    --shadow-soft: 0 4px 20px -4px hsl(35 80% 55% / 0.12);
+    --shadow-strong: 0 10px 40px -10px hsl(35 80% 55% / 0.2);
+    --shadow-glow: 0 0 30px hsl(35 80% 55% / 0.25);
+  }
 }
 
 @layer base {
