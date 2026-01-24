@@ -59,21 +59,32 @@ export const AdBottom = ({ className = '' }: { className?: string }) => {
   );
 };
 
-// Video ad - Auto-loads when visible (Desktop: 220-260px width, 120-150px height, 16:9)
+// Video ad - Lazy loaded with CWV optimization (Desktop: 220-260px width, 120-150px height, 16:9)
 export const AdVideo = ({ className = '' }: { className?: string }) => {
-  const { containerRef, isVisible } = useVideoAdLoader();
+  const { containerRef, isVisible, isLoaded } = useVideoAdLoader();
   
   return (
     <div 
       ref={containerRef}
-      className={`ad-video w-full max-w-[260px] mx-auto my-6 transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'} ${className}`}
+      className={`ad-video w-full max-w-[260px] mx-auto my-6 transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'} ${className}`}
       aria-label="Video Advertisement"
       role="complementary"
-      style={{ minHeight: '120px', maxHeight: '150px', aspectRatio: '16/9' }}
+      // Fixed dimensions prevent CLS (Cumulative Layout Shift)
+      style={{ 
+        minHeight: '120px', 
+        maxHeight: '150px', 
+        aspectRatio: '16/9',
+        contain: 'layout style' // CSS containment for better performance
+      }}
     >
-      <div className="ad-placeholder bg-secondary/20 rounded-lg p-2 text-center text-xs text-muted-foreground h-full flex items-center justify-center" style={{ aspectRatio: '16/9' }}>
-        <span className="opacity-40">Video Ad</span>
-      </div>
+      {!isLoaded && (
+        <div 
+          className="ad-placeholder bg-secondary/20 rounded-lg p-2 text-center text-xs text-muted-foreground h-full flex items-center justify-center" 
+          style={{ aspectRatio: '16/9' }}
+        >
+          <span className="opacity-40">Video Ad</span>
+        </div>
+      )}
     </div>
   );
 };
