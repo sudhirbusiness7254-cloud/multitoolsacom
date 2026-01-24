@@ -288,6 +288,11 @@ const CategoryPageLayout = ({
             </div>
           </section>
 
+          {/* Native Banner Ad - After tools grid */}
+          <div className="container mx-auto max-w-4xl px-4">
+            <NativeBannerAd />
+          </div>
+
           {/* Ad placement after tools */}
           <div className="container mx-auto max-w-4xl px-4">
             <InContentAd />
@@ -400,6 +405,11 @@ const CategoryPageLayout = ({
             </div>
           </section>
 
+          {/* Native Banner Ad - After How It Works */}
+          <div className="container mx-auto max-w-4xl px-4">
+            <NativeBannerAd />
+          </div>
+
           {/* Privacy - Minimal */}
           <section className="py-6 px-4 sm:px-6">
             <div className="container mx-auto max-w-4xl">
@@ -435,6 +445,11 @@ const CategoryPageLayout = ({
               </Accordion>
             </div>
           </section>
+
+          {/* Native Banner Ad - After FAQ */}
+          <div className="container mx-auto max-w-4xl px-4">
+            <NativeBannerAd />
+          </div>
 
           {/* Related Blog Articles */}
           <section className="py-6 sm:py-8 px-4 sm:px-6">
