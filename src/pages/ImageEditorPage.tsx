@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ImageEditor from "@/components/ImageEditor/ImageEditor";
 import HreflangTags from "@/components/HreflangTags";
-import { AdVideo, AdBottom, AdInline } from "@/components/ads/AdContainer";
+import { AdVideo, AdBottom, AdInline, AdExoticFat } from "@/components/ads/AdContainer";
 import { HilltopBanner, HilltopResponsive, HilltopSquare } from "@/components/ads/HilltopAds";
 
 const ImageEditorPage = () => {
@@ -133,11 +133,11 @@ const ImageEditorPage = () => {
             </div>
           </section>
           
-          {/* HilltopAds - Before Footer */}
-          <HilltopResponsive theme="make_big_money" className="my-6 px-4" />
+          {/* ExoticFat Ad - Before Footer */}
+          <AdExoticFat className="my-6 px-4" />
           
-          {/* Bottom Ad */}
-          <AdBottom className="mb-8" />
+          {/* Bottom ExoticFat Ad */}
+          <AdExoticFat className="mb-8" />
         </main>
 
         <Footer />

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GradientWaveBackground from "@/components/GradientWaveBackground";
-import { AdBottom, AdVideo, AdInline } from "@/components/ads/AdContainer";
+import { AdBottom, AdVideo, AdInline, AdExoticFat } from "@/components/ads/AdContainer";
 import { HilltopBanner, HilltopSquare, HilltopResponsive, HilltopAdGrid } from "@/components/ads/HilltopAds";
 import { 
   ArrowRight, 
@@ -365,9 +365,9 @@ const HomePage = () => {
               </Link>
               
               {/* Ads after popular tools */}
-              <HilltopResponsive theme="huge_income" className="mt-6 sm:mt-8" />
-              <AdBottom className="mt-4" />
-              <AdVideo className="mt-3 sm:mt-4" />
+              <AdExoticFat className="mt-6 sm:mt-8" />
+              <AdExoticFat className="mt-4" />
+              <AdExoticFat className="mt-3 sm:mt-4" />
             </div>
           </section>
 
@@ -425,11 +425,11 @@ const HomePage = () => {
                 })}
               </div>
               
-              {/* HilltopAds - After Categories */}
-              <HilltopBanner theme="get_high_ecpm" className="mt-6" />
+              {/* ExoticFat Ad - After Categories */}
+              <AdExoticFat className="mt-6" />
               
-              {/* Inline Ad - After Categories */}
-              <AdInline className="mt-4 sm:mt-6" />
+              {/* ExoticFat Ad - After Categories */}
+              <AdExoticFat className="mt-4 sm:mt-6" />
             </div>
           </section>
 
@@ -578,11 +578,11 @@ const HomePage = () => {
                 </Link>
               </div>
               
-              {/* HilltopAds - After How It Works */}
-              <HilltopResponsive theme="make_big_money" className="mt-6" />
+              {/* ExoticFat Ad - After How It Works */}
+              <AdExoticFat className="mt-6" />
               
-              {/* Inline Ad - After How It Works */}
-              <AdInline className="mt-4 sm:mt-6" />
+              {/* ExoticFat Ad - After How It Works */}
+              <AdExoticFat className="mt-4 sm:mt-6" />
             </div>
           </section>
 
@@ -640,10 +640,10 @@ const HomePage = () => {
             </div>
           </section>
           
-          {/* Additional Video Ad Section */}
+          {/* Additional ExoticFat Ad Section */}
           <section className="py-6 px-4 sm:px-6">
             <div className="container mx-auto max-w-6xl">
-              <AdVideo />
+              <AdExoticFat />
             </div>
           </section>
 
@@ -697,11 +697,11 @@ const HomePage = () => {
                 All Articles <ArrowRight className="w-4 h-4" />
               </Link>
               
-              {/* HilltopAds - After Blog Posts */}
-              <HilltopResponsive theme="get_high_ecpm" className="mt-6" />
+              {/* ExoticFat Ad - After Blog Posts */}
+              <AdExoticFat className="mt-6" />
               
               {/* Ad after Blog Posts */}
-              <AdInline className="mt-4" />
+              <AdExoticFat className="mt-4" />
             </div>
           </section>
 
@@ -799,22 +799,21 @@ const HomePage = () => {
                 </Link>
               </div>
               
-              {/* HilltopAds Cards - After Resources Grid */}
+              {/* ExoticFat Ads - After Resources Grid */}
               <div className="flex flex-wrap justify-center gap-4 mt-8">
-                <HilltopSquare theme="make_big_money" />
-                <HilltopSquare theme="get_high_ecpm" />
+                <AdExoticFat />
               </div>
               
               {/* Ad after Resources */}
-              <AdVideo className="mt-6" />
+              <AdExoticFat className="mt-6" />
             </div>
           </section>
           
-          {/* Inline Ad before Final CTA */}
+          {/* ExoticFat Ad before Final CTA */}
           <section className="py-6 px-4 sm:px-6 lg:px-8 xl:px-12 bg-secondary/20">
             <div className="container mx-auto max-w-7xl 2xl:max-w-[1600px]">
-              <HilltopResponsive theme="huge_income" className="mb-4" />
-              <AdBottom />
+              <AdExoticFat className="mb-4" />
+              <AdExoticFat />
             </div>
           </section>
 
