@@ -6,6 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Progress } from "@/components/ui/progress";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
+import { AdVideo } from "@/components/ads/AdContainer";
 
 type OutputFormat = "png" | "jpg" | "webp";
 
@@ -278,6 +279,9 @@ const AIFaceSwap = () => {
               )}
             </div>
           </div>
+          
+          {/* Video Ad - Below Upload Areas */}
+          <AdVideo className="mt-2" />
 
           {/* Arrow indicator */}
           {sourceImage && targetImage && (

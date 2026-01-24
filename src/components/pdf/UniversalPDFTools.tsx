@@ -3,6 +3,7 @@ import { FileText, Minimize2, FileUp, Image, Scissors, Upload, X, ArrowRight, Pl
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
+import { AdVideo } from "@/components/ads/AdContainer";
 
 // Import PDF tool components
 import MergePDF from "./MergePDF";
@@ -248,6 +249,9 @@ const UniversalPDFTools = ({ defaultTool }: UniversalPDFToolsProps) => {
           </div>
         </div>
       </div>
+      
+      {/* Video Ad - Below Upload Area */}
+      <AdVideo className="mt-4" />
 
       {/* Tool Selection Grid */}
       <div>

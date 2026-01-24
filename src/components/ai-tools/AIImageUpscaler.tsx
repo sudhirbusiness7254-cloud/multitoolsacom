@@ -9,6 +9,7 @@ import { Switch } from "@/components/ui/switch";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import ImageComparisonSlider from "@/components/ImageComparisonSlider";
+import { AdVideo } from "@/components/ads/AdContainer";
 
 type OutputFormat = "png" | "jpg" | "webp";
 type UpscaleLevel = "2" | "4";
@@ -301,6 +302,9 @@ const AIImageUpscaler = () => {
               </div>
             </div>
           )}
+          
+          {/* Video Ad - Below Upload Area */}
+          {!originalImage && <AdVideo className="mt-2" />}
 
           {/* Upscale Level Selection */}
           {originalImage && !upscaledImage && !isProcessing && (

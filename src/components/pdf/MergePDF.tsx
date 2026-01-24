@@ -4,6 +4,7 @@ import { Upload, X, FileText, Download, Loader2, GripVertical } from "lucide-rea
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
+import { AdVideo } from "@/components/ads/AdContainer";
 
 interface PDFFile {
   id: string;
@@ -176,6 +177,9 @@ const MergePDF = () => {
           </p>
         </div>
       </div>
+      
+      {/* Video Ad - Below Upload Area */}
+      <AdVideo className="mt-4" />
 
       {/* File List */}
       {files.length > 0 && (

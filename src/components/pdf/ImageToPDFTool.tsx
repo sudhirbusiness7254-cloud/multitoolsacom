@@ -4,6 +4,7 @@ import { Upload, Download, Loader2, Image as ImageIcon, Trash2, GripVertical, X 
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
+import { AdVideo } from "@/components/ads/AdContainer";
 
 interface ImageFile {
   id: string;

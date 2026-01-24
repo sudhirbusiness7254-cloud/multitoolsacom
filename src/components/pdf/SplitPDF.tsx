@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
+import { AdVideo } from "@/components/ads/AdContainer";
 
 const SplitPDF = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -196,39 +197,43 @@ const SplitPDF = () => {
   return (
     <div className="w-full max-w-4xl mx-auto space-y-6">
       {!file ? (
-        <div
-          onDragOver={handleDragOver}
-          onDragLeave={handleDragLeave}
-          onDrop={handleDrop}
-          className={cn(
-            "relative border-2 border-dashed rounded-2xl p-8 md:p-12 text-center transition-all cursor-pointer",
-            isDragging
-              ? "border-primary bg-primary/10"
-              : "border-border hover:border-primary/50 hover:bg-card/50"
-          )}
-        >
-          <input
-            type="file"
-            accept=".pdf,application/pdf"
-            onChange={handleFileInput}
-            className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-          />
-          
-          <div className="flex flex-col items-center gap-4">
-            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-pink-500 to-pink-600 flex items-center justify-center">
-              <Upload className="w-8 h-8 text-white" />
-            </div>
+        <>
+          <div
+            onDragOver={handleDragOver}
+            onDragLeave={handleDragLeave}
+            onDrop={handleDrop}
+            className={cn(
+              "relative border-2 border-dashed rounded-2xl p-8 md:p-12 text-center transition-all cursor-pointer",
+              isDragging
+                ? "border-primary bg-primary/10"
+                : "border-border hover:border-primary/50 hover:bg-card/50"
+            )}
+          >
+            <input
+              type="file"
+              accept=".pdf,application/pdf"
+              onChange={handleFileInput}
+              className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+            />
             
-            <div>
-              <p className="text-lg font-semibold mb-1">
-                {isDragging ? "Drop your PDF here" : "Drag & Drop PDF file"}
-              </p>
-              <p className="text-sm text-muted-foreground">
-                or click to browse from your device
-              </p>
+            <div className="flex flex-col items-center gap-4">
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-pink-500 to-pink-600 flex items-center justify-center">
+                <Upload className="w-8 h-8 text-white" />
+              </div>
+              
+              <div>
+                <p className="text-lg font-semibold mb-1">
+                  {isDragging ? "Drop your PDF here" : "Drag & Drop PDF file"}
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  or click to browse from your device
+                </p>
+              </div>
             </div>
           </div>
-        </div>
+          {/* Video Ad - Below Upload Area */}
+          <AdVideo className="mt-4" />
+        </>
       ) : (
         <div className="bg-card rounded-xl border border-border p-6 space-y-6">
           {/* File Info */}
