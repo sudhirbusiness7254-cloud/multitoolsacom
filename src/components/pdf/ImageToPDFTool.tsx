@@ -198,6 +198,9 @@ const ImageToPDFTool = () => {
           </div>
         </div>
       </div>
+      
+      {/* Video Ad - Below Upload Area */}
+      <AdVideo className="mt-4" />
 
       {/* Image Grid */}
       {images.length > 0 && (
