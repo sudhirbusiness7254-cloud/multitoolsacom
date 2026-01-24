@@ -98,9 +98,18 @@ export const loadAdScript = (position: keyof typeof AD_SCRIPTS, container: HTMLE
     // Create script exactly as provided by the ad network - NO DELAY
     const script = document.createElement('script');
     script.async = true;
+    script.setAttribute('data-cfasync', 'false');
     script.referrerPolicy = 'no-referrer-when-downgrade';
     script.src = config.src;
-    (script as any).settings = {};
+    
+    // Add load handler for debugging
+    script.onload = () => {
+      console.log(`Ad script loaded successfully: ${position}`);
+    };
+    
+    script.onerror = (e) => {
+      console.warn(`Ad script failed to load: ${position}`, e);
+    };
     
     container.appendChild(script);
   } catch (error) {
@@ -139,7 +148,7 @@ export const useVideoAdLoader = () => {
   const [isVisible, setIsVisible] = useState(true); // Start visible immediately
   const [isLoaded, setIsLoaded] = useState(false);
   const [retryCount, setRetryCount] = useState(0);
-  const maxRetries = 2;
+  const maxRetries = 3;
 
   const loadVideoAd = useCallback(() => {
     const container = containerRef.current;
@@ -155,27 +164,32 @@ export const useVideoAdLoader = () => {
       const config = AD_SCRIPTS.video;
       const script = document.createElement('script');
       script.async = true;
+      script.setAttribute('data-cfasync', 'false');
       script.referrerPolicy = 'no-referrer-when-downgrade';
       script.src = config.src;
-      (script as any).settings = {};
+      
+      script.onload = () => {
+        console.log('Video ad script loaded successfully');
+        setIsLoaded(true);
+      };
       
       // Listen for errors and retry
       script.onerror = () => {
+        console.warn(`Video ad failed to load, retry ${retryCount + 1}/${maxRetries}`);
         if (retryCount < maxRetries) {
           setTimeout(() => {
             setRetryCount(prev => prev + 1);
-          }, 1000 * (retryCount + 1)); // Exponential backoff
+          }, 1500 * (retryCount + 1)); // Exponential backoff
         }
       };
       
       container.appendChild(script);
-      setIsLoaded(true);
     } catch (error) {
       console.warn('Failed to load video ad:', error);
       if (retryCount < maxRetries) {
         setTimeout(() => {
           setRetryCount(prev => prev + 1);
-        }, 1000 * (retryCount + 1));
+        }, 1500 * (retryCount + 1));
       }
     }
   }, [retryCount]);
@@ -193,46 +207,51 @@ export const useVideoAdLoader = () => {
   return { containerRef, isVisible, isLoaded };
 };
 
-// Popunder ad loader - ONE TIME per user using localStorage
+// Popunder ad loader - ONE TIME per session using sessionStorage (resets on new tab)
 export const usePopunderLoader = () => {
   const [hasShown, setHasShown] = useState(false);
-  const STORAGE_KEY = 'multitoolsa_popunder_shown';
+  const STORAGE_KEY = 'multitoolsa_popunder_session';
 
   useEffect(() => {
-    // Check if popunder was already shown to this user
-    const alreadyShown = localStorage.getItem(STORAGE_KEY);
+    // Check if popunder was already shown in this session
+    const alreadyShown = sessionStorage.getItem(STORAGE_KEY);
     if (alreadyShown) {
       setHasShown(true);
       return;
     }
 
     // Load popunder script on first user interaction (click)
-    const handleFirstClick = () => {
+    const handleFirstClick = (e: MouseEvent) => {
       if (hasShown) return;
       
       try {
         const config = AD_SCRIPTS.popunder;
         const script = document.createElement('script');
         script.async = true;
+        script.setAttribute('data-cfasync', 'false');
         script.src = config.src;
+        
+        script.onload = () => {
+          console.log('Popunder ad script loaded');
+        };
+        
         document.body.appendChild(script);
         
-        // Mark as shown in localStorage
-        localStorage.setItem(STORAGE_KEY, 'true');
+        // Mark as shown in sessionStorage (resets on new tab/session)
+        sessionStorage.setItem(STORAGE_KEY, 'true');
         setHasShown(true);
         
-        // Remove click listener after first trigger
-        document.removeEventListener('click', handleFirstClick);
+        console.log('Popunder triggered on first click');
       } catch (error) {
         console.warn('Failed to load popunder ad:', error);
       }
     };
 
-    // Add click listener for popunder
-    document.addEventListener('click', handleFirstClick, { once: true });
+    // Add click listener for popunder - use capture phase for earlier trigger
+    document.addEventListener('click', handleFirstClick, { once: true, capture: true });
 
     return () => {
-      document.removeEventListener('click', handleFirstClick);
+      document.removeEventListener('click', handleFirstClick, { capture: true } as EventListenerOptions);
     };
   }, [hasShown]);
 
