@@ -13,7 +13,7 @@ import { getHeadingClasses, getCardClasses, getBadgeClasses } from "@/components
 import InContentAd from "@/components/ads/InContentAd";
 import NativeBannerAd from "@/components/ads/NativeBannerAd";
 import ToolSideAd from "@/components/ads/ToolSideAd";
-import MobileToolAd from "@/components/ads/MobileToolAd";
+import MobileNativeAd from "@/components/ads/MobileNativeAd";
 
 // Import unique hero banners for each category
 import heroConverter from "@/assets/heroes/hero-image-converter.jpg";
@@ -261,11 +261,11 @@ const CategoryPageLayout = ({
                   {children}
                 </div>
                 
-                {/* Mobile Ad - Below tool dropdown */}
-                <MobileToolAd />
+                {/* Mobile/Tablet Native Ad - Below tool dropdown */}
+                <MobileNativeAd className="mt-4" />
                 
-                {/* Native Banner Ad - Below tool/drag-drop area */}
-                <div className="mt-6">
+                {/* Native Banner Ad - Below tool/drag-drop area (Desktop) */}
+                <div className="mt-6 hidden lg:block">
                   <NativeBannerAd />
                 </div>
               </div>
