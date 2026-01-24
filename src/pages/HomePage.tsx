@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GradientWaveBackground from "@/components/GradientWaveBackground";
-import { AdBottom, AdInline, AdExoticFat, AdPopunder, AdNative, HilltopBanner } from "@/components/ads/AdContainer";
+import { AdBottom, AdInline, AdExoticFat, AdPopunder, AdNative, AdPush, HilltopBanner } from "@/components/ads/AdContainer";
 import { 
   ArrowRight, 
   Shield, 
@@ -731,6 +731,9 @@ const HomePage = () => {
         
         {/* Popunder Ad - One time per user */}
         <AdPopunder />
+        
+        {/* Push/Notification Ad - Loads for push prompts */}
+        <AdPush />
       </div>
     </>
   );

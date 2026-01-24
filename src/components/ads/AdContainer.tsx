@@ -197,6 +197,19 @@ export const AdPopunder = () => {
   return null; // No visible element - popunder opens in new tab/window
 };
 
+// Push/Notification ad - Loads once per page for push notification prompts
+export const AdPush = () => {
+  const { containerRef, isLoaded } = useAdLoader('push');
+  
+  return (
+    <div 
+      ref={containerRef}
+      style={{ display: 'none' }}
+      aria-hidden="true"
+    />
+  );
+};
+
 // Generic ad container
 const AdContainer = ({ position, className = '' }: AdContainerProps) => {
   switch (position) {

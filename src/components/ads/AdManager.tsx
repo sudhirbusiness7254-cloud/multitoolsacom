@@ -38,6 +38,10 @@ const AD_SCRIPTS: Record<string, AdScriptConfig> = {
   popunder: {
     id: 'ad-script-popunder',
     src: '//adolescent-poem.com/c/DN9.6MbB2n5vl/SdWuQ/9VNrjbcj1UNhj-Ag5_Nrye0L2bN/z/Us2/MjDEkI4z',
+  },
+  push: {
+    id: 'ad-script-push',
+    src: '//farawayaside.com/b/XLV.sld/G/lg0-YXWHcw/_ejmR9cuMZiUZlmkvPsTaYu3NNUTMUZzEO/DKYQtbNDjgcF1CNATDMY4/NdwP',
   }
 };
 
