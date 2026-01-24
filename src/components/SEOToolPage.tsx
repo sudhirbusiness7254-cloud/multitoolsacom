@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import { 
   ChevronRight, CheckCircle, HelpCircle, ArrowRight, Lightbulb, BookOpen, 
   Star, Users, Shield, Sparkles, Zap, Target, Briefcase, GraduationCap, 
-  Palette, Code, User, FileText
+  Palette, Code, User, FileText, ExternalLink
 } from "lucide-react";
 import { ToolSEOContent } from "@/data/toolsSEOData";
 import { getComprehensiveSEOContent, ComprehensiveSEOContent } from "@/data/comprehensiveSEOContent";
@@ -98,14 +98,21 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
         <meta name="keywords" content={(comprehensiveContent?.keywords || seoContent.keywords).join(", ")} />
         <link rel="canonical" href={canonicalUrl} />
         
+        {/* Ensure pages are indexable */}
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="googlebot" content="index, follow" />
+        
         <meta property="og:title" content={comprehensiveContent?.metaTitle || seoContent.metaTitle} />
         <meta property="og:description" content={comprehensiveContent?.metaDescription || seoContent.metaDescription} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:site_name" content="MultiToolsA" />
+        <meta property="og:image" content="https://multitoolsa.com/screenshot.png" />
         
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={comprehensiveContent?.metaTitle || seoContent.metaTitle} />
         <meta name="twitter:description" content={comprehensiveContent?.metaDescription || seoContent.metaDescription} />
+        <meta name="twitter:image" content="https://multitoolsa.com/screenshot.png" />
         
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
         <script type="application/ld+json">{JSON.stringify(faqStructuredData)}</script>
@@ -128,11 +135,11 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
             </ol>
           </nav>
 
-          {/* Hero Section with Tool */}
-          <section className="py-8 md:py-12">
+          {/* Hero Section with SEO Content Above the Fold */}
+          <section className="py-6 md:py-10">
             <div className="container mx-auto px-4 max-w-6xl">
-              {/* Title */}
-              <div className="text-center mb-8">
+              {/* Title and Description - Always visible first */}
+              <div className="text-center mb-6">
                 <div 
                   className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-4"
                   style={{ 
@@ -146,13 +153,36 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
                   {comprehensiveContent?.h1 || seoContent.h1}
                 </h1>
-                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-4">
                   {seoContent.shortDescription}
                 </p>
+                
+                {/* SEO-rich description visible immediately on page load */}
+                <div className="text-left max-w-3xl mx-auto bg-card rounded-xl border border-border p-6 mb-8">
+                  <h2 className="text-xl font-semibold mb-3 flex items-center gap-2">
+                    <BookOpen className="w-5 h-5" style={{ color: seoContent.gradientFrom }} />
+                    What is {seoContent.title}?
+                  </h2>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    {hasComprehensive && comprehensiveContent.introduction 
+                      ? comprehensiveContent.introduction 
+                      : seoContent.longDescription}
+                  </p>
+                  
+                  {/* Quick benefits list - visible above fold */}
+                  <div className="grid grid-cols-2 gap-2 mt-4">
+                    {(hasComprehensive ? comprehensiveContent.benefits.slice(0, 4) : seoContent.benefits.slice(0, 4)).map((benefit, index) => (
+                      <div key={index} className="flex items-center gap-2 text-sm">
+                        <CheckCircle className="w-4 h-4 flex-shrink-0" style={{ color: seoContent.gradientFrom }} />
+                        <span>{benefit}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
 
               {/* Tool Component */}
-              <div className="mb-16">
+              <div className="mb-12">
                 {children}
               </div>
             </div>
@@ -473,24 +503,51 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                 maxItems={3}
               />
 
-              {/* Section 13: Related Tools */}
-              {((hasComprehensive && comprehensiveContent.relatedTools.length > 0) || seoContent.relatedTools.length > 0) && (
-                <div className="bg-card rounded-2xl border border-border p-6 md:p-8">
-                  <h2 className="text-xl md:text-2xl font-bold mb-6">Related Tools</h2>
-                  <div className="flex flex-wrap gap-3">
-                    {(hasComprehensive ? comprehensiveContent.relatedTools : seoContent.relatedTools).map((tool) => (
-                      <Link
-                        key={tool}
-                        to={`/${tool}`}
-                        className="inline-flex items-center gap-2 px-4 py-2 bg-secondary rounded-lg hover:bg-secondary/80 transition-colors"
+              {/* Section 13: Related Tools - Enhanced with more links */}
+              <div className="bg-card rounded-2xl border border-border p-6 md:p-8">
+                <h2 className="text-xl md:text-2xl font-bold mb-4">Related Tools You May Also Like</h2>
+                <p className="text-muted-foreground mb-6">
+                  Explore more free tools from our collection. Each tool is designed to work seamlessly with others for a complete image editing workflow.
+                </p>
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                  {(hasComprehensive && comprehensiveContent.relatedTools.length > 0 
+                    ? comprehensiveContent.relatedTools.slice(0, 6)
+                    : seoContent.relatedTools.slice(0, 6)
+                  ).map((tool) => (
+                    <Link
+                      key={tool}
+                      to={`/tools/${tool}`}
+                      className="group flex items-center gap-3 p-4 bg-secondary/50 rounded-xl hover:bg-secondary transition-all hover:-translate-y-0.5"
+                    >
+                      <div 
+                        className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
+                        style={{ background: `linear-gradient(135deg, ${seoContent.gradientFrom}, ${seoContent.gradientTo})` }}
                       >
-                        <span className="font-medium">{tool.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}</span>
-                        <ArrowRight className="w-4 h-4" />
-                      </Link>
-                    ))}
+                        <ExternalLink className="w-5 h-5 text-white" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <span className="font-medium text-sm block truncate group-hover:text-primary transition-colors">
+                          {tool.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}
+                        </span>
+                        <span className="text-xs text-muted-foreground">Free Tool</span>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+                
+                {/* Additional category navigation */}
+                <div className="mt-6 pt-6 border-t border-border">
+                  <p className="text-sm text-muted-foreground mb-3">Explore by category:</p>
+                  <div className="flex flex-wrap gap-2">
+                    <Link to="/image-converter" className="text-sm px-3 py-1 bg-primary/10 text-primary rounded-full hover:bg-primary/20 transition-colors">Image Converter</Link>
+                    <Link to="/image-compression" className="text-sm px-3 py-1 bg-primary/10 text-primary rounded-full hover:bg-primary/20 transition-colors">Compression</Link>
+                    <Link to="/image-resize" className="text-sm px-3 py-1 bg-primary/10 text-primary rounded-full hover:bg-primary/20 transition-colors">Resize</Link>
+                    <Link to="/image-crop" className="text-sm px-3 py-1 bg-primary/10 text-primary rounded-full hover:bg-primary/20 transition-colors">Crop</Link>
+                    <Link to="/pdf-tools" className="text-sm px-3 py-1 bg-primary/10 text-primary rounded-full hover:bg-primary/20 transition-colors">PDF Tools</Link>
+                    <Link to="/all-tools" className="text-sm px-3 py-1 bg-secondary text-foreground rounded-full hover:bg-secondary/80 transition-colors">View All Tools →</Link>
                   </div>
                 </div>
-              )}
+              </div>
             </div>
           </section>
 

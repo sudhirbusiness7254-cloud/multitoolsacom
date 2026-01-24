@@ -168,20 +168,26 @@ const categoryDescriptions: Record<string, { headline: string; description: stri
   }
 };
 
-// Popular tools - curated for quick access
+// Popular tools - curated for quick access (15+ for better internal linking)
 const popularTools = [
   { slug: "jpg-to-png", name: "JPG to PNG", category: "image-converter" },
   { slug: "png-to-jpg", name: "PNG to JPG", category: "image-converter" },
-  { slug: "jpeg-compressor", name: "JPEG Compressor", category: "image-compression" },
-  { slug: "merge-pdf", name: "Merge PDF", category: "pdf-tools" },
-  { slug: "exact-resize", name: "Exact Resize", category: "image-resize" },
-  { slug: "manual-crop", name: "Manual Crop", category: "image-crop" },
-  { slug: "rotate-90", name: "Rotate 90°", category: "image-rotate-flip" },
-  { slug: "text-watermark", name: "Text Watermark", category: "watermark-tools" },
   { slug: "jpg-to-webp", name: "JPG to WebP", category: "image-converter" },
+  { slug: "heic-to-jpg", name: "HEIC to JPG", category: "image-converter" },
+  { slug: "jpeg-compressor", name: "JPEG Compressor", category: "image-compression" },
   { slug: "png-compressor", name: "PNG Compressor", category: "image-compression" },
+  { slug: "webp-compressor", name: "WebP Compressor", category: "image-compression" },
+  { slug: "merge-pdf", name: "Merge PDF", category: "pdf-tools" },
   { slug: "compress-pdf", name: "Compress PDF", category: "pdf-tools" },
   { slug: "word-to-pdf", name: "Word to PDF", category: "pdf-tools" },
+  { slug: "image-to-pdf", name: "Image to PDF", category: "image-to-document" },
+  { slug: "exact-resize", name: "Exact Resize", category: "image-resize" },
+  { slug: "percentage-resize", name: "Percentage Resize", category: "image-resize" },
+  { slug: "manual-crop", name: "Manual Crop", category: "image-crop" },
+  { slug: "circle-crop", name: "Circle Crop", category: "image-crop" },
+  { slug: "rotate-90", name: "Rotate 90°", category: "image-rotate-flip" },
+  { slug: "text-watermark", name: "Text Watermark", category: "watermark-tools" },
+  { slug: "remove-exif", name: "Remove EXIF", category: "image-metadata" },
 ];
 
 const getGradient = (categoryId: string) => {
@@ -201,11 +207,16 @@ const HomePage = () => {
         <meta name="keywords" content="online image tools, image converter, image compressor, PDF editor, photo editor, resize image, crop image, free image tools, browser-based image editing" />
         <link rel="canonical" href="https://multitoolsa.com/" />
         
+        {/* Ensure homepage is indexable */}
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="googlebot" content="index, follow" />
+        
         <meta property="og:title" content="MultiToolsA - Free Browser-Based Image & PDF Tools" />
         <meta property="og:description" content="Edit images privately in your browser. No uploads, no accounts, no limits. 100+ professional tools for free." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://multitoolsa.com/" />
         <meta property="og:image" content="https://multitoolsa.com/screenshot.png" />
+        <meta property="og:site_name" content="MultiToolsA" />
         
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="MultiToolsA - Free Online Image Tools" />
