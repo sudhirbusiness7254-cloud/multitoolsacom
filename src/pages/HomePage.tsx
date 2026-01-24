@@ -701,26 +701,6 @@ const HomePage = () => {
                   </div>
                 </Link>
                 
-                <Link 
-                  to="/tutorials"
-                  className="bg-card rounded-xl p-6 border border-border hover:border-primary/50 transition-all group flex gap-4"
-                >
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center">
-                      <BookOpen className="w-6 h-6 text-purple-500" />
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="font-bold mb-2 group-hover:text-primary transition-colors">Step-by-Step Tutorials</h3>
-                    <p className="text-sm text-muted-foreground">
-                      Follow detailed walkthroughs for common image editing tasks. From basic resizing to advanced 
-                      optimization techniques, master every tool.
-                    </p>
-                    <span className="inline-flex items-center gap-1 text-primary text-sm font-medium mt-3">
-                      Browse Tutorials <ArrowRight className="w-4 h-4" />
-                    </span>
-                  </div>
-                </Link>
                 
                 <Link 
                   to="/faq"

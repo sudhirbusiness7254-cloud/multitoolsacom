@@ -75,7 +75,6 @@ const Footer = () => {
               { name: "Word to PDF", route: "/word-to-pdf" },
               { name: "Image to PDF", route: "/image-to-pdf" },
               { name: "Split PDF", route: "/split-pdf" },
-              { name: "Tutorials", route: "/tutorials" },
             ].map((item) => (
               <Link 
                 key={item.route} 
@@ -139,7 +138,6 @@ const Footer = () => {
           <Link to="/all-tools" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">All Tools</Link>
           <Link to="/pdf-tools" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">PDF Tools</Link>
           <Link to="/tag-extractor" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">Tag Generator</Link>
-          <Link to="/tutorials" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">Tutorials</Link>
           <Link to="/blog" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">Blog</Link>
           <Link to="/image-formats-guide" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">Format Guide</Link>
           <Link to="/how-tools-work" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">How It Works</Link>

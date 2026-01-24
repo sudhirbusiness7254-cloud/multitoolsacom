@@ -35,7 +35,6 @@ export const generateSitemapUrls = (): SitemapUrl[] => {
   urls.push({ loc: `${baseUrl}/how-tools-work`, lastmod: today, changefreq: "monthly", priority: "0.7" });
   urls.push({ loc: `${baseUrl}/advertiser-disclosure`, lastmod: today, changefreq: "yearly", priority: "0.4" });
   urls.push({ loc: `${baseUrl}/image-formats-guide`, lastmod: today, changefreq: "monthly", priority: "0.7" });
-  urls.push({ loc: `${baseUrl}/tutorials`, lastmod: today, changefreq: "weekly", priority: "0.7" });
 
   // Blog posts (dynamic from data)
   for (const post of blogPosts) {

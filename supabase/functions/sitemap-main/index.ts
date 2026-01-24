@@ -45,7 +45,6 @@ const educationalPages = [
   { path: "/how-tools-work", priority: "0.8", changefreq: "monthly" },
   { path: "/advertiser-disclosure", priority: "0.5", changefreq: "yearly" },
   { path: "/image-formats-guide", priority: "0.8", changefreq: "monthly" },
-  { path: "/tutorials", priority: "0.8", changefreq: "weekly" },
 ];
 
 // Blog posts
