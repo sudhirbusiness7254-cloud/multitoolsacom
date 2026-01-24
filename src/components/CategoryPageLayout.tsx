@@ -3,11 +3,13 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { ArrowRight, Users, Briefcase, Target, Shield, ChevronRight, Zap, CheckCircle } from "lucide-react";
+import { ArrowRight, Users, Briefcase, Target, Shield, ChevronRight, Zap, CheckCircle, Sparkles, Star, Award } from "lucide-react";
 import { toolCategories, Category } from "@/data/toolsData";
 import { CategorySEOContent } from "@/data/categorySEOData";
 import HreflangTags from "@/components/HreflangTags";
 import RelatedArticles from "@/components/RelatedArticles";
+import { getTemplateConfig, categoryColorSchemes } from "@/components/seo-templates/TemplateStyles";
+import { getHeadingClasses, getCardClasses, getBadgeClasses } from "@/components/seo-templates/UniqueContentStyles";
 
 interface CategoryPageLayoutProps {
   category: Category;
@@ -31,6 +33,12 @@ const CategoryPageLayout = ({
     gradientFrom,
     gradientTo
   } = seoContent;
+  
+  // Get unique template configuration for this category
+  const templateConfig = getTemplateConfig(category.slug);
+  const headingClasses = getHeadingClasses(templateConfig);
+  const cardClasses = getCardClasses(templateConfig);
+  const badgeClasses = getBadgeClasses(category.slug);
   
   // Extended unique content per category
   const categoryUniqueContent = getCategoryUniqueContent(category.slug);
@@ -108,16 +116,32 @@ const CategoryPageLayout = ({
         <Header />
         
         <main className="flex-1">
-          {/* Hero Section - Concise */}
+          {/* Hero Section - Unique per Template */}
           <section 
-            className="py-8 sm:py-12 relative overflow-hidden"
+            className={`py-8 sm:py-12 relative overflow-hidden ${
+              templateConfig.style === 'creative' ? 'bg-gradient-to-br' :
+              templateConfig.style === 'professional' ? 'bg-gradient-to-r' :
+              'bg-gradient-to-b'
+            }`}
             style={{
-              background: `linear-gradient(135deg, ${gradientFrom}15 0%, ${gradientTo}15 100%)`
+              background: templateConfig.style === 'technical' 
+                ? `linear-gradient(180deg, ${gradientFrom}10 0%, transparent 100%)`
+                : templateConfig.style === 'minimalist'
+                ? `${gradientFrom}08`
+                : `linear-gradient(135deg, ${gradientFrom}15 0%, ${gradientTo}15 100%)`
             }}
           >
             <div className="container mx-auto px-4 sm:px-6 relative z-10">
               <div className="text-center max-w-2xl mx-auto mb-6">
-                <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3">
+                {/* Unique badge per category */}
+                <div className={`inline-flex items-center gap-2 mb-4 ${badgeClasses}`}>
+                  {templateConfig.style === 'creative' ? <Sparkles className="w-4 h-4" /> :
+                   templateConfig.style === 'professional' ? <Award className="w-4 h-4" /> :
+                   <Star className="w-4 h-4" />}
+                  <span className="text-sm font-medium">Free Online Tools</span>
+                </div>
+                
+                <h1 className={`text-2xl sm:text-3xl md:text-4xl mb-3 ${headingClasses}`}>
                   {h1 || category.name}
                 </h1>
                 <p className="text-sm sm:text-base text-muted-foreground">
@@ -125,13 +149,18 @@ const CategoryPageLayout = ({
                 </p>
               </div>
               
-              {/* Quick Navigation - Table of Contents */}
+              {/* Quick Navigation - Table of Contents with unique styling */}
               <nav className="flex flex-wrap justify-center gap-2 mb-8" aria-label="Page sections">
-                {tocSections.map((section) => (
+                {tocSections.map((section, index) => (
                   <a
                     key={section.id}
                     href={`#${section.id}`}
-                    className="text-xs sm:text-sm px-3 py-1.5 rounded-full bg-background/80 border border-border hover:border-primary/50 transition-colors"
+                    className={`text-xs sm:text-sm px-3 py-1.5 transition-colors ${
+                      templateConfig.cardStyle === 'sharp' ? 'rounded-none border-l-2' :
+                      templateConfig.cardStyle === 'floating' ? 'rounded-xl shadow-sm' :
+                      'rounded-full'
+                    } bg-background/80 border border-border hover:border-primary/50`}
+                    style={templateConfig.cardStyle === 'sharp' ? { borderLeftColor: gradientFrom } : {}}
                   >
                     {section.label}
                   </a>
@@ -149,20 +178,30 @@ const CategoryPageLayout = ({
             </section>
           )}
 
-          {/* Tools Grid */}
+          {/* Tools Grid - Unique card styling per template */}
           <section id="tools" className="py-8 sm:py-12 px-4 sm:px-6 scroll-mt-20">
             <div className="container mx-auto max-w-5xl">
-              <h2 className="text-xl sm:text-2xl font-bold mb-6 text-center">
-                Choose Your Tool
+              <h2 className={`text-xl sm:text-2xl mb-6 text-center ${headingClasses}`}>
+                {templateConfig.style === 'creative' ? 'Explore Your Options' :
+                 templateConfig.style === 'technical' ? 'Available Utilities' :
+                 templateConfig.style === 'professional' ? 'Select Your Solution' :
+                 'Choose Your Tool'}
               </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {category.tools.map((tool) => (
+              <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4`}>
+                {category.tools.map((tool, index) => (
                   <Link
                     key={tool.id}
                     to={`/${tool.slug}`}
-                    className="group bg-card rounded-xl p-5 border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg"
+                    className={`group ${cardClasses} p-5 hover:border-primary/50 transition-all duration-300 hover:shadow-lg ${
+                      templateConfig.style === 'creative' ? 'hover:-translate-y-1' : ''
+                    }`}
+                    style={templateConfig.cardStyle === 'sharp' ? { borderLeftColor: gradientFrom } : {}}
                   >
-                    <h3 className="font-semibold text-base mb-2 group-hover:text-primary transition-colors">
+                    <h3 className={`text-base mb-2 group-hover:text-primary transition-colors ${
+                      templateConfig.headingStyle === 'technical' ? 'font-mono text-sm uppercase tracking-wide' :
+                      templateConfig.headingStyle === 'elegant' ? 'font-serif' :
+                      'font-semibold'
+                    }`}>
                       {tool.name}
                     </h3>
                     <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
@@ -176,7 +215,8 @@ const CategoryPageLayout = ({
                     </div>
                     
                     <div className="flex items-center gap-1 text-primary text-sm font-medium">
-                      <span>Use Now</span>
+                      <span>{templateConfig.style === 'professional' ? 'Open Tool' : 
+                             templateConfig.style === 'creative' ? 'Try Now' : 'Use Now'}</span>
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </Link>
