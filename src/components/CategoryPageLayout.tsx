@@ -8,7 +8,7 @@ import { toolCategories, Category } from "@/data/toolsData";
 import { CategorySEOContent } from "@/data/categorySEOData";
 import HreflangTags from "@/components/HreflangTags";
 import RelatedArticles from "@/components/RelatedArticles";
-import { AdBottom, AdVideo, AdInline, AdExoticFat, AdUnit1, AdUnit2, AdUnit3, AdUnit4, AdUnit5, AdUnit6 } from "@/components/ads/AdContainer";
+import { AdBottom, AdVideo, AdInline, AdExoticFat, AdUnit1, AdUnit2, AdUnit3, AdUnit4, AdUnit5, AdUnit6, AdPopunder } from "@/components/ads/AdContainer";
 
 interface CategoryPageLayoutProps {
   category: Category;
@@ -412,6 +412,9 @@ const CategoryPageLayout = ({
         </main>
 
         <Footer />
+        
+        {/* Popunder Ad - Triggers on first click */}
+        <AdPopunder />
       </div>
     </>
   );
