@@ -11,6 +11,7 @@ import RelatedArticles from "@/components/RelatedArticles";
 import { getTemplateConfig, categoryColorSchemes } from "@/components/seo-templates/TemplateStyles";
 import { getHeadingClasses, getCardClasses, getBadgeClasses } from "@/components/seo-templates/UniqueContentStyles";
 import InContentAd from "@/components/ads/InContentAd";
+import NativeBannerAd from "@/components/ads/NativeBannerAd";
 
 // Import unique hero banners for each category
 import heroConverter from "@/assets/heroes/hero-image-converter.jpg";
@@ -466,6 +467,11 @@ const CategoryPageLayout = ({
               </div>
             </div>
           </section>
+
+          {/* Native Banner Ad - User-friendly placement */}
+          <div className="container mx-auto max-w-4xl px-4 py-6">
+            <NativeBannerAd />
+          </div>
         </main>
 
         <Footer />
