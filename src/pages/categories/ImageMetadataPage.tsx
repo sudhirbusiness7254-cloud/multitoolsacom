@@ -5,6 +5,10 @@ import UniversalImageMetadata from "@/components/UniversalImageMetadata";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CheckCircle, Shield, Zap, FileText, Lock, Eye, Settings, Info, Trash2, Calendar, Copy, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import ToolSideAd from "@/components/ads/ToolSideAd";
+import MobileToolAd from "@/components/ads/MobileToolAd";
+import NativeBannerAd from "@/components/ads/NativeBannerAd";
+import InContentAd from "@/components/ads/InContentAd";
 
 const ImageMetadataPage = () => {
   const faqs = [
@@ -114,7 +118,7 @@ const ImageMetadataPage = () => {
           <section className="py-12 md:py-20 bg-gradient-hero relative overflow-hidden">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-3xl" />
             
-            <div className="container mx-auto px-4 relative z-10">
+            <div className="w-full max-w-[1400px] mx-auto relative z-10">
               <div className="text-center max-w-4xl mx-auto mb-10">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 mb-6">
                   <Info className="w-4 h-4 text-primary" />
@@ -130,9 +134,38 @@ const ImageMetadataPage = () => {
                 </p>
               </div>
 
-              <UniversalImageMetadata />
+              {/* Desktop: Tool with ads on both sides */}
+              <div className="hidden xl:flex gap-4 justify-center items-start">
+                {/* Left Side Ad */}
+                <div className="flex-shrink-0 sticky top-24">
+                  <ToolSideAd />
+                </div>
+                
+                {/* Tool Component */}
+                <div className="flex-1 max-w-4xl">
+                  <UniversalImageMetadata />
+                </div>
+                
+                {/* Right Side Ad */}
+                <div className="flex-shrink-0 sticky top-24">
+                  <ToolSideAd />
+                </div>
+              </div>
+              
+              {/* Mobile/Tablet/Laptop: Tool only */}
+              <div className="xl:hidden">
+                <UniversalImageMetadata />
+              </div>
+              
+              {/* Mobile Ad - Below tool */}
+              <MobileToolAd />
             </div>
           </section>
+
+          {/* Native Banner Ad */}
+          <div className="container mx-auto max-w-4xl px-4">
+            <NativeBannerAd />
+          </div>
 
           {/* Tools Grid */}
           <section className="py-12 md:py-16 px-4 bg-secondary/30">
