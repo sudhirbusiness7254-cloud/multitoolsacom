@@ -11,6 +11,44 @@ import RelatedArticles from "@/components/RelatedArticles";
 import { getTemplateConfig, categoryColorSchemes } from "@/components/seo-templates/TemplateStyles";
 import { getHeadingClasses, getCardClasses, getBadgeClasses } from "@/components/seo-templates/UniqueContentStyles";
 
+// Import unique hero banners for each category
+import heroConverter from "@/assets/heroes/hero-image-converter.jpg";
+import heroCompression from "@/assets/heroes/hero-image-compression.jpg";
+import heroResize from "@/assets/heroes/hero-image-resize.jpg";
+import heroCrop from "@/assets/heroes/hero-image-crop.jpg";
+import heroRotateFlip from "@/assets/heroes/hero-rotate-flip.jpg";
+import heroFilters from "@/assets/heroes/hero-photo-filters.jpg";
+import heroWatermark from "@/assets/heroes/hero-watermark.jpg";
+import heroPdf from "@/assets/heroes/hero-pdf-tools.jpg";
+import heroMetadata from "@/assets/heroes/hero-metadata.jpg";
+import heroSecurity from "@/assets/heroes/hero-security.jpg";
+import heroCombine from "@/assets/heroes/hero-combine.jpg";
+import heroQr from "@/assets/heroes/hero-qr-tools.jpg";
+import heroDocument from "@/assets/heroes/hero-document.jpg";
+import heroDrawing from "@/assets/heroes/hero-drawing.jpg";
+import heroOptimization from "@/assets/heroes/hero-optimization.jpg";
+import heroFormatUtilities from "@/assets/heroes/hero-format-utilities.jpg";
+
+// Map category slugs to hero images
+const categoryHeroImages: Record<string, string> = {
+  "image-converter": heroConverter,
+  "image-compression": heroCompression,
+  "image-resize": heroResize,
+  "image-crop": heroCrop,
+  "image-rotate-flip": heroRotateFlip,
+  "photo-filters": heroFilters,
+  "watermark-tools": heroWatermark,
+  "pdf-tools": heroPdf,
+  "image-metadata": heroMetadata,
+  "image-security": heroSecurity,
+  "image-combine": heroCombine,
+  "image-qr": heroQr,
+  "image-to-document": heroDocument,
+  "image-drawing": heroDrawing,
+  "image-optimization": heroOptimization,
+  "format-utilities": heroFormatUtilities,
+};
+
 interface CategoryPageLayoutProps {
   category: Category;
   seoContent: CategorySEOContent;
@@ -116,21 +154,44 @@ const CategoryPageLayout = ({
         <Header />
         
         <main className="flex-1">
-          {/* Hero Section - Unique per Template */}
+          {/* Hero Section - Unique per Template with Hero Banner */}
           <section 
             className={`py-8 sm:py-12 relative overflow-hidden ${
               templateConfig.style === 'creative' ? 'bg-gradient-to-br' :
               templateConfig.style === 'professional' ? 'bg-gradient-to-r' :
               'bg-gradient-to-b'
             }`}
-            style={{
-              background: templateConfig.style === 'technical' 
-                ? `linear-gradient(180deg, ${gradientFrom}10 0%, transparent 100%)`
-                : templateConfig.style === 'minimalist'
-                ? `${gradientFrom}08`
-                : `linear-gradient(135deg, ${gradientFrom}15 0%, ${gradientTo}15 100%)`
-            }}
           >
+            {/* Background Hero Image */}
+            {categoryHeroImages[category.slug] && (
+              <div className="absolute inset-0 z-0">
+                <img 
+                  src={categoryHeroImages[category.slug]} 
+                  alt={`${category.name} hero banner`}
+                  className="w-full h-full object-cover opacity-20 dark:opacity-15"
+                  loading="eager"
+                />
+                <div 
+                  className="absolute inset-0"
+                  style={{
+                    background: `linear-gradient(135deg, ${gradientFrom}40 0%, ${gradientTo}40 50%, transparent 100%)`
+                  }}
+                />
+              </div>
+            )}
+            {/* Fallback gradient if no hero image */}
+            {!categoryHeroImages[category.slug] && (
+              <div 
+                className="absolute inset-0 z-0"
+                style={{
+                  background: templateConfig.style === 'technical' 
+                    ? `linear-gradient(180deg, ${gradientFrom}10 0%, transparent 100%)`
+                    : templateConfig.style === 'minimalist'
+                    ? `${gradientFrom}08`
+                    : `linear-gradient(135deg, ${gradientFrom}15 0%, ${gradientTo}15 100%)`
+                }}
+              />
+            )}
             <div className="container mx-auto px-4 sm:px-6 relative z-10">
               <div className="text-center max-w-2xl mx-auto mb-6">
                 {/* Unique badge per category */}
