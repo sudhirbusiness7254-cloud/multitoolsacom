@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HreflangTags from "@/components/HreflangTags";
+import ImageComparisonSlider from "@/components/ImageComparisonSlider";
 import { 
   BookOpen, Image, Minimize2, Crop, FileText, Palette, Shield, ArrowRight, 
   Clock, CheckCircle, RotateCw, Maximize2, Settings, Type, Layers, 
@@ -21,6 +22,29 @@ import tutorialPdf from "@/assets/guides/tutorial-pdf.png";
 import tutorialFilters from "@/assets/guides/tutorial-filters.png";
 import tutorialMetadata from "@/assets/guides/tutorial-metadata.png";
 
+// Before/After comparison images
+import beforeCompress from "@/assets/guides/before-compress.jpg";
+import afterCompress from "@/assets/guides/after-compress.jpg";
+import beforeConvert from "@/assets/guides/before-convert.jpg";
+import afterConvert from "@/assets/guides/after-convert.jpg";
+import beforeResize from "@/assets/guides/before-resize.jpg";
+import afterResize from "@/assets/guides/after-resize.jpg";
+import beforeCrop from "@/assets/guides/before-crop.jpg";
+import afterCrop from "@/assets/guides/after-crop.jpg";
+import beforeRotate from "@/assets/guides/before-rotate.jpg";
+import afterRotate from "@/assets/guides/after-rotate.jpg";
+import beforeWatermark from "@/assets/guides/before-watermark.jpg";
+import afterWatermark from "@/assets/guides/after-watermark.jpg";
+import beforeFilters from "@/assets/guides/before-filters.jpg";
+import afterFilters from "@/assets/guides/after-filters.jpg";
+
+interface ComparisonImages {
+  before: string;
+  after: string;
+  beforeLabel?: string;
+  afterLabel?: string;
+}
+
 interface Tutorial {
   id: string;
   title: string;
@@ -32,7 +56,54 @@ interface Tutorial {
   category: string;
   content: string;
   screenshot?: string;
+  comparison?: ComparisonImages;
 }
+
+// Comparison data for tutorials
+const tutorialComparisons: Record<string, ComparisonImages> = {
+  "compress-images-web": {
+    before: beforeCompress,
+    after: afterCompress,
+    beforeLabel: "Uncompressed",
+    afterLabel: "Compressed"
+  },
+  "convert-image-formats": {
+    before: beforeConvert,
+    after: afterConvert,
+    beforeLabel: "Original Format",
+    afterLabel: "Converted"
+  },
+  "resize-images-correctly": {
+    before: beforeResize,
+    after: afterResize,
+    beforeLabel: "Original Size",
+    afterLabel: "Resized"
+  },
+  "crop-images-professionally": {
+    before: beforeCrop,
+    after: afterCrop,
+    beforeLabel: "Before Crop",
+    afterLabel: "After Crop"
+  },
+  "rotate-flip-images": {
+    before: beforeRotate,
+    after: afterRotate,
+    beforeLabel: "Before Rotation",
+    afterLabel: "After Rotation"
+  },
+  "add-watermarks": {
+    before: beforeWatermark,
+    after: afterWatermark,
+    beforeLabel: "Without Watermark",
+    afterLabel: "With Watermark"
+  },
+  "apply-photo-filters": {
+    before: beforeFilters,
+    after: afterFilters,
+    beforeLabel: "Original",
+    afterLabel: "With Filters"
+  }
+};
 
 const tutorials: Tutorial[] = [
   {
@@ -2407,6 +2478,26 @@ const TutorialsPage = () => {
                     {/* Tutorial Content (Expandable) */}
                     {expandedTutorial === tutorial.id && (
                       <div className="px-6 pb-6 pt-2 border-t border-border">
+                        {/* Before/After Comparison Slider */}
+                        {tutorialComparisons[tutorial.id] && (
+                          <div className="mb-6">
+                            <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
+                              <Zap className="w-5 h-5 text-primary" />
+                              See the Difference
+                            </h3>
+                            <ImageComparisonSlider
+                              originalSrc={tutorialComparisons[tutorial.id].before}
+                              compressedSrc={tutorialComparisons[tutorial.id].after}
+                              originalLabel={tutorialComparisons[tutorial.id].beforeLabel || "Before"}
+                              compressedLabel={tutorialComparisons[tutorial.id].afterLabel || "After"}
+                              className="max-w-2xl mx-auto"
+                            />
+                            <p className="text-sm text-muted-foreground text-center mt-2">
+                              Drag the slider to compare before and after results
+                            </p>
+                          </div>
+                        )}
+
                         {/* Tutorial Screenshot */}
                         {tutorial.screenshot && (
                           <div className="mb-6 rounded-xl overflow-hidden border border-border shadow-lg">
