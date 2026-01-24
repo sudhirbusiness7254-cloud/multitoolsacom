@@ -10,6 +10,7 @@ import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import ImageComparisonSlider from "@/components/ImageComparisonSlider";
 import { Toggle } from "@/components/ui/toggle";
+import { AdVideo } from "@/components/ads/AdContainer";
 
 type OutputFormat = "png" | "jpg" | "webp";
 type PreviewMode = "original" | "enhanced" | "comparison";
@@ -253,6 +254,9 @@ const AIFaceBeautify = () => {
               </div>
             </div>
           )}
+          
+          {/* Video Ad - Below Upload Area */}
+          {!originalImage && <AdVideo className="mt-2" />}
 
           {/* Beautify Options */}
           {originalImage && !beautifiedImage && !isProcessing && (

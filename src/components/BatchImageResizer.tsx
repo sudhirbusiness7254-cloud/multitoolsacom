@@ -11,6 +11,7 @@ import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import JSZip from "jszip";
+import { AdVideo } from "@/components/ads/AdContainer";
 
 type ResizeMode = "exact" | "percentage" | "fit-width" | "fit-height" | "fit-box";
 type OutputFormat = "auto" | "jpg" | "png" | "webp";
@@ -598,6 +599,9 @@ const BatchImageResizer = () => {
           Supports JPEG, PNG, WebP, GIF, BMP • No limit on files
         </p>
       </div>
+      
+      {/* Video Ad - Below Upload Area */}
+      <AdVideo className="mt-4" />
 
       {/* File List */}
       {files.length > 0 && (

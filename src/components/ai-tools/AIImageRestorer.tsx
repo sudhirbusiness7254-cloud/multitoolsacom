@@ -7,6 +7,7 @@ import { Progress } from "@/components/ui/progress";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import ImageComparisonSlider from "@/components/ImageComparisonSlider";
+import { AdVideo } from "@/components/ads/AdContainer";
 
 type OutputFormat = "png" | "jpg" | "webp";
 
@@ -225,6 +226,9 @@ const AIImageRestorer = () => {
               </div>
             </div>
           )}
+          
+          {/* Video Ad - Below Upload Area */}
+          {!originalImage && <AdVideo className="mt-2" />}
 
           {/* Image Preview */}
           {originalImage && (
