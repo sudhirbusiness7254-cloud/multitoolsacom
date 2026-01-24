@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { AdBottom, AdVideo, AdInline, AdExoticFat } from "@/components/ads/AdContainer";
+import { AdBottom, AdVideo, AdInline, AdExoticFat, AdUnit1, AdUnit2, AdUnit3, AdUnit4, AdUnit5, AdUnit6 } from "@/components/ads/AdContainer";
 import { 
   FileText, Minimize2, FileUp, Image, Scissors, Zap, Shield, Globe, Download,
   BookOpen, Lightbulb, HelpCircle, Lock, Users, CheckCircle, Sparkles, Star
@@ -121,11 +121,16 @@ const PDFToolsPage = () => {
                 
                 {/* ExoticFat Ads - Primary Monetization */}
                 <AdExoticFat className="mt-6" />
+                <AdUnit1 className="mt-4" />
                 <AdExoticFat className="mt-4" />
+                <AdUnit2 className="mt-4" />
                 {/* Ads below tool */}
                 <AdInline className="mt-4" />
+                <AdUnit3 className="mt-4" />
                 <AdBottom className="mt-4" />
+                <AdUnit4 className="mt-4" />
                 <AdVideo className="mt-4" />
+                <AdUnit5 className="mt-4" />
               </div>
             </div>
           </section>
