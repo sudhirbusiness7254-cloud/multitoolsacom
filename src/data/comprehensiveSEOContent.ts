@@ -9365,8 +9365,17 @@ export const imageDrawingSEOContent: Record<string, ComprehensiveSEOContent> = {
   }
 };
 
+// Import additional SEO content
+import { getAdditionalSEOContent } from "./additionalSEOContent";
+
 // Export function to get comprehensive SEO content
 export const getComprehensiveSEOContent = (slug: string): ComprehensiveSEOContent | null => {
+  // First check additional content (for tools recently added)
+  const additionalContent = getAdditionalSEOContent(slug);
+  if (additionalContent) {
+    return additionalContent;
+  }
+  
   // Check image converter tools
   if (imageConverterSEOContent[slug]) {
     return imageConverterSEOContent[slug];
