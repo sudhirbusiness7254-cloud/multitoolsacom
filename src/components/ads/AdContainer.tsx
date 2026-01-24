@@ -227,6 +227,32 @@ export const AdBanner = ({ className = '' }: { className?: string }) => {
   );
 };
 
+// Mobile Sticky Bottom Ad - Fixed at bottom on mobile/tablet, hidden on desktop
+export const AdStickyMobile = ({ className = '' }: { className?: string }) => {
+  const { containerRef, isVisible, isLoaded } = useAdLoader('sticky');
+  
+  return (
+    <div 
+      ref={containerRef}
+      className={`ad-sticky-mobile xl:hidden fixed bottom-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-t border-border shadow-lg transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'} ${className}`}
+      aria-label="Advertisement"
+      role="complementary"
+      style={{ 
+        minHeight: '50px',
+        maxHeight: '70px',
+        contain: 'layout style',
+        paddingBottom: 'env(safe-area-inset-bottom, 0px)' // iPhone notch support
+      }}
+    >
+      {!isLoaded && (
+        <div className="flex items-center justify-center h-[50px]">
+          <span className="text-xs text-muted-foreground/40">Ad</span>
+        </div>
+      )}
+    </div>
+  );
+};
+
 // Generic ad container
 const AdContainer = ({ position, className = '' }: AdContainerProps) => {
   switch (position) {
