@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import ImageConverter from "@/components/ImageConverter";
 import BatchImageConverter from "@/components/BatchImageConverter";
 import PromptToImage from "@/components/PromptToImage";
-import { AdBottom, AdVideo, AdInline } from "@/components/ads/AdContainer";
+import { AdBottom, AdVideo, AdInline, AdExoticFat } from "@/components/ads/AdContainer";
 import { HilltopBanner, HilltopResponsive, HilltopSquare, HilltopAdGrid } from "@/components/ads/HilltopAds";
 import { 
   Image, 
@@ -328,8 +328,8 @@ const ImageToolsPage = () => {
                 ))}
               </div>
               
-              {/* Inline Ad - After Features */}
-              <AdInline className="mt-8" />
+              {/* ExoticFat Ad - After Features */}
+              <AdExoticFat className="mt-8" />
             </div>
           </section>
 

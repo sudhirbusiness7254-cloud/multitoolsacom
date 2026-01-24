@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
-import { AdBottom, AdVideo, AdInline } from "@/components/ads/AdContainer";
+import { AdBottom, AdVideo, AdInline, AdExoticFat } from "@/components/ads/AdContainer";
 import { CheckCircle, XCircle, AlertTriangle, Monitor, Smartphone, Info } from "lucide-react";
 import HreflangTags from "@/components/HreflangTags";
 

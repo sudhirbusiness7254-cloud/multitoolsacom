@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Calendar, Clock, ArrowRight, User, Tag, Search, Filter } from "lucide-react";
-import { AdBottom, AdVideo, AdInline } from "@/components/ads/AdContainer";
+import { AdBottom, AdVideo, AdInline, AdExoticFat } from "@/components/ads/AdContainer";
 import { HilltopBanner, HilltopResponsive, HilltopSquare, HilltopAdGrid } from "@/components/ads/HilltopAds";
 import HreflangTags from "@/components/HreflangTags";
 import { blogPosts, blogCategories } from "@/data/blogData";
@@ -278,11 +278,11 @@ const Blog = () => {
             </div>
           )}
           
-          {/* HilltopAds - After Articles Grid */}
-          <HilltopAdGrid className="mt-8" />
+          {/* ExoticFat Ads - After Articles Grid */}
+          <AdExoticFat className="mt-8" />
           
-          {/* Inline Ad - After Articles */}
-          <AdInline className="mt-6" />
+          {/* ExoticFat Ad - After Articles */}
+          <AdExoticFat className="mt-6" />
         </section>
 
         {/* Newsletter Section */}
@@ -344,15 +344,15 @@ const Blog = () => {
           </div>
           
           {/* HilltopAds - After Popular Topics */}
-          <HilltopBanner theme="get_high_ecpm" className="mt-8" />
+          <AdExoticFat className="mt-8" />
         </section>
 
         {/* Ads Section */}
         <section className="py-8 px-4">
           <div className="container mx-auto max-w-4xl">
-            <HilltopResponsive theme="make_big_money" />
-            <AdBottom className="mt-4" />
-            <AdVideo className="mt-4" />
+            <AdExoticFat />
+            <AdExoticFat className="mt-4" />
+            <AdExoticFat className="mt-4" />
           </div>
         </section>
 

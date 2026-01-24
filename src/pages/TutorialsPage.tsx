@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { AdBottom, AdVideo, AdInline } from "@/components/ads/AdContainer";
+import { AdBottom, AdVideo, AdInline, AdExoticFat } from "@/components/ads/AdContainer";
 import HreflangTags from "@/components/HreflangTags";
 import { 
   BookOpen, Image, Minimize2, Crop, FileText, Palette, Shield, ArrowRight, 

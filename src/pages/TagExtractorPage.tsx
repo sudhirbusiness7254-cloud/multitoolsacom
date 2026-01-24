@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import TagGenerator from "@/components/TagGenerator";
-import { AdBottom, AdVideo } from "@/components/ads/AdContainer";
+import { AdBottom, AdVideo, AdExoticFat } from "@/components/ads/AdContainer";
 import { Hash, Globe, Zap, CheckCircle, TrendingUp, Target, Users, Sparkles, Search, BarChart3, Shield, Clock } from "lucide-react";
 import {
   Accordion,

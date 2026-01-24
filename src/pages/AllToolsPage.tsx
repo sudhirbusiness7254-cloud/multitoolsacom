@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { Link, useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { AdBottom, AdVideo, AdInline } from "@/components/ads/AdContainer";
+import { AdBottom, AdVideo, AdInline, AdExoticFat } from "@/components/ads/AdContainer";
 import { HilltopBanner, HilltopResponsive, HilltopSquare, HilltopAdGrid } from "@/components/ads/HilltopAds";
 import { toolCategories } from "@/data/toolsData";
 import { ArrowRight, Search, Sparkles, FileText } from "lucide-react";
@@ -172,14 +172,14 @@ const AllToolsPage = () => {
             </div>
             
             {/* HilltopAds Grid - After Tools */}
-            <HilltopAdGrid className="max-w-6xl mx-auto" />
+            <AdExoticFat className="max-w-6xl mx-auto" />
             
             {/* Ads below tools */}
             <div className="max-w-4xl mx-auto mt-6">
-              <HilltopResponsive theme="get_high_ecpm" />
-              <AdInline className="mt-4" />
-              <AdBottom className="mt-4" />
-              <AdVideo className="mt-4" />
+              <AdExoticFat />
+              <AdExoticFat className="mt-4" />
+              <AdExoticFat className="mt-4" />
+              <AdExoticFat className="mt-4" />
             </div>
           </section>
         </main>

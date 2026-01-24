@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { AdBottom, AdVideo, AdInline } from "@/components/ads/AdContainer";
+import { AdBottom, AdVideo, AdInline, AdExoticFat } from "@/components/ads/AdContainer";
 import HreflangTags from "@/components/HreflangTags";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Link } from "react-router-dom";
@@ -318,9 +318,9 @@ const FAQPage = () => {
           {/* Ads Section */}
           <section className="py-8 px-4">
             <div className="container mx-auto max-w-4xl">
-              <AdInline />
-              <AdBottom className="mt-4" />
-              <AdVideo className="mt-4" />
+              <AdExoticFat />
+              <AdExoticFat className="mt-4" />
+              <AdExoticFat className="mt-4" />
             </div>
           </section>
 
