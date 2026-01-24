@@ -26,6 +26,38 @@ import stepCrop4kImg from "@/assets/guides/step-crop-4k.png";
 import stepWatermark4kImg from "@/assets/guides/step-watermark-4k.png";
 import stepRotate4kImg from "@/assets/guides/step-rotate-4k.png";
 
+// NEW: Tool-category specific step screenshots
+import stepUploadPdf from "@/assets/guides/step-upload-pdf.jpg";
+import stepPreviewPdf from "@/assets/guides/step-preview-pdf.jpg";
+import stepSettingsPdf from "@/assets/guides/step-settings-pdf.jpg";
+import stepDownloadPdf from "@/assets/guides/step-download-pdf.jpg";
+import stepUploadCompress from "@/assets/guides/step-upload-compress.jpg";
+import stepQualityCompress from "@/assets/guides/step-quality-compress.jpg";
+import stepResultCompress from "@/assets/guides/step-result-compress.jpg";
+import stepUploadResize from "@/assets/guides/step-upload-resize.jpg";
+import stepDimensionsResize from "@/assets/guides/step-dimensions-resize.jpg";
+import stepResultResize from "@/assets/guides/step-result-resize.jpg";
+import stepUploadCrop from "@/assets/guides/step-upload-crop.jpg";
+import stepSelectCrop from "@/assets/guides/step-select-crop.jpg";
+import stepResultCrop from "@/assets/guides/step-result-crop.jpg";
+import stepUploadConvert from "@/assets/guides/step-upload-convert.jpg";
+import stepFormatConvert from "@/assets/guides/step-format-convert.jpg";
+import stepResultConvert from "@/assets/guides/step-result-convert.jpg";
+import stepUploadWatermark from "@/assets/guides/step-upload-watermark.jpg";
+import stepTextWatermark from "@/assets/guides/step-text-watermark.jpg";
+import stepResultWatermark from "@/assets/guides/step-result-watermark.jpg";
+import stepUploadRotate from "@/assets/guides/step-upload-rotate.jpg";
+import stepControlsRotate from "@/assets/guides/step-controls-rotate.jpg";
+import stepResultRotate from "@/assets/guides/step-result-rotate.jpg";
+import stepUploadFilter from "@/assets/guides/step-upload-filter.jpg";
+import stepSelectFilter from "@/assets/guides/step-select-filter.jpg";
+import stepResultFilter from "@/assets/guides/step-result-filter.jpg";
+import stepUploadMetadata from "@/assets/guides/step-upload-metadata.jpg";
+import stepViewMetadata from "@/assets/guides/step-view-metadata.jpg";
+import stepUploadSecurity from "@/assets/guides/step-upload-security.jpg";
+import stepSelectSecurity from "@/assets/guides/step-select-security.jpg";
+import stepGenerateQr from "@/assets/guides/step-generate-qr.jpg";
+
 // Import unique tool-specific screenshots
 import toolConvertImg from "@/assets/guides/tool-convert-jpg-png.jpg";
 import toolCompressImg from "@/assets/guides/tool-compress.jpg";
@@ -245,6 +277,229 @@ const stepImages: Record<string, string> = {
   "rotate": stepRotate4kImg,
 };
 
+// Category-specific step images for more visual uniqueness
+const categoryStepImages: Record<string, Record<string, string>> = {
+  // PDF tools
+  "pdf": {
+    "upload": stepUploadPdf,
+    "preview": stepPreviewPdf,
+    "settings": stepSettingsPdf,
+    "download": stepDownloadPdf,
+  },
+  "merge-pdf": {
+    "upload": stepUploadPdf,
+    "preview": stepPreviewPdf,
+    "settings": stepSettingsPdf,
+    "download": stepDownloadPdf,
+  },
+  "compress-pdf": {
+    "upload": stepUploadPdf,
+    "preview": stepPreviewPdf,
+    "compress": stepSettingsPdf,
+    "download": stepDownloadPdf,
+  },
+  "split-pdf": {
+    "upload": stepUploadPdf,
+    "preview": stepPreviewPdf,
+    "settings": stepSettingsPdf,
+    "download": stepDownloadPdf,
+  },
+  "image-to-pdf": {
+    "upload": stepUploadPdf,
+    "preview": stepPreviewPdf,
+    "settings": stepSettingsPdf,
+    "download": stepDownloadPdf,
+  },
+  // Compression tools
+  "image-compression": {
+    "upload": stepUploadCompress,
+    "preview": stepQualityCompress,
+    "compress": stepQualityCompress,
+    "download": stepResultCompress,
+  },
+  "jpeg-compressor": {
+    "upload": stepUploadCompress,
+    "preview": stepQualityCompress,
+    "compress": stepQualityCompress,
+    "download": stepResultCompress,
+  },
+  "png-compressor": {
+    "upload": stepUploadCompress,
+    "preview": stepQualityCompress,
+    "compress": stepQualityCompress,
+    "download": stepResultCompress,
+  },
+  "webp-compressor": {
+    "upload": stepUploadCompress,
+    "preview": stepQualityCompress,
+    "compress": stepQualityCompress,
+    "download": stepResultCompress,
+  },
+  // Resize tools
+  "image-resize": {
+    "upload": stepUploadResize,
+    "preview": stepDimensionsResize,
+    "resize": stepDimensionsResize,
+    "download": stepResultResize,
+  },
+  "exact-resize": {
+    "upload": stepUploadResize,
+    "preview": stepDimensionsResize,
+    "resize": stepDimensionsResize,
+    "download": stepResultResize,
+  },
+  "percentage-resize": {
+    "upload": stepUploadResize,
+    "preview": stepDimensionsResize,
+    "resize": stepDimensionsResize,
+    "download": stepResultResize,
+  },
+  // Crop tools
+  "image-crop": {
+    "upload": stepUploadCrop,
+    "preview": stepSelectCrop,
+    "crop": stepSelectCrop,
+    "download": stepResultCrop,
+  },
+  "manual-crop": {
+    "upload": stepUploadCrop,
+    "preview": stepSelectCrop,
+    "crop": stepSelectCrop,
+    "download": stepResultCrop,
+  },
+  "circle-crop": {
+    "upload": stepUploadCrop,
+    "preview": stepSelectCrop,
+    "crop": stepSelectCrop,
+    "download": stepResultCrop,
+  },
+  // Convert tools
+  "image-converter": {
+    "upload": stepUploadConvert,
+    "format": stepFormatConvert,
+    "convert": stepFormatConvert,
+    "download": stepResultConvert,
+  },
+  "jpg-to-png": {
+    "upload": stepUploadConvert,
+    "format": stepFormatConvert,
+    "convert": stepFormatConvert,
+    "download": stepResultConvert,
+  },
+  "png-to-jpg": {
+    "upload": stepUploadConvert,
+    "format": stepFormatConvert,
+    "convert": stepFormatConvert,
+    "download": stepResultConvert,
+  },
+  // Watermark tools
+  "watermark-tools": {
+    "upload": stepUploadWatermark,
+    "preview": stepTextWatermark,
+    "watermark": stepTextWatermark,
+    "download": stepResultWatermark,
+  },
+  "text-watermark": {
+    "upload": stepUploadWatermark,
+    "preview": stepTextWatermark,
+    "watermark": stepTextWatermark,
+    "download": stepResultWatermark,
+  },
+  "image-watermark": {
+    "upload": stepUploadWatermark,
+    "preview": stepTextWatermark,
+    "watermark": stepTextWatermark,
+    "download": stepResultWatermark,
+  },
+  // Rotate tools
+  "image-rotate-flip": {
+    "upload": stepUploadRotate,
+    "preview": stepControlsRotate,
+    "rotate": stepControlsRotate,
+    "download": stepResultRotate,
+  },
+  "rotate-90": {
+    "upload": stepUploadRotate,
+    "preview": stepControlsRotate,
+    "rotate": stepControlsRotate,
+    "download": stepResultRotate,
+  },
+  "flip-horizontal": {
+    "upload": stepUploadRotate,
+    "preview": stepControlsRotate,
+    "rotate": stepControlsRotate,
+    "download": stepResultRotate,
+  },
+  // Filter tools
+  "photo-filters": {
+    "upload": stepUploadFilter,
+    "preview": stepSelectFilter,
+    "format": stepSelectFilter,
+    "download": stepResultFilter,
+  },
+  "sepia-effect": {
+    "upload": stepUploadFilter,
+    "preview": stepSelectFilter,
+    "format": stepSelectFilter,
+    "download": stepResultFilter,
+  },
+  "vintage-filter": {
+    "upload": stepUploadFilter,
+    "preview": stepSelectFilter,
+    "format": stepSelectFilter,
+    "download": stepResultFilter,
+  },
+  // Metadata tools
+  "image-metadata": {
+    "upload": stepUploadMetadata,
+    "preview": stepViewMetadata,
+    "format": stepViewMetadata,
+    "download": stepViewMetadata,
+  },
+  "view-exif": {
+    "upload": stepUploadMetadata,
+    "preview": stepViewMetadata,
+    "format": stepViewMetadata,
+    "download": stepViewMetadata,
+  },
+  // Security tools
+  "image-security": {
+    "upload": stepUploadSecurity,
+    "preview": stepSelectSecurity,
+    "format": stepSelectSecurity,
+    "download": stepSelectSecurity,
+  },
+  "manual-face-blur": {
+    "upload": stepUploadSecurity,
+    "preview": stepSelectSecurity,
+    "format": stepSelectSecurity,
+    "download": stepSelectSecurity,
+  },
+  // QR tools
+  "image-qr": {
+    "upload": stepGenerateQr,
+    "preview": stepGenerateQr,
+    "format": stepGenerateQr,
+    "download": stepGenerateQr,
+  },
+  "image-to-qr-code": {
+    "upload": stepGenerateQr,
+    "preview": stepGenerateQr,
+    "format": stepGenerateQr,
+    "download": stepGenerateQr,
+  },
+};
+
+// Function to get step image based on tool slug and step type
+const getStepImage = (slug: string, stepType: string): string | undefined => {
+  // Check category-specific images first
+  if (categoryStepImages[slug] && categoryStepImages[slug][stepType]) {
+    return categoryStepImages[slug][stepType];
+  }
+  // Fall back to generic step images
+  return stepImages[stepType];
+};
+
 export interface GuideStep {
   step: number;
   title: string;
@@ -358,6 +613,8 @@ const HowToUseGuide = ({ guideData, toolName, gradientFrom, gradientTo }: HowToU
         {guideData.steps.map((step, index) => {
           const StepIcon = getStepIcon(step.step, guideData.steps.length);
           const isLastStep = index === guideData.steps.length - 1;
+          // Get category-specific step image
+          const stepImage = step.screenshotType ? getStepImage(guideData.slug, step.screenshotType) : undefined;
           
           return (
             <div key={step.step} className="relative">
@@ -398,10 +655,10 @@ const HowToUseGuide = ({ guideData, toolName, gradientFrom, gradientTo }: HowToU
                       </p>
                       
                       {/* Screenshot Image - only show if available */}
-                      {step.screenshotType && stepImages[step.screenshotType] && (
+                      {stepImage && (
                         <div className="rounded-lg border border-border overflow-hidden mb-4">
                           <img 
-                            src={stepImages[step.screenshotType]} 
+                            src={stepImage} 
                             alt={step.screenshotAlt || `Step ${step.step}: ${step.title}`}
                             className="w-full h-auto object-contain bg-muted/30"
                             loading="lazy"
