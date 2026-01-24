@@ -19,6 +19,32 @@ const AdSkeleton = ({ className = '', aspectRatio }: { className?: string; aspec
   </div>
 );
 
+// Hilltop Banner Ads - Static image banners (728x90)
+export const HilltopBanner = ({ variant = 1, className = '' }: { variant?: 1 | 2; className?: string }) => {
+  const bannerSrc = variant === 1 
+    ? '//static.hilltopads.com/other/banners/pub/get_high_ecpm/728x90.gif?v=1769176963'
+    : '//static.hilltopads.com/other/banners/pub/huge_income/728x90.gif?v=1769176963';
+  
+  return (
+    <div className={`flex justify-center ${className}`}>
+      <a 
+        href="https://hilltopads.com/?ref=358489" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="block max-w-full overflow-hidden hover:opacity-90 transition-opacity"
+      >
+        <img 
+          src={bannerSrc} 
+          alt="Advertisement" 
+          className="max-w-full h-auto"
+          style={{ maxHeight: '90px' }}
+          loading="eager"
+        />
+      </a>
+    </div>
+  );
+};
+
 // Left side ad - Desktop only (XL screens 1280px+)
 export const AdLeft = ({ className = '' }: { className?: string }) => {
   const { containerRef, isVisible, isLoaded } = useAdLoader('left');
