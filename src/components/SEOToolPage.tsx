@@ -160,10 +160,9 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
               
               {/* Ads - After Tool Output */}
               <div className="max-w-5xl mx-auto">
-                <HilltopResponsive theme="huge_income" className="mt-6" />
+                <AdVideo className="mt-6" />
                 <AdInline className="mt-4" />
                 <AdBottom className="mt-4" />
-                <AdVideo className="mt-4" />
               </div>
             </div>
           </section>
@@ -344,8 +343,8 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                   ))}
                 </ul>
                 
-                {/* HilltopAds - After Benefits */}
-                <HilltopBanner theme="get_high_ecpm" className="mt-6" />
+                {/* Ad - After Benefits */}
+                <AdVideo className="mt-6" />
               </div>
 
               {/* Section 7: Who Can Use - Enhanced with descriptions */}
@@ -390,8 +389,8 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                   )
                 )}
                 
-                {/* HilltopAds - Card after Who Can Use */}
-                <HilltopSquare theme="huge_income" className="mt-6" />
+                {/* Ad - After Who Can Use */}
+                <AdInline className="mt-6" />
               </div>
 
               {/* Section 8: Common Use Cases */}
@@ -420,8 +419,8 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                     ))}
                   </div>
                   
-                  {/* HilltopAds - Banner after Use Cases */}
-                  <HilltopBanner theme="make_big_money" className="mt-6" />
+                  {/* Ad - After Use Cases */}
+                  <AdBottom className="mt-6" />
                 </div>
               )}
 
@@ -449,8 +448,8 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                   ))}
                 </Accordion>
                 
-                {/* HilltopAds - After FAQ */}
-                <HilltopResponsive theme="get_high_ecpm" className="mt-6" />
+                {/* Ad - After FAQ */}
+                <AdVideo className="mt-6" />
               </div>
 
               {/* Section 10: Privacy & Security Note */}

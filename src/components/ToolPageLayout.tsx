@@ -151,10 +151,9 @@ const ToolPageLayout = ({
               
               {/* Ads - After Tool Output */}
               <div className="max-w-5xl mx-auto">
-                <HilltopResponsive theme="huge_income" className="mt-6" />
+                <AdVideo className="mt-6" />
                 <AdInline className="mt-4" />
                 <AdBottom className="mt-4" />
-                <AdVideo className="mt-4" />
               </div>
             </div>
           </section>
@@ -175,8 +174,8 @@ const ToolPageLayout = ({
                 </p>
               </div>
               
-              {/* HilltopAds - After Introduction */}
-              <HilltopBanner theme="get_high_ecpm" className="mt-8" />
+              {/* Ad - After Introduction */}
+              <AdVideo className="mt-8" />
             </div>
           </section>
 
@@ -211,11 +210,8 @@ const ToolPageLayout = ({
                   </div>
                 </div>
                 
-                {/* HilltopAds - Card after Benefits */}
-                <div className="flex flex-wrap justify-center gap-4 mt-6">
-                  <HilltopSquare theme="huge_income" />
-                  <HilltopSquare theme="get_high_ecpm" />
-                </div>
+                {/* Ad - After Benefits */}
+                <AdInline className="mt-6" />
               </div>
             </section>
 
@@ -234,8 +230,8 @@ const ToolPageLayout = ({
                   ))}
                 </div>
                 
-                {/* HilltopAds - Banner after How to Use */}
-                <HilltopBanner theme="make_big_money" className="mt-6" />
+                {/* Ad - After How to Use */}
+                <AdBottom className="mt-6" />
               </div>
             </section>
 
@@ -247,8 +243,8 @@ const ToolPageLayout = ({
                 <p className="text-muted-foreground leading-relaxed whitespace-pre-line">{article}</p>
               </div>
               
-              {/* HilltopAds - Banner after Article */}
-              <HilltopResponsive theme="huge_income" className="mt-8" />
+              {/* Ad - After Article */}
+              <AdVideo className="mt-8" />
             </div>
           </section>
 
@@ -272,8 +268,8 @@ const ToolPageLayout = ({
                 ))}
               </div>
               
-              {/* HilltopAds - After Who Can Benefit */}
-              <HilltopResponsive theme="make_big_money" className="mt-6" />
+              {/* Ad - After Who Can Benefit */}
+              <AdInline className="mt-6" />
             </div>
           </section>
 
@@ -289,8 +285,8 @@ const ToolPageLayout = ({
                 ))}
               </div>
               
-              {/* HilltopAds - Banner after Use Cases */}
-              <HilltopBanner theme="get_high_ecpm" className="mt-6" />
+              {/* Ad - After Use Cases */}
+              <AdBottom className="mt-6" />
             </div>
           </section>
 
@@ -310,8 +306,8 @@ const ToolPageLayout = ({
                   </AccordionItem>
                 ))}
               </Accordion>
-              {/* HilltopAds - After FAQ */}
-              <HilltopBanner theme="huge_income" className="mt-8" />
+              {/* Ad - After FAQ */}
+              <AdVideo className="mt-8" />
             </div>
           </section>
 
