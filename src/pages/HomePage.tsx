@@ -328,11 +328,11 @@ const HomePage = () => {
           </section>
 
           {/* Popular Tools - Quick access */}
-          <section className="py-6 sm:py-8 md:py-10 lg:py-14 px-4 sm:px-6 lg:px-8 xl:px-12 bg-secondary/30">
+          <section className="py-4 sm:py-6 px-4 sm:px-6 lg:px-8 xl:px-12 bg-secondary/30">
             <div className="w-full">
-              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 sm:mb-8 gap-3">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4 gap-2">
                 <div>
-                  <div className="flex items-center gap-2 mb-1 sm:mb-2">
+                  <div className="flex items-center gap-2 mb-1">
                     <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                     <span className="text-xs sm:text-sm font-semibold text-primary uppercase tracking-wide">Most Popular</span>
                   </div>
@@ -364,33 +364,22 @@ const HomePage = () => {
                 ))}
               </div>
               
-              <Link to="/all-tools" className="sm:hidden flex text-primary hover:underline items-center justify-center gap-1 font-medium text-sm mt-4">
+              <Link to="/all-tools" className="sm:hidden flex text-primary hover:underline items-center justify-center gap-1 font-medium text-sm mt-3">
                 View All Tools <ArrowRight className="w-4 h-4" />
               </Link>
               
-              {/* Ads after popular tools */}
-              <AdExoticFat className="mt-6 sm:mt-8" />
+              {/* Ads after popular tools - compact */}
               <AdExoticFat className="mt-4" />
-              <AdExoticFat className="mt-3 sm:mt-4" />
-            </div>
-          </section>
-
-          {/* Ad Section - Between Popular Tools and Categories */}
-          <section className="py-4 px-4 sm:px-6 lg:px-8 xl:px-12">
-            <div className="container mx-auto max-w-6xl flex flex-col items-center gap-4">
-              <AdInline />
-              <AdBottom />
             </div>
           </section>
 
           {/* Tool Categories - Detailed with unique descriptions */}
-          <section className="py-8 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 xl:px-12">
+          <section className="py-4 sm:py-6 px-4 sm:px-6 lg:px-8 xl:px-12">
             <div className="w-full">
-              <div className="text-center mb-8 sm:mb-12">
-                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4">Complete Image & PDF Tool Collection</h2>
-                <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-full sm:max-w-xl md:max-w-2xl mx-auto px-2 sm:px-0">
-                  Explore {imageCategories.length} specialized categories covering every aspect of image editing and document processing. 
-                  Each category contains multiple precision tools designed for specific tasks.
+              <div className="text-center mb-4 sm:mb-6">
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2">Complete Image & PDF Tool Collection</h2>
+                <p className="text-sm sm:text-base text-muted-foreground max-w-full sm:max-w-xl md:max-w-2xl mx-auto px-2 sm:px-0">
+                  Explore {imageCategories.length} specialized categories covering every aspect of image editing and document processing.
                 </p>
               </div>
               
@@ -437,265 +426,177 @@ const HomePage = () => {
                 })}
               </div>
               
-              {/* ExoticFat Ad - After Categories */}
-              <AdExoticFat className="mt-6" />
-              
-              {/* Inline Ad - After Categories */}
-              <AdInline className="mt-4" />
-              
-              {/* ExoticFat Ad - After Categories */}
-              <AdExoticFat className="mt-4 sm:mt-6" />
-              
-              {/* Bottom Ad - After Categories */}
-              <AdBottom className="mt-4" />
+              {/* Ads - After Categories - compact */}
+              <AdExoticFat className="mt-4" />
+              <AdInline className="mt-3" />
             </div>
           </section>
 
           {/* How It Works - Step by step with icons */}
-          <section className="py-8 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 xl:px-12 bg-gradient-hero">
+          <section className="py-4 sm:py-6 px-4 sm:px-6 lg:px-8 xl:px-12 bg-gradient-hero">
             <div className="w-full">
-              <div className="text-center mb-8 sm:mb-12">
-                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4">How Browser-Based Processing Works</h2>
-                <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-full sm:max-w-xl md:max-w-2xl mx-auto px-2 sm:px-0">
-                  Unlike traditional online tools, MultiToolsA processes everything locally on your device. 
-                  Here's why this matters for your privacy and speed.
+              <div className="text-center mb-4 sm:mb-6">
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2">How Browser-Based Processing Works</h2>
+                <p className="text-sm sm:text-base text-muted-foreground max-w-full sm:max-w-xl md:max-w-2xl mx-auto px-2 sm:px-0">
+                  Unlike traditional online tools, MultiToolsA processes everything locally on your device.
                 </p>
               </div>
               
-              {/* Steps with connecting arrows */}
-              <div className="relative">
-                {/* Connecting lines - visible on desktop */}
-                <div className="hidden md:block absolute top-[120px] left-[33%] w-[34%] h-0.5 bg-gradient-to-r from-primary/50 via-primary to-primary/50 z-10">
-                  <div className="absolute -right-2 top-1/2 -translate-y-1/2 w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[10px] border-l-primary" />
-                </div>
-                <div className="hidden md:block absolute top-[120px] right-[33%] w-[34%] h-0.5 bg-gradient-to-r from-primary/50 via-primary to-primary/50 z-10 translate-x-[100%]">
-                  <div className="absolute -right-2 top-1/2 -translate-y-1/2 w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[10px] border-l-primary" />
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-12">
-                  {/* Step 1 */}
-                  <div 
-                    className="bg-card rounded-xl sm:rounded-2xl border border-border overflow-hidden group hover:border-primary/30 transition-all hover:shadow-xl animate-fade-in"
-                    style={{ animationDelay: '0ms', animationFillMode: 'both' }}
-                  >
-                    {/* Screenshot */}
-                    <div className="relative aspect-video overflow-hidden bg-muted">
-                      <img 
-                        src={stepUpload4k} 
-                        alt="Step 1: Select your image files using the secure file picker"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        loading="lazy"
-                      />
-                      <div className="absolute top-2 left-2 sm:top-3 sm:left-3 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm sm:text-lg shadow-lg">
-                        1
-                      </div>
-                    </div>
-                    {/* Content */}
-                    <div className="p-4 sm:p-5 md:p-6">
-                      <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
-                        <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                          <Upload className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
-                        </div>
-                        <h3 className="text-sm sm:text-base md:text-lg font-bold">Select Your Files</h3>
-                      </div>
-                      <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                        Choose images or documents from your device using our secure file picker.
-                      </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 mb-4">
+                {/* Step 1 */}
+                <div className="bg-card rounded-xl border border-border overflow-hidden group hover:border-primary/30 transition-all">
+                  <div className="relative aspect-video overflow-hidden bg-muted">
+                    <img 
+                      src={stepUpload4k} 
+                      alt="Step 1: Select your image files"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                    <div className="absolute top-2 left-2 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm shadow-lg">
+                      1
                     </div>
                   </div>
-                  
-                  {/* Step 2 */}
-                  <div 
-                    className="bg-card rounded-xl sm:rounded-2xl border border-border overflow-hidden group hover:border-primary/30 transition-all hover:shadow-xl animate-fade-in"
-                    style={{ animationDelay: '150ms', animationFillMode: 'both' }}
-                  >
-                    {/* Screenshot */}
-                    <div className="relative aspect-video overflow-hidden bg-muted">
-                      <img 
-                        src={stepPreview4k} 
-                        alt="Step 2: Preview and process your image locally in the browser"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        loading="lazy"
-                      />
-                      <div className="absolute top-2 left-2 sm:top-3 sm:left-3 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm sm:text-lg shadow-lg">
-                        2
-                      </div>
+                  <div className="p-3 sm:p-4">
+                    <div className="flex items-center gap-2 mb-1">
+                      <Upload className="w-4 h-4 text-primary" />
+                      <h3 className="text-sm sm:text-base font-bold">Select Your Files</h3>
                     </div>
-                    {/* Content */}
-                    <div className="p-4 sm:p-5 md:p-6">
-                      <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
-                        <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                          <Cpu className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
-                        </div>
-                        <h3 className="text-sm sm:text-base md:text-lg font-bold">Process Locally</h3>
-                      </div>
-                      <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                        Our tools process everything using your device's computing power.
-                      </p>
+                    <p className="text-xs text-muted-foreground">Choose images from your device using our secure file picker.</p>
+                  </div>
+                </div>
+                
+                {/* Step 2 */}
+                <div className="bg-card rounded-xl border border-border overflow-hidden group hover:border-primary/30 transition-all">
+                  <div className="relative aspect-video overflow-hidden bg-muted">
+                    <img 
+                      src={stepPreview4k} 
+                      alt="Step 2: Process locally"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                    <div className="absolute top-2 left-2 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm shadow-lg">
+                      2
                     </div>
                   </div>
-                  
-                  {/* Step 3 */}
-                  <div 
-                    className="bg-card rounded-xl sm:rounded-2xl border border-border overflow-hidden group hover:border-primary/30 transition-all hover:shadow-xl animate-fade-in"
-                    style={{ animationDelay: '300ms', animationFillMode: 'both' }}
-                  >
-                    {/* Screenshot */}
-                    <div className="relative aspect-video overflow-hidden bg-muted">
-                      <img 
-                        src={stepDownload4k} 
-                        alt="Step 3: Download your edited image instantly to your device"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        loading="lazy"
-                      />
-                      <div className="absolute top-2 left-2 sm:top-3 sm:left-3 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm sm:text-lg shadow-lg">
-                        3
-                      </div>
+                  <div className="p-3 sm:p-4">
+                    <div className="flex items-center gap-2 mb-1">
+                      <Cpu className="w-4 h-4 text-primary" />
+                      <h3 className="text-sm sm:text-base font-bold">Process Locally</h3>
                     </div>
-                    {/* Content */}
-                    <div className="p-4 sm:p-5 md:p-6">
-                      <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
-                        <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                          <Download className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
-                        </div>
-                        <h3 className="text-sm sm:text-base md:text-lg font-bold">Download Instantly</h3>
-                      </div>
-                      <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                        Save your edited files directly to your device with one click.
-                      </p>
+                    <p className="text-xs text-muted-foreground">Our tools process everything using your device's computing power.</p>
+                  </div>
+                </div>
+                
+                {/* Step 3 */}
+                <div className="bg-card rounded-xl border border-border overflow-hidden group hover:border-primary/30 transition-all">
+                  <div className="relative aspect-video overflow-hidden bg-muted">
+                    <img 
+                      src={stepDownload4k} 
+                      alt="Step 3: Download instantly"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                    <div className="absolute top-2 left-2 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm shadow-lg">
+                      3
                     </div>
+                  </div>
+                  <div className="p-3 sm:p-4">
+                    <div className="flex items-center gap-2 mb-1">
+                      <Download className="w-4 h-4 text-primary" />
+                      <h3 className="text-sm sm:text-base font-bold">Download Instantly</h3>
+                    </div>
+                    <p className="text-xs text-muted-foreground">Save your edited files directly to your device with one click.</p>
                   </div>
                 </div>
               </div>
               
-              {/* Privacy emphasis */}
-              <div className="bg-card rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 border border-green-500/30 flex flex-col md:flex-row items-center gap-4 sm:gap-6">
-                <div className="flex-shrink-0">
-                  <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full bg-green-500/10 flex items-center justify-center">
-                    <Shield className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 text-green-500" />
-                  </div>
+              {/* Privacy emphasis - compact */}
+              <div className="bg-card rounded-xl p-3 sm:p-4 border border-green-500/30 flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center flex-shrink-0">
+                  <Shield className="w-5 h-5 text-green-500" />
                 </div>
-                <div className="text-center md:text-left">
-                  <h3 className="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 flex items-center gap-2 justify-center md:justify-start">
-                    <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-green-500" />
+                <div>
+                  <h3 className="text-sm font-bold flex items-center gap-1">
+                    <CheckCircle2 className="w-4 h-4 text-green-500" />
                     Your Files Stay Completely Private
                   </h3>
-                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                    Your images are processed entirely within your browser. No data is transmitted to servers or stored anywhere.
-                  </p>
+                  <p className="text-xs text-muted-foreground">Your images are processed entirely within your browser. No data is transmitted to servers.</p>
                 </div>
               </div>
               
-              <div className="text-center mt-6 sm:mt-8">
+              <div className="text-center mt-4">
                 <Link 
                   to="/how-tools-work"
-                  className="inline-flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg sm:rounded-xl bg-primary text-primary-foreground text-sm sm:text-base font-semibold hover:bg-primary/90 transition-all"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:bg-primary/90 transition-all"
                 >
-                  Learn More
-                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+                  Learn More <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
               
-              {/* ExoticFat Ad - After How It Works */}
-              <AdExoticFat className="mt-6" />
-              
-              {/* Inline Ad - After How It Works */}
-              <AdInline className="mt-4" />
-              
-              {/* ExoticFat Ad - After How It Works */}
-              <AdExoticFat className="mt-4 sm:mt-6" />
-              
-              {/* Bottom Ad - After How It Works */}
-              <AdBottom className="mt-4" />
+              {/* Ad - After How It Works */}
+              <AdExoticFat className="mt-4" />
             </div>
           </section>
 
           {/* Why Choose Us - Trust signals */}
-          <section className="py-8 sm:py-12 md:py-16 px-4 sm:px-6 lg:px-8 xl:px-12">
+          <section className="py-4 sm:py-6 px-4 sm:px-6 lg:px-8 xl:px-12">
             <div className="w-full">
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-3 sm:mb-4">Why Thousands Choose MultiToolsA</h2>
-              <p className="text-center text-xs sm:text-sm md:text-base text-muted-foreground mb-8 sm:mb-12 max-w-full sm:max-w-xl md:max-w-2xl mx-auto px-2 sm:px-0">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-2">Why Thousands Choose MultiToolsA</h2>
+              <p className="text-center text-xs sm:text-sm text-muted-foreground mb-4 max-w-full sm:max-w-xl md:max-w-2xl mx-auto">
                 Professional-quality tools with uncompromising privacy.
               </p>
               
-              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
-                <div className="bg-card rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6 border border-border text-center">
-                  <Clock className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-primary mx-auto mb-2 sm:mb-4" />
-                  <h3 className="text-xs sm:text-sm md:text-base font-bold mb-1 sm:mb-2">No Waiting</h3>
-                  <p className="text-[10px] sm:text-xs md:text-sm text-muted-foreground">
-                    Instant results without uploads
-                  </p>
+              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3">
+                <div className="bg-card rounded-lg p-3 border border-border text-center">
+                  <Clock className="w-6 h-6 text-primary mx-auto mb-2" />
+                  <h3 className="text-xs sm:text-sm font-bold mb-1">No Waiting</h3>
+                  <p className="text-[10px] sm:text-xs text-muted-foreground">Instant results without uploads</p>
                 </div>
-                <div className="bg-card rounded-xl p-6 border border-border text-center">
-                  <Lock className="w-10 h-10 text-primary mx-auto mb-4" />
-                  <h3 className="font-bold mb-2">Zero Data Collection</h3>
-                  <p className="text-sm text-muted-foreground">
-                    We never see, store, or access your files or personal information
-                  </p>
+                <div className="bg-card rounded-lg p-3 border border-border text-center">
+                  <Lock className="w-6 h-6 text-primary mx-auto mb-2" />
+                  <h3 className="text-xs sm:text-sm font-bold mb-1">Zero Data Collection</h3>
+                  <p className="text-[10px] sm:text-xs text-muted-foreground">We never see or store your files</p>
                 </div>
-                <div className="bg-card rounded-xl p-6 border border-border text-center">
-                  <Users className="w-10 h-10 text-primary mx-auto mb-4" />
-                  <h3 className="font-bold mb-2">No Account Needed</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Start using any tool immediately without registration
-                  </p>
+                <div className="bg-card rounded-lg p-3 border border-border text-center">
+                  <Users className="w-6 h-6 text-primary mx-auto mb-2" />
+                  <h3 className="text-xs sm:text-sm font-bold mb-1">No Account Needed</h3>
+                  <p className="text-[10px] sm:text-xs text-muted-foreground">Start using tools immediately</p>
                 </div>
-                <div className="bg-card rounded-xl p-6 border border-border text-center">
-                  <Award className="w-10 h-10 text-primary mx-auto mb-4" />
-                  <h3 className="font-bold mb-2">Professional Quality</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Enterprise-grade tools available completely free
-                  </p>
+                <div className="bg-card rounded-lg p-3 border border-border text-center">
+                  <Award className="w-6 h-6 text-primary mx-auto mb-2" />
+                  <h3 className="text-xs sm:text-sm font-bold mb-1">Professional Quality</h3>
+                  <p className="text-[10px] sm:text-xs text-muted-foreground">Enterprise-grade tools for free</p>
                 </div>
               </div>
               
-              {/* Ads - After Why Choose Us Grid */}
-              <div className="flex flex-col items-center gap-4 mt-6">
-                <AdExoticFat />
-                <AdInline />
-                <AdBottom />
-              </div>
-              
-              {/* Ad after Why Choose Us */}
-              <AdBottom className="mt-4" />
-              
-              {/* Inline Ad - After Why Choose Us */}
-              <AdInline className="mt-4" />
-            </div>
-          </section>
-          
-          {/* Additional Ads Section */}
-          <section className="py-6 px-4 sm:px-6">
-            <div className="container mx-auto max-w-6xl flex flex-col items-center gap-4">
-              <AdExoticFat />
-              <AdInline />
-              <AdBottom />
+              {/* Ad - After Why Choose Us */}
+              <AdExoticFat className="mt-4" />
+              <AdInline className="mt-3" />
             </div>
           </section>
 
           {/* Featured Blog Posts - Educational content */}
-          <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 xl:px-12 bg-secondary/30">
-            <div className="container mx-auto max-w-7xl 2xl:max-w-[1600px]">
-              <div className="flex items-center justify-between mb-8">
+          <section className="py-4 sm:py-6 px-4 sm:px-6 lg:px-8 xl:px-12 bg-secondary/30">
+            <div className="w-full">
+              <div className="flex items-center justify-between mb-4">
                 <div>
-                  <div className="flex items-center gap-2 mb-2">
-                    <BookOpen className="w-5 h-5 text-primary" />
-                    <span className="text-sm font-semibold text-primary uppercase tracking-wide">Learn</span>
+                  <div className="flex items-center gap-2 mb-1">
+                    <BookOpen className="w-4 h-4 text-primary" />
+                    <span className="text-xs font-semibold text-primary uppercase tracking-wide">Learn</span>
                   </div>
-                  <h2 className="text-2xl sm:text-3xl font-bold">Image Editing Guides & Tutorials</h2>
-                  <p className="text-muted-foreground mt-1">Expert advice to help you get the most from your images</p>
+                  <h2 className="text-xl sm:text-2xl font-bold">Image Editing Guides & Tutorials</h2>
                 </div>
-                <Link to="/blog" className="hidden sm:flex text-primary hover:underline items-center gap-1 font-medium">
+                <Link to="/blog" className="hidden sm:flex text-primary hover:underline items-center gap-1 text-sm font-medium">
                   All Articles <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
               
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
                 {featuredPosts.map((post) => (
                   <Link 
                     key={post.id}
                     to={`/blog/${post.id}`}
-                    className="group bg-card rounded-xl overflow-hidden border border-border hover:border-primary/50 transition-all hover:-translate-y-1 hover:shadow-lg"
+                    className="group bg-card rounded-xl overflow-hidden border border-border hover:border-primary/50 transition-all hover:-translate-y-1"
                   >
                     <div className="aspect-video overflow-hidden">
                       <img 
@@ -705,178 +606,116 @@ const HomePage = () => {
                         loading="lazy"
                       />
                     </div>
-                    <div className="p-5">
-                      <div className="flex items-center gap-2 mb-3">
-                        <span className="text-xs px-2.5 py-1 bg-primary/10 text-primary rounded-full font-medium">{post.category}</span>
+                    <div className="p-3 sm:p-4">
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="text-xs px-2 py-0.5 bg-primary/10 text-primary rounded-full font-medium">{post.category}</span>
                         <span className="text-xs text-muted-foreground">{post.readTime}</span>
                       </div>
-                      <h3 className="font-bold group-hover:text-primary transition-colors line-clamp-2 mb-2">
-                        {post.title}
-                      </h3>
-                      <p className="text-sm text-muted-foreground line-clamp-2">{post.excerpt}</p>
+                      <h3 className="text-sm font-bold group-hover:text-primary transition-colors line-clamp-2">{post.title}</h3>
                     </div>
                   </Link>
                 ))}
               </div>
               
-              <Link to="/blog" className="sm:hidden flex text-primary hover:underline items-center justify-center gap-1 font-medium mt-6">
+              <Link to="/blog" className="sm:hidden flex text-primary hover:underline items-center justify-center gap-1 font-medium text-sm mt-3">
                 All Articles <ArrowRight className="w-4 h-4" />
               </Link>
               
-              {/* ExoticFat Ad - After Blog Posts */}
-              <AdExoticFat className="mt-6" />
-              
-              {/* Inline Ad - After Blog Posts */}
-              <AdInline className="mt-4" />
-              
-              {/* Ad after Blog Posts */}
+              {/* Ad - After Blog Posts */}
               <AdExoticFat className="mt-4" />
-              
-              {/* Bottom Ad - After Blog Posts */}
-              <AdBottom className="mt-4" />
             </div>
           </section>
 
           {/* Resources & Guides Section */}
-          <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 xl:px-12">
-            <div className="container mx-auto max-w-7xl 2xl:max-w-[1600px]">
-              <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4">Resources & Learning Center</h2>
-              <p className="text-center text-muted-foreground mb-10 max-w-2xl mx-auto">
-                Expand your image editing knowledge with our comprehensive guides and documentation
+          <section className="py-4 sm:py-6 px-4 sm:px-6 lg:px-8 xl:px-12">
+            <div className="w-full">
+              <h2 className="text-xl sm:text-2xl font-bold text-center mb-2">Resources & Learning Center</h2>
+              <p className="text-center text-sm text-muted-foreground mb-4 max-w-2xl mx-auto">
+                Expand your image editing knowledge with our comprehensive guides
               </p>
               
-              <div className="grid sm:grid-cols-2 gap-6">
+              <div className="grid sm:grid-cols-2 gap-3">
                 <Link 
                   to="/image-formats-guide"
-                  className="bg-card rounded-xl p-6 border border-border hover:border-primary/50 transition-all group flex gap-4"
+                  className="bg-card rounded-xl p-4 border border-border hover:border-primary/50 transition-all group flex gap-3"
                 >
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center">
-                      <FileText className="w-6 h-6 text-blue-500" />
-                    </div>
+                  <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
+                    <FileText className="w-5 h-5 text-blue-500" />
                   </div>
                   <div>
-                    <h3 className="font-bold mb-2 group-hover:text-primary transition-colors">Image Formats Guide</h3>
-                    <p className="text-sm text-muted-foreground">
-                      Understand when to use JPEG, PNG, WebP, and other formats. Learn the technical differences and choose 
-                      the right format for every project.
+                    <h3 className="text-sm font-bold group-hover:text-primary transition-colors">Image Formats Guide</h3>
+                    <p className="text-xs text-muted-foreground line-clamp-2">
+                      Understand when to use JPEG, PNG, WebP, and other formats.
                     </p>
-                    <span className="inline-flex items-center gap-1 text-primary text-sm font-medium mt-3">
-                      Read Guide <ArrowRight className="w-4 h-4" />
-                    </span>
                   </div>
                 </Link>
                 
                 <Link 
                   to="/tutorials"
-                  className="bg-card rounded-xl p-6 border border-border hover:border-primary/50 transition-all group flex gap-4"
+                  className="bg-card rounded-xl p-4 border border-border hover:border-primary/50 transition-all group flex gap-3"
                 >
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center">
-                      <BookOpen className="w-6 h-6 text-purple-500" />
-                    </div>
+                  <div className="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center flex-shrink-0">
+                    <BookOpen className="w-5 h-5 text-purple-500" />
                   </div>
                   <div>
-                    <h3 className="font-bold mb-2 group-hover:text-primary transition-colors">Step-by-Step Tutorials</h3>
-                    <p className="text-sm text-muted-foreground">
-                      Follow detailed walkthroughs for common image editing tasks. From basic resizing to advanced 
-                      optimization techniques, master every tool.
+                    <h3 className="text-sm font-bold group-hover:text-primary transition-colors">Step-by-Step Tutorials</h3>
+                    <p className="text-xs text-muted-foreground line-clamp-2">
+                      Follow detailed walkthroughs for common image editing tasks.
                     </p>
-                    <span className="inline-flex items-center gap-1 text-primary text-sm font-medium mt-3">
-                      Browse Tutorials <ArrowRight className="w-4 h-4" />
-                    </span>
                   </div>
                 </Link>
                 
                 <Link 
                   to="/faq"
-                  className="bg-card rounded-xl p-6 border border-border hover:border-primary/50 transition-all group flex gap-4"
+                  className="bg-card rounded-xl p-4 border border-border hover:border-primary/50 transition-all group flex gap-3"
                 >
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center">
-                      <CheckCircle2 className="w-6 h-6 text-green-500" />
-                    </div>
+                  <div className="w-10 h-10 rounded-lg bg-green-500/10 flex items-center justify-center flex-shrink-0">
+                    <CheckCircle2 className="w-5 h-5 text-green-500" />
                   </div>
                   <div>
-                    <h3 className="font-bold mb-2 group-hover:text-primary transition-colors">Frequently Asked Questions</h3>
-                    <p className="text-sm text-muted-foreground">
-                      Find answers to common questions about our tools, privacy policies, and supported formats. 
-                      Get quick solutions to typical issues.
+                    <h3 className="text-sm font-bold group-hover:text-primary transition-colors">Frequently Asked Questions</h3>
+                    <p className="text-xs text-muted-foreground line-clamp-2">
+                      Find answers to common questions about our tools.
                     </p>
-                    <span className="inline-flex items-center gap-1 text-primary text-sm font-medium mt-3">
-                      View FAQ <ArrowRight className="w-4 h-4" />
-                    </span>
                   </div>
                 </Link>
                 
                 <Link 
                   to="/how-tools-work"
-                  className="bg-card rounded-xl p-6 border border-border hover:border-primary/50 transition-all group flex gap-4"
+                  className="bg-card rounded-xl p-4 border border-border hover:border-primary/50 transition-all group flex gap-3"
                 >
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center">
-                      <Cpu className="w-6 h-6 text-orange-500" />
-                    </div>
+                  <div className="w-10 h-10 rounded-lg bg-orange-500/10 flex items-center justify-center flex-shrink-0">
+                    <Cpu className="w-5 h-5 text-orange-500" />
                   </div>
                   <div>
-                    <h3 className="font-bold mb-2 group-hover:text-primary transition-colors">How Our Technology Works</h3>
-                    <p className="text-sm text-muted-foreground">
-                      Discover the technical foundation behind our browser-based processing. Learn how we ensure 
-                      privacy while delivering professional results.
+                    <h3 className="text-sm font-bold group-hover:text-primary transition-colors">How Our Technology Works</h3>
+                    <p className="text-xs text-muted-foreground line-clamp-2">
+                      Discover the technical foundation behind our browser-based processing.
                     </p>
-                    <span className="inline-flex items-center gap-1 text-primary text-sm font-medium mt-3">
-                      Learn More <ArrowRight className="w-4 h-4" />
-                    </span>
                   </div>
                 </Link>
               </div>
               
-              {/* ExoticFat Ads - After Resources Grid */}
-              <div className="flex flex-wrap justify-center gap-4 mt-8">
-                <AdExoticFat />
-              </div>
-              
-              {/* Inline Ad - After Resources */}
-              <AdInline className="mt-4" />
-              
-              {/* Ad after Resources */}
-              <AdExoticFat className="mt-6" />
-              
-              {/* Bottom Ad - After Resources */}
-              <AdBottom className="mt-4" />
-            </div>
-          </section>
-          
-          {/* ExoticFat Ad before Final CTA */}
-          <section className="py-6 px-4 sm:px-6 lg:px-8 xl:px-12 bg-secondary/20">
-            <div className="container mx-auto max-w-7xl 2xl:max-w-[1600px] flex flex-col items-center gap-4">
-              <AdExoticFat className="mb-4" />
-              <AdInline />
-              <AdExoticFat />
-              <AdBottom />
+              {/* Ad - After Resources */}
+              <AdExoticFat className="mt-4" />
+              <AdBottom className="mt-3" />
             </div>
           </section>
 
           {/* Final CTA Section */}
-          <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 xl:px-12 bg-gradient-hero">
-            <div className="container mx-auto max-w-5xl 2xl:max-w-6xl text-center">
-              <h2 className="text-3xl sm:text-4xl font-bold mb-6">Ready to Transform Your Images?</h2>
-              <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Start editing, converting, and compressing your files instantly—completely free, right in your browser. 
-                No registration, no uploads to external servers, no limits.
+          <section className="py-6 sm:py-8 px-4 sm:px-6 lg:px-8 xl:px-12 bg-gradient-hero">
+            <div className="w-full max-w-4xl mx-auto text-center">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-3">Ready to Transform Your Images?</h2>
+              <p className="text-sm sm:text-base text-muted-foreground mb-4 max-w-xl mx-auto">
+                Start editing, converting, and compressing your files instantly—completely free, right in your browser.
               </p>
-              <div className="flex flex-col sm:flex-row justify-center gap-4">
-                <Link 
-                  to="/all-tools"
-                  className="inline-flex items-center justify-center gap-2 px-10 py-5 rounded-xl bg-primary text-primary-foreground font-bold text-lg hover:bg-primary/90 transition-all hover:scale-105 shadow-xl"
-                >
-                  Explore All {totalTools}+ Tools
-                  <ArrowRight className="w-6 h-6" />
-                </Link>
-              </div>
-              <p className="text-sm text-muted-foreground mt-6">
-                Join thousands of users who trust MultiToolsA for their daily image editing needs
-              </p>
+              <Link 
+                to="/all-tools"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-bold hover:bg-primary/90 transition-all hover:scale-105 shadow-lg"
+              >
+                Explore All {totalTools}+ Tools
+                <ArrowRight className="w-5 h-5" />
+              </Link>
             </div>
           </section>
         </main>
