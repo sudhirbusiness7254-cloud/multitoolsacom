@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { toolCategories } from "@/data/toolsData";
 import logo from "@/assets/logo-icon.png";
+import { HilltopBanner } from "@/components/ads/HilltopAds";
 
 const Footer = () => {
   const imageCategories = toolCategories.filter(cat => cat.id !== "tag-tools").sort((a, b) => a.priority - b.priority);
@@ -130,6 +131,9 @@ const Footer = () => {
             ))}
           </div>
         </div>
+
+        {/* HilltopAds - Before Trust Badges */}
+        <HilltopBanner theme="make_big_money" className="mb-6" />
 
         {/* Trust Badges */}
         <div className="border-t border-border pt-6 sm:pt-8 mb-6 sm:mb-8">

@@ -9,6 +9,7 @@ import { CategorySEOContent } from "@/data/categorySEOData";
 import HreflangTags from "@/components/HreflangTags";
 import RelatedArticles from "@/components/RelatedArticles";
 import { AdBottom, AdVideo, AdInline } from "@/components/ads/AdContainer";
+import { HilltopBanner, HilltopSquare, HilltopResponsive } from "@/components/ads/HilltopAds";
 
 interface CategoryPageLayoutProps {
   category: Category;
@@ -168,8 +169,11 @@ const CategoryPageLayout = ({
               <div className="w-full max-w-5xl mx-auto">
                 {children}
                 
+                {/* HilltopAds - After Tool */}
+                <HilltopResponsive theme="huge_income" className="mt-6" />
+                
                 {/* Bottom Ad - After Tool Output */}
-                <AdBottom className="mt-6" />
+                <AdBottom className="mt-4" />
                 
                 {/* Video Ad - Below Bottom Ad */}
                 <AdVideo className="mt-4" />
@@ -211,8 +215,11 @@ const CategoryPageLayout = ({
                 ))}
               </div>
               
+              {/* HilltopAds - After Tools Grid */}
+              <HilltopBanner theme="get_high_ecpm" className="mt-6" />
+              
               {/* Inline Ad - After Tools Grid */}
-              <AdInline className="mt-8" />
+              <AdInline className="mt-4" />
             </div>
           </section>
 
@@ -275,8 +282,11 @@ const CategoryPageLayout = ({
                 <p className="text-sm text-muted-foreground">{categoryUniqueContent.whenNotToUse}</p>
               </div>
               
+              {/* HilltopAds - After Use Cases */}
+              <HilltopResponsive theme="make_big_money" className="mt-6" />
+              
               {/* Inline Ad - After Use Cases */}
-              <AdInline className="mt-8" />
+              <AdInline className="mt-4" />
             </div>
           </section>
 
