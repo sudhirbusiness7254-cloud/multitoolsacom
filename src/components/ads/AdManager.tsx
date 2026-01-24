@@ -26,6 +26,10 @@ const AD_SCRIPTS: Record<string, AdScriptConfig> = {
   inline: {
     id: 'ad-script-inline',
     src: '//farawayaside.com/b/X/V.sQdaGKlz0eYZWJcy/BeKmd9_u/ZlUQl-kVPaTnYP3/NPTyURzCNKTBMetMNljwcb1HNoTTMm1gNSAu',
+  },
+  exoticfat: {
+    id: 'ad-script-exoticfat',
+    src: '//exoticfat.com/bc3/VH0BP.3LpEvwb-mvV/J/Z/DX0/2CNRzkU-2iM/DdkL3RLoTJYL3kNJTFY_wUO/TvwI',
   }
 };
 

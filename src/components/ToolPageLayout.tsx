@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ChevronRight } from "lucide-react";
 import { toolCategories } from "@/data/toolsData";
-import { AdBottom, AdVideo, AdInline } from "@/components/ads/AdContainer";
+import { AdBottom, AdVideo, AdInline, AdExoticFat } from "@/components/ads/AdContainer";
 import { HilltopBanner, HilltopSquare, HilltopResponsive } from "@/components/ads/HilltopAds";
 
 interface FAQ {
@@ -150,10 +150,11 @@ const ToolPageLayout = ({
               </div>
               
               {/* Ads - After Tool Output */}
-              <div className="max-w-5xl mx-auto">
-                <AdVideo className="mt-6" />
-                <AdInline className="mt-4" />
-                <AdBottom className="mt-4" />
+              <div className="max-w-5xl mx-auto space-y-4">
+                <AdExoticFat />
+                <AdVideo />
+                <AdInline />
+                <AdBottom />
               </div>
             </div>
           </section>
@@ -175,7 +176,7 @@ const ToolPageLayout = ({
               </div>
               
               {/* Ad - After Introduction */}
-              <AdVideo className="mt-8" />
+              <AdExoticFat className="mt-8" />
             </div>
           </section>
 
@@ -211,7 +212,7 @@ const ToolPageLayout = ({
                 </div>
                 
                 {/* Ad - After Benefits */}
-                <AdInline className="mt-6" />
+                <AdExoticFat className="mt-6" />
               </div>
             </section>
 
@@ -231,7 +232,7 @@ const ToolPageLayout = ({
                 </div>
                 
                 {/* Ad - After How to Use */}
-                <AdBottom className="mt-6" />
+                <AdExoticFat className="mt-6" />
               </div>
             </section>
 
@@ -244,7 +245,7 @@ const ToolPageLayout = ({
               </div>
               
               {/* Ad - After Article */}
-              <AdVideo className="mt-8" />
+              <AdExoticFat className="mt-8" />
             </div>
           </section>
 
@@ -269,7 +270,7 @@ const ToolPageLayout = ({
               </div>
               
               {/* Ad - After Who Can Benefit */}
-              <AdInline className="mt-6" />
+              <AdExoticFat className="mt-6" />
             </div>
           </section>
 
@@ -286,7 +287,7 @@ const ToolPageLayout = ({
               </div>
               
               {/* Ad - After Use Cases */}
-              <AdBottom className="mt-6" />
+              <AdExoticFat className="mt-6" />
             </div>
           </section>
 
@@ -307,7 +308,7 @@ const ToolPageLayout = ({
                 ))}
               </Accordion>
               {/* Ad - After FAQ */}
-              <AdVideo className="mt-8" />
+              <AdExoticFat className="mt-8" />
             </div>
           </section>
 
