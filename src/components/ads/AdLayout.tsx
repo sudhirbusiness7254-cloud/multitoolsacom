@@ -1,6 +1,6 @@
 import { ReactNode, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
-import { AdLeft, AdRight, AdVideoSide } from './AdContainer';
+import { AdLeft, AdRight, AdVideoSide, AdStickyMobile } from './AdContainer';
 import { resetAdScripts } from './AdManager';
 
 interface AdLayoutProps {
@@ -39,9 +39,12 @@ const AdLayout = ({ children }: AdLayoutProps) => {
         </>
       )}
       
-      {/* Main Content with padding for side ads on XL screens */}
+      {/* Mobile Sticky Bottom Ad - Shows on mobile/tablet only */}
+      <AdStickyMobile />
+      
       {/* Main Content - keep full-width (no reserved side padding) */}
-      <div>
+      {/* Add bottom padding on mobile to prevent content from being hidden by sticky ad */}
+      <div className="pb-[70px] xl:pb-0">
         {children}
       </div>
     </>
