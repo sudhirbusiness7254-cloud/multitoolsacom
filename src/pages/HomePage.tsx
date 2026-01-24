@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GradientWaveBackground from "@/components/GradientWaveBackground";
-import { AdBottom, AdInline, AdExoticFat, AdPopunder, AdNative, AdPush, AdBanner, HilltopBanner } from "@/components/ads/AdContainer";
+import { AdBottom, AdInline, AdExoticFat, AdPopunder, AdNative, AdPush, AdBanner, AdUnit1, AdUnit2, AdUnit3, AdUnit4, AdUnit5, AdUnit6, HilltopBanner } from "@/components/ads/AdContainer";
 import { 
   ArrowRight, 
   Shield, 
@@ -431,7 +431,9 @@ const HomePage = () => {
               
               {/* Ads - After Categories - compact */}
               <AdExoticFat className="mt-4" />
+              <AdUnit1 className="mt-3" />
               <AdNative className="mt-3" />
+              <AdUnit2 className="mt-3" />
               <AdInline className="mt-3" />
             </div>
           </section>
@@ -539,7 +541,9 @@ const HomePage = () => {
               
               {/* Ad - After How It Works */}
               <AdExoticFat className="mt-4" />
+              <AdUnit3 className="mt-3" />
               <AdNative className="mt-3" />
+              <AdUnit4 className="mt-3" />
             </div>
           </section>
 
@@ -576,6 +580,7 @@ const HomePage = () => {
               
               {/* Ad - After Why Choose Us */}
               <AdExoticFat className="mt-4" />
+              <AdUnit5 className="mt-3" />
               <AdNative className="mt-3" />
               <AdInline className="mt-3" />
             </div>
@@ -629,6 +634,7 @@ const HomePage = () => {
               
               {/* Ad - After Blog Posts */}
               <AdExoticFat className="mt-4" />
+              <AdUnit6 className="mt-3" />
               <AdNative className="mt-3" />
             </div>
           </section>

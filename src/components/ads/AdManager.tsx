@@ -50,6 +50,31 @@ const AD_SCRIPTS: Record<string, AdScriptConfig> = {
   sticky: {
     id: 'ad-script-sticky',
     src: '//farawayaside.com/bwXvVus.dNGIla0BY/Wycu/beymR9QupZKUolpkUPuTCY-3ZN_TwURzoNATtMGtdNyjUcR1yNcTvM/1KN/Ac',
+  },
+  // New Ad Scripts 1-6
+  adunit1: {
+    id: 'ad-script-unit1',
+    src: '//farawayaside.com/bYX.VdsmdVG/lM0QYqWpck/ee/m-9suZZ/UGl/k/PuTcYY3KN/TAUQzaNoTEMvtENfjVcI1pNQTtMm1_NuAz',
+  },
+  adunit2: {
+    id: 'ad-script-unit2',
+    src: '//farawayaside.com/bTX/Vzs.dzGClO0/YaWdcu/XeUmG9zu/Z/UBlDkpPDTqYN3gNgTCU/zHN/TvcDtLNhjtcm1fNrT/M_1ROSAi',
+  },
+  adunit3: {
+    id: 'ad-script-unit3',
+    src: '//farawayaside.com/bRXYVGs.dcGYl/0vYPWNcc/Ke-mj9BuoZ/URlSkMPNTLYO3MNXTwUazJNvjXYKt/NdjPcn1/NfT/M/2hNlwx',
+  },
+  adunit4: {
+    id: 'ad-script-unit4',
+    src: '//adolescent-poem.com/dImGF.zFd/G/NIvtZ/GBUd/Re/ml9HuQZ/UylLkgPATvY-3ZNHT/UhzCNCzsgrtmNqjWcK1YNKTcMF3bORS/Z/s/a/W/1vpZdEDP0_xV',
+  },
+  adunit5: {
+    id: 'ad-script-unit5',
+    src: '//farawayaside.com/bYXWVUs/d.Gel/0oYYWDcT/SeBmu9hu/ZgUQlkkoPgTJYn3wN_TZU/zUOHDpYHtENkjnc/1/NYTbM/4GN/wr',
+  },
+  adunit6: {
+    id: 'ad-script-unit6',
+    src: '//adolescent-poem.com/csD.9w6/bj2P5elXSyWAQo9_NBjLcp1vNGjoAV5ENmyy0/2qNazKUN2cM/Ddkx4-',
   }
 };
 

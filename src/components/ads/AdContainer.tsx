@@ -253,6 +253,108 @@ export const AdStickyMobile = ({ className = '' }: { className?: string }) => {
   );
 };
 
+// Ad Unit 1 - New monetization unit
+export const AdUnit1 = ({ className = '' }: { className?: string }) => {
+  const { containerRef, isVisible, isLoaded } = useAdLoader('adunit1');
+  
+  return (
+    <div 
+      ref={containerRef}
+      className={`ad-unit1 w-full max-w-4xl mx-auto my-4 px-4 min-h-[100px] transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'} ${className}`}
+      aria-label="Advertisement"
+      role="complementary"
+      style={{ contain: 'layout style' }}
+    >
+      {!isLoaded && <AdSkeleton className="min-h-[90px] p-4" />}
+    </div>
+  );
+};
+
+// Ad Unit 2 - New monetization unit
+export const AdUnit2 = ({ className = '' }: { className?: string }) => {
+  const { containerRef, isVisible, isLoaded } = useAdLoader('adunit2');
+  
+  return (
+    <div 
+      ref={containerRef}
+      className={`ad-unit2 w-full max-w-4xl mx-auto my-4 px-4 min-h-[100px] transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'} ${className}`}
+      aria-label="Advertisement"
+      role="complementary"
+      style={{ contain: 'layout style' }}
+    >
+      {!isLoaded && <AdSkeleton className="min-h-[90px] p-4" />}
+    </div>
+  );
+};
+
+// Ad Unit 3 - New monetization unit
+export const AdUnit3 = ({ className = '' }: { className?: string }) => {
+  const { containerRef, isVisible, isLoaded } = useAdLoader('adunit3');
+  
+  return (
+    <div 
+      ref={containerRef}
+      className={`ad-unit3 w-full max-w-4xl mx-auto my-4 px-4 min-h-[100px] transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'} ${className}`}
+      aria-label="Advertisement"
+      role="complementary"
+      style={{ contain: 'layout style' }}
+    >
+      {!isLoaded && <AdSkeleton className="min-h-[90px] p-4" />}
+    </div>
+  );
+};
+
+// Ad Unit 4 - New monetization unit
+export const AdUnit4 = ({ className = '' }: { className?: string }) => {
+  const { containerRef, isVisible, isLoaded } = useAdLoader('adunit4');
+  
+  return (
+    <div 
+      ref={containerRef}
+      className={`ad-unit4 w-full max-w-4xl mx-auto my-4 px-4 min-h-[100px] transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'} ${className}`}
+      aria-label="Advertisement"
+      role="complementary"
+      style={{ contain: 'layout style' }}
+    >
+      {!isLoaded && <AdSkeleton className="min-h-[90px] p-4" />}
+    </div>
+  );
+};
+
+// Ad Unit 5 - New monetization unit
+export const AdUnit5 = ({ className = '' }: { className?: string }) => {
+  const { containerRef, isVisible, isLoaded } = useAdLoader('adunit5');
+  
+  return (
+    <div 
+      ref={containerRef}
+      className={`ad-unit5 w-full max-w-4xl mx-auto my-4 px-4 min-h-[100px] transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'} ${className}`}
+      aria-label="Advertisement"
+      role="complementary"
+      style={{ contain: 'layout style' }}
+    >
+      {!isLoaded && <AdSkeleton className="min-h-[90px] p-4" />}
+    </div>
+  );
+};
+
+// Ad Unit 6 - New monetization unit
+export const AdUnit6 = ({ className = '' }: { className?: string }) => {
+  const { containerRef, isVisible, isLoaded } = useAdLoader('adunit6');
+  
+  return (
+    <div 
+      ref={containerRef}
+      className={`ad-unit6 w-full max-w-4xl mx-auto my-4 px-4 min-h-[100px] transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'} ${className}`}
+      aria-label="Advertisement"
+      role="complementary"
+      style={{ contain: 'layout style' }}
+    >
+      {!isLoaded && <AdSkeleton className="min-h-[90px] p-4" />}
+    </div>
+  );
+};
+
 // Generic ad container
 const AdContainer = ({ position, className = '' }: AdContainerProps) => {
   switch (position) {
