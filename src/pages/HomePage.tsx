@@ -38,8 +38,8 @@ import { toolCategories } from "@/data/toolsData";
 import { ToolIconWithBackground } from "@/lib/toolIcons";
 import HreflangTags from "@/components/HreflangTags";
 import { blogPosts } from "@/data/blogData";
-import InContentAd from "@/components/ads/InContentAd";
 import NativeBannerAd from "@/components/ads/NativeBannerAd";
+import ToolSideAd from "@/components/ads/ToolSideAd";
 
 // 4K Screenshots for How It Works section
 import stepUpload4k from "@/assets/guides/step-upload-4k.png";
@@ -266,6 +266,13 @@ const HomePage = () => {
         <Header />
         
         <main className="flex-1">
+          {/* Side Banner Ads - Desktop Only */}
+          <div className="hidden xl:block fixed left-4 top-1/2 -translate-y-1/2 z-40">
+            <ToolSideAd />
+          </div>
+          <div className="hidden xl:block fixed right-4 top-1/2 -translate-y-1/2 z-40">
+            <ToolSideAd />
+          </div>
           {/* Hero Section - Engaging introduction */}
           <section className="py-12 sm:py-20 md:py-24 bg-gradient-hero relative overflow-hidden">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[500px] h-[350px] sm:h-[500px] bg-primary/10 rounded-full blur-3xl pointer-events-none" />
@@ -372,9 +379,9 @@ const HomePage = () => {
             </div>
           </section>
 
-          {/* Ad placement after popular tools */}
+          {/* Native Banner Ad - after popular tools */}
           <div className="container mx-auto max-w-6xl px-4">
-            <InContentAd />
+            <NativeBannerAd />
           </div>
 
           {/* Tool Categories - Detailed with unique descriptions */}
@@ -438,9 +445,9 @@ const HomePage = () => {
             <NativeBannerAd />
           </div>
 
-          {/* Ad placement after categories */}
+          {/* Native Banner Ad - after categories */}
           <div className="container mx-auto max-w-6xl px-4">
-            <InContentAd />
+            <NativeBannerAd />
           </div>
 
           {/* How It Works - Step by step with icons */}
@@ -600,9 +607,9 @@ const HomePage = () => {
             </div>
           </section>
 
-          {/* Ad placement between sections */}
+          {/* Native Banner Ad - between sections */}
           <div className="container mx-auto max-w-6xl px-4">
-            <InContentAd />
+            <NativeBannerAd />
           </div>
 
           {/* Why Choose Us - Trust signals */}
