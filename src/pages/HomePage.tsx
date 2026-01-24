@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GradientWaveBackground from "@/components/GradientWaveBackground";
-import { AdBottom, AdInline, AdExoticFat, AdPopunder } from "@/components/ads/AdContainer";
+import { AdBottom, AdInline, AdExoticFat, AdPopunder, HilltopBanner } from "@/components/ads/AdContainer";
 import { 
   ArrowRight, 
   Shield, 
@@ -320,9 +320,10 @@ const HomePage = () => {
                 </div>
               </div>
               
-              {/* Inline Ads - Below Hero Badges */}
-              <div className="mt-8 flex justify-center">
-                <AdInline className="max-w-2xl" />
+              {/* Hilltop Banner Ads - Below Hero Badges */}
+              <div className="mt-6 flex flex-col items-center gap-3">
+                <HilltopBanner variant={1} />
+                <HilltopBanner variant={2} />
               </div>
             </div>
           </section>
