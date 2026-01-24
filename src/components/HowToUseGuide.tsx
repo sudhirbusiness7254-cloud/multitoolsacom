@@ -5,7 +5,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-// Import step screenshots
+// Import generic step screenshots (fallback)
 import stepUploadImg from "@/assets/guides/step-upload.png";
 import stepPreviewImg from "@/assets/guides/step-preview.png";
 import stepFormatSelectImg from "@/assets/guides/step-format-select.png";
@@ -17,6 +17,7 @@ import stepPdfImg from "@/assets/guides/step-pdf.png";
 import stepCropImg from "@/assets/guides/step-crop.png";
 import stepWatermarkImg from "@/assets/guides/step-watermark.png";
 import stepRotateImg from "@/assets/guides/step-rotate.png";
+
 // 4K versions
 import stepUpload4kImg from "@/assets/guides/step-upload-4k.png";
 import stepPreview4kImg from "@/assets/guides/step-preview-4k.png";
@@ -25,7 +26,138 @@ import stepCrop4kImg from "@/assets/guides/step-crop-4k.png";
 import stepWatermark4kImg from "@/assets/guides/step-watermark-4k.png";
 import stepRotate4kImg from "@/assets/guides/step-rotate-4k.png";
 
-// Map step types to their images (prefer 4K when available)
+// Import unique tool-specific screenshots
+import toolConvertImg from "@/assets/guides/tool-convert-jpg-png.jpg";
+import toolCompressImg from "@/assets/guides/tool-compress.jpg";
+import toolResizeImg from "@/assets/guides/tool-resize.jpg";
+import toolCropImg from "@/assets/guides/tool-crop.jpg";
+import toolRotateImg from "@/assets/guides/tool-rotate.jpg";
+import toolWatermarkImg from "@/assets/guides/tool-watermark.jpg";
+import toolFiltersImg from "@/assets/guides/tool-filters.jpg";
+import toolMetadataImg from "@/assets/guides/tool-metadata.jpg";
+import toolPdfImg from "@/assets/guides/tool-pdf.jpg";
+import toolQrImg from "@/assets/guides/tool-qr.jpg";
+import toolDocumentImg from "@/assets/guides/tool-document.jpg";
+import toolCombineImg from "@/assets/guides/tool-combine.jpg";
+import toolSecurityImg from "@/assets/guides/tool-security.jpg";
+import toolDrawingImg from "@/assets/guides/tool-drawing.jpg";
+import toolOptimizeImg from "@/assets/guides/tool-optimize.jpg";
+import toolCircleCropImg from "@/assets/guides/tool-circle-crop.jpg";
+import toolBase64Img from "@/assets/guides/tool-base64.jpg";
+import toolWebpConvertImg from "@/assets/guides/tool-webp-convert.jpg";
+import toolHeicConvertImg from "@/assets/guides/tool-heic-convert.jpg";
+import toolGifCompressImg from "@/assets/guides/tool-gif-compress.jpg";
+
+// Tool-specific screenshot mapping (unique per tool category)
+const toolSpecificImages: Record<string, string> = {
+  // Conversion tools
+  "jpg-to-png": toolConvertImg,
+  "png-to-jpg": toolConvertImg,
+  "jpg-to-webp": toolConvertImg,
+  "webp-to-jpg": toolWebpConvertImg,
+  "png-to-webp": toolWebpConvertImg,
+  "webp-to-png": toolWebpConvertImg,
+  "heic-to-jpg": toolHeicConvertImg,
+  "heic-to-png": toolHeicConvertImg,
+  "image-converter": toolConvertImg,
+  
+  // Compression tools
+  "jpeg-compressor": toolCompressImg,
+  "png-compressor": toolCompressImg,
+  "webp-compressor": toolCompressImg,
+  "gif-compressor": toolGifCompressImg,
+  "tiff-compressor": toolCompressImg,
+  "image-compression": toolCompressImg,
+  
+  // Resize tools
+  "exact-resize": toolResizeImg,
+  "percentage-resize": toolResizeImg,
+  "fit-to-width": toolResizeImg,
+  "fit-to-height": toolResizeImg,
+  "fit-to-box": toolResizeImg,
+  "image-resize": toolResizeImg,
+  
+  // Crop tools
+  "manual-crop": toolCropImg,
+  "aspect-ratio-crop": toolCropImg,
+  "circle-crop": toolCircleCropImg,
+  "square-crop": toolCropImg,
+  "free-selection-crop": toolCropImg,
+  "image-crop": toolCropImg,
+  
+  // Rotate/Flip tools
+  "rotate-90": toolRotateImg,
+  "rotate-180": toolRotateImg,
+  "rotate-270": toolRotateImg,
+  "custom-rotate": toolRotateImg,
+  "flip-horizontal": toolRotateImg,
+  "flip-vertical": toolRotateImg,
+  "mirror-effect": toolRotateImg,
+  "image-rotate-flip": toolRotateImg,
+  
+  // Watermark tools
+  "text-watermark": toolWatermarkImg,
+  "image-watermark": toolWatermarkImg,
+  "watermark-tools": toolWatermarkImg,
+  
+  // Filter tools
+  "brightness-adjust": toolFiltersImg,
+  "contrast-adjust": toolFiltersImg,
+  "saturation-adjust": toolFiltersImg,
+  "sepia-effect": toolFiltersImg,
+  "vintage-filter": toolFiltersImg,
+  "photo-filters": toolFiltersImg,
+  
+  // Metadata tools
+  "view-exif": toolMetadataImg,
+  "remove-exif": toolMetadataImg,
+  "edit-exif-datetime": toolMetadataImg,
+  "image-metadata": toolMetadataImg,
+  
+  // PDF tools
+  "merge-pdf": toolPdfImg,
+  "compress-pdf": toolPdfImg,
+  "split-pdf": toolPdfImg,
+  "pdf-tools": toolPdfImg,
+  
+  // QR tools
+  "image-to-qr-code": toolQrImg,
+  "qr-code-to-image": toolQrImg,
+  "image-qr": toolQrImg,
+  
+  // Document conversion
+  "image-to-pdf": toolDocumentImg,
+  "image-to-docx": toolDocumentImg,
+  "image-to-pptx": toolDocumentImg,
+  "image-to-base64": toolBase64Img,
+  "base64-to-image": toolBase64Img,
+  "image-to-document": toolDocumentImg,
+  
+  // Combine tools
+  "merge-horizontally": toolCombineImg,
+  "merge-vertically": toolCombineImg,
+  "collage-maker": toolCombineImg,
+  "image-combine": toolCombineImg,
+  
+  // Security tools
+  "manual-face-blur": toolSecurityImg,
+  "manual-pixel-blur": toolSecurityImg,
+  "hide-area": toolSecurityImg,
+  "image-security": toolSecurityImg,
+  
+  // Drawing tools
+  "paint-tool": toolDrawingImg,
+  "draw-shapes": toolDrawingImg,
+  "signature-pad": toolDrawingImg,
+  "image-drawing": toolDrawingImg,
+  
+  // Optimization tools
+  "reduce-file-size": toolOptimizeImg,
+  "optimize-for-web": toolOptimizeImg,
+  "image-optimization": toolOptimizeImg,
+};
+
+// Map step types to their images (generic fallback)
 const stepImages: Record<string, string> = {
   "upload": stepUpload4kImg,
   "preview": stepPreview4kImg,
@@ -77,6 +209,9 @@ const getStepIcon = (stepNumber: number, totalSteps: number) => {
 };
 
 const HowToUseGuide = ({ guideData, toolName, gradientFrom, gradientTo }: HowToUseGuideProps) => {
+  // Get tool-specific screenshot if available
+  const toolScreenshot = toolSpecificImages[guideData.slug];
+  
   return (
     <div className="space-y-8">
       {/* Header with Tool Info Bar */}
@@ -89,6 +224,24 @@ const HowToUseGuide = ({ guideData, toolName, gradientFrom, gradientTo }: HowToU
         </div>
         <h2 className="text-xl md:text-2xl font-bold">How to Use {toolName}</h2>
       </div>
+
+      {/* Unique Tool Screenshot - Shows how this specific tool works */}
+      {toolScreenshot && (
+        <div className="rounded-xl border border-border overflow-hidden shadow-lg mb-8">
+          <div className="bg-gradient-to-r from-primary/10 to-primary/5 px-4 py-2 border-b border-border/50">
+            <span className="text-sm font-medium text-foreground flex items-center gap-2">
+              <Monitor className="w-4 h-4" style={{ color: gradientFrom }} />
+              {toolName} Interface Preview
+            </span>
+          </div>
+          <img 
+            src={toolScreenshot} 
+            alt={`${toolName} tool interface showing how it works`}
+            className="w-full h-auto object-cover"
+            loading="lazy"
+          />
+        </div>
+      )}
 
       {/* Quick Reference Info Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
