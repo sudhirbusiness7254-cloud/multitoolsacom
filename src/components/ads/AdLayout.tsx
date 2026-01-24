@@ -1,6 +1,6 @@
 import { ReactNode, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
-import { AdLeft, AdRight, AdVideoSide, AdStickyMobile, AdFloatingSidebar } from './AdContainer';
+import { AdLeft, AdRight, AdVideoSide, AdStickyMobile } from './AdContainer';
 import InterstitialAd from './InterstitialAd';
 import { resetAdScripts } from './AdManager';
 import { useInterstitial } from '@/contexts/InterstitialContext';
@@ -36,8 +36,6 @@ const AdLayout = ({ children }: AdLayoutProps) => {
           <AdLeft />
           <AdRight />
           <AdVideoSide position="left" />
-          <AdFloatingSidebar position="left" />
-          <AdFloatingSidebar position="right" />
         </>
       )}
       
