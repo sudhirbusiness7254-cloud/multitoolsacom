@@ -9,6 +9,7 @@ import {
   Layers, RefreshCw, Lightbulb, BookOpen, HelpCircle
 } from "lucide-react";
 import HreflangTags from "@/components/HreflangTags";
+import InContentAd from "@/components/ads/InContentAd";
 
 const About = () => {
   const stats = [
@@ -237,6 +238,11 @@ const About = () => {
             </div>
           </div>
         </section>
+
+        {/* Ad placement */}
+        <div className="container mx-auto max-w-4xl px-4">
+          <InContentAd />
+        </div>
 
         {/* Our Story - Expanded */}
         <section className="py-16 md:py-20 px-4 bg-gradient-dark">

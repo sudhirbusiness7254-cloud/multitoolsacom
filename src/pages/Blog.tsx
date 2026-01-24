@@ -7,6 +7,7 @@ import HreflangTags from "@/components/HreflangTags";
 import { blogPosts, blogCategories } from "@/data/blogData";
 import { useState, useMemo } from "react";
 import { Input } from "@/components/ui/input";
+import InContentAd from "@/components/ads/InContentAd";
 
 const Blog = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -181,6 +182,11 @@ const Blog = () => {
             </Link>
           </section>
         )}
+
+        {/* Ad placement after featured article */}
+        <div className="container mx-auto px-4">
+          <InContentAd />
+        </div>
 
         {/* Search Results Info */}
         {(searchQuery || selectedCategory !== "All") && (

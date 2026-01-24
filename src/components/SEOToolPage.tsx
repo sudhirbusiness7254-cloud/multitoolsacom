@@ -29,6 +29,7 @@ import {
   getIntroStyle,
   getListStyle
 } from "@/components/seo-templates/UniqueContentStyles";
+import InContentAd from "@/components/ads/InContentAd";
 
 interface SEOToolPageProps {
   seoContent: ToolSEOContent;
@@ -692,6 +693,9 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
               <div className="mb-12">
                 {children}
               </div>
+
+              {/* Ad placement after tool */}
+              <InContentAd className="mb-8" />
               
               {/* Quick benefits below tool - unique style per category */}
               <div className={`text-left max-w-4xl mx-auto ${sectionClasses}`}>
@@ -752,6 +756,9 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                 </div>
               ) : null}
 
+              {/* Ad between content sections */}
+              <InContentAd className="my-8" />
+
               {/* Related Articles from Blog */}
               <RelatedArticles 
                 toolSlug={seoContent.slug} 
@@ -760,6 +767,9 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                        'Helpful Guides & Tutorials'}
                 maxItems={3}
               />
+
+              {/* Ad before related tools */}
+              <InContentAd className="my-8" />
 
               {/* Related Tools - Unique style per template */}
               <div className={`${cardClasses} p-6 md:p-8`}>
