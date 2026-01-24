@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ChevronRight } from "lucide-react";
 import { toolCategories } from "@/data/toolsData";
-import { AdBottom, AdVideo, AdInline, AdExoticFat } from "@/components/ads/AdContainer";
+import { AdBottom, AdVideo, AdInline, AdExoticFat, AdUnit1, AdUnit2, AdUnit3, AdUnit4, AdUnit5, AdUnit6 } from "@/components/ads/AdContainer";
 
 interface FAQ {
   question: string;
@@ -151,8 +151,11 @@ const ToolPageLayout = ({
               {/* Ads - After Tool Output */}
               <div className="max-w-5xl mx-auto space-y-4">
                 <AdExoticFat />
+                <AdUnit1 />
                 <AdVideo />
+                <AdUnit2 />
                 <AdInline />
+                <AdUnit3 />
                 <AdBottom />
               </div>
             </div>
@@ -176,6 +179,7 @@ const ToolPageLayout = ({
               
               {/* Ad - After Introduction */}
               <AdExoticFat className="mt-8" />
+              <AdUnit4 className="mt-4" />
             </div>
           </section>
 

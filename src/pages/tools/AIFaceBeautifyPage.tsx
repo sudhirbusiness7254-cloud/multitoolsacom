@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AIFaceBeautify from "@/components/ai-tools/AIFaceBeautify";
 import ImageComparisonSlider from "@/components/ImageComparisonSlider";
-import { AdBottom, AdVideo, AdInline, AdExoticFat } from "@/components/ads/AdContainer";
+import { AdBottom, AdVideo, AdInline, AdExoticFat, AdUnit1, AdUnit2, AdUnit3, AdUnit4, AdUnit5, AdUnit6 } from "@/components/ads/AdContainer";
 import HreflangTags from "@/components/HreflangTags";
 import { Smile, Sparkles, Shield, Zap, Download, Eye, Sun, Heart } from "lucide-react";
 import {
@@ -83,8 +83,13 @@ const AIFaceBeautifyPage = () => {
               <AIFaceBeautify />
               
               {/* Ads below tool */}
-              <AdBottom className="mt-6" />
+              <AdExoticFat className="mt-6" />
+              <AdUnit1 className="mt-4" />
+              <AdBottom className="mt-4" />
+              <AdUnit2 className="mt-4" />
               <AdVideo className="mt-4" />
+              <AdUnit3 className="mt-4" />
+              <AdInline className="mt-4" />
             </div>
           </section>
 
