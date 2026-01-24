@@ -19,7 +19,7 @@ import {
 } from "@/components/ui/accordion";
 import HreflangTags from "@/components/HreflangTags";
 import RelatedArticles from "@/components/RelatedArticles";
-import { AdBottom, AdVideo, AdInline } from "@/components/ads/AdContainer";
+import { AdBottom, AdVideo, AdInline, AdExoticFat } from "@/components/ads/AdContainer";
 import { HilltopBanner, HilltopResponsive, HilltopSquare } from "@/components/ads/HilltopAds";
 
 interface SEOToolPageProps {
@@ -159,10 +159,11 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
               </div>
               
               {/* Ads - After Tool Output */}
-              <div className="max-w-5xl mx-auto">
-                <AdVideo className="mt-6" />
-                <AdInline className="mt-4" />
-                <AdBottom className="mt-4" />
+              <div className="max-w-5xl mx-auto space-y-4">
+                <AdExoticFat />
+                <AdVideo />
+                <AdInline />
+                <AdBottom />
               </div>
             </div>
           </section>
@@ -344,7 +345,7 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                 </ul>
                 
                 {/* Ad - After Benefits */}
-                <AdVideo className="mt-6" />
+                <AdExoticFat className="mt-6" />
               </div>
 
               {/* Section 7: Who Can Use - Enhanced with descriptions */}
@@ -390,7 +391,7 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                 )}
                 
                 {/* Ad - After Who Can Use */}
-                <AdInline className="mt-6" />
+                <AdExoticFat className="mt-6" />
               </div>
 
               {/* Section 8: Common Use Cases */}
@@ -420,7 +421,7 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                   </div>
                   
                   {/* Ad - After Use Cases */}
-                  <AdBottom className="mt-6" />
+                  <AdExoticFat className="mt-6" />
                 </div>
               )}
 
@@ -449,7 +450,7 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                 </Accordion>
                 
                 {/* Ad - After FAQ */}
-                <AdVideo className="mt-6" />
+                <AdExoticFat className="mt-6" />
               </div>
 
               {/* Section 10: Privacy & Security Note */}

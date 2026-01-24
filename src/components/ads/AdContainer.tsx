@@ -1,7 +1,7 @@
 import { useAdLoader, useVideoAdLoader } from './AdManager';
 
 interface AdContainerProps {
-  position: 'left' | 'right' | 'bottom' | 'video' | 'inline';
+  position: 'left' | 'right' | 'bottom' | 'video' | 'inline' | 'exoticfat';
   className?: string;
 }
 
@@ -131,6 +131,23 @@ export const AdInline = ({ className = '' }: { className?: string }) => {
   );
 };
 
+// ExoticFat ad - Responsive monetization boost ad for all tool pages
+export const AdExoticFat = ({ className = '' }: { className?: string }) => {
+  const { containerRef, isVisible, isLoaded } = useAdLoader('exoticfat');
+  
+  return (
+    <div 
+      ref={containerRef}
+      className={`ad-exoticfat w-full max-w-4xl mx-auto my-6 px-4 min-h-[120px] transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'} ${className}`}
+      aria-label="Advertisement"
+      role="complementary"
+      style={{ contain: 'layout style' }}
+    >
+      {!isLoaded && <AdSkeleton className="min-h-[100px] p-4" />}
+    </div>
+  );
+};
+
 // Generic ad container
 const AdContainer = ({ position, className = '' }: AdContainerProps) => {
   switch (position) {
@@ -144,6 +161,8 @@ const AdContainer = ({ position, className = '' }: AdContainerProps) => {
       return <AdVideo className={className} />;
     case 'inline':
       return <AdInline className={className} />;
+    case 'exoticfat':
+      return <AdExoticFat className={className} />;
     default:
       return null;
   }

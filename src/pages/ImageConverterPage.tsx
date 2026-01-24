@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import ImageConverter from "@/components/ImageConverter";
 import BatchImageConverter from "@/components/BatchImageConverter";
 import PromptToImage from "@/components/PromptToImage";
-import { AdBottom, AdVideo, AdInline } from "@/components/ads/AdContainer";
+import { AdBottom, AdVideo, AdInline, AdExoticFat } from "@/components/ads/AdContainer";
 import { conversionArticles } from "@/data/conversionArticlesData";
 import { getToolGuideData } from "@/data/toolGuideData";
 import HowToUseGuide from "@/components/HowToUseGuide";
@@ -327,9 +327,10 @@ const ImageConverterPage = () => {
               </Tabs>
               
               {/* Ads below converter tool */}
-              <div className="max-w-4xl mx-auto mt-8">
+              <div className="max-w-4xl mx-auto mt-8 space-y-4">
+                <AdExoticFat />
+                <AdVideo />
                 <AdBottom />
-                <AdVideo className="mt-4" />
               </div>
             </div>
           </section>
