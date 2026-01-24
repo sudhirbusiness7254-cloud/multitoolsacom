@@ -39,6 +39,7 @@ import { ToolIconWithBackground } from "@/lib/toolIcons";
 import HreflangTags from "@/components/HreflangTags";
 import { blogPosts } from "@/data/blogData";
 import InContentAd from "@/components/ads/InContentAd";
+import NativeBannerAd from "@/components/ads/NativeBannerAd";
 
 // 4K Screenshots for How It Works section
 import stepUpload4k from "@/assets/guides/step-upload-4k.png";
@@ -634,6 +635,11 @@ const HomePage = () => {
               </div>
             </div>
           </section>
+
+          {/* Native Banner Ad - User-friendly placement */}
+          <div className="container mx-auto max-w-6xl px-4">
+            <NativeBannerAd />
+          </div>
 
           {/* Featured Blog Posts - Educational content */}
           <section className="py-12 sm:py-16 px-4 sm:px-6 bg-secondary/30">
