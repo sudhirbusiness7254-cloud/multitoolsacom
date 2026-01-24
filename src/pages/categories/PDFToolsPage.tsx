@@ -16,10 +16,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import HreflangTags from "@/components/HreflangTags";
-import ToolSideAd from "@/components/ads/ToolSideAd";
-import MobileToolAd from "@/components/ads/MobileToolAd";
-import NativeBannerAd from "@/components/ads/NativeBannerAd";
-import InContentAd from "@/components/ads/InContentAd";
 
 const pdfTools = [
   { slug: "merge-pdf", name: "Merge PDF", description: "Combine multiple PDF files into one", icon: FileText, color: "from-red-500 to-red-600" },
@@ -104,7 +100,7 @@ const PDFToolsPage = () => {
         <main className="flex-1">
           {/* Hero Section */}
           <section className="py-8 md:py-12 bg-gradient-to-b from-red-500/5 to-orange-500/5">
-            <div className="w-full max-w-[1400px] mx-auto px-4">
+            <div className="container mx-auto px-4">
               <div className="text-center mb-8">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-500/10 border border-red-500/30 mb-4">
                   <FileText className="w-4 h-4 text-red-500" />
@@ -118,37 +114,12 @@ const PDFToolsPage = () => {
                 </p>
               </div>
 
-              {/* Desktop/Laptop: Tool with ads on both sides */}
-              <div className="hidden lg:flex gap-4 justify-center items-start">
-                {/* Left Side Ad */}
-                <div className="flex-shrink-0 sticky top-24">
-                  <ToolSideAd />
-                </div>
-                
-                {/* Tool Component */}
-                <div className="flex-1 max-w-3xl">
-                  <UniversalPDFTools />
-                </div>
-                
-                {/* Right Side Ad */}
-                <div className="flex-shrink-0 sticky top-24">
-                  <ToolSideAd />
-                </div>
-              </div>
-              
-              {/* Mobile/Tablet: Tool only */}
-              <div className="lg:hidden">
+              {/* Universal PDF Tools Component */}
+              <div className="max-w-6xl mx-auto">
                 <UniversalPDFTools />
-                {/* Mobile Ad - Below tool */}
-                <MobileToolAd />
               </div>
             </div>
           </section>
-
-          {/* Native Banner Ad */}
-          <div className="container mx-auto max-w-4xl px-4">
-            <NativeBannerAd />
-          </div>
 
           {/* Comprehensive About Section - 700+ words */}
           <section className="py-12 md:py-20 px-4">

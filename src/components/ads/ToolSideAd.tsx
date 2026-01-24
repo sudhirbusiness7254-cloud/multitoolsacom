@@ -1,46 +1,43 @@
-const AD_KEY = "5251d00b938f369c8b531c0ce3b384bb";
-const AD_W = 160;
-const AD_H = 600;
-
-const buildSrcDoc = () => {
-  // Sandbox the ad so:
-  // - left/right slots don't fight over global `window.atOptions`
-  // - it can't take over the top window navigation
-  // (clicks can still open popups/new tabs).
-  return `<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <style>html,body{margin:0;padding:0;background:transparent;overflow:hidden}</style>
-  </head>
-  <body>
-    <script>
-      window.atOptions = {
-        key: '${AD_KEY}',
-        format: 'iframe',
-        height: ${AD_H},
-        width: ${AD_W},
-        params: {}
-      };
-    <\/script>
-    <script data-cfasync="false" src="https://crowdsubsequentadmire.com/${AD_KEY}/invoke.js"><\/script>
-  </body>
-</html>`;
-};
+import { useEffect, useRef } from "react";
 
 const ToolSideAd = () => {
-  const srcDoc = buildSrcDoc();
+  const adRef = useRef<HTMLDivElement>(null);
+  const scriptLoaded = useRef(false);
+
+  useEffect(() => {
+    if (scriptLoaded.current || !adRef.current) return;
+    
+    // Set atOptions on window
+    (window as any).atOptions = {
+      'key': '5251d00b938f369c8b531c0ce3b384bb',
+      'format': 'iframe',
+      'height': 600,
+      'width': 160,
+      'params': {}
+    };
+
+    // Create and inject the script
+    const script = document.createElement('script');
+    script.src = 'https://crowdsubsequentadmire.com/5251d00b938f369c8b531c0ce3b384bb/invoke.js';
+    script.async = true;
+    script.setAttribute('data-cfasync', 'false');
+    
+    adRef.current.appendChild(script);
+    scriptLoaded.current = true;
+
+    return () => {
+      if (adRef.current) {
+        const scripts = adRef.current.querySelectorAll('script');
+        scripts.forEach(s => s.remove());
+      }
+    };
+  }, []);
+
   return (
-    <iframe
-      title="Sponsored"
-      className="block"
-      style={{ width: AD_W, height: AD_H, border: 0 }}
-      // Allow scripts to run and clicks to open popups/new tabs,
-      // but prevent top-level navigation.
-      sandbox="allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox"
-      referrerPolicy="no-referrer"
-      srcDoc={srcDoc}
+    <div 
+      ref={adRef}
+      className="flex items-start justify-center"
+      style={{ minWidth: '160px', minHeight: '600px' }}
     />
   );
 };
