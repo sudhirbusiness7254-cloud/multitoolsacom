@@ -12,6 +12,8 @@ import { getTemplateConfig, categoryColorSchemes } from "@/components/seo-templa
 import { getHeadingClasses, getCardClasses, getBadgeClasses } from "@/components/seo-templates/UniqueContentStyles";
 import InContentAd from "@/components/ads/InContentAd";
 import NativeBannerAd from "@/components/ads/NativeBannerAd";
+import ToolSideAd from "@/components/ads/ToolSideAd";
+import MobileToolAd from "@/components/ads/MobileToolAd";
 
 // Import unique hero banners for each category
 import heroConverter from "@/assets/heroes/hero-image-converter.jpg";
@@ -235,8 +237,32 @@ const CategoryPageLayout = ({
           {/* Main Tool Component (if provided) */}
           {children && (
             <section className="py-6 px-4 sm:px-6">
-              <div className="container mx-auto max-w-4xl">
-                {children}
+              <div className="container mx-auto max-w-6xl">
+                {/* Desktop: Tool with ads on both sides */}
+                <div className="hidden lg:flex gap-4 justify-center items-start">
+                  {/* Left Side Ad */}
+                  <div className="flex-shrink-0 sticky top-24">
+                    <ToolSideAd />
+                  </div>
+                  
+                  {/* Tool Component */}
+                  <div className="flex-1 max-w-4xl">
+                    {children}
+                  </div>
+                  
+                  {/* Right Side Ad */}
+                  <div className="flex-shrink-0 sticky top-24">
+                    <ToolSideAd />
+                  </div>
+                </div>
+                
+                {/* Mobile/Tablet: Tool only */}
+                <div className="lg:hidden">
+                  {children}
+                </div>
+                
+                {/* Mobile Ad - Below tool dropdown */}
+                <MobileToolAd />
               </div>
             </section>
           )}
