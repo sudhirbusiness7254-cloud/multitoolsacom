@@ -430,6 +430,7 @@ const HomePage = () => {
               
               {/* Ads - After Categories - compact */}
               <AdExoticFat className="mt-4" />
+              <AdNative className="mt-3" />
               <AdInline className="mt-3" />
             </div>
           </section>
@@ -537,6 +538,7 @@ const HomePage = () => {
               
               {/* Ad - After How It Works */}
               <AdExoticFat className="mt-4" />
+              <AdNative className="mt-3" />
             </div>
           </section>
 
@@ -573,6 +575,7 @@ const HomePage = () => {
               
               {/* Ad - After Why Choose Us */}
               <AdExoticFat className="mt-4" />
+              <AdNative className="mt-3" />
               <AdInline className="mt-3" />
             </div>
           </section>
@@ -625,6 +628,7 @@ const HomePage = () => {
               
               {/* Ad - After Blog Posts */}
               <AdExoticFat className="mt-4" />
+              <AdNative className="mt-3" />
             </div>
           </section>
 
@@ -700,6 +704,7 @@ const HomePage = () => {
               
               {/* Ad - After Resources */}
               <AdExoticFat className="mt-4" />
+              <AdNative className="mt-3" />
               <AdBottom className="mt-3" />
             </div>
           </section>
