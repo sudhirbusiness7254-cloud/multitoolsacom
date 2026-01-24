@@ -47,6 +47,34 @@ import toolBase64Img from "@/assets/guides/tool-base64.jpg";
 import toolWebpConvertImg from "@/assets/guides/tool-webp-convert.jpg";
 import toolHeicConvertImg from "@/assets/guides/tool-heic-convert.jpg";
 import toolGifCompressImg from "@/assets/guides/tool-gif-compress.jpg";
+// New tool-specific screenshots
+import toolTiffCompressImg from "@/assets/guides/tool-tiff-compress.jpg";
+import toolPngCompressImg from "@/assets/guides/tool-png-compress.jpg";
+import toolWebpCompressImg from "@/assets/guides/tool-webp-compress.jpg";
+import toolSvgConvertImg from "@/assets/guides/tool-svg-convert.jpg";
+import toolBmpConvertImg from "@/assets/guides/tool-bmp-convert.jpg";
+import toolTiffConvertImg from "@/assets/guides/tool-tiff-convert.jpg";
+import toolRawConvertImg from "@/assets/guides/tool-raw-convert.jpg";
+import toolSquareCropImg from "@/assets/guides/tool-square-crop.jpg";
+import toolAspectCropImg from "@/assets/guides/tool-aspect-crop.jpg";
+import toolFlipHorizontalImg from "@/assets/guides/tool-flip-horizontal.jpg";
+import toolFlipVerticalImg from "@/assets/guides/tool-flip-vertical.jpg";
+import toolCustomRotateImg from "@/assets/guides/tool-custom-rotate.jpg";
+import toolRotate180Img from "@/assets/guides/tool-rotate-180.jpg";
+import toolSepiaFilterImg from "@/assets/guides/tool-sepia-filter.jpg";
+import toolBrightnessImg from "@/assets/guides/tool-brightness.jpg";
+import toolContrastImg from "@/assets/guides/tool-contrast.jpg";
+import toolSaturationImg from "@/assets/guides/tool-saturation.jpg";
+import toolVintageImg from "@/assets/guides/tool-vintage.jpg";
+import toolBwConvertImg from "@/assets/guides/tool-bw-convert.jpg";
+import toolLogoWatermarkImg from "@/assets/guides/tool-logo-watermark.jpg";
+import toolCollageImg from "@/assets/guides/tool-collage.jpg";
+import toolMergePdfImg from "@/assets/guides/tool-merge-pdf.jpg";
+import toolSplitPdfImg from "@/assets/guides/tool-split-pdf.jpg";
+import toolCompressPdfImg from "@/assets/guides/tool-compress-pdf.jpg";
+import toolExactResizeImg from "@/assets/guides/tool-exact-resize.jpg";
+import toolPercentResizeImg from "@/assets/guides/tool-percent-resize.jpg";
+import toolFitWidthImg from "@/assets/guides/tool-fit-width.jpg";
 
 // Tool-specific screenshot mapping (unique per tool category)
 const toolSpecificImages: Record<string, string> = {
@@ -59,65 +87,102 @@ const toolSpecificImages: Record<string, string> = {
   "webp-to-png": toolWebpConvertImg,
   "heic-to-jpg": toolHeicConvertImg,
   "heic-to-png": toolHeicConvertImg,
+  "svg-to-png": toolSvgConvertImg,
+  "svg-to-jpg": toolSvgConvertImg,
+  "bmp-to-jpg": toolBmpConvertImg,
+  "bmp-to-png": toolBmpConvertImg,
+  "tiff-to-jpg": toolTiffConvertImg,
+  "tiff-to-png": toolTiffConvertImg,
+  "raw-to-jpg": toolRawConvertImg,
+  "raw-to-png": toolRawConvertImg,
+  "gif-to-png": toolConvertImg,
+  "gif-to-jpg": toolConvertImg,
   "image-converter": toolConvertImg,
   
   // Compression tools
   "jpeg-compressor": toolCompressImg,
-  "png-compressor": toolCompressImg,
-  "webp-compressor": toolCompressImg,
+  "png-compressor": toolPngCompressImg,
+  "webp-compressor": toolWebpCompressImg,
   "gif-compressor": toolGifCompressImg,
-  "tiff-compressor": toolCompressImg,
+  "tiff-compressor": toolTiffCompressImg,
   "image-compression": toolCompressImg,
   
   // Resize tools
-  "exact-resize": toolResizeImg,
-  "percentage-resize": toolResizeImg,
-  "fit-to-width": toolResizeImg,
-  "fit-to-height": toolResizeImg,
+  "exact-resize": toolExactResizeImg,
+  "percentage-resize": toolPercentResizeImg,
+  "fit-to-width": toolFitWidthImg,
+  "fit-to-height": toolFitWidthImg,
   "fit-to-box": toolResizeImg,
+  "resize-without-quality-loss": toolResizeImg,
   "image-resize": toolResizeImg,
   
   // Crop tools
   "manual-crop": toolCropImg,
-  "aspect-ratio-crop": toolCropImg,
+  "aspect-ratio-crop": toolAspectCropImg,
   "circle-crop": toolCircleCropImg,
-  "square-crop": toolCropImg,
+  "square-crop": toolSquareCropImg,
   "free-selection-crop": toolCropImg,
   "image-crop": toolCropImg,
   
   // Rotate/Flip tools
   "rotate-90": toolRotateImg,
-  "rotate-180": toolRotateImg,
+  "rotate-180": toolRotate180Img,
   "rotate-270": toolRotateImg,
-  "custom-rotate": toolRotateImg,
-  "flip-horizontal": toolRotateImg,
-  "flip-vertical": toolRotateImg,
-  "mirror-effect": toolRotateImg,
+  "custom-rotate": toolCustomRotateImg,
+  "flip-horizontal": toolFlipHorizontalImg,
+  "flip-vertical": toolFlipVerticalImg,
+  "mirror-effect": toolFlipHorizontalImg,
   "image-rotate-flip": toolRotateImg,
   
   // Watermark tools
   "text-watermark": toolWatermarkImg,
-  "image-watermark": toolWatermarkImg,
+  "image-watermark": toolLogoWatermarkImg,
+  "font-change": toolWatermarkImg,
+  "color-change": toolWatermarkImg,
+  "opacity-settings": toolWatermarkImg,
+  "position-settings": toolWatermarkImg,
   "watermark-tools": toolWatermarkImg,
   
   // Filter tools
-  "brightness-adjust": toolFiltersImg,
-  "contrast-adjust": toolFiltersImg,
-  "saturation-adjust": toolFiltersImg,
-  "sepia-effect": toolFiltersImg,
-  "vintage-filter": toolFiltersImg,
+  "brightness-adjust": toolBrightnessImg,
+  "contrast-adjust": toolContrastImg,
+  "saturation-adjust": toolSaturationImg,
+  "sharpen-filter": toolFiltersImg,
+  "blur-filter": toolFiltersImg,
+  "gaussian-blur": toolFiltersImg,
+  "emboss-filter": toolFiltersImg,
+  "smooth-filter": toolFiltersImg,
+  "pixelate-effect": toolFiltersImg,
+  "sepia-effect": toolSepiaFilterImg,
+  "negative-image": toolFiltersImg,
+  "vintage-filter": toolVintageImg,
+  "warm-tone": toolFiltersImg,
+  "cool-tone": toolFiltersImg,
   "photo-filters": toolFiltersImg,
+  
+  // Format utilities
+  "grayscale-conversion": toolBwConvertImg,
+  "black-white-conversion": toolBwConvertImg,
+  "add-transparency": toolFiltersImg,
+  "remove-transparency": toolFiltersImg,
+  "flatten-image": toolFiltersImg,
+  "merge-images": toolCombineImg,
+  "format-utilities": toolFiltersImg,
   
   // Metadata tools
   "view-exif": toolMetadataImg,
   "remove-exif": toolMetadataImg,
   "edit-exif-datetime": toolMetadataImg,
+  "copy-exif": toolMetadataImg,
   "image-metadata": toolMetadataImg,
   
   // PDF tools
-  "merge-pdf": toolPdfImg,
-  "compress-pdf": toolPdfImg,
-  "split-pdf": toolPdfImg,
+  "merge-pdf": toolMergePdfImg,
+  "compress-pdf": toolCompressPdfImg,
+  "split-pdf": toolSplitPdfImg,
+  "batch-compress-pdf": toolCompressPdfImg,
+  "word-to-pdf": toolPdfImg,
+  "image-to-pdf": toolPdfImg,
   "pdf-tools": toolPdfImg,
   
   // QR tools
@@ -126,9 +191,9 @@ const toolSpecificImages: Record<string, string> = {
   "image-qr": toolQrImg,
   
   // Document conversion
-  "image-to-pdf": toolDocumentImg,
   "image-to-docx": toolDocumentImg,
   "image-to-pptx": toolDocumentImg,
+  "image-to-html": toolDocumentImg,
   "image-to-base64": toolBase64Img,
   "base64-to-image": toolBase64Img,
   "image-to-document": toolDocumentImg,
@@ -136,24 +201,32 @@ const toolSpecificImages: Record<string, string> = {
   // Combine tools
   "merge-horizontally": toolCombineImg,
   "merge-vertically": toolCombineImg,
-  "collage-maker": toolCombineImg,
+  "collage-maker": toolCollageImg,
+  "stitch-images": toolCombineImg,
+  "before-after-maker": toolCombineImg,
   "image-combine": toolCombineImg,
   
   // Security tools
   "manual-face-blur": toolSecurityImg,
   "manual-pixel-blur": toolSecurityImg,
   "hide-area": toolSecurityImg,
+  "image-encrypt": toolSecurityImg,
+  "image-decrypt": toolSecurityImg,
   "image-security": toolSecurityImg,
   
   // Drawing tools
   "paint-tool": toolDrawingImg,
   "draw-shapes": toolDrawingImg,
   "signature-pad": toolDrawingImg,
+  "add-stickers": toolDrawingImg,
+  "add-emojis": toolDrawingImg,
   "image-drawing": toolDrawingImg,
   
   // Optimization tools
   "reduce-file-size": toolOptimizeImg,
+  "reduce-resolution": toolOptimizeImg,
   "optimize-for-web": toolOptimizeImg,
+  "auto-orient-image": toolOptimizeImg,
   "image-optimization": toolOptimizeImg,
 };
 
