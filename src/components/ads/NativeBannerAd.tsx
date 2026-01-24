@@ -1,4 +1,4 @@
-import { useEffect, useRef, useId } from "react";
+import { useEffect, useRef } from "react";
 
 interface NativeBannerAdProps {
   className?: string;
@@ -6,44 +6,38 @@ interface NativeBannerAdProps {
 
 const NativeBannerAd = ({ className = "" }: NativeBannerAdProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const scriptLoaded = useRef(false);
-  const uniqueId = useId().replace(/:/g, '');
-  const containerId = `container-5dd29b78901106d681d1f5ce05a102b3-${uniqueId}`;
+  const initialized = useRef(false);
 
   useEffect(() => {
-    if (scriptLoaded.current || !containerRef.current) return;
+    if (initialized.current || !containerRef.current) return;
+    initialized.current = true;
     
     // Clear any existing content
-    containerRef.current.innerHTML = '';
+    const container = containerRef.current;
+    container.innerHTML = '';
 
-    // Create the container div with a unique ID for this instance
+    // Create the exact container div the ad network expects
     const adContainer = document.createElement('div');
-    adContainer.id = containerId;
-    containerRef.current.appendChild(adContainer);
+    adContainer.id = 'container-5dd29b78901106d681d1f5ce05a102b3';
+    container.appendChild(adContainer);
 
-    // Create and inject the script with async and data-cfasync attributes
+    // Create and inject the script
     const script = document.createElement('script');
-    script.src = 'https://crowdsubsequentadmire.com/5dd29b78901106d681d1f5ce05a102b3/invoke.js';
     script.async = true;
     script.setAttribute('data-cfasync', 'false');
+    script.src = 'https://crowdsubsequentadmire.com/5dd29b78901106d681d1f5ce05a102b3/invoke.js';
     
-    // Append script to the container for this specific ad instance
-    containerRef.current.appendChild(script);
-    scriptLoaded.current = true;
+    container.appendChild(script);
 
     return () => {
-      // Cleanup on unmount
-      if (containerRef.current) {
-        containerRef.current.innerHTML = '';
-      }
+      initialized.current = false;
     };
-  }, [containerId]);
+  }, []);
 
   return (
     <div 
       ref={containerRef}
-      className={`flex justify-center my-4 ${className}`}
-      data-ad-slot={uniqueId}
+      className={`flex justify-center my-4 min-h-[100px] ${className}`}
     />
   );
 };
