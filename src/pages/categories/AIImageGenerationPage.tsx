@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PromptToImage from "@/components/PromptToImage";
 import HreflangTags from "@/components/HreflangTags";
-import { AdBottom, AdVideo, AdInline } from "@/components/ads/AdContainer";
+import { AdBottom, AdVideo, AdInline, AdExoticFat } from "@/components/ads/AdContainer";
 import { Link } from "react-router-dom";
 import { 
   Wand2, 

@@ -8,7 +8,7 @@ import { getCategorySEOContent } from "@/data/categorySEOData";
 import { getToolGuideData } from "@/data/toolGuideData";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CheckCircle, Shield, Zap, RotateCw, Lock, Eye, Settings, FlipHorizontal } from "lucide-react";
-import { AdVideo, AdInline } from "@/components/ads/AdContainer";
+import { AdVideo, AdInline, AdExoticFat } from "@/components/ads/AdContainer";
 
 type TransformMode = "rotate-90" | "rotate-180" | "rotate-270" | "custom" | "flip-h" | "flip-v";
 

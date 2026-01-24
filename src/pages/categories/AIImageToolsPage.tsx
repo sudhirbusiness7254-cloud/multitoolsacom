@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HreflangTags from "@/components/HreflangTags";
-import { AdBottom, AdVideo, AdInline } from "@/components/ads/AdContainer";
+import { AdBottom, AdVideo, AdInline, AdExoticFat } from "@/components/ads/AdContainer";
 import { Link } from "react-router-dom";
 import { Sparkles, Wand2, ArrowUpCircle, History, Zap, Shield, Download, Users, Palette, Smile, ChevronRight, Star, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";

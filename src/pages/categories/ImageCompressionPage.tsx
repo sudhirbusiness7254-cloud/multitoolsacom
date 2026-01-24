@@ -9,7 +9,7 @@ import { getCategorySEOContent } from "@/data/categorySEOData";
 import { getToolGuideData } from "@/data/toolGuideData";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Image, Layers } from "lucide-react";
-import { AdVideo, AdInline } from "@/components/ads/AdContainer";
+import { AdVideo, AdInline, AdExoticFat } from "@/components/ads/AdContainer";
 
 const ImageCompressionPage = () => {
   const category = getCategoryBySlug("image-compression")!;
@@ -61,14 +61,20 @@ const ImageCompressionPage = () => {
           
           <TabsContent value="single" className="mt-0">
             <UniversalImageCompressor />
+            {/* ExoticFat Ads - Primary Monetization */}
+            <AdExoticFat className="mt-6" />
+            <AdExoticFat className="mt-4" />
             {/* Video Ad - Below Tool Output */}
-            <AdVideo className="mt-6" />
+            <AdVideo className="mt-4" />
           </TabsContent>
           
           <TabsContent value="batch" className="mt-0">
             <BatchImageCompressor />
+            {/* ExoticFat Ads - Primary Monetization */}
+            <AdExoticFat className="mt-6" />
+            <AdExoticFat className="mt-4" />
             {/* Video Ad - Below Tool Output */}
-            <AdVideo className="mt-6" />
+            <AdVideo className="mt-4" />
           </TabsContent>
         </Tabs>
 
