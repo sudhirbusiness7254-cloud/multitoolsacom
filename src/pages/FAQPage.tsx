@@ -5,6 +5,8 @@ import HreflangTags from "@/components/HreflangTags";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Link } from "react-router-dom";
 import { HelpCircle, Image, FileText, Shield, Zap, Globe, Lock } from "lucide-react";
+import NativeBannerAd from "@/components/ads/NativeBannerAd";
+import MobileNativeAd from "@/components/ads/MobileNativeAd";
 
 const faqCategories = [
   {
@@ -255,6 +257,16 @@ const FAQPage = () => {
             </div>
           </section>
 
+          {/* Mobile Native Ad - after stats */}
+          <div className="container mx-auto max-w-4xl px-4 lg:hidden">
+            <MobileNativeAd />
+          </div>
+          
+          {/* Desktop Native Banner Ad - after stats */}
+          <div className="container mx-auto max-w-4xl px-4 hidden lg:block">
+            <NativeBannerAd />
+          </div>
+
           {/* FAQ Categories */}
           <section className="py-12 md:py-16 px-4">
             <div className="container mx-auto max-w-4xl">
@@ -288,6 +300,16 @@ const FAQPage = () => {
             </div>
           </section>
 
+          {/* Mobile Native Ad - after FAQ */}
+          <div className="container mx-auto max-w-4xl px-4 lg:hidden">
+            <MobileNativeAd />
+          </div>
+          
+          {/* Desktop Native Banner Ad - after FAQ */}
+          <div className="container mx-auto max-w-4xl px-4 hidden lg:block">
+            <NativeBannerAd />
+          </div>
+
           {/* Still Have Questions */}
           <section className="py-12 md:py-16 px-4 bg-gradient-dark">
             <div className="container mx-auto max-w-3xl text-center">
@@ -313,6 +335,16 @@ const FAQPage = () => {
               </div>
             </div>
           </section>
+
+          {/* Mobile Native Ad - before resources */}
+          <div className="container mx-auto max-w-4xl px-4 lg:hidden">
+            <MobileNativeAd />
+          </div>
+          
+          {/* Desktop Native Banner Ad - before resources */}
+          <div className="container mx-auto max-w-4xl px-4 hidden lg:block">
+            <NativeBannerAd />
+          </div>
 
           {/* Related Links */}
           <section className="py-12 md:py-16 px-4">

@@ -8,7 +8,8 @@ import { useState, useMemo } from "react";
 import { Input } from "@/components/ui/input";
 import { ToolIconWithBackground, getToolIconColor, getToolIconComponent } from "@/lib/toolIcons";
 import HreflangTags from "@/components/HreflangTags";
-import InContentAd from "@/components/ads/InContentAd";
+import NativeBannerAd from "@/components/ads/NativeBannerAd";
+import MobileNativeAd from "@/components/ads/MobileNativeAd";
 
 // PDF Tools data for inclusion in all tools
 const pdfToolsData = [
@@ -122,9 +123,14 @@ const AllToolsPage = () => {
             </div>
           </section>
 
-          {/* Ad placement */}
-          <div className="container mx-auto max-w-7xl px-4">
-            <InContentAd />
+          {/* Mobile Native Ad */}
+          <div className="container mx-auto max-w-7xl px-4 lg:hidden">
+            <MobileNativeAd />
+          </div>
+          
+          {/* Desktop Native Banner Ad */}
+          <div className="container mx-auto max-w-7xl px-4 hidden lg:block">
+            <NativeBannerAd />
           </div>
 
           {/* Tools Grid */}
@@ -172,6 +178,16 @@ const AllToolsPage = () => {
               )}
             </div>
           </section>
+
+          {/* Mobile Native Ad - before footer */}
+          <div className="container mx-auto max-w-7xl px-4 lg:hidden">
+            <MobileNativeAd />
+          </div>
+          
+          {/* Desktop Native Banner Ad - before footer */}
+          <div className="container mx-auto max-w-7xl px-4 hidden lg:block">
+            <NativeBannerAd />
+          </div>
         </main>
 
         <Footer />
