@@ -32,7 +32,7 @@ import {
 import InContentAd from "@/components/ads/InContentAd";
 import NativeBannerAd from "@/components/ads/NativeBannerAd";
 import ToolSideAd from "@/components/ads/ToolSideAd";
-import MobileToolAd from "@/components/ads/MobileToolAd";
+import MobileNativeAd from "@/components/ads/MobileNativeAd";
 
 interface SEOToolPageProps {
   seoContent: ToolSEOContent;
@@ -717,11 +717,11 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                   {children}
                 </div>
                 
-                {/* Mobile Ad - Below tool dropdown */}
-                <MobileToolAd />
+                {/* Mobile/Tablet Native Ad - Below tool dropdown */}
+                <MobileNativeAd className="mt-4" />
                 
-                {/* Native Banner Ad - Below tool/drag-drop area */}
-                <div className="mt-6">
+                {/* Native Banner Ad - Below tool/drag-drop area (Desktop) */}
+                <div className="mt-6 hidden lg:block">
                   <NativeBannerAd />
                 </div>
               </div>
