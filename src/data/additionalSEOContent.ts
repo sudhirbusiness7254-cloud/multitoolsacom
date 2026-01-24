@@ -1501,7 +1501,576 @@ export const coolToneContent: ComprehensiveSEOContent = {
   gradientTo: "#0369A1"
 };
 
-// Export all additional content as a map - EXTENDED
+// =============================================
+// ROTATE & FLIP TOOLS - ALL 7 TOOLS
+// =============================================
+
+// Rotate 90° Tool - Unique Content
+export const rotate90Content: ComprehensiveSEOContent = {
+  slug: "rotate-90",
+  title: "Rotate Image 90 Degrees",
+  metaTitle: "Rotate Image 90 Degrees Online Free - Quick Image Rotation | MultiTools",
+  metaDescription: "Rotate images 90 degrees clockwise or counter-clockwise instantly. Free online image rotation tool with no quality loss. Process any image format.",
+  h1: "Rotate Image 90 Degrees Online Free",
+  
+  introduction: `Sometimes a simple 90-degree rotation is all you need to fix an image orientation or create a different visual perspective. Our free 90-degree image rotation tool allows you to quickly turn any image clockwise or counter-clockwise by exactly 90 degrees with perfect precision and zero quality loss. This is particularly useful for correcting photos taken with the camera held sideways, adjusting scanned documents, or repositioning graphics for different layouts. Whether you're working with photographs, digital artwork, screenshots, or document scans, this tool provides instant, accurate rotation without any complicated software or technical knowledge required. The entire process happens in your browser, ensuring your images remain private while you get professional-quality results.`,
+  
+  aboutTool: `Our 90-degree rotation tool is engineered for precise, lossless image transformation. Unlike some rotation tools that apply compression during processing, our tool maintains the exact pixel quality of your original image. The tool handles all common image formats including JPG, PNG, WebP, GIF, and BMP. When you rotate by exactly 90 degrees, each pixel simply moves to a new position without any interpolation or resampling, which means your image quality remains pristine. You can choose between clockwise rotation (turning the image right) or counter-clockwise rotation (turning left). The tool also preserves transparency in PNG and WebP files, maintains EXIF metadata where applicable, and processes even large high-resolution images quickly thanks to optimized browser-based algorithms. Multiple rotations can be applied in sequence if needed, allowing you to achieve any 90-degree increment orientation.`,
+  
+  howToUse: [
+    { step: 1, title: "Upload Your Image", description: "Click the upload area or drag and drop any image file you want to rotate." },
+    { step: 2, title: "Preview Your Image", description: "See your original image displayed in the preview area." },
+    { step: 3, title: "Choose Rotation Direction", description: "Select clockwise (right) or counter-clockwise (left) 90-degree rotation." },
+    { step: 4, title: "Apply Rotation", description: "Click the rotate button to instantly transform your image by 90 degrees." },
+    { step: 5, title: "Review the Result", description: "Check the rotated image to ensure the orientation is correct." },
+    { step: 6, title: "Apply Additional Rotation", description: "If needed, rotate again to achieve 180 or 270 degrees total." },
+    { step: 7, title: "Download Your Image", description: "Save the properly oriented image to your device." }
+  ],
+  
+  whyImportant: `Correct image orientation is crucial for professional presentation and usability. Photos taken with smartphones or cameras rotated 90 degrees often display sideways on computers or when shared online, making them difficult to view and unprofessional in appearance. Scanned documents may come out sideways depending on how they were placed on the scanner. Graphics and design elements frequently need rotation to fit specific layout requirements. Social media platforms, websites, and print materials all require properly oriented images for optimal presentation. The ability to quickly rotate images by exactly 90 degrees without quality loss is a fundamental tool for photographers, designers, office workers, students, and anyone who works with digital images. Our tool solves this common problem instantly without requiring expensive software or technical expertise.`,
+  
+  keyFeatures: [
+    { title: "Lossless Rotation", description: "Pixel-perfect 90-degree rotation without any quality degradation." },
+    { title: "Clockwise & Counter-clockwise", description: "Choose either rotation direction based on your needs." },
+    { title: "All Format Support", description: "Works with JPG, PNG, WebP, GIF, BMP, and more." },
+    { title: "Transparency Preserved", description: "PNG and WebP transparency remains intact after rotation." },
+    { title: "Instant Processing", description: "Browser-based rotation happens immediately." },
+    { title: "High Resolution Support", description: "Handles large, high-resolution images efficiently." },
+    { title: "Multiple Rotations", description: "Apply successive rotations to achieve any 90-degree orientation." },
+    { title: "Privacy Protected", description: "Images never leave your device." }
+  ],
+  
+  benefitsText: `Our 90-degree rotation tool delivers significant advantages over traditional image editing software. The lossless rotation ensures your images maintain their original quality without compression artifacts or pixel degradation. Instant browser-based processing means no software installation, no account creation, and no waiting for uploads. The simple interface makes rotation accessible to anyone regardless of technical skill level. Privacy is guaranteed since your images are processed entirely on your device. Whether you need to fix a single photo or rotate multiple images for a project, this tool provides fast, reliable results every time.`,
+  
+  benefits: ["Zero quality loss during rotation", "Instant processing in browser", "No software installation required", "Works with all image formats", "Preserves transparency", "Completely free to use", "Total privacy protection", "Simple one-click operation"],
+  
+  whoCanUse: [
+    { title: "Photographers", description: "Quickly fix orientation of photos taken with rotated cameras." },
+    { title: "Office Workers", description: "Correct scanned document orientation before sharing or archiving." },
+    { title: "Students", description: "Prepare images for assignments and presentations with proper orientation." },
+    { title: "Social Media Users", description: "Fix sideways photos before posting to social platforms." },
+    { title: "Web Designers", description: "Adjust graphic elements to fit various layout requirements." },
+    { title: "General Users", description: "Anyone who needs to rotate images quickly and easily." }
+  ],
+  
+  useCases: [
+    { title: "Photo Correction", description: "Fix sideways photos from cameras that didn't record orientation correctly." },
+    { title: "Document Scanning", description: "Correct the orientation of scanned pages that came out sideways." },
+    { title: "Social Media Prep", description: "Ensure photos display correctly before uploading to social platforms." },
+    { title: "Email Attachments", description: "Fix image orientation before sending professional emails." },
+    { title: "Print Preparation", description: "Rotate images to match print layout requirements." },
+    { title: "Website Graphics", description: "Adjust image orientation for proper display on web pages." }
+  ],
+  
+  faqs: [
+    { question: "Does rotating 90 degrees reduce quality?", answer: "No, 90-degree rotation is lossless because pixels are simply repositioned without interpolation." },
+    { question: "Can I rotate counter-clockwise?", answer: "Yes, you can choose either clockwise or counter-clockwise rotation direction." },
+    { question: "How do I rotate 180 degrees?", answer: "Apply two 90-degree rotations in the same direction, or use our dedicated 180-degree rotation tool." },
+    { question: "What image formats are supported?", answer: "All major formats including JPG, PNG, WebP, GIF, and BMP." },
+    { question: "Is transparency preserved?", answer: "Yes, PNG and WebP transparency remains intact after rotation." },
+    { question: "Can I rotate multiple images?", answer: "Yes, process as many images as needed in a single session." },
+    { question: "Are my images uploaded to a server?", answer: "No, all processing happens locally in your browser. Complete privacy." },
+    { question: "Will EXIF data be preserved?", answer: "Basic EXIF data is preserved where possible. Orientation tags may be updated." },
+    { question: "Is there a file size limit?", answer: "No strict limit, though very large files may process more slowly." },
+    { question: "Does this work on mobile devices?", answer: "Yes, the tool works on all devices with modern web browsers." }
+  ],
+  
+  privacyNote: `Your images are completely secure with our 90-degree rotation tool. All processing occurs entirely in your web browser using local JavaScript. Your images are never uploaded to any server, never stored online, and never visible to anyone but you. When you close the browser tab, all image data is automatically cleared from memory.`,
+  
+  conclusion: `Our free 90-degree image rotation tool provides instant, lossless orientation correction for any image. Whether you're fixing sideways photos, adjusting scanned documents, or repositioning graphics, this tool delivers professional results with zero quality loss. With support for all image formats, transparent file handling, and complete privacy protection, it's the perfect solution for quick, reliable image rotation. Try it now and get your images oriented correctly in seconds.`,
+  
+  relatedTools: ["rotate-180", "rotate-270", "custom-rotate", "flip-horizontal", "flip-vertical"],
+  category: "Rotate & Flip",
+  categorySlug: "rotate-flip",
+  keywords: ["rotate 90 degrees", "turn image", "image rotation", "rotate photo", "orientation fix"],
+  gradientFrom: "#8B5CF6",
+  gradientTo: "#7C3AED"
+};
+
+// Rotate 180° Tool - Unique Content
+export const rotate180Content: ComprehensiveSEOContent = {
+  slug: "rotate-180",
+  title: "Rotate Image 180 Degrees",
+  metaTitle: "Rotate Image 180 Degrees Online Free - Flip Upside Down | MultiTools",
+  metaDescription: "Rotate images 180 degrees to turn them upside down instantly. Free online tool with lossless quality. Perfect for inverted photos and graphics.",
+  h1: "Rotate Image 180 Degrees Online Free",
+  
+  introduction: `Need to turn an image completely upside down? Our free 180-degree rotation tool flips your images by half a revolution with perfect precision and zero quality loss. This rotation is ideal for correcting photos that were taken inverted, fixing scanned documents that were placed upside down, or creating artistic effects where you want content reversed. The 180-degree rotation is mathematically precise, meaning every pixel ends up exactly where it should be without any quality degradation from interpolation. Whether you're a photographer fixing orientation issues, a designer creating symmetrical compositions, or anyone needing to invert an image quickly, this tool provides instant professional results directly in your browser.`,
+  
+  aboutTool: `Our 180-degree rotation tool performs precise half-revolution image transformation. Technically, a 180-degree rotation is equivalent to flipping an image both horizontally and vertically simultaneously, placing each pixel at its opposite corner position. This operation is completely lossless, maintaining every detail of your original image without any resampling or compression artifacts. The tool handles all popular image formats including JPG, PNG, WebP, GIF, and BMP. Transparency in PNG and WebP files is fully preserved. High-resolution images are processed efficiently using optimized browser algorithms. Unlike photo editing software that may recompress your image upon saving, our tool maintains the original quality while only changing the pixel arrangement.`,
+  
+  howToUse: [
+    { step: 1, title: "Upload Your Image", description: "Click the upload zone or drag and drop your image file." },
+    { step: 2, title: "View Original", description: "See your image displayed in the preview area before rotation." },
+    { step: 3, title: "Apply 180° Rotation", description: "Click the rotate 180° button to flip your image upside down." },
+    { step: 4, title: "Preview Result", description: "Examine the rotated image to confirm it meets your needs." },
+    { step: 5, title: "Download Image", description: "Save the rotated image to your device in original format." }
+  ],
+  
+  whyImportant: `180-degree rotation serves critical purposes in image correction and creative work. Cameras and scanners sometimes produce inverted images due to positioning or sensor issues. Document scans frequently come out upside down when pages are inserted incorrectly. In creative contexts, 180-degree rotation is used for reflection effects, symmetrical designs, and artistic compositions where inverted imagery creates visual interest. Print workflows may require rotation to match plate positioning. Scientific and medical imaging often requires precise rotation for proper analysis. Having a tool that performs this rotation instantly without quality loss is essential for maintaining professional image standards while working efficiently.`,
+  
+  keyFeatures: [
+    { title: "Exact 180° Rotation", description: "Mathematically precise half-revolution transformation." },
+    { title: "Lossless Quality", description: "Zero degradation - pixels are repositioned without resampling." },
+    { title: "Universal Format Support", description: "Works with JPG, PNG, WebP, GIF, BMP, and more." },
+    { title: "Transparency Intact", description: "Alpha channels preserved in PNG and WebP files." },
+    { title: "High-Res Capable", description: "Processes large images efficiently." },
+    { title: "One-Click Operation", description: "Simple, instant rotation with a single click." },
+    { title: "Browser-Based", description: "No software installation needed." },
+    { title: "Complete Privacy", description: "Images processed locally, never uploaded." }
+  ],
+  
+  benefitsText: `The 180-degree rotation tool offers essential functionality for image correction and creative work. The lossless transformation ensures your images maintain perfect quality through the rotation process. Single-click operation makes the tool accessible to users of all skill levels. Browser-based processing eliminates software requirements and ensures privacy. Whether correcting a simple orientation error or creating artistic inversions, this tool delivers reliable results instantly.`,
+  
+  benefits: ["Perfect half-revolution rotation", "No quality degradation", "Instant one-click operation", "All formats supported", "Preserves transparency", "Free unlimited use", "Total privacy", "Works on any device"],
+  
+  whoCanUse: [
+    { title: "Photographers", description: "Fix photos captured with inverted cameras or upside-down mounts." },
+    { title: "Scanner Users", description: "Correct documents scanned upside down." },
+    { title: "Graphic Designers", description: "Create reflection effects and symmetrical designs." },
+    { title: "Print Professionals", description: "Rotate images to match print positioning requirements." },
+    { title: "Students", description: "Fix inverted images for projects and presentations." },
+    { title: "General Users", description: "Anyone needing to turn images upside down." }
+  ],
+  
+  useCases: [
+    { title: "Upside-Down Photo Correction", description: "Fix images that display inverted due to camera or software issues." },
+    { title: "Scanner Corrections", description: "Correct pages that were placed upside down on the scanner." },
+    { title: "Reflection Art", description: "Create symmetrical reflection effects in graphic design." },
+    { title: "Print Production", description: "Rotate images to match specific print layout requirements." },
+    { title: "Document Processing", description: "Fix inverted pages in document digitization workflows." },
+    { title: "Creative Projects", description: "Use inverted imagery for artistic visual effects." }
+  ],
+  
+  faqs: [
+    { question: "Is 180-degree rotation lossless?", answer: "Yes, completely lossless. Pixels are repositioned without any interpolation or resampling." },
+    { question: "Is this the same as flipping?", answer: "180° rotation is equivalent to flipping both horizontally and vertically at once." },
+    { question: "What formats are supported?", answer: "JPG, PNG, WebP, GIF, BMP, and other common image formats." },
+    { question: "Is transparency preserved?", answer: "Yes, PNG and WebP transparency is fully maintained." },
+    { question: "Can I rotate back?", answer: "Applying 180° rotation twice returns the image to original orientation." },
+    { question: "How is this different from 90° rotation?", answer: "90° turns a quarter revolution, 180° turns half revolution (upside down)." },
+    { question: "Are my images secure?", answer: "Completely. All processing is local - images never leave your device." },
+    { question: "Is there a size limit?", answer: "No hard limit, though very large images may take slightly longer." },
+    { question: "Does this work on mobile?", answer: "Yes, works on all devices with modern browsers." },
+    { question: "Is registration required?", answer: "No, the tool is completely free with no signup needed." }
+  ],
+  
+  privacyNote: `Your images remain completely private when using our 180-degree rotation tool. All processing happens locally in your web browser. No images are uploaded to any server. When you close the tab, all image data is cleared from memory.`,
+  
+  conclusion: `Our free 180-degree rotation tool provides instant, lossless inversion for any image. Whether correcting upside-down photos, fixing scanned documents, or creating artistic effects, this tool delivers precise results without quality loss. With universal format support, transparency preservation, and complete privacy, it's the ideal solution for quick, professional image rotation.`,
+  
+  relatedTools: ["rotate-90", "rotate-270", "flip-horizontal", "flip-vertical", "custom-rotate"],
+  category: "Rotate & Flip",
+  categorySlug: "rotate-flip",
+  keywords: ["rotate 180", "upside down", "invert image", "flip image", "turn around"],
+  gradientFrom: "#7C3AED",
+  gradientTo: "#6D28D9"
+};
+
+// Rotate 270° Tool - Unique Content
+export const rotate270Content: ComprehensiveSEOContent = {
+  slug: "rotate-270",
+  title: "Rotate Image 270 Degrees",
+  metaTitle: "Rotate Image 270 Degrees Online Free - 3/4 Turn Rotation | MultiTools",
+  metaDescription: "Rotate images 270 degrees (or 90° counter-clockwise) instantly. Free lossless image rotation tool. Process any format with perfect quality.",
+  h1: "Rotate Image 270 Degrees Online Free",
+  
+  introduction: `Our free 270-degree rotation tool provides precise three-quarter revolution transformation for your images. A 270-degree clockwise rotation is mathematically equivalent to a 90-degree counter-clockwise rotation, effectively turning your image to the left. This is particularly useful when photos display rotated 90 degrees to the right and need to be corrected to proper orientation, or when you need to reposition graphics for specific layout requirements. The rotation is completely lossless, preserving every pixel of your original image without any quality degradation. Whether you're fixing incorrectly oriented photographs, adjusting scanned documents, or preparing graphics for specific presentations, this tool provides instant, accurate results directly in your browser.`,
+  
+  aboutTool: `Our 270-degree rotation tool performs exact three-quarter revolution image transformation with pixel-perfect precision. Since 270° clockwise equals 90° counter-clockwise, this tool effectively turns your image to the left by a quarter turn. This is a lossless operation where pixels are simply moved to new positions without any interpolation, resampling, or compression. The tool supports all major image formats including JPG, PNG, WebP, GIF, and BMP. PNG and WebP transparency is fully preserved through the rotation. High-resolution images are processed efficiently using optimized algorithms. The browser-based processing ensures your images remain private while delivering instant results.`,
+  
+  howToUse: [
+    { step: 1, title: "Upload Image", description: "Click upload or drag and drop your image file into the tool." },
+    { step: 2, title: "Preview Original", description: "View your image before rotation to confirm it needs 270° adjustment." },
+    { step: 3, title: "Apply 270° Rotation", description: "Click the rotate button to turn your image three-quarters revolution." },
+    { step: 4, title: "Check Result", description: "Verify the rotated image has the correct orientation." },
+    { step: 5, title: "Download", description: "Save the properly oriented image to your device." }
+  ],
+  
+  whyImportant: `Precise 270-degree rotation is essential for correcting specific orientation problems. Many cameras and phones record orientation metadata that isn't always interpreted correctly by all software, resulting in images that appear rotated 90 degrees to the right. A 270-degree rotation (equivalent to 90° left) fixes this common issue. Scanner software may also produce documents at incorrect orientations. In design work, graphics often need specific rotation to fit layouts correctly. Having a dedicated tool for exact 270-degree rotation ensures accuracy and saves time compared to manually adjusting rotation angles in complex software.`,
+  
+  keyFeatures: [
+    { title: "Precise 270° Rotation", description: "Exact three-quarter revolution, equal to 90° counter-clockwise." },
+    { title: "Lossless Processing", description: "Pixel-perfect rotation without any quality loss." },
+    { title: "All Formats Supported", description: "Works with JPG, PNG, WebP, GIF, BMP, and more." },
+    { title: "Transparency Preserved", description: "Alpha channels maintained in PNG and WebP files." },
+    { title: "Instant Results", description: "Browser-based processing for immediate transformation." },
+    { title: "High-Res Support", description: "Handles large images efficiently." },
+    { title: "Simple Interface", description: "One-click rotation for easy use." },
+    { title: "Privacy Protected", description: "Local processing keeps images private." }
+  ],
+  
+  benefitsText: `Our 270-degree rotation tool provides the specific transformation needed for many common orientation corrections. The lossless rotation ensures your images maintain original quality. Equivalent to turning an image 90 degrees to the left, this rotation fixes photos that appear tilted to the right. Browser-based processing means no software installation and complete privacy. Fast, accurate results make this tool ideal for both single images and batch workflows.`,
+  
+  benefits: ["Fix right-tilted images", "Lossless pixel repositioning", "Instant browser processing", "All formats supported", "Transparency preserved", "Free unlimited use", "No registration needed", "Complete privacy"],
+  
+  whoCanUse: [
+    { title: "Photographers", description: "Correct photos displaying with right-side rotation." },
+    { title: "Office Workers", description: "Fix scanned documents that appear tilted." },
+    { title: "Designers", description: "Rotate graphics to fit specific layout requirements." },
+    { title: "Students", description: "Correct image orientation for assignments." },
+    { title: "Social Media Users", description: "Fix photo orientation before sharing." },
+    { title: "General Users", description: "Anyone needing to rotate images left by 90 degrees." }
+  ],
+  
+  useCases: [
+    { title: "Photo Orientation Fix", description: "Correct photos that appear rotated 90° to the right." },
+    { title: "Document Correction", description: "Fix scanned pages with incorrect orientation." },
+    { title: "Layout Adjustment", description: "Rotate graphics to match design specifications." },
+    { title: "Print Preparation", description: "Orient images correctly for printing requirements." },
+    { title: "Social Media", description: "Ensure photos display correctly on social platforms." },
+    { title: "Email Attachments", description: "Fix image orientation before sending." }
+  ],
+  
+  faqs: [
+    { question: "Is 270° rotation the same as 90° counter-clockwise?", answer: "Yes, exactly. 270° clockwise equals 90° counter-clockwise (turning left)." },
+    { question: "Does this reduce image quality?", answer: "No, rotation by 90-degree increments is completely lossless." },
+    { question: "What formats are supported?", answer: "All common formats: JPG, PNG, WebP, GIF, BMP, and more." },
+    { question: "Is transparency kept?", answer: "Yes, PNG and WebP transparency is fully preserved." },
+    { question: "Can I rotate back?", answer: "Apply 90° rotation (clockwise) to return to original orientation." },
+    { question: "Are images uploaded?", answer: "No, all processing is local in your browser. Complete privacy." },
+    { question: "Is there a file size limit?", answer: "No strict limit, large files may process slightly slower." },
+    { question: "Does this work on mobile?", answer: "Yes, works on all devices with modern browsers." },
+    { question: "Is it free?", answer: "Completely free with no registration or limits." },
+    { question: "Why use 270° instead of 90° counter-clockwise?", answer: "They're identical. Some people find one or the other more intuitive." }
+  ],
+  
+  privacyNote: `Your images are completely secure with our 270-degree rotation tool. Processing happens entirely in your browser - no uploads, no server storage. Your images remain private and are cleared when you close the tab.`,
+  
+  conclusion: `Our free 270-degree rotation tool provides precise three-quarter revolution transformation for your images. Equivalent to turning left by 90 degrees, this tool fixes right-tilted photos and adjusts graphics to correct orientations with lossless quality. With universal format support and complete privacy, it's the perfect solution for quick, accurate image rotation.`,
+  
+  relatedTools: ["rotate-90", "rotate-180", "custom-rotate", "flip-horizontal", "flip-vertical"],
+  category: "Rotate & Flip",
+  categorySlug: "rotate-flip",
+  keywords: ["rotate 270", "rotate left", "counter-clockwise", "turn left", "image rotation"],
+  gradientFrom: "#6D28D9",
+  gradientTo: "#5B21B6"
+};
+
+// Custom Rotate Tool - Unique Content
+export const customRotateContent: ComprehensiveSEOContent = {
+  slug: "custom-rotate",
+  title: "Custom Angle Image Rotation",
+  metaTitle: "Custom Angle Image Rotation Online Free - Any Degree Rotation | MultiTools",
+  metaDescription: "Rotate images by any angle from 1 to 359 degrees. Free custom rotation tool with real-time preview. Perfect for horizon correction and creative effects.",
+  h1: "Custom Angle Image Rotation Online Free",
+  
+  introduction: `Sometimes standard 90-degree rotation increments aren't enough. Our custom angle rotation tool allows you to rotate images by any precise angle you specify, from a fraction of a degree to complete circles. This is essential for correcting slightly tilted horizon lines in photographs, adjusting scanned documents that weren't perfectly aligned, or creating dynamic angled compositions for graphic design. Unlike fixed-increment rotation, custom angle rotation gives you complete control over the exact positioning of your image. The tool provides real-time preview so you can see exactly how your image will appear at any angle before finalizing. Whether you need to straighten a crooked photo by 2.5 degrees or create a dramatic 45-degree tilt for artistic effect, this tool delivers precise results with high-quality output.`,
+  
+  aboutTool: `Our custom angle rotation tool uses advanced interpolation algorithms to rotate images by any degree while maintaining optimal quality. When rotating by angles other than 90-degree increments, pixels must be recalculated to fit new positions, which requires sophisticated algorithms to prevent quality loss. Our tool employs bicubic interpolation for the best balance of quality and performance. You can input any rotation angle from 0 to 360 degrees with decimal precision. The real-time preview updates as you adjust the angle, showing you exactly how the final result will appear. The tool handles all image formats including JPG, PNG, WebP, and GIF. Transparency is preserved in formats that support it. You can also choose how to handle the canvas area that appears after rotation, either cropping to fit or expanding with a background color of your choice.`,
+  
+  howToUse: [
+    { step: 1, title: "Upload Your Image", description: "Click upload or drag and drop your image file into the rotation tool." },
+    { step: 2, title: "View Original", description: "See your image displayed with a grid overlay to help judge alignment." },
+    { step: 3, title: "Set Rotation Angle", description: "Enter a precise angle or use the slider to adjust rotation." },
+    { step: 4, title: "Preview in Real-Time", description: "Watch the image rotate as you adjust to find the perfect angle." },
+    { step: 5, title: "Choose Canvas Options", description: "Select whether to crop to fit or expand canvas with background color." },
+    { step: 6, title: "Apply Rotation", description: "Click apply to process the final rotated image." },
+    { step: 7, title: "Download Result", description: "Save your precisely rotated image to your device." }
+  ],
+  
+  whyImportant: `Precise angle control is crucial for professional image work. Photographs often have slightly tilted horizons that are obvious to the eye but impossible to fix with 90-degree rotation options. Architecture photography requires perfectly level lines. Product photography needs precise alignment. Scanned documents may be off by just a few degrees. Graphic design frequently requires specific rotation angles for dynamic compositions. Without custom angle rotation, photographers must accept imperfect horizons or use complex editing software. Our tool brings professional-level precision to anyone needing exact angle control, making it possible to achieve perfectly aligned images with minimal effort.`,
+  
+  keyFeatures: [
+    { title: "Any Angle Rotation", description: "Rotate by any degree from 0 to 360 with decimal precision." },
+    { title: "Real-Time Preview", description: "See rotation applied live as you adjust the angle." },
+    { title: "High-Quality Interpolation", description: "Bicubic algorithm maintains image quality during rotation." },
+    { title: "Grid Overlay", description: "Visual guide helps judge horizon and alignment." },
+    { title: "Canvas Options", description: "Crop to fit or expand with custom background color." },
+    { title: "All Formats Supported", description: "Works with JPG, PNG, WebP, GIF, and more." },
+    { title: "Transparency Support", description: "Preserves alpha channels in PNG and WebP." },
+    { title: "Privacy Protected", description: "Browser-based processing keeps images private." }
+  ],
+  
+  benefitsText: `Our custom rotation tool provides the precision control needed for professional image work. Real-time preview eliminates guesswork, letting you see exact results before applying. High-quality interpolation ensures rotated images maintain clarity and detail. Canvas options give flexibility for different use cases. Browser-based processing means no software installation and complete privacy. Whether straightening horizon lines or creating artistic angles, this tool delivers professional results instantly.`,
+  
+  benefits: ["Precise angle control", "Real-time visual preview", "High-quality output", "Grid alignment guide", "Flexible canvas options", "All formats supported", "Free unlimited use", "Complete privacy"],
+  
+  whoCanUse: [
+    { title: "Photographers", description: "Straighten tilted horizons and correct perspective issues." },
+    { title: "Graphic Designers", description: "Create dynamic angled compositions and layouts." },
+    { title: "Architects", description: "Ensure building lines are perfectly level in photos." },
+    { title: "Product Photographers", description: "Achieve precise alignment in product shots." },
+    { title: "Document Scanners", description: "Correct slightly misaligned scanned pages." },
+    { title: "Creative Artists", description: "Apply specific rotation angles for artistic effects." }
+  ],
+  
+  useCases: [
+    { title: "Horizon Straightening", description: "Fix slightly tilted horizon lines in landscape photos." },
+    { title: "Architecture Photography", description: "Level building lines for professional architectural shots." },
+    { title: "Document Alignment", description: "Correct scanned documents that weren't placed perfectly straight." },
+    { title: "Product Photography", description: "Ensure products are precisely aligned in catalog shots." },
+    { title: "Dynamic Compositions", description: "Apply intentional angles for creative graphic design." },
+    { title: "Before/After Alignment", description: "Match angles between comparison photos." }
+  ],
+  
+  faqs: [
+    { question: "What angles can I use?", answer: "Any angle from 0 to 360 degrees, including decimal values like 2.5 degrees." },
+    { question: "Does rotation affect quality?", answer: "Slight quality impact with non-90° angles. Our bicubic interpolation minimizes this." },
+    { question: "What are the canvas options?", answer: "Crop to fit removes empty corners, expand adds background color to fill." },
+    { question: "Is there a grid overlay?", answer: "Yes, an alignment grid helps you judge when horizons are level." },
+    { question: "What formats are supported?", answer: "JPG, PNG, WebP, GIF, BMP, and other common formats." },
+    { question: "Is transparency preserved?", answer: "Yes, PNG and WebP transparency is maintained." },
+    { question: "Can I preview before applying?", answer: "Yes, real-time preview shows the rotation as you adjust." },
+    { question: "Are images uploaded to servers?", answer: "No, all processing is local in your browser." },
+    { question: "Is there a size limit?", answer: "No strict limit, very large images may process slower." },
+    { question: "Can I rotate by negative angles?", answer: "Enter 360 minus your desired angle for counter-clockwise rotation." }
+  ],
+  
+  privacyNote: `Your images remain completely private with our custom rotation tool. All processing happens locally in your browser. No images are uploaded to any server. Your files stay on your device and are cleared when you close the tab.`,
+  
+  conclusion: `Our free custom angle rotation tool provides precise control for rotating images by any degree. With real-time preview, high-quality interpolation, and flexible canvas options, you can straighten tilted horizons, create dynamic compositions, or apply any exact rotation you need. Professional-level precision without complex software or privacy concerns.`,
+  
+  relatedTools: ["rotate-90", "rotate-180", "rotate-270", "flip-horizontal", "flip-vertical"],
+  category: "Rotate & Flip",
+  categorySlug: "rotate-flip",
+  keywords: ["custom rotate", "any angle", "precise rotation", "horizon straighten", "angle adjustment"],
+  gradientFrom: "#5B21B6",
+  gradientTo: "#4C1D95"
+};
+
+// Flip Horizontal Tool - Unique Content
+export const flipHorizontalContent: ComprehensiveSEOContent = {
+  slug: "flip-horizontal",
+  title: "Flip Image Horizontally",
+  metaTitle: "Flip Image Horizontally Online Free - Mirror Left to Right | MultiTools",
+  metaDescription: "Flip images horizontally to create mirror reflections. Free online tool reverses left and right sides instantly. Lossless quality for any image format.",
+  h1: "Flip Image Horizontally Online Free",
+  
+  introduction: `Our free horizontal flip tool creates a perfect mirror image by reversing the left and right sides of your picture. This is the same effect as viewing an image reflected in a mirror. Horizontal flipping is essential for various purposes, from correcting selfie orientation to creating symmetrical designs, matching action direction in video editing, and preparing images for specific printing requirements like t-shirt transfers. The flip operation is completely lossless, preserving every detail of your original image while simply reversing the pixel arrangement. Whether you're a designer creating mirrored graphics, a photographer fixing orientation, or anyone needing to reverse image direction, this tool provides instant, high-quality results directly in your browser.`,
+  
+  aboutTool: `Our horizontal flip tool performs perfect left-right mirror transformation on any image. Each row of pixels is reversed, placing the leftmost pixel on the right edge and vice versa. This is a lossless operation that doesn't involve any resampling or compression, meaning your image quality remains exactly as it was in the original. The tool handles all major image formats including JPG, PNG, WebP, GIF, and BMP. Transparency in PNG and WebP files is fully preserved. High-resolution images are processed efficiently. The simple one-click interface makes it easy to flip images instantly. You can also apply multiple flips to return to original orientation or combine with vertical flip for additional transformations.`,
+  
+  howToUse: [
+    { step: 1, title: "Upload Your Image", description: "Click the upload area or drag and drop your image file." },
+    { step: 2, title: "View Original", description: "See your image displayed in the preview before flipping." },
+    { step: 3, title: "Click Flip Horizontal", description: "Press the horizontal flip button to mirror the image." },
+    { step: 4, title: "Review Result", description: "Check that the flipped image meets your requirements." },
+    { step: 5, title: "Download", description: "Save your horizontally flipped image to your device." }
+  ],
+  
+  whyImportant: `Horizontal flipping serves crucial purposes across many disciplines. Selfie cameras produce mirrored images that may look natural in preview but appear "wrong" when viewed by others. Print transfers for t-shirts and other materials require reversed images. Video editors need to match action direction between shots. Graphic designers create symmetrical layouts by flipping elements. Photographers sometimes need to change the direction of leading lines or subject gaze. Artists use mirror images as references. The ability to instantly flip images horizontally is a fundamental tool that saves time and enables creative possibilities that would otherwise require complex software.`,
+  
+  keyFeatures: [
+    { title: "Perfect Mirror Effect", description: "Precise left-right reversal creating exact mirror reflection." },
+    { title: "Lossless Operation", description: "Zero quality degradation - pixels are simply rearranged." },
+    { title: "All Formats Supported", description: "Works with JPG, PNG, WebP, GIF, BMP, and more." },
+    { title: "Transparency Preserved", description: "Alpha channels maintained in PNG and WebP files." },
+    { title: "Instant Processing", description: "Browser-based operation for immediate results." },
+    { title: "One-Click Interface", description: "Simple operation requiring just a single click." },
+    { title: "High-Res Support", description: "Efficiently handles large images." },
+    { title: "Privacy Protected", description: "Local processing keeps images private." }
+  ],
+  
+  benefitsText: `Our horizontal flip tool delivers essential mirror transformation functionality. The lossless operation ensures perfect quality preservation. Instant browser-based processing means no software installation or uploads required. The simple interface makes flipping accessible to everyone. Whether correcting selfie orientation, preparing print transfers, or creating symmetrical designs, this tool provides reliable, professional results every time.`,
+  
+  benefits: ["Perfect mirror reflection", "No quality loss", "Instant processing", "All formats supported", "One-click operation", "Free unlimited use", "No registration needed", "Complete privacy"],
+  
+  whoCanUse: [
+    { title: "Photographers", description: "Correct selfie orientation and change subject direction." },
+    { title: "Print Designers", description: "Create reversed images for t-shirt transfers and decals." },
+    { title: "Video Editors", description: "Match action direction between clips." },
+    { title: "Graphic Designers", description: "Create symmetrical layouts and mirrored elements." },
+    { title: "Social Media Users", description: "Fix selfie camera mirroring for natural appearance." },
+    { title: "Artists", description: "Create mirrored references for balanced compositions." }
+  ],
+  
+  useCases: [
+    { title: "Selfie Correction", description: "Reverse front-camera mirroring so images appear as others see you." },
+    { title: "T-Shirt Transfers", description: "Flip designs so they print correctly when transferred." },
+    { title: "Video Direction Matching", description: "Reverse footage direction for seamless editing." },
+    { title: "Symmetrical Design", description: "Create balanced layouts with mirrored elements." },
+    { title: "Decal Preparation", description: "Flip graphics for window decals and transfers." },
+    { title: "Art Reference", description: "Create mirrored views to check composition balance." }
+  ],
+  
+  faqs: [
+    { question: "Does horizontal flip reduce quality?", answer: "No, it's completely lossless. Pixels are rearranged without any reprocessing." },
+    { question: "Is this the same as mirror effect?", answer: "Yes, horizontal flip creates a left-right mirror reflection." },
+    { question: "Will text appear backwards?", answer: "Yes, text and all content will be reversed. This is intentional for mirror effect." },
+    { question: "What formats are supported?", answer: "All common formats: JPG, PNG, WebP, GIF, BMP, and more." },
+    { question: "Is transparency preserved?", answer: "Yes, PNG and WebP transparency is fully maintained." },
+    { question: "Can I flip back to original?", answer: "Yes, flipping horizontally twice returns to original orientation." },
+    { question: "Are my images uploaded?", answer: "No, all processing is local in your browser. Complete privacy." },
+    { question: "Can I combine with vertical flip?", answer: "Apply horizontal flip, then use vertical flip for combined effect." },
+    { question: "Is there a size limit?", answer: "No strict limit, very large images may process slightly slower." },
+    { question: "Does this work on mobile?", answer: "Yes, works on all devices with modern browsers." }
+  ],
+  
+  privacyNote: `Your images are completely private with our horizontal flip tool. All processing happens locally in your browser. No images are uploaded to any server. Files are automatically cleared when you close the tab.`,
+  
+  conclusion: `Our free horizontal flip tool provides instant mirror transformation for any image. Whether correcting selfies, preparing print transfers, or creating symmetrical designs, this tool delivers lossless results with a single click. Universal format support and complete privacy make it the perfect solution for quick, professional image flipping.`,
+  
+  relatedTools: ["flip-vertical", "mirror-effect", "rotate-180", "rotate-90", "custom-rotate"],
+  category: "Rotate & Flip",
+  categorySlug: "rotate-flip",
+  keywords: ["flip horizontal", "mirror image", "reverse image", "left right flip", "selfie flip"],
+  gradientFrom: "#4C1D95",
+  gradientTo: "#3B0764"
+};
+
+// Flip Vertical Tool - Unique Content
+export const flipVerticalContent: ComprehensiveSEOContent = {
+  slug: "flip-vertical",
+  title: "Flip Image Vertically",
+  metaTitle: "Flip Image Vertically Online Free - Upside Down Mirror | MultiTools",
+  metaDescription: "Flip images vertically to create upside-down reflections. Free online tool reverses top and bottom instantly. Lossless quality for any format.",
+  h1: "Flip Image Vertically Online Free",
+  
+  introduction: `Our free vertical flip tool creates a top-to-bottom mirror reflection, turning your image upside down as if reflected in water. This transformation reverses the vertical arrangement of pixels while maintaining horizontal orientation, creating a distinctly different effect than standard rotation. Vertical flipping is valuable for creating reflection effects, preparing images for specific technical applications, correcting certain scanner outputs, and artistic compositions where inverted imagery creates visual impact. The operation is completely lossless, preserving all image quality while simply rearranging pixels. Whether creating water reflection effects, fixing upside-down scans, or experimenting with surreal compositions, this tool provides instant, precise results.`,
+  
+  aboutTool: `Our vertical flip tool performs precise top-bottom mirror transformation on any image. Each column of pixels is reversed, placing the topmost pixel at the bottom and vice versa. Unlike rotation which turns the entire image, vertical flip creates a reflection effect. This is a lossless operation with no resampling or compression, maintaining exact image quality. The tool supports all major image formats including JPG, PNG, WebP, GIF, and BMP. Transparency in PNG and WebP files is preserved. The browser-based processing handles images of any resolution efficiently. You can combine vertical flip with horizontal flip for effects equivalent to 180-degree rotation, or use them independently for specific transformation needs.`,
+  
+  howToUse: [
+    { step: 1, title: "Upload Image", description: "Click upload or drag and drop your image file into the tool." },
+    { step: 2, title: "Preview Original", description: "See your image displayed before applying the flip." },
+    { step: 3, title: "Apply Vertical Flip", description: "Click the vertical flip button to invert top and bottom." },
+    { step: 4, title: "Review Result", description: "Check that the vertically flipped image meets your needs." },
+    { step: 5, title: "Download", description: "Save your vertically flipped image to your device." }
+  ],
+  
+  whyImportant: `Vertical flip transformation serves unique purposes that rotation cannot achieve. Water reflection effects require vertical flip to simulate how objects appear reflected in still water. Certain scanning and imaging processes produce vertically inverted output that needs correction. In scientific imaging and medical imaging, vertical inversion may be necessary for proper orientation. Artistic and surreal photography uses vertical flip for dreamlike effects. Print and manufacturing processes may require specific image orientations. Understanding the difference between vertical flip and rotation is important, as they produce fundamentally different results even when both involve "upside down" transformations.`,
+  
+  keyFeatures: [
+    { title: "Top-Bottom Mirror", description: "Precise vertical reflection that inverts the image top to bottom." },
+    { title: "Lossless Quality", description: "Zero degradation - pixels are rearranged without reprocessing." },
+    { title: "All Formats", description: "Supports JPG, PNG, WebP, GIF, BMP, and more." },
+    { title: "Transparency Preserved", description: "Alpha channels maintained in PNG and WebP." },
+    { title: "Instant Processing", description: "Browser-based operation for immediate results." },
+    { title: "Simple Interface", description: "One-click operation for easy use." },
+    { title: "High Resolution Support", description: "Handles large images efficiently." },
+    { title: "Privacy Protected", description: "Local processing keeps images private." }
+  ],
+  
+  benefitsText: `Our vertical flip tool provides the specific transformation needed for reflection effects and inverted imagery. The lossless operation ensures quality preservation through the transformation. Different from rotation, vertical flip creates true mirror reflection in the vertical axis. Browser-based processing means instant results without software installation. Whether creating artistic effects or correcting technical issues, this tool delivers reliable, professional results.`,
+  
+  benefits: ["True vertical reflection", "No quality loss", "Instant processing", "All formats supported", "One-click operation", "Free unlimited use", "No registration", "Complete privacy"],
+  
+  whoCanUse: [
+    { title: "Photographers", description: "Create water reflection effects and artistic inversions." },
+    { title: "Graphic Designers", description: "Produce reflection and surreal design elements." },
+    { title: "Digital Artists", description: "Create inverted imagery for dreamlike compositions." },
+    { title: "Technical Users", description: "Correct imaging equipment that produces inverted output." },
+    { title: "Researchers", description: "Adjust scientific and medical imaging orientation." },
+    { title: "General Users", description: "Anyone needing vertical image inversion." }
+  ],
+  
+  useCases: [
+    { title: "Water Reflections", description: "Create realistic water reflection effects in landscapes." },
+    { title: "Surreal Art", description: "Produce dreamlike inverted imagery for creative projects." },
+    { title: "Scanner Correction", description: "Fix scanned images that appear vertically inverted." },
+    { title: "Scientific Imaging", description: "Correct orientation in microscopy and imaging systems." },
+    { title: "Symmetry Creation", description: "Create vertical symmetry by combining with original." },
+    { title: "Print Preparation", description: "Orient images for specific printing requirements." }
+  ],
+  
+  faqs: [
+    { question: "Is vertical flip the same as rotation?", answer: "No, vertical flip mirrors top-to-bottom. Rotation 180° also flips horizontally." },
+    { question: "Does vertical flip reduce quality?", answer: "No, it's completely lossless. Pixels are just rearranged." },
+    { question: "What's the difference from horizontal flip?", answer: "Horizontal reverses left-right, vertical reverses top-bottom." },
+    { question: "Can I combine both flips?", answer: "Yes, both flips together equal 180° rotation." },
+    { question: "What formats are supported?", answer: "All common formats: JPG, PNG, WebP, GIF, BMP, and more." },
+    { question: "Is transparency preserved?", answer: "Yes, PNG and WebP transparency is fully maintained." },
+    { question: "Can I flip back to original?", answer: "Yes, flipping vertically twice returns to original." },
+    { question: "Are images uploaded to servers?", answer: "No, all processing is local. Complete privacy." },
+    { question: "Is there a size limit?", answer: "No strict limit, very large images may process slower." },
+    { question: "Does this work on mobile?", answer: "Yes, works on all devices with modern browsers." }
+  ],
+  
+  privacyNote: `Your images remain completely private with our vertical flip tool. Processing happens entirely in your browser. No uploads, no server storage. Images are cleared when you close the tab.`,
+  
+  conclusion: `Our free vertical flip tool provides instant top-to-bottom mirror transformation. Create water reflection effects, correct inverted scans, or produce artistic compositions with lossless quality. Universal format support and complete privacy make this the ideal tool for vertical image inversion.`,
+  
+  relatedTools: ["flip-horizontal", "mirror-effect", "rotate-180", "rotate-90", "custom-rotate"],
+  category: "Rotate & Flip",
+  categorySlug: "rotate-flip",
+  keywords: ["flip vertical", "upside down", "vertical mirror", "top bottom flip", "invert image"],
+  gradientFrom: "#3B0764",
+  gradientTo: "#581C87"
+};
+
+// Mirror Effect Tool - Unique Content
+export const mirrorEffectContent: ComprehensiveSEOContent = {
+  slug: "mirror-effect",
+  title: "Mirror Effect Generator",
+  metaTitle: "Mirror Effect Generator Online Free - Create Reflections | MultiTools",
+  metaDescription: "Create stunning mirror reflection effects with our free tool. Generate symmetrical mirror images, water reflections, and artistic mirrored compositions.",
+  h1: "Mirror Effect Generator Online Free",
+  
+  introduction: `Transform ordinary images into captivating mirror compositions with our free mirror effect generator. This tool goes beyond simple flipping to create stunning symmetrical and reflection effects that add visual interest and artistic flair to any photograph or graphic. Choose from multiple mirror styles including side-by-side reflections, vertical water reflection effects, kaleidoscope-like symmetry, and combined mirror effects. Professional photographers use mirror effects for conceptual art, portrait creativity, and abstract compositions. Designers employ them for logos, patterns, and eye-catching graphics. Our tool brings these professional techniques to everyone with an intuitive interface and instant browser-based processing that keeps your images private.`,
+  
+  aboutTool: `Our mirror effect generator offers multiple reflection modes to create various symmetrical and mirrored compositions. Unlike basic flip tools, this tool combines original and reflected images to create complete mirror compositions. Side-by-side mirror creates horizontal reflection pairs. Top-bottom mirror generates vertical reflection effects similar to water. Four-way mirror produces kaleidoscope-like symmetry from all corners. You can control the reflection position, blending, and spacing to achieve exactly the effect you want. The tool supports all major image formats and preserves quality through the transformation. Real-time preview lets you see effects before applying. Browser-based processing ensures privacy while delivering professional results.`,
+  
+  howToUse: [
+    { step: 1, title: "Upload Image", description: "Click upload or drag and drop your image into the tool." },
+    { step: 2, title: "Select Mirror Type", description: "Choose from horizontal, vertical, four-way, or custom mirror modes." },
+    { step: 3, title: "Adjust Settings", description: "Control position, blending, and spacing for your desired effect." },
+    { step: 4, title: "Preview Effect", description: "See the mirror effect applied in real-time as you adjust." },
+    { step: 5, title: "Fine-Tune", description: "Make adjustments until the composition looks perfect." },
+    { step: 6, title: "Apply and Download", description: "Finalize the effect and save your mirrored image." }
+  ],
+  
+  whyImportant: `Mirror effects are a cornerstone of creative photography and design. Symmetry is inherently pleasing to the human eye, creating a sense of balance, harmony, and intentionality. Water reflection effects add depth and dreamlike quality to landscapes. Kaleidoscope patterns create mesmerizing abstract art from ordinary photos. Portrait mirror effects produce striking conceptual images that capture attention. In design, mirror effects are essential for creating patterns, logos with symmetry, and eye-catching marketing graphics. Having access to professional-quality mirror effects without complex software democratizes creative expression and opens up artistic possibilities for everyone.`,
+  
+  keyFeatures: [
+    { title: "Multiple Mirror Modes", description: "Horizontal, vertical, four-way, and custom reflection options." },
+    { title: "Real-Time Preview", description: "See effects applied instantly as you adjust settings." },
+    { title: "Adjustable Position", description: "Control where the mirror axis appears in your image." },
+    { title: "Blending Options", description: "Smooth transitions for natural-looking reflections." },
+    { title: "Spacing Control", description: "Add or remove space between original and reflection." },
+    { title: "High Quality Output", description: "Professional results with quality preservation." },
+    { title: "All Formats", description: "Works with JPG, PNG, WebP, and other formats." },
+    { title: "Privacy Protected", description: "Browser-based processing keeps images private." }
+  ],
+  
+  benefitsText: `Our mirror effect generator brings professional creative techniques to everyone. Multiple mirror modes offer versatility for different artistic visions. Real-time preview eliminates guesswork. Adjustable settings provide precise control over the final result. Browser-based processing means no software installation and complete privacy. Whether creating abstract art, adding reflection effects to landscapes, or designing symmetrical graphics, this tool delivers stunning results instantly.`,
+  
+  benefits: ["Professional mirror effects", "Multiple reflection modes", "Real-time preview", "Adjustable settings", "High quality output", "Free unlimited use", "No registration needed", "Complete privacy"],
+  
+  whoCanUse: [
+    { title: "Photographers", description: "Create conceptual art and creative portrait effects." },
+    { title: "Graphic Designers", description: "Design symmetrical patterns and logo concepts." },
+    { title: "Digital Artists", description: "Generate abstract and kaleidoscopic compositions." },
+    { title: "Social Media Creators", description: "Create eye-catching, shareable visual content." },
+    { title: "Marketing Teams", description: "Produce attention-grabbing promotional graphics." },
+    { title: "Hobbyists", description: "Explore creative photography and digital art." }
+  ],
+  
+  useCases: [
+    { title: "Conceptual Portraits", description: "Create striking symmetrical face and figure compositions." },
+    { title: "Water Reflections", description: "Add realistic or artistic water reflection effects to landscapes." },
+    { title: "Pattern Design", description: "Generate symmetrical patterns for textiles and graphics." },
+    { title: "Abstract Art", description: "Transform ordinary photos into kaleidoscopic abstract compositions." },
+    { title: "Logo Concepts", description: "Create symmetrical logo designs and brand graphics." },
+    { title: "Social Media Content", description: "Produce unique, attention-grabbing images for posts." }
+  ],
+  
+  faqs: [
+    { question: "What mirror modes are available?", answer: "Horizontal (side-by-side), vertical (water reflection), four-way (kaleidoscope), and custom modes." },
+    { question: "Can I control where the mirror axis is?", answer: "Yes, you can position the reflection point anywhere in the image." },
+    { question: "Is there blending between original and reflection?", answer: "Yes, adjustable blending creates smooth, natural transitions." },
+    { question: "What formats are supported?", answer: "All common formats: JPG, PNG, WebP, GIF, and more." },
+    { question: "Can I preview before applying?", answer: "Yes, real-time preview shows effects as you adjust settings." },
+    { question: "How is this different from simple flip?", answer: "Mirror effect combines original and reflection into one composition." },
+    { question: "Can I create kaleidoscope effects?", answer: "Yes, four-way mirror creates kaleidoscope-like symmetry." },
+    { question: "Are images uploaded to servers?", answer: "No, all processing is local in your browser. Complete privacy." },
+    { question: "Is there a size limit?", answer: "No strict limit, though very large images may process slower." },
+    { question: "Is this free?", answer: "Completely free with no registration or limits." }
+  ],
+  
+  privacyNote: `Your images are completely private with our mirror effect generator. All processing happens locally in your web browser. No images are uploaded to any server. Your creative work stays yours alone.`,
+  
+  conclusion: `Our free mirror effect generator transforms ordinary images into stunning symmetrical compositions. With multiple reflection modes, adjustable settings, and real-time preview, you can create professional water reflections, conceptual portraits, abstract art, and eye-catching designs. Bring professional creative techniques to your work without complex software.`,
+  
+  relatedTools: ["flip-horizontal", "flip-vertical", "rotate-180", "photo-filters", "custom-rotate"],
+  category: "Rotate & Flip",
+  categorySlug: "rotate-flip",
+  keywords: ["mirror effect", "reflection", "symmetry", "kaleidoscope", "water reflection"],
+  gradientFrom: "#581C87",
+  gradientTo: "#7E22CE"
+};
+
+// Export all additional content as a map - EXTENDED WITH ROTATE & FLIP
 export const additionalSEOContentMap: Record<string, ComprehensiveSEOContent> = {
   // Image Converters
   "gif-to-png": gifToPngContent,
@@ -1524,6 +2093,15 @@ export const additionalSEOContentMap: Record<string, ComprehensiveSEOContent> = 
   "vintage-filter": vintageFilterContent,
   "warm-tone": warmToneContent,
   "cool-tone": coolToneContent,
+  
+  // Rotate & Flip - ALL 7 TOOLS
+  "rotate-90": rotate90Content,
+  "rotate-180": rotate180Content,
+  "rotate-270": rotate270Content,
+  "custom-rotate": customRotateContent,
+  "flip-horizontal": flipHorizontalContent,
+  "flip-vertical": flipVerticalContent,
+  "mirror-effect": mirrorEffectContent,
 };
 
 // Helper function to get additional content
