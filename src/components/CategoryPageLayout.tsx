@@ -49,6 +49,28 @@ const categoryHeroImages: Record<string, string> = {
   "format-utilities": heroFormatUtilities,
 };
 
+// Map categories to animation variants for visual diversity
+const categoryAnimationVariants: Record<string, "particles" | "waves" | "bubbles" | "stars" | "geometric"> = {
+  "image-converter": "particles",
+  "image-compression": "geometric",
+  "image-resize": "waves",
+  "image-crop": "geometric",
+  "image-rotate-flip": "particles",
+  "photo-filters": "bubbles",
+  "watermark-tools": "stars",
+  "pdf-tools": "geometric",
+  "image-metadata": "particles",
+  "image-security": "stars",
+  "image-combine": "waves",
+  "image-qr": "geometric",
+  "image-to-document": "particles",
+  "image-drawing": "bubbles",
+  "image-optimization": "waves",
+  "format-utilities": "geometric",
+};
+
+import AnimatedHeroBackground from "@/components/AnimatedHeroBackground";
+
 interface CategoryPageLayoutProps {
   category: Category;
   seoContent: CategorySEOContent;
@@ -154,7 +176,7 @@ const CategoryPageLayout = ({
         <Header />
         
         <main className="flex-1">
-          {/* Hero Section - Unique per Template with Hero Banner */}
+          {/* Hero Section - Unique per Template with Animated Hero Banner */}
           <section 
             className={`py-8 sm:py-12 relative overflow-hidden ${
               templateConfig.style === 'creative' ? 'bg-gradient-to-br' :
@@ -162,36 +184,14 @@ const CategoryPageLayout = ({
               'bg-gradient-to-b'
             }`}
           >
-            {/* Background Hero Image */}
-            {categoryHeroImages[category.slug] && (
-              <div className="absolute inset-0 z-0">
-                <img 
-                  src={categoryHeroImages[category.slug]} 
-                  alt={`${category.name} hero banner`}
-                  className="w-full h-full object-cover opacity-20 dark:opacity-15"
-                  loading="eager"
-                />
-                <div 
-                  className="absolute inset-0"
-                  style={{
-                    background: `linear-gradient(135deg, ${gradientFrom}40 0%, ${gradientTo}40 50%, transparent 100%)`
-                  }}
-                />
-              </div>
-            )}
-            {/* Fallback gradient if no hero image */}
-            {!categoryHeroImages[category.slug] && (
-              <div 
-                className="absolute inset-0 z-0"
-                style={{
-                  background: templateConfig.style === 'technical' 
-                    ? `linear-gradient(180deg, ${gradientFrom}10 0%, transparent 100%)`
-                    : templateConfig.style === 'minimalist'
-                    ? `${gradientFrom}08`
-                    : `linear-gradient(135deg, ${gradientFrom}15 0%, ${gradientTo}15 100%)`
-                }}
-              />
-            )}
+            {/* Animated Background with Hero Image */}
+            <AnimatedHeroBackground
+              gradientFrom={gradientFrom}
+              gradientTo={gradientTo}
+              heroImage={categoryHeroImages[category.slug]}
+              categoryName={category.name}
+              variant={categoryAnimationVariants[category.slug] || "particles"}
+            />
             <div className="container mx-auto px-4 sm:px-6 relative z-10">
               <div className="text-center max-w-2xl mx-auto mb-6">
                 {/* Unique badge per category */}
