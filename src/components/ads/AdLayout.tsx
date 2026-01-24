@@ -1,6 +1,6 @@
 import { ReactNode, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
-import { AdLeft, AdRight, AdVideoSide, AdStickyMobile } from './AdContainer';
+import { AdLeft, AdRight, AdVideoSide, AdStickyMobile, AdPopunder, AdPush } from './AdContainer';
 import InterstitialAd from './InterstitialAd';
 import { resetAdScripts } from './AdManager';
 import { useInterstitial } from '@/contexts/InterstitialContext';
@@ -30,13 +30,23 @@ const AdLayout = ({ children }: AdLayoutProps) => {
 
   return (
     <>
-      {/* Side Video Ad - Desktop Only, Bottom left corner */}
+      {/* Side Ads - Desktop Only (XL screens 1280px+) */}
       {!hideSideAds && (
-        <AdVideoSide position="left" />
+        <>
+          <AdLeft />
+          <AdRight />
+          <AdVideoSide position="left" />
+        </>
       )}
       
       {/* Mobile Sticky Bottom Ad */}
       <AdStickyMobile />
+      
+      {/* Global Popunder - One time per user on first click */}
+      <AdPopunder />
+      
+      {/* Global Push Notification Ad */}
+      <AdPush />
       
       {/* Interstitial Ad - Shows during page transitions */}
       <InterstitialAd 
