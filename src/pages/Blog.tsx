@@ -7,7 +7,8 @@ import HreflangTags from "@/components/HreflangTags";
 import { blogPosts, blogCategories } from "@/data/blogData";
 import { useState, useMemo } from "react";
 import { Input } from "@/components/ui/input";
-import InContentAd from "@/components/ads/InContentAd";
+import NativeBannerAd from "@/components/ads/NativeBannerAd";
+import MobileNativeAd from "@/components/ads/MobileNativeAd";
 
 const Blog = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -183,9 +184,14 @@ const Blog = () => {
           </section>
         )}
 
-        {/* Ad placement after featured article */}
-        <div className="container mx-auto px-4">
-          <InContentAd />
+        {/* Mobile Native Ad - after featured article */}
+        <div className="container mx-auto px-4 lg:hidden">
+          <MobileNativeAd />
+        </div>
+        
+        {/* Desktop Native Banner Ad - after featured article */}
+        <div className="container mx-auto px-4 hidden lg:block">
+          <NativeBannerAd />
         </div>
 
         {/* Search Results Info */}
@@ -280,6 +286,16 @@ const Blog = () => {
           )}
         </section>
 
+        {/* Mobile Native Ad - after articles */}
+        <div className="container mx-auto px-4 lg:hidden">
+          <MobileNativeAd />
+        </div>
+        
+        {/* Desktop Native Banner Ad - after articles */}
+        <div className="container mx-auto px-4 hidden lg:block">
+          <NativeBannerAd />
+        </div>
+
         {/* Newsletter Section */}
         <section className="bg-gradient-dark py-16">
           <div className="container mx-auto px-4 text-center">
@@ -357,6 +373,16 @@ const Blog = () => {
             </Link>
           </div>
         </section>
+
+        {/* Mobile Native Ad - before CTA */}
+        <div className="container mx-auto px-4 lg:hidden">
+          <MobileNativeAd />
+        </div>
+        
+        {/* Desktop Native Banner Ad - before CTA */}
+        <div className="container mx-auto px-4 hidden lg:block">
+          <NativeBannerAd />
+        </div>
       </main>
       
       <Footer />
