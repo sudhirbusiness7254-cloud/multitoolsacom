@@ -210,6 +210,23 @@ export const AdPush = () => {
   );
 };
 
+// Banner ad - Additional monetization unit
+export const AdBanner = ({ className = '' }: { className?: string }) => {
+  const { containerRef, isVisible, isLoaded } = useAdLoader('banner');
+  
+  return (
+    <div 
+      ref={containerRef}
+      className={`ad-banner w-full max-w-4xl mx-auto my-4 px-4 min-h-[90px] transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'} ${className}`}
+      aria-label="Advertisement"
+      role="complementary"
+      style={{ contain: 'layout style' }}
+    >
+      {!isLoaded && <AdSkeleton className="min-h-[90px] p-4" />}
+    </div>
+  );
+};
+
 // Generic ad container
 const AdContainer = ({ position, className = '' }: AdContainerProps) => {
   switch (position) {
