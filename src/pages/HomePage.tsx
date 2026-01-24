@@ -433,6 +433,11 @@ const HomePage = () => {
             </div>
           </section>
 
+          {/* Native Banner Ad - Below Category List */}
+          <div className="container mx-auto max-w-6xl px-4">
+            <NativeBannerAd />
+          </div>
+
           {/* Ad placement after categories */}
           <div className="container mx-auto max-w-6xl px-4">
             <InContentAd />
@@ -586,6 +591,11 @@ const HomePage = () => {
                   Learn More About Our Technology
                   <ArrowRight className="w-5 h-5" />
                 </Link>
+              </div>
+              
+              {/* Native Banner Ad - Below Technology Link */}
+              <div className="mt-8">
+                <NativeBannerAd />
               </div>
             </div>
           </section>
