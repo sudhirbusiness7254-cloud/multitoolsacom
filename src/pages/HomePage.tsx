@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GradientWaveBackground from "@/components/GradientWaveBackground";
-import { AdBottom, AdVideo, AdInline, AdExoticFat } from "@/components/ads/AdContainer";
+import { AdBottom, AdInline, AdExoticFat, AdPopunder } from "@/components/ads/AdContainer";
 import { 
   ArrowRight, 
   Shield, 
@@ -651,7 +651,7 @@ const HomePage = () => {
               
               {/* Ads - After Why Choose Us Grid */}
               <div className="flex flex-col items-center gap-4 mt-6">
-                <AdVideo />
+                <AdExoticFat />
                 <AdInline />
                 <AdBottom />
               </div>
@@ -882,6 +882,9 @@ const HomePage = () => {
         </main>
         
         <Footer />
+        
+        {/* Popunder Ad - One time per user */}
+        <AdPopunder />
       </div>
     </>
   );

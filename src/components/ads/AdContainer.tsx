@@ -1,4 +1,4 @@
-import { useAdLoader, useVideoAdLoader } from './AdManager';
+import { useAdLoader, useVideoAdLoader, usePopunderLoader } from './AdManager';
 
 interface AdContainerProps {
   position: 'left' | 'right' | 'bottom' | 'video' | 'inline' | 'exoticfat';
@@ -146,6 +146,12 @@ export const AdExoticFat = ({ className = '' }: { className?: string }) => {
       {!isLoaded && <AdSkeleton className="min-h-[100px] p-4" />}
     </div>
   );
+};
+
+// Popunder ad - One-time per user (renders nothing visible, just triggers script)
+export const AdPopunder = () => {
+  usePopunderLoader();
+  return null; // No visible element - popunder opens in new tab/window
 };
 
 // Generic ad container
