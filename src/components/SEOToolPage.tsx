@@ -788,11 +788,23 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                 </div>
               ) : null}
 
-              {/* Ad between content sections */}
-              <InContentAd className="my-8" />
+              {/* Mobile Native Ad between content sections */}
+              <div className="lg:hidden">
+                <MobileNativeAd />
+              </div>
               
-              {/* Native Banner Ad - Middle of page */}
-              <NativeBannerAd />
+              {/* Desktop Ad between content sections */}
+              <InContentAd className="my-8 hidden lg:flex" />
+              
+              {/* Mobile Native Ad - Middle of page */}
+              <div className="lg:hidden">
+                <MobileNativeAd />
+              </div>
+              
+              {/* Desktop Native Banner Ad - Middle of page */}
+              <div className="hidden lg:block">
+                <NativeBannerAd />
+              </div>
 
               {/* Related Articles from Blog */}
               <RelatedArticles 
@@ -803,8 +815,13 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                 maxItems={3}
               />
 
-              {/* Ad before related tools */}
-              <InContentAd className="my-8" />
+              {/* Mobile Native Ad before related tools */}
+              <div className="lg:hidden my-6">
+                <MobileNativeAd />
+              </div>
+              
+              {/* Desktop Ad before related tools */}
+              <InContentAd className="my-8 hidden lg:flex" />
 
               {/* Related Tools - Unique style per template */}
               <div className={`${cardClasses} p-6 md:p-8`}>
