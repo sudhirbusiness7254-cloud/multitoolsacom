@@ -30,6 +30,10 @@ const AD_SCRIPTS: Record<string, AdScriptConfig> = {
   exoticfat: {
     id: 'ad-script-exoticfat',
     src: '//exoticfat.com/bc3/VH0BP.3LpEvwb-mvV/J/Z/DX0/2CNRzkU-2iM/DdkL3RLoTJYL3kNJTFY_wUO/TvwI',
+  },
+  popunder: {
+    id: 'ad-script-popunder',
+    src: '//farawayaside.com/400/8916008',
   }
 };
 
@@ -146,6 +150,52 @@ export const useVideoAdLoader = () => {
   }, [loadVideoAd, isLoaded, retryCount]);
 
   return { containerRef, isVisible, isLoaded };
+};
+
+// Popunder ad loader - ONE TIME per user using localStorage
+export const usePopunderLoader = () => {
+  const [hasShown, setHasShown] = useState(false);
+  const STORAGE_KEY = 'multitoolsa_popunder_shown';
+
+  useEffect(() => {
+    // Check if popunder was already shown to this user
+    const alreadyShown = localStorage.getItem(STORAGE_KEY);
+    if (alreadyShown) {
+      setHasShown(true);
+      return;
+    }
+
+    // Load popunder script on first user interaction (click)
+    const handleFirstClick = () => {
+      if (hasShown) return;
+      
+      try {
+        const config = AD_SCRIPTS.popunder;
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = config.src;
+        document.body.appendChild(script);
+        
+        // Mark as shown in localStorage
+        localStorage.setItem(STORAGE_KEY, 'true');
+        setHasShown(true);
+        
+        // Remove click listener after first trigger
+        document.removeEventListener('click', handleFirstClick);
+      } catch (error) {
+        console.warn('Failed to load popunder ad:', error);
+      }
+    };
+
+    // Add click listener for popunder
+    document.addEventListener('click', handleFirstClick, { once: true });
+
+    return () => {
+      document.removeEventListener('click', handleFirstClick);
+    };
+  }, [hasShown]);
+
+  return { hasShown };
 };
 
 export default AD_SCRIPTS;
