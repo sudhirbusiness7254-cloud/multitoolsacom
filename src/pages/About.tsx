@@ -613,10 +613,12 @@ const About = () => {
           </div>
           
           {/* Ads Section */}
-          <div className="max-w-4xl mx-auto mt-10">
+          <div className="max-w-4xl mx-auto mt-10 space-y-4">
             <AdExoticFat />
-            <AdExoticFat className="mt-4" />
-            <AdExoticFat className="mt-4" />
+            <AdVideo />
+            <AdInline />
+            <AdBottom />
+            <AdExoticFat />
           </div>
         </section>
       </main>

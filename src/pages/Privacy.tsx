@@ -224,10 +224,12 @@ const Privacy = () => {
           </div>
           
           {/* Ads Section */}
-          <div className="mt-10">
+          <div className="mt-10 space-y-4">
             <AdExoticFat />
-            <AdExoticFat className="mt-4" />
-            <AdExoticFat className="mt-4" />
+            <AdVideo />
+            <AdInline />
+            <AdBottom />
+            <AdExoticFat />
           </div>
         </div>
       </main>

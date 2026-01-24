@@ -216,10 +216,12 @@ const AdvertiserDisclosurePage = () => {
             </div>
             
             {/* Ads Section */}
-            <div className="mt-10">
+            <div className="mt-10 space-y-4">
+              <AdExoticFat />
+              <AdVideo />
               <AdInline />
-              <AdBottom className="mt-4" />
-              <AdVideo className="mt-4" />
+              <AdBottom />
+              <AdExoticFat />
             </div>
           </div>
         </main>

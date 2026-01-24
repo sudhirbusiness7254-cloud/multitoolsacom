@@ -353,6 +353,17 @@ const FAQPage = () => {
               </div>
             </div>
           </section>
+          
+          {/* Ads Section */}
+          <section className="py-8 px-4">
+            <div className="container mx-auto max-w-4xl space-y-4">
+              <AdExoticFat />
+              <AdVideo />
+              <AdInline />
+              <AdBottom />
+              <AdExoticFat />
+            </div>
+          </section>
         </main>
 
         <Footer />
