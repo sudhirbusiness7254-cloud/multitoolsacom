@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GradientWaveBackground from "@/components/GradientWaveBackground";
 import { AdBottom, AdVideo, AdInline } from "@/components/ads/AdContainer";
+import { HilltopBanner, HilltopSquare, HilltopResponsive, HilltopAdGrid } from "@/components/ads/HilltopAds";
 import { 
   ArrowRight, 
   Shield, 
@@ -364,7 +365,8 @@ const HomePage = () => {
               </Link>
               
               {/* Ads after popular tools */}
-              <AdBottom className="mt-6 sm:mt-8" />
+              <HilltopResponsive theme="huge_income" className="mt-6 sm:mt-8" />
+              <AdBottom className="mt-4" />
               <AdVideo className="mt-3 sm:mt-4" />
             </div>
           </section>
@@ -423,8 +425,11 @@ const HomePage = () => {
                 })}
               </div>
               
+              {/* HilltopAds - After Categories */}
+              <HilltopBanner theme="get_high_ecpm" className="mt-6" />
+              
               {/* Inline Ad - After Categories */}
-              <AdInline className="mt-6 sm:mt-8" />
+              <AdInline className="mt-4 sm:mt-6" />
             </div>
           </section>
 
@@ -573,8 +578,11 @@ const HomePage = () => {
                 </Link>
               </div>
               
+              {/* HilltopAds - After How It Works */}
+              <HilltopResponsive theme="make_big_money" className="mt-6" />
+              
               {/* Inline Ad - After How It Works */}
-              <AdInline className="mt-6 sm:mt-8" />
+              <AdInline className="mt-4 sm:mt-6" />
             </div>
           </section>
 
@@ -617,8 +625,11 @@ const HomePage = () => {
                 </div>
               </div>
               
+              {/* HilltopAds - After Why Choose Us */}
+              <HilltopBanner theme="huge_income" className="mt-6" />
+              
               {/* Ad after Why Choose Us */}
-              <AdBottom className="mt-10" />
+              <AdBottom className="mt-4" />
             </div>
           </section>
           
@@ -679,8 +690,11 @@ const HomePage = () => {
                 All Articles <ArrowRight className="w-4 h-4" />
               </Link>
               
+              {/* HilltopAds - After Blog Posts */}
+              <HilltopResponsive theme="get_high_ecpm" className="mt-6" />
+              
               {/* Ad after Blog Posts */}
-              <AdInline className="mt-10" />
+              <AdInline className="mt-4" />
             </div>
           </section>
 

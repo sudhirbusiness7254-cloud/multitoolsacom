@@ -6,6 +6,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { ChevronRight } from "lucide-react";
 import { toolCategories } from "@/data/toolsData";
 import { AdBottom, AdVideo, AdInline } from "@/components/ads/AdContainer";
+import { HilltopBanner, HilltopSquare, HilltopResponsive } from "@/components/ads/HilltopAds";
 
 interface FAQ {
   question: string;
@@ -150,7 +151,8 @@ const ToolPageLayout = ({
               
               {/* Ads - After Tool Output */}
               <div className="max-w-5xl mx-auto">
-                <AdInline className="mt-6" />
+                <HilltopResponsive theme="huge_income" className="mt-6" />
+                <AdInline className="mt-4" />
                 <AdBottom className="mt-4" />
                 <AdVideo className="mt-4" />
               </div>
@@ -172,6 +174,9 @@ const ToolPageLayout = ({
                   cleared from memory. No account required, no data stored, no tracking of your files.
                 </p>
               </div>
+              
+              {/* HilltopAds - After Introduction */}
+              <HilltopBanner theme="get_high_ecpm" className="mt-8" />
             </div>
           </section>
 
@@ -254,6 +259,9 @@ const ToolPageLayout = ({
                   </div>
                 ))}
               </div>
+              
+              {/* HilltopAds - After Who Can Benefit */}
+              <HilltopResponsive theme="make_big_money" className="mt-6" />
             </div>
           </section>
 
@@ -287,6 +295,8 @@ const ToolPageLayout = ({
                   </AccordionItem>
                 ))}
               </Accordion>
+              {/* HilltopAds - After FAQ */}
+              <HilltopBanner theme="huge_income" className="mt-8" />
             </div>
           </section>
 
