@@ -1,7 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { AdBottom, AdVideo, AdInline, AdExoticFat } from "@/components/ads/AdContainer";
 import HreflangTags from "@/components/HreflangTags";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Link } from "react-router-dom";
@@ -315,15 +314,6 @@ const FAQPage = () => {
             </div>
           </section>
 
-          {/* Ads Section */}
-          <section className="py-8 px-4">
-            <div className="container mx-auto max-w-4xl">
-              <AdExoticFat />
-              <AdExoticFat className="mt-4" />
-              <AdExoticFat className="mt-4" />
-            </div>
-          </section>
-
           {/* Related Links */}
           <section className="py-12 md:py-16 px-4">
             <div className="container mx-auto max-w-4xl">
@@ -351,17 +341,6 @@ const FAQPage = () => {
                   <p className="text-sm text-muted-foreground">Learn how we protect your data and privacy.</p>
                 </Link>
               </div>
-            </div>
-          </section>
-          
-          {/* Ads Section */}
-          <section className="py-8 px-4">
-            <div className="container mx-auto max-w-4xl space-y-4">
-              <AdExoticFat />
-              <AdVideo />
-              <AdInline />
-              <AdBottom />
-              <AdExoticFat />
             </div>
           </section>
         </main>

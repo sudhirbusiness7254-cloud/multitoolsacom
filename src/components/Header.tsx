@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, ChevronDown, Search, RefreshCw, Minimize2, Maximize2, Crop, Droplet, Image, FileText, Wand2 } from "lucide-react";
+import { Menu, X, ChevronDown, Search, RefreshCw, Minimize2, Maximize2, Crop, Droplet, Image, FileText } from "lucide-react";
 import logo from "@/assets/logo-icon.png";
 import { toolCategories } from "@/data/toolsData";
 import { Input } from "@/components/ui/input";
@@ -37,8 +37,6 @@ const categoryGradients: Record<string, { from: string; to: string }> = {
   "image-qr": { from: "#3B82F6", to: "#1D4ED8" },
   "tag-tools": { from: "#8B5CF6", to: "#6366F1" },
   "pdf-tools": { from: "#DC2626", to: "#EA580C" },
-  "ai-image-generation": { from: "#A855F7", to: "#EC4899" },
-  "ai-image-tools": { from: "#8B5CF6", to: "#06B6D4" },
 };
 
 // Top categories to show directly in nav bar
@@ -98,13 +96,13 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-card/95 border-b border-border sticky top-0 z-50 backdrop-blur-md w-full">
-      <nav className="w-full px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 py-2.5 sm:py-3">
-        <div className="flex items-center justify-between gap-3 w-full">
+    <header className="bg-card/95 border-b border-border sticky top-0 z-50 backdrop-blur-md">
+      <nav className="container mx-auto px-3 sm:px-4 md:px-6 py-2.5 sm:py-3">
+        <div className="flex items-center justify-between gap-3">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity flex-shrink-0">
-            <img src={logo} alt="MultiToolsA Logo" className="h-7 w-7 sm:h-8 sm:w-8" />
-            <span className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-primary">MultiToolsA</span>
+            <img src={logo} alt="MultiToolsA Logo" className="h-8 w-8" />
+            <span className="text-base sm:text-lg md:text-xl font-bold text-primary">MultiToolsA</span>
           </Link>
           
           {/* Desktop Navigation */}
@@ -217,18 +215,15 @@ const Header = () => {
             </div>
 
             <div className="w-px h-6 bg-border mx-1 xl:mx-2" />
-            
-            {/* AI Image Tools */}
             <Link 
-              to="/ai-image-tools" 
+              to="/pdf-tools" 
               className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-secondary flex items-center gap-1.5 ${
-                location.pathname.includes("ai-") ? "text-purple-500 bg-purple-500/10" : "text-foreground"
+                location.pathname.includes("pdf") ? "text-primary bg-primary/10" : "text-foreground"
               }`}
             >
-              <Wand2 className="w-4 h-4" />
-              AI Tools
+              <FileText className="w-4 h-4" />
+              PDF Tools
             </Link>
-            
             
             {/* Theme Toggle */}
             <ThemeToggle />
@@ -364,19 +359,24 @@ const Header = () => {
                   <span className="font-semibold text-sm text-primary">View All Tools</span>
                 </Link>
                 <Link
-                  to="/ai-image-tools"
+                  to="/pdf-tools"
                   onClick={closeMobileMenu}
-                  className={`flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-secondary transition-colors touch-target ${
-                    location.pathname.includes("ai-") ? "text-purple-500 bg-purple-500/10" : ""
-                  }`}
+                  className="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-secondary transition-colors touch-target"
                 >
                   <div 
                     className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
-                    style={{ background: 'linear-gradient(135deg, #8B5CF6, #06B6D4)' }}
+                    style={{ background: 'linear-gradient(135deg, #DC2626, #EA580C)' }}
                   >
-                    <Wand2 className="w-4 h-4 text-white" />
+                    <FileText className="w-4 h-4 text-white" />
                   </div>
-                  <span className="font-medium text-sm">AI Image Tools</span>
+                  <span className="font-medium text-sm">PDF Tools</span>
+                </Link>
+                <Link
+                  to="/tag-extractor"
+                  onClick={closeMobileMenu}
+                  className="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-secondary transition-colors touch-target"
+                >
+                  <span className="font-medium text-sm">Tag Generator</span>
                 </Link>
               </div>
             </ScrollArea>

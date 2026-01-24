@@ -3,7 +3,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ImageEditor from "@/components/ImageEditor/ImageEditor";
 import HreflangTags from "@/components/HreflangTags";
-import { AdVideo, AdBottom, AdInline, AdExoticFat } from "@/components/ads/AdContainer";
 
 const ImageEditorPage = () => {
   return (
@@ -47,13 +46,6 @@ const ImageEditorPage = () => {
           <section className="pb-16 px-4">
             <div className="max-w-6xl mx-auto">
               <ImageEditor />
-              {/* Ads - After Tool */}
-              <div className="flex flex-col items-center gap-4 mt-6">
-                <AdExoticFat />
-                <AdVideo />
-                <AdInline />
-                <AdBottom />
-              </div>
             </div>
           </section>
 
@@ -91,13 +83,6 @@ const ImageEditorPage = () => {
                   </div>
                 ))}
               </div>
-              
-              {/* Ads - After Features */}
-              <div className="flex flex-col items-center gap-4 mt-8">
-                <AdExoticFat />
-                <AdVideo />
-                <AdInline />
-              </div>
             </div>
           </section>
 
@@ -130,21 +115,8 @@ const ImageEditorPage = () => {
                   </div>
                 ))}
               </div>
-              
-              {/* Ads - After Shortcuts */}
-              <div className="flex flex-col items-center gap-4 mt-8">
-                <AdExoticFat />
-                <AdVideo />
-                <AdBottom />
-              </div>
             </div>
           </section>
-          
-          {/* ExoticFat Ad - Before Footer */}
-          <AdExoticFat className="my-6 px-4" />
-          
-          {/* Bottom ExoticFat Ad */}
-          <AdExoticFat className="mb-8" />
         </main>
 
         <Footer />

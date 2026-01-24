@@ -4,7 +4,6 @@ import { Input } from "@/components/ui/input";
 import { Slider } from "@/components/ui/slider";
 import { Download, RotateCcw, Plus, X, ArrowRight, ArrowDown, Grid, Layers, Upload, GripVertical } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
-import { AdVideo } from "@/components/ads/AdContainer";
 
 type CombineMode = "horizontal" | "vertical" | "collage" | "before-after";
 
@@ -247,9 +246,6 @@ const UniversalImageCombine = ({ initialMode = "horizontal" }: UniversalImageCom
             No limit on number of images • Supports JPG, PNG, WebP, GIF
           </p>
         </div>
-        
-        {/* Video Ad - Below Upload Area */}
-        <AdVideo className="mt-4" />
 
         {/* Image Count & Stats */}
         {images.length > 0 && (

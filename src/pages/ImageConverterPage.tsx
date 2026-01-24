@@ -5,8 +5,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ImageConverter from "@/components/ImageConverter";
 import BatchImageConverter from "@/components/BatchImageConverter";
-import PromptToImage from "@/components/PromptToImage";
-import { AdBottom, AdVideo, AdInline, AdExoticFat } from "@/components/ads/AdContainer";
 import { conversionArticles } from "@/data/conversionArticlesData";
 import { getToolGuideData } from "@/data/toolGuideData";
 import HowToUseGuide from "@/components/HowToUseGuide";
@@ -26,8 +24,7 @@ import {
   Star,
   Sparkles,
   ArrowRight,
-  Layers,
-  Wand2
+  Layers
 } from "lucide-react";
 import {
   Accordion,
@@ -298,7 +295,7 @@ const ImageConverterPage = () => {
 
               {/* Mode Tabs */}
               <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full max-w-4xl mx-auto">
-                <TabsList className="grid w-full max-w-lg mx-auto grid-cols-3 mb-8">
+                <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-8">
                   <TabsTrigger value="single" className="gap-2">
                     <Image className="w-4 h-4" />
                     Single Image
@@ -306,10 +303,6 @@ const ImageConverterPage = () => {
                   <TabsTrigger value="batch" className="gap-2">
                     <Layers className="w-4 h-4" />
                     Batch Mode
-                  </TabsTrigger>
-                  <TabsTrigger value="ai-generate" className="gap-2">
-                    <Wand2 className="w-4 h-4" />
-                    AI Generate
                   </TabsTrigger>
                 </TabsList>
                 
@@ -320,18 +313,7 @@ const ImageConverterPage = () => {
                 <TabsContent value="batch" className="mt-0">
                   <BatchImageConverter />
                 </TabsContent>
-                
-                <TabsContent value="ai-generate" className="mt-0">
-                  <PromptToImage />
-                </TabsContent>
               </Tabs>
-              
-              {/* Ads below converter tool */}
-              <div className="max-w-4xl mx-auto mt-8 space-y-4">
-                <AdExoticFat />
-                <AdVideo />
-                <AdBottom />
-              </div>
             </div>
           </section>
 
@@ -455,9 +437,6 @@ const ImageConverterPage = () => {
                   </div>
                 </div>
               </div>
-              
-              {/* Inline Ad - After Article */}
-              <AdInline className="mt-8" />
             </section>
           )}
 
@@ -606,9 +585,6 @@ const ImageConverterPage = () => {
                   </li>
                 </ul>
               </div>
-              
-              {/* Inline Ad - After How To */}
-              <AdInline className="mt-8" />
             </div>
           </section>
 

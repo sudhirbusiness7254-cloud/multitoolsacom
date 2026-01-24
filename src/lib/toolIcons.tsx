@@ -154,17 +154,6 @@ export const toolIconConfig: Record<string, { icon: LucideIcon; color: string }>
 
   // Tag Tools
   "tag-extractor": { icon: Hash, color: "#8B5CF6" },
-  
-  // AI Tools
-  "ai-photo-enhancer": { icon: Sparkles, color: "#10B981" },
-  "ai-image-upscaler": { icon: Maximize2, color: "#3B82F6" },
-  "ai-background-remover": { icon: ImageOff, color: "#EC4899" },
-  "ai-image-restorer": { icon: RefreshCw, color: "#F59E0B" },
-  "ai-face-swap": { icon: Layers, color: "#EC4899" },
-  "ai-colorize": { icon: Palette, color: "#F59E0B" },
-  "ai-object-removal": { icon: Trash2, color: "#EF4444" },
-  "ai-face-beautify": { icon: Smile, color: "#EC4899" },
-  "ai-image-generation": { icon: Wand2, color: "#A855F7" },
 };
 
 // Get tool icon component

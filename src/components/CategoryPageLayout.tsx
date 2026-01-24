@@ -8,7 +8,6 @@ import { toolCategories, Category } from "@/data/toolsData";
 import { CategorySEOContent } from "@/data/categorySEOData";
 import HreflangTags from "@/components/HreflangTags";
 import RelatedArticles from "@/components/RelatedArticles";
-import { AdBottom, AdVideo, AdInline, AdExoticFat, AdUnit1, AdUnit2, AdUnit3, AdUnit4, AdUnit5, AdUnit6, AdPopunder } from "@/components/ads/AdContainer";
 
 interface CategoryPageLayoutProps {
   category: Category;
@@ -66,15 +65,6 @@ const CategoryPageLayout = ({
     }))
   };
 
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://multitoolsa.com" },
-      { "@type": "ListItem", "position": 2, "name": category.name, "item": canonicalUrl }
-    ]
-  };
-
   // Get related categories for internal linking
   const relatedCategories = toolCategories
     .filter(cat => cat.id !== category.id && cat.id !== "tag-tools")
@@ -111,24 +101,12 @@ const CategoryPageLayout = ({
         <script type="application/ld+json">
           {JSON.stringify(faqSchema)}
         </script>
-        <script type="application/ld+json">
-          {JSON.stringify(breadcrumbSchema)}
-        </script>
       </Helmet>
       <HreflangTags path={`/${category.slug}`} />
 
       <div className="min-h-screen bg-background flex flex-col">
         <Header />
         
-        {/* Breadcrumb Navigation */}
-        <nav className="w-full px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 py-3 bg-secondary/30" aria-label="Breadcrumb">
-          <ol className="flex items-center gap-2 text-sm text-muted-foreground max-w-6xl mx-auto">
-            <li><Link to="/" className="hover:text-primary transition-colors">Home</Link></li>
-            <ChevronRight className="w-4 h-4" />
-            <li className="text-foreground font-medium">{category.name}</li>
-          </ol>
-        </nav>
-
         <main className="flex-1">
           {/* Hero Section - Concise */}
           <section 
@@ -137,12 +115,12 @@ const CategoryPageLayout = ({
               background: `linear-gradient(135deg, ${gradientFrom}15 0%, ${gradientTo}15 100%)`
             }}
           >
-            <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 relative z-10">
+            <div className="container mx-auto px-4 sm:px-6 relative z-10">
               <div className="text-center max-w-2xl mx-auto mb-6">
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3">
                   {h1 || category.name}
                 </h1>
-                <p className="text-sm sm:text-base lg:text-lg text-muted-foreground">
+                <p className="text-sm sm:text-base text-muted-foreground">
                   {shortDescription}
                 </p>
               </div>
@@ -164,28 +142,20 @@ const CategoryPageLayout = ({
 
           {/* Main Tool Component (if provided) */}
           {children && (
-            <section className="py-6 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
-              <div className="w-full max-w-5xl mx-auto">
+            <section className="py-6 px-4 sm:px-6">
+              <div className="container mx-auto max-w-4xl">
                 {children}
-                
-                {/* Ads - After Tool */}
-                <div className="flex flex-col items-center gap-4 mt-6">
-                  <AdExoticFat />
-                  <AdVideo />
-                  <AdInline />
-                  <AdBottom />
-                </div>
               </div>
             </section>
           )}
 
           {/* Tools Grid */}
-          <section id="tools" className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 scroll-mt-20">
-            <div className="w-full">
-              <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-6 text-center">
+          <section id="tools" className="py-8 sm:py-12 px-4 sm:px-6 scroll-mt-20">
+            <div className="container mx-auto max-w-5xl">
+              <h2 className="text-xl sm:text-2xl font-bold mb-6 text-center">
                 Choose Your Tool
               </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {category.tools.map((tool) => (
                   <Link
                     key={tool.id}
@@ -212,19 +182,12 @@ const CategoryPageLayout = ({
                   </Link>
                 ))}
               </div>
-              
-              {/* Ad - After Tools Grid */}
-              <AdExoticFat className="mt-6" />
-              <AdUnit1 className="mt-4" />
-              {/* Inline Ad - After Tools Grid */}
-              <AdExoticFat className="mt-4" />
-              <AdUnit2 className="mt-4" />
             </div>
           </section>
 
           {/* Who Uses This Category - Trust Signal */}
-          <section id="who-uses" className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 bg-secondary/30 scroll-mt-20">
-            <div className="w-full max-w-6xl mx-auto">
+          <section id="who-uses" className="py-8 sm:py-12 px-4 sm:px-6 bg-secondary/30 scroll-mt-20">
+            <div className="container mx-auto max-w-4xl">
               <div className="flex items-center gap-3 mb-6">
                 <div 
                   className="w-10 h-10 rounded-lg flex items-center justify-center"
@@ -232,10 +195,10 @@ const CategoryPageLayout = ({
                 >
                   <Briefcase className="w-5 h-5 text-white" />
                 </div>
-                <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold">Who Uses {category.name}?</h2>
+                <h2 className="text-xl sm:text-2xl font-bold">Who Uses {category.name}?</h2>
               </div>
               
-              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div className="grid sm:grid-cols-2 gap-4">
                 {categoryUniqueContent.targetAudiences.map((audience, i) => (
                   <div key={i} className="bg-card rounded-xl p-4 border border-border">
                     <h3 className="font-semibold text-sm mb-1" style={{ color: gradientFrom }}>
@@ -245,16 +208,12 @@ const CategoryPageLayout = ({
                   </div>
                 ))}
               </div>
-              
-              {/* Ad - After Who Uses */}
-              <AdExoticFat className="mt-6" />
-              <AdUnit3 className="mt-4" />
             </div>
           </section>
 
           {/* Real-World Use Cases */}
-          <section id="use-cases" className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 scroll-mt-20">
-            <div className="w-full max-w-6xl mx-auto">
+          <section id="use-cases" className="py-8 sm:py-12 px-4 sm:px-6 scroll-mt-20">
+            <div className="container mx-auto max-w-4xl">
               <div className="flex items-center gap-3 mb-6">
                 <div 
                   className="w-10 h-10 rounded-lg flex items-center justify-center"
@@ -262,7 +221,7 @@ const CategoryPageLayout = ({
                 >
                   <Target className="w-5 h-5 text-white" />
                 </div>
-                <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold">Real-World Use Cases</h2>
+                <h2 className="text-xl sm:text-2xl font-bold">Real-World Use Cases</h2>
               </div>
               
               <div className="bg-card rounded-xl border border-border p-6">
@@ -284,19 +243,12 @@ const CategoryPageLayout = ({
                 <h3 className="font-semibold text-sm text-amber-500 mb-2">When to Use Alternative Tools</h3>
                 <p className="text-sm text-muted-foreground">{categoryUniqueContent.whenNotToUse}</p>
               </div>
-              
-              {/* Ad - After Use Cases */}
-              <AdExoticFat className="mt-6" />
-              <AdUnit4 className="mt-4" />
-              {/* Inline Ad - After Use Cases */}
-              <AdExoticFat className="mt-4" />
-              <AdUnit5 className="mt-4" />
             </div>
           </section>
 
           {/* How It Works - Simplified */}
-          <section id="how-to" className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 bg-secondary/30 scroll-mt-20">
-            <div className="w-full max-w-6xl mx-auto">
+          <section id="how-to" className="py-8 sm:py-12 px-4 sm:px-6 bg-secondary/30 scroll-mt-20">
+            <div className="container mx-auto max-w-4xl">
               <div className="flex items-center gap-3 mb-6">
                 <div 
                   className="w-10 h-10 rounded-lg flex items-center justify-center"
@@ -304,7 +256,7 @@ const CategoryPageLayout = ({
                 >
                   <Zap className="w-5 h-5 text-white" />
                 </div>
-                <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold">How It Works</h2>
+                <h2 className="text-xl sm:text-2xl font-bold">How It Works</h2>
               </div>
               
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -332,16 +284,12 @@ const CategoryPageLayout = ({
                   </span>
                 ))}
               </div>
-              
-              {/* Ad - After Benefits */}
-              <AdExoticFat className="mt-6" />
-              <AdUnit6 className="mt-4" />
             </div>
           </section>
 
           {/* Privacy - Minimal */}
-          <section className="py-6 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
-            <div className="w-full max-w-6xl mx-auto">
+          <section className="py-6 px-4 sm:px-6">
+            <div className="container mx-auto max-w-4xl">
               <div className="bg-green-500/10 border border-green-500/20 rounded-xl p-4 flex items-start gap-3">
                 <Shield className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
                 <div>
@@ -356,9 +304,9 @@ const CategoryPageLayout = ({
           </section>
 
           {/* FAQ - Essential Questions Only */}
-          <section id="faq" className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 bg-secondary/30 scroll-mt-20">
-            <div className="w-full max-w-6xl mx-auto">
-              <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-6">Frequently Asked Questions</h2>
+          <section id="faq" className="py-8 sm:py-12 px-4 sm:px-6 bg-secondary/30 scroll-mt-20">
+            <div className="container mx-auto max-w-4xl">
+              <h2 className="text-xl sm:text-2xl font-bold mb-6">Frequently Asked Questions</h2>
               
               <Accordion type="single" collapsible className="space-y-2">
                 {faqs.slice(0, 5).map((faq, i) => (
@@ -372,15 +320,12 @@ const CategoryPageLayout = ({
                   </AccordionItem>
                 ))}
               </Accordion>
-              
-              {/* Ad - After FAQ */}
-              <AdExoticFat className="mt-6" />
             </div>
           </section>
 
           {/* Related Blog Articles */}
-          <section className="py-6 sm:py-8 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
-            <div className="w-full max-w-6xl mx-auto">
+          <section className="py-6 sm:py-8 px-4 sm:px-6">
+            <div className="container mx-auto max-w-4xl">
               <RelatedArticles 
                 categorySlug={category.slug} 
                 title="Learn More About This Topic"
@@ -390,10 +335,10 @@ const CategoryPageLayout = ({
           </section>
 
           {/* Related Categories - Internal Links */}
-          <section className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
-            <div className="w-full max-w-6xl mx-auto">
-              <h2 className="text-lg lg:text-xl font-bold mb-4">Explore Related Tools</h2>
-              <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-3">
+          <section className="py-8 sm:py-12 px-4 sm:px-6">
+            <div className="container mx-auto max-w-4xl">
+              <h2 className="text-lg font-bold mb-4">Explore Related Tools</h2>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                 {relatedCategories.map((cat) => (
                   <Link
                     key={cat.id}
@@ -412,9 +357,6 @@ const CategoryPageLayout = ({
         </main>
 
         <Footer />
-        
-        {/* Popunder Ad - Triggers on first click */}
-        <AdPopunder />
       </div>
     </>
   );

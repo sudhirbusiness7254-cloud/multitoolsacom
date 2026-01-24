@@ -5,7 +5,6 @@ import { getCategoryBySlug } from "@/data/toolsData";
 import { getCategorySEOContent } from "@/data/categorySEOData";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CheckCircle, Shield, Zap, QrCode, Lock, Eye, Settings, Scan } from "lucide-react";
-import { AdVideo, AdInline, AdExoticFat, AdUnit1, AdUnit2, AdUnit3, AdUnit4, AdUnit5, AdUnit6 } from "@/components/ads/AdContainer";
 
 const ImageQRPage = () => {
   const category = getCategoryBySlug("image-qr")!;
@@ -77,14 +76,6 @@ const ImageQRPage = () => {
 
       <CategoryPageLayout category={category} seoContent={seoContent}>
         <UniversalQRTools />
-        {/* Video Ad - Below Tool Output */}
-        <AdVideo className="mt-6" />
-        <AdExoticFat className="mt-4" />
-        <AdUnit1 className="mt-4" />
-        <AdExoticFat className="mt-4" />
-        <AdUnit2 className="mt-4" />
-        <AdInline className="mt-4" />
-        <AdUnit3 className="mt-4" />
 
         {/* Comprehensive About Section - 1000+ words */}
         <section className="mt-16 space-y-8">

@@ -9,7 +9,6 @@ import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import JSZip from "jszip";
-import { AdVideo } from "@/components/ads/AdContainer";
 
 type OutputFormat = 'jpg' | 'png' | 'webp' | 'gif' | 'bmp';
 
@@ -366,9 +365,6 @@ const BatchImageConverter = () => {
           </div>
         </div>
       </div>
-      
-      {/* Video Ad - Below Upload Area */}
-      <AdVideo className="mt-4" />
 
       {/* Files List */}
       {files.length > 0 && (

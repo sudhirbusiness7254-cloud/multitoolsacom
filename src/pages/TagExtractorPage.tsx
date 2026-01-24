@@ -2,7 +2,6 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import TagGenerator from "@/components/TagGenerator";
-import { AdBottom, AdVideo, AdExoticFat } from "@/components/ads/AdContainer";
 import { Hash, Globe, Zap, CheckCircle, TrendingUp, Target, Users, Sparkles, Search, BarChart3, Shield, Clock } from "lucide-react";
 import {
   Accordion,
@@ -141,12 +140,8 @@ const TagExtractorPage = () => {
 
           {/* Generator Section */}
           <section className="py-12 px-4 -mt-8">
-            <div className="container mx-auto max-w-4xl">
+            <div className="container mx-auto">
               <TagGenerator />
-              
-              {/* Ads below tool */}
-              <AdBottom className="mt-6" />
-              <AdVideo className="mt-4" />
             </div>
           </section>
 

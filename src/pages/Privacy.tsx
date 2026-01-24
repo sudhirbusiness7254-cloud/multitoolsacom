@@ -1,7 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
-import { AdBottom, AdVideo, AdInline, AdExoticFat } from "@/components/ads/AdContainer";
 import HreflangTags from "@/components/HreflangTags";
 
 const Privacy = () => {
@@ -221,15 +220,6 @@ const Privacy = () => {
                 If you are a California resident, you have specific rights under the California Consumer Privacy Act (CCPA). These include the right to know what personal information we collect, the right to delete your personal information, and the right to opt-out of the sale of your personal information. We do not sell personal information.
               </p>
             </section>
-          </div>
-          
-          {/* Ads Section */}
-          <div className="mt-10 space-y-4">
-            <AdExoticFat />
-            <AdVideo />
-            <AdInline />
-            <AdBottom />
-            <AdExoticFat />
           </div>
         </div>
       </main>

@@ -1,7 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
-import { AdBottom, AdVideo, AdInline, AdExoticFat } from "@/components/ads/AdContainer";
 import HreflangTags from "@/components/HreflangTags";
 
 const Terms = () => {
@@ -273,15 +272,6 @@ const Terms = () => {
                 By using MultiToolsA's website and services, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions. Thank you for choosing MultiToolsA for your image processing needs.
               </p>
             </section>
-          </div>
-          
-          {/* Ads Section */}
-          <div className="mt-10 space-y-4">
-            <AdExoticFat />
-            <AdVideo />
-            <AdInline />
-            <AdBottom />
-            <AdExoticFat />
           </div>
         </div>
       </main>

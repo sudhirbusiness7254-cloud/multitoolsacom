@@ -5,7 +5,6 @@ import { Upload, Download, Loader2, FileText, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
-import { AdVideo } from "@/components/ads/AdContainer";
 
 const WordToPDF = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -141,48 +140,44 @@ const WordToPDF = () => {
   return (
     <div className="w-full max-w-4xl mx-auto space-y-6">
       {!file ? (
-        <>
-          <div
-            onDragOver={handleDragOver}
-            onDragLeave={handleDragLeave}
-            onDrop={handleDrop}
-            className={cn(
-              "relative border-2 border-dashed rounded-2xl p-8 md:p-12 text-center transition-all cursor-pointer",
-              isDragging
-                ? "border-primary bg-primary/10"
-                : "border-border hover:border-primary/50 hover:bg-card/50"
-            )}
-          >
-            <input
-              type="file"
-              accept=".docx,.doc,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/msword"
-              onChange={handleFileInput}
-              className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-            />
+        <div
+          onDragOver={handleDragOver}
+          onDragLeave={handleDragLeave}
+          onDrop={handleDrop}
+          className={cn(
+            "relative border-2 border-dashed rounded-2xl p-8 md:p-12 text-center transition-all cursor-pointer",
+            isDragging
+              ? "border-primary bg-primary/10"
+              : "border-border hover:border-primary/50 hover:bg-card/50"
+          )}
+        >
+          <input
+            type="file"
+            accept=".docx,.doc,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/msword"
+            onChange={handleFileInput}
+            className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+          />
+          
+          <div className="flex flex-col items-center gap-4">
+            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
+              <Upload className="w-8 h-8 text-white" />
+            </div>
             
-            <div className="flex flex-col items-center gap-4">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
-                <Upload className="w-8 h-8 text-white" />
-              </div>
-              
-              <div>
-                <p className="text-lg font-semibold mb-1">
-                  {isDragging ? "Drop your Word file here" : "Drag & Drop Word document"}
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  or click to browse from your device
-                </p>
-              </div>
-              
-              <div className="flex gap-2 text-xs text-muted-foreground">
-                <span className="px-2 py-1 bg-secondary rounded">DOCX</span>
-                <span className="px-2 py-1 bg-secondary rounded">DOC</span>
-              </div>
+            <div>
+              <p className="text-lg font-semibold mb-1">
+                {isDragging ? "Drop your Word file here" : "Drag & Drop Word document"}
+              </p>
+              <p className="text-sm text-muted-foreground">
+                or click to browse from your device
+              </p>
+            </div>
+            
+            <div className="flex gap-2 text-xs text-muted-foreground">
+              <span className="px-2 py-1 bg-secondary rounded">DOCX</span>
+              <span className="px-2 py-1 bg-secondary rounded">DOC</span>
             </div>
           </div>
-          {/* Video Ad - Below Upload Area */}
-          <AdVideo className="mt-4" />
-        </>
+        </div>
       ) : (
         <div className="bg-card rounded-xl border border-border p-6 space-y-6">
           {/* File Info */}

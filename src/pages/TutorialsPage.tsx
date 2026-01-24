@@ -1,15 +1,14 @@
-import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { AdBottom, AdVideo, AdInline, AdExoticFat } from "@/components/ads/AdContainer";
 import HreflangTags from "@/components/HreflangTags";
 import { 
   BookOpen, Image, Minimize2, Crop, FileText, Palette, Shield, ArrowRight, 
   Clock, CheckCircle, RotateCw, Maximize2, Settings, Type, Layers, 
-  Database, QrCode, Pencil, Lock, FileImage, Download, Zap, ChevronDown, ChevronUp
+  Database, QrCode, Pencil, Lock, FileImage, Download, Zap
 } from "lucide-react";
+import { useState } from "react";
 
 // Tutorial screenshots
 import tutorialCompress from "@/assets/guides/tutorial-compress.png";
@@ -2459,15 +2458,6 @@ const TutorialsPage = () => {
             </div>
           </section>
 
-          {/* Ads Section */}
-          <section className="py-8 px-4">
-            <div className="container max-w-4xl mx-auto">
-              <AdInline />
-              <AdBottom className="mt-4" />
-              <AdVideo className="mt-4" />
-            </div>
-          </section>
-
           {/* CTA Section */}
           <section className="py-12 px-4 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
             <div className="container max-w-4xl mx-auto text-center">
@@ -2493,15 +2483,6 @@ const TutorialsPage = () => {
                   Read FAQ
                 </Link>
               </div>
-            </div>
-            
-            {/* Ads Section */}
-            <div className="container mx-auto max-w-4xl px-4 py-8 space-y-4">
-              <AdExoticFat />
-              <AdVideo />
-              <AdInline />
-              <AdBottom />
-              <AdExoticFat />
             </div>
           </section>
         </main>

@@ -1,7 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { AdBottom, AdVideo, AdInline, AdExoticFat } from "@/components/ads/AdContainer";
 import HreflangTags from "@/components/HreflangTags";
 import { Link } from "react-router-dom";
 import { 
@@ -398,15 +397,6 @@ const HowToolsWorkPage = () => {
                 >
                   Learn About Us
                 </Link>
-              </div>
-              
-              {/* Ads Section */}
-              <div className="mt-10 space-y-4">
-                <AdExoticFat />
-                <AdVideo />
-                <AdInline />
-                <AdBottom />
-                <AdExoticFat />
               </div>
             </div>
           </section>

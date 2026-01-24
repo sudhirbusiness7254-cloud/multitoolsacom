@@ -5,7 +5,6 @@ import { getCategoryBySlug } from "@/data/toolsData";
 import { getCategorySEOContent } from "@/data/categorySEOData";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CheckCircle, Shield, Zap, FileText, Lock, Eye, Settings, FileImage } from "lucide-react";
-import { AdVideo, AdInline, AdExoticFat } from "@/components/ads/AdContainer";
 
 const ImageToDocumentPage = () => {
   const category = getCategoryBySlug("image-to-document")!;
@@ -78,8 +77,6 @@ const ImageToDocumentPage = () => {
 
       <CategoryPageLayout category={category} seoContent={seoContent}>
         <UniversalDocumentConverter />
-        {/* Video Ad - Below Tool Output */}
-        <AdVideo className="mt-6" />
 
         {/* Comprehensive About Section - 1000+ words */}
         <section className="mt-16 space-y-8">

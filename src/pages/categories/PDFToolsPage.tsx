@@ -2,7 +2,6 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { AdBottom, AdVideo, AdInline, AdExoticFat, AdUnit1, AdUnit2, AdUnit3, AdUnit4, AdUnit5, AdUnit6 } from "@/components/ads/AdContainer";
 import { 
   FileText, Minimize2, FileUp, Image, Scissors, Zap, Shield, Globe, Download,
   BookOpen, Lightbulb, HelpCircle, Lock, Users, CheckCircle, Sparkles, Star
@@ -100,49 +99,36 @@ const PDFToolsPage = () => {
         
         <main className="flex-1">
           {/* Hero Section */}
-          <section className="py-8 md:py-12 lg:py-16 bg-gradient-to-b from-red-500/5 to-orange-500/5">
-            <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+          <section className="py-8 md:py-12 bg-gradient-to-b from-red-500/5 to-orange-500/5">
+            <div className="container mx-auto px-4">
               <div className="text-center mb-8">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-500/10 border border-red-500/30 mb-4">
                   <FileText className="w-4 h-4 text-red-500" />
                   <span className="text-sm font-medium text-red-500">5 Free PDF Tools</span>
                 </div>
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4">
+                <h1 className="text-3xl md:text-5xl font-bold mb-4">
                   Free Online <span className="text-red-500">PDF Tools</span>
                 </h1>
-                <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                   All the tools you need to work with PDFs. Merge, compress, split, convert - completely free and secure. Just drag and drop your files!
                 </p>
               </div>
 
               {/* Universal PDF Tools Component */}
-              <div className="w-full max-w-6xl mx-auto">
+              <div className="max-w-6xl mx-auto">
                 <UniversalPDFTools />
-                
-                {/* ExoticFat Ads - Primary Monetization */}
-                <AdExoticFat className="mt-6" />
-                <AdUnit1 className="mt-4" />
-                <AdExoticFat className="mt-4" />
-                <AdUnit2 className="mt-4" />
-                {/* Ads below tool */}
-                <AdInline className="mt-4" />
-                <AdUnit3 className="mt-4" />
-                <AdBottom className="mt-4" />
-                <AdUnit4 className="mt-4" />
-                <AdVideo className="mt-4" />
-                <AdUnit5 className="mt-4" />
               </div>
             </div>
           </section>
 
           {/* Comprehensive About Section - 700+ words */}
-          <section className="py-12 md:py-20 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
-            <div className="w-full max-w-6xl mx-auto">
+          <section className="py-12 md:py-20 px-4">
+            <div className="container mx-auto max-w-4xl">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center">
                   <BookOpen className="w-5 h-5 text-white" />
                 </div>
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold">About Our PDF Tools</h2>
+                <h2 className="text-2xl md:text-3xl font-bold">About Our PDF Tools</h2>
               </div>
               
               <div className="bg-card rounded-2xl border border-border p-6 sm:p-8 space-y-6">
@@ -174,7 +160,7 @@ const PDFToolsPage = () => {
                   We have designed our user interface with simplicity and efficiency as primary goals. Every tool features an intuitive drag-and-drop interface that requires no learning curve or technical expertise. Simply drag your files onto the designated area, configure any desired options, and click a single button to process your documents. The results are available for immediate download, and you can process additional files without refreshing the page. Our responsive design ensures a seamless experience across all devices, from desktop computers with large monitors to smartphones and tablets, allowing you to work with PDFs wherever you are.
                 </p>
 
-                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
+                <div className="grid sm:grid-cols-2 gap-4 pt-4">
                   <div className="flex items-start gap-3">
                     <Zap className="w-5 h-5 flex-shrink-0 mt-0.5 text-red-500" />
                     <div>
@@ -209,8 +195,8 @@ const PDFToolsPage = () => {
           </section>
 
           {/* How to Use Section - Using HowToUseGuide Component */}
-          <section className="py-12 md:py-20 bg-secondary/30 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
-            <div className="w-full max-w-6xl mx-auto">
+          <section className="py-12 md:py-20 bg-secondary/30 px-4">
+            <div className="container mx-auto max-w-4xl">
               {guideData && (
                 <HowToUseGuide 
                   guideData={guideData}
@@ -223,43 +209,43 @@ const PDFToolsPage = () => {
           </section>
 
           {/* Why Use Our Tools Section */}
-          <section className="py-12 md:py-20 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
-            <div className="w-full">
+          <section className="py-12 md:py-20 px-4">
+            <div className="container mx-auto max-w-5xl">
               <div className="flex items-center gap-3 mb-8 justify-center">
                 <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center">
                   <Sparkles className="w-5 h-5 text-white" />
                 </div>
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold">Why Use Our PDF Tools?</h2>
+                <h2 className="text-2xl md:text-3xl font-bold">Why Use Our PDF Tools?</h2>
               </div>
               
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
-                <div className="bg-card border border-border rounded-xl p-4 lg:p-6 text-center">
-                  <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-green-500/10 flex items-center justify-center mx-auto mb-3 lg:mb-4">
-                    <Download className="w-5 h-5 lg:w-6 lg:h-6 text-green-500" />
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="bg-card border border-border rounded-xl p-6 text-center">
+                  <div className="w-12 h-12 rounded-full bg-green-500/10 flex items-center justify-center mx-auto mb-4">
+                    <Download className="w-6 h-6 text-green-500" />
                   </div>
-                  <h3 className="font-semibold text-sm lg:text-base mb-2">100% Free</h3>
-                  <p className="text-xs lg:text-sm text-muted-foreground">All tools are completely free with no hidden costs, watermarks, or file limits.</p>
+                  <h3 className="font-semibold mb-2">100% Free</h3>
+                  <p className="text-sm text-muted-foreground">All tools are completely free with no hidden costs, watermarks, or file limits.</p>
                 </div>
-                <div className="bg-card border border-border rounded-xl p-4 lg:p-6 text-center">
-                  <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-blue-500/10 flex items-center justify-center mx-auto mb-3 lg:mb-4">
-                    <Shield className="w-5 h-5 lg:w-6 lg:h-6 text-blue-500" />
+                <div className="bg-card border border-border rounded-xl p-6 text-center">
+                  <div className="w-12 h-12 rounded-full bg-blue-500/10 flex items-center justify-center mx-auto mb-4">
+                    <Shield className="w-6 h-6 text-blue-500" />
                   </div>
-                  <h3 className="font-semibold text-sm lg:text-base mb-2">Secure & Private</h3>
-                  <p className="text-xs lg:text-sm text-muted-foreground">Files are processed in your browser. Nothing is uploaded to servers.</p>
+                  <h3 className="font-semibold mb-2">Secure & Private</h3>
+                  <p className="text-sm text-muted-foreground">Files are processed in your browser. Nothing is uploaded to servers.</p>
                 </div>
-                <div className="bg-card border border-border rounded-xl p-4 lg:p-6 text-center">
-                  <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-purple-500/10 flex items-center justify-center mx-auto mb-3 lg:mb-4">
-                    <Zap className="w-5 h-5 lg:w-6 lg:h-6 text-purple-500" />
+                <div className="bg-card border border-border rounded-xl p-6 text-center">
+                  <div className="w-12 h-12 rounded-full bg-purple-500/10 flex items-center justify-center mx-auto mb-4">
+                    <Zap className="w-6 h-6 text-purple-500" />
                   </div>
-                  <h3 className="font-semibold text-sm lg:text-base mb-2">No Registration</h3>
-                  <p className="text-xs lg:text-sm text-muted-foreground">Use all tools instantly without creating an account.</p>
+                  <h3 className="font-semibold mb-2">No Registration</h3>
+                  <p className="text-sm text-muted-foreground">Use all tools instantly without creating an account.</p>
                 </div>
-                <div className="bg-card border border-border rounded-xl p-4 lg:p-6 text-center">
-                  <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-orange-500/10 flex items-center justify-center mx-auto mb-3 lg:mb-4">
-                    <Globe className="w-5 h-5 lg:w-6 lg:h-6 text-orange-500" />
+                <div className="bg-card border border-border rounded-xl p-6 text-center">
+                  <div className="w-12 h-12 rounded-full bg-orange-500/10 flex items-center justify-center mx-auto mb-4">
+                    <Globe className="w-6 h-6 text-orange-500" />
                   </div>
-                  <h3 className="font-semibold text-sm lg:text-base mb-2">Works Everywhere</h3>
-                  <p className="text-xs lg:text-sm text-muted-foreground">Works on any device - desktop, tablet, or mobile.</p>
+                  <h3 className="font-semibold mb-2">Works Everywhere</h3>
+                  <p className="text-sm text-muted-foreground">Works on any device - desktop, tablet, or mobile.</p>
                 </div>
               </div>
             </div>

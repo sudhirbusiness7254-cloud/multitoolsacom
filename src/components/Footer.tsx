@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { toolCategories } from "@/data/toolsData";
 import logo from "@/assets/logo-icon.png";
-import { AdVideo, AdInline, AdBottom } from "@/components/ads/AdContainer";
 
 const Footer = () => {
   const imageCategories = toolCategories.filter(cat => cat.id !== "tag-tools").sort((a, b) => a.priority - b.priority);
@@ -15,10 +14,10 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-card border-t border-border mt-8 sm:mt-12 md:mt-16 w-full">
-      <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12 py-8 sm:py-10 md:py-12">
+    <footer className="bg-card border-t border-border mt-8 sm:mt-12 md:mt-16">
+      <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-10 md:py-12">
         {/* Main Footer Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-10">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8 mb-8 sm:mb-10">
           {/* Brand */}
           <div className="col-span-2 sm:col-span-2 md:col-span-1 lg:col-span-1">
             <div className="flex items-center gap-2 mb-3 sm:mb-4">
@@ -66,30 +65,8 @@ const Footer = () => {
           ))}
         </div>
 
-        {/* AI Image Tools Quick Links */}
+        {/* PDF Tools Quick Links */}
         <div className="border-t border-border pt-6 sm:pt-8 mb-6 sm:mb-8">
-          <h4 className="font-semibold text-foreground mb-3 sm:mb-4 text-center text-sm sm:text-base">🤖 AI Image Tools</h4>
-          <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2 mb-6">
-            {[
-              { name: "AI Photo Enhancer", route: "/ai-photo-enhancer" },
-              { name: "AI Image Upscaler", route: "/ai-image-upscaler" },
-              { name: "AI Image Restorer", route: "/ai-image-restorer" },
-              { name: "AI Face Swap", route: "/ai-face-swap" },
-              { name: "AI Colorize", route: "/ai-colorize" },
-              { name: "AI Face Beautify", route: "/ai-face-beautify" },
-              { name: "AI Image Generator", route: "/ai-image-generation" },
-              { name: "Birthday Wishes Generator", route: "/birthday-wishes-generator" },
-            ].map((item) => (
-              <Link 
-                key={item.route} 
-                to={item.route}
-                className="px-2 sm:px-3 py-1 bg-purple-500/10 border border-purple-500/20 rounded-full text-[10px] sm:text-xs text-purple-500 hover:bg-purple-500 hover:text-white transition-colors"
-              >
-                {item.name}
-              </Link>
-            ))}
-          </div>
-          
           <h4 className="font-semibold text-foreground mb-3 sm:mb-4 text-center text-sm sm:text-base">PDF Tools</h4>
           <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2 mb-6">
             {[
@@ -98,6 +75,7 @@ const Footer = () => {
               { name: "Word to PDF", route: "/word-to-pdf" },
               { name: "Image to PDF", route: "/image-to-pdf" },
               { name: "Split PDF", route: "/split-pdf" },
+              { name: "Tutorials", route: "/tutorials" },
             ].map((item) => (
               <Link 
                 key={item.route} 
@@ -120,6 +98,7 @@ const Footer = () => {
               { name: "Image Crop", route: "/image-crop" },
               { name: "Rotate Image", route: "/image-rotate-flip" },
               { name: "Watermark", route: "/watermark-tools" },
+              { name: "Tag Extractor", route: "/tag-extractor" },
             ].map((item) => (
               <Link 
                 key={item.route} 
@@ -130,13 +109,6 @@ const Footer = () => {
               </Link>
             ))}
           </div>
-        </div>
-
-        {/* Ads - Before Trust Badges */}
-        <div className="flex flex-col items-center gap-4 mb-6">
-          <AdVideo />
-          <AdInline />
-          <AdBottom />
         </div>
 
         {/* Trust Badges */}
@@ -165,8 +137,8 @@ const Footer = () => {
         <div className="flex flex-wrap justify-center gap-3 sm:gap-6 mb-4 sm:mb-6">
           <Link to="/" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">Home</Link>
           <Link to="/all-tools" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">All Tools</Link>
-          <Link to="/ai-image-tools" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">AI Tools</Link>
           <Link to="/pdf-tools" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">PDF Tools</Link>
+          <Link to="/tag-extractor" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">Tag Generator</Link>
           <Link to="/tutorials" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">Tutorials</Link>
           <Link to="/blog" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">Blog</Link>
           <Link to="/image-formats-guide" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">Format Guide</Link>

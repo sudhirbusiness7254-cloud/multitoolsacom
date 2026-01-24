@@ -6,7 +6,6 @@ import { Slider } from "@/components/ui/slider";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import ImageComparisonSlider from "./ImageComparisonSlider";
-import { AdVideo } from "@/components/ads/AdContainer";
 
 interface ConversionOption {
   value: string;
@@ -285,42 +284,38 @@ const ImageConverter = ({ preselectedConversion }: ImageConverterProps) => {
       
       {/* Upload Area */}
       {!uploadedImage ? (
-        <>
-          <div
-            onDrop={handleDrop}
-            onDragOver={handleDragOver}
-            onDragLeave={handleDragLeave}
-            onClick={() => fileInputRef.current?.click()}
-            className={`relative border-2 border-dashed rounded-2xl p-10 md:p-20 text-center cursor-pointer transition-all duration-300 bg-card ${
-              isDragging
-                ? "border-primary bg-primary/10 scale-[1.02]"
-                : "border-border hover:border-primary/50 hover:bg-secondary/50"
-            }`}
-          >
-            <input
-              ref={fileInputRef}
-              type="file"
-              accept="image/*,.heic,.heif,.tiff,.tif,.raw,.cr2,.nef,.arw,.dng"
-              onChange={handleInputChange}
-              className="hidden"
-            />
-            <div className="flex flex-col items-center gap-4">
-              <div className="w-20 h-20 rounded-full bg-gradient-orange flex items-center justify-center">
-                <Upload className="w-10 h-10 text-primary-foreground" />
-              </div>
-              <div>
-                <p className="text-xl md:text-2xl font-semibold mb-2">
-                  Drag & Drop your image here
-                </p>
-                <p className="text-muted-foreground">
-                  or click to browse • Supports JPG, PNG, WEBP, GIF, BMP, SVG, TIFF, RAW, HEIC
-                </p>
-              </div>
+        <div
+          onDrop={handleDrop}
+          onDragOver={handleDragOver}
+          onDragLeave={handleDragLeave}
+          onClick={() => fileInputRef.current?.click()}
+          className={`relative border-2 border-dashed rounded-2xl p-10 md:p-20 text-center cursor-pointer transition-all duration-300 bg-card ${
+            isDragging
+              ? "border-primary bg-primary/10 scale-[1.02]"
+              : "border-border hover:border-primary/50 hover:bg-secondary/50"
+          }`}
+        >
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept="image/*,.heic,.heif,.tiff,.tif,.raw,.cr2,.nef,.arw,.dng"
+            onChange={handleInputChange}
+            className="hidden"
+          />
+          <div className="flex flex-col items-center gap-4">
+            <div className="w-20 h-20 rounded-full bg-gradient-orange flex items-center justify-center">
+              <Upload className="w-10 h-10 text-primary-foreground" />
+            </div>
+            <div>
+              <p className="text-xl md:text-2xl font-semibold mb-2">
+                Drag & Drop your image here
+              </p>
+              <p className="text-muted-foreground">
+                or click to browse • Supports JPG, PNG, WEBP, GIF, BMP, SVG, TIFF, RAW, HEIC
+              </p>
             </div>
           </div>
-          {/* Video Ad - Below Upload Area */}
-          <AdVideo className="mt-4" />
-        </>
+        </div>
       ) : (
         <div className="space-y-6">
           {/* Image Preview */}

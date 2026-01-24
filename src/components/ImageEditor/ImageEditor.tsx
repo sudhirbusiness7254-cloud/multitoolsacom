@@ -7,7 +7,6 @@ import AdjustmentPanel from "./AdjustmentPanel";
 import CropPanel from "./CropPanel";
 import ExportDialog from "./ExportDialog";
 import { ImageState, EditMode, CropArea, AspectRatio, ExportOptions, HistoryEntry } from "./types";
-import { AdVideo } from "@/components/ads/AdContainer";
 
 const DEFAULT_STATE: ImageState = {
   src: "",
@@ -355,9 +354,6 @@ const ImageEditor = () => {
           </div>
         </div>
       </div>
-      
-      {/* Video Ad - Below Upload Area */}
-      <AdVideo className="mt-4" />
 
       {/* Toolbar */}
       <EditorToolbar

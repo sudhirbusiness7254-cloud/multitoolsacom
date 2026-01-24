@@ -1,12 +1,8 @@
-import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ImageConverter from "@/components/ImageConverter";
-import BatchImageConverter from "@/components/BatchImageConverter";
-import PromptToImage from "@/components/PromptToImage";
-import { AdBottom, AdVideo, AdInline, AdExoticFat } from "@/components/ads/AdContainer";
 import { 
   Image, 
   Zap, 
@@ -15,9 +11,7 @@ import {
   Globe,
   FileImage,
   CheckCircle,
-  ArrowRight,
-  Layers,
-  Wand2
+  ArrowRight
 } from "lucide-react";
 import {
   Accordion,
@@ -25,7 +19,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import HreflangTags from "@/components/HreflangTags";
 
 const formatColors: Record<string, string> = {
@@ -62,7 +55,6 @@ const conversionOptions = [
 ];
 
 const ImageToolsPage = () => {
-  const [activeTab, setActiveTab] = useState("single");
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -151,85 +143,47 @@ const ImageToolsPage = () => {
         
         <main className="flex-1">
           {/* Hero Section with Converter */}
-          <section className="py-12 md:py-16 lg:py-20 bg-gradient-hero relative overflow-hidden">
+          <section className="py-12 md:py-20 bg-gradient-hero relative overflow-hidden">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-3xl" />
             
-            <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 relative z-10">
+            <div className="container mx-auto px-4 relative z-10">
               <div className="text-center max-w-4xl mx-auto mb-10">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 mb-6">
                   <Image className="w-4 h-4 text-primary" />
                   <span className="text-sm font-medium text-primary">Free Image Converter</span>
                 </div>
                 
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 leading-tight">
+                <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
                   Convert Images Instantly
                 </h1>
                 
-                <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+                <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
                   Upload any image and convert to JPG, PNG, WEBP, GIF, BMP, TIFF, or RAW. 
                   100% free, secure, and processed entirely in your browser.
                 </p>
               </div>
 
-              {/* Mode Tabs */}
-              <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full max-w-5xl mx-auto">
-                <TabsList className="grid w-full max-w-lg mx-auto grid-cols-3 mb-8">
-                  <TabsTrigger value="single" className="gap-2 text-xs sm:text-sm">
-                    <Image className="w-4 h-4" />
-                    <span className="hidden sm:inline">Single Image</span>
-                    <span className="sm:hidden">Single</span>
-                  </TabsTrigger>
-                  <TabsTrigger value="batch" className="gap-2 text-xs sm:text-sm">
-                    <Layers className="w-4 h-4" />
-                    <span className="hidden sm:inline">Batch Mode</span>
-                    <span className="sm:hidden">Batch</span>
-                  </TabsTrigger>
-                  <TabsTrigger value="ai-generate" className="gap-2 text-xs sm:text-sm">
-                    <Wand2 className="w-4 h-4" />
-                    <span className="hidden sm:inline">AI Generate</span>
-                    <span className="sm:hidden">AI</span>
-                  </TabsTrigger>
-                </TabsList>
-                
-                <TabsContent value="single" className="mt-0">
-                  <ImageConverter />
-                </TabsContent>
-                
-                <TabsContent value="batch" className="mt-0">
-                  <BatchImageConverter />
-                </TabsContent>
-                
-                <TabsContent value="ai-generate" className="mt-0">
-                  <PromptToImage />
-                </TabsContent>
-              </Tabs>
-              
-              {/* Ads below tool */}
-              <div className="flex flex-col items-center gap-4 mt-8 max-w-5xl mx-auto">
-                <AdExoticFat />
-                <AdVideo />
-                <AdInline />
-                <AdBottom />
-              </div>
+              {/* Main Converter */}
+              <ImageConverter />
             </div>
           </section>
 
           {/* Conversion Options Grid */}
-          <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
-            <div className="w-full">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-4">
+          <section className="py-12 md:py-16 px-4">
+            <div className="container mx-auto max-w-6xl">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-4">
                 All Conversion Options
               </h2>
               <p className="text-center text-muted-foreground mb-10 max-w-2xl mx-auto">
                 Select your desired conversion format below for a dedicated tool
               </p>
               
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-3 lg:gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
                 {conversionOptions.map((opt, i) => (
                   <Link
                     key={i}
                     to={opt.route}
-                    className="group bg-card hover:bg-secondary border border-border hover:border-primary/50 rounded-xl p-3 lg:p-4 transition-all duration-300 hover-lift"
+                    className="group bg-card hover:bg-secondary border border-border hover:border-primary/50 rounded-xl p-4 transition-all duration-300 hover-lift"
                   >
                     <div className="flex items-center gap-2 mb-2">
                       <span 
@@ -246,30 +200,23 @@ const ImageToolsPage = () => {
                         {opt.to}
                       </span>
                     </div>
-                    <p className="text-xs text-muted-foreground group-hover:text-foreground transition-colors line-clamp-2">
+                    <p className="text-xs text-muted-foreground group-hover:text-foreground transition-colors">
                       {opt.desc}
                     </p>
                   </Link>
                 ))}
               </div>
-              
-              {/* Ads - After Conversion Grid */}
-              <div className="flex flex-col items-center gap-4 mt-8">
-                <AdExoticFat />
-                <AdVideo />
-                <AdInline />
-              </div>
             </div>
           </section>
 
           {/* How It Works */}
-          <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 bg-gradient-dark">
-            <div className="w-full max-w-6xl mx-auto">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12">
+          <section className="py-12 md:py-16 px-4 bg-gradient-dark">
+            <div className="container mx-auto max-w-5xl">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12">
                 How to Convert Images
               </h2>
               
-              <div className="grid sm:grid-cols-3 gap-6 lg:gap-8">
+              <div className="grid md:grid-cols-3 gap-8">
                 {[
                   {
                     step: "1",
@@ -291,74 +238,64 @@ const ImageToolsPage = () => {
                   }
                 ].map((item) => (
                   <div key={item.step} className="text-center">
-                    <div className="bg-gradient-orange w-14 h-14 lg:w-16 lg:h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-                      <item.icon className="w-7 h-7 lg:w-8 lg:h-8 text-primary-foreground" />
+                    <div className="bg-gradient-orange w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                      <item.icon className="w-8 h-8 text-primary-foreground" />
                     </div>
                     <div className="bg-primary text-primary-foreground w-8 h-8 rounded-full flex items-center justify-center mx-auto mb-3 text-sm font-bold">
                       {item.step}
                     </div>
-                    <h3 className="text-lg lg:text-xl font-semibold mb-2">{item.title}</h3>
-                    <p className="text-sm lg:text-base text-muted-foreground">{item.description}</p>
+                    <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                    <p className="text-muted-foreground">{item.description}</p>
                   </div>
                 ))}
-              </div>
-              
-              {/* Ads - After How It Works */}
-              <div className="flex flex-col items-center gap-4 mt-8">
-                <AdExoticFat />
-                <AdVideo />
-                <AdBottom />
               </div>
             </div>
           </section>
 
           {/* Features */}
-          <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
-            <div className="w-full">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12">
+          <section className="py-12 md:py-16 px-4">
+            <div className="container mx-auto max-w-5xl">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12">
                 Why Use Our Image Converter?
               </h2>
               
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {[
                   { icon: Zap, title: "Lightning Fast", desc: "Convert in seconds" },
                   { icon: Shield, title: "100% Secure", desc: "Files stay on your device" },
                   { icon: Download, title: "No Watermarks", desc: "Clean, professional output" },
                   { icon: Globe, title: "Works Everywhere", desc: "Any device, any browser" }
                 ].map((item, i) => (
-                  <div key={i} className="bg-card rounded-xl p-4 lg:p-6 border border-border text-center hover:border-primary/50 transition-colors">
-                    <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-3 lg:mb-4">
-                      <item.icon className="w-5 h-5 lg:w-6 lg:h-6 text-primary" />
+                  <div key={i} className="bg-card rounded-xl p-6 border border-border text-center hover:border-primary/50 transition-colors">
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                      <item.icon className="w-6 h-6 text-primary" />
                     </div>
-                    <h3 className="font-semibold text-sm lg:text-base mb-1 lg:mb-2">{item.title}</h3>
-                    <p className="text-xs lg:text-sm text-muted-foreground">{item.desc}</p>
+                    <h3 className="font-semibold mb-2">{item.title}</h3>
+                    <p className="text-sm text-muted-foreground">{item.desc}</p>
                   </div>
                 ))}
               </div>
-              
-              {/* ExoticFat Ad - After Features */}
-              <AdExoticFat className="mt-8" />
             </div>
           </section>
 
           {/* Supported Formats */}
-          <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 bg-gradient-dark">
-            <div className="w-full max-w-6xl mx-auto">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-4">
+          <section className="py-12 md:py-16 px-4 bg-gradient-dark">
+            <div className="container mx-auto max-w-4xl">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-4">
                 Supported Image Formats
               </h2>
               <p className="text-center text-muted-foreground mb-10">
                 Convert between all popular image formats
               </p>
 
-              <div className="grid grid-cols-5 sm:grid-cols-10 gap-2 lg:gap-3">
+              <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-10 gap-3">
                 {Object.entries(formatColors).map(([format, color]) => (
                   <div 
                     key={format}
-                    className="bg-card rounded-lg p-2 lg:p-3 text-center border border-border hover:border-primary/50 transition-colors"
+                    className="bg-card rounded-lg p-3 text-center border border-border hover:border-primary/50 transition-colors"
                   >
                     <div 
-                      className="w-8 h-8 lg:w-10 lg:h-10 rounded-lg flex items-center justify-center mx-auto text-[10px] lg:text-xs font-bold"
+                      className="w-10 h-10 rounded-lg flex items-center justify-center mx-auto mb-2 text-xs font-bold"
                       style={{ backgroundColor: color, color: '#000' }}
                     >
                       {format}
@@ -366,84 +303,70 @@ const ImageToolsPage = () => {
                   </div>
                 ))}
               </div>
-              
-              {/* Ads - After Formats */}
-              <div className="flex flex-col items-center gap-4 mt-8">
-                <AdExoticFat />
-                <AdVideo />
-                <AdInline />
-              </div>
             </div>
           </section>
 
           {/* FAQ Section */}
-          <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
-            <div className="w-full max-w-6xl mx-auto">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-10">
+          <section className="py-12 md:py-16 px-4">
+            <div className="container mx-auto max-w-4xl">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-10">
                 Frequently Asked Questions
               </h2>
               
               <Accordion type="single" collapsible className="w-full space-y-4">
-                <AccordionItem value="item-1" className="bg-card border border-border rounded-xl px-4 lg:px-6">
-                  <AccordionTrigger className="text-left font-semibold text-sm lg:text-base">
+                <AccordionItem value="item-1" className="bg-card border border-border rounded-xl px-6">
+                  <AccordionTrigger className="text-left font-semibold">
                     How do I convert an image to a different format?
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground text-sm lg:text-base">
+                  <AccordionContent className="text-muted-foreground">
                     Upload your image by clicking or drag-and-drop, select the output format from the dropdown, and click Convert. Your converted image will be ready to download instantly.
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="item-2" className="bg-card border border-border rounded-xl px-4 lg:px-6">
-                  <AccordionTrigger className="text-left font-semibold text-sm lg:text-base">
+                <AccordionItem value="item-2" className="bg-card border border-border rounded-xl px-6">
+                  <AccordionTrigger className="text-left font-semibold">
                     Is this image converter free?
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground text-sm lg:text-base">
+                  <AccordionContent className="text-muted-foreground">
                     Yes, completely free! No signup, no watermarks, no daily limits. Convert as many images as you need.
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="item-3" className="bg-card border border-border rounded-xl px-4 lg:px-6">
-                  <AccordionTrigger className="text-left font-semibold text-sm lg:text-base">
+                <AccordionItem value="item-3" className="bg-card border border-border rounded-xl px-6">
+                  <AccordionTrigger className="text-left font-semibold">
                     Can I convert TIFF and RAW images?
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground text-sm lg:text-base">
+                  <AccordionContent className="text-muted-foreground">
                     Yes, we support TIFF and RAW formats. Convert them to JPG or PNG for universal compatibility across all devices and platforms.
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="item-4" className="bg-card border border-border rounded-xl px-4 lg:px-6">
-                  <AccordionTrigger className="text-left font-semibold text-sm lg:text-base">
+                <AccordionItem value="item-4" className="bg-card border border-border rounded-xl px-6">
+                  <AccordionTrigger className="text-left font-semibold">
                     Are my images secure?
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground text-sm lg:text-base">
+                  <AccordionContent className="text-muted-foreground">
                     Absolutely! All conversions happen locally in your browser. Your images are never uploaded to our servers, ensuring complete privacy and security.
                   </AccordionContent>
                 </AccordionItem>
 
-                <AccordionItem value="item-5" className="bg-card border border-border rounded-xl px-4 lg:px-6">
-                  <AccordionTrigger className="text-left font-semibold text-sm lg:text-base">
+                <AccordionItem value="item-5" className="bg-card border border-border rounded-xl px-6">
+                  <AccordionTrigger className="text-left font-semibold">
                     What's the best format for web images?
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground text-sm lg:text-base">
+                  <AccordionContent className="text-muted-foreground">
                     WEBP is the best format for web use - it provides excellent quality at 25-35% smaller file sizes than JPG. PNG is best for images with transparency, and JPG is widely compatible for photographs.
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
-              
-              {/* Ads - After FAQ */}
-              <div className="flex flex-col items-center gap-4 mt-8">
-                <AdExoticFat />
-                <AdVideo />
-                <AdBottom />
-              </div>
             </div>
           </section>
 
           {/* SEO Article */}
-          <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 bg-gradient-dark">
-            <div className="w-full max-w-6xl mx-auto">
+          <section className="py-12 md:py-16 px-4 bg-gradient-dark">
+            <div className="container mx-auto max-w-4xl">
               <article className="prose prose-invert max-w-none">
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 text-foreground">
+                <h2 className="text-2xl md:text-3xl font-bold mb-6 text-foreground">
                   The Complete Guide to Image Format Conversion in 2024
                 </h2>
                 
@@ -467,14 +390,6 @@ const ImageToolsPage = () => {
                   </p>
                 </div>
               </article>
-              
-              {/* Ads - After Article */}
-              <div className="flex flex-col items-center gap-4 mt-8">
-                <AdExoticFat />
-                <AdVideo />
-                <AdInline />
-                <AdBottom />
-              </div>
             </div>
           </section>
         </main>

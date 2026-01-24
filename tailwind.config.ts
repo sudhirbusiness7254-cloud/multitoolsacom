@@ -93,8 +93,8 @@ export default {
           "50%": { boxShadow: "0 0 40px hsl(var(--brand-orange) / 0.6)" },
         },
         "shimmer": {
-          "0%": { transform: "translateX(-100%)" },
-          "100%": { transform: "translateX(100%)" },
+          "0%": { backgroundPosition: "-200% 0" },
+          "100%": { backgroundPosition: "200% 0" },
         },
       },
       animation: {
