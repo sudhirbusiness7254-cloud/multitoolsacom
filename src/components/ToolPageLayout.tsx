@@ -207,11 +207,17 @@ const ToolPageLayout = ({
                         <span className="text-muted-foreground">{benefit}</span>
                       </li>
                     ))}
-                  </ul>
+                    </ul>
+                  </div>
+                </div>
+                
+                {/* HilltopAds - Card after Benefits */}
+                <div className="flex flex-wrap justify-center gap-4 mt-6">
+                  <HilltopSquare theme="huge_income" />
+                  <HilltopSquare theme="get_high_ecpm" />
                 </div>
               </div>
-            </div>
-          </section>
+            </section>
 
           {/* How to Use */}
           <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
@@ -225,10 +231,13 @@ const ToolPageLayout = ({
                     </div>
                     <p className="text-muted-foreground pt-1 lg:pt-2">{step}</p>
                   </div>
-                ))}
+                  ))}
+                </div>
+                
+                {/* HilltopAds - Banner after How to Use */}
+                <HilltopBanner theme="make_big_money" className="mt-6" />
               </div>
-            </div>
-          </section>
+            </section>
 
           {/* Detailed Article */}
           <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 bg-gradient-dark">
@@ -237,6 +246,9 @@ const ToolPageLayout = ({
               <div className="prose prose-invert max-w-none">
                 <p className="text-muted-foreground leading-relaxed whitespace-pre-line">{article}</p>
               </div>
+              
+              {/* HilltopAds - Banner after Article */}
+              <HilltopResponsive theme="huge_income" className="mt-8" />
             </div>
           </section>
 
@@ -276,6 +288,9 @@ const ToolPageLayout = ({
                   </div>
                 ))}
               </div>
+              
+              {/* HilltopAds - Banner after Use Cases */}
+              <HilltopBanner theme="get_high_ecpm" className="mt-6" />
             </div>
           </section>
 

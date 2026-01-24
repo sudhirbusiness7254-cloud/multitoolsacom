@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { AdBottom, AdVideo, AdInline } from "@/components/ads/AdContainer";
+import { HilltopBanner, HilltopResponsive, HilltopSquare, HilltopAdGrid } from "@/components/ads/HilltopAds";
 import { toolCategories } from "@/data/toolsData";
 import { ArrowRight, Search, Sparkles, FileText } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -119,6 +120,9 @@ const AllToolsPage = () => {
                   className="pl-12 h-12 text-lg"
                 />
               </div>
+              
+              {/* HilltopAds - After Search */}
+              <HilltopBanner theme="huge_income" className="mt-8" />
             </div>
           </section>
 
@@ -167,9 +171,13 @@ const AllToolsPage = () => {
               )}
             </div>
             
+            {/* HilltopAds Grid - After Tools */}
+            <HilltopAdGrid className="max-w-6xl mx-auto" />
+            
             {/* Ads below tools */}
-            <div className="max-w-4xl mx-auto mt-10">
-              <AdInline />
+            <div className="max-w-4xl mx-auto mt-6">
+              <HilltopResponsive theme="get_high_ecpm" />
+              <AdInline className="mt-4" />
               <AdBottom className="mt-4" />
               <AdVideo className="mt-4" />
             </div>

@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Calendar, Clock, ArrowRight, User, Tag, Search, Filter } from "lucide-react";
 import { AdBottom, AdVideo, AdInline } from "@/components/ads/AdContainer";
+import { HilltopBanner, HilltopResponsive, HilltopSquare, HilltopAdGrid } from "@/components/ads/HilltopAds";
 import HreflangTags from "@/components/HreflangTags";
 import { blogPosts, blogCategories } from "@/data/blogData";
 import { Input } from "@/components/ui/input";
@@ -180,6 +181,9 @@ const Blog = () => {
                 </div>
               </div>
             </Link>
+            
+            {/* HilltopAds - After Featured Article */}
+            <HilltopResponsive theme="huge_income" className="mt-8" />
           </section>
         )}
 
@@ -274,8 +278,11 @@ const Blog = () => {
             </div>
           )}
           
+          {/* HilltopAds - After Articles Grid */}
+          <HilltopAdGrid className="mt-8" />
+          
           {/* Inline Ad - After Articles */}
-          <AdInline className="mt-8" />
+          <AdInline className="mt-6" />
         </section>
 
         {/* Newsletter Section */}
@@ -335,12 +342,16 @@ const Blog = () => {
               </button>
             ))}
           </div>
+          
+          {/* HilltopAds - After Popular Topics */}
+          <HilltopBanner theme="get_high_ecpm" className="mt-8" />
         </section>
 
         {/* Ads Section */}
         <section className="py-8 px-4">
           <div className="container mx-auto max-w-4xl">
-            <AdBottom />
+            <HilltopResponsive theme="make_big_money" />
+            <AdBottom className="mt-4" />
             <AdVideo className="mt-4" />
           </div>
         </section>

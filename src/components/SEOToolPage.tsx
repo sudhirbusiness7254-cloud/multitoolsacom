@@ -20,7 +20,7 @@ import {
 import HreflangTags from "@/components/HreflangTags";
 import RelatedArticles from "@/components/RelatedArticles";
 import { AdBottom, AdVideo, AdInline } from "@/components/ads/AdContainer";
-import { HilltopBanner, HilltopResponsive } from "@/components/ads/HilltopAds";
+import { HilltopBanner, HilltopResponsive, HilltopSquare } from "@/components/ads/HilltopAds";
 
 interface SEOToolPageProps {
   seoContent: ToolSEOContent;
@@ -389,6 +389,9 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                     </ul>
                   )
                 )}
+                
+                {/* HilltopAds - Card after Who Can Use */}
+                <HilltopSquare theme="huge_income" className="mt-6" />
               </div>
 
               {/* Section 8: Common Use Cases */}
@@ -416,6 +419,9 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                       </div>
                     ))}
                   </div>
+                  
+                  {/* HilltopAds - Banner after Use Cases */}
+                  <HilltopBanner theme="make_big_money" className="mt-6" />
                 </div>
               )}
 
@@ -442,6 +448,9 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                     </AccordionItem>
                   ))}
                 </Accordion>
+                
+                {/* HilltopAds - After FAQ */}
+                <HilltopResponsive theme="get_high_ecpm" className="mt-6" />
               </div>
 
               {/* Section 10: Privacy & Security Note */}

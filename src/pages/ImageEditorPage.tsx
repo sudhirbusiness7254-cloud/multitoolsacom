@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import ImageEditor from "@/components/ImageEditor/ImageEditor";
 import HreflangTags from "@/components/HreflangTags";
 import { AdVideo, AdBottom, AdInline } from "@/components/ads/AdContainer";
+import { HilltopBanner, HilltopResponsive, HilltopSquare } from "@/components/ads/HilltopAds";
 
 const ImageEditorPage = () => {
   return (
@@ -47,8 +48,10 @@ const ImageEditorPage = () => {
           <section className="pb-16 px-4">
             <div className="max-w-6xl mx-auto">
               <ImageEditor />
+              {/* HilltopAds - After Tool */}
+              <HilltopResponsive theme="huge_income" className="mt-6" />
               {/* Video Ad - Below Tool Output */}
-              <AdVideo className="mt-6" />
+              <AdVideo className="mt-4" />
             </div>
           </section>
 
@@ -86,6 +89,9 @@ const ImageEditorPage = () => {
                   </div>
                 ))}
               </div>
+              
+              {/* HilltopAds - After Features */}
+              <HilltopBanner theme="get_high_ecpm" className="mt-8" />
             </div>
           </section>
 
@@ -118,11 +124,20 @@ const ImageEditorPage = () => {
                   </div>
                 ))}
               </div>
+              
+              {/* HilltopAds - After Shortcuts */}
+              <div className="flex flex-wrap justify-center gap-4 mt-8">
+                <HilltopSquare theme="huge_income" />
+                <HilltopSquare theme="make_big_money" />
+              </div>
             </div>
           </section>
           
+          {/* HilltopAds - Before Footer */}
+          <HilltopResponsive theme="make_big_money" className="my-6 px-4" />
+          
           {/* Bottom Ad */}
-          <AdBottom className="my-8" />
+          <AdBottom className="mb-8" />
         </main>
 
         <Footer />
