@@ -108,17 +108,15 @@ export const useAdLoader = (position: keyof typeof AD_SCRIPTS) => {
     if ('IntersectionObserver' in window) {
       observerRef.current = new IntersectionObserver(handleIntersection, {
         threshold: 0.01, // Lower threshold for earlier detection
-        rootMargin: '200px' // Preload earlier for smoother experience
+        rootMargin: '500px' // Preload much earlier - 500px before visible for instant loading
       });
 
       observerRef.current.observe(container);
     } else {
-      // Fallback for browsers without IntersectionObserver
+      // Fallback for browsers without IntersectionObserver - load immediately
       setIsVisible(true);
-      setTimeout(() => {
-        loadAdScript(position, container);
-        setIsLoaded(true);
-      }, 300);
+      loadAdScript(position, container);
+      setIsLoaded(true);
     }
 
     return () => {
@@ -157,17 +155,15 @@ export const useVideoAdLoader = () => {
     if ('IntersectionObserver' in window) {
       observerRef.current = new IntersectionObserver(handleIntersection, {
         threshold: 0.01, // Lower threshold for earlier detection
-        rootMargin: '300px' // Video ads preload earlier (300px before visible)
+        rootMargin: '600px' // Video ads preload even earlier (600px before visible) for instant loading
       });
 
       observerRef.current.observe(container);
     } else {
-      // Fallback for browsers without IntersectionObserver
+      // Fallback for browsers without IntersectionObserver - load immediately
       setIsVisible(true);
-      setTimeout(() => {
-        loadAdScript('video', container);
-        setIsLoaded(true);
-      }, 300);
+      loadAdScript('video', container);
+      setIsLoaded(true);
     }
 
     return () => {

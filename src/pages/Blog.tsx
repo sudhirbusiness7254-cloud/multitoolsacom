@@ -5,7 +5,6 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Calendar, Clock, ArrowRight, User, Tag, Search, Filter } from "lucide-react";
 import { AdBottom, AdVideo, AdInline, AdExoticFat } from "@/components/ads/AdContainer";
-import { HilltopBanner, HilltopResponsive, HilltopSquare, HilltopAdGrid } from "@/components/ads/HilltopAds";
 import HreflangTags from "@/components/HreflangTags";
 import { blogPosts, blogCategories } from "@/data/blogData";
 import { Input } from "@/components/ui/input";
@@ -182,8 +181,12 @@ const Blog = () => {
               </div>
             </Link>
             
-            {/* HilltopAds - After Featured Article */}
-            <HilltopResponsive theme="huge_income" className="mt-8" />
+            {/* Ads - After Featured Article */}
+            <div className="flex flex-col items-center gap-4 mt-8">
+              <AdVideo />
+              <AdInline />
+              <AdBottom />
+            </div>
           </section>
         )}
 

@@ -20,7 +20,6 @@ import {
 import HreflangTags from "@/components/HreflangTags";
 import RelatedArticles from "@/components/RelatedArticles";
 import { AdBottom, AdVideo, AdInline, AdExoticFat } from "@/components/ads/AdContainer";
-import { HilltopBanner, HilltopResponsive, HilltopSquare } from "@/components/ads/HilltopAds";
 
 interface SEOToolPageProps {
   seoContent: ToolSEOContent;
@@ -514,8 +513,12 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                 </div>
               )}
               
-              {/* HilltopAds - After Related Tools */}
-              <HilltopResponsive theme="make_big_money" className="mt-6" />
+              {/* Ads - After Related Tools */}
+              <div className="flex flex-col items-center gap-4 mt-6">
+                <AdExoticFat />
+                <AdVideo />
+                <AdInline />
+              </div>
             </div>
           </section>
 

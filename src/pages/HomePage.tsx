@@ -4,7 +4,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GradientWaveBackground from "@/components/GradientWaveBackground";
 import { AdBottom, AdVideo, AdInline, AdExoticFat } from "@/components/ads/AdContainer";
-import { HilltopBanner, HilltopSquare, HilltopResponsive, HilltopAdGrid } from "@/components/ads/HilltopAds";
 import { 
   ArrowRight, 
   Shield, 
@@ -650,15 +649,12 @@ const HomePage = () => {
                 </div>
               </div>
               
-              {/* HilltopAds Cards - After Why Choose Us Grid */}
-              <div className="flex flex-wrap justify-center gap-4 mt-6">
-                <HilltopSquare theme="huge_income" />
-                <HilltopSquare theme="get_high_ecpm" />
-                <HilltopSquare theme="make_big_money" className="hidden lg:flex" />
+              {/* Ads - After Why Choose Us Grid */}
+              <div className="flex flex-col items-center gap-4 mt-6">
+                <AdVideo />
+                <AdInline />
+                <AdBottom />
               </div>
-              
-              {/* HilltopAds - After Why Choose Us */}
-              <HilltopBanner theme="huge_income" className="mt-6" />
               
               {/* Ad after Why Choose Us */}
               <AdBottom className="mt-4" />
