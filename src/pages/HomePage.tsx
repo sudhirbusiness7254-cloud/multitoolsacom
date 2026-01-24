@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GradientWaveBackground from "@/components/GradientWaveBackground";
-import { AdBottom, AdInline, AdExoticFat, AdPopunder, AdNative, AdPush, HilltopBanner } from "@/components/ads/AdContainer";
+import { AdBottom, AdInline, AdExoticFat, AdPopunder, AdNative, AdPush, AdBanner, HilltopBanner } from "@/components/ads/AdContainer";
 import { 
   ArrowRight, 
   Shield, 
@@ -372,6 +372,7 @@ const HomePage = () => {
               {/* Ads after popular tools - compact */}
               <AdExoticFat className="mt-4" />
               <AdNative className="mt-3" />
+              <AdBanner className="mt-3" />
             </div>
           </section>
 

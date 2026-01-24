@@ -42,6 +42,10 @@ const AD_SCRIPTS: Record<string, AdScriptConfig> = {
   push: {
     id: 'ad-script-push',
     src: '//farawayaside.com/b/XLV.sld/G/lg0-YXWHcw/_ejmR9cuMZiUZlmkvPsTaYu3NNUTMUZzEO/DKYQtbNDjgcF1CNATDMY4/NdwP',
+  },
+  banner: {
+    id: 'ad-script-banner',
+    src: '//farawayaside.com/bwXvVus.dNGIla0BY/Wycu/beymR9QupZKUolpkUPuTCY-3ZN_TwURzoNATtMGtdNyjUcR1yNcTvM/1KN/Ac',
   }
 };
 
