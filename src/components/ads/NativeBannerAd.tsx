@@ -8,6 +8,7 @@ const NativeBannerAd = ({ className = "" }: NativeBannerAdProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const scriptLoaded = useRef(false);
   const uniqueId = useId().replace(/:/g, '');
+  const containerId = `container-5dd29b78901106d681d1f5ce05a102b3-${uniqueId}`;
 
   useEffect(() => {
     if (scriptLoaded.current || !containerRef.current) return;
@@ -15,9 +16,9 @@ const NativeBannerAd = ({ className = "" }: NativeBannerAdProps) => {
     // Clear any existing content
     containerRef.current.innerHTML = '';
 
-    // Create the container div with the specific ID required by the ad network
+    // Create the container div with a unique ID for this instance
     const adContainer = document.createElement('div');
-    adContainer.id = 'container-5dd29b78901106d681d1f5ce05a102b3';
+    adContainer.id = containerId;
     containerRef.current.appendChild(adContainer);
 
     // Create and inject the script with async and data-cfasync attributes
@@ -26,8 +27,8 @@ const NativeBannerAd = ({ className = "" }: NativeBannerAdProps) => {
     script.async = true;
     script.setAttribute('data-cfasync', 'false');
     
-    // Append script to document head for better loading
-    document.head.appendChild(script);
+    // Append script to the container for this specific ad instance
+    containerRef.current.appendChild(script);
     scriptLoaded.current = true;
 
     return () => {
@@ -36,7 +37,7 @@ const NativeBannerAd = ({ className = "" }: NativeBannerAdProps) => {
         containerRef.current.innerHTML = '';
       }
     };
-  }, []);
+  }, [containerId]);
 
   return (
     <div 
