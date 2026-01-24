@@ -124,7 +124,6 @@ const educationalPages = [
   { path: "/how-tools-work", priority: "0.7", changefreq: "monthly" },
   { path: "/advertiser-disclosure", priority: "0.4", changefreq: "yearly" },
   { path: "/image-formats-guide", priority: "0.7", changefreq: "monthly" },
-  { path: "/tutorials", priority: "0.7", changefreq: "weekly" },
 ];
 
 function escapeXml(str: string): string {
