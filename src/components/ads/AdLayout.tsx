@@ -30,13 +30,9 @@ const AdLayout = ({ children }: AdLayoutProps) => {
 
   return (
     <>
-      {/* Side Ads - Desktop Only (XL screens), Hidden on certain pages */}
+      {/* Side Video Ad - Desktop Only, Bottom left corner */}
       {!hideSideAds && (
-        <>
-          <AdLeft />
-          <AdRight />
-          <AdVideoSide position="left" />
-        </>
+        <AdVideoSide position="left" />
       )}
       
       {/* Mobile Sticky Bottom Ad */}
