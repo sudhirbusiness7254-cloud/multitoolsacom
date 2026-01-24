@@ -215,8 +215,8 @@ const CategoryPageLayout = ({
                 ))}
               </div>
               
-              {/* HilltopAds - After Tools Grid */}
-              <HilltopBanner theme="get_high_ecpm" className="mt-6" />
+              {/* Ad - After Tools Grid */}
+              <AdVideo className="mt-6" />
               
               {/* Inline Ad - After Tools Grid */}
               <AdInline className="mt-4" />
@@ -247,11 +247,8 @@ const CategoryPageLayout = ({
                 ))}
               </div>
               
-              {/* HilltopAds - Cards after Who Uses */}
-              <div className="flex flex-wrap justify-center gap-4 mt-6">
-                <HilltopSquare theme="huge_income" />
-                <HilltopSquare theme="get_high_ecpm" />
-              </div>
+              {/* Ad - After Who Uses */}
+              <AdBottom className="mt-6" />
             </div>
           </section>
 
@@ -335,8 +332,8 @@ const CategoryPageLayout = ({
                 ))}
               </div>
               
-              {/* HilltopAds - Banner after Benefits */}
-              <HilltopBanner theme="make_big_money" className="mt-6" />
+              {/* Ad - After Benefits */}
+              <AdVideo className="mt-6" />
             </div>
           </section>
 
@@ -374,8 +371,8 @@ const CategoryPageLayout = ({
                 ))}
               </Accordion>
               
-              {/* HilltopAds - After FAQ */}
-              <HilltopResponsive theme="huge_income" className="mt-6" />
+              {/* Ad - After FAQ */}
+              <AdInline className="mt-6" />
             </div>
           </section>
 
