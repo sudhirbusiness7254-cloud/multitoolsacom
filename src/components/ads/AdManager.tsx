@@ -33,7 +33,7 @@ const AD_SCRIPTS: Record<string, AdScriptConfig> = {
   }
 };
 
-// Load ad script using the exact format provided - optimized for performance
+// Load ad script immediately without waiting - EAGER LOADING for instant ads
 export const loadAdScript = (position: keyof typeof AD_SCRIPTS, container: HTMLElement | null): void => {
   if (!container) return;
   
@@ -43,34 +43,23 @@ export const loadAdScript = (position: keyof typeof AD_SCRIPTS, container: HTMLE
   // Check if this container already has a script loaded
   if (container.querySelector('script')) return;
   
-  // Use requestIdleCallback for non-critical ad loading (better Core Web Vitals)
-  const loadScript = () => {
-    try {
-      // Clear placeholder content first
-      const placeholder = container.querySelector('.ad-placeholder');
-      if (placeholder) {
-        placeholder.remove();
-      }
-      
-      // Create script exactly as provided by the ad network
-      const script = document.createElement('script');
-      script.async = true;
-      script.defer = true; // Added defer for better performance
-      script.referrerPolicy = 'no-referrer-when-downgrade';
-      script.src = config.src;
-      (script as any).settings = {};
-      
-      container.appendChild(script);
-    } catch (error) {
-      console.warn(`Failed to load ad script for ${position}:`, error);
+  try {
+    // Clear placeholder content first
+    const placeholder = container.querySelector('.ad-placeholder');
+    if (placeholder) {
+      placeholder.remove();
     }
-  };
-
-  // Use requestIdleCallback if available, otherwise setTimeout
-  if ('requestIdleCallback' in window) {
-    (window as any).requestIdleCallback(loadScript, { timeout: 2000 });
-  } else {
-    setTimeout(loadScript, 50);
+    
+    // Create script exactly as provided by the ad network - NO DELAY
+    const script = document.createElement('script');
+    script.async = true;
+    script.referrerPolicy = 'no-referrer-when-downgrade';
+    script.src = config.src;
+    (script as any).settings = {};
+    
+    container.appendChild(script);
+  } catch (error) {
+    console.warn(`Failed to load ad script for ${position}:`, error);
   }
 };
 
@@ -80,96 +69,81 @@ export const resetAdScripts = (): void => {
   document.querySelectorAll('[id^="ad-script-"]').forEach(el => el.remove());
 };
 
-// Hook to manage ad loading with scroll-triggered visibility - optimized for CWV
+// Hook to manage ad loading - EAGER MODE: loads immediately on mount
 export const useAdLoader = (position: keyof typeof AD_SCRIPTS) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true); // Start visible immediately
   const [isLoaded, setIsLoaded] = useState(false);
-  const observerRef = useRef<IntersectionObserver | null>(null);
-
-  const handleIntersection = useCallback((entries: IntersectionObserverEntry[]) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting && !isLoaded) {
-        setIsVisible(true);
-        // Delay ad load to not block main thread
-        requestAnimationFrame(() => {
-          loadAdScript(position, containerRef.current);
-          setIsLoaded(true);
-        });
-        observerRef.current?.disconnect();
-      }
-    });
-  }, [position, isLoaded]);
 
   useEffect(() => {
     const container = containerRef.current;
-    if (!container) return;
+    if (!container || isLoaded) return;
 
-    if ('IntersectionObserver' in window) {
-      observerRef.current = new IntersectionObserver(handleIntersection, {
-        threshold: 0.01, // Lower threshold for earlier detection
-        rootMargin: '500px' // Preload much earlier - 500px before visible for instant loading
-      });
-
-      observerRef.current.observe(container);
-    } else {
-      // Fallback for browsers without IntersectionObserver - load immediately
-      setIsVisible(true);
-      loadAdScript(position, container);
-      setIsLoaded(true);
-    }
-
-    return () => {
-      observerRef.current?.disconnect();
-    };
-  }, [position, handleIntersection]);
+    // EAGER LOAD: Load ad immediately on mount - no waiting for scroll
+    setIsVisible(true);
+    loadAdScript(position, container);
+    setIsLoaded(true);
+  }, [position, isLoaded]);
 
   return { containerRef, isVisible, isLoaded };
 };
 
-// Video ad loader - optimized for Core Web Vitals with lazy loading
+// Video ad loader - EAGER MODE with retry fallback for error 303
 export const useVideoAdLoader = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true); // Start visible immediately
   const [isLoaded, setIsLoaded] = useState(false);
-  const observerRef = useRef<IntersectionObserver | null>(null);
+  const [retryCount, setRetryCount] = useState(0);
+  const maxRetries = 2;
 
-  const handleIntersection = useCallback((entries: IntersectionObserverEntry[]) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting && !isLoaded) {
-        setIsVisible(true);
-        // Use requestAnimationFrame to avoid blocking main thread
-        requestAnimationFrame(() => {
-          loadAdScript('video', containerRef.current);
-          setIsLoaded(true);
-        });
-        observerRef.current?.disconnect();
+  const loadVideoAd = useCallback(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    // Clear any existing scripts for retry
+    const existingScript = container.querySelector('script');
+    if (existingScript && retryCount > 0) {
+      existingScript.remove();
+    }
+
+    try {
+      const config = AD_SCRIPTS.video;
+      const script = document.createElement('script');
+      script.async = true;
+      script.referrerPolicy = 'no-referrer-when-downgrade';
+      script.src = config.src;
+      (script as any).settings = {};
+      
+      // Listen for errors and retry
+      script.onerror = () => {
+        if (retryCount < maxRetries) {
+          setTimeout(() => {
+            setRetryCount(prev => prev + 1);
+          }, 1000 * (retryCount + 1)); // Exponential backoff
+        }
+      };
+      
+      container.appendChild(script);
+      setIsLoaded(true);
+    } catch (error) {
+      console.warn('Failed to load video ad:', error);
+      if (retryCount < maxRetries) {
+        setTimeout(() => {
+          setRetryCount(prev => prev + 1);
+        }, 1000 * (retryCount + 1));
       }
-    });
-  }, [isLoaded]);
+    }
+  }, [retryCount]);
 
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
 
-    if ('IntersectionObserver' in window) {
-      observerRef.current = new IntersectionObserver(handleIntersection, {
-        threshold: 0.01, // Lower threshold for earlier detection
-        rootMargin: '600px' // Video ads preload even earlier (600px before visible) for instant loading
-      });
-
-      observerRef.current.observe(container);
-    } else {
-      // Fallback for browsers without IntersectionObserver - load immediately
-      setIsVisible(true);
-      loadAdScript('video', container);
-      setIsLoaded(true);
+    // EAGER LOAD: Load video ad immediately on mount
+    if (!isLoaded || retryCount > 0) {
+      loadVideoAd();
     }
-
-    return () => {
-      observerRef.current?.disconnect();
-    };
-  }, [handleIntersection]);
+  }, [loadVideoAd, isLoaded, retryCount]);
 
   return { containerRef, isVisible, isLoaded };
 };

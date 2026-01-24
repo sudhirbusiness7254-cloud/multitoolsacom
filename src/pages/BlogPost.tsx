@@ -1489,6 +1489,15 @@ const BlogPost = () => {
                   View All Articles <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
+              
+              {/* Ads Section */}
+              <div className="mt-10 space-y-4">
+                <AdExoticFat />
+                <AdVideo />
+                <AdInline />
+                <AdBottom />
+                <AdExoticFat />
+              </div>
             </div>
           </div>
         </article>
