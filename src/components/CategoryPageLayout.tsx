@@ -390,6 +390,11 @@ const CategoryPageLayout = ({
             </div>
           </section>
 
+          {/* Native Banner Ad - Middle of page */}
+          <div className="container mx-auto max-w-4xl px-4">
+            <NativeBannerAd />
+          </div>
+
           {/* Ad placement between sections */}
           <div className="container mx-auto max-w-4xl px-4">
             <InContentAd />
