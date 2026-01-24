@@ -8,7 +8,7 @@ import { toolCategories, Category } from "@/data/toolsData";
 import { CategorySEOContent } from "@/data/categorySEOData";
 import HreflangTags from "@/components/HreflangTags";
 import RelatedArticles from "@/components/RelatedArticles";
-import { AdBottom, AdVideo, AdInline } from "@/components/ads/AdContainer";
+import { AdBottom, AdVideo, AdInline, AdExoticFat } from "@/components/ads/AdContainer";
 import { HilltopBanner, HilltopSquare, HilltopResponsive } from "@/components/ads/HilltopAds";
 
 interface CategoryPageLayoutProps {
@@ -216,10 +216,10 @@ const CategoryPageLayout = ({
               </div>
               
               {/* Ad - After Tools Grid */}
-              <AdVideo className="mt-6" />
+              <AdExoticFat className="mt-6" />
               
               {/* Inline Ad - After Tools Grid */}
-              <AdInline className="mt-4" />
+              <AdExoticFat className="mt-4" />
             </div>
           </section>
 
@@ -248,7 +248,7 @@ const CategoryPageLayout = ({
               </div>
               
               {/* Ad - After Who Uses */}
-              <AdBottom className="mt-6" />
+              <AdExoticFat className="mt-6" />
             </div>
           </section>
 
@@ -285,11 +285,11 @@ const CategoryPageLayout = ({
                 <p className="text-sm text-muted-foreground">{categoryUniqueContent.whenNotToUse}</p>
               </div>
               
-              {/* HilltopAds - After Use Cases */}
-              <HilltopResponsive theme="make_big_money" className="mt-6" />
+              {/* Ad - After Use Cases */}
+              <AdExoticFat className="mt-6" />
               
               {/* Inline Ad - After Use Cases */}
-              <AdInline className="mt-4" />
+              <AdExoticFat className="mt-4" />
             </div>
           </section>
 
@@ -333,7 +333,7 @@ const CategoryPageLayout = ({
               </div>
               
               {/* Ad - After Benefits */}
-              <AdVideo className="mt-6" />
+              <AdExoticFat className="mt-6" />
             </div>
           </section>
 
@@ -372,7 +372,7 @@ const CategoryPageLayout = ({
               </Accordion>
               
               {/* Ad - After FAQ */}
-              <AdInline className="mt-6" />
+              <AdExoticFat className="mt-6" />
             </div>
           </section>
 
