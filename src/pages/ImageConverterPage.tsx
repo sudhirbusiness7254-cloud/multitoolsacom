@@ -34,6 +34,10 @@ import {
 } from "@/components/ui/accordion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import HreflangTags from "@/components/HreflangTags";
+import ToolSideAd from "@/components/ads/ToolSideAd";
+import MobileToolAd from "@/components/ads/MobileToolAd";
+import NativeBannerAd from "@/components/ads/NativeBannerAd";
+import InContentAd from "@/components/ads/InContentAd";
 
 const conversionMeta: Record<string, { title: string; description: string; h1: string; fromFormat: string; toFormat: string }> = {
   "jpg-to-png": {
@@ -293,29 +297,79 @@ const ImageConverterPage = () => {
                 </p>
               </div>
 
-              {/* Mode Tabs */}
-              <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full max-w-4xl mx-auto">
-                <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-8">
-                  <TabsTrigger value="single" className="gap-2">
-                    <Image className="w-4 h-4" />
-                    Single Image
-                  </TabsTrigger>
-                  <TabsTrigger value="batch" className="gap-2">
-                    <Layers className="w-4 h-4" />
-                    Batch Mode
-                  </TabsTrigger>
-                </TabsList>
+              {/* Mode Tabs with Side Ads */}
+              <div className="w-full max-w-[1400px] mx-auto">
+                {/* Desktop: Tool with ads on both sides */}
+                <div className="hidden xl:flex gap-4 justify-center items-start">
+                  {/* Left Side Ad */}
+                  <div className="flex-shrink-0 sticky top-24">
+                    <ToolSideAd />
+                  </div>
+                  
+                  {/* Tool Component */}
+                  <div className="flex-1 max-w-4xl">
+                    <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+                      <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-8">
+                        <TabsTrigger value="single" className="gap-2">
+                          <Image className="w-4 h-4" />
+                          Single Image
+                        </TabsTrigger>
+                        <TabsTrigger value="batch" className="gap-2">
+                          <Layers className="w-4 h-4" />
+                          Batch Mode
+                        </TabsTrigger>
+                      </TabsList>
+                      
+                      <TabsContent value="single" className="mt-0">
+                        <ImageConverter preselectedConversion={preselectedFormat} />
+                      </TabsContent>
+                      
+                      <TabsContent value="batch" className="mt-0">
+                        <BatchImageConverter />
+                      </TabsContent>
+                    </Tabs>
+                  </div>
+                  
+                  {/* Right Side Ad */}
+                  <div className="flex-shrink-0 sticky top-24">
+                    <ToolSideAd />
+                  </div>
+                </div>
                 
-                <TabsContent value="single" className="mt-0">
-                  <ImageConverter preselectedConversion={preselectedFormat} />
-                </TabsContent>
+                {/* Mobile/Tablet/Laptop: Tool only */}
+                <div className="xl:hidden">
+                  <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full max-w-4xl mx-auto">
+                    <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-8">
+                      <TabsTrigger value="single" className="gap-2">
+                        <Image className="w-4 h-4" />
+                        Single Image
+                      </TabsTrigger>
+                      <TabsTrigger value="batch" className="gap-2">
+                        <Layers className="w-4 h-4" />
+                        Batch Mode
+                      </TabsTrigger>
+                    </TabsList>
+                    
+                    <TabsContent value="single" className="mt-0">
+                      <ImageConverter preselectedConversion={preselectedFormat} />
+                    </TabsContent>
+                    
+                    <TabsContent value="batch" className="mt-0">
+                      <BatchImageConverter />
+                    </TabsContent>
+                  </Tabs>
+                </div>
                 
-                <TabsContent value="batch" className="mt-0">
-                  <BatchImageConverter />
-                </TabsContent>
-              </Tabs>
+                {/* Mobile Ad - Below tool */}
+                <MobileToolAd />
+              </div>
             </div>
           </section>
+
+          {/* Native Banner Ad */}
+          <div className="container mx-auto max-w-4xl px-4">
+            <NativeBannerAd />
+          </div>
 
           {/* Format-Specific Comprehensive Article Section */}
           {activeConversion && conversionArticles[activeConversion] && (
