@@ -299,15 +299,15 @@ const ImageConverterPage = () => {
 
               {/* Mode Tabs with Side Ads */}
               <div className="w-full max-w-[1400px] mx-auto">
-                {/* Desktop: Tool with ads on both sides */}
-                <div className="hidden xl:flex gap-4 justify-center items-start">
+                {/* Desktop/Laptop: Tool with ads on both sides */}
+                <div className="hidden lg:flex gap-4 justify-center items-start">
                   {/* Left Side Ad */}
                   <div className="flex-shrink-0 sticky top-24">
                     <ToolSideAd />
                   </div>
                   
                   {/* Tool Component */}
-                  <div className="flex-1 max-w-4xl">
+                  <div className="flex-1 max-w-3xl">
                     <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
                       <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-8">
                         <TabsTrigger value="single" className="gap-2">
@@ -336,8 +336,8 @@ const ImageConverterPage = () => {
                   </div>
                 </div>
                 
-                {/* Mobile/Tablet/Laptop: Tool only */}
-                <div className="xl:hidden">
+                {/* Mobile/Tablet: Tool only */}
+                <div className="lg:hidden">
                   <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full max-w-4xl mx-auto">
                     <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-8">
                       <TabsTrigger value="single" className="gap-2">
@@ -358,10 +358,9 @@ const ImageConverterPage = () => {
                       <BatchImageConverter />
                     </TabsContent>
                   </Tabs>
+                  {/* Mobile Ad - Below tool */}
+                  <MobileToolAd />
                 </div>
-                
-                {/* Mobile Ad - Below tool */}
-                <MobileToolAd />
               </div>
             </div>
           </section>
