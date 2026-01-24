@@ -8,6 +8,8 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import DragDropUpload from "@/components/DragDropUpload";
 import ImageComparisonSlider from "@/components/ImageComparisonSlider";
 import { toast } from "sonner";
+import NativeBannerAd from "@/components/ads/NativeBannerAd";
+import MobileNativeAd from "@/components/ads/MobileNativeAd";
 
 type OutputFormat = 'auto' | 'jpeg' | 'webp' | 'png';
 
@@ -233,13 +235,20 @@ const UniversalImageCompressor = () => {
     <div className="space-y-8">
       {/* Main Upload Area */}
       {!originalFile ? (
-        <div className="bg-card/50 backdrop-blur rounded-3xl border-2 border-dashed border-border hover:border-primary/50 transition-colors p-8 md:p-12">
-          <DragDropUpload 
-            onFileSelect={handleFileSelect}
-            accept="image/*,.heic,.avif,.tiff,.tif,.bmp"
-            maxSize={50}
-          />
-        </div>
+        <>
+          <div className="bg-card/50 backdrop-blur rounded-3xl border-2 border-dashed border-border hover:border-primary/50 transition-colors p-8 md:p-12">
+            <DragDropUpload 
+              onFileSelect={handleFileSelect}
+              accept="image/*,.heic,.avif,.tiff,.tif,.bmp"
+              maxSize={50}
+            />
+          </div>
+          {/* Native Banner Ad - Below upload area */}
+          <div className="hidden lg:block mt-4">
+            <NativeBannerAd />
+          </div>
+          <MobileNativeAd className="mt-4" />
+        </>
       ) : (
         <div className="space-y-6">
           {/* File Info Card */}

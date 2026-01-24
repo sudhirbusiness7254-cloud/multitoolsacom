@@ -6,6 +6,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import DragDropUpload from "@/components/DragDropUpload";
 import { Download, RotateCcw, Type, Image as ImageIcon, Upload, X } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
+import NativeBannerAd from "@/components/ads/NativeBannerAd";
+import MobileNativeAd from "@/components/ads/MobileNativeAd";
 
 type WatermarkMode = "text" | "image";
 type Position = "top-left" | "top-right" | "bottom-left" | "bottom-right" | "center" | "tile";
@@ -164,13 +166,20 @@ const UniversalWatermark = ({ initialMode = "text" }: UniversalWatermarkProps) =
       <canvas ref={canvasRef} className="hidden" />
 
       {!file ? (
-        <div className="space-y-4">
-          <div className="text-center mb-4">
-            <h3 className="text-lg font-semibold">Upload Your Photo</h3>
-            <p className="text-sm text-muted-foreground">Select the main image you want to add a watermark to</p>
+        <>
+          <div className="space-y-4">
+            <div className="text-center mb-4">
+              <h3 className="text-lg font-semibold">Upload Your Photo</h3>
+              <p className="text-sm text-muted-foreground">Select the main image you want to add a watermark to</p>
+            </div>
+            <DragDropUpload onFileSelect={handleFileSelect} accept="image/*" />
           </div>
-          <DragDropUpload onFileSelect={handleFileSelect} accept="image/*" />
-        </div>
+          {/* Native Banner Ad - Below upload area */}
+          <div className="hidden lg:block mt-4">
+            <NativeBannerAd />
+          </div>
+          <MobileNativeAd className="mt-4" />
+        </>
       ) : (
         <div className="space-y-6">
           {/* Mode Toggle */}

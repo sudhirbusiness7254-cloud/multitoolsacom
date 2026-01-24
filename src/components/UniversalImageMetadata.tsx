@@ -4,6 +4,8 @@ import DragDropUpload from "@/components/DragDropUpload";
 import { Download, RotateCcw, Eye, Trash2, Copy, MapPin, Camera, Settings } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
 import EXIF from "exif-js";
+import NativeBannerAd from "@/components/ads/NativeBannerAd";
+import MobileNativeAd from "@/components/ads/MobileNativeAd";
 
 type MetadataMode = "view" | "remove" | "copy";
 
@@ -278,7 +280,14 @@ const UniversalImageMetadata = ({ initialMode = "view" }: UniversalImageMetadata
   return (
     <div className="bg-card rounded-2xl border border-border p-6">
       {!file ? (
-        <DragDropUpload onFileSelect={handleFileSelect} accept="image/*" />
+        <>
+          <DragDropUpload onFileSelect={handleFileSelect} accept="image/*" />
+          {/* Native Banner Ad - Below upload area */}
+          <div className="hidden lg:block mt-4">
+            <NativeBannerAd />
+          </div>
+          <MobileNativeAd className="mt-4" />
+        </>
       ) : (
         <div className="space-y-6">
           {/* Mode Selection */}

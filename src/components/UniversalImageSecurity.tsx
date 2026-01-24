@@ -6,6 +6,8 @@ import DragDropUpload from "@/components/DragDropUpload";
 import { Download, RotateCcw, Eye, EyeOff, Lock, Unlock, Grid, Loader2, Shield } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
 import { createEncryptedCanvas, decryptCanvasImage } from "@/lib/imageCrypto";
+import NativeBannerAd from "@/components/ads/NativeBannerAd";
+import MobileNativeAd from "@/components/ads/MobileNativeAd";
 
 type SecurityMode = "blur" | "pixelate" | "hide" | "encrypt" | "decrypt";
 
@@ -287,7 +289,14 @@ const UniversalImageSecurity = ({ initialMode = "blur" }: UniversalImageSecurity
   return (
     <div className="bg-card rounded-2xl border border-border p-4 sm:p-6">
       {!file ? (
-        <DragDropUpload onFileSelect={handleFileSelect} accept="image/*" />
+        <>
+          <DragDropUpload onFileSelect={handleFileSelect} accept="image/*" />
+          {/* Native Banner Ad - Below upload area */}
+          <div className="hidden lg:block mt-4">
+            <NativeBannerAd />
+          </div>
+          <MobileNativeAd className="mt-4" />
+        </>
       ) : (
         <div className="space-y-4 sm:space-y-6">
           {/* Mode Selection */}
