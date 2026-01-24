@@ -134,15 +134,15 @@ const ImageMetadataPage = () => {
                 </p>
               </div>
 
-              {/* Desktop: Tool with ads on both sides */}
-              <div className="hidden xl:flex gap-4 justify-center items-start">
+              {/* Desktop/Laptop: Tool with ads on both sides */}
+              <div className="hidden lg:flex gap-4 justify-center items-start">
                 {/* Left Side Ad */}
                 <div className="flex-shrink-0 sticky top-24">
                   <ToolSideAd />
                 </div>
                 
                 {/* Tool Component */}
-                <div className="flex-1 max-w-4xl">
+                <div className="flex-1 max-w-3xl">
                   <UniversalImageMetadata />
                 </div>
                 
@@ -152,13 +152,12 @@ const ImageMetadataPage = () => {
                 </div>
               </div>
               
-              {/* Mobile/Tablet/Laptop: Tool only */}
-              <div className="xl:hidden">
+              {/* Mobile/Tablet: Tool only */}
+              <div className="lg:hidden">
                 <UniversalImageMetadata />
+                {/* Mobile Ad - Below tool */}
+                <MobileToolAd />
               </div>
-              
-              {/* Mobile Ad - Below tool */}
-              <MobileToolAd />
             </div>
           </section>
 

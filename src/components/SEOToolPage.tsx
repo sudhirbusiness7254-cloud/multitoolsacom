@@ -694,15 +694,15 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
 
               {/* Tool Component with Side Ads on Desktop */}
               <div className="mb-12">
-                {/* Desktop: Tool with ads on both sides */}
-                <div className="hidden xl:flex gap-4 justify-center items-start">
+                {/* Desktop/Laptop: Tool with ads on both sides */}
+                <div className="hidden lg:flex gap-4 justify-center items-start">
                   {/* Left Side Ad */}
                   <div className="flex-shrink-0 sticky top-24">
                     <ToolSideAd />
                   </div>
                   
                   {/* Tool Component */}
-                  <div className="flex-1 max-w-4xl">
+                  <div className="flex-1 max-w-3xl">
                     {children}
                   </div>
                   
@@ -712,13 +712,12 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                   </div>
                 </div>
                 
-                {/* Mobile/Tablet/Laptop: Tool only */}
-                <div className="xl:hidden">
+                {/* Mobile/Tablet: Tool only */}
+                <div className="lg:hidden">
                   {children}
+                  {/* Mobile Ad - Below tool */}
+                  <MobileToolAd />
                 </div>
-                
-                {/* Mobile Ad - Below tool dropdown */}
-                <MobileToolAd />
               </div>
 
               {/* Ad placement after tool */}
