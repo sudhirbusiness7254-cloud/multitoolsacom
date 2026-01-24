@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import HreflangTags from "@/components/HreflangTags";
 import AIImageUpscaler from "@/components/ai-tools/AIImageUpscaler";
 import ImageComparisonSlider from "@/components/ImageComparisonSlider";
-import { AdBottom, AdVideo, AdInline } from "@/components/ads/AdContainer";
+import { AdBottom, AdVideo, AdInline, AdExoticFat } from "@/components/ads/AdContainer";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Sparkles, Zap, Shield, Download, Image, Star, CheckCircle, Maximize, Monitor, Printer, Share2 } from "lucide-react";
 import {

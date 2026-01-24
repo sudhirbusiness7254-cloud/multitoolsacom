@@ -5,7 +5,7 @@ import UniversalImageMetadata from "@/components/UniversalImageMetadata";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CheckCircle, Shield, Zap, FileText, Lock, Eye, Settings, Info, Trash2, Calendar, Copy, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { AdVideo, AdInline, AdBottom } from "@/components/ads/AdContainer";
+import { AdVideo, AdInline, AdBottom, AdExoticFat } from "@/components/ads/AdContainer";
 
 const ImageMetadataPage = () => {
   const faqs = [

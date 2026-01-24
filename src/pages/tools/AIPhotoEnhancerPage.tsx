@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import HreflangTags from "@/components/HreflangTags";
 import AIPhotoEnhancer from "@/components/ai-tools/AIPhotoEnhancer";
 import ImageComparisonSlider from "@/components/ImageComparisonSlider";
-import { AdBottom, AdVideo, AdInline } from "@/components/ads/AdContainer";
+import { AdBottom, AdVideo, AdInline, AdExoticFat } from "@/components/ads/AdContainer";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Sparkles, Zap, Shield, Download, Image, Star, CheckCircle, Camera, Palette, Monitor, Eye } from "lucide-react";
 import {
@@ -143,8 +143,11 @@ const AIPhotoEnhancerPage = () => {
             <div className="w-full max-w-5xl xl:max-w-6xl mx-auto">
               <AIPhotoEnhancer />
               
+              {/* ExoticFat Ads - Primary Monetization */}
+              <AdExoticFat className="mt-6" />
+              <AdExoticFat className="mt-4" />
               {/* Ads below tool */}
-              <AdBottom className="mt-6" />
+              <AdBottom className="mt-4" />
               <AdVideo className="mt-4" />
             </div>
           </section>

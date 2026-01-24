@@ -5,7 +5,7 @@ import { getCategoryBySlug } from "@/data/toolsData";
 import { getCategorySEOContent } from "@/data/categorySEOData";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CheckCircle, Shield, Zap, Layers, Lock, Eye, Settings, Grid } from "lucide-react";
-import { AdVideo, AdInline } from "@/components/ads/AdContainer";
+import { AdVideo, AdInline, AdExoticFat } from "@/components/ads/AdContainer";
 
 const ImageCombinePage = () => {
   const category = getCategoryBySlug("image-combine")!;

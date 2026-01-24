@@ -5,7 +5,7 @@ import { getCategoryBySlug } from "@/data/toolsData";
 import { getCategorySEOContent } from "@/data/categorySEOData";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CheckCircle, Shield, Zap, QrCode, Lock, Eye, Settings, Scan } from "lucide-react";
-import { AdVideo, AdInline } from "@/components/ads/AdContainer";
+import { AdVideo, AdInline, AdExoticFat } from "@/components/ads/AdContainer";
 
 const ImageQRPage = () => {
   const category = getCategoryBySlug("image-qr")!;
