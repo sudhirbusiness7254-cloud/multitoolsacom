@@ -7,6 +7,7 @@ import ImageConverter from "@/components/ImageConverter";
 import BatchImageConverter from "@/components/BatchImageConverter";
 import PromptToImage from "@/components/PromptToImage";
 import { AdBottom, AdVideo, AdInline } from "@/components/ads/AdContainer";
+import { HilltopBanner, HilltopResponsive, HilltopSquare, HilltopAdGrid } from "@/components/ads/HilltopAds";
 import { 
   Image, 
   Zap, 
@@ -206,7 +207,8 @@ const ImageToolsPage = () => {
               
               {/* Ads below tool */}
               <div className="max-w-5xl mx-auto mt-8">
-                <AdBottom />
+                <HilltopResponsive theme="huge_income" />
+                <AdBottom className="mt-4" />
                 <AdVideo className="mt-4" />
               </div>
             </div>
@@ -250,6 +252,9 @@ const ImageToolsPage = () => {
                   </Link>
                 ))}
               </div>
+              
+              {/* HilltopAds - After Conversion Grid */}
+              <HilltopAdGrid className="mt-8" />
             </div>
           </section>
 
@@ -293,6 +298,9 @@ const ImageToolsPage = () => {
                   </div>
                 ))}
               </div>
+              
+              {/* HilltopAds - After How It Works */}
+              <HilltopBanner theme="get_high_ecpm" className="mt-8" />
             </div>
           </section>
 
@@ -350,6 +358,9 @@ const ImageToolsPage = () => {
                   </div>
                 ))}
               </div>
+              
+              {/* HilltopAds - After Formats */}
+              <HilltopResponsive theme="make_big_money" className="mt-8" />
             </div>
           </section>
 
@@ -406,6 +417,9 @@ const ImageToolsPage = () => {
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
+              
+              {/* HilltopAds - After FAQ */}
+              <HilltopBanner theme="huge_income" className="mt-8" />
             </div>
           </section>
 
@@ -437,6 +451,13 @@ const ImageToolsPage = () => {
                   </p>
                 </div>
               </article>
+              
+              {/* HilltopAds - Cards After Article */}
+              <div className="flex flex-wrap justify-center gap-4 mt-8">
+                <HilltopSquare theme="huge_income" />
+                <HilltopSquare theme="get_high_ecpm" />
+                <HilltopSquare theme="make_big_money" className="hidden lg:flex" />
+              </div>
             </div>
           </section>
         </main>

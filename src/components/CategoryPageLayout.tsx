@@ -246,6 +246,12 @@ const CategoryPageLayout = ({
                   </div>
                 ))}
               </div>
+              
+              {/* HilltopAds - Cards after Who Uses */}
+              <div className="flex flex-wrap justify-center gap-4 mt-6">
+                <HilltopSquare theme="huge_income" />
+                <HilltopSquare theme="get_high_ecpm" />
+              </div>
             </div>
           </section>
 
@@ -328,6 +334,9 @@ const CategoryPageLayout = ({
                   </span>
                 ))}
               </div>
+              
+              {/* HilltopAds - Banner after Benefits */}
+              <HilltopBanner theme="make_big_money" className="mt-6" />
             </div>
           </section>
 
@@ -364,6 +373,9 @@ const CategoryPageLayout = ({
                   </AccordionItem>
                 ))}
               </Accordion>
+              
+              {/* HilltopAds - After FAQ */}
+              <HilltopResponsive theme="huge_income" className="mt-6" />
             </div>
           </section>
 

@@ -625,6 +625,13 @@ const HomePage = () => {
                 </div>
               </div>
               
+              {/* HilltopAds Cards - After Why Choose Us Grid */}
+              <div className="flex flex-wrap justify-center gap-4 mt-6">
+                <HilltopSquare theme="huge_income" />
+                <HilltopSquare theme="get_high_ecpm" />
+                <HilltopSquare theme="make_big_money" className="hidden lg:flex" />
+              </div>
+              
               {/* HilltopAds - After Why Choose Us */}
               <HilltopBanner theme="huge_income" className="mt-6" />
               
@@ -792,14 +799,21 @@ const HomePage = () => {
                 </Link>
               </div>
               
+              {/* HilltopAds Cards - After Resources Grid */}
+              <div className="flex flex-wrap justify-center gap-4 mt-8">
+                <HilltopSquare theme="make_big_money" />
+                <HilltopSquare theme="get_high_ecpm" />
+              </div>
+              
               {/* Ad after Resources */}
-              <AdVideo className="mt-10" />
+              <AdVideo className="mt-6" />
             </div>
           </section>
           
           {/* Inline Ad before Final CTA */}
           <section className="py-6 px-4 sm:px-6 lg:px-8 xl:px-12 bg-secondary/20">
             <div className="container mx-auto max-w-7xl 2xl:max-w-[1600px]">
+              <HilltopResponsive theme="huge_income" className="mb-4" />
               <AdBottom />
             </div>
           </section>
