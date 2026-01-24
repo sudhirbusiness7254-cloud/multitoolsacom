@@ -135,10 +135,10 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
             </ol>
           </nav>
 
-          {/* Hero Section with SEO Content Above the Fold */}
+          {/* Hero Section - Tool First */}
           <section className="py-6 md:py-10">
             <div className="container mx-auto px-4 max-w-6xl">
-              {/* Title and Description - Always visible first */}
+              {/* Title Only */}
               <div className="text-center mb-6">
                 <div 
                   className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-4"
@@ -153,37 +153,37 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
                   {comprehensiveContent?.h1 || seoContent.h1}
                 </h1>
-                <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-4">
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                   {seoContent.shortDescription}
                 </p>
-                
-                {/* SEO-rich description visible immediately on page load */}
-                <div className="text-left max-w-3xl mx-auto bg-card rounded-xl border border-border p-6 mb-8">
-                  <h2 className="text-xl font-semibold mb-3 flex items-center gap-2">
-                    <BookOpen className="w-5 h-5" style={{ color: seoContent.gradientFrom }} />
-                    What is {seoContent.title}?
-                  </h2>
-                  <p className="text-muted-foreground leading-relaxed mb-4">
-                    {hasComprehensive && comprehensiveContent.introduction 
-                      ? comprehensiveContent.introduction 
-                      : seoContent.longDescription}
-                  </p>
-                  
-                  {/* Quick benefits list - visible above fold */}
-                  <div className="grid grid-cols-2 gap-2 mt-4">
-                    {(hasComprehensive ? comprehensiveContent.benefits.slice(0, 4) : seoContent.benefits.slice(0, 4)).map((benefit, index) => (
-                      <div key={index} className="flex items-center gap-2 text-sm">
-                        <CheckCircle className="w-4 h-4 flex-shrink-0" style={{ color: seoContent.gradientFrom }} />
-                        <span>{benefit}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
               </div>
 
-              {/* Tool Component */}
+              {/* Tool Component First */}
               <div className="mb-12">
                 {children}
+              </div>
+              
+              {/* SEO Description Below Tool */}
+              <div className="text-left max-w-4xl mx-auto bg-card rounded-xl border border-border p-6">
+                <h2 className="text-xl font-semibold mb-3 flex items-center gap-2">
+                  <BookOpen className="w-5 h-5" style={{ color: seoContent.gradientFrom }} />
+                  What is {seoContent.title}?
+                </h2>
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  {hasComprehensive && comprehensiveContent.introduction 
+                    ? comprehensiveContent.introduction 
+                    : seoContent.longDescription}
+                </p>
+                
+                {/* Quick benefits list */}
+                <div className="grid grid-cols-2 gap-2 mt-4">
+                  {(hasComprehensive ? comprehensiveContent.benefits.slice(0, 4) : seoContent.benefits.slice(0, 4)).map((benefit, index) => (
+                    <div key={index} className="flex items-center gap-2 text-sm">
+                      <CheckCircle className="w-4 h-4 flex-shrink-0" style={{ color: seoContent.gradientFrom }} />
+                      <span>{benefit}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </section>
