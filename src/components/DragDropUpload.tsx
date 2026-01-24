@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 import { Upload, X, Image as ImageIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { AdVideo, AdNative } from "@/components/ads/AdContainer";
+import { AdVideo, AdNative, AdPush } from "@/components/ads/AdContainer";
 
 interface DragDropUploadProps {
   onFileSelect: (file: File) => void;
@@ -160,6 +160,9 @@ const DragDropUpload = ({
       
       {/* Native Ad - Below Video Ad */}
       <AdNative className="mt-3" />
+      
+      {/* Push/Notification Ad */}
+      <AdPush />
     </div>
   );
 };
