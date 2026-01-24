@@ -5,7 +5,7 @@ import UniversalImageMetadata from "@/components/UniversalImageMetadata";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CheckCircle, Shield, Zap, FileText, Lock, Eye, Settings, Info, Trash2, Calendar, Copy, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { AdVideo, AdInline, AdBottom, AdExoticFat } from "@/components/ads/AdContainer";
+import { AdVideo, AdInline, AdBottom, AdExoticFat, AdUnit1, AdUnit2, AdUnit3, AdUnit4, AdUnit5, AdUnit6 } from "@/components/ads/AdContainer";
 
 const ImageMetadataPage = () => {
   const faqs = [
@@ -135,7 +135,12 @@ const ImageMetadataPage = () => {
               
               {/* Video Ad - Below Tool Output */}
               <AdVideo className="mt-6" />
+              <AdExoticFat className="mt-4" />
+              <AdUnit1 className="mt-4" />
               <AdBottom className="mt-4" />
+              <AdUnit2 className="mt-4" />
+              <AdInline className="mt-4" />
+              <AdUnit3 className="mt-4" />
             </div>
           </section>
 

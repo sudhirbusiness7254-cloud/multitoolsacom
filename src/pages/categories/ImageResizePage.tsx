@@ -9,7 +9,7 @@ import { getCategorySEOContent } from "@/data/categorySEOData";
 import { getToolGuideData } from "@/data/toolGuideData";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Image, Layers } from "lucide-react";
-import { AdVideo, AdInline, AdExoticFat } from "@/components/ads/AdContainer";
+import { AdVideo, AdInline, AdExoticFat, AdUnit1, AdUnit2, AdUnit3, AdUnit4, AdUnit5, AdUnit6 } from "@/components/ads/AdContainer";
 
 const ImageResizePage = () => {
   const [activeTab, setActiveTab] = useState("single");
@@ -63,18 +63,26 @@ const ImageResizePage = () => {
             <UniversalImageResizer />
             {/* ExoticFat Ads - Primary Monetization */}
             <AdExoticFat className="mt-6" />
+            <AdUnit1 className="mt-4" />
             <AdExoticFat className="mt-4" />
+            <AdUnit2 className="mt-4" />
             {/* Video Ad - Below Tool Output */}
             <AdVideo className="mt-4" />
+            <AdUnit3 className="mt-4" />
+            <AdInline className="mt-4" />
           </TabsContent>
           
           <TabsContent value="batch" className="mt-0">
             <BatchImageResizer />
             {/* ExoticFat Ads - Primary Monetization */}
             <AdExoticFat className="mt-6" />
+            <AdUnit4 className="mt-4" />
             <AdExoticFat className="mt-4" />
+            <AdUnit5 className="mt-4" />
             {/* Video Ad - Below Tool Output */}
             <AdVideo className="mt-4" />
+            <AdUnit6 className="mt-4" />
+            <AdInline className="mt-4" />
           </TabsContent>
         </Tabs>
 

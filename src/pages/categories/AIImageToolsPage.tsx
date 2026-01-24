@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HreflangTags from "@/components/HreflangTags";
-import { AdBottom, AdVideo, AdInline, AdExoticFat } from "@/components/ads/AdContainer";
+import { AdBottom, AdVideo, AdInline, AdExoticFat, AdUnit1, AdUnit2, AdUnit3, AdUnit4, AdUnit5, AdUnit6 } from "@/components/ads/AdContainer";
 import { Link } from "react-router-dom";
 import { Sparkles, Wand2, ArrowUpCircle, History, Zap, Shield, Download, Users, Palette, Smile, ChevronRight, Star, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -286,9 +286,14 @@ const AIImageToolsPage = () => {
               
               {/* Ads - After Tools Grid */}
               <div className="max-w-4xl mx-auto mt-10">
-                <AdInline />
+                <AdExoticFat />
+                <AdUnit1 className="mt-4" />
+                <AdInline className="mt-4" />
+                <AdUnit2 className="mt-4" />
                 <AdBottom className="mt-4" />
+                <AdUnit3 className="mt-4" />
                 <AdVideo className="mt-4" />
+                <AdUnit4 className="mt-4" />
               </div>
             </div>
           </section>
