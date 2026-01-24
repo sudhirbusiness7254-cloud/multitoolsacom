@@ -320,6 +320,11 @@ const HomePage = () => {
                   </div>
                 </div>
               </div>
+              
+              {/* Inline Ads - Below Hero Badges */}
+              <div className="mt-8 flex justify-center">
+                <AdInline className="max-w-2xl" />
+              </div>
             </div>
           </section>
 
@@ -368,6 +373,14 @@ const HomePage = () => {
               <AdExoticFat className="mt-6 sm:mt-8" />
               <AdExoticFat className="mt-4" />
               <AdExoticFat className="mt-3 sm:mt-4" />
+            </div>
+          </section>
+
+          {/* Ad Section - Between Popular Tools and Categories */}
+          <section className="py-4 px-4 sm:px-6 lg:px-8 xl:px-12">
+            <div className="container mx-auto max-w-6xl flex flex-col items-center gap-4">
+              <AdInline />
+              <AdBottom />
             </div>
           </section>
 
@@ -428,8 +441,14 @@ const HomePage = () => {
               {/* ExoticFat Ad - After Categories */}
               <AdExoticFat className="mt-6" />
               
+              {/* Inline Ad - After Categories */}
+              <AdInline className="mt-4" />
+              
               {/* ExoticFat Ad - After Categories */}
               <AdExoticFat className="mt-4 sm:mt-6" />
+              
+              {/* Bottom Ad - After Categories */}
+              <AdBottom className="mt-4" />
             </div>
           </section>
 
@@ -581,8 +600,14 @@ const HomePage = () => {
               {/* ExoticFat Ad - After How It Works */}
               <AdExoticFat className="mt-6" />
               
+              {/* Inline Ad - After How It Works */}
+              <AdInline className="mt-4" />
+              
               {/* ExoticFat Ad - After How It Works */}
               <AdExoticFat className="mt-4 sm:mt-6" />
+              
+              {/* Bottom Ad - After How It Works */}
+              <AdBottom className="mt-4" />
             </div>
           </section>
 
@@ -637,13 +662,18 @@ const HomePage = () => {
               
               {/* Ad after Why Choose Us */}
               <AdBottom className="mt-4" />
+              
+              {/* Inline Ad - After Why Choose Us */}
+              <AdInline className="mt-4" />
             </div>
           </section>
           
-          {/* Additional ExoticFat Ad Section */}
+          {/* Additional Ads Section */}
           <section className="py-6 px-4 sm:px-6">
-            <div className="container mx-auto max-w-6xl">
+            <div className="container mx-auto max-w-6xl flex flex-col items-center gap-4">
               <AdExoticFat />
+              <AdInline />
+              <AdBottom />
             </div>
           </section>
 
@@ -700,8 +730,14 @@ const HomePage = () => {
               {/* ExoticFat Ad - After Blog Posts */}
               <AdExoticFat className="mt-6" />
               
+              {/* Inline Ad - After Blog Posts */}
+              <AdInline className="mt-4" />
+              
               {/* Ad after Blog Posts */}
               <AdExoticFat className="mt-4" />
+              
+              {/* Bottom Ad - After Blog Posts */}
+              <AdBottom className="mt-4" />
             </div>
           </section>
 
@@ -804,16 +840,24 @@ const HomePage = () => {
                 <AdExoticFat />
               </div>
               
+              {/* Inline Ad - After Resources */}
+              <AdInline className="mt-4" />
+              
               {/* Ad after Resources */}
               <AdExoticFat className="mt-6" />
+              
+              {/* Bottom Ad - After Resources */}
+              <AdBottom className="mt-4" />
             </div>
           </section>
           
           {/* ExoticFat Ad before Final CTA */}
           <section className="py-6 px-4 sm:px-6 lg:px-8 xl:px-12 bg-secondary/20">
-            <div className="container mx-auto max-w-7xl 2xl:max-w-[1600px]">
+            <div className="container mx-auto max-w-7xl 2xl:max-w-[1600px] flex flex-col items-center gap-4">
               <AdExoticFat className="mb-4" />
+              <AdInline />
               <AdExoticFat />
+              <AdBottom />
             </div>
           </section>
 
