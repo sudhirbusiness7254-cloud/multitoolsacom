@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { toolCategories } from "@/data/toolsData";
 import logo from "@/assets/logo-icon.png";
+import NativeBannerAd from "@/components/ads/NativeBannerAd";
 
 const Footer = () => {
   const imageCategories = toolCategories.filter(cat => cat.id !== "tag-tools").sort((a, b) => a.priority - b.priority);
@@ -15,6 +16,11 @@ const Footer = () => {
 
   return (
     <footer className="bg-card border-t border-border mt-8 sm:mt-12 md:mt-16">
+      {/* Native Banner Ad - Top of Footer */}
+      <div className="container mx-auto px-4 pt-6">
+        <NativeBannerAd />
+      </div>
+      
       <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-10 md:py-12">
         {/* Main Footer Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8 mb-8 sm:mb-10">
