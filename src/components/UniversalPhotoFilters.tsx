@@ -4,6 +4,8 @@ import { Slider } from "@/components/ui/slider";
 import DragDropUpload from "@/components/DragDropUpload";
 import { Download, RotateCcw, Sun, Contrast, Droplets, Sparkles, Snowflake, Flame, Image as ImageIcon, CircleOff } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
+import NativeBannerAd from "@/components/ads/NativeBannerAd";
+import MobileNativeAd from "@/components/ads/MobileNativeAd";
 
 type FilterMode = "brightness" | "contrast" | "saturation" | "sharpen" | "blur" | "gaussian-blur" | "emboss" | "smooth" | "pixelate" | "sepia" | "negative" | "vintage" | "warm" | "cool";
 
@@ -226,7 +228,14 @@ const UniversalPhotoFilters = ({ initialMode = "brightness" }: UniversalPhotoFil
       <canvas ref={canvasRef} className="hidden" />
       
       {!file ? (
-        <DragDropUpload onFileSelect={handleFileSelect} accept="image/*" />
+        <>
+          <DragDropUpload onFileSelect={handleFileSelect} accept="image/*" />
+          {/* Native Banner Ad - Below upload area */}
+          <div className="hidden lg:block mt-4">
+            <NativeBannerAd />
+          </div>
+          <MobileNativeAd className="mt-4" />
+        </>
       ) : (
         <div className="space-y-6">
           {/* Mode Selection */}

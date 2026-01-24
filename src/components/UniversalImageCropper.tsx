@@ -6,6 +6,8 @@ import { Progress } from "@/components/ui/progress";
 import { toast } from "sonner";
 import DragDropUpload from "./DragDropUpload";
 import { Download, Square, Circle, RectangleHorizontal, Monitor, Image, Crop, RotateCcw } from "lucide-react";
+import NativeBannerAd from "@/components/ads/NativeBannerAd";
+import MobileNativeAd from "@/components/ads/MobileNativeAd";
 
 type CropMode = "free" | "1:1" | "4:3" | "16:9" | "3:2" | "9:16" | "circle";
 
@@ -308,7 +310,14 @@ const UniversalImageCropper = ({ initialMode = "free" }: UniversalImageCropperPr
 
       {/* Upload Area */}
       {!file ? (
-        <DragDropUpload onFileSelect={handleFileSelect} accept="image/*" />
+        <>
+          <DragDropUpload onFileSelect={handleFileSelect} accept="image/*" />
+          {/* Native Banner Ad - Below upload area */}
+          <div className="hidden lg:block mt-4">
+            <NativeBannerAd />
+          </div>
+          <MobileNativeAd className="mt-4" />
+        </>
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Crop Editor */}

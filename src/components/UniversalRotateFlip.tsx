@@ -7,6 +7,8 @@ import { Progress } from "@/components/ui/progress";
 import { toast } from "sonner";
 import DragDropUpload from "./DragDropUpload";
 import { Download, RotateCw, RotateCcw, FlipHorizontal, FlipVertical, RotateCcwSquare, Image, RotateCcwIcon } from "lucide-react";
+import NativeBannerAd from "@/components/ads/NativeBannerAd";
+import MobileNativeAd from "@/components/ads/MobileNativeAd";
 
 type TransformMode = "rotate-90" | "rotate-180" | "rotate-270" | "custom" | "flip-h" | "flip-v" | "mirror";
 
@@ -244,7 +246,14 @@ const UniversalRotateFlip = ({ initialMode = "rotate-90" }: UniversalRotateFlipP
 
       {/* Upload Area */}
       {!file ? (
-        <DragDropUpload onFileSelect={handleFileSelect} accept="image/*" />
+        <>
+          <DragDropUpload onFileSelect={handleFileSelect} accept="image/*" />
+          {/* Native Banner Ad - Below upload area */}
+          <div className="hidden lg:block mt-4">
+            <NativeBannerAd />
+          </div>
+          <MobileNativeAd className="mt-4" />
+        </>
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Original Image */}

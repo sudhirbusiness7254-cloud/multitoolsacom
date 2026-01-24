@@ -6,6 +6,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import DragDropUpload from "@/components/DragDropUpload";
 import { Download, RotateCcw, QrCode, ScanLine } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
+import NativeBannerAd from "@/components/ads/NativeBannerAd";
+import MobileNativeAd from "@/components/ads/MobileNativeAd";
 
 type QRMode = "generate" | "read";
 

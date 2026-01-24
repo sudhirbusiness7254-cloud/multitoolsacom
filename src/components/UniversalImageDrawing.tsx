@@ -5,6 +5,8 @@ import { Input } from "@/components/ui/input";
 import DragDropUpload from "@/components/DragDropUpload";
 import { Download, RotateCcw, Pencil, Square, Circle, Type, Undo2, Eraser } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
+import NativeBannerAd from "@/components/ads/NativeBannerAd";
+import MobileNativeAd from "@/components/ads/MobileNativeAd";
 
 type DrawingTool = "pen" | "line" | "rectangle" | "circle" | "text" | "eraser";
 
@@ -205,7 +207,14 @@ const UniversalImageDrawing = ({ initialTool = "pen" }: UniversalImageDrawingPro
   return (
     <div className="bg-card rounded-2xl border border-border p-4 sm:p-6">
       {!file ? (
-        <DragDropUpload onFileSelect={handleFileSelect} accept="image/*" />
+        <>
+          <DragDropUpload onFileSelect={handleFileSelect} accept="image/*" />
+          {/* Native Banner Ad - Below upload area */}
+          <div className="hidden lg:block mt-4">
+            <NativeBannerAd />
+          </div>
+          <MobileNativeAd className="mt-4" />
+        </>
       ) : (
         <div className="space-y-4 sm:space-y-6">
           {/* Tool Selection */}

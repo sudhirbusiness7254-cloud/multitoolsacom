@@ -39,6 +39,7 @@ import { ToolIconWithBackground } from "@/lib/toolIcons";
 import HreflangTags from "@/components/HreflangTags";
 import { blogPosts } from "@/data/blogData";
 import NativeBannerAd from "@/components/ads/NativeBannerAd";
+import MobileNativeAd from "@/components/ads/MobileNativeAd";
 import ToolSideAd from "@/components/ads/ToolSideAd";
 
 // 4K Screenshots for How It Works section
@@ -381,7 +382,10 @@ const HomePage = () => {
 
           {/* Native Banner Ad - after popular tools */}
           <div className="container mx-auto max-w-6xl px-4">
-            <NativeBannerAd />
+            <div className="hidden lg:block">
+              <NativeBannerAd />
+            </div>
+            <MobileNativeAd />
           </div>
 
           {/* Tool Categories - Detailed with unique descriptions */}
@@ -442,12 +446,18 @@ const HomePage = () => {
 
           {/* Native Banner Ad - Below Category List */}
           <div className="container mx-auto max-w-6xl px-4">
-            <NativeBannerAd />
+            <div className="hidden lg:block">
+              <NativeBannerAd />
+            </div>
+            <MobileNativeAd />
           </div>
 
           {/* Native Banner Ad - after categories */}
-          <div className="container mx-auto max-w-6xl px-4">
-            <NativeBannerAd />
+          <div className="container mx-auto max-w-6xl px-4 mt-4">
+            <div className="hidden lg:block">
+              <NativeBannerAd />
+            </div>
+            <MobileNativeAd />
           </div>
 
           {/* How It Works - Step by step with icons */}
@@ -609,7 +619,10 @@ const HomePage = () => {
 
           {/* Native Banner Ad - between sections */}
           <div className="container mx-auto max-w-6xl px-4">
-            <NativeBannerAd />
+            <div className="hidden lg:block">
+              <NativeBannerAd />
+            </div>
+            <MobileNativeAd />
           </div>
 
           {/* Why Choose Us - Trust signals */}
@@ -655,7 +668,10 @@ const HomePage = () => {
 
           {/* Native Banner Ad - User-friendly placement */}
           <div className="container mx-auto max-w-6xl px-4">
-            <NativeBannerAd />
+            <div className="hidden lg:block">
+              <NativeBannerAd />
+            </div>
+            <MobileNativeAd />
           </div>
 
           {/* Featured Blog Posts - Educational content */}
