@@ -36,7 +36,8 @@ const ToolSideAd = ({ position = 'left' }: ToolSideAdProps) => {
     // Create and inject the invoke script
     const invokeScript = document.createElement('script');
     invokeScript.src = 'https://crowdsubsequentadmire.com/5251d00b938f369c8b531c0ce3b384bb/invoke.js';
-    invokeScript.async = true;
+    // Keep sync execution so multiple instances don't overwrite window.atOptions before script reads it
+    invokeScript.async = false;
     invokeScript.setAttribute('data-cfasync', 'false');
     container.appendChild(invokeScript);
 
@@ -50,7 +51,7 @@ const ToolSideAd = ({ position = 'left' }: ToolSideAdProps) => {
   return (
     <div 
       ref={adRef}
-      className="hidden xl:flex items-start justify-center bg-muted/20 rounded-lg"
+      className="flex items-start justify-center bg-muted/20 rounded-lg"
       style={{ width: '160px', minHeight: '600px' }}
     />
   );

@@ -697,7 +697,7 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                 {/* Desktop: Tool with ads on both sides */}
                 <div className="flex gap-6 justify-center items-start">
                   {/* Left Side Ad - Desktop only */}
-                  <div className="hidden xl:block flex-shrink-0 sticky top-24">
+                  <div className="hidden lg:block flex-shrink-0 sticky top-24">
                     <ToolSideAd position="left" />
                   </div>
                   
@@ -707,7 +707,7 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                   </div>
                   
                   {/* Right Side Ad - Desktop only */}
-                  <div className="hidden xl:block flex-shrink-0 sticky top-24">
+                  <div className="hidden lg:block flex-shrink-0 sticky top-24">
                     <ToolSideAd position="right" />
                   </div>
                 </div>
