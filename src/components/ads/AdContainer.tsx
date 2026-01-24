@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import { X } from 'lucide-react';
 import { useAdLoader, useVideoAdLoader, usePopunderLoader } from './AdManager';
 
 interface AdContainerProps {
@@ -355,9 +357,12 @@ export const AdUnit6 = ({ className = '' }: { className?: string }) => {
   );
 };
 
-// Floating Sidebar Ad - Stays visible while scrolling on desktop
+// Floating Sidebar Ad - Stays visible while scrolling on desktop with dismiss button
 export const AdFloatingSidebar = ({ position = 'right' }: { position?: 'left' | 'right' }) => {
   const { containerRef, isVisible, isLoaded } = useAdLoader(position === 'left' ? 'adunit4' : 'adunit5');
+  const [isDismissed, setIsDismissed] = useState(false);
+  
+  if (isDismissed) return null;
   
   return (
     <div 
@@ -365,6 +370,15 @@ export const AdFloatingSidebar = ({ position = 'right' }: { position?: 'left' | 
         position === 'left' ? 'left-[180px] 2xl:left-[200px]' : 'right-[180px] 2xl:right-[200px]'
       }`}
     >
+      {/* Close Button */}
+      <button
+        onClick={() => setIsDismissed(true)}
+        className="absolute -top-2 -right-2 z-50 w-6 h-6 bg-background border border-border rounded-full flex items-center justify-center shadow-md hover:bg-muted transition-colors"
+        aria-label="Close advertisement"
+      >
+        <X className="h-3 w-3 text-muted-foreground" />
+      </button>
+      
       <div 
         ref={containerRef}
         className="w-[160px] min-h-[600px] bg-muted/30 rounded-lg overflow-hidden shadow-lg border border-border/50 transition-opacity duration-300"
