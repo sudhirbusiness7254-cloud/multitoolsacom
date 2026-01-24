@@ -8,6 +8,7 @@ import { useState, useMemo } from "react";
 import { Input } from "@/components/ui/input";
 import { ToolIconWithBackground, getToolIconColor, getToolIconComponent } from "@/lib/toolIcons";
 import HreflangTags from "@/components/HreflangTags";
+import InContentAd from "@/components/ads/InContentAd";
 
 // PDF Tools data for inclusion in all tools
 const pdfToolsData = [
@@ -120,6 +121,11 @@ const AllToolsPage = () => {
               </div>
             </div>
           </section>
+
+          {/* Ad placement */}
+          <div className="container mx-auto max-w-7xl px-4">
+            <InContentAd />
+          </div>
 
           {/* Tools Grid */}
           <section className="py-12 px-4">

@@ -10,6 +10,7 @@ import HreflangTags from "@/components/HreflangTags";
 import RelatedArticles from "@/components/RelatedArticles";
 import { getTemplateConfig, categoryColorSchemes } from "@/components/seo-templates/TemplateStyles";
 import { getHeadingClasses, getCardClasses, getBadgeClasses } from "@/components/seo-templates/UniqueContentStyles";
+import InContentAd from "@/components/ads/InContentAd";
 
 // Import unique hero banners for each category
 import heroConverter from "@/assets/heroes/hero-image-converter.jpg";
@@ -286,6 +287,11 @@ const CategoryPageLayout = ({
             </div>
           </section>
 
+          {/* Ad placement after tools */}
+          <div className="container mx-auto max-w-4xl px-4">
+            <InContentAd />
+          </div>
+
           {/* Who Uses This Category - Trust Signal */}
           <section id="who-uses" className="py-8 sm:py-12 px-4 sm:px-6 bg-secondary/30 scroll-mt-20">
             <div className="container mx-auto max-w-4xl">
@@ -346,6 +352,11 @@ const CategoryPageLayout = ({
               </div>
             </div>
           </section>
+
+          {/* Ad placement between sections */}
+          <div className="container mx-auto max-w-4xl px-4">
+            <InContentAd />
+          </div>
 
           {/* How It Works - Simplified */}
           <section id="how-to" className="py-8 sm:py-12 px-4 sm:px-6 bg-secondary/30 scroll-mt-20">

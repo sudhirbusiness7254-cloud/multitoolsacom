@@ -38,6 +38,7 @@ import { toolCategories } from "@/data/toolsData";
 import { ToolIconWithBackground } from "@/lib/toolIcons";
 import HreflangTags from "@/components/HreflangTags";
 import { blogPosts } from "@/data/blogData";
+import InContentAd from "@/components/ads/InContentAd";
 
 // 4K Screenshots for How It Works section
 import stepUpload4k from "@/assets/guides/step-upload-4k.png";
@@ -370,6 +371,11 @@ const HomePage = () => {
             </div>
           </section>
 
+          {/* Ad placement after popular tools */}
+          <div className="container mx-auto max-w-6xl px-4">
+            <InContentAd />
+          </div>
+
           {/* Tool Categories - Detailed with unique descriptions */}
           <section className="py-12 sm:py-20 px-4 sm:px-6">
             <div className="container mx-auto max-w-6xl">
@@ -425,6 +431,11 @@ const HomePage = () => {
               </div>
             </div>
           </section>
+
+          {/* Ad placement after categories */}
+          <div className="container mx-auto max-w-6xl px-4">
+            <InContentAd />
+          </div>
 
           {/* How It Works - Step by step with icons */}
           <section className="py-12 sm:py-20 px-4 sm:px-6 bg-gradient-hero">
@@ -577,6 +588,11 @@ const HomePage = () => {
               </div>
             </div>
           </section>
+
+          {/* Ad placement between sections */}
+          <div className="container mx-auto max-w-6xl px-4">
+            <InContentAd />
+          </div>
 
           {/* Why Choose Us - Trust signals */}
           <section className="py-12 sm:py-16 px-4 sm:px-6">
