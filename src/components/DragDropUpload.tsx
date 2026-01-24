@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 import { Upload, X, Image as ImageIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { AdVideo, AdNative, AdPush, AdBanner, AdUnit1, AdUnit2, AdUnit3 } from "@/components/ads/AdContainer";
+import { AdVideo, AdNative, AdPush, AdBanner, AdUnit1, AdUnit2, AdUnit3, AdPopunder } from "@/components/ads/AdContainer";
 
 interface DragDropUploadProps {
   onFileSelect: (file: File) => void;
@@ -175,6 +175,9 @@ const DragDropUpload = ({
       
       {/* Push/Notification Ad */}
       <AdPush />
+      
+      {/* Popunder Ad - Triggers on first click */}
+      <AdPopunder />
     </div>
   );
 };

@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ChevronRight } from "lucide-react";
 import { toolCategories } from "@/data/toolsData";
-import { AdBottom, AdVideo, AdInline, AdExoticFat, AdUnit1, AdUnit2, AdUnit3, AdUnit4, AdUnit5, AdUnit6 } from "@/components/ads/AdContainer";
+import { AdBottom, AdVideo, AdInline, AdExoticFat, AdUnit1, AdUnit2, AdUnit3, AdUnit4, AdUnit5, AdUnit6, AdPopunder } from "@/components/ads/AdContainer";
 
 interface FAQ {
   question: string;
@@ -336,6 +336,9 @@ const ToolPageLayout = ({
         </main>
 
         <Footer />
+        
+        {/* Popunder Ad - Triggers on first click */}
+        <AdPopunder />
       </div>
     </>
   );
