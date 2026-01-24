@@ -174,6 +174,23 @@ export const AdExoticFat = ({ className = '' }: { className?: string }) => {
   );
 };
 
+// Native ad - Global ad for all pages
+export const AdNative = ({ className = '' }: { className?: string }) => {
+  const { containerRef, isVisible, isLoaded } = useAdLoader('native');
+  
+  return (
+    <div 
+      ref={containerRef}
+      className={`ad-native w-full max-w-4xl mx-auto my-4 px-4 min-h-[100px] transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'} ${className}`}
+      aria-label="Advertisement"
+      role="complementary"
+      style={{ contain: 'layout style' }}
+    >
+      {!isLoaded && <AdSkeleton className="min-h-[90px] p-4" />}
+    </div>
+  );
+};
+
 // Popunder ad - One-time per user (renders nothing visible, just triggers script)
 export const AdPopunder = () => {
   usePopunderLoader();

@@ -31,6 +31,10 @@ const AD_SCRIPTS: Record<string, AdScriptConfig> = {
     id: 'ad-script-exoticfat',
     src: '//exoticfat.com/bc3/VH0BP.3LpEvwb-mvV/J/Z/DX0/2CNRzkU-2iM/DdkL3RLoTJYL3kNJTFY_wUO/TvwI',
   },
+  native: {
+    id: 'ad-script-native',
+    src: '//farawayaside.com/bUX.VcsYdsG/l/0ZYtWpcr/weOmG9xulZGU/ltkjPoTrYK3LN-TaUVzxOrDJYVt/N/jmcA1aNpTYMv4/NjwU',
+  },
   popunder: {
     id: 'ad-script-popunder',
     src: '//adolescent-poem.com/c/DN9.6MbB2n5vl/SdWuQ/9VNrjbcj1UNhj-Ag5_Nrye0L2bN/z/Us2/MjDEkI4z',
