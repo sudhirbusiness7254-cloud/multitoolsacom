@@ -1,6 +1,6 @@
 import { ReactNode, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
-import { AdLeft, AdRight, AdVideoSide, AdStickyMobile } from './AdContainer';
+import { AdLeft, AdRight, AdVideoSide, AdStickyMobile, AdFloatingSidebar } from './AdContainer';
 import { resetAdScripts } from './AdManager';
 
 interface AdLayoutProps {
@@ -36,6 +36,9 @@ const AdLayout = ({ children }: AdLayoutProps) => {
           <AdRight />
           {/* Side Video Ads - Bottom corners */}
           <AdVideoSide position="left" />
+          {/* Floating Sidebar Ads - Stay visible while scrolling */}
+          <AdFloatingSidebar position="left" />
+          <AdFloatingSidebar position="right" />
         </>
       )}
       

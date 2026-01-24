@@ -355,6 +355,36 @@ export const AdUnit6 = ({ className = '' }: { className?: string }) => {
   );
 };
 
+// Floating Sidebar Ad - Stays visible while scrolling on desktop
+export const AdFloatingSidebar = ({ position = 'right' }: { position?: 'left' | 'right' }) => {
+  const { containerRef, isVisible, isLoaded } = useAdLoader(position === 'left' ? 'adunit4' : 'adunit5');
+  
+  return (
+    <div 
+      className={`hidden xl:block fixed top-1/2 -translate-y-1/2 z-40 ${
+        position === 'left' ? 'left-[180px] 2xl:left-[200px]' : 'right-[180px] 2xl:right-[200px]'
+      }`}
+    >
+      <div 
+        ref={containerRef}
+        className="w-[160px] min-h-[600px] bg-muted/30 rounded-lg overflow-hidden shadow-lg border border-border/50 transition-opacity duration-300"
+        style={{ contain: 'layout style paint' }}
+        aria-label="Advertisement"
+        role="complementary"
+      >
+        {!isLoaded && (
+          <div className="w-full h-[600px] relative overflow-hidden bg-secondary/30 rounded-lg">
+            <div className="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+            <div className="flex items-center justify-center h-full">
+              <span className="text-xs text-muted-foreground/40">Ad</span>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
 // Generic ad container
 const AdContainer = ({ position, className = '' }: AdContainerProps) => {
   switch (position) {
