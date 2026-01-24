@@ -5,56 +5,67 @@ interface AdContainerProps {
   className?: string;
 }
 
+// Skeleton placeholder component with shimmer animation
+const AdSkeleton = ({ className = '', aspectRatio }: { className?: string; aspectRatio?: string }) => (
+  <div 
+    className={`ad-skeleton relative overflow-hidden bg-secondary/30 rounded-lg ${className}`}
+    style={aspectRatio ? { aspectRatio } : undefined}
+  >
+    {/* Shimmer overlay */}
+    <div className="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+    <div className="flex items-center justify-center h-full">
+      <span className="text-xs text-muted-foreground/40">Ad</span>
+    </div>
+  </div>
+);
+
 // Left side ad - Desktop only (XL screens 1280px+)
 export const AdLeft = ({ className = '' }: { className?: string }) => {
-  const { containerRef, isVisible } = useAdLoader('left');
+  const { containerRef, isVisible, isLoaded } = useAdLoader('left');
   
   return (
     <div 
       ref={containerRef}
-      className={`ad-left hidden xl:block fixed left-2 top-1/2 -translate-y-1/2 w-[160px] min-h-[600px] z-40 transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'} ${className}`}
+      className={`ad-left hidden xl:block fixed left-2 top-1/2 -translate-y-1/2 w-[160px] min-h-[600px] z-40 transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'} ${className}`}
       aria-label="Advertisement"
       role="complementary"
+      style={{ contain: 'layout style' }}
     >
-      <div className="ad-placeholder bg-secondary/20 rounded-lg p-2 text-center text-xs text-muted-foreground h-[600px] flex items-center justify-center">
-        <span className="opacity-40">Ad</span>
-      </div>
+      {!isLoaded && <AdSkeleton className="h-[600px]" />}
     </div>
   );
 };
 
 // Right side ad - Desktop only (XL screens 1280px+)
 export const AdRight = ({ className = '' }: { className?: string }) => {
-  const { containerRef, isVisible } = useAdLoader('right');
+  const { containerRef, isVisible, isLoaded } = useAdLoader('right');
   
   return (
     <div 
       ref={containerRef}
-      className={`ad-right hidden xl:block fixed right-2 top-1/2 -translate-y-1/2 w-[160px] min-h-[600px] z-40 transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'} ${className}`}
+      className={`ad-right hidden xl:block fixed right-2 top-1/2 -translate-y-1/2 w-[160px] min-h-[600px] z-40 transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'} ${className}`}
       aria-label="Advertisement"
       role="complementary"
+      style={{ contain: 'layout style' }}
     >
-      <div className="ad-placeholder bg-secondary/20 rounded-lg p-2 text-center text-xs text-muted-foreground h-[600px] flex items-center justify-center">
-        <span className="opacity-40">Ad</span>
-      </div>
+      {!isLoaded && <AdSkeleton className="h-[600px]" />}
     </div>
   );
 };
 
 // Bottom ad - All devices, shows below tool/content
 export const AdBottom = ({ className = '' }: { className?: string }) => {
-  const { containerRef, isVisible } = useAdLoader('bottom');
+  const { containerRef, isVisible, isLoaded } = useAdLoader('bottom');
   
   return (
     <div 
       ref={containerRef}
-      className={`ad-bottom w-full max-w-4xl mx-auto my-8 px-4 min-h-[100px] transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'} ${className}`}
+      className={`ad-bottom w-full max-w-4xl mx-auto my-8 px-4 min-h-[100px] transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'} ${className}`}
       aria-label="Advertisement"
       role="complementary"
+      style={{ contain: 'layout style' }}
     >
-      <div className="ad-placeholder bg-secondary/20 rounded-lg p-4 text-center text-xs text-muted-foreground min-h-[90px] flex items-center justify-center">
-        <span className="opacity-40">Advertisement</span>
-      </div>
+      {!isLoaded && <AdSkeleton className="min-h-[90px] p-4" />}
     </div>
   );
 };
@@ -77,21 +88,14 @@ export const AdVideo = ({ className = '' }: { className?: string }) => {
         contain: 'layout style' // CSS containment for better performance
       }}
     >
-      {!isLoaded && (
-        <div 
-          className="ad-placeholder bg-secondary/20 rounded-lg p-2 text-center text-xs text-muted-foreground h-full flex items-center justify-center" 
-          style={{ aspectRatio: '16/9' }}
-        >
-          <span className="opacity-40">Video Ad</span>
-        </div>
-      )}
+      {!isLoaded && <AdSkeleton className="h-full" aspectRatio="16/9" />}
     </div>
   );
 };
 
 // Side Video ad - Fixed position on desktop for side placement
 export const AdVideoSide = ({ position = 'left', className = '' }: { position?: 'left' | 'right', className?: string }) => {
-  const { containerRef, isVisible } = useVideoAdLoader();
+  const { containerRef, isVisible, isLoaded } = useVideoAdLoader();
   
   const positionClass = position === 'left' 
     ? 'left-2' 
@@ -100,32 +104,29 @@ export const AdVideoSide = ({ position = 'left', className = '' }: { position?: 
   return (
     <div 
       ref={containerRef}
-      className={`ad-video-side hidden xl:block fixed ${positionClass} bottom-4 w-[220px] z-40 transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'} ${className}`}
+      className={`ad-video-side hidden xl:block fixed ${positionClass} bottom-4 w-[220px] z-40 transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'} ${className}`}
       aria-label="Video Advertisement"
       role="complementary"
-      style={{ minHeight: '120px', maxHeight: '150px', aspectRatio: '16/9' }}
+      style={{ minHeight: '120px', maxHeight: '150px', aspectRatio: '16/9', contain: 'layout style' }}
     >
-      <div className="ad-placeholder bg-secondary/20 rounded-lg p-2 text-center text-xs text-muted-foreground h-full flex items-center justify-center" style={{ aspectRatio: '16/9' }}>
-        <span className="opacity-40">Video</span>
-      </div>
+      {!isLoaded && <AdSkeleton className="h-full" aspectRatio="16/9" />}
     </div>
   );
 };
 
 // Inline ad - Responsive, appears within content
 export const AdInline = ({ className = '' }: { className?: string }) => {
-  const { containerRef, isVisible } = useAdLoader('inline');
+  const { containerRef, isVisible, isLoaded } = useAdLoader('inline');
   
   return (
     <div 
       ref={containerRef}
-      className={`ad-inline w-full max-w-3xl mx-auto my-6 px-4 min-h-[100px] transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'} ${className}`}
+      className={`ad-inline w-full max-w-3xl mx-auto my-6 px-4 min-h-[100px] transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'} ${className}`}
       aria-label="Advertisement"
       role="complementary"
+      style={{ contain: 'layout style' }}
     >
-      <div className="ad-placeholder bg-secondary/20 rounded-lg p-4 text-center text-xs text-muted-foreground min-h-[90px] flex items-center justify-center">
-        <span className="opacity-40">Advertisement</span>
-      </div>
+      {!isLoaded && <AdSkeleton className="min-h-[90px] p-4" />}
     </div>
   );
 };
