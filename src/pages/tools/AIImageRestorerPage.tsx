@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import HreflangTags from "@/components/HreflangTags";
 import AIImageRestorer from "@/components/ai-tools/AIImageRestorer";
 import ImageComparisonSlider from "@/components/ImageComparisonSlider";
-import { AdBottom, AdVideo, AdInline, AdExoticFat } from "@/components/ads/AdContainer";
+import { AdBottom, AdVideo, AdInline, AdExoticFat, AdUnit1, AdUnit2, AdUnit3, AdUnit4, AdUnit5, AdUnit6 } from "@/components/ads/AdContainer";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Sparkles, Zap, Shield, Download, Image, Star, CheckCircle, History, Camera, Eraser, Wand2 } from "lucide-react";
 import {
@@ -128,8 +128,13 @@ const AIImageRestorerPage = () => {
               <AIImageRestorer />
               
               {/* Ads below tool */}
-              <AdBottom className="mt-6" />
+              <AdExoticFat className="mt-6" />
+              <AdUnit1 className="mt-4" />
+              <AdBottom className="mt-4" />
+              <AdUnit2 className="mt-4" />
               <AdVideo className="mt-4" />
+              <AdUnit3 className="mt-4" />
+              <AdInline className="mt-4" />
             </div>
           </section>
 

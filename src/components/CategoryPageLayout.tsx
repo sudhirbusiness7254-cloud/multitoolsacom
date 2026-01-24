@@ -8,7 +8,7 @@ import { toolCategories, Category } from "@/data/toolsData";
 import { CategorySEOContent } from "@/data/categorySEOData";
 import HreflangTags from "@/components/HreflangTags";
 import RelatedArticles from "@/components/RelatedArticles";
-import { AdBottom, AdVideo, AdInline, AdExoticFat } from "@/components/ads/AdContainer";
+import { AdBottom, AdVideo, AdInline, AdExoticFat, AdUnit1, AdUnit2, AdUnit3, AdUnit4, AdUnit5, AdUnit6 } from "@/components/ads/AdContainer";
 
 interface CategoryPageLayoutProps {
   category: Category;
@@ -215,9 +215,10 @@ const CategoryPageLayout = ({
               
               {/* Ad - After Tools Grid */}
               <AdExoticFat className="mt-6" />
-              
+              <AdUnit1 className="mt-4" />
               {/* Inline Ad - After Tools Grid */}
               <AdExoticFat className="mt-4" />
+              <AdUnit2 className="mt-4" />
             </div>
           </section>
 
@@ -247,6 +248,7 @@ const CategoryPageLayout = ({
               
               {/* Ad - After Who Uses */}
               <AdExoticFat className="mt-6" />
+              <AdUnit3 className="mt-4" />
             </div>
           </section>
 
@@ -285,9 +287,10 @@ const CategoryPageLayout = ({
               
               {/* Ad - After Use Cases */}
               <AdExoticFat className="mt-6" />
-              
+              <AdUnit4 className="mt-4" />
               {/* Inline Ad - After Use Cases */}
               <AdExoticFat className="mt-4" />
+              <AdUnit5 className="mt-4" />
             </div>
           </section>
 
@@ -332,6 +335,7 @@ const CategoryPageLayout = ({
               
               {/* Ad - After Benefits */}
               <AdExoticFat className="mt-6" />
+              <AdUnit6 className="mt-4" />
             </div>
           </section>
 
