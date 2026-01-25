@@ -14,6 +14,8 @@ import InContentAd from "@/components/ads/InContentAd";
 import NativeBannerAd from "@/components/ads/NativeBannerAd";
 import ToolSideAd from "@/components/ads/ToolSideAd";
 import MobileNativeAd from "@/components/ads/MobileNativeAd";
+import MobileBannerAd from "@/components/ads/MobileBannerAd";
+import { NativeAdBlock } from "@/components/ads/ToolPageAds";
 
 // Import unique hero banners for each category
 import heroConverter from "@/assets/heroes/hero-image-converter.jpg";
@@ -262,7 +264,14 @@ const CategoryPageLayout = ({
                 </div>
                 
                 {/* Mobile/Tablet Native Ad - Below tool dropdown */}
-                <MobileNativeAd className="mt-4" />
+                <div className="lg:hidden mt-4">
+                  <MobileNativeAd />
+                </div>
+                
+                {/* Mobile Banner Ad (320x50) */}
+                <div className="md:hidden mt-3">
+                  <MobileBannerAd />
+                </div>
                 
                 {/* Native Banner Ad - Below tool/drag-drop area (Desktop) */}
                 <div className="mt-6 hidden lg:block">
@@ -323,6 +332,11 @@ const CategoryPageLayout = ({
           <div className="container mx-auto max-w-4xl px-4 lg:hidden">
             <MobileNativeAd />
           </div>
+          
+          {/* Mobile Banner Ad (320x50) */}
+          <div className="container mx-auto max-w-4xl px-4 md:hidden mt-3">
+            <MobileBannerAd />
+          </div>
 
           {/* Desktop Native Banner Ad - After tools grid */}
           <div className="container mx-auto max-w-4xl px-4 hidden lg:block">
@@ -331,7 +345,7 @@ const CategoryPageLayout = ({
 
           {/* Ad placement after tools (Desktop only) */}
           <div className="container mx-auto max-w-4xl px-4 hidden lg:block">
-            <InContentAd />
+            <NativeAdBlock />
           </div>
 
           {/* Who Uses This Category - Trust Signal */}
@@ -363,6 +377,11 @@ const CategoryPageLayout = ({
           {/* Mobile Native Ad - After Who Uses section */}
           <div className="container mx-auto max-w-4xl px-4 lg:hidden">
             <MobileNativeAd />
+          </div>
+          
+          {/* Mobile Banner Ad */}
+          <div className="container mx-auto max-w-4xl px-4 md:hidden mt-3">
+            <MobileBannerAd />
           </div>
 
           {/* Real-World Use Cases */}
@@ -404,6 +423,11 @@ const CategoryPageLayout = ({
           <div className="container mx-auto max-w-4xl px-4 lg:hidden">
             <MobileNativeAd />
           </div>
+          
+          {/* Mobile Banner Ad */}
+          <div className="container mx-auto max-w-4xl px-4 md:hidden mt-3">
+            <MobileBannerAd />
+          </div>
 
           {/* Desktop Native Banner Ad - Middle of page */}
           <div className="container mx-auto max-w-4xl px-4 hidden lg:block">
@@ -412,7 +436,7 @@ const CategoryPageLayout = ({
 
           {/* Ad placement between sections (Desktop only) */}
           <div className="container mx-auto max-w-4xl px-4 hidden lg:block">
-            <InContentAd />
+            <NativeAdBlock />
           </div>
 
           {/* How It Works - Simplified */}
@@ -460,6 +484,11 @@ const CategoryPageLayout = ({
           <div className="container mx-auto max-w-4xl px-4 lg:hidden">
             <MobileNativeAd />
           </div>
+          
+          {/* Mobile Banner Ad */}
+          <div className="container mx-auto max-w-4xl px-4 md:hidden mt-3">
+            <MobileBannerAd />
+          </div>
 
           {/* Desktop Native Banner Ad - After How It Works */}
           <div className="container mx-auto max-w-4xl px-4 hidden lg:block">
@@ -506,6 +535,11 @@ const CategoryPageLayout = ({
           <div className="container mx-auto max-w-4xl px-4 lg:hidden">
             <MobileNativeAd />
           </div>
+          
+          {/* Mobile Banner Ad */}
+          <div className="container mx-auto max-w-4xl px-4 md:hidden mt-3">
+            <MobileBannerAd />
+          </div>
 
           {/* Desktop Native Banner Ad - After FAQ */}
           <div className="container mx-auto max-w-4xl px-4 hidden lg:block">
@@ -546,7 +580,15 @@ const CategoryPageLayout = ({
 
           {/* Native Banner Ad - Before Footer */}
           <div className="container mx-auto max-w-4xl px-4 py-6">
-            <NativeBannerAd />
+            <div className="hidden lg:block">
+              <NativeBannerAd />
+            </div>
+            <div className="lg:hidden">
+              <MobileNativeAd />
+            </div>
+            <div className="md:hidden mt-3">
+              <MobileBannerAd />
+            </div>
           </div>
         </main>
 

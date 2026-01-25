@@ -40,7 +40,9 @@ import HreflangTags from "@/components/HreflangTags";
 import { blogPosts } from "@/data/blogData";
 import NativeBannerAd from "@/components/ads/NativeBannerAd";
 import MobileNativeAd from "@/components/ads/MobileNativeAd";
+import MobileBannerAd from "@/components/ads/MobileBannerAd";
 import ToolSideAd from "@/components/ads/ToolSideAd";
+import { NativeAdBlock } from "@/components/ads/ToolPageAds";
 
 // 4K Screenshots for How It Works section
 import stepUpload4k from "@/assets/guides/step-upload-4k.png";
@@ -385,7 +387,12 @@ const HomePage = () => {
             <div className="hidden lg:block">
               <NativeBannerAd />
             </div>
-            <MobileNativeAd />
+            <div className="lg:hidden">
+              <MobileNativeAd />
+            </div>
+            <div className="md:hidden mt-3">
+              <MobileBannerAd />
+            </div>
           </div>
 
           {/* Tool Categories - Detailed with unique descriptions */}
@@ -449,15 +456,22 @@ const HomePage = () => {
             <div className="hidden lg:block">
               <NativeBannerAd />
             </div>
-            <MobileNativeAd />
+            <div className="lg:hidden">
+              <MobileNativeAd />
+            </div>
+            <div className="md:hidden mt-3">
+              <MobileBannerAd />
+            </div>
           </div>
 
           {/* Native Banner Ad - after categories */}
           <div className="container mx-auto max-w-6xl px-4 mt-4">
             <div className="hidden lg:block">
-              <NativeBannerAd />
+              <NativeAdBlock />
             </div>
-            <MobileNativeAd />
+            <div className="lg:hidden">
+              <MobileNativeAd />
+            </div>
           </div>
 
           {/* How It Works - Step by step with icons */}
@@ -802,6 +816,19 @@ const HomePage = () => {
             </div>
           </section>
 
+          {/* Ad before Final CTA */}
+          <div className="container mx-auto max-w-6xl px-4 py-6">
+            <div className="hidden lg:block">
+              <NativeAdBlock />
+            </div>
+            <div className="lg:hidden">
+              <MobileNativeAd />
+            </div>
+            <div className="md:hidden mt-3">
+              <MobileBannerAd />
+            </div>
+          </div>
+
           {/* Final CTA Section */}
           <section className="py-16 sm:py-24 px-4 sm:px-6 bg-gradient-hero">
             <div className="container mx-auto max-w-3xl text-center">
@@ -824,6 +851,16 @@ const HomePage = () => {
               </p>
             </div>
           </section>
+
+          {/* Final ad before footer */}
+          <div className="container mx-auto max-w-6xl px-4 py-6">
+            <div className="hidden lg:block">
+              <NativeBannerAd />
+            </div>
+            <div className="lg:hidden">
+              <MobileNativeAd />
+            </div>
+          </div>
         </main>
         
         <Footer />
