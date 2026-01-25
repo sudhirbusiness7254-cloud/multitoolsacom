@@ -33,6 +33,8 @@ import InContentAd from "@/components/ads/InContentAd";
 import NativeBannerAd from "@/components/ads/NativeBannerAd";
 import ToolSideAd from "@/components/ads/ToolSideAd";
 import MobileNativeAd from "@/components/ads/MobileNativeAd";
+import MobileBannerAd from "@/components/ads/MobileBannerAd";
+import { NativeAdBlock } from "@/components/ads/ToolPageAds";
 
 interface SEOToolPageProps {
   seoContent: ToolSEOContent;
@@ -718,7 +720,14 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                 </div>
                 
                 {/* Mobile/Tablet Native Ad - Below tool dropdown */}
-                <MobileNativeAd className="mt-4" />
+                <div className="lg:hidden mt-4">
+                  <MobileNativeAd />
+                </div>
+                
+                {/* Mobile Banner Ad (320x50) */}
+                <div className="md:hidden mt-3">
+                  <MobileBannerAd />
+                </div>
                 
                 {/* Native Banner Ad - Below tool/drag-drop area (Desktop) */}
                 <div className="mt-6 hidden lg:block">
@@ -727,7 +736,9 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
               </div>
 
               {/* Ad placement after tool */}
-              <InContentAd className="mb-8 hidden lg:flex" />
+              <div className="mb-8 hidden lg:block">
+                <NativeAdBlock />
+              </div>
               
               {/* Quick benefits below tool - unique style per category */}
               <div className={`text-left max-w-4xl mx-auto ${sectionClasses}`}>
@@ -793,12 +804,24 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                 <MobileNativeAd />
               </div>
               
+              {/* Mobile Banner Ad */}
+              <div className="md:hidden mt-3">
+                <MobileBannerAd />
+              </div>
+              
               {/* Desktop Ad between content sections */}
-              <InContentAd className="my-8 hidden lg:flex" />
+              <div className="my-8 hidden lg:block">
+                <NativeAdBlock />
+              </div>
               
               {/* Mobile Native Ad - Middle of page */}
               <div className="lg:hidden">
                 <MobileNativeAd />
+              </div>
+              
+              {/* Mobile Banner Ad */}
+              <div className="md:hidden mt-3">
+                <MobileBannerAd />
               </div>
               
               {/* Desktop Native Banner Ad - Middle of page */}
@@ -820,8 +843,15 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                 <MobileNativeAd />
               </div>
               
+              {/* Mobile Banner Ad */}
+              <div className="md:hidden mt-3 mb-6">
+                <MobileBannerAd />
+              </div>
+              
               {/* Desktop Ad before related tools */}
-              <InContentAd className="my-8 hidden lg:flex" />
+              <div className="my-8 hidden lg:block">
+                <NativeAdBlock />
+              </div>
 
               {/* Related Tools - Unique style per template */}
               <div className={`${cardClasses} p-6 md:p-8`}>
@@ -880,7 +910,15 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
 
           {/* Native Banner Ad - Less intrusive placement */}
           <div className="container mx-auto px-4 max-w-4xl">
-            <NativeBannerAd />
+            <div className="hidden lg:block">
+              <NativeBannerAd />
+            </div>
+            <div className="lg:hidden">
+              <MobileNativeAd />
+            </div>
+            <div className="md:hidden mt-3">
+              <MobileBannerAd />
+            </div>
           </div>
 
           {/* CTA Section - Unique per template */}
@@ -919,7 +957,15 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
 
           {/* Native Banner Ad - Before Footer */}
           <div className="container mx-auto px-4 max-w-4xl py-6">
-            <NativeBannerAd />
+            <div className="hidden lg:block">
+              <NativeBannerAd />
+            </div>
+            <div className="lg:hidden">
+              <MobileNativeAd />
+            </div>
+            <div className="md:hidden mt-3">
+              <MobileBannerAd />
+            </div>
           </div>
         </main>
 

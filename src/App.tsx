@@ -41,6 +41,9 @@ import PDFToolPage from "./pages/tools/PDFToolPage";
 import SupportChat from "./components/SupportChat";
 import CookieConsent from "./components/CookieConsent";
 import SideAds from "./components/ads/SideAds";
+import GlobalPopAd from "./components/ads/GlobalPopAd";
+import SocialBarAd from "./components/ads/SocialBarAd";
+import AlternativePopAd from "./components/ads/AlternativePopAd";
 
 // Educational & Trust Pages
 import HowToolsWorkPage from "./pages/HowToolsWorkPage";
@@ -110,6 +113,9 @@ const App = () => (
             <Route path="*" element={<NotFound />} />
           </Routes>
           <SideAds />
+          <GlobalPopAd />
+          <SocialBarAd />
+          <AlternativePopAd />
           <SupportChat />
           <CookieConsent />
         </BrowserRouter>
