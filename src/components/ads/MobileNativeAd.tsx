@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useId } from "react";
 
 interface MobileNativeAdProps {
   className?: string;
@@ -11,6 +11,7 @@ interface MobileNativeAdProps {
 const MobileNativeAd = ({ className = "" }: MobileNativeAdProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const initialized = useRef(false);
+  const uniqueId = useId().replace(/:/g, '');
 
   useEffect(() => {
     if (initialized.current || !containerRef.current) return;
@@ -20,9 +21,9 @@ const MobileNativeAd = ({ className = "" }: MobileNativeAdProps) => {
     const container = containerRef.current;
     container.innerHTML = '';
 
-    // Create the exact container div the ad network expects
+    // Create the exact container div the ad network expects with unique ID
     const adContainer = document.createElement('div');
-    adContainer.id = 'container-5dd29b78901106d681d1f5ce05a102b3';
+    adContainer.id = `container-5dd29b78901106d681d1f5ce05a102b3-${uniqueId}`;
     container.appendChild(adContainer);
 
     // Create and inject the native banner script
@@ -36,12 +37,13 @@ const MobileNativeAd = ({ className = "" }: MobileNativeAdProps) => {
     return () => {
       initialized.current = false;
     };
-  }, []);
+  }, [uniqueId]);
 
   return (
     <div 
       ref={containerRef}
       className={`flex justify-center my-4 lg:hidden min-h-[80px] ${className}`}
+      data-ad-slot={`mobile-native-${uniqueId}`}
     />
   );
 };

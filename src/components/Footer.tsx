@@ -3,6 +3,7 @@ import { toolCategories } from "@/data/toolsData";
 import logo from "@/assets/logo-icon.png";
 import NativeBannerAd from "@/components/ads/NativeBannerAd";
 import MobileNativeAd from "@/components/ads/MobileNativeAd";
+import MobileBannerAd from "@/components/ads/MobileBannerAd";
 
 const Footer = () => {
   const imageCategories = toolCategories.filter(cat => cat.id !== "tag-tools").sort((a, b) => a.priority - b.priority);
@@ -17,8 +18,13 @@ const Footer = () => {
 
   return (
     <footer className="bg-card border-t border-border mt-8 sm:mt-12 md:mt-16">
+      {/* Mobile Banner Ad (320x50) */}
+      <div className="md:hidden container mx-auto px-4 pt-4">
+        <MobileBannerAd />
+      </div>
+      
       {/* Mobile/Tablet Native Banner Ad - Top of Footer */}
-      <div className="lg:hidden container mx-auto px-4 pt-6">
+      <div className="lg:hidden container mx-auto px-4 pt-4">
         <MobileNativeAd />
       </div>
       
