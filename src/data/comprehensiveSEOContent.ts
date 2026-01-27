@@ -9367,10 +9367,17 @@ export const imageDrawingSEOContent: Record<string, ComprehensiveSEOContent> = {
 
 // Import additional SEO content
 import { getAdditionalSEOContent } from "./additionalSEOContent";
+import { getPremiumSEOContent } from "./premiumSEOContent";
 
 // Export function to get comprehensive SEO content
 export const getComprehensiveSEOContent = (slug: string): ComprehensiveSEOContent | null => {
-  // First check additional content (for tools recently added)
+  // First check premium content (highest quality SEO content)
+  const premiumContent = getPremiumSEOContent(slug);
+  if (premiumContent) {
+    return premiumContent;
+  }
+  
+  // Then check additional content (for tools recently added)
   const additionalContent = getAdditionalSEOContent(slug);
   if (additionalContent) {
     return additionalContent;
