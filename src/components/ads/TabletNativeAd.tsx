@@ -17,14 +17,14 @@ const TabletNativeAd = ({ className = "" }: TabletNativeAdProps) => {
 
   useEffect(() => {
     if (scriptLoaded.current || !containerRef.current) return;
+    scriptLoaded.current = true;
     
-    // Clear any existing content
-    containerRef.current.innerHTML = '';
+    const container = containerRef.current;
 
     // Create the container div with a unique ID
     const adContainer = document.createElement('div');
     adContainer.id = containerId;
-    containerRef.current.appendChild(adContainer);
+    container.appendChild(adContainer);
 
     // Create and inject the native banner script
     const script = document.createElement('script');
@@ -32,14 +32,7 @@ const TabletNativeAd = ({ className = "" }: TabletNativeAdProps) => {
     script.async = true;
     script.setAttribute('data-cfasync', 'false');
     
-    containerRef.current.appendChild(script);
-    scriptLoaded.current = true;
-
-    return () => {
-      if (containerRef.current) {
-        containerRef.current.innerHTML = '';
-      }
-    };
+    container.appendChild(script);
   }, [containerId]);
 
   return (

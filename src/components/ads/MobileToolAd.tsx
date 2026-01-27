@@ -6,6 +6,9 @@ const MobileToolAd = () => {
 
   useEffect(() => {
     if (scriptLoaded.current || !adRef.current) return;
+    scriptLoaded.current = true;
+    
+    const container = adRef.current;
     
     // Set atOptions on window
     (window as any).atOptions = {
@@ -22,15 +25,7 @@ const MobileToolAd = () => {
     script.async = true;
     script.setAttribute('data-cfasync', 'false');
     
-    adRef.current.appendChild(script);
-    scriptLoaded.current = true;
-
-    return () => {
-      if (adRef.current) {
-        const scripts = adRef.current.querySelectorAll('script');
-        scripts.forEach(s => s.remove());
-      }
-    };
+    container.appendChild(script);
   }, []);
 
   return (

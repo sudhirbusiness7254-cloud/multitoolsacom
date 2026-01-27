@@ -12,9 +12,7 @@ const NativeBannerAd = ({ className = "" }: NativeBannerAdProps) => {
     if (initialized.current || !containerRef.current) return;
     initialized.current = true;
     
-    // Clear any existing content
     const container = containerRef.current;
-    container.innerHTML = '';
 
     // Create the exact container div the ad network expects
     const adContainer = document.createElement('div');
@@ -28,10 +26,6 @@ const NativeBannerAd = ({ className = "" }: NativeBannerAdProps) => {
     script.src = 'https://crowdsubsequentadmire.com/5dd29b78901106d681d1f5ce05a102b3/invoke.js';
     
     container.appendChild(script);
-
-    return () => {
-      initialized.current = false;
-    };
   }, []);
 
   return (

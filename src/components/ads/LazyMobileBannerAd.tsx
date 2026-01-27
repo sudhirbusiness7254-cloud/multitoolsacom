@@ -20,8 +20,7 @@ const LazyMobileBannerAd = ({ className = "" }: LazyMobileBannerAdProps) => {
     if (!isVisible || scriptLoaded.current || !adContainerRef.current) return;
     scriptLoaded.current = true;
 
-    // Clear any existing content
-    adContainerRef.current.innerHTML = '';
+    const container = adContainerRef.current;
 
     // Create atOptions script
     const optionsScript = document.createElement('script');
@@ -34,14 +33,14 @@ const LazyMobileBannerAd = ({ className = "" }: LazyMobileBannerAdProps) => {
         'params' : {}
       };
     `;
-    adContainerRef.current.appendChild(optionsScript);
+    container.appendChild(optionsScript);
 
     // Create invoke script
     const invokeScript = document.createElement('script');
     invokeScript.src = 'https://crowdsubsequentadmire.com/689f23dcc2cd82711bf2ed6fa916f48f/invoke.js';
     invokeScript.async = true;
     
-    adContainerRef.current.appendChild(invokeScript);
+    container.appendChild(invokeScript);
   }, [isVisible]);
 
   return (

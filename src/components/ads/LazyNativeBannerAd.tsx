@@ -14,9 +14,7 @@ const LazyNativeBannerAd = ({ className = "" }: LazyNativeBannerAdProps) => {
     if (!isVisible || scriptLoaded.current || !adContainerRef.current) return;
     scriptLoaded.current = true;
 
-    // Clear any existing content
     const container = adContainerRef.current;
-    container.innerHTML = '';
 
     // Create the exact container div the ad network expects
     const adContainer = document.createElement('div');
