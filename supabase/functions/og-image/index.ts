@@ -35,41 +35,50 @@ async function getLogoBase64(): Promise<string> {
     return cachedLogoBase64;
   }
 
-  try {
-    const logoUrl = 'https://multitoolsa.com/logo.png';
-    console.log('Fetching logo from:', logoUrl);
-    
-    const response = await fetch(logoUrl, {
-      headers: {
-        'User-Agent': 'MultiToolsA-OG-Generator/1.0'
+  // List of logo URLs to try (production first, then preview)
+  const logoUrls = [
+    'https://multitoolsa.com/logo.png',
+    'https://id-preview--8504ae68-d20d-4e82-8138-142f97c7ec0f.lovable.app/logo.png'
+  ];
+
+  for (const logoUrl of logoUrls) {
+    try {
+      console.log('Fetching logo from:', logoUrl);
+      
+      const response = await fetch(logoUrl, {
+        headers: {
+          'User-Agent': 'MultiToolsA-OG-Generator/1.0'
+        }
+      });
+      
+      if (!response.ok) {
+        console.error('Failed to fetch logo from', logoUrl, ':', response.status, response.statusText);
+        continue; // Try next URL
       }
-    });
-    
-    if (!response.ok) {
-      console.error('Failed to fetch logo:', response.status, response.statusText);
-      throw new Error(`Failed to fetch logo: ${response.status}`);
+      
+      const contentType = response.headers.get('content-type') || 'image/png';
+      const arrayBuffer = await response.arrayBuffer();
+      const uint8Array = new Uint8Array(arrayBuffer);
+      
+      // Convert to base64
+      let binaryString = '';
+      for (let i = 0; i < uint8Array.length; i++) {
+        binaryString += String.fromCharCode(uint8Array[i]);
+      }
+      const base64 = btoa(binaryString);
+      
+      cachedLogoBase64 = `data:${contentType};base64,${base64}`;
+      console.log('Logo cached successfully from', logoUrl, ', length:', cachedLogoBase64.length);
+      
+      return cachedLogoBase64;
+    } catch (error) {
+      console.error('Error fetching logo from', logoUrl, ':', error);
+      continue; // Try next URL
     }
-    
-    const contentType = response.headers.get('content-type') || 'image/png';
-    const arrayBuffer = await response.arrayBuffer();
-    const uint8Array = new Uint8Array(arrayBuffer);
-    
-    // Convert to base64
-    let binaryString = '';
-    for (let i = 0; i < uint8Array.length; i++) {
-      binaryString += String.fromCharCode(uint8Array[i]);
-    }
-    const base64 = btoa(binaryString);
-    
-    cachedLogoBase64 = `data:${contentType};base64,${base64}`;
-    console.log('Logo cached successfully, length:', cachedLogoBase64.length);
-    
-    return cachedLogoBase64;
-  } catch (error) {
-    console.error('Error fetching logo:', error);
-    // Return empty string to use fallback
-    return '';
   }
+
+  console.error('All logo URLs failed, using fallback');
+  return '';
 }
 
 // Generate SVG-based OG image
