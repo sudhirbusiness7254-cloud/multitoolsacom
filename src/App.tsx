@@ -38,6 +38,7 @@ import PDFToolsPage from "./pages/categories/PDFToolsPage";
 
 import ImageEditorPage from "./pages/ImageEditorPage";
 import PDFToolPage from "./pages/tools/PDFToolPage";
+import SupportChat from "./components/SupportChat";
 import CookieConsent from "./components/CookieConsent";
 import SideAds from "./components/ads/SideAds";
 import SocialBarAd from "./components/ads/SocialBarAd";
@@ -113,6 +114,7 @@ const App = () => (
           <SideAds />
           <SocialBarAd />
           <StickyMobileBannerAd />
+          <SupportChat />
           <CookieConsent />
         </BrowserRouter>
       </TooltipProvider>
