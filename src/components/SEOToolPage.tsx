@@ -724,17 +724,30 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <meta name="googlebot" content="index, follow" />
         
+        {/* Open Graph Meta Tags */}
         <meta property="og:title" content={comprehensiveContent?.metaTitle || seoContent.metaTitle} />
         <meta property="og:description" content={comprehensiveContent?.metaDescription || seoContent.metaDescription} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:site_name" content="MultiToolsA" />
-        <meta property="og:image" content="https://multitoolsa.com/screenshot.png" />
+        <meta property="og:image" content="https://multitoolsa.com/og-image.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content={`${seoContent.title} - Free Online Tool | MultiToolsA`} />
+        <meta property="og:locale" content="en_US" />
         
+        {/* Twitter Card Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@multitoolsa" />
+        <meta name="twitter:creator" content="@multitoolsa" />
         <meta name="twitter:title" content={comprehensiveContent?.metaTitle || seoContent.metaTitle} />
         <meta name="twitter:description" content={comprehensiveContent?.metaDescription || seoContent.metaDescription} />
-        <meta name="twitter:image" content="https://multitoolsa.com/screenshot.png" />
+        <meta name="twitter:image" content="https://multitoolsa.com/og-image.png" />
+        <meta name="twitter:image:alt" content={`${seoContent.title} - Free Online Tool | MultiToolsA`} />
+        
+        {/* Additional Social Meta */}
+        <meta property="article:publisher" content="https://multitoolsa.com" />
+        <meta property="article:section" content={seoContent.category} />
         
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
         <script type="application/ld+json">{JSON.stringify(faqStructuredData)}</script>
