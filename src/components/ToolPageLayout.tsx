@@ -130,14 +130,29 @@ const ToolPageLayout = ({
         <meta name="keywords" content={keywords.join(", ")} />
         <link rel="canonical" href={canonicalUrl} />
         
+        {/* Open Graph Meta Tags */}
         <meta property="og:title" content={metaTitle} />
         <meta property="og:description" content={metaDescription} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:site_name" content="MultiToolsA" />
+        <meta property="og:image" content="https://multitoolsa.com/og-image.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content={`${title} - Free Online Tool | MultiToolsA`} />
+        <meta property="og:locale" content="en_US" />
         
+        {/* Twitter Card Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@multitoolsa" />
+        <meta name="twitter:creator" content="@multitoolsa" />
         <meta name="twitter:title" content={metaTitle} />
         <meta name="twitter:description" content={metaDescription} />
+        <meta name="twitter:image" content="https://multitoolsa.com/og-image.png" />
+        <meta name="twitter:image:alt" content={`${title} - Free Online Tool | MultiToolsA`} />
+        
+        {/* Additional Social Meta */}
+        <meta property="article:publisher" content="https://multitoolsa.com" />
         
         <script type="application/ld+json">
           {JSON.stringify(schemaMarkup)}
