@@ -1,4 +1,5 @@
 // Premium SEO Content - Google First Page Quality
+import { premiumToolsSEOBatch3 } from './premiumSEOContentBatch3';
 // Following iLovePDF/SmallPDF standards with E-E-A-T principles
 // 100% Human-like, Professional, Trustworthy Content
 
@@ -1045,7 +1046,9 @@ export const premiumToolsSEO: Record<string, PremiumToolSEO> = {
   "exact-resize": imageResizePremiumSEO,
   "image-to-pdf": imageToPdfPremiumSEO,
   // Batch 2
-  ...premiumToolsSEOBatch2
+  ...premiumToolsSEOBatch2,
+  // Batch 3
+  ...premiumToolsSEOBatch3
 };
 
 // Tool metadata for conversion
@@ -1062,7 +1065,18 @@ const toolMetadata: Record<string, { gradientFrom: string; gradientTo: string; c
   "split-pdf": { gradientFrom: "#667eea", gradientTo: "#764ba2", category: "PDF Tools", categorySlug: "pdf-tools" },
   "manual-crop": { gradientFrom: "#8b5cf6", gradientTo: "#7c3aed", category: "Image Crop", categorySlug: "image-crop" },
   "rotate-90": { gradientFrom: "#06b6d4", gradientTo: "#0891b2", category: "Rotate & Flip", categorySlug: "rotate-flip" },
-  "webp-compressor": { gradientFrom: "#f59e0b", gradientTo: "#d97706", category: "Image Compression", categorySlug: "image-compression" }
+  "webp-compressor": { gradientFrom: "#f59e0b", gradientTo: "#d97706", category: "Image Compression", categorySlug: "image-compression" },
+  // Batch 3
+  "png-to-jpg": { gradientFrom: "#FF6B6B", gradientTo: "#FF8E53", category: "Image Converter", categorySlug: "image-converter" },
+  "text-watermark": { gradientFrom: "#8b5cf6", gradientTo: "#7c3aed", category: "Watermark Tools", categorySlug: "watermark-tools" },
+  "gif-compressor": { gradientFrom: "#10b981", gradientTo: "#059669", category: "Image Compression", categorySlug: "image-compression" },
+  "aspect-ratio-crop": { gradientFrom: "#8b5cf6", gradientTo: "#7c3aed", category: "Image Crop", categorySlug: "image-crop" },
+  "flip-horizontal": { gradientFrom: "#06b6d4", gradientTo: "#0891b2", category: "Rotate & Flip", categorySlug: "rotate-flip" },
+  "percentage-resize": { gradientFrom: "#00c6ff", gradientTo: "#0072ff", category: "Image Resize", categorySlug: "image-resize" },
+  "fit-to-width": { gradientFrom: "#00c6ff", gradientTo: "#0072ff", category: "Image Resize", categorySlug: "image-resize" },
+  "fit-to-height": { gradientFrom: "#00c6ff", gradientTo: "#0072ff", category: "Image Resize", categorySlug: "image-resize" },
+  "circle-crop": { gradientFrom: "#8b5cf6", gradientTo: "#7c3aed", category: "Image Crop", categorySlug: "image-crop" },
+  "custom-rotate": { gradientFrom: "#06b6d4", gradientTo: "#0891b2", category: "Rotate & Flip", categorySlug: "rotate-flip" }
 };
 
 // Define ComprehensiveSEOContent interface locally to avoid circular dependency
