@@ -43,6 +43,9 @@ const ToolPageLayout = ({
 }: ToolPageLayoutProps) => {
   const slug = title.toLowerCase().replace(/\s+/g, '-');
   const canonicalUrl = `https://multitoolsa.com/tools/${slug}`;
+  
+  // Dynamic OG image URL
+  const ogImageUrl = `https://ftigwyzrrdwddxcpgaaf.supabase.co/functions/v1/og-image?tool=${encodeURIComponent(title)}&category=${encodeURIComponent('Image Tools')}&slug=default`;
 
   // Enhanced WebApplication Schema with ratings
   const schemaMarkup = {
@@ -136,7 +139,7 @@ const ToolPageLayout = ({
         <meta property="og:type" content="website" />
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:site_name" content="MultiToolsA" />
-        <meta property="og:image" content="https://multitoolsa.com/og-image.png" />
+        <meta property="og:image" content={ogImageUrl} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content={`${title} - Free Online Tool | MultiToolsA`} />
@@ -148,7 +151,7 @@ const ToolPageLayout = ({
         <meta name="twitter:creator" content="@multitoolsa" />
         <meta name="twitter:title" content={metaTitle} />
         <meta name="twitter:description" content={metaDescription} />
-        <meta name="twitter:image" content="https://multitoolsa.com/og-image.png" />
+        <meta name="twitter:image" content={ogImageUrl} />
         <meta name="twitter:image:alt" content={`${title} - Free Online Tool | MultiToolsA`} />
         
         {/* Additional Social Meta */}

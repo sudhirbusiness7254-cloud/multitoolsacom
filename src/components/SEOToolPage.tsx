@@ -186,6 +186,9 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
   const toolPath = isPDFTool ? `/${seoContent.slug}` : `/tools/${seoContent.slug}`;
   const canonicalUrl = `https://multitoolsa.com${toolPath}`;
   
+  // Dynamic OG image URL
+  const ogImageUrl = `https://ftigwyzrrdwddxcpgaaf.supabase.co/functions/v1/og-image?tool=${encodeURIComponent(seoContent.title)}&category=${encodeURIComponent(seoContent.category)}&slug=${encodeURIComponent(seoContent.categorySlug)}`;
+  
   // Enhanced WebApplication Schema with ratings
   const structuredData = {
     "@context": "https://schema.org",
@@ -730,7 +733,7 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
         <meta property="og:type" content="website" />
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:site_name" content="MultiToolsA" />
-        <meta property="og:image" content="https://multitoolsa.com/og-image.png" />
+        <meta property="og:image" content={ogImageUrl} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content={`${seoContent.title} - Free Online Tool | MultiToolsA`} />
@@ -742,7 +745,7 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
         <meta name="twitter:creator" content="@multitoolsa" />
         <meta name="twitter:title" content={comprehensiveContent?.metaTitle || seoContent.metaTitle} />
         <meta name="twitter:description" content={comprehensiveContent?.metaDescription || seoContent.metaDescription} />
-        <meta name="twitter:image" content="https://multitoolsa.com/og-image.png" />
+        <meta name="twitter:image" content={ogImageUrl} />
         <meta name="twitter:image:alt" content={`${seoContent.title} - Free Online Tool | MultiToolsA`} />
         
         {/* Additional Social Meta */}

@@ -110,6 +110,9 @@ const CategoryPageLayout = ({
   const categoryUniqueContent = getCategoryUniqueContent(category.slug);
   
   const canonicalUrl = `https://multitoolsa.com/${category.slug}`;
+  
+  // Dynamic OG image URL
+  const ogImageUrl = `https://ftigwyzrrdwddxcpgaaf.supabase.co/functions/v1/og-image?tool=${encodeURIComponent(category.name)}&category=${encodeURIComponent('Free Online Tools')}&slug=${encodeURIComponent(category.slug)}`;
 
   // Enhanced WebApplication Schema
   const schemaMarkup = {
@@ -227,7 +230,7 @@ const CategoryPageLayout = ({
         <meta property="og:type" content="website" />
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:site_name" content="MultiToolsA" />
-        <meta property="og:image" content="https://multitoolsa.com/og-image.png" />
+        <meta property="og:image" content={ogImageUrl} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content={`${category.name} - Free Online Tools | MultiToolsA`} />
@@ -239,7 +242,7 @@ const CategoryPageLayout = ({
         <meta name="twitter:creator" content="@multitoolsa" />
         <meta name="twitter:title" content={metaTitle} />
         <meta name="twitter:description" content={metaDescription} />
-        <meta name="twitter:image" content="https://multitoolsa.com/og-image.png" />
+        <meta name="twitter:image" content={ogImageUrl} />
         <meta name="twitter:image:alt" content={`${category.name} - Free Online Tools | MultiToolsA`} />
         
         {/* Additional Social Meta */}
