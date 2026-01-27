@@ -41,7 +41,6 @@ import PDFToolPage from "./pages/tools/PDFToolPage";
 import SupportChat from "./components/SupportChat";
 
 import SideAds from "./components/ads/SideAds";
-import SocialBarAd from "./components/ads/SocialBarAd";
 import StickyMobileBannerAd from "./components/ads/StickyMobileBannerAd";
 
 // Educational & Trust Pages
@@ -112,7 +111,6 @@ const App = () => (
             <Route path="*" element={<NotFound />} />
           </Routes>
           <SideAds />
-          <SocialBarAd />
           <StickyMobileBannerAd />
           <SupportChat />
           
