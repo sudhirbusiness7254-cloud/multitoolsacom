@@ -17,7 +17,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-card border-t border-border mt-8 sm:mt-12 md:mt-16">
+    <footer className="bg-card border-t border-border mt-8 sm:mt-12 md:mt-16 pb-16 md:pb-0">
       {/* Mobile Banner Ad (320x50) */}
       <div className="md:hidden container mx-auto px-4 pt-4">
         <MobileBannerAd />
