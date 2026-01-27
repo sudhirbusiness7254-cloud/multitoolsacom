@@ -42,6 +42,7 @@ import SupportChat from "./components/SupportChat";
 import CookieConsent from "./components/CookieConsent";
 import SideAds from "./components/ads/SideAds";
 import SocialBarAd from "./components/ads/SocialBarAd";
+import StickyMobileBannerAd from "./components/ads/StickyMobileBannerAd";
 
 // Educational & Trust Pages
 import HowToolsWorkPage from "./pages/HowToolsWorkPage";
@@ -112,6 +113,7 @@ const App = () => (
           </Routes>
           <SideAds />
           <SocialBarAd />
+          <StickyMobileBannerAd />
           <SupportChat />
           <CookieConsent />
         </BrowserRouter>
