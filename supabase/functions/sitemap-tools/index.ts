@@ -6,7 +6,133 @@ const corsHeaders = {
   'Content-Type': 'application/xml; charset=utf-8',
 };
 
-// Complete tool categories with all tools - for dedicated tool sitemap
+// Tool name mappings for better display
+const toolNameMap: Record<string, string> = {
+  "jpg-to-png": "JPG to PNG Converter",
+  "png-to-jpg": "PNG to JPG Converter",
+  "jpg-to-webp": "JPG to WebP Converter",
+  "webp-to-jpg": "WebP to JPG Converter",
+  "png-to-webp": "PNG to WebP Converter",
+  "webp-to-png": "WebP to PNG Converter",
+  "gif-to-png": "GIF to PNG Converter",
+  "gif-to-jpg": "GIF to JPG Converter",
+  "bmp-to-jpg": "BMP to JPG Converter",
+  "bmp-to-png": "BMP to PNG Converter",
+  "tiff-to-jpg": "TIFF to JPG Converter",
+  "tiff-to-png": "TIFF to PNG Converter",
+  "svg-to-png": "SVG to PNG Converter",
+  "svg-to-jpg": "SVG to JPG Converter",
+  "heic-to-jpg": "HEIC to JPG Converter",
+  "heic-to-png": "HEIC to PNG Converter",
+  "raw-to-jpg": "RAW to JPG Converter",
+  "raw-to-png": "RAW to PNG Converter",
+  "jpeg-compressor": "JPEG Compressor",
+  "png-compressor": "PNG Compressor",
+  "webp-compressor": "WebP Compressor",
+  "gif-compressor": "GIF Compressor",
+  "tiff-compressor": "TIFF Compressor",
+  "image-to-pdf": "Image to PDF Converter",
+  "image-to-docx": "Image to DOCX Converter",
+  "image-to-pptx": "Image to PPTX Converter",
+  "image-to-html": "Image to HTML Converter",
+  "image-to-base64": "Image to Base64 Converter",
+  "base64-to-image": "Base64 to Image Converter",
+  "exact-resize": "Exact Resize Tool",
+  "percentage-resize": "Percentage Resize Tool",
+  "fit-to-width": "Fit to Width Tool",
+  "fit-to-height": "Fit to Height Tool",
+  "fit-to-box": "Fit to Box Tool",
+  "resize-without-quality-loss": "Resize Without Quality Loss",
+  "manual-crop": "Manual Crop Tool",
+  "aspect-ratio-crop": "Aspect Ratio Crop",
+  "circle-crop": "Circle Crop Tool",
+  "square-crop": "Square Crop Tool",
+  "free-selection-crop": "Free Selection Crop",
+  "rotate-90": "Rotate 90° Tool",
+  "rotate-180": "Rotate 180° Tool",
+  "rotate-270": "Rotate 270° Tool",
+  "custom-rotate": "Custom Rotate Tool",
+  "flip-horizontal": "Flip Horizontal Tool",
+  "flip-vertical": "Flip Vertical Tool",
+  "mirror-effect": "Mirror Effect Tool",
+  "grayscale-conversion": "Grayscale Conversion",
+  "black-white-conversion": "Black & White Conversion",
+  "add-transparency": "Add Transparency Tool",
+  "remove-transparency": "Remove Transparency Tool",
+  "flatten-image": "Flatten Image Tool",
+  "merge-images": "Merge Images Tool",
+  "brightness-adjust": "Brightness Adjustment",
+  "contrast-adjust": "Contrast Adjustment",
+  "saturation-adjust": "Saturation Adjustment",
+  "sharpen-filter": "Sharpen Filter",
+  "blur-filter": "Blur Filter",
+  "gaussian-blur": "Gaussian Blur Filter",
+  "emboss-filter": "Emboss Filter",
+  "smooth-filter": "Smooth Filter",
+  "pixelate-effect": "Pixelate Effect",
+  "sepia-effect": "Sepia Effect",
+  "negative-image": "Negative Image Effect",
+  "vintage-filter": "Vintage Filter",
+  "warm-tone": "Warm Tone Filter",
+  "cool-tone": "Cool Tone Filter",
+  "text-watermark": "Text Watermark Tool",
+  "image-watermark": "Image Watermark Tool",
+  "font-change": "Font Change Tool",
+  "color-change": "Color Change Tool",
+  "opacity-settings": "Opacity Settings Tool",
+  "position-settings": "Position Settings Tool",
+  "merge-horizontally": "Merge Horizontally Tool",
+  "merge-vertically": "Merge Vertically Tool",
+  "collage-maker": "Collage Maker Tool",
+  "stitch-images": "Stitch Images Tool",
+  "before-after-maker": "Before After Maker",
+  "view-exif": "View EXIF Data",
+  "remove-exif": "Remove EXIF Data",
+  "edit-exif-datetime": "Edit EXIF DateTime",
+  "copy-exif": "Copy EXIF Data",
+  "reduce-file-size": "Reduce File Size Tool",
+  "reduce-resolution": "Reduce Resolution Tool",
+  "optimize-for-web": "Optimize for Web Tool",
+  "auto-orient-image": "Auto Orient Image",
+  "paint-tool": "Paint Tool",
+  "draw-shapes": "Draw Shapes Tool",
+  "signature-pad": "Signature Pad Tool",
+  "add-stickers": "Add Stickers Tool",
+  "add-emojis": "Add Emojis Tool",
+  "manual-face-blur": "Manual Face Blur",
+  "manual-pixel-blur": "Manual Pixel Blur",
+  "hide-area": "Hide Area Tool",
+  "image-encrypt": "Image Encrypt Tool",
+  "image-decrypt": "Image Decrypt Tool",
+  "image-to-qr-code": "Image to QR Code",
+  "qr-code-to-image": "QR Code to Image",
+  "merge-pdf": "Merge PDF Tool",
+  "compress-pdf": "Compress PDF Tool",
+  "word-to-pdf": "Word to PDF Converter",
+  "split-pdf": "Split PDF Tool"
+};
+
+// Category display names
+const categoryNameMap: Record<string, string> = {
+  "image-converter": "Image Converter",
+  "image-compression": "Image Compression",
+  "image-to-document": "Image to Document",
+  "image-resize": "Image Resize",
+  "image-crop": "Image Crop",
+  "image-rotate-flip": "Rotate & Flip",
+  "image-format-utilities": "Format Utilities",
+  "photo-filters": "Photo Filters",
+  "watermark-tools": "Watermark Tools",
+  "image-combine": "Image Combine",
+  "image-metadata": "Image Metadata",
+  "image-optimization": "Image Optimization",
+  "image-drawing": "Image Drawing",
+  "image-security": "Image Security",
+  "image-qr": "QR Tools",
+  "pdf-tools": "PDF Tools"
+};
+
+// Complete tool categories with all tools
 const toolCategories = [
   {
     slug: "image-converter",
@@ -109,15 +235,27 @@ function getCurrentDate(): string {
   return new Date().toISOString().split('T')[0];
 }
 
+function generateOgImageUrl(toolSlug: string, categorySlug: string): string {
+  const toolName = toolNameMap[toolSlug] || toolSlug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+  const categoryName = categoryNameMap[categorySlug] || categorySlug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+  const functionsBaseUrl = 'https://ftigwyzrrdwddxcpgaaf.supabase.co/functions/v1';
+  
+  return `${functionsBaseUrl}/og-image?tool=${encodeURIComponent(toolName)}&category=${encodeURIComponent(categoryName)}&slug=${encodeURIComponent(categorySlug)}`;
+}
+
 function generateToolsSitemap(baseUrl: string): string {
   const today = getCurrentDate();
   let totalTools = 0;
   
+  // Include image namespace for Google Image Sitemap
   let xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">`;
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd
+        http://www.google.com/schemas/sitemap-image/1.1
+        http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd">`;
 
   // Individual tool pages organized by category - ALL tools use ROOT level paths
   for (const category of toolCategories) {
@@ -126,8 +264,10 @@ function generateToolsSitemap(baseUrl: string): string {
   <!-- ${category.slug.replace(/-/g, ' ').toUpperCase()} TOOLS -->`;
     
     for (const toolSlug of category.tools) {
-      // ALL tools use root-level paths (e.g., /jpg-to-png, /merge-pdf)
       const toolPath = `/${toolSlug}`;
+      const toolName = toolNameMap[toolSlug] || toolSlug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+      const categoryName = categoryNameMap[category.slug] || category.slug.replace(/-/g, ' ');
+      const ogImageUrl = generateOgImageUrl(toolSlug, category.slug);
       
       xml += `
   <url>
@@ -135,6 +275,11 @@ function generateToolsSitemap(baseUrl: string): string {
     <lastmod>${today}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>${category.priority}</priority>
+    <image:image>
+      <image:loc>${escapeXml(ogImageUrl)}</image:loc>
+      <image:title>${escapeXml(toolName)} - Free Online Tool</image:title>
+      <image:caption>${escapeXml(`${toolName} - Part of MultiToolsA's ${categoryName} collection. Free online image editing tool.`)}</image:caption>
+    </image:image>
   </url>`;
       totalTools++;
     }
@@ -143,7 +288,7 @@ function generateToolsSitemap(baseUrl: string): string {
   xml += `
 </urlset>`;
 
-  console.log(`[Sitemap-Tools] Total tools in sitemap: ${totalTools}`);
+  console.log(`[Sitemap-Tools] Total tools in sitemap: ${totalTools} (with dynamic OG images)`);
   return xml;
 }
 
@@ -153,7 +298,7 @@ serve(async (req: Request) => {
   }
 
   try {
-    console.log("[Sitemap-Tools] Generating tools sitemap");
+    console.log("[Sitemap-Tools] Generating tools sitemap with dynamic OG images");
     
     const url = new URL(req.url);
     const baseUrl = url.searchParams.get('baseUrl') || 'https://multitoolsa.com';
