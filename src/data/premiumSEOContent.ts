@@ -1041,3 +1041,74 @@ export const premiumToolsSEO: Record<string, PremiumToolSEO> = {
   "exact-resize": imageResizePremiumSEO,
   "image-to-pdf": imageToPdfPremiumSEO
 };
+
+// Tool metadata for conversion
+const toolMetadata: Record<string, { gradientFrom: string; gradientTo: string; category: string; categorySlug: string }> = {
+  "jpeg-compressor": { gradientFrom: "#f093fb", gradientTo: "#f5576c", category: "Image Compression", categorySlug: "image-compression" },
+  "jpg-to-png": { gradientFrom: "#FF6B6B", gradientTo: "#FF8E53", category: "Image Converter", categorySlug: "image-converter" },
+  "merge-pdf": { gradientFrom: "#667eea", gradientTo: "#764ba2", category: "PDF Tools", categorySlug: "pdf-tools" },
+  "exact-resize": { gradientFrom: "#00c6ff", gradientTo: "#0072ff", category: "Image Resize", categorySlug: "image-resize" },
+  "image-to-pdf": { gradientFrom: "#f093fb", gradientTo: "#f5576c", category: "Image to Document", categorySlug: "image-to-document" }
+};
+
+// Define ComprehensiveSEOContent interface locally to avoid circular dependency
+interface LocalComprehensiveSEOContent {
+  slug: string;
+  title: string;
+  metaTitle: string;
+  metaDescription: string;
+  h1: string;
+  introduction: string;
+  aboutTool: string;
+  howToUse: { step: number; title: string; description: string }[];
+  whyImportant: string;
+  keyFeatures: { title: string; description: string }[];
+  benefitsText: string;
+  benefits: string[];
+  whoCanUse: { title: string; description: string }[];
+  useCases: { title: string; description: string }[];
+  faqs: { question: string; answer: string }[];
+  privacyNote: string;
+  conclusion: string;
+  relatedTools: string[];
+  category: string;
+  categorySlug: string;
+  keywords: string[];
+  gradientFrom: string;
+  gradientTo: string;
+}
+
+// Function to get premium SEO content and convert it to ComprehensiveSEOContent format
+export const getPremiumSEOContent = (slug: string): LocalComprehensiveSEOContent | null => {
+  const premium = premiumToolsSEO[slug];
+  if (!premium) return null;
+  
+  const metadata = toolMetadata[slug];
+  if (!metadata) return null;
+  
+  return {
+    slug: premium.slug,
+    title: premium.h1.replace(' — Free & Instant', '').replace(' — Free & Unlimited', ''),
+    metaTitle: premium.metaTitle,
+    metaDescription: premium.metaDescription,
+    h1: premium.h1,
+    introduction: premium.detailedIntroduction,
+    aboutTool: premium.aboutTheTool,
+    howToUse: premium.howToUse,
+    whyImportant: premium.benefits.slice(0, 4).join('. ') + '.',
+    keyFeatures: premium.features,
+    benefitsText: premium.benefits.join('. ') + '.',
+    benefits: premium.benefits,
+    whoCanUse: premium.whoCanUse.map(u => ({ title: u.audience, description: u.useCase })),
+    useCases: premium.useCases.map(uc => ({ title: uc, description: uc })),
+    faqs: premium.faqs,
+    privacyNote: "Your files are processed entirely in your browser. We never upload, store, or have access to your images or documents. All processing happens locally on your device, ensuring complete privacy and security.",
+    conclusion: `Use our free ${premium.h1.toLowerCase().replace(' — free & instant', '').replace(' — free & unlimited', '')} tool for professional results. No signup required, works on all devices, and your files never leave your computer.`,
+    relatedTools: premium.relatedTools,
+    category: metadata.category,
+    categorySlug: metadata.categorySlug,
+    keywords: [...premium.primaryKeywords, ...premium.secondaryKeywords],
+    gradientFrom: metadata.gradientFrom,
+    gradientTo: metadata.gradientTo
+  };
+};
