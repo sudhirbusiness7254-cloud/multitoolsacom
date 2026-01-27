@@ -15,11 +15,13 @@ const StickyMobileBannerAd = () => {
   useEffect(() => {
     if (scriptLoaded.current || !containerRef.current) return;
     
+    const container = containerRef.current;
+    
     // Delay loading for better initial page performance
     const loadTimer = setTimeout(() => {
-      if (!containerRef.current) return;
+      if (!container || scriptLoaded.current) return;
       
-      containerRef.current.innerHTML = '';
+      scriptLoaded.current = true;
 
       // Create atOptions script
       const optionsScript = document.createElement('script');
@@ -32,7 +34,7 @@ const StickyMobileBannerAd = () => {
           'params' : {}
         };
       `;
-      containerRef.current.appendChild(optionsScript);
+      container.appendChild(optionsScript);
 
       // Create invoke script
       const invokeScript = document.createElement('script');
@@ -40,8 +42,7 @@ const StickyMobileBannerAd = () => {
       invokeScript.async = true;
       invokeScript.onload = () => setIsLoaded(true);
       
-      containerRef.current.appendChild(invokeScript);
-      scriptLoaded.current = true;
+      container.appendChild(invokeScript);
     }, 2000); // 2 second delay for better UX
 
     return () => clearTimeout(loadTimer);

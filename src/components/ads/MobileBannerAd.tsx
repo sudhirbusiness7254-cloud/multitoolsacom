@@ -11,9 +11,9 @@ const MobileBannerAd = ({ className = "" }: { className?: string }) => {
 
   useEffect(() => {
     if (scriptLoaded.current || !containerRef.current) return;
+    scriptLoaded.current = true;
     
-    // Clear any existing content
-    containerRef.current.innerHTML = '';
+    const container = containerRef.current;
 
     // Create atOptions script
     const optionsScript = document.createElement('script');
@@ -26,21 +26,14 @@ const MobileBannerAd = ({ className = "" }: { className?: string }) => {
         'params' : {}
       };
     `;
-    containerRef.current.appendChild(optionsScript);
+    container.appendChild(optionsScript);
 
     // Create invoke script
     const invokeScript = document.createElement('script');
     invokeScript.src = 'https://crowdsubsequentadmire.com/689f23dcc2cd82711bf2ed6fa916f48f/invoke.js';
     invokeScript.async = true;
     
-    containerRef.current.appendChild(invokeScript);
-    scriptLoaded.current = true;
-
-    return () => {
-      if (containerRef.current) {
-        containerRef.current.innerHTML = '';
-      }
-    };
+    container.appendChild(invokeScript);
   }, []);
 
   return (
