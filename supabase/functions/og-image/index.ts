@@ -26,11 +26,58 @@ const categoryColors: Record<string, { from: string; to: string }> = {
   "default": { from: "#FF6B35", to: "#F7931E" }
 };
 
-// Generate SVG-based OG image (returned as SVG for browsers that support it)
+// Cache for the logo base64 data
+let cachedLogoBase64: string | null = null;
+
+// Fetch and cache the logo as base64
+async function getLogoBase64(): Promise<string> {
+  if (cachedLogoBase64) {
+    return cachedLogoBase64;
+  }
+
+  try {
+    const logoUrl = 'https://multitoolsa.com/logo.png';
+    console.log('Fetching logo from:', logoUrl);
+    
+    const response = await fetch(logoUrl, {
+      headers: {
+        'User-Agent': 'MultiToolsA-OG-Generator/1.0'
+      }
+    });
+    
+    if (!response.ok) {
+      console.error('Failed to fetch logo:', response.status, response.statusText);
+      throw new Error(`Failed to fetch logo: ${response.status}`);
+    }
+    
+    const contentType = response.headers.get('content-type') || 'image/png';
+    const arrayBuffer = await response.arrayBuffer();
+    const uint8Array = new Uint8Array(arrayBuffer);
+    
+    // Convert to base64
+    let binaryString = '';
+    for (let i = 0; i < uint8Array.length; i++) {
+      binaryString += String.fromCharCode(uint8Array[i]);
+    }
+    const base64 = btoa(binaryString);
+    
+    cachedLogoBase64 = `data:${contentType};base64,${base64}`;
+    console.log('Logo cached successfully, length:', cachedLogoBase64.length);
+    
+    return cachedLogoBase64;
+  } catch (error) {
+    console.error('Error fetching logo:', error);
+    // Return empty string to use fallback
+    return '';
+  }
+}
+
+// Generate SVG-based OG image
 function generateOgImageSVG(
   toolName: string,
   category: string,
-  categorySlug: string
+  categorySlug: string,
+  logoBase64: string
 ): string {
   const colors = categoryColors[categorySlug] || categoryColors["default"];
   
@@ -48,8 +95,14 @@ function generateOgImageSVG(
   // Calculate font size based on tool name length
   const titleFontSize = toolName.length > 30 ? 48 : toolName.length > 20 ? 56 : 64;
   
+  // Logo element - use actual logo or fallback to styled "M"
+  const logoElement = logoBase64 
+    ? `<image x="0" y="0" width="60" height="60" href="${logoBase64}" preserveAspectRatio="xMidYMid meet"/>`
+    : `<circle cx="30" cy="30" r="30" fill="url(#accentGradient)" filter="url(#shadow)"/>
+       <text x="30" y="42" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle">M</text>`;
+
   return `<?xml version="1.0" encoding="UTF-8"?>
-<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>
     <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#0f0f23;stop-opacity:1" />
@@ -73,6 +126,9 @@ function generateOgImageSVG(
     <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
       <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/>
     </filter>
+    <clipPath id="logoClip">
+      <circle cx="30" cy="30" r="30"/>
+    </clipPath>
   </defs>
   
   <!-- Background -->
@@ -92,10 +148,12 @@ function generateOgImageSVG(
   <!-- Accent bar at top -->
   <rect x="0" y="0" width="1200" height="6" fill="url(#accentGradient)"/>
   
-  <!-- Logo placeholder (circle with M) -->
+  <!-- Logo with circular background -->
   <g transform="translate(60, 50)">
-    <circle cx="30" cy="30" r="30" fill="url(#accentGradient)" filter="url(#shadow)"/>
-    <text x="30" y="42" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle">M</text>
+    <circle cx="30" cy="30" r="32" fill="white" filter="url(#shadow)"/>
+    <g clip-path="url(#logoClip)">
+      ${logoElement}
+    </g>
   </g>
   
   <!-- Brand name -->
@@ -165,8 +223,11 @@ serve(async (req) => {
     
     console.log(`Generating OG image for: ${toolName} (${category})`);
     
-    // Generate SVG image
-    const svg = generateOgImageSVG(toolName, category, categorySlug);
+    // Fetch logo as base64
+    const logoBase64 = await getLogoBase64();
+    
+    // Generate SVG image with embedded logo
+    const svg = generateOgImageSVG(toolName, category, categorySlug, logoBase64);
     
     return new Response(svg, {
       headers: {
