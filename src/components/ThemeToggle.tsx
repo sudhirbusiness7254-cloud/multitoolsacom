@@ -1,4 +1,4 @@
-import { Moon, Sun, Eye, Sparkles } from "lucide-react";
+import { Moon, Sun, Eye, Sparkles, Waves } from "lucide-react";
 import { useEffect, useState, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import {
@@ -14,8 +14,8 @@ import {
 } from "@/components/ui/tooltip";
 import SunCalc from "suncalc";
 
-type Theme = "light" | "dark" | "eye-comfort" | "auto";
-type AppliedTheme = "light" | "dark" | "eye-comfort";
+type Theme = "light" | "dark" | "eye-comfort" | "midnight-blue" | "auto";
+type AppliedTheme = "light" | "dark" | "eye-comfort" | "midnight-blue";
 
 // Color swatches for each theme
 const themeSwatches = {
@@ -40,6 +40,13 @@ const themeSwatches = {
     accent: "hsl(38 90% 50%)",
     text: "hsl(40 25% 92%)"
   },
+  "midnight-blue": {
+    bg: "hsl(220 25% 8%)",
+    card: "hsl(220 22% 12%)",
+    primary: "hsl(210 90% 55%)",
+    accent: "hsl(200 85% 50%)",
+    text: "hsl(210 20% 92%)"
+  },
   auto: {
     bg: "linear-gradient(135deg, hsl(0 0% 98%) 50%, hsl(30 20% 9%) 50%)",
     card: "linear-gradient(135deg, hsl(0 0% 100%) 50%, hsl(32 18% 13%) 50%)",
@@ -55,8 +62,8 @@ const ThemeSwatch = ({ themeKey }: { themeKey: Theme }) => {
   
   return (
     <div className="flex flex-col gap-1.5 p-2 min-w-[120px]">
-      <div className="text-xs font-medium text-center mb-1 capitalize">
-        {themeKey === "eye-comfort" ? "Eye Comfort" : themeKey === "auto" ? "Auto (Sunset)" : themeKey}
+      <div className="text-xs font-medium text-center mb-1">
+        {themeKey === "eye-comfort" ? "Eye Comfort" : themeKey === "auto" ? "Auto (Sunset)" : themeKey === "midnight-blue" ? "Midnight Blue" : themeKey.charAt(0).toUpperCase() + themeKey.slice(1)}
       </div>
       <div 
         className="w-full h-12 rounded-md border border-border/50 overflow-hidden"
@@ -125,7 +132,7 @@ export const ThemeToggle = () => {
   }, []);
 
   const applyTheme = useCallback((newTheme: AppliedTheme) => {
-    document.documentElement.classList.remove("dark", "light", "eye-comfort");
+    document.documentElement.classList.remove("dark", "light", "eye-comfort", "midnight-blue");
     document.documentElement.classList.add(newTheme);
     setAppliedTheme(newTheme);
   }, []);
@@ -203,6 +210,8 @@ export const ThemeToggle = () => {
         return <Moon className="h-5 w-5 text-foreground" />;
       case "eye-comfort":
         return <Eye className="h-5 w-5 text-foreground" />;
+      case "midnight-blue":
+        return <Waves className="h-5 w-5 text-foreground" />;
       case "auto":
         return <Sparkles className="h-5 w-5 text-foreground" />;
     }
@@ -241,6 +250,7 @@ export const ThemeToggle = () => {
         <ThemeMenuItem themeKey="light" icon={Sun} label="Light" />
         <ThemeMenuItem themeKey="dark" icon={Moon} label="Dark" />
         <ThemeMenuItem themeKey="eye-comfort" icon={Eye} label="Eye Comfort" />
+        <ThemeMenuItem themeKey="midnight-blue" icon={Waves} label="Midnight Blue" />
         <ThemeMenuItem themeKey="auto" icon={Sparkles} label="Auto (Sunset)" />
       </DropdownMenuContent>
     </DropdownMenu>
