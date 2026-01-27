@@ -1033,22 +1033,36 @@ All processing occurs in your browser for privacy and speed. Images and the resu
   rating: { value: 4.9, count: 21432 }
 };
 
-// Export all premium SEO content
+// Import batch 2 premium content
+import { premiumToolsSEOBatch2 } from './premiumSEOContentBatch2';
+
+// Export all premium SEO content (combined from all batches)
 export const premiumToolsSEO: Record<string, PremiumToolSEO> = {
+  // Batch 1
   "jpeg-compressor": jpegCompressorPremiumSEO,
   "jpg-to-png": jpgToPngPremiumSEO,
   "merge-pdf": mergePdfPremiumSEO,
   "exact-resize": imageResizePremiumSEO,
-  "image-to-pdf": imageToPdfPremiumSEO
+  "image-to-pdf": imageToPdfPremiumSEO,
+  // Batch 2
+  ...premiumToolsSEOBatch2
 };
 
 // Tool metadata for conversion
 const toolMetadata: Record<string, { gradientFrom: string; gradientTo: string; category: string; categorySlug: string }> = {
+  // Batch 1
   "jpeg-compressor": { gradientFrom: "#f093fb", gradientTo: "#f5576c", category: "Image Compression", categorySlug: "image-compression" },
   "jpg-to-png": { gradientFrom: "#FF6B6B", gradientTo: "#FF8E53", category: "Image Converter", categorySlug: "image-converter" },
   "merge-pdf": { gradientFrom: "#667eea", gradientTo: "#764ba2", category: "PDF Tools", categorySlug: "pdf-tools" },
   "exact-resize": { gradientFrom: "#00c6ff", gradientTo: "#0072ff", category: "Image Resize", categorySlug: "image-resize" },
-  "image-to-pdf": { gradientFrom: "#f093fb", gradientTo: "#f5576c", category: "Image to Document", categorySlug: "image-to-document" }
+  "image-to-pdf": { gradientFrom: "#f093fb", gradientTo: "#f5576c", category: "Image to Document", categorySlug: "image-to-document" },
+  // Batch 2
+  "compress-pdf": { gradientFrom: "#667eea", gradientTo: "#764ba2", category: "PDF Tools", categorySlug: "pdf-tools" },
+  "png-compressor": { gradientFrom: "#10b981", gradientTo: "#059669", category: "Image Compression", categorySlug: "image-compression" },
+  "split-pdf": { gradientFrom: "#667eea", gradientTo: "#764ba2", category: "PDF Tools", categorySlug: "pdf-tools" },
+  "manual-crop": { gradientFrom: "#8b5cf6", gradientTo: "#7c3aed", category: "Image Crop", categorySlug: "image-crop" },
+  "rotate-90": { gradientFrom: "#06b6d4", gradientTo: "#0891b2", category: "Rotate & Flip", categorySlug: "rotate-flip" },
+  "webp-compressor": { gradientFrom: "#f59e0b", gradientTo: "#d97706", category: "Image Compression", categorySlug: "image-compression" }
 };
 
 // Define ComprehensiveSEOContent interface locally to avoid circular dependency
