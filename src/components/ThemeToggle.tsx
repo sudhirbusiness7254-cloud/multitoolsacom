@@ -7,10 +7,95 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import SunCalc from "suncalc";
 
 type Theme = "light" | "dark" | "eye-comfort" | "auto";
 type AppliedTheme = "light" | "dark" | "eye-comfort";
+
+// Color swatches for each theme
+const themeSwatches = {
+  light: {
+    bg: "hsl(0 0% 98%)",
+    card: "hsl(0 0% 100%)",
+    primary: "hsl(24 95% 50%)",
+    accent: "hsl(12 90% 50%)",
+    text: "hsl(0 0% 10%)"
+  },
+  dark: {
+    bg: "hsl(0 0% 4%)",
+    card: "hsl(0 0% 8%)",
+    primary: "hsl(24 95% 53%)",
+    accent: "hsl(12 90% 50%)",
+    text: "hsl(0 0% 95%)"
+  },
+  "eye-comfort": {
+    bg: "hsl(30 20% 9%)",
+    card: "hsl(32 18% 13%)",
+    primary: "hsl(42 85% 55%)",
+    accent: "hsl(38 90% 50%)",
+    text: "hsl(40 25% 92%)"
+  },
+  auto: {
+    bg: "linear-gradient(135deg, hsl(0 0% 98%) 50%, hsl(30 20% 9%) 50%)",
+    card: "linear-gradient(135deg, hsl(0 0% 100%) 50%, hsl(32 18% 13%) 50%)",
+    primary: "hsl(42 85% 55%)",
+    accent: "hsl(24 95% 50%)",
+    text: "hsl(0 0% 50%)"
+  }
+};
+
+const ThemeSwatch = ({ themeKey }: { themeKey: Theme }) => {
+  const colors = themeSwatches[themeKey];
+  const isAuto = themeKey === "auto";
+  
+  return (
+    <div className="flex flex-col gap-1.5 p-2 min-w-[120px]">
+      <div className="text-xs font-medium text-center mb-1 capitalize">
+        {themeKey === "eye-comfort" ? "Eye Comfort" : themeKey === "auto" ? "Auto (Sunset)" : themeKey}
+      </div>
+      <div 
+        className="w-full h-12 rounded-md border border-border/50 overflow-hidden"
+        style={{ background: colors.bg }}
+      >
+        <div 
+          className="m-1.5 h-6 rounded-sm flex items-center justify-between px-2"
+          style={{ background: colors.card }}
+        >
+          <div 
+            className="w-3 h-3 rounded-full"
+            style={{ background: colors.primary }}
+          />
+          <div 
+            className="w-8 h-2 rounded-sm"
+            style={{ background: colors.accent }}
+          />
+        </div>
+      </div>
+      <div className="flex gap-1 justify-center mt-1">
+        <div 
+          className="w-4 h-4 rounded-full border border-border/30"
+          style={{ background: colors.bg }}
+          title="Background"
+        />
+        <div 
+          className="w-4 h-4 rounded-full border border-border/30"
+          style={{ background: colors.primary }}
+          title="Primary"
+        />
+        <div 
+          className="w-4 h-4 rounded-full border border-border/30"
+          style={{ background: colors.accent }}
+          title="Accent"
+        />
+      </div>
+    </div>
+  );
+};
 
 export const ThemeToggle = () => {
   const [theme, setTheme] = useState<Theme>("dark");
@@ -123,6 +208,23 @@ export const ThemeToggle = () => {
     }
   };
 
+  const ThemeMenuItem = ({ themeKey, icon: Icon, label }: { themeKey: Theme; icon: typeof Sun; label: string }) => (
+    <Tooltip delayDuration={300}>
+      <TooltipTrigger asChild>
+        <DropdownMenuItem 
+          onClick={() => handleThemeChange(themeKey)}
+          className={`cursor-pointer gap-2 ${theme === themeKey ? "bg-secondary" : ""}`}
+        >
+          <Icon className="h-4 w-4" />
+          <span>{label}</span>
+        </DropdownMenuItem>
+      </TooltipTrigger>
+      <TooltipContent side="left" className="p-0 bg-popover border-border">
+        <ThemeSwatch themeKey={themeKey} />
+      </TooltipContent>
+    </Tooltip>
+  );
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -136,34 +238,10 @@ export const ThemeToggle = () => {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="bg-popover border-border z-50">
-        <DropdownMenuItem 
-          onClick={() => handleThemeChange("light")}
-          className={`cursor-pointer gap-2 ${theme === "light" ? "bg-secondary" : ""}`}
-        >
-          <Sun className="h-4 w-4" />
-          <span>Light</span>
-        </DropdownMenuItem>
-        <DropdownMenuItem 
-          onClick={() => handleThemeChange("dark")}
-          className={`cursor-pointer gap-2 ${theme === "dark" ? "bg-secondary" : ""}`}
-        >
-          <Moon className="h-4 w-4" />
-          <span>Dark</span>
-        </DropdownMenuItem>
-        <DropdownMenuItem 
-          onClick={() => handleThemeChange("eye-comfort")}
-          className={`cursor-pointer gap-2 ${theme === "eye-comfort" ? "bg-secondary" : ""}`}
-        >
-          <Eye className="h-4 w-4" />
-          <span>Eye Comfort</span>
-        </DropdownMenuItem>
-        <DropdownMenuItem 
-          onClick={() => handleThemeChange("auto")}
-          className={`cursor-pointer gap-2 ${theme === "auto" ? "bg-secondary" : ""}`}
-        >
-          <Sparkles className="h-4 w-4" />
-          <span>Auto (Sunset)</span>
-        </DropdownMenuItem>
+        <ThemeMenuItem themeKey="light" icon={Sun} label="Light" />
+        <ThemeMenuItem themeKey="dark" icon={Moon} label="Dark" />
+        <ThemeMenuItem themeKey="eye-comfort" icon={Eye} label="Eye Comfort" />
+        <ThemeMenuItem themeKey="auto" icon={Sparkles} label="Auto (Sunset)" />
       </DropdownMenuContent>
     </DropdownMenu>
   );
