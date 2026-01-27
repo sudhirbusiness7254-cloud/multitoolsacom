@@ -119,59 +119,59 @@
     --shadow-glow: 0 0 30px hsl(24 95% 53% / 0.4);
   }
 
-  /* Eye Comfort Theme - Elegant warm palette with coral/peach accents */
+  /* Eye Comfort Theme - Warm amber/gold palette for reduced eye strain */
   .eye-comfort {
-    --background: 20 15% 10%;
-    --foreground: 30 15% 90%;
+    --background: 30 20% 9%;
+    --foreground: 40 25% 92%;
 
-    --card: 20 12% 14%;
-    --card-foreground: 30 15% 90%;
+    --card: 32 18% 13%;
+    --card-foreground: 40 25% 92%;
 
-    --popover: 20 12% 14%;
-    --popover-foreground: 30 15% 90%;
+    --popover: 32 18% 13%;
+    --popover-foreground: 40 25% 92%;
 
-    --primary: 15 75% 58%;
-    --primary-foreground: 20 15% 8%;
+    --primary: 42 85% 55%;
+    --primary-foreground: 30 25% 8%;
 
-    --secondary: 20 10% 18%;
-    --secondary-foreground: 30 15% 88%;
+    --secondary: 32 15% 17%;
+    --secondary-foreground: 40 20% 88%;
 
-    --muted: 20 8% 22%;
-    --muted-foreground: 25 10% 55%;
+    --muted: 32 12% 20%;
+    --muted-foreground: 38 15% 55%;
 
-    --accent: 25 85% 60%;
-    --accent-foreground: 20 15% 8%;
+    --accent: 38 90% 50%;
+    --accent-foreground: 30 25% 8%;
 
-    --destructive: 0 65% 50%;
-    --destructive-foreground: 30 15% 95%;
+    --destructive: 15 70% 50%;
+    --destructive-foreground: 40 25% 95%;
 
-    --border: 20 10% 22%;
-    --input: 20 10% 16%;
-    --ring: 15 75% 58%;
+    --border: 32 15% 22%;
+    --input: 32 15% 15%;
+    --ring: 42 85% 55%;
 
-    /* Brand Colors - Eye Comfort Mode - Warm coral/peach palette */
-    --brand-orange: 15 75% 58%;
-    --brand-orange-light: 20 80% 68%;
-    --brand-red: 8 70% 55%;
-    --brand-red-dark: 8 65% 45%;
-    --brand-amber: 30 80% 60%;
-    --brand-green: 145 45% 50%;
-    --brand-blue: 200 50% 55%;
-    --brand-teal: 170 45% 50%;
+    /* Brand Colors - Eye Comfort Mode - Warm amber/gold palette */
+    --brand-orange: 42 85% 55%;
+    --brand-orange-light: 45 90% 65%;
+    --brand-red: 28 75% 52%;
+    --brand-red-dark: 25 70% 42%;
+    --brand-amber: 45 95% 55%;
+    --brand-green: 80 50% 48%;
+    --brand-blue: 200 45% 52%;
+    --brand-teal: 165 45% 48%;
     
-    /* Glow colors - Eye Comfort - Soft warm glow */
-    --glow-orange: 0 0 35px hsl(15 75% 58% / 0.2);
-    --glow-red: 0 0 35px hsl(8 70% 55% / 0.2);
+    /* Glow colors - Eye Comfort - Warm golden glow */
+    --glow-orange: 0 0 35px hsl(42 85% 55% / 0.2);
+    --glow-red: 0 0 35px hsl(28 75% 52% / 0.2);
     
-    /* Gradients - Eye Comfort - Smooth warm gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(20 15% 10%), hsl(18 18% 13%));
-    --gradient-card: linear-gradient(145deg, hsl(20 12% 16%), hsl(20 12% 12%));
-    --gradient-orange: linear-gradient(135deg, hsl(15 75% 58%), hsl(25 85% 60%));
-    --gradient-dark: linear-gradient(180deg, hsl(20 12% 12%), hsl(20 15% 9%));
+    /* Gradients - Eye Comfort - Rich warm gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(30 20% 9%), hsl(32 22% 12%));
+    --gradient-card: linear-gradient(145deg, hsl(32 18% 15%), hsl(32 18% 11%));
+    --gradient-orange: linear-gradient(135deg, hsl(42 85% 55%), hsl(38 90% 50%));
+    --gradient-dark: linear-gradient(180deg, hsl(32 18% 11%), hsl(30 20% 8%));
     
-    --shadow-soft: 0 4px 20px -4px hsl(15 75% 58% / 0.1);
-    --shadow-strong: 0 10px 40px -10px hsl(15 75% 58% / 0.18);
-    --shadow-glow: 0 0 30px hsl(15 75% 58% / 0.2);
+    --shadow-soft: 0 4px 20px -4px hsl(42 85% 55% / 0.1);
+    --shadow-strong: 0 10px 40px -10px hsl(42 85% 55% / 0.18);
+    --shadow-glow: 0 0 30px hsl(42 85% 55% / 0.2);
   }
 }
 
