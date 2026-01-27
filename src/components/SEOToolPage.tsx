@@ -308,6 +308,39 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
     }
   };
 
+  // ImageObject Schema for enhanced image rich snippets
+  const imageObjectData = {
+    "@context": "https://schema.org",
+    "@type": "ImageObject",
+    "contentUrl": ogImageUrl,
+    "url": ogImageUrl,
+    "name": `${seoContent.title} - Free Online Tool`,
+    "description": seoContent.metaDescription,
+    "caption": `${seoContent.title} - ${seoContent.category} tool for professional image processing`,
+    "width": "1200",
+    "height": "630",
+    "encodingFormat": "image/png",
+    "representativeOfPage": true,
+    "creator": {
+      "@type": "Organization",
+      "name": "MultiToolsA",
+      "url": "https://multitoolsa.com"
+    },
+    "copyrightHolder": {
+      "@type": "Organization",
+      "name": "MultiToolsA"
+    },
+    "license": "https://multitoolsa.com/terms",
+    "acquireLicensePage": "https://multitoolsa.com/terms",
+    "creditText": "MultiToolsA Free Online Tools",
+    "thumbnail": {
+      "@type": "ImageObject",
+      "contentUrl": ogImageUrl,
+      "width": "400",
+      "height": "210"
+    }
+  };
+
   // Use comprehensive content if available, otherwise fall back to basic content
   const hasComprehensive = !!comprehensiveContent;
   const hasVisualGuide = !!guideData;
@@ -757,6 +790,7 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
         <script type="application/ld+json">{JSON.stringify(howToStructuredData)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbData)}</script>
         <script type="application/ld+json">{JSON.stringify(softwareAppData)}</script>
+        <script type="application/ld+json">{JSON.stringify(imageObjectData)}</script>
       </Helmet>
       <HreflangTags path={toolPath} />
 
