@@ -3,7 +3,9 @@ import { premiumToolsSEOBatch3 } from './premiumSEOContentBatch3';
 import { premiumToolsSEOBatch4 } from './premiumSEOContentBatch4';
 import { premiumToolsSEOBatch5 } from './premiumSEOContentBatch5';
 import { premiumToolsSEOBatch6 } from './premiumSEOContentBatch6';
+import { premiumToolsSEOBatch7 } from './premiumSEOContentBatch7';
 // Following iLovePDF/SmallPDF standards with E-E-A-T principles
+// 100% Human-like, Professional, Trustworthy Content
 // 100% Human-like, Professional, Trustworthy Content
 
 // ============================================
@@ -1057,7 +1059,9 @@ export const premiumToolsSEO: Record<string, PremiumToolSEO> = {
   // Batch 5
   ...premiumToolsSEOBatch5,
   // Batch 6
-  ...premiumToolsSEOBatch6
+  ...premiumToolsSEOBatch6,
+  // Batch 7
+  ...premiumToolsSEOBatch7
 };
 
 // Tool metadata for conversion
@@ -1118,7 +1122,18 @@ const toolMetadata: Record<string, { gradientFrom: string; gradientTo: string; c
   "sharpen-filter": { gradientFrom: "#fbbf24", gradientTo: "#f59e0b", category: "Photo Filters", categorySlug: "photo-filters" },
   "blur-filter": { gradientFrom: "#fbbf24", gradientTo: "#f59e0b", category: "Photo Filters", categorySlug: "photo-filters" },
   "vintage-filter": { gradientFrom: "#d97706", gradientTo: "#b45309", category: "Photo Filters", categorySlug: "photo-filters" },
-  "negative-image": { gradientFrom: "#64748b", gradientTo: "#475569", category: "Photo Filters", categorySlug: "photo-filters" }
+  "negative-image": { gradientFrom: "#64748b", gradientTo: "#475569", category: "Photo Filters", categorySlug: "photo-filters" },
+  // Batch 7
+  "gif-to-png": { gradientFrom: "#FF6B6B", gradientTo: "#FF8E53", category: "Image Converter", categorySlug: "image-converter" },
+  "gif-to-jpg": { gradientFrom: "#FF6B6B", gradientTo: "#FF8E53", category: "Image Converter", categorySlug: "image-converter" },
+  "bmp-to-jpg": { gradientFrom: "#FF6B6B", gradientTo: "#FF8E53", category: "Image Converter", categorySlug: "image-converter" },
+  "bmp-to-png": { gradientFrom: "#FF6B6B", gradientTo: "#FF8E53", category: "Image Converter", categorySlug: "image-converter" },
+  "raw-to-jpg": { gradientFrom: "#FF6B6B", gradientTo: "#FF8E53", category: "Image Converter", categorySlug: "image-converter" },
+  "add-transparency": { gradientFrom: "#10b981", gradientTo: "#059669", category: "Format Utilities", categorySlug: "image-format-utilities" },
+  "remove-transparency": { gradientFrom: "#10b981", gradientTo: "#059669", category: "Format Utilities", categorySlug: "image-format-utilities" },
+  "flatten-image": { gradientFrom: "#10b981", gradientTo: "#059669", category: "Format Utilities", categorySlug: "image-format-utilities" },
+  "collage-maker": { gradientFrom: "#8b5cf6", gradientTo: "#7c3aed", category: "Image Combine", categorySlug: "image-combine" },
+  "image-to-qr-code": { gradientFrom: "#6366f1", gradientTo: "#4f46e5", category: "QR Tools", categorySlug: "image-qr" }
 };
 
 // Define ComprehensiveSEOContent interface locally to avoid circular dependency
