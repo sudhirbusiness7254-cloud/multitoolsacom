@@ -35,11 +35,14 @@ async function getLogoBase64(): Promise<string> {
     return cachedLogoBase64;
   }
 
-  // List of logo URLs to try (production first, then preview)
+  // List of logo URLs to try (production first, then preview) - using custom logo
   const logoUrls = [
     'https://multitoolsa.com/logo.png',
     'https://id-preview--8504ae68-d20d-4e82-8138-142f97c7ec0f.lovable.app/logo.png'
   ];
+  
+  // Clear cache to ensure new logo is fetched
+  cachedLogoBase64 = null;
 
   for (const logoUrl of logoUrls) {
     try {
