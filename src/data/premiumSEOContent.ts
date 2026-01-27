@@ -4,6 +4,7 @@ import { premiumToolsSEOBatch4 } from './premiumSEOContentBatch4';
 import { premiumToolsSEOBatch5 } from './premiumSEOContentBatch5';
 import { premiumToolsSEOBatch6 } from './premiumSEOContentBatch6';
 import { premiumToolsSEOBatch7 } from './premiumSEOContentBatch7';
+import { premiumToolsSEOBatch8 } from './premiumSEOContentBatch8';
 // Following iLovePDF/SmallPDF standards with E-E-A-T principles
 // 100% Human-like, Professional, Trustworthy Content
 // 100% Human-like, Professional, Trustworthy Content
@@ -1061,7 +1062,9 @@ export const premiumToolsSEO: Record<string, PremiumToolSEO> = {
   // Batch 6
   ...premiumToolsSEOBatch6,
   // Batch 7
-  ...premiumToolsSEOBatch7
+  ...premiumToolsSEOBatch7,
+  // Batch 8
+  ...premiumToolsSEOBatch8
 };
 
 // Tool metadata for conversion
