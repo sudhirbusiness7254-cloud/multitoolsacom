@@ -29,8 +29,7 @@ import {
   getIntroStyle,
   getListStyle
 } from "@/components/seo-templates/UniqueContentStyles";
-import SafeBannerAd from "@/components/ads/SafeBannerAd";
-import { BeforeToolAd, AfterToolAd, ResponsiveContentAd, SidebarAd } from "@/components/ads/SafeAdPlacements";
+import { ResponsiveContentAd } from "@/components/ads/SafeAdPlacements";
 
 interface SEOToolPageProps {
   seoContent: ToolSEOContent;
@@ -822,34 +821,13 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                 </p>
               </div>
 
-              {/* Tool Component with Side Ads on Desktop */}
-              <div className="mb-6">
-                {/* Desktop: Tool with ads on both sides */}
-                <div className="hidden lg:flex gap-4 justify-center items-start">
-                  {/* Left Side Ad */}
-                  <div className="flex-shrink-0 sticky top-24">
-                    <SafeBannerAd size="160x600" />
-                  </div>
-                  
-                  {/* Tool Component */}
-                  <div className="flex-1 max-w-4xl">
-                    {children}
-                  </div>
-                  
-                  {/* Right Side Ad */}
-                  <div className="flex-shrink-0 sticky top-24">
-                    <SafeBannerAd size="160x600" />
-                  </div>
-                </div>
-                
-                {/* Mobile/Tablet: Tool only */}
-                <div className="lg:hidden">
-                  {children}
-                </div>
+              {/* Tool Component - Clean, no ads around it */}
+              <div className="mb-6 max-w-4xl mx-auto">
+                {children}
               </div>
 
-              {/* Single Ad Below Tool Output */}
-              <div className="mb-6">
+              {/* Single Ad Below Tool Output Only */}
+              <div className="mb-6 max-w-4xl mx-auto">
                 <ResponsiveContentAd />
               </div>
               
@@ -923,9 +901,6 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                        'Helpful Guides & Tutorials'}
                 maxItems={3}
               />
-
-              {/* Banner Ad before related tools */}
-              <BeforeToolAd />
 
               {/* Related Tools - Unique style per template */}
               <div className={`${cardClasses} p-6 md:p-8`}>
