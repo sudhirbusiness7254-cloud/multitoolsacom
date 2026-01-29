@@ -321,20 +321,10 @@ const CategoryPageLayout = ({
             </div>
           </section>
 
-          {/* Ad Below Hero Banner */}
-          <div className="container mx-auto max-w-4xl px-4 py-4">
-            <ResponsiveContentAd />
-          </div>
-
           {/* Main Tool Component (if provided) */}
           {children && (
             <section className="py-6 px-4 sm:px-6">
               <div className="container mx-auto max-w-6xl">
-                {/* Ad Before Tool Output */}
-                <div className="mb-6">
-                  <ResponsiveContentAd />
-                </div>
-                
                 {/* Desktop: Tool with ads on both sides */}
                 <div className="hidden lg:flex gap-4 justify-center items-start">
                   {/* Left Side Ad */}
@@ -358,7 +348,7 @@ const CategoryPageLayout = ({
                   {children}
                 </div>
                 
-                {/* Ad After Tool Output */}
+                {/* Single Ad Below Tool Output */}
                 <div className="mt-6">
                   <ResponsiveContentAd />
                 </div>

@@ -822,16 +822,6 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                 </p>
               </div>
 
-              {/* Ad Below Hero Banner */}
-              <div className="mb-6">
-                <ResponsiveContentAd />
-              </div>
-
-              {/* Ad Before Tool Output */}
-              <div className="mb-6">
-                <ResponsiveContentAd />
-              </div>
-
               {/* Tool Component with Side Ads on Desktop */}
               <div className="mb-6">
                 {/* Desktop: Tool with ads on both sides */}
@@ -858,7 +848,7 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                 </div>
               </div>
 
-              {/* Ad After Tool Output */}
+              {/* Single Ad Below Tool Output */}
               <div className="mb-6">
                 <ResponsiveContentAd />
               </div>
