@@ -10,7 +10,6 @@ import HreflangTags from "@/components/HreflangTags";
 import RelatedArticles from "@/components/RelatedArticles";
 import { getTemplateConfig, categoryColorSchemes } from "@/components/seo-templates/TemplateStyles";
 import { getHeadingClasses, getCardClasses, getBadgeClasses } from "@/components/seo-templates/UniqueContentStyles";
-import SafeBannerAd from "@/components/ads/SafeBannerAd";
 import { ResponsiveContentAd } from "@/components/ads/SafeAdPlacements";
 
 // Import unique hero banners for each category
@@ -324,31 +323,13 @@ const CategoryPageLayout = ({
           {/* Main Tool Component (if provided) */}
           {children && (
             <section className="py-6 px-4 sm:px-6">
-              <div className="container mx-auto max-w-6xl">
-                {/* Desktop: Tool with ads on both sides */}
-                <div className="hidden lg:flex gap-4 justify-center items-start">
-                  {/* Left Side Ad */}
-                  <div className="flex-shrink-0 sticky top-24">
-                    <SafeBannerAd size="160x600" />
-                  </div>
-                  
-                  {/* Tool Component */}
-                  <div className="flex-1 max-w-4xl">
-                    {children}
-                  </div>
-                  
-                  {/* Right Side Ad */}
-                  <div className="flex-shrink-0 sticky top-24">
-                    <SafeBannerAd size="160x600" />
-                  </div>
-                </div>
-                
-                {/* Mobile/Tablet: Tool only */}
-                <div className="lg:hidden">
+              <div className="container mx-auto max-w-4xl">
+                {/* Tool Component - Clean, no ads around it */}
+                <div className="mb-6">
                   {children}
                 </div>
                 
-                {/* Single Ad Below Tool Output */}
+                {/* Single Ad Below Tool Output Only */}
                 <div className="mt-6">
                   <ResponsiveContentAd />
                 </div>
