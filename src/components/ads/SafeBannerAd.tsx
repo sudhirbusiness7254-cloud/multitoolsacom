@@ -1,4 +1,4 @@
-import { useEffect, useRef, useId } from "react";
+import { useEffect, useId, useMemo, useState } from "react";
 import useLazyAd from "@/hooks/useLazyAd";
 
 type BannerSize = 
@@ -26,77 +26,79 @@ interface SafeBannerAdProps {
 
 /**
  * Safe iframe-based banner ad component
- * Only uses approved banner sizes, no popups, no redirects
+ * Runs ad scripts in sandboxed iframe to prevent popups/overlays
  * SEO-safe and Google AdSense compliant
  */
 const SafeBannerAd = ({ size, className = "", lazy = true }: SafeBannerAdProps) => {
   const config = AD_CONFIG[size];
   const { containerRef, isVisible } = useLazyAd({ rootMargin: "200px" });
-  const adContainerRef = useRef<HTMLDivElement>(null);
-  const scriptLoaded = useRef(false);
   const uniqueId = useId().replace(/:/g, '');
+  const [shouldRender, setShouldRender] = useState(!lazy);
 
   useEffect(() => {
-    // If lazy loading is disabled, show immediately
-    const shouldLoad = lazy ? isVisible : true;
-    
-    if (!shouldLoad || scriptLoaded.current || !adContainerRef.current) return;
-    scriptLoaded.current = true;
-
-    const container = adContainerRef.current;
-    container.innerHTML = '';
-
-    // Set atOptions on window
-    const optionsScript = document.createElement('script');
-    optionsScript.textContent = `
-      atOptions = {
-        'key': '${config.key}',
-        'format': 'iframe',
-        'height': ${config.height},
-        'width': ${config.width},
-        'params': {}
-      };
-    `;
-    container.appendChild(optionsScript);
-
-    // Create invoke script
-    const invokeScript = document.createElement('script');
-    invokeScript.src = `https://crowdsubsequentadmire.com/${config.key}/invoke.js`;
-    invokeScript.async = true;
-    invokeScript.setAttribute('data-cfasync', 'false');
-    
-    container.appendChild(invokeScript);
-  }, [isVisible, lazy, config]);
+    if (!lazy) return;
+    if (isVisible) setShouldRender(true);
+  }, [isVisible, lazy]);
 
   const containerStyle = {
     minWidth: `${config.width}px`,
     minHeight: `${config.height}px`,
   };
 
-  if (lazy) {
-    return (
-      <div 
-        ref={containerRef}
-        className={`flex justify-center items-center ${className}`}
-        style={containerStyle}
-        data-ad-slot={`banner-${size}-${uniqueId}`}
-      >
-        {isVisible ? (
-          <div ref={adContainerRef} className="flex justify-center items-center" style={containerStyle} />
-        ) : (
-          <div className="bg-muted/20 animate-pulse rounded" style={containerStyle} />
-        )}
-      </div>
-    );
-  }
+  // Run ad network code inside isolated sandboxed iframe
+  // sandbox excludes allow-popups / allow-top-navigation to prevent overlays
+  const iframeSrcDoc = useMemo(() => {
+    return `<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      html, body { margin:0; padding:0; width:100%; height:100%; overflow:hidden; background:transparent; }
+      #ad { width:${config.width}px; height:${config.height}px; display:flex; align-items:center; justify-content:center; }
+    </style>
+  </head>
+  <body>
+    <div id="ad"></div>
+    <script>
+      window.atOptions = {
+        key: '${config.key}',
+        format: 'iframe',
+        height: ${config.height},
+        width: ${config.width},
+        params: {}
+      };
+    </script>
+    <script data-cfasync="false" async src="https://crowdsubsequentadmire.com/${config.key}/invoke.js"></script>
+  </body>
+</html>`;
+  }, [config.height, config.key, config.width]);
 
   return (
     <div 
-      ref={adContainerRef}
+      ref={lazy ? containerRef : undefined}
       className={`flex justify-center items-center ${className}`}
       style={containerStyle}
       data-ad-slot={`banner-${size}-${uniqueId}`}
-    />
+    >
+      {shouldRender ? (
+        <iframe
+          title={`ad-${size}-${uniqueId}`}
+          sandbox="allow-scripts allow-same-origin"
+          referrerPolicy="no-referrer"
+          className="block"
+          style={{
+            width: `${config.width}px`,
+            height: `${config.height}px`,
+            border: 0,
+            background: "transparent",
+          }}
+          srcDoc={iframeSrcDoc}
+        />
+      ) : (
+        <div className="bg-muted/20 animate-pulse rounded" style={containerStyle} />
+      )}
+    </div>
   );
 };
 
