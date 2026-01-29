@@ -1,44 +1,12 @@
-import { useEffect, useRef } from "react";
+import SafeBannerAd from "./SafeBannerAd";
 
-interface InContentAdProps {
-  className?: string;
-}
-
-const InContentAd = ({ className = "" }: InContentAdProps) => {
-  const adRef = useRef<HTMLDivElement>(null);
-  const scriptLoaded = useRef(false);
-
-  useEffect(() => {
-    if (scriptLoaded.current || !adRef.current) return;
-    scriptLoaded.current = true;
-    
-    const container = adRef.current;
-    
-    // Set atOptions for 160x600 skyscraper
-    (window as any).atOptions = {
-      'key': '5251d00b938f369c8b531c0ce3b384bb',
-      'format': 'iframe',
-      'height': 600,
-      'width': 160,
-      'params': {}
-    };
-
-    // Create and inject the script
-    const script = document.createElement('script');
-    script.src = 'https://crowdsubsequentadmire.com/5251d00b938f369c8b531c0ce3b384bb/invoke.js';
-    script.async = true;
-    script.setAttribute('data-cfasync', 'false');
-    
-    container.appendChild(script);
-  }, []);
-
+/**
+ * Legacy InContentAd replacement - uses safe 300x250 banner
+ */
+const InContentAd = ({ className = "" }: { className?: string }) => {
   return (
     <div className={`flex justify-center my-6 ${className}`}>
-      <div 
-        ref={adRef}
-        className="flex items-center justify-center"
-        style={{ minWidth: '160px', minHeight: '600px' }}
-      />
+      <SafeBannerAd size="300x250" />
     </div>
   );
 };

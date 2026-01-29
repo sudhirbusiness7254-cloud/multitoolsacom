@@ -10,12 +10,8 @@ import HreflangTags from "@/components/HreflangTags";
 import RelatedArticles from "@/components/RelatedArticles";
 import { getTemplateConfig, categoryColorSchemes } from "@/components/seo-templates/TemplateStyles";
 import { getHeadingClasses, getCardClasses, getBadgeClasses } from "@/components/seo-templates/UniqueContentStyles";
-import InContentAd from "@/components/ads/InContentAd";
-import NativeBannerAd from "@/components/ads/NativeBannerAd";
-import ToolSideAd from "@/components/ads/ToolSideAd";
-import MobileNativeAd from "@/components/ads/MobileNativeAd";
-import MobileBannerAd from "@/components/ads/MobileBannerAd";
-import { NativeAdBlock } from "@/components/ads/ToolPageAds";
+import SafeBannerAd from "@/components/ads/SafeBannerAd";
+import { ResponsiveContentAd, BeforeToolAd, AfterToolAd } from "@/components/ads/SafeAdPlacements";
 
 // Import unique hero banners for each category
 import heroConverter from "@/assets/heroes/hero-image-converter.jpg";
@@ -329,11 +325,14 @@ const CategoryPageLayout = ({
           {children && (
             <section className="py-6 px-4 sm:px-6">
               <div className="container mx-auto max-w-6xl">
+                {/* Before Tool Ad */}
+                <BeforeToolAd />
+                
                 {/* Desktop: Tool with ads on both sides */}
                 <div className="hidden lg:flex gap-4 justify-center items-start">
                   {/* Left Side Ad */}
                   <div className="flex-shrink-0 sticky top-24">
-                    <ToolSideAd />
+                    <SafeBannerAd size="160x600" />
                   </div>
                   
                   {/* Tool Component */}
@@ -343,7 +342,7 @@ const CategoryPageLayout = ({
                   
                   {/* Right Side Ad */}
                   <div className="flex-shrink-0 sticky top-24">
-                    <ToolSideAd />
+                    <SafeBannerAd size="160x600" />
                   </div>
                 </div>
                 
@@ -352,20 +351,8 @@ const CategoryPageLayout = ({
                   {children}
                 </div>
                 
-                {/* Mobile/Tablet Native Ad - Below tool dropdown */}
-                <div className="lg:hidden mt-4">
-                  <MobileNativeAd />
-                </div>
-                
-                {/* Mobile Banner Ad (320x50) */}
-                <div className="md:hidden mt-3">
-                  <MobileBannerAd />
-                </div>
-                
-                {/* Native Banner Ad - Below tool/drag-drop area (Desktop) */}
-                <div className="mt-6 hidden lg:block">
-                  <NativeBannerAd />
-                </div>
+                {/* After Tool Ad */}
+                <AfterToolAd />
               </div>
             </section>
           )}
@@ -417,24 +404,9 @@ const CategoryPageLayout = ({
             </div>
           </section>
 
-          {/* Mobile Native Ad - After tools grid */}
-          <div className="container mx-auto max-w-4xl px-4 lg:hidden">
-            <MobileNativeAd />
-          </div>
-          
-          {/* Mobile Banner Ad (320x50) */}
-          <div className="container mx-auto max-w-4xl px-4 md:hidden mt-3">
-            <MobileBannerAd />
-          </div>
-
-          {/* Desktop Native Banner Ad - After tools grid */}
-          <div className="container mx-auto max-w-4xl px-4 hidden lg:block">
-            <NativeBannerAd />
-          </div>
-
-          {/* Ad placement after tools (Desktop only) */}
-          <div className="container mx-auto max-w-4xl px-4 hidden lg:block">
-            <NativeAdBlock />
+          {/* Banner Ad - After tools grid */}
+          <div className="container mx-auto max-w-4xl px-4">
+            <ResponsiveContentAd />
           </div>
 
           {/* Who Uses This Category - Trust Signal */}
@@ -463,14 +435,9 @@ const CategoryPageLayout = ({
             </div>
           </section>
 
-          {/* Mobile Native Ad - After Who Uses section */}
-          <div className="container mx-auto max-w-4xl px-4 lg:hidden">
-            <MobileNativeAd />
-          </div>
-          
-          {/* Mobile Banner Ad */}
-          <div className="container mx-auto max-w-4xl px-4 md:hidden mt-3">
-            <MobileBannerAd />
+          {/* Banner Ad - After Who Uses section */}
+          <div className="container mx-auto max-w-4xl px-4">
+            <ResponsiveContentAd />
           </div>
 
           {/* Real-World Use Cases */}
@@ -508,24 +475,9 @@ const CategoryPageLayout = ({
             </div>
           </section>
 
-          {/* Mobile Native Ad - Middle of page */}
-          <div className="container mx-auto max-w-4xl px-4 lg:hidden">
-            <MobileNativeAd />
-          </div>
-          
-          {/* Mobile Banner Ad */}
-          <div className="container mx-auto max-w-4xl px-4 md:hidden mt-3">
-            <MobileBannerAd />
-          </div>
-
-          {/* Desktop Native Banner Ad - Middle of page */}
-          <div className="container mx-auto max-w-4xl px-4 hidden lg:block">
-            <NativeBannerAd />
-          </div>
-
-          {/* Ad placement between sections (Desktop only) */}
-          <div className="container mx-auto max-w-4xl px-4 hidden lg:block">
-            <NativeAdBlock />
+          {/* Banner Ad - Middle of page */}
+          <div className="container mx-auto max-w-4xl px-4">
+            <ResponsiveContentAd />
           </div>
 
           {/* How It Works - Simplified */}
@@ -569,19 +521,9 @@ const CategoryPageLayout = ({
             </div>
           </section>
 
-          {/* Mobile Native Ad - After How It Works */}
-          <div className="container mx-auto max-w-4xl px-4 lg:hidden">
-            <MobileNativeAd />
-          </div>
-          
-          {/* Mobile Banner Ad */}
-          <div className="container mx-auto max-w-4xl px-4 md:hidden mt-3">
-            <MobileBannerAd />
-          </div>
-
-          {/* Desktop Native Banner Ad - After How It Works */}
-          <div className="container mx-auto max-w-4xl px-4 hidden lg:block">
-            <NativeBannerAd />
+          {/* Banner Ad - After How It Works */}
+          <div className="container mx-auto max-w-4xl px-4">
+            <ResponsiveContentAd />
           </div>
 
           {/* Privacy - Minimal */}
@@ -620,19 +562,9 @@ const CategoryPageLayout = ({
             </div>
           </section>
 
-          {/* Mobile Native Ad - After FAQ */}
-          <div className="container mx-auto max-w-4xl px-4 lg:hidden">
-            <MobileNativeAd />
-          </div>
-          
-          {/* Mobile Banner Ad */}
-          <div className="container mx-auto max-w-4xl px-4 md:hidden mt-3">
-            <MobileBannerAd />
-          </div>
-
-          {/* Desktop Native Banner Ad - After FAQ */}
-          <div className="container mx-auto max-w-4xl px-4 hidden lg:block">
-            <NativeBannerAd />
+          {/* Banner Ad - After FAQ */}
+          <div className="container mx-auto max-w-4xl px-4">
+            <ResponsiveContentAd />
           </div>
 
           {/* Related Blog Articles */}
@@ -667,17 +599,9 @@ const CategoryPageLayout = ({
             </div>
           </section>
 
-          {/* Native Banner Ad - Before Footer */}
+          {/* Banner Ad - Before Footer */}
           <div className="container mx-auto max-w-4xl px-4 py-6">
-            <div className="hidden lg:block">
-              <NativeBannerAd />
-            </div>
-            <div className="lg:hidden">
-              <MobileNativeAd />
-            </div>
-            <div className="md:hidden mt-3">
-              <MobileBannerAd />
-            </div>
+            <ResponsiveContentAd />
           </div>
         </main>
 
