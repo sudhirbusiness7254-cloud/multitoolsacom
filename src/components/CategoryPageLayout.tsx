@@ -11,7 +11,7 @@ import RelatedArticles from "@/components/RelatedArticles";
 import { getTemplateConfig, categoryColorSchemes } from "@/components/seo-templates/TemplateStyles";
 import { getHeadingClasses, getCardClasses, getBadgeClasses } from "@/components/seo-templates/UniqueContentStyles";
 import SafeBannerAd from "@/components/ads/SafeBannerAd";
-import { ResponsiveContentAd, BeforeToolAd, AfterToolAd } from "@/components/ads/SafeAdPlacements";
+import { ResponsiveContentAd } from "@/components/ads/SafeAdPlacements";
 
 // Import unique hero banners for each category
 import heroConverter from "@/assets/heroes/hero-image-converter.jpg";
@@ -321,12 +321,19 @@ const CategoryPageLayout = ({
             </div>
           </section>
 
+          {/* Ad Below Hero Banner */}
+          <div className="container mx-auto max-w-4xl px-4 py-4">
+            <ResponsiveContentAd />
+          </div>
+
           {/* Main Tool Component (if provided) */}
           {children && (
             <section className="py-6 px-4 sm:px-6">
               <div className="container mx-auto max-w-6xl">
-                {/* Before Tool Ad */}
-                <BeforeToolAd />
+                {/* Ad Before Tool Output */}
+                <div className="mb-6">
+                  <ResponsiveContentAd />
+                </div>
                 
                 {/* Desktop: Tool with ads on both sides */}
                 <div className="hidden lg:flex gap-4 justify-center items-start">
@@ -351,8 +358,10 @@ const CategoryPageLayout = ({
                   {children}
                 </div>
                 
-                {/* After Tool Ad */}
-                <AfterToolAd />
+                {/* Ad After Tool Output */}
+                <div className="mt-6">
+                  <ResponsiveContentAd />
+                </div>
               </div>
             </section>
           )}

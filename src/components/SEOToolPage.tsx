@@ -822,8 +822,18 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                 </p>
               </div>
 
+              {/* Ad Below Hero Banner */}
+              <div className="mb-6">
+                <ResponsiveContentAd />
+              </div>
+
+              {/* Ad Before Tool Output */}
+              <div className="mb-6">
+                <ResponsiveContentAd />
+              </div>
+
               {/* Tool Component with Side Ads on Desktop */}
-              <div className="mb-12">
+              <div className="mb-6">
                 {/* Desktop: Tool with ads on both sides */}
                 <div className="hidden lg:flex gap-4 justify-center items-start">
                   {/* Left Side Ad */}
@@ -846,22 +856,12 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                 <div className="lg:hidden">
                   {children}
                 </div>
-                
-                {/* Mobile Banner Ad - Below tool */}
-                <div className="md:hidden mt-4">
-                  <SafeBannerAd size="320x50" />
-                </div>
-                
-                {/* Desktop Banner Ad - Below tool area */}
-                <div className="mt-6 hidden lg:block">
-                  <div className="flex justify-center">
-                    <SafeBannerAd size="728x90" />
-                  </div>
-                </div>
               </div>
 
-              {/* Ad placement after tool */}
-              <AfterToolAd />
+              {/* Ad After Tool Output */}
+              <div className="mb-6">
+                <ResponsiveContentAd />
+              </div>
               
               {/* Quick benefits below tool - unique style per category */}
               <div className={`text-left max-w-4xl mx-auto ${sectionClasses}`}>
