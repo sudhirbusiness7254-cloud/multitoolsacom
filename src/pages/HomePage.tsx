@@ -269,13 +269,7 @@ const HomePage = () => {
         <Header />
         
         <main className="flex-1">
-          {/* Side Banner Ads - Desktop Only */}
-          <div className="hidden xl:block fixed left-4 top-1/2 -translate-y-1/2 z-40">
-            <SafeBannerAd size="160x600" />
-          </div>
-          <div className="hidden xl:block fixed right-4 top-1/2 -translate-y-1/2 z-40">
-            <SafeBannerAd size="160x600" />
-          </div>
+          {/* NO Side Ads on Homepage - Only content ads in available space */}
           {/* Hero Section - Engaging introduction */}
           <section className="py-12 sm:py-20 md:py-24 bg-gradient-hero relative overflow-hidden">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[500px] h-[350px] sm:h-[500px] bg-primary/10 rounded-full blur-3xl pointer-events-none" />
