@@ -1,51 +1,23 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { X } from "lucide-react";
+import SafeBannerAd from "./SafeBannerAd";
 
 /**
  * Sticky Bottom Banner Ad (320x50) for Mobile
  * Stays fixed at bottom of screen while scrolling
  * Only shows on mobile devices (< 768px)
+ * Uses safe iframe-based banner only
  */
 const StickyMobileBannerAd = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const scriptLoaded = useRef(false);
-  const [isVisible, setIsVisible] = useState(true);
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    if (scriptLoaded.current || !containerRef.current) return;
-    
-    const container = containerRef.current;
-    
-    // Delay loading for better initial page performance
-    const loadTimer = setTimeout(() => {
-      if (!container || scriptLoaded.current) return;
-      
-      scriptLoaded.current = true;
-
-      // Create atOptions script
-      const optionsScript = document.createElement('script');
-      optionsScript.textContent = `
-        atOptions = {
-          'key' : '689f23dcc2cd82711bf2ed6fa916f48f',
-          'format' : 'iframe',
-          'height' : 50,
-          'width' : 320,
-          'params' : {}
-        };
-      `;
-      container.appendChild(optionsScript);
-
-      // Create invoke script
-      const invokeScript = document.createElement('script');
-      invokeScript.src = 'https://crowdsubsequentadmire.com/689f23dcc2cd82711bf2ed6fa916f48f/invoke.js';
-      invokeScript.async = true;
-      invokeScript.onload = () => setIsLoaded(true);
-      
-      container.appendChild(invokeScript);
+    // Delay showing for better UX
+    const timer = setTimeout(() => {
+      setIsVisible(true);
     }, 2000); // 2 second delay for better UX
 
-    return () => clearTimeout(loadTimer);
+    return () => clearTimeout(timer);
   }, []);
 
   if (!isVisible) return null;
@@ -65,16 +37,8 @@ const StickyMobileBannerAd = () => {
           <X className="h-3 w-3" />
         </button>
         
-        {/* Ad container */}
-        <div 
-          ref={containerRef}
-          className="flex justify-center items-center"
-          style={{ minWidth: '320px', minHeight: '50px' }}
-        >
-          {!isLoaded && (
-            <div className="w-[320px] h-[50px] bg-muted/30 animate-pulse rounded" />
-          )}
-        </div>
+        {/* Safe iframe-based banner ad */}
+        <SafeBannerAd size="320x50" lazy={false} />
       </div>
     </div>
   );

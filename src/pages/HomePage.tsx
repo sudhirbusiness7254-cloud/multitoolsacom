@@ -38,11 +38,11 @@ import { toolCategories } from "@/data/toolsData";
 import { ToolIconWithBackground } from "@/lib/toolIcons";
 import HreflangTags from "@/components/HreflangTags";
 import { blogPosts } from "@/data/blogData";
-import NativeBannerAd from "@/components/ads/NativeBannerAd";
-import MobileNativeAd from "@/components/ads/MobileNativeAd";
-import MobileBannerAd from "@/components/ads/MobileBannerAd";
-import ToolSideAd from "@/components/ads/ToolSideAd";
-import { NativeAdBlock } from "@/components/ads/ToolPageAds";
+import SafeBannerAd from "@/components/ads/SafeBannerAd";
+import { 
+  ResponsiveContentAd, 
+  SideAdsContainer 
+} from "@/components/ads/SafeAdPlacements";
 
 // 4K Screenshots for How It Works section
 import stepUpload4k from "@/assets/guides/step-upload-4k.png";
@@ -271,10 +271,10 @@ const HomePage = () => {
         <main className="flex-1">
           {/* Side Banner Ads - Desktop Only */}
           <div className="hidden xl:block fixed left-4 top-1/2 -translate-y-1/2 z-40">
-            <ToolSideAd />
+            <SafeBannerAd size="160x600" />
           </div>
           <div className="hidden xl:block fixed right-4 top-1/2 -translate-y-1/2 z-40">
-            <ToolSideAd />
+            <SafeBannerAd size="160x600" />
           </div>
           {/* Hero Section - Engaging introduction */}
           <section className="py-12 sm:py-20 md:py-24 bg-gradient-hero relative overflow-hidden">
@@ -382,17 +382,9 @@ const HomePage = () => {
             </div>
           </section>
 
-          {/* Native Banner Ad - after popular tools */}
+          {/* Banner Ad - after popular tools */}
           <div className="container mx-auto max-w-6xl px-4">
-            <div className="hidden lg:block">
-              <NativeBannerAd />
-            </div>
-            <div className="lg:hidden">
-              <MobileNativeAd />
-            </div>
-            <div className="md:hidden mt-3">
-              <MobileBannerAd />
-            </div>
+            <ResponsiveContentAd />
           </div>
 
           {/* Tool Categories - Detailed with unique descriptions */}
@@ -451,27 +443,9 @@ const HomePage = () => {
             </div>
           </section>
 
-          {/* Native Banner Ad - Below Category List */}
+          {/* Banner Ad - Below Category List */}
           <div className="container mx-auto max-w-6xl px-4">
-            <div className="hidden lg:block">
-              <NativeBannerAd />
-            </div>
-            <div className="lg:hidden">
-              <MobileNativeAd />
-            </div>
-            <div className="md:hidden mt-3">
-              <MobileBannerAd />
-            </div>
-          </div>
-
-          {/* Native Banner Ad - after categories */}
-          <div className="container mx-auto max-w-6xl px-4 mt-4">
-            <div className="hidden lg:block">
-              <NativeAdBlock />
-            </div>
-            <div className="lg:hidden">
-              <MobileNativeAd />
-            </div>
+            <ResponsiveContentAd />
           </div>
 
           {/* How It Works - Step by step with icons */}
@@ -624,20 +598,12 @@ const HomePage = () => {
                 </Link>
               </div>
               
-              {/* Native Banner Ad - Below Technology Link */}
+              {/* Banner Ad - Below Technology Link */}
               <div className="mt-8">
-                <NativeBannerAd />
+                <ResponsiveContentAd />
               </div>
             </div>
           </section>
-
-          {/* Native Banner Ad - between sections */}
-          <div className="container mx-auto max-w-6xl px-4">
-            <div className="hidden lg:block">
-              <NativeBannerAd />
-            </div>
-            <MobileNativeAd />
-          </div>
 
           {/* Why Choose Us - Trust signals */}
           <section className="py-12 sm:py-16 px-4 sm:px-6">
@@ -680,12 +646,9 @@ const HomePage = () => {
             </div>
           </section>
 
-          {/* Native Banner Ad - User-friendly placement */}
+          {/* Banner Ad - User-friendly placement */}
           <div className="container mx-auto max-w-6xl px-4">
-            <div className="hidden lg:block">
-              <NativeBannerAd />
-            </div>
-            <MobileNativeAd />
+            <ResponsiveContentAd />
           </div>
 
           {/* Featured Blog Posts - Educational content */}
@@ -818,15 +781,7 @@ const HomePage = () => {
 
           {/* Ad before Final CTA */}
           <div className="container mx-auto max-w-6xl px-4 py-6">
-            <div className="hidden lg:block">
-              <NativeAdBlock />
-            </div>
-            <div className="lg:hidden">
-              <MobileNativeAd />
-            </div>
-            <div className="md:hidden mt-3">
-              <MobileBannerAd />
-            </div>
+            <ResponsiveContentAd />
           </div>
 
           {/* Final CTA Section */}
@@ -854,12 +809,7 @@ const HomePage = () => {
 
           {/* Final ad before footer */}
           <div className="container mx-auto max-w-6xl px-4 py-6">
-            <div className="hidden lg:block">
-              <NativeBannerAd />
-            </div>
-            <div className="lg:hidden">
-              <MobileNativeAd />
-            </div>
+            <ResponsiveContentAd />
           </div>
         </main>
         

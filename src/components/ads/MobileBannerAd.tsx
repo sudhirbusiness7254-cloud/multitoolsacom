@@ -1,48 +1,13 @@
-import { useEffect, useRef, useId } from "react";
+import SafeBannerAd from "./SafeBannerAd";
 
 /**
- * Mobile Banner Ad (320x50)
- * Only shows on mobile devices (< 768px)
+ * Legacy MobileBannerAd replacement - uses safe 320x50 banner
  */
 const MobileBannerAd = ({ className = "" }: { className?: string }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const scriptLoaded = useRef(false);
-  const uniqueId = useId().replace(/:/g, '');
-
-  useEffect(() => {
-    if (scriptLoaded.current || !containerRef.current) return;
-    scriptLoaded.current = true;
-    
-    const container = containerRef.current;
-
-    // Create atOptions script
-    const optionsScript = document.createElement('script');
-    optionsScript.textContent = `
-      atOptions = {
-        'key' : '689f23dcc2cd82711bf2ed6fa916f48f',
-        'format' : 'iframe',
-        'height' : 50,
-        'width' : 320,
-        'params' : {}
-      };
-    `;
-    container.appendChild(optionsScript);
-
-    // Create invoke script
-    const invokeScript = document.createElement('script');
-    invokeScript.src = 'https://crowdsubsequentadmire.com/689f23dcc2cd82711bf2ed6fa916f48f/invoke.js';
-    invokeScript.async = true;
-    
-    container.appendChild(invokeScript);
-  }, []);
-
   return (
-    <div 
-      ref={containerRef}
-      className={`flex md:hidden justify-center my-3 ${className}`}
-      data-ad-slot={`mobile-banner-${uniqueId}`}
-      style={{ minHeight: '50px' }}
-    />
+    <div className={`flex md:hidden justify-center my-3 ${className}`}>
+      <SafeBannerAd size="320x50" />
+    </div>
   );
 };
 
