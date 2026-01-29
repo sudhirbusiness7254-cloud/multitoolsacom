@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
@@ -84,6 +85,20 @@ const CategoryPageLayout = ({
   seoContent,
   children
 }: CategoryPageLayoutProps) => {
+  // State for sticky mobile banner
+  const [showMobileBanner, setShowMobileBanner] = useState(false);
+  const [mobileBannerDismissed, setMobileBannerDismissed] = useState(false);
+
+  // Show mobile banner after 2 second delay
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!mobileBannerDismissed) {
+        setShowMobileBanner(true);
+      }
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, [mobileBannerDismissed]);
+
   const {
     metaTitle,
     metaDescription,
@@ -593,6 +608,23 @@ const CategoryPageLayout = ({
             <ResponsiveContentAd />
           </div>
         </main>
+
+        {/* Sticky Mobile Banner Ad - Bottom of screen */}
+        {showMobileBanner && !mobileBannerDismissed && (
+          <div className="fixed bottom-0 left-0 right-0 z-50 flex md:hidden justify-center bg-background/95 backdrop-blur-sm border-t border-border py-2">
+            <SafeBannerAd size="320x50" lazy={false} />
+            <button 
+              onClick={() => {
+                setMobileBannerDismissed(true);
+                setShowMobileBanner(false);
+              }}
+              className="absolute top-1 right-2 text-muted-foreground hover:text-foreground text-xs p-1"
+              aria-label="Dismiss ad"
+            >
+              ✕
+            </button>
+          </div>
+        )}
 
         <Footer />
       </div>
