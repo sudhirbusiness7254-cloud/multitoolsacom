@@ -1,4 +1,4 @@
-import { useEffect, useId, useMemo, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import useLazyAd from "@/hooks/useLazyAd";
 
 type BannerSize = 
@@ -25,54 +25,60 @@ interface SafeBannerAdProps {
 }
 
 /**
- * Safe iframe-based banner ad component
- * Runs ad scripts in sandboxed iframe to prevent popups/overlays
- * SEO-safe and Google AdSense compliant
+ * Banner ad component using direct script injection
+ * Scripts are injected only once per instance
  */
 const SafeBannerAd = ({ size, className = "", lazy = true }: SafeBannerAdProps) => {
   const config = AD_CONFIG[size];
   const { containerRef, isVisible } = useLazyAd({ rootMargin: "200px" });
   const uniqueId = useId().replace(/:/g, '');
+  const adContainerRef = useRef<HTMLDivElement>(null);
   const [shouldRender, setShouldRender] = useState(!lazy);
+  const scriptInjectedRef = useRef(false);
 
   useEffect(() => {
     if (!lazy) return;
     if (isVisible) setShouldRender(true);
   }, [isVisible, lazy]);
 
+  // Inject ad script when shouldRender becomes true
+  useEffect(() => {
+    if (!shouldRender || scriptInjectedRef.current || !adContainerRef.current) return;
+    
+    scriptInjectedRef.current = true;
+    
+    const container = adContainerRef.current;
+    
+    // Set atOptions on window
+    (window as any).atOptions = {
+      key: config.key,
+      format: 'iframe',
+      height: config.height,
+      width: config.width,
+      params: {}
+    };
+    
+    // Create and inject the ad script
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.async = true;
+    script.setAttribute('data-cfasync', 'false');
+    script.src = `https://crowdsubsequentadmire.com/${config.key}/invoke.js`;
+    
+    container.appendChild(script);
+    
+    // Cleanup function - remove script on unmount
+    return () => {
+      if (container && script.parentNode === container) {
+        container.removeChild(script);
+      }
+    };
+  }, [shouldRender, config.key, config.height, config.width]);
+
   const containerStyle = {
     minWidth: `${config.width}px`,
     minHeight: `${config.height}px`,
   };
-
-  // Run ad network code inside isolated sandboxed iframe
-  // sandbox excludes allow-popups / allow-top-navigation to prevent overlays
-  const iframeSrcDoc = useMemo(() => {
-    return `<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <style>
-      html, body { margin:0; padding:0; width:100%; height:100%; overflow:hidden; background:transparent; }
-      #ad { width:${config.width}px; height:${config.height}px; display:flex; align-items:center; justify-content:center; }
-    </style>
-  </head>
-  <body>
-    <div id="ad"></div>
-    <script>
-      window.atOptions = {
-        key: '${config.key}',
-        format: 'iframe',
-        height: ${config.height},
-        width: ${config.width},
-        params: {}
-      };
-    </script>
-    <script data-cfasync="false" async src="https://crowdsubsequentadmire.com/${config.key}/invoke.js"></script>
-  </body>
-</html>`;
-  }, [config.height, config.key, config.width]);
 
   return (
     <div 
@@ -82,18 +88,14 @@ const SafeBannerAd = ({ size, className = "", lazy = true }: SafeBannerAdProps) 
       data-ad-slot={`banner-${size}-${uniqueId}`}
     >
       {shouldRender ? (
-        <iframe
-          title={`ad-${size}-${uniqueId}`}
-          sandbox="allow-scripts allow-same-origin"
-          referrerPolicy="no-referrer"
-          className="block"
+        <div 
+          ref={adContainerRef}
+          id={`ad-container-${uniqueId}`}
           style={{
             width: `${config.width}px`,
             height: `${config.height}px`,
-            border: 0,
-            background: "transparent",
+            overflow: 'hidden',
           }}
-          srcDoc={iframeSrcDoc}
         />
       ) : (
         <div className="bg-muted/20 animate-pulse rounded" style={containerStyle} />
