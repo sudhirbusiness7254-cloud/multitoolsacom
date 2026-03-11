@@ -280,6 +280,7 @@ const Contact = () => {
                       </label>
                       <Input
                         id="name"
+                        name="name"
                         type="text"
                         placeholder="John Doe"
                         required
