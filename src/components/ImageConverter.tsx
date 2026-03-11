@@ -6,8 +6,6 @@ import { Slider } from "@/components/ui/slider";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import ImageComparisonSlider from "./ImageComparisonSlider";
-import NativeBannerAd from "@/components/ads/NativeBannerAd";
-import MobileNativeAd from "@/components/ads/MobileNativeAd";
 
 interface ConversionOption {
   value: string;
@@ -319,11 +317,6 @@ const ImageConverter = ({ preselectedConversion }: ImageConverterProps) => {
               </div>
             </div>
           </div>
-          {/* Native Banner Ad - Below upload area */}
-          <div className="hidden lg:block mt-4">
-            <NativeBannerAd />
-          </div>
-          <MobileNativeAd className="mt-4" />
         </>
       ) : (
         <div className="space-y-6">

@@ -8,8 +8,6 @@ import { Slider } from "@/components/ui/slider";
 import { toast } from "sonner";
 import DragDropUpload from "./DragDropUpload";
 import { Download, Maximize, Percent, ArrowRight, Square, Zap, Lock, Unlock, Sparkles } from "lucide-react";
-import NativeBannerAd from "@/components/ads/NativeBannerAd";
-import MobileNativeAd from "@/components/ads/MobileNativeAd";
 
 type ResizeMode = "exact" | "percentage" | "fit-width" | "fit-height" | "fit-box";
 
@@ -238,11 +236,6 @@ const UniversalImageResizer = () => {
       {!file ? (
         <>
           <DragDropUpload onFileSelect={handleFileSelect} accept="image/*" />
-          {/* Native Banner Ad - Below upload area */}
-          <div className="hidden lg:block mt-4">
-            <NativeBannerAd />
-          </div>
-          <MobileNativeAd className="mt-4" />
         </>
       ) : (
         <div className="space-y-4">

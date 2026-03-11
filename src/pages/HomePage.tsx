@@ -38,11 +38,6 @@ import { toolCategories } from "@/data/toolsData";
 import { ToolIconWithBackground } from "@/lib/toolIcons";
 import HreflangTags from "@/components/HreflangTags";
 import { blogPosts } from "@/data/blogData";
-import SafeBannerAd from "@/components/ads/SafeBannerAd";
-import { 
-  ResponsiveContentAd, 
-  SideAdsContainer 
-} from "@/components/ads/SafeAdPlacements";
 
 // 4K Screenshots for How It Works section
 import stepUpload4k from "@/assets/guides/step-upload-4k.png";
@@ -376,10 +371,6 @@ const HomePage = () => {
             </div>
           </section>
 
-          {/* Banner Ad - after popular tools */}
-          <div className="container mx-auto max-w-6xl px-4">
-            <ResponsiveContentAd />
-          </div>
 
           {/* Tool Categories - Detailed with unique descriptions */}
           <section className="py-12 sm:py-20 px-4 sm:px-6">
@@ -437,10 +428,6 @@ const HomePage = () => {
             </div>
           </section>
 
-          {/* Banner Ad - Below Category List */}
-          <div className="container mx-auto max-w-6xl px-4">
-            <ResponsiveContentAd />
-          </div>
 
           {/* How It Works - Step by step with icons */}
           <section className="py-12 sm:py-20 px-4 sm:px-6 bg-gradient-hero">
@@ -592,10 +579,6 @@ const HomePage = () => {
                 </Link>
               </div>
               
-              {/* Banner Ad - Below Technology Link */}
-              <div className="mt-8">
-                <ResponsiveContentAd />
-              </div>
             </div>
           </section>
 
@@ -640,10 +623,6 @@ const HomePage = () => {
             </div>
           </section>
 
-          {/* Banner Ad - User-friendly placement */}
-          <div className="container mx-auto max-w-6xl px-4">
-            <ResponsiveContentAd />
-          </div>
 
           {/* Featured Blog Posts - Educational content */}
           <section className="py-12 sm:py-16 px-4 sm:px-6 bg-secondary/30">
@@ -773,10 +752,6 @@ const HomePage = () => {
             </div>
           </section>
 
-          {/* Ad before Final CTA */}
-          <div className="container mx-auto max-w-6xl px-4 py-6">
-            <ResponsiveContentAd />
-          </div>
 
           {/* Final CTA Section */}
           <section className="py-16 sm:py-24 px-4 sm:px-6 bg-gradient-hero">
@@ -801,10 +776,6 @@ const HomePage = () => {
             </div>
           </section>
 
-          {/* Final ad before footer */}
-          <div className="container mx-auto max-w-6xl px-4 py-6">
-            <ResponsiveContentAd />
-          </div>
         </main>
         
         <Footer />

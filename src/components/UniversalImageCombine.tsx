@@ -4,8 +4,6 @@ import { Input } from "@/components/ui/input";
 import { Slider } from "@/components/ui/slider";
 import { Download, RotateCcw, Plus, X, ArrowRight, ArrowDown, Grid, Layers, Upload, GripVertical } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
-import NativeBannerAd from "@/components/ads/NativeBannerAd";
-import MobileNativeAd from "@/components/ads/MobileNativeAd";
 
 type CombineMode = "horizontal" | "vertical" | "collage" | "before-after";
 
@@ -249,15 +247,6 @@ const UniversalImageCombine = ({ initialMode = "horizontal" }: UniversalImageCom
           </p>
         </div>
 
-        {/* Native Banner Ad - Below upload area */}
-        {images.length === 0 && (
-          <>
-            <div className="hidden lg:block mt-4">
-              <NativeBannerAd />
-            </div>
-            <MobileNativeAd className="mt-4" />
-          </>
-        )}
 
         {/* Image Count & Stats */}
         {images.length > 0 && (

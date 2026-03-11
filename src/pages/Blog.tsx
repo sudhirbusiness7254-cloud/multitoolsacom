@@ -7,8 +7,6 @@ import HreflangTags from "@/components/HreflangTags";
 import { blogPosts, blogCategories } from "@/data/blogData";
 import { useState, useMemo } from "react";
 import { Input } from "@/components/ui/input";
-import NativeBannerAd from "@/components/ads/NativeBannerAd";
-import MobileNativeAd from "@/components/ads/MobileNativeAd";
 
 const Blog = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -184,15 +182,6 @@ const Blog = () => {
           </section>
         )}
 
-        {/* Mobile Native Ad - after featured article */}
-        <div className="container mx-auto px-4 lg:hidden">
-          <MobileNativeAd />
-        </div>
-        
-        {/* Desktop Native Banner Ad - after featured article */}
-        <div className="container mx-auto px-4 hidden lg:block">
-          <NativeBannerAd />
-        </div>
 
         {/* Search Results Info */}
         {(searchQuery || selectedCategory !== "All") && (
@@ -286,15 +275,6 @@ const Blog = () => {
           )}
         </section>
 
-        {/* Mobile Native Ad - after articles */}
-        <div className="container mx-auto px-4 lg:hidden">
-          <MobileNativeAd />
-        </div>
-        
-        {/* Desktop Native Banner Ad - after articles */}
-        <div className="container mx-auto px-4 hidden lg:block">
-          <NativeBannerAd />
-        </div>
 
         {/* Newsletter Section */}
         <section className="bg-gradient-dark py-16">
@@ -374,15 +354,6 @@ const Blog = () => {
           </div>
         </section>
 
-        {/* Mobile Native Ad - before CTA */}
-        <div className="container mx-auto px-4 lg:hidden">
-          <MobileNativeAd />
-        </div>
-        
-        {/* Desktop Native Banner Ad - before CTA */}
-        <div className="container mx-auto px-4 hidden lg:block">
-          <NativeBannerAd />
-        </div>
       </main>
       
       <Footer />

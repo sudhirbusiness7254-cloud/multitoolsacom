@@ -6,8 +6,6 @@ import { Progress } from "@/components/ui/progress";
 import { toast } from "sonner";
 import DragDropUpload from "./DragDropUpload";
 import { Download, Image, RotateCcw, Palette, Circle, Droplets, Eraser, Layers, Combine } from "lucide-react";
-import NativeBannerAd from "@/components/ads/NativeBannerAd";
-import MobileNativeAd from "@/components/ads/MobileNativeAd";
 
 type UtilityMode = "grayscale" | "blackwhite" | "add-transparency" | "remove-transparency" | "invert" | "sepia";
 
@@ -303,11 +301,6 @@ const UniversalFormatUtility = ({ initialMode = "grayscale" }: UniversalFormatUt
       {!file ? (
         <>
           <DragDropUpload onFileSelect={handleFileSelect} accept="image/*" />
-          {/* Native Banner Ad - Below upload area */}
-          <div className="hidden lg:block mt-4">
-            <NativeBannerAd />
-          </div>
-          <MobileNativeAd className="mt-4" />
         </>
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">

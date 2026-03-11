@@ -40,8 +40,6 @@ import ImageEditorPage from "./pages/ImageEditorPage";
 import PDFToolPage from "./pages/tools/PDFToolPage";
 import SupportChat from "./components/SupportChat";
 
-import SideAds from "./components/ads/SideAds";
-import StickyMobileBannerAd from "./components/ads/StickyMobileBannerAd";
 
 // Educational & Trust Pages
 import HowToolsWorkPage from "./pages/HowToolsWorkPage";
@@ -110,8 +108,6 @@ const App = () => (
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
-          <SideAds />
-          <StickyMobileBannerAd />
           <SupportChat />
           
         </BrowserRouter>

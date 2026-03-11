@@ -5,8 +5,6 @@ import { Input } from "@/components/ui/input";
 import DragDropUpload from "@/components/DragDropUpload";
 import { Download, RotateCcw, Minimize2, Globe, RotateCw, ArrowDownToLine } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
-import NativeBannerAd from "@/components/ads/NativeBannerAd";
-import MobileNativeAd from "@/components/ads/MobileNativeAd";
 
 type OptimizationMode = "reduce-size" | "reduce-resolution" | "web-optimize" | "auto-orient";
 
@@ -130,11 +128,6 @@ const UniversalImageOptimization = ({ initialMode = "reduce-size" }: UniversalIm
       {!file ? (
         <>
           <DragDropUpload onFileSelect={handleFileSelect} accept="image/*" />
-          {/* Native Banner Ad - Below upload area */}
-          <div className="hidden lg:block mt-4">
-            <NativeBannerAd />
-          </div>
-          <MobileNativeAd className="mt-4" />
         </>
       ) : (
         <div className="space-y-6">

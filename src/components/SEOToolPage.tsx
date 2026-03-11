@@ -29,8 +29,6 @@ import {
   getIntroStyle,
   getListStyle
 } from "@/components/seo-templates/UniqueContentStyles";
-import SafeBannerAd from "@/components/ads/SafeBannerAd";
-import { ResponsiveContentAd } from "@/components/ads/SafeAdPlacements";
 
 interface SEOToolPageProps {
   seoContent: ToolSEOContent;
@@ -791,13 +789,6 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
       <HreflangTags path={toolPath} />
 
       <div className="min-h-screen bg-background flex flex-col">
-        {/* Fixed Side Ads - Ultra-wide screens only (2xl+) */}
-        <div className="hidden 2xl:block fixed left-4 top-1/2 -translate-y-1/2 z-40">
-          <SafeBannerAd size="160x600" />
-        </div>
-        <div className="hidden 2xl:block fixed right-4 top-1/2 -translate-y-1/2 z-40">
-          <SafeBannerAd size="160x600" />
-        </div>
 
         <Header />
         
@@ -835,10 +826,6 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                 {children}
               </div>
 
-              {/* Single Ad Below Tool Output Only */}
-              <div className="mb-6 max-w-4xl mx-auto">
-                <ResponsiveContentAd />
-              </div>
               
               {/* Quick benefits below tool - unique style per category */}
               <div className={`text-left max-w-4xl mx-auto ${sectionClasses}`}>
@@ -899,8 +886,6 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                 </div>
               ) : null}
 
-              {/* Banner Ad between content sections */}
-              <ResponsiveContentAd />
 
               {/* Related Articles from Blog */}
               <RelatedArticles 
@@ -966,10 +951,6 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
             </div>
           </section>
 
-          {/* Banner Ad - Less intrusive placement */}
-          <div className="container mx-auto px-4 max-w-4xl">
-            <ResponsiveContentAd />
-          </div>
 
           {/* CTA Section - Unique per template */}
           <section className={`py-12 ${templateConfig.style === 'creative' ? 'bg-gradient-to-r' : ''}`} style={templateConfig.style === 'creative' ? { backgroundImage: `linear-gradient(135deg, ${seoContent.gradientFrom}10, ${seoContent.gradientTo}10)` } : {}}>
@@ -1005,10 +986,6 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
             </div>
           </section>
 
-          {/* Banner Ad - Before Footer */}
-          <div className="container mx-auto px-4 max-w-4xl py-6">
-            <ResponsiveContentAd />
-          </div>
         </main>
 
         <Footer />

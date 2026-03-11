@@ -5,8 +5,6 @@ import { toast } from "sonner";
 import DragDropUpload from "./DragDropUpload";
 import { Download, FileText, File, Presentation, Code, Binary } from "lucide-react";
 import jsPDF from "jspdf";
-import NativeBannerAd from "@/components/ads/NativeBannerAd";
-import MobileNativeAd from "@/components/ads/MobileNativeAd";
 
 type DocumentFormat = "pdf" | "docx" | "pptx" | "html" | "base64";
 
@@ -346,11 +344,6 @@ HTML Usage:
       {!file ? (
         <>
           <DragDropUpload onFileSelect={handleFileSelect} accept="image/*" />
-          {/* Native Banner Ad - Below upload area */}
-          <div className="hidden lg:block mt-4">
-            <NativeBannerAd />
-          </div>
-          <MobileNativeAd className="mt-4" />
         </>
       ) : (
         <div className="space-y-4">

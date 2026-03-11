@@ -10,8 +10,6 @@ import HreflangTags from "@/components/HreflangTags";
 import RelatedArticles from "@/components/RelatedArticles";
 import { getTemplateConfig, categoryColorSchemes } from "@/components/seo-templates/TemplateStyles";
 import { getHeadingClasses, getCardClasses, getBadgeClasses } from "@/components/seo-templates/UniqueContentStyles";
-import SafeBannerAd from "@/components/ads/SafeBannerAd";
-import { ResponsiveContentAd } from "@/components/ads/SafeAdPlacements";
 
 // Import unique hero banners for each category
 import heroConverter from "@/assets/heroes/hero-image-converter.jpg";
@@ -264,13 +262,6 @@ const CategoryPageLayout = ({
       <HreflangTags path={`/${category.slug}`} />
 
       <div className="min-h-screen bg-background flex flex-col">
-        {/* Fixed Side Ads - Ultra-wide screens only (2xl+) */}
-        <div className="hidden 2xl:block fixed left-4 top-1/2 -translate-y-1/2 z-40">
-          <SafeBannerAd size="160x600" />
-        </div>
-        <div className="hidden 2xl:block fixed right-4 top-1/2 -translate-y-1/2 z-40">
-          <SafeBannerAd size="160x600" />
-        </div>
 
         <Header />
         
@@ -338,10 +329,6 @@ const CategoryPageLayout = ({
                   {children}
                 </div>
                 
-                {/* Single Ad Below Tool Output Only */}
-                <div className="mt-6">
-                  <ResponsiveContentAd />
-                </div>
               </div>
             </section>
           )}
@@ -393,10 +380,6 @@ const CategoryPageLayout = ({
             </div>
           </section>
 
-          {/* Banner Ad - After tools grid */}
-          <div className="container mx-auto max-w-4xl px-4">
-            <ResponsiveContentAd />
-          </div>
 
           {/* Who Uses This Category - Trust Signal */}
           <section id="who-uses" className="py-8 sm:py-12 px-4 sm:px-6 bg-secondary/30 scroll-mt-20">
@@ -424,10 +407,6 @@ const CategoryPageLayout = ({
             </div>
           </section>
 
-          {/* Banner Ad - After Who Uses section */}
-          <div className="container mx-auto max-w-4xl px-4">
-            <ResponsiveContentAd />
-          </div>
 
           {/* Real-World Use Cases */}
           <section id="use-cases" className="py-8 sm:py-12 px-4 sm:px-6 scroll-mt-20">
@@ -464,10 +443,6 @@ const CategoryPageLayout = ({
             </div>
           </section>
 
-          {/* Banner Ad - Middle of page */}
-          <div className="container mx-auto max-w-4xl px-4">
-            <ResponsiveContentAd />
-          </div>
 
           {/* How It Works - Simplified */}
           <section id="how-to" className="py-8 sm:py-12 px-4 sm:px-6 bg-secondary/30 scroll-mt-20">
@@ -510,10 +485,6 @@ const CategoryPageLayout = ({
             </div>
           </section>
 
-          {/* Banner Ad - After How It Works */}
-          <div className="container mx-auto max-w-4xl px-4">
-            <ResponsiveContentAd />
-          </div>
 
           {/* Privacy - Minimal */}
           <section className="py-6 px-4 sm:px-6">
@@ -551,10 +522,6 @@ const CategoryPageLayout = ({
             </div>
           </section>
 
-          {/* Banner Ad - After FAQ */}
-          <div className="container mx-auto max-w-4xl px-4">
-            <ResponsiveContentAd />
-          </div>
 
           {/* Related Blog Articles */}
           <section className="py-6 sm:py-8 px-4 sm:px-6">
@@ -588,10 +555,6 @@ const CategoryPageLayout = ({
             </div>
           </section>
 
-          {/* Banner Ad - Before Footer */}
-          <div className="container mx-auto max-w-4xl px-4 py-6">
-            <ResponsiveContentAd />
-          </div>
         </main>
 
         <Footer />
