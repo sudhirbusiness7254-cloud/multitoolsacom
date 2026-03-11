@@ -826,10 +826,6 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                 {children}
               </div>
 
-              {/* Single Ad Below Tool Output Only */}
-              <div className="mb-6 max-w-4xl mx-auto">
-                <ResponsiveContentAd />
-              </div>
               
               {/* Quick benefits below tool - unique style per category */}
               <div className={`text-left max-w-4xl mx-auto ${sectionClasses}`}>
