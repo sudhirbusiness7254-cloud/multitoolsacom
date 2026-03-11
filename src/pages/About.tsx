@@ -9,8 +9,6 @@ import {
   Layers, RefreshCw, Lightbulb, BookOpen, HelpCircle
 } from "lucide-react";
 import HreflangTags from "@/components/HreflangTags";
-import NativeBannerAd from "@/components/ads/NativeBannerAd";
-import MobileNativeAd from "@/components/ads/MobileNativeAd";
 
 const About = () => {
   const stats = [
