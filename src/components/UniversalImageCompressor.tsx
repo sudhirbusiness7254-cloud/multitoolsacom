@@ -8,8 +8,6 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import DragDropUpload from "@/components/DragDropUpload";
 import ImageComparisonSlider from "@/components/ImageComparisonSlider";
 import { toast } from "sonner";
-import NativeBannerAd from "@/components/ads/NativeBannerAd";
-import MobileNativeAd from "@/components/ads/MobileNativeAd";
 
 type OutputFormat = 'auto' | 'jpeg' | 'webp' | 'png';
 
