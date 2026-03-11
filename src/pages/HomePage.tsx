@@ -38,11 +38,6 @@ import { toolCategories } from "@/data/toolsData";
 import { ToolIconWithBackground } from "@/lib/toolIcons";
 import HreflangTags from "@/components/HreflangTags";
 import { blogPosts } from "@/data/blogData";
-import SafeBannerAd from "@/components/ads/SafeBannerAd";
-import { 
-  ResponsiveContentAd, 
-  SideAdsContainer 
-} from "@/components/ads/SafeAdPlacements";
 
 // 4K Screenshots for How It Works section
 import stepUpload4k from "@/assets/guides/step-upload-4k.png";
