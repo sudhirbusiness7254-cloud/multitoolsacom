@@ -951,10 +951,6 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
             </div>
           </section>
 
-          {/* Banner Ad - Less intrusive placement */}
-          <div className="container mx-auto px-4 max-w-4xl">
-            <ResponsiveContentAd />
-          </div>
 
           {/* CTA Section - Unique per template */}
           <section className={`py-12 ${templateConfig.style === 'creative' ? 'bg-gradient-to-r' : ''}`} style={templateConfig.style === 'creative' ? { backgroundImage: `linear-gradient(135deg, ${seoContent.gradientFrom}10, ${seoContent.gradientTo}10)` } : {}}>
