@@ -623,10 +623,6 @@ const HomePage = () => {
             </div>
           </section>
 
-          {/* Banner Ad - User-friendly placement */}
-          <div className="container mx-auto max-w-6xl px-4">
-            <ResponsiveContentAd />
-          </div>
 
           {/* Featured Blog Posts - Educational content */}
           <section className="py-12 sm:py-16 px-4 sm:px-6 bg-secondary/30">
