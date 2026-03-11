@@ -29,8 +29,6 @@ import {
   getIntroStyle,
   getListStyle
 } from "@/components/seo-templates/UniqueContentStyles";
-import SafeBannerAd from "@/components/ads/SafeBannerAd";
-import { ResponsiveContentAd } from "@/components/ads/SafeAdPlacements";
 
 interface SEOToolPageProps {
   seoContent: ToolSEOContent;
