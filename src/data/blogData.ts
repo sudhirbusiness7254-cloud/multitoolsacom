@@ -49,7 +49,7 @@ export const blogPosts: BlogPost[] = [
     title: "How to Watermark Your Images: Protect Your Photos and Build Your Brand",
     excerpt: "Learn the best practices for watermarking your images. Discover different watermark styles, placement strategies, and tools to protect your creative work.",
     author: "MultiToolsA Team",
-    date: "December 3, 2025",
+    date: "March 3, 2026",
     readTime: "7 min read",
     tags: ["Watermarking", "Copyright", "Photography"],
     image: "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=600&h=400&fit=crop",
