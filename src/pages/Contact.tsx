@@ -351,7 +351,8 @@ const Contact = () => {
                     </label>
                     <Textarea
                       id="message"
-                      placeholder="Please provide as much detail as possible. For bug reports, include the steps to reproduce the issue and your browser/device information."
+                      name="message"
+                      placeholder="Please provide as much detail as possible."
                       className="min-h-[150px]"
                       required
                     />
