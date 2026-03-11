@@ -140,15 +140,6 @@ const Contact = () => {
           </div>
         </section>
 
-        {/* Mobile Native Ad - after quick links */}
-        <div className="container mx-auto max-w-4xl px-4 lg:hidden">
-          <MobileNativeAd />
-        </div>
-        
-        {/* Desktop Native Banner Ad - after quick links */}
-        <div className="container mx-auto max-w-4xl px-4 hidden lg:block">
-          <NativeBannerAd />
-        </div>
         
         {/* Main Contact Section */}
         <section className="py-12 md:py-16 px-4">
