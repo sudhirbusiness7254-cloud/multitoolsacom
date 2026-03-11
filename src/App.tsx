@@ -74,6 +74,8 @@ const App = () => (
             <Route path="/advertiser-disclosure" element={<AdvertiserDisclosurePage />} />
             <Route path="/image-formats-guide" element={<ImageFormatsGuidePage />} />
             <Route path="/ad-placement-guide" element={<AdPlacementGuidePage />} />
+            <Route path="/dmca" element={<DMCAPage />} />
+            <Route path="/disclaimer" element={<DisclaimerPage />} />
             
             {/* Image Tools Landing Page */}
             <Route path="/image-tools" element={<ImageToolsPage />} />

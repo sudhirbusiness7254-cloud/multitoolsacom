@@ -147,6 +147,8 @@ const Footer = () => {
           <Link to="/faq" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">FAQ</Link>
           <Link to="/privacy" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">Privacy</Link>
           <Link to="/terms" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">Terms</Link>
+          <Link to="/disclaimer" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">Disclaimer</Link>
+          <Link to="/dmca" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">DMCA</Link>
           <Link to="/contact" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">Contact</Link>
           <Link to="/advertiser-disclosure" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">Ad Disclosure</Link>
         </div>

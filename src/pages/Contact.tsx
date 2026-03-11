@@ -292,6 +292,7 @@ const Contact = () => {
                       </label>
                       <Input
                         id="email"
+                        name="email"
                         type="email"
                         placeholder="john@example.com"
                         required
