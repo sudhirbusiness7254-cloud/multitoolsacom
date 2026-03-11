@@ -886,8 +886,6 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                 </div>
               ) : null}
 
-              {/* Banner Ad between content sections */}
-              <ResponsiveContentAd />
 
               {/* Related Articles from Blog */}
               <RelatedArticles 
