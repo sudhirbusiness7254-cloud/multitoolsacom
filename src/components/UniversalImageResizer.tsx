@@ -236,11 +236,6 @@ const UniversalImageResizer = () => {
       {!file ? (
         <>
           <DragDropUpload onFileSelect={handleFileSelect} accept="image/*" />
-          {/* Native Banner Ad - Below upload area */}
-          <div className="hidden lg:block mt-4">
-            <NativeBannerAd />
-          </div>
-          <MobileNativeAd className="mt-4" />
         </>
       ) : (
         <div className="space-y-4">

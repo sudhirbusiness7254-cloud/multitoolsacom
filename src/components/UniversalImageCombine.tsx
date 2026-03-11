@@ -249,12 +249,6 @@ const UniversalImageCombine = ({ initialMode = "horizontal" }: UniversalImageCom
 
         {/* Native Banner Ad - Below upload area */}
         {images.length === 0 && (
-          <>
-            <div className="hidden lg:block mt-4">
-              <NativeBannerAd />
-            </div>
-            <MobileNativeAd className="mt-4" />
-          </>
         )}
 
         {/* Image Count & Stats */}
