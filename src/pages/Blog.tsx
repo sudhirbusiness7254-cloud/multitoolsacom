@@ -275,15 +275,6 @@ const Blog = () => {
           )}
         </section>
 
-        {/* Mobile Native Ad - after articles */}
-        <div className="container mx-auto px-4 lg:hidden">
-          <MobileNativeAd />
-        </div>
-        
-        {/* Desktop Native Banner Ad - after articles */}
-        <div className="container mx-auto px-4 hidden lg:block">
-          <NativeBannerAd />
-        </div>
 
         {/* Newsletter Section */}
         <section className="bg-gradient-dark py-16">
