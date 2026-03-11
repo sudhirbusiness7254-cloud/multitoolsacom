@@ -428,10 +428,6 @@ const HomePage = () => {
             </div>
           </section>
 
-          {/* Banner Ad - Below Category List */}
-          <div className="container mx-auto max-w-6xl px-4">
-            <ResponsiveContentAd />
-          </div>
 
           {/* How It Works - Step by step with icons */}
           <section className="py-12 sm:py-20 px-4 sm:px-6 bg-gradient-hero">
