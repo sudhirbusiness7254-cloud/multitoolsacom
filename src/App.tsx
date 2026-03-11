@@ -35,6 +35,7 @@ import ImageDrawingPage from "./pages/categories/ImageDrawingPage";
 import ImageSecurityPage from "./pages/categories/ImageSecurityPage";
 import ImageQRPage from "./pages/categories/ImageQRPage";
 import PDFToolsPage from "./pages/categories/PDFToolsPage";
+import SEOToolsPage from "./pages/categories/SEOToolsPage";
 
 import ImageEditorPage from "./pages/ImageEditorPage";
 import PDFToolPage from "./pages/tools/PDFToolPage";
