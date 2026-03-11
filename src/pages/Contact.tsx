@@ -9,8 +9,6 @@ import { toast } from "sonner";
 import HreflangTags from "@/components/HreflangTags";
 import { Link } from "react-router-dom";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import NativeBannerAd from "@/components/ads/NativeBannerAd";
-import MobileNativeAd from "@/components/ads/MobileNativeAd";
 
 const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
