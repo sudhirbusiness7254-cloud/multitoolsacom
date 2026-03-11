@@ -443,10 +443,6 @@ const CategoryPageLayout = ({
             </div>
           </section>
 
-          {/* Banner Ad - Middle of page */}
-          <div className="container mx-auto max-w-4xl px-4">
-            <ResponsiveContentAd />
-          </div>
 
           {/* How It Works - Simplified */}
           <section id="how-to" className="py-8 sm:py-12 px-4 sm:px-6 bg-secondary/30 scroll-mt-20">
