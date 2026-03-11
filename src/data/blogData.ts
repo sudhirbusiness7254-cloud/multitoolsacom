@@ -60,7 +60,7 @@ export const blogPosts: BlogPost[] = [
     title: "Image Sizing Guide for Social Media: Perfect Dimensions for Every Platform",
     excerpt: "Get the perfect image dimensions for Facebook, Instagram, Twitter, LinkedIn, and more. Our comprehensive guide ensures your images look great everywhere.",
     author: "MultiToolsA Team",
-    date: "November 30, 2025",
+    date: "February 28, 2026",
     readTime: "9 min read",
     tags: ["Social Media", "Image Resizing", "Marketing"],
     image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=600&h=400&fit=crop",
