@@ -182,15 +182,6 @@ const Blog = () => {
           </section>
         )}
 
-        {/* Mobile Native Ad - after featured article */}
-        <div className="container mx-auto px-4 lg:hidden">
-          <MobileNativeAd />
-        </div>
-        
-        {/* Desktop Native Banner Ad - after featured article */}
-        <div className="container mx-auto px-4 hidden lg:block">
-          <NativeBannerAd />
-        </div>
 
         {/* Search Results Info */}
         {(searchQuery || selectedCategory !== "All") && (
