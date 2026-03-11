@@ -160,7 +160,7 @@ export const blogPosts: BlogPost[] = [
     title: "E-commerce Product Images: Optimization Guide for Higher Conversions",
     excerpt: "Optimize your product images for e-commerce success. Learn about ideal sizes, backgrounds, compression settings, and multi-angle photography best practices.",
     author: "MultiToolsA Team",
-    date: "November 1, 2025",
+    date: "January 28, 2026",
     readTime: "12 min read",
     tags: ["E-commerce", "Product Photography", "Conversion"],
     image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&h=400&fit=crop",
