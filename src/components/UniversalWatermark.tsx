@@ -6,8 +6,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import DragDropUpload from "@/components/DragDropUpload";
 import { Download, RotateCcw, Type, Image as ImageIcon, Upload, X } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
-import NativeBannerAd from "@/components/ads/NativeBannerAd";
-import MobileNativeAd from "@/components/ads/MobileNativeAd";
 
 type WatermarkMode = "text" | "image";
 type Position = "top-left" | "top-right" | "bottom-left" | "bottom-right" | "center" | "tile";
