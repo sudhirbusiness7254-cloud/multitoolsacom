@@ -45,6 +45,8 @@ import SupportChat from "./components/SupportChat";
 import HowToolsWorkPage from "./pages/HowToolsWorkPage";
 import AdvertiserDisclosurePage from "./pages/AdvertiserDisclosurePage";
 import ImageFormatsGuidePage from "./pages/ImageFormatsGuidePage";
+import DMCAPage from "./pages/DMCAPage";
+import DisclaimerPage from "./pages/DisclaimerPage";
 import AdPlacementGuidePage from "./pages/AdPlacementGuidePage";
 
 const queryClient = new QueryClient();
