@@ -247,9 +247,6 @@ const UniversalImageCombine = ({ initialMode = "horizontal" }: UniversalImageCom
           </p>
         </div>
 
-        {/* Native Banner Ad - Below upload area */}
-        {images.length === 0 && (
-        )}
 
         {/* Image Count & Stats */}
         {images.length > 0 && (
