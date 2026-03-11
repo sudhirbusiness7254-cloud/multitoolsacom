@@ -354,15 +354,6 @@ const Blog = () => {
           </div>
         </section>
 
-        {/* Mobile Native Ad - before CTA */}
-        <div className="container mx-auto px-4 lg:hidden">
-          <MobileNativeAd />
-        </div>
-        
-        {/* Desktop Native Banner Ad - before CTA */}
-        <div className="container mx-auto px-4 hidden lg:block">
-          <NativeBannerAd />
-        </div>
       </main>
       
       <Footer />

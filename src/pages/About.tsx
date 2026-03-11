@@ -337,15 +337,6 @@ const About = () => {
           </div>
         </section>
 
-        {/* Mobile Native Ad - after values */}
-        <div className="container mx-auto max-w-4xl px-4 lg:hidden">
-          <MobileNativeAd />
-        </div>
-        
-        {/* Desktop Native Banner Ad - after values */}
-        <div className="container mx-auto max-w-4xl px-4 hidden lg:block">
-          <NativeBannerAd />
-        </div>
 
         {/* What We Offer - Expanded */}
         <section className="py-16 md:py-20 px-4 bg-gradient-dark">

@@ -168,15 +168,6 @@ const AllToolsPage = () => {
             </div>
           </section>
 
-          {/* Mobile Native Ad - before footer */}
-          <div className="container mx-auto max-w-7xl px-4 lg:hidden">
-            <MobileNativeAd />
-          </div>
-          
-          {/* Desktop Native Banner Ad - before footer */}
-          <div className="container mx-auto max-w-7xl px-4 hidden lg:block">
-            <NativeBannerAd />
-          </div>
         </main>
 
         <Footer />

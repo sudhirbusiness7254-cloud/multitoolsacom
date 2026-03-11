@@ -16,10 +16,6 @@ const Footer = () => {
 
   return (
     <footer className="bg-card border-t border-border mt-8 sm:mt-12 md:mt-16 pb-16 md:pb-0">
-      {/* Mobile Footer Banner Ad (320x50) - Mobile Only */}
-      <div className="md:hidden flex justify-center py-4">
-        <SafeBannerAd size="320x50" />
-      </div>
       
       <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-10 md:py-12">
         {/* Main Footer Grid */}

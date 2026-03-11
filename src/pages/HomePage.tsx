@@ -776,10 +776,6 @@ const HomePage = () => {
             </div>
           </section>
 
-          {/* Final ad before footer */}
-          <div className="container mx-auto max-w-6xl px-4 py-6">
-            <ResponsiveContentAd />
-          </div>
         </main>
         
         <Footer />

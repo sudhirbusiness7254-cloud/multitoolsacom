@@ -41,8 +41,6 @@ const NotFound = () => {
             </Link>
           </div>
 
-          {/* Ad placement on 404 page */}
-          <InContentAd />
 
           {/* Popular tools suggestions */}
           <div className="mt-12">

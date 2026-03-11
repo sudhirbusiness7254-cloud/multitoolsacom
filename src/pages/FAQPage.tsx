@@ -316,15 +316,6 @@ const FAQPage = () => {
             </div>
           </section>
 
-          {/* Mobile Native Ad - before resources */}
-          <div className="container mx-auto max-w-4xl px-4 lg:hidden">
-            <MobileNativeAd />
-          </div>
-          
-          {/* Desktop Native Banner Ad - before resources */}
-          <div className="container mx-auto max-w-4xl px-4 hidden lg:block">
-            <NativeBannerAd />
-          </div>
 
           {/* Related Links */}
           <section className="py-12 md:py-16 px-4">
