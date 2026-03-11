@@ -99,6 +99,7 @@ const App = () => (
             <Route path="/image-security" element={<ImageSecurityPage />} />
             <Route path="/image-qr" element={<ImageQRPage />} />
             <Route path="/pdf-tools" element={<PDFToolsPage />} />
+            <Route path="/seo-tools" element={<SEOToolsPage />} />
             
             {/* PDF Tool Pages */}
             <Route path="/merge-pdf" element={<PDFToolPage />} />

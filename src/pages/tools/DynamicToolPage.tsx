@@ -106,6 +106,14 @@ const getToolComponent = (slug: string) => {
     return <UniversalDocumentConverter />;
   }
 
+  // SEO tools
+  if (slug === "keyword-density-checker") return <KeywordDensityChecker />;
+  if (slug === "meta-tag-generator") return <MetaTagGenerator />;
+  if (slug === "word-counter") return <WordCounter />;
+  if (slug === "open-graph-checker") return <OpenGraphChecker />;
+  if (slug === "heading-checker") return <HeadingChecker />;
+  if (slug === "text-case-converter") return <TextCaseConverter />;
+
   return null;
 };
 
