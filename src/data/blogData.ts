@@ -149,7 +149,7 @@ export const blogPosts: BlogPost[] = [
     title: "Photo Filters and Effects: From Basic Adjustments to Creative Transformations",
     excerpt: "Master photo enhancement with our guide to filters and effects. Learn about brightness, contrast, saturation, and creative filters like sepia, vintage, and more.",
     author: "MultiToolsA Team",
-    date: "November 5, 2025",
+    date: "February 1, 2026",
     readTime: "8 min read",
     tags: ["Photo Filters", "Image Enhancement", "Creativity"],
     image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&h=400&fit=crop",
