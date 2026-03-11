@@ -27,7 +27,7 @@ export const blogPosts: BlogPost[] = [
     title: "Image Formats Explained: JPEG vs PNG vs WebP vs GIF - Which Should You Use?",
     excerpt: "Understand the differences between popular image formats. Learn when to use JPEG, PNG, WebP, or GIF for optimal quality and performance in different scenarios.",
     author: "MultiToolsA Team",
-    date: "December 8, 2025",
+    date: "March 8, 2026",
     readTime: "10 min read",
     tags: ["Image Formats", "JPEG", "PNG", "WebP"],
     image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=400&fit=crop",
