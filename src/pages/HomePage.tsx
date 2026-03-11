@@ -752,10 +752,6 @@ const HomePage = () => {
             </div>
           </section>
 
-          {/* Ad before Final CTA */}
-          <div className="container mx-auto max-w-6xl px-4 py-6">
-            <ResponsiveContentAd />
-          </div>
 
           {/* Final CTA Section */}
           <section className="py-16 sm:py-24 px-4 sm:px-6 bg-gradient-hero">
