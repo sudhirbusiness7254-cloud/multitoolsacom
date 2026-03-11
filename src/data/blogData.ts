@@ -71,7 +71,7 @@ export const blogPosts: BlogPost[] = [
     title: "Image Metadata and Privacy: Why You Should Remove EXIF Data Before Sharing",
     excerpt: "Your photos contain hidden data that reveals your location, camera settings, and more. Learn why and how to remove metadata to protect your privacy.",
     author: "MultiToolsA Team",
-    date: "November 28, 2025",
+    date: "February 25, 2026",
     readTime: "6 min read",
     tags: ["Privacy", "Metadata", "Security"],
     image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=400&fit=crop",
