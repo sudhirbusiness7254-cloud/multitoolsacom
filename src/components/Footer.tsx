@@ -159,6 +159,7 @@ const Footer = () => {
           <Link to="/" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">Home</Link>
           <Link to="/all-tools" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">All Tools</Link>
           <Link to="/pdf-tools" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">PDF Tools</Link>
+          <Link to="/seo-tools" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">SEO Tools</Link>
           <Link to="/tag-extractor" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">Tag Generator</Link>
           <Link to="/blog" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">Blog</Link>
           <Link to="/image-formats-guide" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">Format Guide</Link>
