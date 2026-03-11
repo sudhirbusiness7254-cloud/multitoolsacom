@@ -4,8 +4,6 @@ import { Slider } from "@/components/ui/slider";
 import DragDropUpload from "@/components/DragDropUpload";
 import { Download, RotateCcw, Sun, Contrast, Droplets, Sparkles, Snowflake, Flame, Image as ImageIcon, CircleOff } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
-import NativeBannerAd from "@/components/ads/NativeBannerAd";
-import MobileNativeAd from "@/components/ads/MobileNativeAd";
 
 type FilterMode = "brightness" | "contrast" | "saturation" | "sharpen" | "blur" | "gaussian-blur" | "emboss" | "smooth" | "pixelate" | "sepia" | "negative" | "vintage" | "warm" | "cool";
 
