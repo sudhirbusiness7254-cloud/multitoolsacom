@@ -262,13 +262,6 @@ const CategoryPageLayout = ({
       <HreflangTags path={`/${category.slug}`} />
 
       <div className="min-h-screen bg-background flex flex-col">
-        {/* Fixed Side Ads - Ultra-wide screens only (2xl+) */}
-        <div className="hidden 2xl:block fixed left-4 top-1/2 -translate-y-1/2 z-40">
-          <SafeBannerAd size="160x600" />
-        </div>
-        <div className="hidden 2xl:block fixed right-4 top-1/2 -translate-y-1/2 z-40">
-          <SafeBannerAd size="160x600" />
-        </div>
 
         <Header />
         
