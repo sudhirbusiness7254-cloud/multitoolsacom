@@ -522,10 +522,6 @@ const CategoryPageLayout = ({
             </div>
           </section>
 
-          {/* Banner Ad - After FAQ */}
-          <div className="container mx-auto max-w-4xl px-4">
-            <ResponsiveContentAd />
-          </div>
 
           {/* Related Blog Articles */}
           <section className="py-6 sm:py-8 px-4 sm:px-6">
