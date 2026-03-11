@@ -329,10 +329,6 @@ const CategoryPageLayout = ({
                   {children}
                 </div>
                 
-                {/* Single Ad Below Tool Output Only */}
-                <div className="mt-6">
-                  <ResponsiveContentAd />
-                </div>
               </div>
             </section>
           )}
