@@ -5,8 +5,6 @@ import { toast } from "sonner";
 import DragDropUpload from "./DragDropUpload";
 import { Download, FileText, File, Presentation, Code, Binary } from "lucide-react";
 import jsPDF from "jspdf";
-import NativeBannerAd from "@/components/ads/NativeBannerAd";
-import MobileNativeAd from "@/components/ads/MobileNativeAd";
 
 type DocumentFormat = "pdf" | "docx" | "pptx" | "html" | "base64";
 
