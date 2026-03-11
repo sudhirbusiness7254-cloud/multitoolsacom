@@ -5,8 +5,6 @@ import HreflangTags from "@/components/HreflangTags";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Link } from "react-router-dom";
 import { HelpCircle, Image, FileText, Shield, Zap, Globe, Lock } from "lucide-react";
-import NativeBannerAd from "@/components/ads/NativeBannerAd";
-import MobileNativeAd from "@/components/ads/MobileNativeAd";
 
 const faqCategories = [
   {
