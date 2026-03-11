@@ -7,8 +7,6 @@ import { Progress } from "@/components/ui/progress";
 import { toast } from "sonner";
 import DragDropUpload from "./DragDropUpload";
 import { Download, RotateCw, RotateCcw, FlipHorizontal, FlipVertical, RotateCcwSquare, Image, RotateCcwIcon } from "lucide-react";
-import NativeBannerAd from "@/components/ads/NativeBannerAd";
-import MobileNativeAd from "@/components/ads/MobileNativeAd";
 
 type TransformMode = "rotate-90" | "rotate-180" | "rotate-270" | "custom" | "flip-h" | "flip-v" | "mirror";
 
