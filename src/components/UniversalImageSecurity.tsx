@@ -6,8 +6,6 @@ import DragDropUpload from "@/components/DragDropUpload";
 import { Download, RotateCcw, Eye, EyeOff, Lock, Unlock, Grid, Loader2, Shield } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
 import { createEncryptedCanvas, decryptCanvasImage } from "@/lib/imageCrypto";
-import NativeBannerAd from "@/components/ads/NativeBannerAd";
-import MobileNativeAd from "@/components/ads/MobileNativeAd";
 
 type SecurityMode = "blur" | "pixelate" | "hide" | "encrypt" | "decrypt";
 
