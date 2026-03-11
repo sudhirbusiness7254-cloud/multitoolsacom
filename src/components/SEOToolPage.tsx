@@ -986,10 +986,6 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
             </div>
           </section>
 
-          {/* Banner Ad - Before Footer */}
-          <div className="container mx-auto px-4 max-w-4xl py-6">
-            <ResponsiveContentAd />
-          </div>
         </main>
 
         <Footer />
