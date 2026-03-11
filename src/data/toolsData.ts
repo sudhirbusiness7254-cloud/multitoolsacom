@@ -296,6 +296,22 @@ export const toolCategories: Category[] = [
       { id: "split-pdf", name: "Split PDF", slug: "split-pdf", description: "Extract pages or split PDF into multiple files", category: "PDF Tools", categorySlug: "pdf-tools", icon: "Scissors", keywords: ["split pdf", "extract pdf pages", "pdf splitter", "divide pdf"] },
     ]
   },
+  {
+    id: "seo-tools",
+    name: "SEO Tools",
+    slug: "seo-tools",
+    description: "Free SEO tools to analyze, optimize, and improve your website's search engine ranking",
+    icon: "Search",
+    priority: 18,
+    tools: [
+      { id: "keyword-density-checker", name: "Keyword Density Checker", slug: "keyword-density-checker", description: "Analyze keyword frequency and density in your content for better SEO optimization", category: "SEO Tools", categorySlug: "seo-tools", icon: "BarChart3", keywords: ["keyword density", "keyword checker", "seo analysis", "keyword frequency"] },
+      { id: "meta-tag-generator", name: "Meta Tag Generator", slug: "meta-tag-generator", description: "Generate SEO-optimized meta tags for your website pages including title, description, and Open Graph tags", category: "SEO Tools", categorySlug: "seo-tools", icon: "Code", keywords: ["meta tag generator", "seo meta tags", "og tags", "meta description generator"] },
+      { id: "word-counter", name: "Word Counter", slug: "word-counter", description: "Count words, characters, sentences, and paragraphs in your text with readability analysis", category: "SEO Tools", categorySlug: "seo-tools", icon: "Type", keywords: ["word counter", "character counter", "text counter", "word count tool"] },
+      { id: "open-graph-checker", name: "Open Graph Checker", slug: "open-graph-checker", description: "Preview and validate Open Graph meta tags for social media sharing optimization", category: "SEO Tools", categorySlug: "seo-tools", icon: "Share2", keywords: ["open graph checker", "og tag checker", "social media preview", "facebook preview"] },
+      { id: "heading-checker", name: "Heading Structure Checker", slug: "heading-checker", description: "Analyze H1-H6 heading hierarchy and structure of your content for SEO best practices", category: "SEO Tools", categorySlug: "seo-tools", icon: "ListOrdered", keywords: ["heading checker", "h1 h2 checker", "heading structure", "seo headings"] },
+      { id: "text-case-converter", name: "Text Case Converter", slug: "text-case-converter", description: "Convert text between uppercase, lowercase, title case, sentence case and more", category: "SEO Tools", categorySlug: "seo-tools", icon: "CaseSensitive", keywords: ["text case converter", "uppercase", "lowercase", "title case"] },
+    ]
+  },
 ];
 
 export const getAllTools = (): Tool[] => {
