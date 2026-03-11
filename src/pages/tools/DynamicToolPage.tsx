@@ -17,6 +17,12 @@ import UniversalImageDrawing from "@/components/UniversalImageDrawing";
 import UniversalImageSecurity from "@/components/UniversalImageSecurity";
 import UniversalQRTools from "@/components/UniversalQRTools";
 import UniversalDocumentConverter from "@/components/UniversalDocumentConverter";
+import KeywordDensityChecker from "@/components/seo-tools/KeywordDensityChecker";
+import MetaTagGenerator from "@/components/seo-tools/MetaTagGenerator";
+import WordCounter from "@/components/seo-tools/WordCounter";
+import OpenGraphChecker from "@/components/seo-tools/OpenGraphChecker";
+import HeadingChecker from "@/components/seo-tools/HeadingChecker";
+import TextCaseConverter from "@/components/seo-tools/TextCaseConverter";
 
 // Tool slug to component mapping
 const getToolComponent = (slug: string) => {
@@ -99,6 +105,14 @@ const getToolComponent = (slug: string) => {
   if (["image-to-pdf", "image-to-docx", "image-to-pptx", "image-to-html", "image-to-base64", "base64-to-image"].includes(slug)) {
     return <UniversalDocumentConverter />;
   }
+
+  // SEO tools
+  if (slug === "keyword-density-checker") return <KeywordDensityChecker />;
+  if (slug === "meta-tag-generator") return <MetaTagGenerator />;
+  if (slug === "word-counter") return <WordCounter />;
+  if (slug === "open-graph-checker") return <OpenGraphChecker />;
+  if (slug === "heading-checker") return <HeadingChecker />;
+  if (slug === "text-case-converter") return <TextCaseConverter />;
 
   return null;
 };
