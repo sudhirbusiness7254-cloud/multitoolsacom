@@ -17,6 +17,12 @@ import UniversalImageDrawing from "@/components/UniversalImageDrawing";
 import UniversalImageSecurity from "@/components/UniversalImageSecurity";
 import UniversalQRTools from "@/components/UniversalQRTools";
 import UniversalDocumentConverter from "@/components/UniversalDocumentConverter";
+import KeywordDensityChecker from "@/components/seo-tools/KeywordDensityChecker";
+import MetaTagGenerator from "@/components/seo-tools/MetaTagGenerator";
+import WordCounter from "@/components/seo-tools/WordCounter";
+import OpenGraphChecker from "@/components/seo-tools/OpenGraphChecker";
+import HeadingChecker from "@/components/seo-tools/HeadingChecker";
+import TextCaseConverter from "@/components/seo-tools/TextCaseConverter";
 
 // Tool slug to component mapping
 const getToolComponent = (slug: string) => {
