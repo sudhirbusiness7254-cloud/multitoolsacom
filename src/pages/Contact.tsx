@@ -9,11 +9,35 @@ import { toast } from "sonner";
 import HreflangTags from "@/components/HreflangTags";
 import { Link } from "react-router-dom";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { supabase } from "@/integrations/supabase/client";
+import { useState } from "react";
 
 const Contact = () => {
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    toast.success("Thank you for your message! We'll get back to you within 24-48 hours.");
+    setIsSubmitting(true);
+    
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get('name') as string,
+      email: formData.get('email') as string,
+      inquiry_type: formData.get('inquiry-type') as string,
+      subject: formData.get('subject') as string,
+      tool_used: (formData.get('tool-used') as string) || null,
+      message: formData.get('message') as string,
+    };
+
+    const { error } = await supabase.from('contact_messages').insert(data);
+    
+    if (error) {
+      toast.error("Something went wrong. Please try again or email us directly.");
+    } else {
+      toast.success("Thank you for your message! We'll get back to you within 24-48 hours.");
+      e.currentTarget.reset();
+    }
+    setIsSubmitting(false);
   };
 
   const supportTopics = [
@@ -256,6 +280,7 @@ const Contact = () => {
                       </label>
                       <Input
                         id="name"
+                        name="name"
                         type="text"
                         placeholder="John Doe"
                         required
@@ -267,6 +292,7 @@ const Contact = () => {
                       </label>
                       <Input
                         id="email"
+                        name="email"
                         type="email"
                         placeholder="john@example.com"
                         required
@@ -280,6 +306,7 @@ const Contact = () => {
                     </label>
                     <select 
                       id="inquiry-type" 
+                      name="inquiry-type"
                       className="w-full h-10 px-3 rounded-md border border-input bg-background text-foreground"
                       required
                     >
@@ -299,6 +326,7 @@ const Contact = () => {
                     </label>
                     <Input
                       id="subject"
+                      name="subject"
                       type="text"
                       placeholder="Brief description of your inquiry"
                       required
@@ -311,6 +339,7 @@ const Contact = () => {
                     </label>
                     <Input
                       id="tool-used"
+                      name="tool-used"
                       type="text"
                       placeholder="e.g., JPEG Compressor, PNG to JPG Converter"
                     />
@@ -322,7 +351,8 @@ const Contact = () => {
                     </label>
                     <Textarea
                       id="message"
-                      placeholder="Please provide as much detail as possible. For bug reports, include the steps to reproduce the issue and your browser/device information."
+                      name="message"
+                      placeholder="Please provide as much detail as possible."
                       className="min-h-[150px]"
                       required
                     />
@@ -330,9 +360,10 @@ const Contact = () => {
 
                   <Button 
                     type="submit" 
+                    disabled={isSubmitting}
                     className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
                   >
-                    Send Message
+                    {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
                   
                   <p className="text-xs text-muted-foreground text-center">
