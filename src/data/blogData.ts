@@ -127,7 +127,7 @@ export const blogPosts: BlogPost[] = [
     title: "Creating Transparent Backgrounds: Complete PNG Transparency Guide",
     excerpt: "Need images with transparent backgrounds for logos, product photos, or graphics? Learn multiple techniques to remove backgrounds and create perfect PNGs.",
     author: "MultiToolsA Team",
-    date: "November 12, 2025",
+    date: "February 8, 2026",
     readTime: "9 min read",
     tags: ["Transparency", "PNG", "Background Removal"],
     image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=400&fit=crop",
