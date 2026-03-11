@@ -105,7 +105,7 @@ export const blogPosts: BlogPost[] = [
     title: "Working with PDFs and Images: Convert, Merge, and Optimize Like a Pro",
     excerpt: "Master PDF and image workflows. Learn how to convert images to PDF, merge multiple PDFs, compress large files, and extract images from documents.",
     author: "MultiToolsA Team",
-    date: "November 18, 2025",
+    date: "February 15, 2026",
     readTime: "10 min read",
     tags: ["PDF", "Document Conversion", "Productivity"],
     image: "https://images.unsplash.com/photo-1568667256549-094345857637?w=600&h=400&fit=crop",
