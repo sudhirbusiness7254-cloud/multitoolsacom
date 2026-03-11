@@ -83,7 +83,7 @@ export const blogPosts: BlogPost[] = [
     title: "HEIC to JPG Conversion: The Complete Guide for iPhone Users",
     excerpt: "iPhone photos saved as HEIC causing compatibility issues? Learn how to convert HEIC to JPG quickly and understand when to use each format for best results.",
     author: "MultiToolsA Team",
-    date: "November 25, 2025",
+    date: "February 22, 2026",
     readTime: "7 min read",
     tags: ["HEIC", "iPhone", "Format Conversion"],
     image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop",
