@@ -8,8 +8,6 @@ import { useState, useMemo } from "react";
 import { Input } from "@/components/ui/input";
 import { ToolIconWithBackground, getToolIconColor, getToolIconComponent } from "@/lib/toolIcons";
 import HreflangTags from "@/components/HreflangTags";
-import NativeBannerAd from "@/components/ads/NativeBannerAd";
-import MobileNativeAd from "@/components/ads/MobileNativeAd";
 
 // PDF Tools data for inclusion in all tools
 const pdfToolsData = [
