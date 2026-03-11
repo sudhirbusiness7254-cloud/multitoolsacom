@@ -121,15 +121,6 @@ const AllToolsPage = () => {
             </div>
           </section>
 
-          {/* Mobile Native Ad */}
-          <div className="container mx-auto max-w-7xl px-4 lg:hidden">
-            <MobileNativeAd />
-          </div>
-          
-          {/* Desktop Native Banner Ad */}
-          <div className="container mx-auto max-w-7xl px-4 hidden lg:block">
-            <NativeBannerAd />
-          </div>
 
           {/* Tools Grid */}
           <section className="py-12 px-4">
