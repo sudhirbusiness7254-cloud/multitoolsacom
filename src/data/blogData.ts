@@ -116,7 +116,7 @@ export const blogPosts: BlogPost[] = [
     title: "Image Cropping Mastery: Techniques That Transform Your Photos",
     excerpt: "Learn professional cropping techniques including the rule of thirds, golden ratio, and aspect ratio selection. Transform ordinary photos into stunning compositions.",
     author: "MultiToolsA Team",
-    date: "November 15, 2025",
+    date: "February 12, 2026",
     readTime: "8 min read",
     tags: ["Cropping", "Photography", "Composition"],
     image: "https://images.unsplash.com/photo-1554080353-a576cf803bda?w=600&h=400&fit=crop",
