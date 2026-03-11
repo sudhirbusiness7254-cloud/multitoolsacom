@@ -5,8 +5,6 @@ import { Input } from "@/components/ui/input";
 import DragDropUpload from "@/components/DragDropUpload";
 import { Download, RotateCcw, Minimize2, Globe, RotateCw, ArrowDownToLine } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
-import NativeBannerAd from "@/components/ads/NativeBannerAd";
-import MobileNativeAd from "@/components/ads/MobileNativeAd";
 
 type OptimizationMode = "reduce-size" | "reduce-resolution" | "web-optimize" | "auto-orient";
 
