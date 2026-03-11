@@ -138,7 +138,7 @@ export const blogPosts: BlogPost[] = [
     title: "QR Codes and Images: Design Tips for Scannable, Beautiful QR Codes",
     excerpt: "Create QR codes that are both functional and visually appealing. Learn about custom colors, logo embedding, error correction, and testing best practices.",
     author: "MultiToolsA Team",
-    date: "November 8, 2025",
+    date: "February 5, 2026",
     readTime: "6 min read",
     tags: ["QR Code", "Design", "Marketing"],
     image: "https://images.unsplash.com/photo-1595079676339-1534801ad6cf?w=600&h=400&fit=crop",
