@@ -94,7 +94,7 @@ export const blogPosts: BlogPost[] = [
     title: "Batch Image Processing: How to Edit Hundreds of Images in Minutes",
     excerpt: "Stop editing images one by one. Master batch processing techniques to resize, compress, convert, and watermark hundreds of images efficiently using free online tools.",
     author: "MultiToolsA Team",
-    date: "November 22, 2025",
+    date: "February 18, 2026",
     readTime: "11 min read",
     tags: ["Batch Processing", "Productivity", "Workflow"],
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
