@@ -326,6 +326,7 @@ const Contact = () => {
                     </label>
                     <Input
                       id="subject"
+                      name="subject"
                       type="text"
                       placeholder="Brief description of your inquiry"
                       required
