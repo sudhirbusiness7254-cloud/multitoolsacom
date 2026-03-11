@@ -4,8 +4,6 @@ import DragDropUpload from "@/components/DragDropUpload";
 import { Download, RotateCcw, Eye, Trash2, Copy, MapPin, Camera, Settings } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
 import EXIF from "exif-js";
-import NativeBannerAd from "@/components/ads/NativeBannerAd";
-import MobileNativeAd from "@/components/ads/MobileNativeAd";
 
 type MetadataMode = "view" | "remove" | "copy";
 
