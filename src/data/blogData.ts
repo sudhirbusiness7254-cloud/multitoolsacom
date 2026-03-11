@@ -171,7 +171,7 @@ export const blogPosts: BlogPost[] = [
     title: "Image Security: Encrypt, Blur, and Protect Sensitive Visual Content",
     excerpt: "Keep your images secure with encryption, face blurring, and area redaction techniques. Essential knowledge for handling confidential photos and documents.",
     author: "MultiToolsA Team",
-    date: "October 28, 2025",
+    date: "January 25, 2026",
     readTime: "7 min read",
     tags: ["Security", "Encryption", "Privacy"],
     image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=600&h=400&fit=crop",
