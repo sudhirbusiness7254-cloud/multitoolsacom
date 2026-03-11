@@ -9,11 +9,35 @@ import { toast } from "sonner";
 import HreflangTags from "@/components/HreflangTags";
 import { Link } from "react-router-dom";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { supabase } from "@/integrations/supabase/client";
+import { useState } from "react";
 
 const Contact = () => {
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    toast.success("Thank you for your message! We'll get back to you within 24-48 hours.");
+    setIsSubmitting(true);
+    
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get('name') as string,
+      email: formData.get('email') as string,
+      inquiry_type: formData.get('inquiry-type') as string,
+      subject: formData.get('subject') as string,
+      tool_used: (formData.get('tool-used') as string) || null,
+      message: formData.get('message') as string,
+    };
+
+    const { error } = await supabase.from('contact_messages').insert(data);
+    
+    if (error) {
+      toast.error("Something went wrong. Please try again or email us directly.");
+    } else {
+      toast.success("Thank you for your message! We'll get back to you within 24-48 hours.");
+      e.currentTarget.reset();
+    }
+    setIsSubmitting(false);
   };
 
   const supportTopics = [
