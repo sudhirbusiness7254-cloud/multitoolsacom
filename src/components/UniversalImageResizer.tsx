@@ -8,8 +8,6 @@ import { Slider } from "@/components/ui/slider";
 import { toast } from "sonner";
 import DragDropUpload from "./DragDropUpload";
 import { Download, Maximize, Percent, ArrowRight, Square, Zap, Lock, Unlock, Sparkles } from "lucide-react";
-import NativeBannerAd from "@/components/ads/NativeBannerAd";
-import MobileNativeAd from "@/components/ads/MobileNativeAd";
 
 type ResizeMode = "exact" | "percentage" | "fit-width" | "fit-height" | "fit-box";
 
