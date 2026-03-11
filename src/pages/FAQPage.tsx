@@ -255,15 +255,6 @@ const FAQPage = () => {
             </div>
           </section>
 
-          {/* Mobile Native Ad - after stats */}
-          <div className="container mx-auto max-w-4xl px-4 lg:hidden">
-            <MobileNativeAd />
-          </div>
-          
-          {/* Desktop Native Banner Ad - after stats */}
-          <div className="container mx-auto max-w-4xl px-4 hidden lg:block">
-            <NativeBannerAd />
-          </div>
 
           {/* FAQ Categories */}
           <section className="py-12 md:py-16 px-4">
