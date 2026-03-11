@@ -360,9 +360,10 @@ const Contact = () => {
 
                   <Button 
                     type="submit" 
+                    disabled={isSubmitting}
                     className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
                   >
-                    Send Message
+                    {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
                   
                   <p className="text-xs text-muted-foreground text-center">
