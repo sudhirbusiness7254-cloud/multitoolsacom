@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { toolCategories } from "@/data/toolsData";
 import logo from "@/assets/logo-icon.png";
-import SafeBannerAd from "@/components/ads/SafeBannerAd";
+
 
 const Footer = () => {
   const imageCategories = toolCategories.filter(cat => cat.id !== "tag-tools").sort((a, b) => a.priority - b.priority);
