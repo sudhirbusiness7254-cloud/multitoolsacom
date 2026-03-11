@@ -7,8 +7,6 @@ import HreflangTags from "@/components/HreflangTags";
 import { blogPosts, blogCategories } from "@/data/blogData";
 import { useState, useMemo } from "react";
 import { Input } from "@/components/ui/input";
-import NativeBannerAd from "@/components/ads/NativeBannerAd";
-import MobileNativeAd from "@/components/ads/MobileNativeAd";
 
 const Blog = () => {
   const [searchQuery, setSearchQuery] = useState("");
