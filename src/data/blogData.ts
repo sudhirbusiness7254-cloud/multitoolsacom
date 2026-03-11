@@ -16,7 +16,7 @@ export const blogPosts: BlogPost[] = [
     title: "Complete Guide to Image Compression: Techniques, Tools, and Best Practices",
     excerpt: "Learn everything about image compression, from lossy vs lossless techniques to choosing the right format for your needs. Discover how to reduce file sizes without sacrificing quality.",
     author: "MultiToolsA Team",
-    date: "December 10, 2025",
+    date: "March 10, 2026",
     readTime: "12 min read",
     tags: ["Image Compression", "Optimization", "Web Performance"],
     image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop",
