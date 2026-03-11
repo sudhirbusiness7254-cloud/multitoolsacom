@@ -306,6 +306,7 @@ const Contact = () => {
                     </label>
                     <select 
                       id="inquiry-type" 
+                      name="inquiry-type"
                       className="w-full h-10 px-3 rounded-md border border-input bg-background text-foreground"
                       required
                     >
