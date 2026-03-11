@@ -339,6 +339,7 @@ const Contact = () => {
                     </label>
                     <Input
                       id="tool-used"
+                      name="tool-used"
                       type="text"
                       placeholder="e.g., JPEG Compressor, PNG to JPG Converter"
                     />
