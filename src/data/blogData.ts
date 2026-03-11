@@ -38,7 +38,7 @@ export const blogPosts: BlogPost[] = [
     title: "How to Optimize Images for Faster Website Loading Speed",
     excerpt: "Website speed matters for SEO and user experience. Discover proven strategies to optimize your images and improve page load times significantly.",
     author: "MultiToolsA Team",
-    date: "December 5, 2025",
+    date: "March 5, 2026",
     readTime: "8 min read",
     tags: ["SEO", "Web Performance", "Optimization"],
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
