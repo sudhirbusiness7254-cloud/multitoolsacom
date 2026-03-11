@@ -579,10 +579,6 @@ const HomePage = () => {
                 </Link>
               </div>
               
-              {/* Banner Ad - Below Technology Link */}
-              <div className="mt-8">
-                <ResponsiveContentAd />
-              </div>
             </div>
           </section>
 
