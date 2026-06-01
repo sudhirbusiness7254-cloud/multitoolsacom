@@ -38,15 +38,45 @@
     <!-- Additional SEO -->
     <meta name="theme-color" content="#8B5CF6" />
     
-    <!-- Google AdSense -->
+    <!-- Google AdSense (account verification only; script loaded after first paint via main.tsx for performance) -->
     <meta name="google-adsense-account" content="ca-pub-3929937587842220" />
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3929937587842220" crossorigin="anonymous"></script>
-    
+
     <!-- Google Search Console Verification -->
     <meta name="google-site-verification" content="LN9j9rnThuxyBX7xUovE7mIdmVY6ewQ73npdNPtC1-Q" />
     <link rel="dns-prefetch" href="https://multitoolsa.com" />
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Organization / WebSite structured data for E-E-A-T and rich results -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://multitoolsa.com/#organization",
+          "name": "MultiToolsA",
+          "url": "https://multitoolsa.com/",
+          "logo": "https://multitoolsa.com/logo.png",
+          "description": "MultiToolsA provides 100+ free, browser-based image, PDF, SEO and developer tools that process files locally for full privacy.",
+          "sameAs": []
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://multitoolsa.com/#website",
+          "url": "https://multitoolsa.com/",
+          "name": "MultiToolsA",
+          "publisher": { "@id": "https://multitoolsa.com/#organization" },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://multitoolsa.com/all-tools?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        }
+      ]
+    }
+    </script>
   </head>
 
   <body>
