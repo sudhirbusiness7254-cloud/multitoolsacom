@@ -12,6 +12,7 @@ import { ToolSEOContent } from "@/data/toolsSEOData";
 import { getComprehensiveSEOContent, ComprehensiveSEOContent } from "@/data/comprehensiveSEOContent";
 import { getToolGuideData } from "@/data/toolGuideData";
 import HowToUseGuide from "@/components/HowToUseGuide";
+import ExtendedSEOContent from "@/components/ExtendedSEOContent";
 import {
   Accordion,
   AccordionContent,
@@ -985,6 +986,9 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
               </div>
             </div>
           </section>
+
+          {/* Extended unique SEO content — guarantees 1000+ words per tool page for AdSense */}
+          <ExtendedSEOContent seoContent={seoContent} />
 
         </main>
 
