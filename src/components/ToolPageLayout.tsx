@@ -42,7 +42,7 @@ const ToolPageLayout = ({
   schemaType = "WebApplication"
 }: ToolPageLayoutProps) => {
   const slug = title.toLowerCase().replace(/\s+/g, '-');
-  const canonicalUrl = `https://multitoolsa.com/tools/${slug}`;
+  const canonicalUrl = `https://multitoolsa.com/${slug}`;
   
   // Dynamic OG image URL
   const ogImageUrl = `https://ftigwyzrrdwddxcpgaaf.supabase.co/functions/v1/og-image?tool=${encodeURIComponent(title)}&category=${encodeURIComponent('Image Tools')}&slug=default`;
@@ -62,13 +62,6 @@ const ToolPageLayout = ({
       "price": "0",
       "priceCurrency": "USD",
       "availability": "https://schema.org/InStock"
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "ratingCount": Math.floor(800 + (title.length * 97)),
-      "bestRating": "5",
-      "worstRating": "1"
     },
     "author": {
       "@type": "Organization",
