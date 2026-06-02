@@ -65,7 +65,7 @@ const UniversalCompressorPage = () => {
     "@type": "WebApplication",
     "name": "Universal Image Compressor - MultiTools",
     "description": "Free online universal image compressor. Compress JPEG, PNG, WebP, GIF, BMP, TIFF, HEIC, and more without losing quality.",
-    "url": "https://multitools.com/universal-image-compressor",
+    "url": "https://multitoolsa.com/universal-image-compressor",
     "applicationCategory": "UtilitiesApplication",
     "operatingSystem": "Web Browser",
     "offers": {
@@ -81,7 +81,7 @@ const UniversalCompressorPage = () => {
         <title>Universal Image Compressor - Compress Any Image Format Online Free</title>
         <meta name="description" content="Free online universal image compressor. Compress JPEG, PNG, WebP, GIF, BMP, TIFF, HEIC, SVG and more without losing quality. Fast, secure, browser-based compression." />
         <meta name="keywords" content="universal image compressor, compress any image, image compressor online, compress jpeg png webp gif, free image compression, reduce image size, all format compressor" />
-        <link rel="canonical" href="https://multitools.com/universal-image-compressor" />
+        <link rel="canonical" href="https://multitoolsa.com/universal-image-compressor" />
         
         <meta property="og:title" content="Universal Image Compressor - Compress Any Image Online Free" />
         <meta property="og:description" content="Compress any image format including JPEG, PNG, WebP, GIF, BMP, TIFF, HEIC. Free, fast, and secure browser-based compression." />

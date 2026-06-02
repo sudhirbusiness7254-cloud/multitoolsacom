@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet-async";
 import { Link, useParams } from "react-router-dom";
 import { Calendar, Clock, ArrowLeft, User, Share2, ArrowRight, Facebook, Twitter, Linkedin } from "lucide-react";
 import HreflangTags from "@/components/HreflangTags";
-import { blogPosts } from "@/data/blogData";
+import { authorProfiles, blogPosts } from "@/data/blogData";
 import { newBlogContent } from "@/data/newBlogContent";
 import RelatedTools from "@/components/RelatedTools";
 
@@ -21,11 +21,11 @@ const blogContent: Record<string, {
   "complete-guide-image-compression": {
     title: "Complete Guide to Image Compression: Techniques, Tools, and Best Practices",
     excerpt: "Learn everything about image compression, from lossy vs lossless techniques to choosing the right format for your needs.",
-    author: "MultiToolsA Team",
+    author: "Priya Mehta",
     date: "December 10, 2025",
     readTime: "12 min read",
     tags: ["Image Compression", "Optimization", "Web Performance"],
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=600&fit=crop",
+    image: "/og-image.png",
     content: `
 ## Introduction to Image Compression
 
@@ -165,11 +165,11 @@ Start optimizing your images today and experience faster loading times and bette
   "image-formats-explained": {
     title: "Image Formats Explained: JPEG vs PNG vs WebP vs GIF - Which Should You Use?",
     excerpt: "Understand the differences between popular image formats. Learn when to use JPEG, PNG, WebP, or GIF.",
-    author: "MultiToolsA Team",
+    author: "Sudhir Sharma",
     date: "December 8, 2025",
     readTime: "10 min read",
     tags: ["Image Formats", "JPEG", "PNG", "WebP"],
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1200&h=600&fit=crop",
+    image: "/og-image.png",
     content: `
 ## Understanding Image Formats
 
@@ -353,11 +353,11 @@ At MultiToolsA, we provide free tools to convert between all these formats, help
   "optimize-images-website-speed": {
     title: "How to Optimize Images for Faster Website Loading Speed",
     excerpt: "Website speed matters for SEO and user experience. Discover proven strategies to optimize your images.",
-    author: "MultiToolsA Team",
+    author: "Priya Mehta",
     date: "December 5, 2025",
     readTime: "8 min read",
     tags: ["SEO", "Web Performance", "Optimization"],
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop",
+    image: "/og-image.png",
     content: `
 ## Why Image Optimization Matters
 
@@ -542,11 +542,11 @@ Use MultiToolsA's free image tools to compress, resize, and convert your images 
   "watermark-images-protect-photos": {
     title: "How to Watermark Your Images: Protect Your Photos and Build Your Brand",
     excerpt: "Learn the best practices for watermarking your images. Discover different watermark styles and placement strategies.",
-    author: "MultiToolsA Team",
+    author: "Amit Verma",
     date: "December 3, 2025",
     readTime: "7 min read",
     tags: ["Watermarking", "Copyright", "Photography"],
-    image: "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=1200&h=600&fit=crop",
+    image: "/og-image.png",
     content: `
 ## Why Watermark Your Images?
 
@@ -775,11 +775,11 @@ Protect your work, build your brand, and share your images with confidence!
   "resize-images-social-media": {
     title: "Image Sizing Guide for Social Media: Perfect Dimensions for Every Platform",
     excerpt: "Get the perfect image dimensions for Facebook, Instagram, Twitter, LinkedIn, and more.",
-    author: "MultiToolsA Team",
+    author: "Priya Mehta",
     date: "November 30, 2025",
     readTime: "9 min read",
     tags: ["Social Media", "Image Resizing", "Marketing"],
-    image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=1200&h=600&fit=crop",
+    image: "/og-image.png",
     content: `
 ## Why Image Dimensions Matter
 
@@ -976,11 +976,11 @@ Our browser-based tools make it easy to resize, crop, and optimize images for an
   "remove-image-metadata-privacy": {
     title: "Image Metadata and Privacy: Why You Should Remove EXIF Data Before Sharing",
     excerpt: "Your photos contain hidden data that reveals your location, camera settings, and more.",
-    author: "MultiToolsA Team",
+    author: "Amit Verma",
     date: "November 28, 2025",
     readTime: "6 min read",
     tags: ["Privacy", "Metadata", "Security"],
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&h=600&fit=crop",
+    image: "/og-image.png",
     content: `
 ## What is Image Metadata?
 
@@ -1205,98 +1205,102 @@ Stay safe, stay private, and always check your photo metadata before sharing!
   "heic-to-jpg-conversion-guide": {
     title: "HEIC to JPG Conversion: The Complete Guide for iPhone Users",
     excerpt: "iPhone photos saved as HEIC causing compatibility issues? Learn how to convert HEIC to JPG quickly and understand when to use each format for best results.",
-    author: "MultiToolsA Team",
+    author: "Sudhir Sharma",
     date: "November 25, 2025",
     readTime: "7 min read",
     tags: ["HEIC", "iPhone", "Format Conversion"],
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=600&fit=crop",
+    image: "/og-image.png",
     content: newBlogContent["heic-to-jpg-conversion-guide"]
   },
   "batch-image-processing-workflow": {
     title: "Batch Image Processing: How to Edit Hundreds of Images in Minutes",
     excerpt: "Stop editing images one by one. Master batch processing techniques to resize, compress, convert, and watermark hundreds of images efficiently using free online tools.",
-    author: "MultiToolsA Team",
+    author: "Priya Mehta",
     date: "November 22, 2025",
     readTime: "11 min read",
     tags: ["Batch Processing", "Productivity", "Workflow"],
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop",
+    image: "/og-image.png",
     content: newBlogContent["batch-image-processing-workflow"]
   },
   "pdf-image-tools-complete-guide": {
     title: "Working with PDFs and Images: Convert, Merge, and Optimize Like a Pro",
     excerpt: "Master PDF and image workflows. Learn how to convert images to PDF, merge multiple PDFs, compress large files, and extract images from documents.",
-    author: "MultiToolsA Team",
+    author: "Sudhir Sharma",
     date: "November 18, 2025",
     readTime: "10 min read",
     tags: ["PDF", "Document Conversion", "Productivity"],
-    image: "https://images.unsplash.com/photo-1568667256549-094345857637?w=1200&h=600&fit=crop",
+    image: "/og-image.png",
     content: newBlogContent["pdf-image-tools-complete-guide"]
   },
   "image-cropping-techniques": {
     title: "Image Cropping Mastery: Techniques That Transform Your Photos",
     excerpt: "Learn professional cropping techniques including the rule of thirds, golden ratio, and aspect ratio selection. Transform ordinary photos into stunning compositions.",
-    author: "MultiToolsA Team",
+    author: "Priya Mehta",
     date: "November 15, 2025",
     readTime: "8 min read",
     tags: ["Cropping", "Photography", "Composition"],
-    image: "https://images.unsplash.com/photo-1554080353-a576cf803bda?w=1200&h=600&fit=crop",
+    image: "/og-image.png",
     content: newBlogContent["image-cropping-techniques"]
   },
   "transparent-background-images": {
     title: "Creating Transparent Backgrounds: Complete PNG Transparency Guide",
     excerpt: "Need images with transparent backgrounds for logos, product photos, or graphics? Learn multiple techniques to remove backgrounds and create perfect PNGs.",
-    author: "MultiToolsA Team",
+    author: "Sudhir Sharma",
     date: "November 12, 2025",
     readTime: "9 min read",
     tags: ["Transparency", "PNG", "Background Removal"],
-    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&h=600&fit=crop",
+    image: "/og-image.png",
     content: newBlogContent["transparent-background-images"]
   },
   "qr-code-image-integration": {
     title: "QR Codes and Images: Design Tips for Scannable, Beautiful QR Codes",
     excerpt: "Create QR codes that are both functional and visually appealing. Learn about custom colors, logo embedding, error correction, and testing best practices.",
-    author: "MultiToolsA Team",
+    author: "Sudhir Sharma",
     date: "November 8, 2025",
     readTime: "6 min read",
     tags: ["QR Code", "Design", "Marketing"],
-    image: "https://images.unsplash.com/photo-1595079676339-1534801ad6cf?w=1200&h=600&fit=crop",
+    image: "/og-image.png",
     content: newBlogContent["qr-code-image-integration"]
   },
   "photo-filters-effects-guide": {
     title: "Photo Filters and Effects: From Basic Adjustments to Creative Transformations",
     excerpt: "Master photo enhancement with our guide to filters and effects. Learn about brightness, contrast, saturation, and creative filters like sepia, vintage, and more.",
-    author: "MultiToolsA Team",
+    author: "Priya Mehta",
     date: "November 5, 2025",
     readTime: "8 min read",
     tags: ["Photo Filters", "Image Enhancement", "Creativity"],
-    image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1200&h=600&fit=crop",
+    image: "/og-image.png",
     content: newBlogContent["photo-filters-effects-guide"]
   },
   "ecommerce-product-image-optimization": {
     title: "E-commerce Product Images: Optimization Guide for Higher Conversions",
     excerpt: "Optimize your product images for e-commerce success. Learn about ideal sizes, backgrounds, compression settings, and multi-angle photography best practices.",
-    author: "MultiToolsA Team",
+    author: "Priya Mehta",
     date: "November 1, 2025",
     readTime: "12 min read",
     tags: ["E-commerce", "Product Photography", "Conversion"],
-    image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&h=600&fit=crop",
+    image: "/og-image.png",
     content: newBlogContent["ecommerce-product-image-optimization"]
   },
   "image-security-encryption-guide": {
     title: "Image Security: Encrypt, Blur, and Protect Sensitive Visual Content",
     excerpt: "Keep your images secure with encryption, face blurring, and area redaction techniques. Essential knowledge for handling confidential photos and documents.",
-    author: "MultiToolsA Team",
+    author: "Amit Verma",
     date: "October 28, 2025",
     readTime: "7 min read",
     tags: ["Security", "Encryption", "Privacy"],
-    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=1200&h=600&fit=crop",
+    image: "/og-image.png",
     content: newBlogContent["image-security-encryption-guide"]
   }
 };
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
-  const post = slug ? blogContent[slug] : null;
+  const basePost = slug ? blogContent[slug] : null;
+  const listedPost = slug ? blogPosts.find((item) => item.id === slug) : undefined;
+  const post = basePost && listedPost ? { ...basePost, ...listedPost } : basePost;
+  const authorProfile = post ? authorProfiles[post.author] : undefined;
+  const canonicalUrl = `https://multitoolsa.com/blog/${slug}`;
 
   if (!post) {
     return (
@@ -1318,12 +1322,44 @@ const BlogPost = () => {
         <title>{post.title} - MultiToolsA Blog</title>
         <meta name="description" content={post.excerpt} />
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href={`https://multitoolsa.com/blog/${slug}`} />
+        <link rel="canonical" href={canonicalUrl} />
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.excerpt} />
         <meta property="og:image" content={post.image} />
         <meta property="og:type" content="article" />
+        <meta property="article:author" content={post.author} />
+        <meta property="article:published_time" content={post.date} />
         <meta name="twitter:card" content="summary_large_image" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": post.title,
+            "description": post.excerpt,
+            "image": post.image,
+            "url": canonicalUrl,
+            "datePublished": post.date,
+            "dateModified": post.date,
+            "author": {
+              "@type": "Person",
+              "name": post.author,
+              "jobTitle": authorProfile?.role || "MultiToolsA Editorial Contributor",
+              "description": authorProfile?.bio || "Contributor to MultiToolsA's practical image, document, SEO, and privacy guides."
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "MultiToolsA",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://multitoolsa.com/logo.png"
+              }
+            },
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": canonicalUrl
+            }
+          })}
+        </script>
       </Helmet>
       <HreflangTags path={`/blog/${slug}`} />
       
@@ -1411,6 +1447,29 @@ const BlogPost = () => {
                 return null;
               })}
             </div>
+
+            {authorProfile && (
+              <aside className="mt-10 rounded-xl border border-border bg-card p-6" aria-label="Author biography">
+                <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                    <User className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium text-primary">Reviewed by</p>
+                    <h2 className="text-xl font-bold text-foreground">{post.author}</h2>
+                    <p className="mt-1 text-sm font-medium text-muted-foreground">{authorProfile.role}</p>
+                    <p className="mt-3 leading-relaxed text-muted-foreground">{authorProfile.bio}</p>
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {authorProfile.expertise.map((skill) => (
+                        <span key={skill} className="rounded-full bg-secondary px-3 py-1 text-xs text-secondary-foreground">
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </aside>
+            )}
 
             {/* Related Tools Section */}
             <RelatedTools blogId={slug || ""} title="Put This Into Practice" />

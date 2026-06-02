@@ -1,12 +1,8 @@
 # MultiToolsA - Free Online Image Tools
 # https://multitoolsa.com
 
-# Sitemap index (points to split sitemaps)
-Sitemap: https://ftigwyzrrdwddxcpgaaf.supabase.co/functions/v1/sitemap-index
-
-# Individual sitemaps for better crawl management
-Sitemap: https://ftigwyzrrdwddxcpgaaf.supabase.co/functions/v1/sitemap-main
-Sitemap: https://ftigwyzrrdwddxcpgaaf.supabase.co/functions/v1/sitemap-tools
+# Public sitemap for Google Search Console and AdSense review
+Sitemap: https://multitoolsa.com/sitemap.xml
 
 # Allow all major search engine crawlers - no restrictions
 User-agent: Googlebot
@@ -66,6 +62,4 @@ Allow: /*.js$
 Allow: /*.css$
 Allow: /*.woff2$
 
-# Clean URLs - no query parameters for main content
-Disallow: /*?*
-Allow: /?
+# Query URLs are crawlable so search and filtered tool pages are not treated as blocked resources.

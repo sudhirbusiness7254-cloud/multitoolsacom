@@ -124,13 +124,6 @@ const CategoryPageLayout = ({
       "priceCurrency": "USD",
       "availability": "https://schema.org/InStock"
     },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "ratingCount": Math.floor(2000 + (category.slug.length * 211)),
-      "bestRating": "5",
-      "worstRating": "1"
-    },
     "author": {
       "@type": "Organization",
       "name": "MultiToolsA",
