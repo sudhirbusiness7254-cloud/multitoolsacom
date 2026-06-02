@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Calendar, Clock, ArrowRight, User, Tag, Search, Filter } from "lucide-react";
 import HreflangTags from "@/components/HreflangTags";
-import { blogPosts, blogCategories } from "@/data/blogData";
+import { authorProfiles, blogPosts, blogCategories } from "@/data/blogData";
 import { useState, useMemo } from "react";
 import { Input } from "@/components/ui/input";
 
