@@ -176,9 +176,10 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
   const introStyle = getIntroStyle(templateConfig);
   const listStyle = getListStyle(templateConfig);
   
-  // Determine the correct URL path based on category
-  const isPDFTool = seoContent.categorySlug === "pdf-tools";
-  const toolPath = isPDFTool ? `/${seoContent.slug}` : `/tools/${seoContent.slug}`;
+  // Individual tool pages are served at root-level slugs (for example /jpg-to-png).
+  // Keeping canonical and internal links on the same URL prevents Google from seeing
+  // /tools/... as soft-404 or duplicate pages during AdSense review.
+  const toolPath = `/${seoContent.slug}`;
   const canonicalUrl = `https://multitoolsa.com${toolPath}`;
   
   // Dynamic OG image URL
@@ -203,13 +204,6 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
       "availability": "https://schema.org/InStock"
     },
     "featureList": seoContent.benefits.join(", "),
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "ratingCount": Math.floor(1000 + (seoContent.slug.length * 127)), // Consistent pseudo-random based on slug
-      "bestRating": "5",
-      "worstRating": "1"
-    },
     "author": {
       "@type": "Organization",
       "name": "MultiToolsA",
@@ -294,12 +288,6 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
       "@type": "Offer",
       "price": "0",
       "priceCurrency": "USD"
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": Math.floor(500 + (seoContent.slug.length * 89)),
-      "bestRating": "5"
     }
   };
 
@@ -917,7 +905,7 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
                   ).map((tool) => (
                     <Link
                       key={tool}
-                      to={`/tools/${tool}`}
+                      to={`/${tool}`}
                       className="group flex items-center gap-3 p-4 bg-secondary/50 rounded-xl hover:bg-secondary transition-all hover:-translate-y-0.5"
                     >
                       <div 
