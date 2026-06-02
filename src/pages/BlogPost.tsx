@@ -1448,6 +1448,29 @@ const BlogPost = () => {
               })}
             </div>
 
+            {authorProfile && (
+              <aside className="mt-10 rounded-xl border border-border bg-card p-6" aria-label="Author biography">
+                <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                    <User className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium text-primary">Reviewed by</p>
+                    <h2 className="text-xl font-bold text-foreground">{post.author}</h2>
+                    <p className="mt-1 text-sm font-medium text-muted-foreground">{authorProfile.role}</p>
+                    <p className="mt-3 leading-relaxed text-muted-foreground">{authorProfile.bio}</p>
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {authorProfile.expertise.map((skill) => (
+                        <span key={skill} className="rounded-full bg-secondary px-3 py-1 text-xs text-secondary-foreground">
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </aside>
+            )}
+
             {/* Related Tools Section */}
             <RelatedTools blogId={slug || ""} title="Put This Into Practice" />
 
