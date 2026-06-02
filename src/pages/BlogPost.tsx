@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet-async";
 import { Link, useParams } from "react-router-dom";
 import { Calendar, Clock, ArrowLeft, User, Share2, ArrowRight, Facebook, Twitter, Linkedin } from "lucide-react";
 import HreflangTags from "@/components/HreflangTags";
-import { blogPosts } from "@/data/blogData";
+import { authorProfiles, blogPosts } from "@/data/blogData";
 import { newBlogContent } from "@/data/newBlogContent";
 import RelatedTools from "@/components/RelatedTools";
 
@@ -1296,7 +1296,11 @@ Stay safe, stay private, and always check your photo metadata before sharing!
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
-  const post = slug ? blogContent[slug] : null;
+  const basePost = slug ? blogContent[slug] : null;
+  const listedPost = slug ? blogPosts.find((item) => item.id === slug) : undefined;
+  const post = basePost && listedPost ? { ...basePost, ...listedPost } : basePost;
+  const authorProfile = post ? authorProfiles[post.author] : undefined;
+  const canonicalUrl = `https://multitoolsa.com/blog/${slug}`;
 
   if (!post) {
     return (
@@ -1318,12 +1322,44 @@ const BlogPost = () => {
         <title>{post.title} - MultiToolsA Blog</title>
         <meta name="description" content={post.excerpt} />
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href={`https://multitoolsa.com/blog/${slug}`} />
+        <link rel="canonical" href={canonicalUrl} />
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.excerpt} />
         <meta property="og:image" content={post.image} />
         <meta property="og:type" content="article" />
+        <meta property="article:author" content={post.author} />
+        <meta property="article:published_time" content={post.date} />
         <meta name="twitter:card" content="summary_large_image" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": post.title,
+            "description": post.excerpt,
+            "image": post.image,
+            "url": canonicalUrl,
+            "datePublished": post.date,
+            "dateModified": post.date,
+            "author": {
+              "@type": "Person",
+              "name": post.author,
+              "jobTitle": authorProfile?.role || "MultiToolsA Editorial Contributor",
+              "description": authorProfile?.bio || "Contributor to MultiToolsA's practical image, document, SEO, and privacy guides."
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "MultiToolsA",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://multitoolsa.com/logo.png"
+              }
+            },
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": canonicalUrl
+            }
+          })}
+        </script>
       </Helmet>
       <HreflangTags path={`/blog/${slug}`} />
       
