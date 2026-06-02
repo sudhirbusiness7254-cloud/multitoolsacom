@@ -76,17 +76,17 @@ const ImageMetadataPage = () => {
   return (
     <>
       <Helmet>
-        <title>Free Image Metadata Tools - View, Edit, Remove EXIF Data Online | MultiTools</title>
+        <title>Free Image Metadata Tools - View, Edit, Remove EXIF Data Online | MultiToolsA</title>
         <meta name="description" content="View, edit, and remove image metadata (EXIF, IPTC, XMP) online for free. Protect your privacy by stripping location and camera data from photos. Instant results." />
         <meta name="keywords" content="image metadata, exif viewer, remove exif, edit exif, photo metadata, gps location, camera settings, privacy protection" />
-        <link rel="canonical" href="https://multitools.com/image-metadata" />
+        <link rel="canonical" href="https://multitoolsa.com/image-metadata" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
             "name": "Free Online Image Metadata Tools",
             "description": "View and remove image metadata (EXIF, IPTC, XMP) online for free. Protect your privacy by stripping location and camera data from photos.",
-            "url": "https://multitools.com/image-metadata",
+            "url": "https://multitoolsa.com/image-metadata",
             "applicationCategory": "MultimediaApplication",
             "operatingSystem": "Any",
             "offers": {
