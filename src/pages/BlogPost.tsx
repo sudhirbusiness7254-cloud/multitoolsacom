@@ -25,7 +25,7 @@ const blogContent: Record<string, {
     date: "December 10, 2025",
     readTime: "12 min read",
     tags: ["Image Compression", "Optimization", "Web Performance"],
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=600&fit=crop",
+    image: "/og-image.png",
     content: `
 ## Introduction to Image Compression
 
@@ -169,7 +169,7 @@ Start optimizing your images today and experience faster loading times and bette
     date: "December 8, 2025",
     readTime: "10 min read",
     tags: ["Image Formats", "JPEG", "PNG", "WebP"],
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1200&h=600&fit=crop",
+    image: "/og-image.png",
     content: `
 ## Understanding Image Formats
 
@@ -357,7 +357,7 @@ At MultiToolsA, we provide free tools to convert between all these formats, help
     date: "December 5, 2025",
     readTime: "8 min read",
     tags: ["SEO", "Web Performance", "Optimization"],
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop",
+    image: "/og-image.png",
     content: `
 ## Why Image Optimization Matters
 
@@ -546,7 +546,7 @@ Use MultiToolsA's free image tools to compress, resize, and convert your images 
     date: "December 3, 2025",
     readTime: "7 min read",
     tags: ["Watermarking", "Copyright", "Photography"],
-    image: "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=1200&h=600&fit=crop",
+    image: "/og-image.png",
     content: `
 ## Why Watermark Your Images?
 
@@ -779,7 +779,7 @@ Protect your work, build your brand, and share your images with confidence!
     date: "November 30, 2025",
     readTime: "9 min read",
     tags: ["Social Media", "Image Resizing", "Marketing"],
-    image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=1200&h=600&fit=crop",
+    image: "/og-image.png",
     content: `
 ## Why Image Dimensions Matter
 
@@ -980,7 +980,7 @@ Our browser-based tools make it easy to resize, crop, and optimize images for an
     date: "November 28, 2025",
     readTime: "6 min read",
     tags: ["Privacy", "Metadata", "Security"],
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&h=600&fit=crop",
+    image: "/og-image.png",
     content: `
 ## What is Image Metadata?
 
@@ -1209,7 +1209,7 @@ Stay safe, stay private, and always check your photo metadata before sharing!
     date: "November 25, 2025",
     readTime: "7 min read",
     tags: ["HEIC", "iPhone", "Format Conversion"],
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=600&fit=crop",
+    image: "/og-image.png",
     content: newBlogContent["heic-to-jpg-conversion-guide"]
   },
   "batch-image-processing-workflow": {
@@ -1219,7 +1219,7 @@ Stay safe, stay private, and always check your photo metadata before sharing!
     date: "November 22, 2025",
     readTime: "11 min read",
     tags: ["Batch Processing", "Productivity", "Workflow"],
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop",
+    image: "/og-image.png",
     content: newBlogContent["batch-image-processing-workflow"]
   },
   "pdf-image-tools-complete-guide": {
@@ -1229,7 +1229,7 @@ Stay safe, stay private, and always check your photo metadata before sharing!
     date: "November 18, 2025",
     readTime: "10 min read",
     tags: ["PDF", "Document Conversion", "Productivity"],
-    image: "https://images.unsplash.com/photo-1568667256549-094345857637?w=1200&h=600&fit=crop",
+    image: "/og-image.png",
     content: newBlogContent["pdf-image-tools-complete-guide"]
   },
   "image-cropping-techniques": {
@@ -1239,7 +1239,7 @@ Stay safe, stay private, and always check your photo metadata before sharing!
     date: "November 15, 2025",
     readTime: "8 min read",
     tags: ["Cropping", "Photography", "Composition"],
-    image: "https://images.unsplash.com/photo-1554080353-a576cf803bda?w=1200&h=600&fit=crop",
+    image: "/og-image.png",
     content: newBlogContent["image-cropping-techniques"]
   },
   "transparent-background-images": {
@@ -1249,7 +1249,7 @@ Stay safe, stay private, and always check your photo metadata before sharing!
     date: "November 12, 2025",
     readTime: "9 min read",
     tags: ["Transparency", "PNG", "Background Removal"],
-    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&h=600&fit=crop",
+    image: "/og-image.png",
     content: newBlogContent["transparent-background-images"]
   },
   "qr-code-image-integration": {
@@ -1259,7 +1259,7 @@ Stay safe, stay private, and always check your photo metadata before sharing!
     date: "November 8, 2025",
     readTime: "6 min read",
     tags: ["QR Code", "Design", "Marketing"],
-    image: "https://images.unsplash.com/photo-1595079676339-1534801ad6cf?w=1200&h=600&fit=crop",
+    image: "/og-image.png",
     content: newBlogContent["qr-code-image-integration"]
   },
   "photo-filters-effects-guide": {
@@ -1269,7 +1269,7 @@ Stay safe, stay private, and always check your photo metadata before sharing!
     date: "November 5, 2025",
     readTime: "8 min read",
     tags: ["Photo Filters", "Image Enhancement", "Creativity"],
-    image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1200&h=600&fit=crop",
+    image: "/og-image.png",
     content: newBlogContent["photo-filters-effects-guide"]
   },
   "ecommerce-product-image-optimization": {
@@ -1279,7 +1279,7 @@ Stay safe, stay private, and always check your photo metadata before sharing!
     date: "November 1, 2025",
     readTime: "12 min read",
     tags: ["E-commerce", "Product Photography", "Conversion"],
-    image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&h=600&fit=crop",
+    image: "/og-image.png",
     content: newBlogContent["ecommerce-product-image-optimization"]
   },
   "image-security-encryption-guide": {
@@ -1289,7 +1289,7 @@ Stay safe, stay private, and always check your photo metadata before sharing!
     date: "October 28, 2025",
     readTime: "7 min read",
     tags: ["Security", "Encryption", "Privacy"],
-    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=1200&h=600&fit=crop",
+    image: "/og-image.png",
     content: newBlogContent["image-security-encryption-guide"]
   }
 };
