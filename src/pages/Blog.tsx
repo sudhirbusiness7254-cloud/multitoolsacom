@@ -60,8 +60,9 @@ const Blog = () => {
               "description": post.excerpt,
               "datePublished": post.date,
               "author": {
-                "@type": "Organization",
-                "name": post.author
+                "@type": "Person",
+                "name": post.author,
+                "jobTitle": authorProfiles[post.author]?.role || "MultiToolsA Editorial Contributor"
               }
             }))
           })}
