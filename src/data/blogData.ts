@@ -13,6 +13,7 @@ import blogQrImage from "@/assets/guides/tool-qr.jpg";
 import blogFiltersImage from "@/assets/guides/tool-filters.jpg";
 import blogEcommerceImage from "@/assets/guides/after-compress.jpg";
 import blogSecurityImage from "@/assets/guides/tool-security.jpg";
+import blogImageSeoImage from "@/assets/guides/blog-image-seo.jpg";
 
 export interface BlogPost {
   id: string;
