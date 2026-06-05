@@ -40,6 +40,7 @@ import SEOToolsPage from "./pages/categories/SEOToolsPage";
 import ImageEditorPage from "./pages/ImageEditorPage";
 import PDFToolPage from "./pages/tools/PDFToolPage";
 import SupportChat from "./components/SupportChat";
+import ScrollToTop from "./components/ScrollToTop";
 
 
 // Educational & Trust Pages
@@ -59,6 +60,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <ScrollToTop />
           <Routes>
             {/* Main Pages */}
             <Route path="/" element={<HomePage />} />
