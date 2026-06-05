@@ -1523,5 +1523,207 @@ Consider:
 ## Conclusion
 
 Image security isn't just about encryption—it's a comprehensive approach including blur, redaction, metadata removal, and smart sharing practices. Take time to protect your visual content, especially when sharing online or handling sensitive material.
+  `,
+
+  "image-seo-alt-text-filenames-guide": `
+## Why Image SEO Is the Easiest Traffic Win Most Sites Ignore
+
+Google Images delivers roughly one out of every five searches across the web, and that share keeps rising as visual search, Discover, and AI Overviews lean harder on images. Yet most pages still ship images named like \`IMG_4032.jpg\` with an empty alt attribute and no surrounding context. That single neglected file is a missed page-view, a missed back-link, and a missed signal of expertise on the topic the image is meant to illustrate.
+
+This guide is a no-fluff playbook for getting images to rank — covering filenames, alt text, captions, surrounding copy, file format, dimensions, lazy-loading, structured data, and the small accessibility wins that double as ranking factors. It is written from first principles so you can apply the rules to a blog post, a product listing, a recipe, an infographic, or a tool screenshot without guessing.
+
+## The Five Layers Search Engines Use to Understand an Image
+
+When Googlebot or an image crawler reaches a page, it does not "see" the picture the way you do. It assembles meaning from five layers and then ranks the image against the query intent.
+
+1. **The filename** — the path and basename are crawled first and act as the earliest hint.
+2. **The alt attribute** — the primary textual description, also used by screen readers.
+3. **The caption and figcaption** — visible, page-rendered context immediately adjacent to the image.
+4. **The surrounding paragraph** — the 50–100 words before and after the image.
+5. **Structured data** — \`ImageObject\` JSON-LD or Open Graph tags that confirm authorship, licence, and subject.
+
+A single weak layer is survivable. Two or three weak layers and the image drops out of competitive image SERPs entirely. Strengthen every layer once and the same image keeps earning impressions for years.
+
+## Filenames: Short, Hyphenated, Keyword-Aware
+
+Treat filenames the way you treat URL slugs. They should be lower-case, hyphen-separated, descriptive, and free of timestamps or camera prefixes. Compare:
+
+- ❌ \`IMG_20260315_142233.jpg\`
+- ❌ \`final-FINAL-v3-edit.png\`
+- ✅ \`copper-moka-pot-stovetop-espresso.jpg\`
+- ✅ \`react-component-tree-diagram.png\`
+
+Keep the basename under about 60 characters and use real words a human would type into a search box. Avoid stuffing — \`espresso-coffee-best-cheap-italian.jpg\` looks spammy and dilutes the signal. One descriptive phrase per file is the sweet spot.
+
+If you publish many images per page, prefix them with a stable post slug: \`/blog/moka-pot-guide/moka-pot-parts-diagram.jpg\`. The full path then becomes a second clue and helps Google associate every asset with the parent article.
+
+## Alt Text: Describe, Do Not Caption
+
+Alt text has two readers: a search engine trying to classify the image, and a person using a screen reader who cannot see it at all. A good alt attribute serves both without repeating what the caption already says.
+
+Rules of thumb:
+
+- Lead with what is **in the frame**, not why it is there.
+- Aim for 8–16 words. Single-word alts (\`espresso\`) are wasted; two-sentence essays get truncated.
+- Drop "image of", "picture of", "graphic showing" — the alt attribute already implies it.
+- Include the most relevant keyword once if it appears naturally; never twice.
+- For decorative images (dividers, background flourishes) use \`alt=""\` so screen readers skip them.
+- For charts, describe the **insight**, not the columns: "Line chart showing organic traffic doubling between 2024 and 2026."
+
+Bad: \`alt="coffee"\`
+Better: \`alt="Copper moka pot brewing on a gas stove with steam rising"\`
+Best for SEO + accessibility: \`alt="Three-cup copper moka pot brewing stovetop espresso, valve venting steam"\`
+
+## Captions and Figcaptions: The Most Underused Ranking Signal
+
+Eye-tracking studies consistently show captions are read more often than body copy. Search engines know this and weight visible captions higher than hidden alt text. Use the semantic \`<figure>\` element so the relationship is unambiguous:
+
+\`\`\`html
+<figure>
+  <img src="/blog/moka-pot-guide/moka-pot-parts.jpg"
+       alt="Exploded view of a moka pot showing the boiler, funnel, gasket, filter and collector">
+  <figcaption>The five parts every moka pot owner should be able to disassemble in under 30 seconds.</figcaption>
+</figure>
+\`\`\`
+
+A useful figcaption adds context the alt does not: the **why**, a statistic, a date, an attribution. Treat it as a one-sentence mini-headline.
+
+## Surrounding Copy: The 100-Word Window That Decides Rank
+
+Run an experiment: take the 100 words before and after one of your images and paste them into a blank document. Does that excerpt clearly describe what is in the picture? If not, the image will rank for nothing.
+
+Mention the subject of the image by name in the paragraph immediately above it, ideally in the same sentence that introduces a new idea. The image then becomes evidence for a claim, which is exactly the pattern Google's quality systems reward.
+
+## File Format: WebP, AVIF, and the Honest Trade-offs
+
+Format choice changes two things at once — page weight (a Core Web Vitals signal) and how often the image is requested at all.
+
+- **WebP** is the safe default for photographic content on modern sites. Files are typically 25–35 % smaller than JPEG at the same perceived quality, and every current browser supports it.
+- **AVIF** trims another 20–30 % off WebP but takes longer to encode. Use it for hero images and long-life assets where the saved bandwidth pays back the build cost.
+- **PNG** is still right for screenshots, diagrams, logos with sharp edges, and anything needing transparency.
+- **SVG** wins for icons, illustrations, and charts that need to scale.
+- **Animated GIF** should be replaced by a muted, autoplaying \`<video>\` tag almost every time.
+
+Whatever format you ship, run it through a real compressor. The MultiToolsA universal compressor handles the format detection automatically — drop in JPEG, PNG, WebP, GIF, TIFF, or HEIC and the tool picks the right strategy without uploading the file.
+
+## Dimensions, srcset, and Avoiding the CLS Tax
+
+Images without explicit \`width\` and \`height\` attributes cause Cumulative Layout Shift, which directly hurts your Web Vitals score and indirectly hurts rank. Always set both:
+
+\`\`\`html
+<img src="/blog/hero.webp"
+     width="1280" height="720"
+     alt="..."
+     loading="lazy"
+     decoding="async">
+\`\`\`
+
+For pages that serve a wide range of viewports, ship a \`srcset\` so phones do not download a 1920-pixel asset:
+
+\`\`\`html
+<img src="/blog/hero-1280.webp"
+     srcset="/blog/hero-640.webp 640w,
+             /blog/hero-960.webp 960w,
+             /blog/hero-1280.webp 1280w,
+             /blog/hero-1920.webp 1920w"
+     sizes="(max-width: 768px) 100vw, 75vw"
+     width="1280" height="720"
+     alt="...">
+\`\`\`
+
+The LCP image — usually the first hero — should **not** be lazy-loaded. Add \`fetchpriority="high"\` to it instead so the browser fetches it before scripts and fonts.
+
+## ImageObject Schema: The Tag Most Sites Skip
+
+Structured data is the only place where you can declare authorship, licence, and the canonical URL of an image. Add it once per important image and you gain eligibility for image badges in SERPs.
+
+\`\`\`json
+{
+  "@context": "https://schema.org",
+  "@type": "ImageObject",
+  "contentUrl": "https://example.com/blog/moka-pot-guide/moka-pot-parts.jpg",
+  "name": "Five parts of a moka pot, labelled",
+  "description": "Exploded diagram identifying the boiler, funnel, gasket, filter and collector of a three-cup moka pot.",
+  "creator": { "@type": "Person", "name": "Priya Mehta" },
+  "creditText": "Priya Mehta for MultiToolsA",
+  "copyrightNotice": "© 2026 MultiToolsA",
+  "license": "https://example.com/licence",
+  "acquireLicensePage": "https://example.com/contact"
+}
+\`\`\`
+
+The two fields people forget are \`license\` and \`acquireLicensePage\`. Together they unlock the **Licensable** badge in Google Images, which significantly boosts click-through.
+
+## Source the Images Without Stepping on Copyright
+
+Image SEO collapses the second a takedown hits your inbox. Stay safe by sourcing only from one of these buckets:
+
+1. **Photos you shot yourself.** Strip EXIF location data before publishing (see the metadata-privacy guide for the workflow).
+2. **Truly licence-free libraries** — Unsplash, Pexels, Pixabay, Openverse. Always check the per-image licence, not just the platform's headline; some contributors revoke rights later.
+3. **Public domain and CC0 archives** — Wikimedia Commons, NASA, the British Library Flickr, Smithsonian Open Access.
+4. **Generated images** produced by your own AI tool runs, with the prompts and tool kept on file.
+5. **Original diagrams and screenshots** made with Figma, Excalidraw, or your product's own UI.
+
+What to avoid: Google Image search results, Pinterest pins, "free wallpaper" sites, anything with a watermark, and anything where you cannot name the licence on demand. A single infringing photo can sink an entire AdSense application or invite a DMCA chain that takes pages down for months.
+
+## Image Sitemaps and Indexing
+
+Most Vite, React, and static-site setups ship a regular XML sitemap but skip the image extension. Adding it is a one-line change per URL and helps Google discover images embedded inside JavaScript-rendered pages:
+
+\`\`\`xml
+<url>
+  <loc>https://example.com/blog/moka-pot-guide</loc>
+  <image:image>
+    <image:loc>https://example.com/blog/moka-pot-guide/moka-pot-parts.jpg</image:loc>
+    <image:title>Five parts of a moka pot, labelled</image:title>
+    <image:caption>Exploded diagram of a three-cup moka pot.</image:caption>
+  </image:image>
+</url>
+\`\`\`
+
+If you are on MultiToolsA's dynamic sitemap edge function, the \`<image:image>\` tags are already emitted for every tool and blog page — verify by opening \`/sitemap.xml\` and searching for the \`image:\` namespace.
+
+## Accessibility Wins That Also Move Rank
+
+Google's quality raters explicitly evaluate accessibility. Three accessibility patterns earn measurable SEO upside:
+
+- **Real captions on every \`<video>\`** — VTT files crawl as on-page text.
+- **Transcripts under audio and long video** — converts to rankable, indexable copy.
+- **Semantic \`<figure>\` + \`<figcaption>\`** — already covered above; ranks higher than \`<div>\` wrappers.
+
+If your CMS does not let you control these, treat that as a blocker, not a nice-to-have.
+
+## A 12-Point Pre-Publish Checklist
+
+Before you hit publish, run every image through this list. It takes under a minute per image once it becomes a habit.
+
+1. Filename is lower-case, hyphenated, descriptive, under 60 characters.
+2. Alt attribute is present, 8–16 words, describes the frame.
+3. Decorative images have \`alt=""\`.
+4. \`<figure>\` and \`<figcaption>\` wrap the image; the caption adds context the alt does not.
+5. Surrounding paragraph mentions the image subject by name.
+6. Format matches purpose — WebP or AVIF for photos, PNG for diagrams, SVG for icons.
+7. Width and height attributes are set; aspect ratio matches the rendered box.
+8. \`srcset\` and \`sizes\` are provided for full-width images.
+9. \`loading="lazy"\` on everything except the LCP image.
+10. \`fetchpriority="high"\` is set on the LCP image.
+11. \`ImageObject\` schema is attached for original, licensable photos.
+12. The image appears in the sitemap with \`<image:image>\` markup.
+
+## Measuring What Works
+
+Image SEO compounds slowly. Give changes 30–90 days before judging. Track three signals in Search Console:
+
+- **Image search impressions** — under Performance → Search type → Image.
+- **Average position for image queries** — the same view, sorted by query.
+- **Indexed image count** — Pages → Indexed → filter by \`type:image\`.
+
+If impressions rise but clicks stagnate, the thumbnails are weak — re-crop tighter and rerun. If positions rise but impressions stall, the keyword volume is the ceiling — diversify into adjacent searches.
+
+## Putting It All Together
+
+A page with one well-named, well-described, well-marked-up image will outrank a page with five lazy ones every single time. Image SEO is not a separate discipline from on-page SEO — it is the same craft applied to a different file type. Spend an extra two minutes per image during writing, audit your top ten posts for the twelve checklist items above, and the next quarter of Search Console data will start showing the kind of compounding image traffic most sites assume is reserved for stock-photo agencies.
+
+Then keep doing it. The competitive moat on image SEO is unusually deep because almost nobody bothers.
   `
 };
