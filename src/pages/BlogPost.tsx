@@ -1291,6 +1291,16 @@ Stay safe, stay private, and always check your photo metadata before sharing!
     tags: ["Security", "Encryption", "Privacy"],
     image: "/og-image.png",
     content: newBlogContent["image-security-encryption-guide"]
+  },
+  "image-seo-alt-text-filenames-guide": {
+    title: "Image SEO Guide: Alt Text, Filenames, and Schema That Actually Rank",
+    excerpt: "Most image SEO advice is generic. This practical guide shows how to name files, write alt text, structure captions, and add ImageObject schema so your images rank in Google Images and pull traffic to your pages.",
+    author: "Priya Mehta",
+    date: "March 28, 2026",
+    readTime: "13 min read",
+    tags: ["Image SEO", "Alt Text", "Google Images", "Schema"],
+    image: "/og-image.png",
+    content: newBlogContent["image-seo-alt-text-filenames-guide"]
   }
 };
 
