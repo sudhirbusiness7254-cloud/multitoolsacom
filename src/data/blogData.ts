@@ -47,6 +47,17 @@ export const authorProfiles: Record<string, { role: string; bio: string; experti
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "image-seo-alt-text-filenames-guide",
+    title: "Image SEO Guide: Alt Text, Filenames, and Schema That Actually Rank",
+    excerpt: "Most image SEO advice is generic. This practical guide shows how to name files, write alt text, structure captions, and add ImageObject schema so your images rank in Google Images and pull traffic to your pages.",
+    author: "Priya Mehta",
+    date: "March 28, 2026",
+    readTime: "13 min read",
+    tags: ["Image SEO", "Alt Text", "Google Images", "Schema"],
+    image: blogImageSeoImage,
+    category: "Optimization"
+  },
+  {
     id: "complete-guide-image-compression",
     title: "Complete Guide to Image Compression: Techniques, Tools, and Best Practices",
     excerpt: "Learn everything about image compression, from lossy vs lossless techniques to choosing the right format for your needs. Discover how to reduce file sizes without sacrificing quality.",
