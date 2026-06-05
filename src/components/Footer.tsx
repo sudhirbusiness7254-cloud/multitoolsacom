@@ -187,7 +187,7 @@ const Footer = () => {
           <p className="text-[10px] sm:text-xs text-muted-foreground/70 max-w-3xl mx-auto">
             <strong>Advertiser Disclosure:</strong> This website contains advertisements delivered by Google AdSense. 
             These ads help us keep our tools free for everyone. We may earn a small commission when you interact with ads, 
-            at no additional cost to you. <Link to="/advertiser-disclosure" className="underline hover:text-primary">Learn more</Link> | <Link to="/privacy" className="underline hover:text-primary">Privacy Policy</Link>
+            at no additional cost to you. <Link to="/advertiser-disclosure" aria-label="Learn more about MultiToolsA advertising and monetization policy" className="underline hover:text-primary">Learn more about our advertising policy</Link> | <Link to="/privacy" aria-label="Read the MultiToolsA Privacy Policy" className="underline hover:text-primary">Read our Privacy Policy</Link>
           </p>
         </div>
         
