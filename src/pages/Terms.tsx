@@ -260,7 +260,7 @@ const Terms = () => {
                 <p><strong>MultiToolsA</strong></p>
                 <p>Email: <a href="mailto:info@multitoolsa.com" className="text-accent hover:underline">info@multitoolsa.com</a></p>
                 <p>Phone: <a href="tel:+9779763567489" className="text-accent hover:underline">+977 9763567489</a></p>
-                <p>Website: <a href="https://multitoolsa.com" className="text-accent hover:underline">https://multitoolsa.com</a></p>
+                <p>Website: <a href="https://multitoolsa.com" aria-label="Visit MultiToolsA homepage" className="text-accent hover:underline">Visit MultiToolsA homepage</a></p>
               </div>
               <p className="text-muted-foreground mt-4">
                 We will respond to your inquiry within 30 business days.
