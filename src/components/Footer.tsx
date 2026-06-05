@@ -171,7 +171,7 @@ const Footer = () => {
           <Link to="/disclaimer" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">Disclaimer</Link>
           <Link to="/dmca" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">DMCA</Link>
           <Link to="/contact" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">Contact</Link>
-          <Link to="/advertiser-disclosure" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">Ad Disclosure</Link>
+          <Link to="/advertiser-disclosure" aria-label="MultiToolsA Advertiser Disclosure and Monetization Policy" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors">Ad Disclosure</Link>
         </div>
         
         {/* Site Purpose Statement */}
