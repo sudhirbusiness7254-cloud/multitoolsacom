@@ -463,6 +463,9 @@ const HomePage = () => {
                         alt="Step 1: Select your image files using the secure file picker"
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         loading="lazy"
+                        decoding="async"
+                        width="1280"
+                        height="720"
                       />
                       <div className="absolute top-3 left-3 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-lg shadow-lg animate-scale-in" style={{ animationDelay: '200ms', animationFillMode: 'both' }}>
                         1
@@ -495,6 +498,9 @@ const HomePage = () => {
                         alt="Step 2: Preview and process your image locally in the browser"
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         loading="lazy"
+                        decoding="async"
+                        width="1280"
+                        height="720"
                       />
                       <div className="absolute top-3 left-3 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-lg shadow-lg animate-scale-in" style={{ animationDelay: '350ms', animationFillMode: 'both' }}>
                         2
@@ -527,6 +533,9 @@ const HomePage = () => {
                         alt="Step 3: Download your edited image instantly to your device"
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         loading="lazy"
+                        decoding="async"
+                        width="1280"
+                        height="720"
                       />
                       <div className="absolute top-3 left-3 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-lg shadow-lg animate-scale-in" style={{ animationDelay: '500ms', animationFillMode: 'both' }}>
                         3
@@ -654,6 +663,9 @@ const HomePage = () => {
                         alt={post.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         loading="lazy"
+                        decoding="async"
+                        width="1280"
+                        height="720"
                       />
                     </div>
                     <div className="p-5">
