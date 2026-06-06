@@ -1725,5 +1725,279 @@ If impressions rise but clicks stagnate, the thumbnails are weak — re-crop tig
 A page with one well-named, well-described, well-marked-up image will outrank a page with five lazy ones every single time. Image SEO is not a separate discipline from on-page SEO — it is the same craft applied to a different file type. Spend an extra two minutes per image during writing, audit your top ten posts for the twelve checklist items above, and the next quarter of Search Console data will start showing the kind of compounding image traffic most sites assume is reserved for stock-photo agencies.
 
 Then keep doing it. The competitive moat on image SEO is unusually deep because almost nobody bothers.
+  `,
+
+  "core-web-vitals-image-loading-2026": `
+## Why Images Still Decide Whether You Pass Core Web Vitals
+
+In 2026, the three Core Web Vitals Google cares about are Largest Contentful Paint (LCP), Cumulative Layout Shift (CLS), and Interaction to Next Paint (INP). They sound like three different problems, but on most websites a single asset class — images — is the dominant cause of failure across all three. HTTP Archive's annual Web Almanac keeps confirming the same brutal pattern: the median web page ships more image bytes than HTML, CSS, JavaScript, and fonts combined, and the LCP element is an \`<img>\` on roughly seventy percent of pages.
+
+This guide walks through the exact image decisions that move each metric, in priority order, with copy-paste patterns. It assumes you already know the metrics exist; the goal is to make the relationship between an image tag and a green score concrete enough to fix in an afternoon.
+
+## LCP: The Race to Render the Hero
+
+LCP measures how long until the largest visible element finishes painting. When that element is an image — a hero photo, a product shot, a video poster, a featured-article thumbnail — every millisecond between the user's request and the first decoded pixel counts against you.
+
+### Make the LCP image discoverable early
+
+The browser's preload scanner reads HTML serially. If your hero image is set in CSS as a background, or loaded from JavaScript, the scanner cannot see it until the relevant stylesheet or script parses. That delay alone can push LCP past the 2.5-second threshold on a slow 4G connection. Always render the LCP image as a plain \`<img>\` tag in the initial HTML, ideally above any large stylesheet link.
+
+### Use fetchpriority="high" on the hero, low on everything else
+
+Chrome, Edge, and Safari now honour the \`fetchpriority\` attribute. The single highest-leverage change you can make in 2026 is:
+
+\`\`\`html
+<img
+  src="/hero-1280.avif"
+  alt="Studio photo of a copper espresso pot"
+  width="1280"
+  height="720"
+  fetchpriority="high"
+  decoding="async"
+/>
+\`\`\`
+
+On the same page, mark below-the-fold images with \`loading="lazy"\` and optionally \`fetchpriority="low"\`. The browser then spends its early network budget on the one image that actually decides LCP. Real-world case studies routinely show 500–900 ms LCP improvements from this attribute alone, with zero design change.
+
+### Preload only when you cannot move the tag
+
+If the LCP image has to come from a CSS background or a framework that lazy-mounts the hero component, fall back to:
+
+\`\`\`html
+<link rel="preload" as="image" href="/hero-1280.avif" fetchpriority="high">
+\`\`\`
+
+Add this once in the document head. Never preload more than a single image — preloading two competes for bandwidth and slows both.
+
+### Serve the right size, not the source
+
+The fastest image is the smallest one that still looks good at the user's actual rendered dimensions. Use \`srcset\` and \`sizes\` so phones download a 480-pixel-wide variant and desktops download the 1280-wide one:
+
+\`\`\`html
+<img
+  src="/hero-1280.avif"
+  srcset="/hero-480.avif 480w, /hero-768.avif 768w, /hero-1280.avif 1280w"
+  sizes="(max-width: 600px) 100vw, 1280px"
+  width="1280"
+  height="720"
+  alt="..."
+  fetchpriority="high"
+/>
+\`\`\`
+
+A typical hero photo shipped as a single 1920-wide JPEG might be 380 KB. The same photo encoded as AVIF and served at the actually-displayed size is closer to 35 KB. That is more than a 90 percent reduction in LCP-blocking bytes.
+
+## CLS: Reserve Every Pixel Before the Image Lands
+
+CLS measures unexpected layout shifts after the page has started rendering. Images cause CLS when their final dimensions are unknown at parse time, so the browser leaves a zero-height placeholder and then jolts everything below them once the image decodes.
+
+### Always set explicit width and height
+
+The width and height attributes are not visual sizes — they are an aspect-ratio hint. Modern browsers compute \`aspect-ratio: width / height\` from those attributes and reserve a correctly-sized box even before the image arrives. Combine with a fluid CSS width and the box scales perfectly:
+
+\`\`\`html
+<img src="/photo.avif" width="1600" height="900" style="width: 100%; height: auto;" alt="...">
+\`\`\`
+
+If you never set width and height, you cannot pass CLS at scale. There is no clever workaround — the layout engine literally has no information to reserve space.
+
+### Use aspect-ratio wrappers for unknown-ratio images
+
+If your CMS allows authors to upload photos at any ratio and you cannot inspect the file at build time, wrap each image in an aspect-ratio container so the box is at least predictable:
+
+\`\`\`html
+<div style="aspect-ratio: 16 / 9; background: var(--muted);">
+  <img src="..." style="width: 100%; height: 100%; object-fit: cover;" alt="...">
+</div>
+\`\`\`
+
+The muted background colour doubles as a visual placeholder while the image decodes, reducing the perception of slowness even when raw timing is identical.
+
+### Be careful with web fonts above images
+
+A common silent CLS source is a font-family swap that pushes content down by 30 pixels and shoves an in-view image off-screen, then back into view as the user scrolls. Use \`font-display: optional\` or self-host the variable font so the swap happens in the first 100 ms — before the user perceives it as a shift.
+
+## INP: Decode Without Blocking the Main Thread
+
+INP, which replaced FID as a Core Web Vital in March 2024, measures the slowest interaction the user makes on the page. Images influence INP indirectly but powerfully: a synchronous image decode on the main thread can block a tap, scroll, or keystroke for hundreds of milliseconds.
+
+### decoding="async" should be the default
+
+Set \`decoding="async"\` on every image except the LCP one. This tells the browser it may decode off the main thread, freeing the UI to respond to taps during scroll:
+
+\`\`\`html
+<img src="/thumb.avif" loading="lazy" decoding="async" alt="...">
+\`\`\`
+
+On the LCP image, leave decoding unset (or use \`decoding="sync"\`) so the browser does whatever is fastest for first paint.
+
+### Prefer modern formats with cheaper decode
+
+AVIF compresses better than WebP, but decodes slower per byte on low-end Android. For a hero image on a fast desktop, AVIF wins. For a long-scroll feed of small thumbnails on a 100-dollar phone, WebP often wins INP. Measure with real Lighthouse runs on a throttled CPU before assuming AVIF is always better — the file-size win can be cancelled out by decode cost on the devices that actually fail INP.
+
+### Avoid heavy JavaScript image processing
+
+Cropping, filtering, or watermarking an image in client-side JavaScript on render is a guaranteed INP failure. Do it server-side, do it at build time, or do it in a Web Worker. The main thread should never see an image as anything other than bytes to decode.
+
+## Lazy Loading Without Hurting LCP
+
+The native \`loading="lazy"\` attribute is now safe on every evergreen browser, but it has one rule that surprises teams: never put it on the LCP image. A lazy LCP image is delayed until the first scroll event, which obliterates the metric.
+
+A simple rule:
+
+1. The first one or two in-view images: \`fetchpriority="high"\`, no \`loading\` attribute.
+2. Everything else in the initial viewport: default loading, \`decoding="async"\`.
+3. Everything below the fold: \`loading="lazy"\`, \`decoding="async"\`.
+
+If your CMS auto-applies \`loading="lazy"\` to all images, override it for the hero. WordPress, for example, suppresses lazy on the first content image by default — verify the same is true on your stack.
+
+## The 2026 Image Performance Checklist
+
+Audit any page against this checklist. Passing all twelve effectively guarantees green Core Web Vitals for the image layer.
+
+1. Hero image is a plain \`<img>\`, not a CSS background.
+2. Hero image has \`fetchpriority="high"\` and no \`loading="lazy"\`.
+3. Every image has \`width\` and \`height\` attributes.
+4. Every below-the-fold image has \`loading="lazy"\` and \`decoding="async"\`.
+5. Source set provides at least three width variants matched to common breakpoints.
+6. AVIF is offered with a WebP fallback for older Safari versions.
+7. The LCP image is served from the same origin or a preconnected CDN.
+8. Total image bytes on first load are below 500 KB on mobile.
+9. No image is decoded inside the main thread by client-side JavaScript.
+10. Web font swap does not push the LCP image out of view.
+11. Aspect-ratio placeholders exist for any user-generated image.
+12. Real-User Monitoring confirms a 75th-percentile LCP under 2.5 seconds on mobile.
+
+## Measuring the Improvement
+
+Run before-and-after Lighthouse audits in mobile mode with Slow 4G throttling. Pair that with field data from Chrome User Experience Report (CrUX), which Google actually uses for ranking. Synthetic-only wins can be misleading — a page may score 99 in Lighthouse but still fail CWV in CrUX because the synthetic test ran from a fast data centre. Always check both.
+
+## Why This Matters Beyond Scores
+
+Core Web Vitals are not just an SEO box-tick. The same image discipline that turns a metric green also halves bounce rate on mobile, improves checkout completion on commerce sites, and — because lighter pages cost less to serve — lowers the bandwidth bill at the CDN. The score is the alarm; the user behaviour is the actual reward.
+
+Spend one focused afternoon implementing the twelve-item checklist on your top five landing pages. Measure for fourteen days. The compounding effect on impressions, time-on-page, and conversion is almost always larger than any other single optimisation available to a working web team in 2026.
+  `,
+
+  "avif-vs-webp-2026-which-to-ship": `
+## The 2026 State of Next-Gen Image Formats
+
+For most of the last decade the answer to "which modern image format should I use?" was simply WebP. Browser support was universal, file sizes were dramatically smaller than JPEG, and tooling existed in every CDN, CMS, and image editor. AVIF — the AV1-based successor — was technically superior but ecosystem-limited.
+
+That balance has shifted. AVIF now ships in every evergreen browser, every major CDN encodes it on demand, and the file-size advantage over WebP is real on photographic content. But WebP is not dead — far from it. It still wins on encode speed, animation reliability, and predictable quality at very small sizes. This guide is a practical 2026 comparison so you can decide per asset, not per dogma.
+
+## Compression: Where AVIF Genuinely Wins
+
+On photographs, AVIF typically produces files 20–40 percent smaller than WebP at visually-equivalent quality. The difference is largest at low bitrates — exactly the regime that matters for mobile hero images on slow networks. A 1600-wide travel photo that lands at 110 KB as WebP often lands at 70 KB as AVIF with no perceptible difference in a side-by-side test.
+
+Two technical reasons drive the win:
+
+1. AVIF inherits AV1's much smarter intra-frame prediction, which describes large smooth regions like skies and skin with far fewer bits.
+2. AVIF supports 10- and 12-bit colour depth, so gradients that would band in 8-bit WebP stay smooth at smaller file sizes.
+
+If your bottleneck is page weight on photographic content, AVIF is the right default in 2026.
+
+## Compression: Where WebP Still Holds Its Own
+
+AVIF's advantage shrinks or disappears on:
+
+- **Flat illustrations and UI screenshots.** WebP's lossless mode is extremely efficient for limited-palette graphics. AVIF lossless exists but is generally larger.
+- **Very small images.** Below about 10 KB, AVIF's container overhead can make files actually bigger than equivalent WebP. Icons, avatars, and tiny thumbnails are often better served as WebP or even optimised PNG.
+- **Text-heavy graphics.** AVIF can blur small text more aggressively at low quality settings because its block sizes are larger.
+
+If your site is mostly product icons, infographics, or UI screenshots, the format decision is much closer than the headline numbers suggest.
+
+## Encode Speed: WebP Is Still Faster
+
+This matters more than people expect. Re-encoding a 12-megapixel JPEG into WebP at the highest cwebp quality takes roughly 0.5 seconds on a typical build server. The same image into AVIF at libavif's default speed setting takes 4–8 seconds, and at maximum quality can stretch past 30 seconds.
+
+Implications:
+
+- **On-the-fly encoding at the CDN edge** is feasible for WebP at any traffic level. For AVIF, you almost always want to pre-encode at build or upload time and cache aggressively.
+- **CI/CD pipelines** that re-encode every commit pay a noticeable build-time cost for AVIF. Worthwhile, but plan for it.
+- **User-uploaded content** in a high-throughput app (e.g. social or commerce) needs a queued background worker for AVIF, not a synchronous request handler.
+
+WebP's encode speed makes it a more practical "always on" default for dynamic image pipelines.
+
+## Browser Support in 2026
+
+Both formats are now safe to ship without polyfills:
+
+- **AVIF**: Chrome 85+, Firefox 93+, Safari 16.4+, Edge 121+, and every current mobile browser.
+- **WebP**: Chrome 23+, Firefox 65+, Safari 14+, Edge 18+, and effectively every browser any real user is on.
+
+The only edge case left is iOS Safari versions older than 16.4, which still exist on devices that cannot upgrade past iOS 15. For commerce sites with a tail of older iPhones, ship WebP as a fallback. For a B2B SaaS dashboard with a modern audience, AVIF alone is fine.
+
+## Transparency
+
+Both formats support alpha channels. AVIF's alpha is typically smaller than WebP's for the same visual quality, but the difference is modest — usually 10–20 percent. Both vastly outperform PNG for transparent photos. For UI assets with sharp edges (logos, icons), lossless WebP remains the most predictable choice.
+
+## Animation
+
+This is the one area where WebP unambiguously wins in 2026. Animated WebP has nearly a decade of CDN, editor, and browser tooling behind it. Animated AVIF exists in the spec and works in modern Chrome and Firefox, but Safari's animated AVIF support has been late and intermittent, and many editing tools still cannot author it reliably.
+
+For animated content, the practical choice today is:
+
+1. Animated WebP for short, lossy loops (replacing GIF for memes, product demos).
+2. MP4 or WebM for anything over a few seconds — the codec efficiency advantage over animated images is enormous.
+
+Do not ship animated AVIF as the only source for important content in 2026.
+
+## The Copy-Paste \`<picture>\` Pattern
+
+The safest 2026 pattern is to offer AVIF first, WebP second, and a JPEG or PNG fallback last. The browser picks the first format it can decode:
+
+\`\`\`html
+<picture>
+  <source srcset="/photo.avif" type="image/avif">
+  <source srcset="/photo.webp" type="image/webp">
+  <img
+    src="/photo.jpg"
+    alt="Studio still life of citrus on a marble counter"
+    width="1600"
+    height="900"
+    loading="lazy"
+    decoding="async"
+  >
+</picture>
+\`\`\`
+
+For responsive images, expand each \`<source>\` with its own srcset and sizes attributes. Most modern CDNs (Cloudflare Images, Cloudinary, Imgix, Bunny Optimizer) can generate all three variants on the fly from a single uploaded master file — you do not need to maintain three sets of assets manually.
+
+## Quality Settings That Actually Work
+
+After thousands of test encodes, sensible 2026 defaults are:
+
+- **AVIF photographs**: quality 50–60 with libavif speed 6. Below 40 starts to show ringing on hair and grass. Above 75 is rarely worth the bytes.
+- **WebP photographs**: quality 75–80 with cwebp method 6. Below 65 starts to soften fine detail noticeably.
+- **WebP lossless**: use the \`-lossless\` flag with quality 100; this is the right choice for screenshots and UI assets.
+
+Always run a perceptual comparison on actual content. Numerical PSNR is not a good proxy for what your audience perceives — especially on faces, skies, and skin tones.
+
+## When To Skip Both And Stay On JPEG
+
+JPEG is not dead. It remains the best choice when:
+
+- You need maximum compatibility with email clients (most still do not decode AVIF or WebP).
+- You are exporting print-bound assets where Adobe and InDesign pipelines expect JPEG.
+- The image will be re-edited downstream and you cannot guarantee the editor supports next-gen formats.
+- File size is dominated by other factors (e.g. a 4 KB icon) and the format choice is irrelevant.
+
+Modern progressive JPEG, encoded with mozjpeg or jpegli, can get within 15–20 percent of WebP file sizes while remaining universally compatible. Sometimes that trade-off is the right one.
+
+## The Practical 2026 Decision Tree
+
+1. Is the asset a photograph that will be served from a CDN with build-time or on-the-fly encoding? Ship AVIF, fall back to WebP, fall back to JPEG.
+2. Is the asset a UI icon, screenshot, or limited-palette graphic? Ship lossless WebP, fall back to PNG.
+3. Is the asset animated? Ship animated WebP for short loops, or convert to MP4 for anything longer than a few seconds.
+4. Is the asset destined for email, print, or legacy editing tools? Stay on optimised JPEG or PNG.
+5. Is the asset user-uploaded and you cannot pre-process it? Run a background worker that produces AVIF and WebP variants, then serve whichever the requesting browser supports.
+
+## The Real Win Is Not The Format
+
+It is easy to obsess over the AVIF-vs-WebP delta and miss the much larger win: serving any next-gen format at the right resolution, with explicit dimensions, with lazy loading, and with a sensible preload strategy. A site that ships 200 KB AVIF heroes at the wrong size will lose to a site that ships 90 KB WebP heroes at the right size every time.
+
+Pick the format that fits the asset, ship a fallback, and spend the rest of your optimisation budget on dimensions, lazy loading, and Core Web Vitals. The difference between AVIF and WebP is real, but the difference between either of them and a poorly-tuned image pipeline is an order of magnitude larger.
   `
 };
+
