@@ -14,6 +14,8 @@ import blogFiltersImage from "@/assets/guides/tool-filters.jpg";
 import blogEcommerceImage from "@/assets/guides/after-compress.jpg";
 import blogSecurityImage from "@/assets/guides/tool-security.jpg";
 import blogImageSeoImage from "@/assets/guides/blog-image-seo.jpg";
+import blogCoreWebVitalsImage from "@/assets/guides/blog-core-web-vitals.jpg";
+import blogAvifVsWebpImage from "@/assets/guides/blog-avif-vs-webp.jpg";
 
 export interface BlogPost {
   id: string;
@@ -46,6 +48,28 @@ export const authorProfiles: Record<string, { role: string; bio: string; experti
 };
 
 export const blogPosts: BlogPost[] = [
+  {
+    id: "core-web-vitals-image-loading-2026",
+    title: "Core Web Vitals 2026: How Image Loading Quietly Decides Your LCP, CLS, and INP",
+    excerpt: "Images are the single biggest reason most sites fail Core Web Vitals. This deep-dive shows exactly how LCP, CLS, and INP react to image decisions — preload, priority hints, aspect-ratio boxes, decoding, and INP-friendly patterns for 2026.",
+    author: "Priya Mehta",
+    date: "April 12, 2026",
+    readTime: "14 min read",
+    tags: ["Core Web Vitals", "LCP", "CLS", "INP", "Performance"],
+    image: blogCoreWebVitalsImage,
+    category: "Optimization"
+  },
+  {
+    id: "avif-vs-webp-2026-which-to-ship",
+    title: "AVIF vs WebP in 2026: Which Next-Gen Image Format Should You Actually Ship?",
+    excerpt: "AVIF now beats WebP on file size for most photos, but WebP still wins on encode speed, tooling, and edge cases. An honest 2026 comparison covering browser support, quality at small sizes, transparency, animation, and a copy-paste <picture> fallback.",
+    author: "Sudhir Sharma",
+    date: "April 5, 2026",
+    readTime: "11 min read",
+    tags: ["AVIF", "WebP", "Image Formats", "Performance"],
+    image: blogAvifVsWebpImage,
+    category: "Formats"
+  },
   {
     id: "image-seo-alt-text-filenames-guide",
     title: "Image SEO Guide: Alt Text, Filenames, and Schema That Actually Rank",
