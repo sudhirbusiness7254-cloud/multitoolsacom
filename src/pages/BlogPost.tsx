@@ -1301,6 +1301,26 @@ Stay safe, stay private, and always check your photo metadata before sharing!
     tags: ["Image SEO", "Alt Text", "Google Images", "Schema"],
     image: "/og-image.png",
     content: newBlogContent["image-seo-alt-text-filenames-guide"]
+  },
+  "core-web-vitals-image-loading-2026": {
+    title: "Core Web Vitals 2026: How Image Loading Quietly Decides Your LCP, CLS, and INP",
+    excerpt: "Images are the single biggest reason most sites fail Core Web Vitals. This deep-dive shows exactly how LCP, CLS, and INP react to image decisions — preload, priority hints, aspect-ratio boxes, decoding, and INP-friendly patterns for 2026.",
+    author: "Priya Mehta",
+    date: "April 12, 2026",
+    readTime: "14 min read",
+    tags: ["Core Web Vitals", "LCP", "CLS", "INP", "Performance"],
+    image: "/og-image.png",
+    content: newBlogContent["core-web-vitals-image-loading-2026"]
+  },
+  "avif-vs-webp-2026-which-to-ship": {
+    title: "AVIF vs WebP in 2026: Which Next-Gen Image Format Should You Actually Ship?",
+    excerpt: "AVIF now beats WebP on file size for most photos, but WebP still wins on encode speed, tooling, and edge cases. An honest 2026 comparison covering browser support, quality at small sizes, transparency, animation, and a copy-paste <picture> fallback.",
+    author: "Sudhir Sharma",
+    date: "April 5, 2026",
+    readTime: "11 min read",
+    tags: ["AVIF", "WebP", "Image Formats", "Performance"],
+    image: "/og-image.png",
+    content: newBlogContent["avif-vs-webp-2026-which-to-ship"]
   }
 };
 
