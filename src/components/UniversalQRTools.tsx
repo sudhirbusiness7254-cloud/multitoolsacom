@@ -1,4 +1,5 @@
 import { useState, useRef, useCallback } from "react";
+import QRCode from "qrcode";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Slider } from "@/components/ui/slider";
@@ -24,19 +25,25 @@ const UniversalQRTools = ({ initialMode = "generate" }: UniversalQRToolsProps) =
   const [background, setBackground] = useState("#ffffff");
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  const generateQR = useCallback(() => {
+  const generateQR = useCallback(async () => {
     if (!content.trim()) {
       toast({ title: "Content required", description: "Please enter content to encode.", variant: "destructive" });
       return;
     }
 
-    // Using a public QR code API for demo
-    const encodedContent = encodeURIComponent(content);
-    const fgColor = foreground.replace("#", "");
-    const bgColor = background.replace("#", "");
-    const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=${size}x${size}&data=${encodedContent}&color=${fgColor}&bgcolor=${bgColor}`;
-    setQrImageUrl(qrUrl);
-    toast({ title: "QR Code generated!", description: "Your QR code is ready for download." });
+    try {
+      // Generate QR code locally — no data leaves the browser
+      const dataUrl = await QRCode.toDataURL(content, {
+        width: size,
+        margin: 1,
+        color: { dark: foreground, light: background },
+        errorCorrectionLevel: "M",
+      });
+      setQrImageUrl(dataUrl);
+      toast({ title: "QR Code generated!", description: "Your QR code is ready for download." });
+    } catch (err) {
+      toast({ title: "Generation failed", description: "Could not generate QR code.", variant: "destructive" });
+    }
   }, [content, size, foreground, background]);
 
   const handleFileSelect = (selectedFile: File) => {
@@ -55,25 +62,11 @@ const UniversalQRTools = ({ initialMode = "generate" }: UniversalQRToolsProps) =
 
   const handleDownload = () => {
     if (!qrImageUrl) return;
-    
-    // Create a canvas to download
-    const img = new window.Image();
-    img.crossOrigin = "anonymous";
-    img.onload = () => {
-      const canvas = document.createElement("canvas");
-      canvas.width = size;
-      canvas.height = size;
-      const ctx = canvas.getContext("2d");
-      if (ctx) {
-        ctx.drawImage(img, 0, 0);
-        const link = document.createElement("a");
-        link.download = "qrcode.png";
-        link.href = canvas.toDataURL("image/png");
-        link.click();
-        toast({ title: "Download started", description: "Your QR code is being downloaded." });
-      }
-    };
-    img.src = qrImageUrl;
+    const link = document.createElement("a");
+    link.download = "qrcode.png";
+    link.href = qrImageUrl;
+    link.click();
+    toast({ title: "Download started", description: "Your QR code is being downloaded." });
   };
 
   const handleReset = () => {
