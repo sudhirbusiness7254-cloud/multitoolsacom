@@ -16,6 +16,16 @@ import blogSecurityImage from "@/assets/guides/tool-security.jpg";
 import blogImageSeoImage from "@/assets/guides/blog-image-seo.jpg";
 import blogCoreWebVitalsImage from "@/assets/guides/blog-core-web-vitals.jpg";
 import blogAvifVsWebpImage from "@/assets/guides/blog-avif-vs-webp.jpg";
+import blogLazyLoadingImage from "@/assets/guides/blog-lazy-loading.jpg";
+import blogImageCdnImage from "@/assets/guides/blog-image-cdn.jpg";
+import blogResponsiveSrcsetImage from "@/assets/guides/blog-responsive-srcset.jpg";
+import blogColorMgmtImage from "@/assets/guides/blog-color-management.jpg";
+import blogScreenshotImage from "@/assets/guides/blog-screenshot-workflow.jpg";
+import blogOcrImage from "@/assets/guides/blog-ocr-extraction.jpg";
+import blogGifVsVideoImage from "@/assets/guides/blog-gif-vs-video.jpg";
+import blogA11yImage from "@/assets/guides/blog-image-accessibility.jpg";
+import blogAiUpscalingImage from "@/assets/guides/blog-ai-upscaling.jpg";
+import blogExifOrientationImage from "@/assets/guides/blog-exif-orientation.jpg";
 
 export interface BlogPost {
   id: string;
@@ -48,6 +58,116 @@ export const authorProfiles: Record<string, { role: string; bio: string; experti
 };
 
 export const blogPosts: BlogPost[] = [
+  {
+    id: "native-lazy-loading-vs-intersection-observer-2026",
+    title: "Native Lazy Loading vs IntersectionObserver in 2026: Which Wins?",
+    excerpt: "Native loading=\"lazy\" is everywhere now, but IntersectionObserver still owns carousels, modals, and virtualised lists. A clear-eyed comparison with hybrid patterns that actually ship.",
+    author: "Priya Mehta",
+    date: "May 28, 2026",
+    readTime: "10 min read",
+    tags: ["Lazy Loading", "IntersectionObserver", "Performance"],
+    image: blogLazyLoadingImage,
+    category: "Optimization"
+  },
+  {
+    id: "image-cdn-vs-self-hosting-2026",
+    title: "Image CDNs vs Self-Hosting in 2026: The True Cost-Per-Image Breakdown",
+    excerpt: "Hosting bills, engineering hours, regression risk, and vendor lock-in — the honest trade-offs between a managed image CDN and rolling your own pipeline, with a decision framework you can use this afternoon.",
+    author: "Sudhir Sharma",
+    date: "May 22, 2026",
+    readTime: "11 min read",
+    tags: ["CDN", "Infrastructure", "Cost"],
+    image: blogImageCdnImage,
+    category: "Optimization"
+  },
+  {
+    id: "responsive-images-srcset-sizes-math",
+    title: "Responsive Images Demystified: srcset, sizes, and the Math Behind Picking the Right Width",
+    excerpt: "Most sites ship srcset and quietly get sizes wrong, so the browser downloads a 1920px image for a 280px slot. Here is the actual math the browser does and how to write sizes that tell the truth.",
+    author: "Priya Mehta",
+    date: "May 15, 2026",
+    readTime: "11 min read",
+    tags: ["Responsive Images", "srcset", "Performance"],
+    image: blogResponsiveSrcsetImage,
+    category: "Optimization"
+  },
+  {
+    id: "color-management-srgb-display-p3-web",
+    title: "Color Management for the Web: sRGB, Display P3, and Why Your Reds Look Wrong",
+    excerpt: "Modern phones ship Display P3, modern cameras capture wide gamut, and the web is still pretending it is 2005. A practical walkthrough of ICC profiles, the color() function, and a wide-gamut workflow that actually works.",
+    author: "Sudhir Sharma",
+    date: "May 8, 2026",
+    readTime: "11 min read",
+    tags: ["Color Management", "Display P3", "Design"],
+    image: blogColorMgmtImage,
+    category: "Formats"
+  },
+  {
+    id: "lossless-screenshot-workflow-sub-100kb",
+    title: "The Lossless Screenshot Workflow: From PNG Bloat to Sub-100KB Documentation Images",
+    excerpt: "Default OS screenshots routinely weigh 1–2 MB for no reason. A simple crop, encode, and dimension recipe gets the same screenshots under 100 KB without visible loss — and how to automate it in your build.",
+    author: "Priya Mehta",
+    date: "May 1, 2026",
+    readTime: "9 min read",
+    tags: ["Screenshots", "Compression", "Documentation"],
+    image: blogScreenshotImage,
+    category: "Compression"
+  },
+  {
+    id: "browser-based-ocr-image-text-extraction-2026",
+    title: "Extracting Text from Images: How Browser-Based OCR Works in 2026",
+    excerpt: "Tesseract.js, native TextDetector, and the right preprocessing pipeline now let you pull text out of images without a server. A practical comparison plus the workflow tricks that actually move accuracy.",
+    author: "Sudhir Sharma",
+    date: "April 24, 2026",
+    readTime: "11 min read",
+    tags: ["OCR", "Tesseract", "Privacy"],
+    image: blogOcrImage,
+    category: "Productivity"
+  },
+  {
+    id: "animated-gif-vs-mp4-vs-webm-2026",
+    title: "Animated GIF vs MP4 vs WebM Loop: The 2026 File-Size Showdown",
+    excerpt: "A 6-second product demo is 6 MB as a GIF, 400 KB as MP4, 200 KB as AV1 WebM. The case for replacing animated GIF with muted inline video, with copy-paste markup and FFmpeg recipes.",
+    author: "Sudhir Sharma",
+    date: "April 18, 2026",
+    readTime: "10 min read",
+    tags: ["GIF", "Video", "Performance"],
+    image: blogGifVsVideoImage,
+    category: "Formats"
+  },
+  {
+    id: "image-accessibility-beyond-alt-text-2026",
+    title: "Image Accessibility Beyond Alt Text: ARIA, Decorative Images, and Screen Reader UX",
+    excerpt: "Alt text is the floor, not the ceiling. Decorative vs informational images, accessible carousels, chart descriptions, and the interactive component patterns that work for keyboard and screen-reader users.",
+    author: "Amit Verma",
+    date: "April 10, 2026",
+    readTime: "12 min read",
+    tags: ["Accessibility", "ARIA", "Alt Text"],
+    image: blogA11yImage,
+    category: "Optimization"
+  },
+  {
+    id: "how-ai-image-upscaling-actually-works-2026",
+    title: "How AI Image Upscaling Actually Works: Diffusion, GANs, and Real-World Quality Tests",
+    excerpt: "Behind the marketing phrase \"AI upscaling\" sit three very different techniques with very different trade-offs. What ESRGAN, diffusion upscalers, and classical interpolation actually do — and when each is the right tool.",
+    author: "Sudhir Sharma",
+    date: "April 2, 2026",
+    readTime: "11 min read",
+    tags: ["AI", "Upscaling", "Image Quality"],
+    image: blogAiUpscalingImage,
+    category: "Editing"
+  },
+  {
+    id: "exif-orientation-bug-photos-rotating-sideways",
+    title: "The EXIF Orientation Bug: Why Your Uploaded Photos Keep Rotating Sideways",
+    excerpt: "A 30-year-old metadata workaround for a hardware constraint is still rotating phone photos on the web in 2026. How EXIF orientation actually works, why pipelines silently break it, and the one-step fix.",
+    author: "Amit Verma",
+    date: "March 26, 2026",
+    readTime: "9 min read",
+    tags: ["EXIF", "Metadata", "Image Bugs"],
+    image: blogExifOrientationImage,
+    category: "Privacy"
+  },
   {
     id: "core-web-vitals-image-loading-2026",
     title: "Core Web Vitals 2026: How Image Loading Quietly Decides Your LCP, CLS, and INP",
