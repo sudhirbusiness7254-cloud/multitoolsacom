@@ -6,6 +6,7 @@ import { Calendar, Clock, ArrowLeft, User, Share2, ArrowRight, Facebook, Twitter
 import HreflangTags from "@/components/HreflangTags";
 import { authorProfiles, blogPosts } from "@/data/blogData";
 import { newBlogContent } from "@/data/newBlogContent";
+import { extraBlogContent } from "@/data/extraBlogContent";
 import RelatedTools from "@/components/RelatedTools";
 
 const blogContent: Record<string, {
@@ -1321,6 +1322,106 @@ Stay safe, stay private, and always check your photo metadata before sharing!
     tags: ["AVIF", "WebP", "Image Formats", "Performance"],
     image: "/og-image.png",
     content: newBlogContent["avif-vs-webp-2026-which-to-ship"]
+  },
+  "native-lazy-loading-vs-intersection-observer-2026": {
+    title: "Native Lazy Loading vs IntersectionObserver in 2026: Which Wins?",
+    excerpt: "Native loading=\"lazy\" is everywhere now, but IntersectionObserver still owns carousels, modals, and virtualised lists.",
+    author: "Priya Mehta",
+    date: "May 28, 2026",
+    readTime: "10 min read",
+    tags: ["Lazy Loading", "IntersectionObserver", "Performance"],
+    image: "/og-image.png",
+    content: extraBlogContent["native-lazy-loading-vs-intersection-observer-2026"]
+  },
+  "image-cdn-vs-self-hosting-2026": {
+    title: "Image CDNs vs Self-Hosting in 2026: The True Cost-Per-Image Breakdown",
+    excerpt: "Hosting bills, engineering hours, regression risk, and vendor lock-in — the honest trade-offs.",
+    author: "Sudhir Sharma",
+    date: "May 22, 2026",
+    readTime: "11 min read",
+    tags: ["CDN", "Infrastructure", "Cost"],
+    image: "/og-image.png",
+    content: extraBlogContent["image-cdn-vs-self-hosting-2026"]
+  },
+  "responsive-images-srcset-sizes-math": {
+    title: "Responsive Images Demystified: srcset, sizes, and the Math Behind Picking the Right Width",
+    excerpt: "Most sites ship srcset and quietly get sizes wrong. Here is the actual math the browser does.",
+    author: "Priya Mehta",
+    date: "May 15, 2026",
+    readTime: "11 min read",
+    tags: ["Responsive Images", "srcset", "Performance"],
+    image: "/og-image.png",
+    content: extraBlogContent["responsive-images-srcset-sizes-math"]
+  },
+  "color-management-srgb-display-p3-web": {
+    title: "Color Management for the Web: sRGB, Display P3, and Why Your Reds Look Wrong",
+    excerpt: "ICC profiles, the color() function, and a wide-gamut workflow that actually works.",
+    author: "Sudhir Sharma",
+    date: "May 8, 2026",
+    readTime: "11 min read",
+    tags: ["Color Management", "Display P3", "Design"],
+    image: "/og-image.png",
+    content: extraBlogContent["color-management-srgb-display-p3-web"]
+  },
+  "lossless-screenshot-workflow-sub-100kb": {
+    title: "The Lossless Screenshot Workflow: From PNG Bloat to Sub-100KB Documentation Images",
+    excerpt: "A simple crop, encode, and dimension recipe gets screenshots under 100 KB without visible loss.",
+    author: "Priya Mehta",
+    date: "May 1, 2026",
+    readTime: "9 min read",
+    tags: ["Screenshots", "Compression", "Documentation"],
+    image: "/og-image.png",
+    content: extraBlogContent["lossless-screenshot-workflow-sub-100kb"]
+  },
+  "browser-based-ocr-image-text-extraction-2026": {
+    title: "Extracting Text from Images: How Browser-Based OCR Works in 2026",
+    excerpt: "Tesseract.js, native TextDetector, and the right preprocessing pipeline now let you pull text out of images without a server.",
+    author: "Sudhir Sharma",
+    date: "April 24, 2026",
+    readTime: "11 min read",
+    tags: ["OCR", "Tesseract", "Privacy"],
+    image: "/og-image.png",
+    content: extraBlogContent["browser-based-ocr-image-text-extraction-2026"]
+  },
+  "animated-gif-vs-mp4-vs-webm-2026": {
+    title: "Animated GIF vs MP4 vs WebM Loop: The 2026 File-Size Showdown",
+    excerpt: "The case for replacing animated GIF with muted inline video, with copy-paste markup and FFmpeg recipes.",
+    author: "Sudhir Sharma",
+    date: "April 18, 2026",
+    readTime: "10 min read",
+    tags: ["GIF", "Video", "Performance"],
+    image: "/og-image.png",
+    content: extraBlogContent["animated-gif-vs-mp4-vs-webm-2026"]
+  },
+  "image-accessibility-beyond-alt-text-2026": {
+    title: "Image Accessibility Beyond Alt Text: ARIA, Decorative Images, and Screen Reader UX",
+    excerpt: "Decorative vs informational images, accessible carousels, chart descriptions, and interactive component patterns.",
+    author: "Amit Verma",
+    date: "April 10, 2026",
+    readTime: "12 min read",
+    tags: ["Accessibility", "ARIA", "Alt Text"],
+    image: "/og-image.png",
+    content: extraBlogContent["image-accessibility-beyond-alt-text-2026"]
+  },
+  "how-ai-image-upscaling-actually-works-2026": {
+    title: "How AI Image Upscaling Actually Works: Diffusion, GANs, and Real-World Quality Tests",
+    excerpt: "What ESRGAN, diffusion upscalers, and classical interpolation actually do — and when each is the right tool.",
+    author: "Sudhir Sharma",
+    date: "April 2, 2026",
+    readTime: "11 min read",
+    tags: ["AI", "Upscaling", "Image Quality"],
+    image: "/og-image.png",
+    content: extraBlogContent["how-ai-image-upscaling-actually-works-2026"]
+  },
+  "exif-orientation-bug-photos-rotating-sideways": {
+    title: "The EXIF Orientation Bug: Why Your Uploaded Photos Keep Rotating Sideways",
+    excerpt: "How EXIF orientation actually works, why pipelines silently break it, and the one-step fix.",
+    author: "Amit Verma",
+    date: "March 26, 2026",
+    readTime: "9 min read",
+    tags: ["EXIF", "Metadata", "Image Bugs"],
+    image: "/og-image.png",
+    content: extraBlogContent["exif-orientation-bug-photos-rotating-sideways"]
   }
 };
 
