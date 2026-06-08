@@ -26,6 +26,16 @@ import blogGifVsVideoImage from "@/assets/guides/blog-gif-vs-video.jpg";
 import blogA11yImage from "@/assets/guides/blog-image-accessibility.jpg";
 import blogAiUpscalingImage from "@/assets/guides/blog-ai-upscaling.jpg";
 import blogExifOrientationImage from "@/assets/guides/blog-exif-orientation.jpg";
+import blogSvgOptimizationImage from "@/assets/guides/blog-svg-optimization.jpg";
+import blogScreenshotFormatsImage from "@/assets/guides/blog-screenshot-formats.jpg";
+import blogDitheringImage from "@/assets/guides/blog-dithering.jpg";
+import blogClsFontsImage from "@/assets/guides/blog-cls-fonts.jpg";
+import blogC2paImage from "@/assets/guides/blog-c2pa-watermarks.jpg";
+import blogSpritesImage from "@/assets/guides/blog-image-sprites.jpg";
+import blogDprQualityImage from "@/assets/guides/blog-dpr-quality.jpg";
+import blogProxySsrfImage from "@/assets/guides/blog-image-proxy-ssrf.jpg";
+import blogHeifImage from "@/assets/guides/blog-heif-deep-dive.jpg";
+import blogJpegXlImage from "@/assets/guides/blog-jpeg-xl.jpg";
 
 export interface BlogPost {
   id: string;
@@ -58,6 +68,117 @@ export const authorProfiles: Record<string, { role: string; bio: string; experti
 };
 
 export const blogPosts: BlogPost[] = [
+  // 10 NEWEST UNIQUE POSTS (June 2026)
+  {
+    id: "svg-optimization-2026-svgo-inline-best-practices",
+    title: "SVG Optimization in 2026: SVGO Defaults, Inline vs External, and the 4 KB Audit Rule",
+    excerpt: "Exported SVGs ship with 40-70% wasted bytes. A practical 2026 audit covering SVGO plugin tuning, the inline-vs-reference decision matrix, sprite patterns that still work, and an accessibility checklist most teams skip.",
+    author: "Priya Mehta",
+    date: "June 7, 2026",
+    readTime: "11 min read",
+    tags: ["SVG", "Optimization", "Icons", "Performance"],
+    image: blogSvgOptimizationImage,
+    category: "Optimization"
+  },
+  {
+    id: "best-image-format-for-screenshots-2026",
+    title: "The Best Image Format for Screenshots in 2026: Why Default PNG Is the Wrong Answer",
+    excerpt: "A 1440p OS screenshot ships as a 4 MB PNG by default and shrinks to 280 KB as WebP lossless with zero visible difference. The 2026 format hierarchy, why JPEG fails for UI text, and a documentation workflow that holds up.",
+    author: "Sudhir Sharma",
+    date: "June 5, 2026",
+    readTime: "10 min read",
+    tags: ["Screenshots", "WebP", "AVIF", "Documentation"],
+    image: blogScreenshotFormatsImage,
+    category: "Formats"
+  },
+  {
+    id: "image-dithering-retro-aesthetic-web-2026",
+    title: "Image Dithering in 2026: The Retro Aesthetic That Quietly Cuts File Size by 80%",
+    excerpt: "Dithering returned to web design as a deliberate stylistic choice — and shrank hero image bytes to a quarter of WebP along the way. Floyd-Steinberg vs Atkinson vs Bayer, a Canvas recipe, and the surprising accessibility upside.",
+    author: "Sudhir Sharma",
+    date: "June 3, 2026",
+    readTime: "10 min read",
+    tags: ["Dithering", "Aesthetic", "PNG-8", "Design"],
+    image: blogDitheringImage,
+    category: "Editing"
+  },
+  {
+    id: "cls-image-font-loading-shifts-2026",
+    title: "CLS Is Two Bugs Pretending to Be One: Images, Fonts, and the size-adjust Fix",
+    excerpt: "Half of Cumulative Layout Shift in 2026 comes from web fonts, not images, and teams that solve only one watch CLS hover at 0.15 forever. The image fix, the font-metric override that almost nobody ships, and how to audit both in one pass.",
+    author: "Priya Mehta",
+    date: "June 1, 2026",
+    readTime: "11 min read",
+    tags: ["CLS", "Core Web Vitals", "Fonts", "size-adjust"],
+    image: blogClsFontsImage,
+    category: "Optimization"
+  },
+  {
+    id: "ai-content-credentials-c2pa-image-watermarks-2026",
+    title: "Content Credentials and C2PA in 2026: The Invisible Watermark Standard You Will Have to Care About",
+    excerpt: "AI disclosure laws now point at C2PA. What content credentials actually are, how the cryptographic provenance manifest survives the image pipeline (or doesn't), and how to integrate signing without breaking your CDN setup.",
+    author: "Amit Verma",
+    date: "May 30, 2026",
+    readTime: "12 min read",
+    tags: ["C2PA", "AI", "Watermarks", "Provenance"],
+    image: blogC2paImage,
+    category: "Security"
+  },
+  {
+    id: "image-sprites-2026-still-useful",
+    title: "Image Sprites in 2026: Why a 2009 Technique Refuses to Die",
+    excerpt: "HTTP/2 was supposed to kill sprites. It didn't, because three of the assumptions behind that prediction turned out to be wrong. The 2026 SVG-symbol sprite pattern, when sprites still lose, and the build tooling that ships them in two lines.",
+    author: "Sudhir Sharma",
+    date: "May 27, 2026",
+    readTime: "9 min read",
+    tags: ["Sprites", "Icons", "HTTP/2", "Performance"],
+    image: blogSpritesImage,
+    category: "Optimization"
+  },
+  {
+    id: "device-pixel-ratio-image-quality-strategy-2026",
+    title: "Device Pixel Ratio Is the Hardest Image Problem in 2026: A Quality-Adjusted DPR Strategy",
+    excerpt: "Ship 1x and Retina phones look soft. Ship 3x and desktop users download 9x the pixels they can show. The 2026 strategy: vary quality inversely with DPR, cap at 2x, and honor save-data. With per-image-type allocations that actually work.",
+    author: "Priya Mehta",
+    date: "May 25, 2026",
+    readTime: "10 min read",
+    tags: ["DPR", "Retina", "srcset", "Performance"],
+    image: blogDprQualityImage,
+    category: "Optimization"
+  },
+  {
+    id: "image-proxy-ssrf-security-2026",
+    title: "Every Image Proxy Is a Potential SSRF Hole: How to Build One Safely in 2026",
+    excerpt: "Fetching user-provided image URLs is the single most common appearance of SSRF in 2026 OWASP data. Cloud metadata exposure, the DNS rebinding race condition almost everyone misses, and a working three-layer defense pattern.",
+    author: "Amit Verma",
+    date: "May 23, 2026",
+    readTime: "12 min read",
+    tags: ["Security", "SSRF", "Image Proxy", "OWASP"],
+    image: blogProxySsrfImage,
+    category: "Security"
+  },
+  {
+    id: "heif-heic-deep-dive-2026",
+    title: "HEIF vs HEIC vs AVIF: The Container, the Codec, and Why iPhone Photos Don't Open on Windows",
+    excerpt: "HEIF is the container, HEIC is the encoding, AVIF reuses the same container with a different codec — and confusing the three produces the wrong technical decisions. A practical 2026 walkthrough of when each fits, and how to transcode without breaking EXIF orientation.",
+    author: "Sudhir Sharma",
+    date: "May 20, 2026",
+    readTime: "11 min read",
+    tags: ["HEIF", "HEIC", "AVIF", "iPhone"],
+    image: blogHeifImage,
+    category: "Formats"
+  },
+  {
+    id: "jpeg-xl-2026-the-format-that-almost-was",
+    title: "JPEG XL in 2026: The Best Image Format You Should Think Carefully Before Adopting",
+    excerpt: "Lossless JPEG re-encoding at 80% the size, progressive decoding that actually looks good, support in Safari and Firefox — and total absence from Chrome. A pragmatic 2026 assessment of when to ship JXL and when to wait it out.",
+    author: "Priya Mehta",
+    date: "May 18, 2026",
+    readTime: "11 min read",
+    tags: ["JPEG XL", "JXL", "Image Formats", "Browser Support"],
+    image: blogJpegXlImage,
+    category: "Formats"
+  },
   {
     id: "native-lazy-loading-vs-intersection-observer-2026",
     title: "Native Lazy Loading vs IntersectionObserver in 2026: Which Wins?",
