@@ -7,6 +7,7 @@ import HreflangTags from "@/components/HreflangTags";
 import { authorProfiles, blogPosts } from "@/data/blogData";
 import { newBlogContent } from "@/data/newBlogContent";
 import { extraBlogContent } from "@/data/extraBlogContent";
+import { extra2BlogContent } from "@/data/extra2BlogContent";
 import RelatedTools from "@/components/RelatedTools";
 
 const blogContent: Record<string, {
@@ -1422,6 +1423,106 @@ Stay safe, stay private, and always check your photo metadata before sharing!
     tags: ["EXIF", "Metadata", "Image Bugs"],
     image: "/og-image.png",
     content: extraBlogContent["exif-orientation-bug-photos-rotating-sideways"]
+  },
+  "svg-optimization-2026-svgo-inline-best-practices": {
+    title: "SVG Optimization in 2026: SVGO Defaults, Inline vs External, and the 4 KB Audit Rule",
+    excerpt: "Exported SVGs ship with 40-70% wasted bytes. A practical 2026 audit covering SVGO plugin tuning, the inline-vs-reference decision matrix, sprite patterns that still work, and an accessibility checklist most teams skip.",
+    author: "Priya Mehta",
+    date: "June 7, 2026",
+    readTime: "11 min read",
+    tags: ["SVG", "Optimization", "Icons", "Performance"],
+    image: "/og-image.png",
+    content: extra2BlogContent["svg-optimization-2026-svgo-inline-best-practices"]
+  },
+  "best-image-format-for-screenshots-2026": {
+    title: "The Best Image Format for Screenshots in 2026: Why Default PNG Is the Wrong Answer",
+    excerpt: "A 1440p OS screenshot ships as a 4 MB PNG by default and shrinks to 280 KB as WebP lossless with zero visible difference.",
+    author: "Sudhir Sharma",
+    date: "June 5, 2026",
+    readTime: "10 min read",
+    tags: ["Screenshots", "WebP", "AVIF", "Documentation"],
+    image: "/og-image.png",
+    content: extra2BlogContent["best-image-format-for-screenshots-2026"]
+  },
+  "image-dithering-retro-aesthetic-web-2026": {
+    title: "Image Dithering in 2026: The Retro Aesthetic That Quietly Cuts File Size by 80%",
+    excerpt: "Dithering returned to web design as a deliberate stylistic choice — and shrank hero image bytes to a quarter of WebP along the way.",
+    author: "Sudhir Sharma",
+    date: "June 3, 2026",
+    readTime: "10 min read",
+    tags: ["Dithering", "Aesthetic", "PNG-8", "Design"],
+    image: "/og-image.png",
+    content: extra2BlogContent["image-dithering-retro-aesthetic-web-2026"]
+  },
+  "cls-image-font-loading-shifts-2026": {
+    title: "CLS Is Two Bugs Pretending to Be One: Images, Fonts, and the size-adjust Fix",
+    excerpt: "Half of CLS in 2026 comes from web fonts, not images. The image fix, the font-metric override that almost nobody ships, and how to audit both in one pass.",
+    author: "Priya Mehta",
+    date: "June 1, 2026",
+    readTime: "11 min read",
+    tags: ["CLS", "Core Web Vitals", "Fonts", "size-adjust"],
+    image: "/og-image.png",
+    content: extra2BlogContent["cls-image-font-loading-shifts-2026"]
+  },
+  "ai-content-credentials-c2pa-image-watermarks-2026": {
+    title: "Content Credentials and C2PA in 2026: The Invisible Watermark Standard You Will Have to Care About",
+    excerpt: "AI disclosure laws now point at C2PA. What content credentials are, how the cryptographic provenance manifest survives the image pipeline, and how to integrate signing without breaking your CDN setup.",
+    author: "Amit Verma",
+    date: "May 30, 2026",
+    readTime: "12 min read",
+    tags: ["C2PA", "AI", "Watermarks", "Provenance"],
+    image: "/og-image.png",
+    content: extra2BlogContent["ai-content-credentials-c2pa-image-watermarks-2026"]
+  },
+  "image-sprites-2026-still-useful": {
+    title: "Image Sprites in 2026: Why a 2009 Technique Refuses to Die",
+    excerpt: "HTTP/2 was supposed to kill sprites. It didn't. The 2026 SVG-symbol sprite pattern, when sprites still lose, and the build tooling that ships them in two lines.",
+    author: "Sudhir Sharma",
+    date: "May 27, 2026",
+    readTime: "9 min read",
+    tags: ["Sprites", "Icons", "HTTP/2", "Performance"],
+    image: "/og-image.png",
+    content: extra2BlogContent["image-sprites-2026-still-useful"]
+  },
+  "device-pixel-ratio-image-quality-strategy-2026": {
+    title: "Device Pixel Ratio Is the Hardest Image Problem in 2026: A Quality-Adjusted DPR Strategy",
+    excerpt: "Ship 1x and Retina phones look soft. Ship 3x and desktop downloads 9x the pixels. The 2026 strategy: vary quality inversely with DPR, cap at 2x, honor save-data.",
+    author: "Priya Mehta",
+    date: "May 25, 2026",
+    readTime: "10 min read",
+    tags: ["DPR", "Retina", "srcset", "Performance"],
+    image: "/og-image.png",
+    content: extra2BlogContent["device-pixel-ratio-image-quality-strategy-2026"]
+  },
+  "image-proxy-ssrf-security-2026": {
+    title: "Every Image Proxy Is a Potential SSRF Hole: How to Build One Safely in 2026",
+    excerpt: "Fetching user-provided image URLs is the most common appearance of SSRF in 2026 OWASP data. The DNS rebinding race condition almost everyone misses, and a working three-layer defense pattern.",
+    author: "Amit Verma",
+    date: "May 23, 2026",
+    readTime: "12 min read",
+    tags: ["Security", "SSRF", "Image Proxy", "OWASP"],
+    image: "/og-image.png",
+    content: extra2BlogContent["image-proxy-ssrf-security-2026"]
+  },
+  "heif-heic-deep-dive-2026": {
+    title: "HEIF vs HEIC vs AVIF: The Container, the Codec, and Why iPhone Photos Don't Open on Windows",
+    excerpt: "HEIF is the container, HEIC is the encoding, AVIF reuses the same container with a different codec. A practical 2026 walkthrough with transcoding recipes.",
+    author: "Sudhir Sharma",
+    date: "May 20, 2026",
+    readTime: "11 min read",
+    tags: ["HEIF", "HEIC", "AVIF", "iPhone"],
+    image: "/og-image.png",
+    content: extra2BlogContent["heif-heic-deep-dive-2026"]
+  },
+  "jpeg-xl-2026-the-format-that-almost-was": {
+    title: "JPEG XL in 2026: The Best Image Format You Should Think Carefully Before Adopting",
+    excerpt: "Lossless JPEG re-encoding at 80% the size, support in Safari and Firefox, total absence from Chrome. A pragmatic 2026 assessment of when to ship JXL and when to wait it out.",
+    author: "Priya Mehta",
+    date: "May 18, 2026",
+    readTime: "11 min read",
+    tags: ["JPEG XL", "JXL", "Image Formats", "Browser Support"],
+    image: "/og-image.png",
+    content: extra2BlogContent["jpeg-xl-2026-the-format-that-almost-was"]
   }
 };
 
