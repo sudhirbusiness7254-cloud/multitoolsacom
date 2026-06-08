@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import HomePage from "./pages/HomePage";
 import ScrollToTop from "./components/ScrollToTop";
+import RoutePrefetcher from "./components/RoutePrefetcher";
 
 // Lazy-loaded routes — keeps initial JS small for mobile performance.
 const TagExtractorPage = lazy(() => import("./pages/TagExtractorPage"));
@@ -55,15 +56,9 @@ const AdPlacementGuidePage = lazy(() => import("./pages/AdPlacementGuidePage"));
 
 const queryClient = new QueryClient();
 
-const RouteFallback = () => (
-  <div
-    role="status"
-    aria-label="Loading page"
-    className="min-h-[60vh] flex items-center justify-center"
-  >
-    <div className="w-10 h-10 rounded-full border-2 border-primary/30 border-t-primary animate-spin" />
-  </div>
-);
+// Empty fallback — chunks are prefetched on idle so navigation is instant.
+// Showing nothing for the ~1 frame transition feels faster than a spinner.
+const RouteFallback = () => null;
 
 const App = () => (
   <HelmetProvider>
@@ -73,6 +68,7 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <ScrollToTop />
+          <RoutePrefetcher />
           <Suspense fallback={<RouteFallback />}>
             <Routes>
               {/* Main Pages */}
