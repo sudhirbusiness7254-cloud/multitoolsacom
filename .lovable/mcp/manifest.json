@@ -1,0 +1,183 @@
+{
+  "version": 1,
+  "sdk_version": "0.23.0",
+  "path": "/functions/v1/mcp",
+  "auth": {
+    "type": "none"
+  },
+  "mcp": {
+    "server": {
+      "name": "multitoolsa-mcp",
+      "version": "0.1.0",
+      "title": "MultiToolsA MCP"
+    },
+    "tools": [
+      {
+        "name": "list_multitoolsa_tools",
+        "title": "List MultiToolsA Tools",
+        "description": "List the free online tools available on multitoolsa.com, grouped by category.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "category": {
+              "type": "string",
+              "description": "Optional category filter: Image, PDF, SEO, or QR."
+            }
+          },
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "word_counter",
+        "title": "Word Counter",
+        "description": "Count words, characters (with and without spaces), sentences, and paragraphs in text.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "text": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Text to analyze."
+            }
+          },
+          "required": [
+            "text"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "keyword_density",
+        "title": "Keyword Density",
+        "description": "Compute keyword density (top single words) from a block of text. Stop words are filtered out.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "text": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Text to analyze."
+            },
+            "top": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 50,
+              "description": "How many top keywords to return (default 10)."
+            }
+          },
+          "required": [
+            "text"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "text_case_converter",
+        "title": "Text Case Converter",
+        "description": "Convert text between UPPER, lower, Title Case, Sentence case, camelCase, snake_case, or kebab-case.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "text": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Text to convert."
+            },
+            "target": {
+              "type": "string",
+              "enum": [
+                "upper",
+                "lower",
+                "title",
+                "sentence",
+                "camel",
+                "snake",
+                "kebab"
+              ],
+              "description": "Target case."
+            }
+          },
+          "required": [
+            "text",
+            "target"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "meta_tag_generator",
+        "title": "Meta Tag Generator",
+        "description": "Generate SEO meta tags (title, description, Open Graph, Twitter Card) for a web page.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Page title (recommended under 60 characters)."
+            },
+            "description": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Meta description (recommended under 160 characters)."
+            },
+            "url": {
+              "type": "string",
+              "format": "uri",
+              "description": "Canonical page URL."
+            },
+            "image": {
+              "type": "string",
+              "format": "uri",
+              "description": "Social preview image URL (1200x630 recommended)."
+            },
+            "siteName": {
+              "type": "string",
+              "description": "Site name for og:site_name."
+            }
+          },
+          "required": [
+            "title",
+            "description"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
