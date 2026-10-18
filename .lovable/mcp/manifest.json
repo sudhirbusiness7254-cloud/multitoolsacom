@@ -9,12 +9,12 @@
     "server": {
       "name": "multitoolsa-mcp",
       "version": "0.1.0",
-      "title": "MultiToolsA MCP"
+      "title": "Convert MCP"
     },
     "tools": [
       {
         "name": "list_multitoolsa_tools",
-        "title": "List MultiToolsA Tools",
+        "title": "List Convert Tools",
         "description": "List the free online tools available on multitoolsa.com, grouped by category.",
         "annotations": {
           "readOnlyHint": true,
