@@ -30,11 +30,11 @@ const Blog = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <Helmet>
-        <title>Blog - MultiToolsA | Image Editing Tips, Tutorials & Guides</title>
-        <meta name="description" content="Discover expert tips, tutorials, and guides on image editing, compression, format conversion, and optimization. Learn from MultiToolsA's comprehensive blog articles." />
+        <title>Blog - Convert | Image Editing Tips, Tutorials & Guides</title>
+        <meta name="description" content="Discover expert tips, tutorials, and guides on image editing, compression, format conversion, and optimization. Learn from Convert's comprehensive blog articles." />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://multitoolsa.com/blog" />
-        <meta property="og:title" content="Blog - MultiToolsA | Image Editing Tips & Tutorials" />
+        <meta property="og:title" content="Blog - Convert | Image Editing Tips & Tutorials" />
         <meta property="og:description" content="Expert guides on image compression, format conversion, and optimization techniques." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://multitoolsa.com/blog" />
@@ -43,12 +43,12 @@ const Blog = () => {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Blog",
-            "name": "MultiToolsA Blog",
+            "name": "Convert Blog",
             "description": "Expert tips and tutorials on image editing, compression, and optimization",
             "url": "https://multitoolsa.com/blog",
             "publisher": {
               "@type": "Organization",
-              "name": "MultiToolsA",
+              "name": "Convert",
               "logo": {
                 "@type": "ImageObject",
                 "url": "https://multitoolsa.com/logo.png"
@@ -62,7 +62,7 @@ const Blog = () => {
               "author": {
                 "@type": "Person",
                 "name": post.author,
-                "jobTitle": authorProfiles[post.author]?.role || "MultiToolsA Editorial Contributor"
+                "jobTitle": authorProfiles[post.author]?.role || "Convert Editorial Contributor"
               }
             }))
           })}

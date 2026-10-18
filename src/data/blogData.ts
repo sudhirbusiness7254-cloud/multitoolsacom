@@ -57,7 +57,7 @@ export const authorProfiles: Record<string, { role: string; bio: string; experti
   },
   "Priya Mehta": {
     role: "Web Performance Engineer",
-    bio: "Priya reviews MultiToolsA guides for page-speed accuracy, image optimization best practices, accessibility, and Core Web Vitals recommendations.",
+    bio: "Priya reviews Convert guides for page-speed accuracy, image optimization best practices, accessibility, and Core Web Vitals recommendations.",
     expertise: ["Core Web Vitals", "Image compression", "Accessible interfaces"]
   },
   "Amit Verma": {

@@ -7,7 +7,7 @@ import { PremiumToolSEO } from './premiumSEOContent';
 export const premiumToolsSEOBatch3: Record<string, PremiumToolSEO> = {
   "png-to-jpg": {
     slug: "png-to-jpg",
-    metaTitle: "PNG to JPG Converter - Convert PNG to JPEG Online Free | MultiToolsA",
+    metaTitle: "PNG to JPG Converter - Convert PNG to JPEG Online Free | Convert",
     metaDescription: "Convert PNG images to JPG format instantly online. Free browser-based PNG to JPEG converter with quality control. No upload required - 100% private.",
     h1: "Convert PNG to JPG Online — Free & Instant",
     shortIntro: "Transform your PNG images to JPG format with adjustable quality. Complete privacy with browser-based processing. No signup needed.",
@@ -109,7 +109,7 @@ The technology behind our tool leverages modern browser capabilities to deliver 
 
   "text-watermark": {
     slug: "text-watermark",
-    metaTitle: "Text Watermark Tool - Add Text Watermarks to Images Free | MultiToolsA",
+    metaTitle: "Text Watermark Tool - Add Text Watermarks to Images Free | Convert",
     metaDescription: "Add professional text watermarks to your images online. Free tool with custom fonts, colors, opacity. Protect your photos instantly with browser-based processing.",
     h1: "Add Text Watermarks to Images — Free & Easy",
     shortIntro: "Protect your photos with custom text watermarks. Choose fonts, colors, and positioning. Complete privacy with browser-only processing.",
@@ -212,7 +212,7 @@ Batch watermarking capabilities enable efficient processing of entire photo coll
 
   "gif-compressor": {
     slug: "gif-compressor",
-    metaTitle: "GIF Compressor - Compress GIF Images Online Free | MultiToolsA",
+    metaTitle: "GIF Compressor - Compress GIF Images Online Free | Convert",
     metaDescription: "Compress GIF images and reduce file sizes online for free. Browser-based GIF compressor optimizes static GIFs instantly. No upload required - 100% private.",
     h1: "Compress GIF Images Online — Free & Fast",
     shortIntro: "Reduce GIF file sizes without quality loss. Optimize color palettes and remove unnecessary data. Complete privacy with browser processing.",
@@ -418,7 +418,7 @@ Custom aspect ratios accommodate specialized needs beyond common presets. Enter 
 
   "flip-horizontal": {
     slug: "flip-horizontal",
-    metaTitle: "Flip Image Horizontally - Mirror Image Online Free | MultiToolsA",
+    metaTitle: "Flip Image Horizontally - Mirror Image Online Free | Convert",
     metaDescription: "Flip images horizontally to create mirror effects online for free. Instant horizontal flipping in browser. No upload required - 100% private processing.",
     h1: "Flip Images Horizontally — Free Mirror Tool",
     shortIntro: "Create mirror images by flipping horizontally. Perfect for selfie corrections and design symmetry. Complete privacy with browser processing.",
@@ -521,7 +521,7 @@ Our flip tool handles images of any dimension and format, from small icons to hi
 
   "percentage-resize": {
     slug: "percentage-resize",
-    metaTitle: "Percentage Resize - Resize Images by Percentage Free | MultiToolsA",
+    metaTitle: "Percentage Resize - Resize Images by Percentage Free | Convert",
     metaDescription: "Resize images by percentage online for free. Scale up or down by any percentage while maintaining aspect ratio. Browser-based - 100% private processing.",
     h1: "Resize Images by Percentage — Free Online",
     shortIntro: "Scale images up or down by any percentage. Automatically maintains aspect ratio for perfect proportions. Complete privacy with browser processing.",
@@ -624,7 +624,7 @@ Real-time preview functionality shows exactly how your resized image will appear
 
   "fit-to-width": {
     slug: "fit-to-width",
-    metaTitle: "Fit to Width - Resize Image to Width Online Free | MultiToolsA",
+    metaTitle: "Fit to Width - Resize Image to Width Online Free | Convert",
     metaDescription: "Resize images to specific width while maintaining aspect ratio. Free online fit-to-width tool calculates height automatically. 100% browser-based privacy.",
     h1: "Fit Images to Specific Width — Free Online",
     shortIntro: "Resize images to exact width with automatic height calculation. Perfect for web layouts and consistent sizing. Complete privacy with browser processing.",
@@ -727,7 +727,7 @@ Batch processing applies consistent width specifications across multiple images.
 
   "fit-to-height": {
     slug: "fit-to-height",
-    metaTitle: "Fit to Height - Resize Image to Height Online Free | MultiToolsA",
+    metaTitle: "Fit to Height - Resize Image to Height Online Free | Convert",
     metaDescription: "Resize images to specific height while maintaining aspect ratio. Free online fit-to-height tool calculates width automatically. 100% browser-based privacy.",
     h1: "Fit Images to Specific Height — Free Online",
     shortIntro: "Resize images to exact height with automatic width calculation. Perfect for mobile layouts and portrait images. Complete privacy with browser processing.",
@@ -830,7 +830,7 @@ Batch processing applies consistent height specifications across multiple images
 
   "circle-crop": {
     slug: "circle-crop",
-    metaTitle: "Circle Crop - Crop Images to Circle Shape Free | MultiToolsA",
+    metaTitle: "Circle Crop - Crop Images to Circle Shape Free | Convert",
     metaDescription: "Crop images to perfect circles online for free. Create round profile pictures and avatars instantly. Browser-based circle cropper - no upload, 100% private.",
     h1: "Crop Images to Perfect Circles — Free Online",
     shortIntro: "Create round profile pictures and avatars from any image. Perfect circular cropping with transparency. Complete privacy with browser processing.",
@@ -933,7 +933,7 @@ Precise center positioning helps create balanced circular crops. Our tool displa
 
   "custom-rotate": {
     slug: "custom-rotate",
-    metaTitle: "Custom Rotate - Rotate Image Any Angle Free | MultiToolsA",
+    metaTitle: "Custom Rotate - Rotate Image Any Angle Free | Convert",
     metaDescription: "Rotate images to any custom angle online for free. Precise rotation from -180° to +180° with live preview. Browser-based tool - no upload, 100% private.",
     h1: "Rotate Images to Any Angle — Free Online",
     shortIntro: "Precise rotation to any degree. Perfect for horizon correction and creative angles. Complete privacy with browser processing.",

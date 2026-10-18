@@ -82,36 +82,36 @@ const About = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <Helmet>
-        <title>About MultiToolsA - Free Online Image Tools | Our Mission, Story & Team</title>
-        <meta name="description" content="Learn about MultiToolsA - a comprehensive free online platform with 100+ image tools. Discover our mission to provide private, accessible, and professional-grade image editing for everyone. Meet our team and understand our values." />
-        <meta name="keywords" content="about MultiToolsA, image tools company, free online tools, image editing platform, privacy-focused tools, our mission, our team" />
+        <title>About Convert - Free Online Image Tools | Our Mission, Story & Team</title>
+        <meta name="description" content="Learn about Convert - a comprehensive free online platform with 100+ image tools. Discover our mission to provide private, accessible, and professional-grade image editing for everyone. Meet our team and understand our values." />
+        <meta name="keywords" content="about Convert, image tools company, free online tools, image editing platform, privacy-focused tools, our mission, our team" />
         <link rel="canonical" href="https://multitoolsa.com/about" />
-        <meta property="og:title" content="About MultiToolsA - Free Online Image Tools" />
-        <meta property="og:description" content="Learn about our mission to provide free, private, and professional image editing tools for everyone. Discover our story, values, and the team behind MultiToolsA." />
+        <meta property="og:title" content="About Convert - Free Online Image Tools" />
+        <meta property="og:description" content="Learn about our mission to provide free, private, and professional image editing tools for everyone. Discover our story, values, and the team behind Convert." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://multitoolsa.com/about" />
         <meta property="og:image" content="https://multitoolsa.com/logo.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="About MultiToolsA - Free Online Image Tools" />
+        <meta name="twitter:title" content="About Convert - Free Online Image Tools" />
         <meta name="twitter:description" content="Learn about our mission to provide free, private, and professional image editing tools for everyone." />
         
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "AboutPage",
-            "name": "About MultiToolsA",
-            "description": "Learn about MultiToolsA's mission to provide free, private, and professional image editing tools for everyone.",
+            "name": "About Convert",
+            "description": "Learn about Convert's mission to provide free, private, and professional image editing tools for everyone.",
             "url": "https://multitoolsa.com/about",
             "mainEntity": {
               "@type": "Organization",
-              "name": "MultiToolsA",
+              "name": "Convert",
               "url": "https://multitoolsa.com",
               "logo": "https://multitoolsa.com/logo.png",
-              "description": "MultiToolsA is a free online platform providing 100+ professional-grade image editing tools with complete privacy. All processing happens locally in users' browsers.",
+              "description": "Convert is a free online platform providing 100+ professional-grade image editing tools with complete privacy. All processing happens locally in users' browsers.",
               "foundingDate": "2024",
               "founder": {
                 "@type": "Organization",
-                "name": "MultiToolsA Team"
+                "name": "Convert Team"
               },
               "contactPoint": {
                 "@type": "ContactPoint",
@@ -128,7 +128,7 @@ const About = () => {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebSite",
-            "name": "MultiToolsA",
+            "name": "Convert",
             "url": "https://multitoolsa.com",
             "description": "Free online image tools platform with 100+ tools for image conversion, compression, editing, and more.",
             "potentialAction": {
@@ -151,14 +151,14 @@ const About = () => {
           <div className="container mx-auto px-4 relative z-10 text-center">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 mb-6">
               <Building2 className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium text-primary">About MultiToolsA</span>
+              <span className="text-sm font-medium text-primary">About Convert</span>
             </div>
             
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6">
               Free Image Tools for Everyone
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8 leading-relaxed">
-              MultiToolsA is a comprehensive free online platform offering over 100 professional-grade image editing tools 
+              Convert is a comprehensive free online platform offering over 100 professional-grade image editing tools 
               with complete privacy. All processing happens locally in your browser—your files never leave your device, 
               are never uploaded to any server, and are never accessible to anyone but you.
             </p>
@@ -214,7 +214,7 @@ const About = () => {
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                 In a world where many online tools require expensive subscriptions, collect user data, or add watermarks to outputs, 
-                MultiToolsA stands apart. We've built a platform where every tool is:
+                Convert stands apart. We've built a platform where every tool is:
               </p>
               <ul className="grid sm:grid-cols-2 gap-3 mb-6">
                 {[
@@ -247,13 +247,13 @@ const About = () => {
                 <BookOpen className="w-4 h-4" />
                 Our Story
               </div>
-              <h2 className="text-2xl md:text-4xl font-bold">How MultiToolsA Began</h2>
+              <h2 className="text-2xl md:text-4xl font-bold">How Convert Began</h2>
             </div>
             <div className="bg-card rounded-2xl p-8 md:p-10 border border-border space-y-6">
               <div>
                 <h3 className="text-xl font-semibold mb-3 text-primary">The Problem We Saw</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  MultiToolsA was founded with a simple observation: the world of online image tools was broken. 
+                  Convert was founded with a simple observation: the world of online image tools was broken. 
                   Most platforms required users to upload their personal images to remote servers, raising serious privacy concerns. 
                   Others charged monthly subscriptions for basic features, created artificial usage limits, or added watermarks 
                   to outputs unless users paid. For many people—especially those in developing countries, students, 
@@ -264,7 +264,7 @@ const About = () => {
               <div>
                 <h3 className="text-xl font-semibold mb-3 text-primary">Our Solution</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  We built MultiToolsA differently. Using modern web technologies like JavaScript, HTML5 Canvas, Web Workers, 
+                  We built Convert differently. Using modern web technologies like JavaScript, HTML5 Canvas, Web Workers, 
                   and WebAssembly, we created tools that process images entirely within your browser. This approach means:
                 </p>
                 <ul className="mt-4 space-y-2">
@@ -290,7 +290,7 @@ const About = () => {
               <div>
                 <h3 className="text-xl font-semibold mb-3 text-primary">Where We Are Today</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Today, MultiToolsA offers over 100 specialized image tools organized into 15+ categories. 
+                  Today, Convert offers over 100 specialized image tools organized into 15+ categories. 
                   From simple format conversion and compression to advanced editing, watermarking, PDF tools, 
                   and security features—we cover virtually every image editing need. Our platform serves users worldwide, 
                   from professional designers and photographers to students, bloggers, e-commerce sellers, 
@@ -348,7 +348,7 @@ const About = () => {
               </div>
               <h2 className="text-2xl md:text-4xl font-bold mb-4">Comprehensive Image Tool Suite</h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                MultiToolsA offers 100+ specialized tools across 15+ categories to handle every image editing need.
+                Convert offers 100+ specialized tools across 15+ categories to handle every image editing need.
               </p>
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -385,7 +385,7 @@ const About = () => {
             </div>
             <div className="bg-card rounded-2xl p-8 md:p-10 border border-border">
               <p className="text-muted-foreground leading-relaxed mb-6">
-                MultiToolsA is built using cutting-edge web technologies that enable powerful image processing 
+                Convert is built using cutting-edge web technologies that enable powerful image processing 
                 directly in your browser. Here's how we make it work:
               </p>
               
@@ -435,9 +435,9 @@ const About = () => {
                 <Users className="w-4 h-4" />
                 Our Team
               </div>
-              <h2 className="text-2xl md:text-4xl font-bold mb-4">The People Behind MultiToolsA</h2>
+              <h2 className="text-2xl md:text-4xl font-bold mb-4">The People Behind Convert</h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                MultiToolsA is built by a dedicated team of developers, designers, and content specialists 
+                Convert is built by a dedicated team of developers, designers, and content specialists 
                 who are passionate about creating tools that respect user privacy while delivering professional results.
               </p>
             </div>
@@ -473,14 +473,14 @@ const About = () => {
                     We do not collect, store, or have access to any images you process using our tools. 
                     All processing happens locally in your browser. We don't use tracking pixels, 
                     we don't sell user data, and we don't build user profiles. Your privacy is not just 
-                    a feature—it's the foundation of how we built MultiToolsA.
+                    a feature—it's the foundation of how we built Convert.
                   </p>
                 </div>
                 
                 <div>
                   <h3 className="text-xl font-semibold mb-3">How We Sustain Our Service</h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    MultiToolsA is supported through non-intrusive advertising displayed on our website. 
+                    Convert is supported through non-intrusive advertising displayed on our website. 
                     These ads help us cover hosting costs and continue developing new features. 
                     We're committed to keeping ads respectful and non-disruptive to your experience. 
                     We will never compromise on privacy or add paywalls to our core tools.
@@ -517,9 +517,9 @@ const About = () => {
             <div className="text-center mb-10">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
                 <Award className="w-4 h-4" />
-                Why MultiToolsA
+                Why Convert
               </div>
-              <h2 className="text-2xl md:text-4xl font-bold mb-4">Why Choose MultiToolsA?</h2>
+              <h2 className="text-2xl md:text-4xl font-bold mb-4">Why Choose Convert?</h2>
             </div>
             <div className="bg-card rounded-2xl p-8 md:p-10 border border-border">
               <div className="grid sm:grid-cols-2 gap-4">
@@ -569,7 +569,7 @@ const About = () => {
               <Link to="/terms" className="bg-card rounded-xl p-6 border border-border hover:border-primary/30 transition-colors group">
                 <FileText className="w-8 h-8 text-primary mb-4" />
                 <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">Terms of Service</h3>
-                <p className="text-sm text-muted-foreground">Read our terms and conditions for using MultiToolsA.</p>
+                <p className="text-sm text-muted-foreground">Read our terms and conditions for using Convert.</p>
               </Link>
               <Link to="/faq" className="bg-card rounded-xl p-6 border border-border hover:border-primary/30 transition-colors group">
                 <HelpCircle className="w-8 h-8 text-primary mb-4" />

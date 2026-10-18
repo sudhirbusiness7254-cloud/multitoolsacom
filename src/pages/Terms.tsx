@@ -7,8 +7,8 @@ const Terms = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <Helmet>
-        <title>Terms and Conditions - MultiToolsA | Service Agreement</title>
-        <meta name="description" content="Read MultiToolsA's terms and conditions. Understand your rights, responsibilities, and our service agreement for using our free online image tools." />
+        <title>Terms and Conditions - Convert | Service Agreement</title>
+        <meta name="description" content="Read Convert's terms and conditions. Understand your rights, responsibilities, and our service agreement for using our free online image tools." />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://multitoolsa.com/terms" />
       </Helmet>
@@ -29,20 +29,20 @@ const Terms = () => {
             <section>
               <h2 className="text-2xl font-bold text-foreground mb-4">1. Agreement to Terms</h2>
               <p className="text-muted-foreground mb-4">
-                Welcome to MultiToolsA. These Terms and Conditions ("Terms") govern your access to and use of our website located at multitoolsa.com ("Website") and all related services, features, content, and applications offered by MultiToolsA ("Services").
+                Welcome to Convert. These Terms and Conditions ("Terms") govern your access to and use of our website located at multitoolsa.com ("Website") and all related services, features, content, and applications offered by Convert ("Services").
               </p>
               <p className="text-muted-foreground mb-4">
                 By accessing or using our Website and Services, you acknowledge that you have read, understood, and agree to be bound by these Terms. If you do not agree to these Terms, you must not access or use our Website or Services.
               </p>
               <p className="text-muted-foreground">
-                These Terms constitute a legally binding agreement between you ("User," "you," or "your") and MultiToolsA ("Company," "we," "us," or "our"). We reserve the right to modify these Terms at any time, and such modifications will be effective immediately upon posting on the Website.
+                These Terms constitute a legally binding agreement between you ("User," "you," or "your") and Convert ("Company," "we," "us," or "our"). We reserve the right to modify these Terms at any time, and such modifications will be effective immediately upon posting on the Website.
               </p>
             </section>
 
             <section>
               <h2 className="text-2xl font-bold text-foreground mb-4">2. Description of Services</h2>
               <p className="text-muted-foreground mb-4">
-                MultiToolsA provides a comprehensive suite of free online image processing tools and utilities, including but not limited to:
+                Convert provides a comprehensive suite of free online image processing tools and utilities, including but not limited to:
               </p>
               <ul className="list-disc list-inside space-y-2 text-muted-foreground mb-4">
                 <li><strong>Image Compression:</strong> JPEG, PNG, WebP, GIF, and TIFF compression tools to reduce file sizes</li>
@@ -102,7 +102,7 @@ const Terms = () => {
               
               <h3 className="text-xl font-semibold text-foreground mb-3">5.1 Our Intellectual Property</h3>
               <p className="text-muted-foreground mb-4">
-                The Website, including its entire contents, features, functionality, design, graphics, logos, button icons, images, audio clips, digital downloads, data compilations, software, and the compilation thereof, are owned by MultiToolsA or its licensors and are protected by international copyright, trademark, patent, trade secret, and other intellectual property laws.
+                The Website, including its entire contents, features, functionality, design, graphics, logos, button icons, images, audio clips, digital downloads, data compilations, software, and the compilation thereof, are owned by Convert or its licensors and are protected by international copyright, trademark, patent, trade secret, and other intellectual property laws.
               </p>
 
               <h3 className="text-xl font-semibold text-foreground mb-3">5.2 Your Content</h3>
@@ -170,14 +170,14 @@ const Terms = () => {
             <section>
               <h2 className="text-2xl font-bold text-foreground mb-4">9. Indemnification</h2>
               <p className="text-muted-foreground">
-                You agree to indemnify, defend, and hold harmless MultiToolsA and its officers, directors, employees, agents, affiliates, successors, and assigns from and against any and all claims, damages, obligations, losses, liabilities, costs, debts, and expenses (including attorney's fees) arising from: (a) your use of the Services; (b) your violation of these Terms; (c) your violation of any third-party rights, including intellectual property rights; (d) any content you process using our Services; or (e) your violation of any applicable law or regulation.
+                You agree to indemnify, defend, and hold harmless Convert and its officers, directors, employees, agents, affiliates, successors, and assigns from and against any and all claims, damages, obligations, losses, liabilities, costs, debts, and expenses (including attorney's fees) arising from: (a) your use of the Services; (b) your violation of these Terms; (c) your violation of any third-party rights, including intellectual property rights; (d) any content you process using our Services; or (e) your violation of any applicable law or regulation.
               </p>
             </section>
 
             <section>
               <h2 className="text-2xl font-bold text-foreground mb-4">10. Third-Party Links and Advertisements</h2>
               <p className="text-muted-foreground mb-4">
-                Our Website may contain links to third-party websites, advertisements, or services that are not owned or controlled by MultiToolsA. We display advertisements through Google AdSense and other advertising partners.
+                Our Website may contain links to third-party websites, advertisements, or services that are not owned or controlled by Convert. We display advertisements through Google AdSense and other advertising partners.
               </p>
               <p className="text-muted-foreground mb-4">
                 We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party websites or services. Your interactions with third-party advertisements or websites are solely between you and that third party.
@@ -216,7 +216,7 @@ const Terms = () => {
             <section>
               <h2 className="text-2xl font-bold text-foreground mb-4">13. Governing Law and Dispute Resolution</h2>
               <p className="text-muted-foreground mb-4">
-                These Terms shall be governed by and construed in accordance with the laws of the jurisdiction in which MultiToolsA operates, without regard to its conflict of law provisions.
+                These Terms shall be governed by and construed in accordance with the laws of the jurisdiction in which Convert operates, without regard to its conflict of law provisions.
               </p>
               <p className="text-muted-foreground">
                 Any dispute arising from or relating to these Terms or the Services shall be resolved through good faith negotiations. If the dispute cannot be resolved through negotiations, it shall be submitted to binding arbitration in accordance with applicable arbitration rules, or resolved in the courts of competent jurisdiction.
@@ -233,14 +233,14 @@ const Terms = () => {
             <section>
               <h2 className="text-2xl font-bold text-foreground mb-4">15. Waiver</h2>
               <p className="text-muted-foreground">
-                The failure of MultiToolsA to exercise or enforce any right or provision of these Terms shall not constitute a waiver of such right or provision. Any waiver of any provision of these Terms will be effective only if in writing and signed by an authorized representative of MultiToolsA.
+                The failure of Convert to exercise or enforce any right or provision of these Terms shall not constitute a waiver of such right or provision. Any waiver of any provision of these Terms will be effective only if in writing and signed by an authorized representative of Convert.
               </p>
             </section>
 
             <section>
               <h2 className="text-2xl font-bold text-foreground mb-4">16. Entire Agreement</h2>
               <p className="text-muted-foreground">
-                These Terms, together with our Privacy Policy and any other legal notices published on our Website, constitute the entire agreement between you and MultiToolsA regarding your use of the Services and supersede all prior and contemporaneous agreements, proposals, or representations, written or oral, concerning the subject matter of these Terms.
+                These Terms, together with our Privacy Policy and any other legal notices published on our Website, constitute the entire agreement between you and Convert regarding your use of the Services and supersede all prior and contemporaneous agreements, proposals, or representations, written or oral, concerning the subject matter of these Terms.
               </p>
             </section>
 
@@ -257,10 +257,10 @@ const Terms = () => {
                 If you have any questions, concerns, or feedback regarding these Terms and Conditions, please contact us:
               </p>
               <div className="bg-muted/30 rounded-lg p-4 space-y-2 text-muted-foreground">
-                <p><strong>MultiToolsA</strong></p>
+                <p><strong>Convert</strong></p>
                 <p>Email: <a href="mailto:info@multitoolsa.com" className="text-accent hover:underline">info@multitoolsa.com</a></p>
                 <p>Phone: <a href="tel:+9779763567489" className="text-accent hover:underline">+977 9763567489</a></p>
-                <p>Website: <a href="https://multitoolsa.com" aria-label="Visit MultiToolsA homepage" className="text-accent hover:underline">Visit MultiToolsA homepage</a></p>
+                <p>Website: <a href="https://multitoolsa.com" aria-label="Visit Convert homepage" className="text-accent hover:underline">Visit Convert homepage</a></p>
               </div>
               <p className="text-muted-foreground mt-4">
                 We will respond to your inquiry within 30 business days.
@@ -269,7 +269,7 @@ const Terms = () => {
 
             <section className="border-t border-border pt-6">
               <p className="text-muted-foreground text-sm">
-                By using MultiToolsA's website and services, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions. Thank you for choosing MultiToolsA for your image processing needs.
+                By using Convert's website and services, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions. Thank you for choosing Convert for your image processing needs.
               </p>
             </section>
           </div>

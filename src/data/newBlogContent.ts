@@ -40,7 +40,7 @@ Despite HEIC's advantages, you'll encounter compatibility issues:
 
 ## Conversion Methods
 
-### 1. Using MultiToolsA (Recommended)
+### 1. Using Convert (Recommended)
 
 Our free online converter offers:
 - **Privacy**: All processing happens in your browser
@@ -170,7 +170,7 @@ Step 5: Rename → product_001.jpg format
 Output: Web-ready images (50-100KB each)
 \`\`\`
 
-## Using MultiToolsA for Batch Processing
+## Using Convert for Batch Processing
 
 Our tools support batch operations:
 
@@ -268,7 +268,7 @@ PDFs and images go hand in hand in modern workflows. Whether you're creating doc
    - Choose appropriate PDF compression
    - Balance quality vs. file size
 
-### Using MultiToolsA Image to PDF
+### Using Convert Image to PDF
 
 1. Upload single or multiple images
 2. Arrange order by dragging
@@ -514,7 +514,7 @@ Advanced options:
 - Awkward compositions
 - Platform mismatch
 
-## Using MultiToolsA Crop Tools
+## Using Convert Crop Tools
 
 ### Manual Crop
 1. Upload image
@@ -1099,7 +1099,7 @@ Reduce harsh details:
 - Save presets for consistency
 - Export at final stage
 
-## Using MultiToolsA Filters
+## Using Convert Filters
 
 ### Available Adjustments
 - Brightness, contrast, saturation
@@ -1416,7 +1416,7 @@ Best practices:
 - Cannot be reversed
 - Verify before sharing
 
-### Using MultiToolsA Security Tools
+### Using Convert Security Tools
 
 1. **Manual Face Blur**
    - Upload image
@@ -1604,7 +1604,7 @@ Format choice changes two things at once — page weight (a Core Web Vitals sign
 - **SVG** wins for icons, illustrations, and charts that need to scale.
 - **Animated GIF** should be replaced by a muted, autoplaying \`<video>\` tag almost every time.
 
-Whatever format you ship, run it through a real compressor. The MultiToolsA universal compressor handles the format detection automatically — drop in JPEG, PNG, WebP, GIF, TIFF, or HEIC and the tool picks the right strategy without uploading the file.
+Whatever format you ship, run it through a real compressor. The Convert universal compressor handles the format detection automatically — drop in JPEG, PNG, WebP, GIF, TIFF, or HEIC and the tool picks the right strategy without uploading the file.
 
 ## Dimensions, srcset, and Avoiding the CLS Tax
 
@@ -1645,8 +1645,8 @@ Structured data is the only place where you can declare authorship, licence, and
   "name": "Five parts of a moka pot, labelled",
   "description": "Exploded diagram identifying the boiler, funnel, gasket, filter and collector of a three-cup moka pot.",
   "creator": { "@type": "Person", "name": "Priya Mehta" },
-  "creditText": "Priya Mehta for MultiToolsA",
-  "copyrightNotice": "© 2026 MultiToolsA",
+  "creditText": "Priya Mehta for Convert",
+  "copyrightNotice": "© 2026 Convert",
   "license": "https://example.com/licence",
   "acquireLicensePage": "https://example.com/contact"
 }
@@ -1681,7 +1681,7 @@ Most Vite, React, and static-site setups ship a regular XML sitemap but skip the
 </url>
 \`\`\`
 
-If you are on MultiToolsA's dynamic sitemap edge function, the \`<image:image>\` tags are already emitted for every tool and blog page — verify by opening \`/sitemap.xml\` and searching for the \`image:\` namespace.
+If you are on Convert's dynamic sitemap edge function, the \`<image:image>\` tags are already emitted for every tool and blog page — verify by opening \`/sitemap.xml\` and searching for the \`image:\` namespace.
 
 ## Accessibility Wins That Also Move Rank
 

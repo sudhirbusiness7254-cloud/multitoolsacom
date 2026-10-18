@@ -9,13 +9,13 @@ const AdvertiserDisclosurePage = () => {
   return (
     <>
       <Helmet>
-        <title>Advertiser Disclosure - MultiToolsA | Advertising & Monetization Policy</title>
-        <meta name="description" content="Learn how MultiToolsA generates revenue through advertising. Transparent disclosure about Google AdSense, affiliate relationships, and how ads support our free tools." />
+        <title>Advertiser Disclosure - Convert | Advertising & Monetization Policy</title>
+        <meta name="description" content="Learn how Convert generates revenue through advertising. Transparent disclosure about Google AdSense, affiliate relationships, and how ads support our free tools." />
         <meta name="keywords" content="advertiser disclosure, advertising policy, Google AdSense, free tools funding, monetization transparency" />
         <link rel="canonical" href="https://multitoolsa.com/advertiser-disclosure" />
         
-        <meta property="og:title" content="Advertiser Disclosure - MultiToolsA" />
-        <meta property="og:description" content="Transparency about how MultiToolsA generates revenue through advertising to keep our 100+ tools free for everyone." />
+        <meta property="og:title" content="Advertiser Disclosure - Convert" />
+        <meta property="og:description" content="Transparency about how Convert generates revenue through advertising to keep our 100+ tools free for everyone." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://multitoolsa.com/advertiser-disclosure" />
       </Helmet>
@@ -33,7 +33,7 @@ const AdvertiserDisclosurePage = () => {
               </div>
               <h1 className="text-3xl md:text-5xl font-bold mb-4">Advertiser Disclosure</h1>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                We believe in complete transparency about how MultiToolsA generates revenue 
+                We believe in complete transparency about how Convert generates revenue 
                 to keep our 100+ image tools free for everyone.
               </p>
             </div>
@@ -45,9 +45,9 @@ const AdvertiserDisclosurePage = () => {
               </div>
 
               <section>
-                <h2 className="text-2xl font-bold text-foreground mb-4">How We Keep MultiToolsA Free</h2>
+                <h2 className="text-2xl font-bold text-foreground mb-4">How We Keep Convert Free</h2>
                 <p className="text-muted-foreground mb-4">
-                  MultiToolsA provides over 100 professional-grade image editing tools completely free of charge. 
+                  Convert provides over 100 professional-grade image editing tools completely free of charge. 
                   We don't charge subscription fees, we don't require account registration, and we don't limit 
                   how many images you can process. To sustain this service and continue developing new tools, 
                   we generate revenue through advertising.
@@ -67,7 +67,7 @@ const AdvertiserDisclosurePage = () => {
               <section>
                 <h2 className="text-2xl font-bold text-foreground mb-4">Google AdSense</h2>
                 <p className="text-muted-foreground mb-4">
-                  MultiToolsA displays advertisements provided by Google AdSense, a third-party advertising service 
+                  Convert displays advertisements provided by Google AdSense, a third-party advertising service 
                   operated by Google LLC. These advertisements help fund the development, hosting, and maintenance 
                   of our free tools.
                 </p>
@@ -178,7 +178,7 @@ const AdvertiserDisclosurePage = () => {
               <section>
                 <h2 className="text-2xl font-bold text-foreground mb-4">Future Revenue Considerations</h2>
                 <p className="text-muted-foreground mb-4">
-                  While advertising currently sustains MultiToolsA, we may explore additional revenue streams in the future. 
+                  While advertising currently sustains Convert, we may explore additional revenue streams in the future. 
                   These might include:
                 </p>
                 <ul className="list-disc list-inside space-y-2 text-muted-foreground mb-4">

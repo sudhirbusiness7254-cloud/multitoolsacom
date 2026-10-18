@@ -262,7 +262,7 @@ Three concrete things change.
 
 **One: image optimization tools can destroy credentials.** Most CDNs and image transformers strip metadata aggressively to reduce file size. A 2 KB content credential is worth keeping; a 30 KB color profile may not be. The pipeline needs a metadata allow-list rather than the current strip-everything default.
 
-**Two: re-encoding breaks chains of custody.** If you receive a credentialed image and re-encode it (e.g., convert WebP to AVIF on the fly), the new file has no credential because no entity signed the re-encoded version. The right move is to sign the new derivative yourself, declaring "I am MultiToolsA, I transformed this image from format X to format Y at timestamp T." Tooling for this is now stable: the \`c2pa-rs\` Rust library and its Node bindings handle the signing.
+**Two: re-encoding breaks chains of custody.** If you receive a credentialed image and re-encode it (e.g., convert WebP to AVIF on the fly), the new file has no credential because no entity signed the re-encoded version. The right move is to sign the new derivative yourself, declaring "I am Convert, I transformed this image from format X to format Y at timestamp T." Tooling for this is now stable: the \`c2pa-rs\` Rust library and its Node bindings handle the signing.
 
 **Three: trust UI is now a thing.** When users hover an image with credentials, they expect a small "CR" badge that opens an inspector. Adobe ships an open-source web component (\`<cai-icon>\` and \`<cai-popover>\`) that handles this end to end. Skipping the UI does not break anything technically, but in regulated regions it may shift legal risk onto the publisher rather than the platform.
 

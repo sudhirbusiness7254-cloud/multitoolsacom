@@ -10,7 +10,7 @@ const TOOLS = [
 
 export default defineTool({
   name: "list_multitoolsa_tools",
-  title: "List MultiToolsA Tools",
+  title: "List Convert Tools",
   description: "List the free online tools available on multitoolsa.com, grouped by category.",
   inputSchema: {
     category: z.string().optional().describe("Optional category filter: Image, PDF, SEO, or QR."),

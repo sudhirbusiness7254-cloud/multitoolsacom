@@ -50,7 +50,7 @@ const Contact = () => {
       answer: "Make sure your file is in a supported format (JPG, PNG, WebP, GIF, BMP, TIFF, or HEIC). Very large files (over 50MB) may be slow to process depending on your device's memory. Try closing other browser tabs or using a smaller test file first. If problems persist, try a different browser."
     },
     {
-      question: "Is my data safe with MultiToolsA?",
+      question: "Is my data safe with Convert?",
       answer: "Absolutely. All image processing happens locally in your browser using JavaScript. Your files are never uploaded to any server. When you close the browser tab, all temporary data is automatically cleared. We have no access to your images at any point. Read our Privacy Policy for complete details."
     },
     {
@@ -66,11 +66,11 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <Helmet>
-        <title>Contact Us - MultiToolsA | Customer Support & Help Center</title>
-        <meta name="description" content="Contact MultiToolsA for support, questions, or feedback about our free online image tools. Get help within 24-48 hours. We're here to assist with image conversion, compression, and editing needs." />
+        <title>Contact Us - Convert | Customer Support & Help Center</title>
+        <meta name="description" content="Contact Convert for support, questions, or feedback about our free online image tools. Get help within 24-48 hours. We're here to assist with image conversion, compression, and editing needs." />
         <link rel="canonical" href="https://multitoolsa.com/contact" />
-        <meta property="og:title" content="Contact Us - MultiToolsA Support" />
-        <meta property="og:description" content="Get in touch with the MultiToolsA team for questions, feedback, or support. Response within 24-48 hours." />
+        <meta property="og:title" content="Contact Us - Convert Support" />
+        <meta property="og:description" content="Get in touch with the Convert team for questions, feedback, or support. Response within 24-48 hours." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://multitoolsa.com/contact" />
         
@@ -78,12 +78,12 @@ const Contact = () => {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "ContactPage",
-            "name": "Contact MultiToolsA",
-            "description": "Contact page for MultiToolsA customer support and inquiries",
+            "name": "Contact Convert",
+            "description": "Contact page for Convert customer support and inquiries",
             "url": "https://multitoolsa.com/contact",
             "mainEntity": {
               "@type": "Organization",
-              "name": "MultiToolsA",
+              "name": "Convert",
               "email": "info@multitoolsa.com",
               "telephone": "+977-9763567489",
               "contactPoint": {
@@ -115,7 +115,7 @@ const Contact = () => {
             <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-4">Contact Us</h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Have questions about our free image tools? Need help with a specific feature? 
-              Our support team is here to help you get the most out of MultiToolsA.
+              Our support team is here to help you get the most out of Convert.
             </p>
           </div>
         </section>

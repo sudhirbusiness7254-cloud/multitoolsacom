@@ -10,7 +10,7 @@ export const premiumToolsSEOBatch8: Record<string, PremiumToolSEO> = {
   // ============================================
   "raw-to-png": {
     slug: "raw-to-png",
-    metaTitle: "RAW to PNG Converter - Convert Camera RAW to PNG Free Online | MultiToolsA",
+    metaTitle: "RAW to PNG Converter - Convert Camera RAW to PNG Free Online | Convert",
     metaDescription: "Convert RAW camera files to PNG format instantly. Support for CR2, NEF, ARW, ORF, and all major RAW formats. Preserve maximum quality with transparency support.",
     h1: "RAW to PNG Converter — Professional Quality Preserved",
     shortIntro: "Transform professional camera RAW files into high-quality PNG format with full transparency support. No software required, works with all camera brands.",
@@ -99,7 +99,7 @@ export const premiumToolsSEOBatch8: Record<string, PremiumToolSEO> = {
   // ============================================
   "heic-to-png": {
     slug: "heic-to-png",
-    metaTitle: "HEIC to PNG Converter - Convert iPhone Photos to PNG Free | MultiToolsA",
+    metaTitle: "HEIC to PNG Converter - Convert iPhone Photos to PNG Free | Convert",
     metaDescription: "Convert HEIC/HEIF photos to PNG format instantly. Transform iPhone images to universally compatible PNG with transparency support. Free online converter.",
     h1: "HEIC to PNG Converter — iPhone Photos Made Universal",
     shortIntro: "Convert Apple HEIC photos to universal PNG format instantly. Perfect for Windows users, web uploads, and cross-platform sharing. No quality loss.",
@@ -188,7 +188,7 @@ export const premiumToolsSEOBatch8: Record<string, PremiumToolSEO> = {
   // ============================================
   "svg-to-jpg": {
     slug: "svg-to-jpg",
-    metaTitle: "SVG to JPG Converter - Convert Vector to JPEG Free Online | MultiToolsA",
+    metaTitle: "SVG to JPG Converter - Convert Vector to JPEG Free Online | Convert",
     metaDescription: "Convert SVG vector graphics to JPG/JPEG format instantly. Rasterize scalable graphics at any resolution with quality control. Free online converter.",
     h1: "SVG to JPG Converter — Vector to Raster Made Simple",
     shortIntro: "Transform SVG vector graphics into JPG images at any resolution. Perfect for email, social media, and platforms that don't support SVG format.",
@@ -277,7 +277,7 @@ export const premiumToolsSEOBatch8: Record<string, PremiumToolSEO> = {
   // ============================================
   "stitch-images": {
     slug: "stitch-images",
-    metaTitle: "Stitch Images Together - Combine Photos Seamlessly Free | MultiToolsA",
+    metaTitle: "Stitch Images Together - Combine Photos Seamlessly Free | Convert",
     metaDescription: "Stitch multiple images together seamlessly. Create panoramas, long screenshots, and continuous image strips. Free online photo stitching tool.",
     h1: "Stitch Images Together — Seamless Photo Combining",
     shortIntro: "Combine multiple photos into one seamless image. Create panoramas from overlapping shots, join screenshots, or build continuous photo strips instantly.",
@@ -366,7 +366,7 @@ export const premiumToolsSEOBatch8: Record<string, PremiumToolSEO> = {
   // ============================================
   "before-after-maker": {
     slug: "before-after-maker",
-    metaTitle: "Before After Image Maker - Create Comparison Sliders Free | MultiToolsA",
+    metaTitle: "Before After Image Maker - Create Comparison Sliders Free | Convert",
     metaDescription: "Create stunning before/after image comparisons with interactive sliders. Perfect for transformations, renovations, and photo editing showcases. Free online tool.",
     h1: "Before After Maker — Showcase Transformations Beautifully",
     shortIntro: "Create stunning before/after comparisons with interactive sliders. Perfect for showcasing transformations, renovations, photo editing, and design changes.",
@@ -455,7 +455,7 @@ export const premiumToolsSEOBatch8: Record<string, PremiumToolSEO> = {
   // ============================================
   "reduce-file-size": {
     slug: "reduce-file-size",
-    metaTitle: "Reduce Image File Size - Compress Photos Online Free | MultiToolsA",
+    metaTitle: "Reduce Image File Size - Compress Photos Online Free | Convert",
     metaDescription: "Reduce image file size by up to 80% without visible quality loss. Smart compression for web, email, and storage optimization. Free online tool.",
     h1: "Reduce Image File Size — Smart Compression for Every Need",
     shortIntro: "Shrink image files by up to 80% while maintaining visual quality. Perfect for email attachments, website optimization, and saving storage space.",
@@ -544,7 +544,7 @@ export const premiumToolsSEOBatch8: Record<string, PremiumToolSEO> = {
   // ============================================
   "optimize-for-web": {
     slug: "optimize-for-web",
-    metaTitle: "Optimize Images for Web - Fast Loading Photos Free | MultiToolsA",
+    metaTitle: "Optimize Images for Web - Fast Loading Photos Free | Convert",
     metaDescription: "Optimize images for web performance. Reduce page load times with smart compression, resizing, and format conversion. Free online optimization tool.",
     h1: "Optimize Images for Web — Maximum Speed, Beautiful Quality",
     shortIntro: "Prepare images for lightning-fast website loading. Combines compression, resizing, and format optimization for best web performance.",
@@ -633,7 +633,7 @@ export const premiumToolsSEOBatch8: Record<string, PremiumToolSEO> = {
   // ============================================
   "paint-tool": {
     slug: "paint-tool",
-    metaTitle: "Online Paint Tool - Draw & Edit Images Free | MultiToolsA",
+    metaTitle: "Online Paint Tool - Draw & Edit Images Free | Convert",
     metaDescription: "Paint and draw on images online. Add annotations, sketches, and edits with brushes, shapes, and colors. Free browser-based paint tool.",
     h1: "Paint Tool — Draw, Annotate, and Create Online",
     shortIntro: "Draw and paint directly in your browser. Mark up images, sketch ideas, add annotations, and create simple graphics with intuitive tools.",
@@ -722,7 +722,7 @@ export const premiumToolsSEOBatch8: Record<string, PremiumToolSEO> = {
   // ============================================
   "draw-shapes": {
     slug: "draw-shapes",
-    metaTitle: "Draw Shapes on Images - Add Circles, Arrows, Boxes Free | MultiToolsA",
+    metaTitle: "Draw Shapes on Images - Add Circles, Arrows, Boxes Free | Convert",
     metaDescription: "Draw shapes on photos and images. Add circles, rectangles, arrows, lines, and callouts for annotations. Free online shape drawing tool.",
     h1: "Draw Shapes — Annotate with Circles, Arrows & Callouts",
     shortIntro: "Add precise shapes to any image for professional annotations. Circles, rectangles, arrows, callouts, and more with full customization.",

@@ -9,7 +9,7 @@ export const premiumToolsSEOBatch7: Record<string, PremiumToolSEO> = {
   // ============================================
   "gif-to-png": {
     slug: "gif-to-png",
-    metaTitle: "GIF to PNG Converter - Convert GIF to PNG Free Online | MultiToolsA",
+    metaTitle: "GIF to PNG Converter - Convert GIF to PNG Free Online | Convert",
     metaDescription: "Convert GIF files to PNG format instantly. Extract frames from animated GIFs, preserve transparency, and get crystal-clear static images. Free online converter.",
     
     h1: "Convert GIF to PNG Online — Extract Perfect Static Images",
@@ -118,7 +118,7 @@ Our browser-based converter processes your files entirely on your device. The GI
   // ============================================
   "gif-to-jpg": {
     slug: "gif-to-jpg",
-    metaTitle: "GIF to JPG Converter - Convert GIF to JPEG Free Online | MultiToolsA",
+    metaTitle: "GIF to JPG Converter - Convert GIF to JPEG Free Online | Convert",
     metaDescription: "Transform GIF files to JPG/JPEG format instantly. Extract frames from animated GIFs, optimize for web and email, reduce file sizes. Free online converter.",
     
     h1: "Convert GIF to JPG Online — Create Compact JPEG Images",
@@ -225,7 +225,7 @@ Quality control matters in any conversion. Our tool lets you adjust the JPG comp
   // ============================================
   "bmp-to-jpg": {
     slug: "bmp-to-jpg",
-    metaTitle: "BMP to JPG Converter - Convert Bitmap to JPEG Free Online | MultiToolsA",
+    metaTitle: "BMP to JPG Converter - Convert Bitmap to JPEG Free Online | Convert",
     metaDescription: "Convert BMP bitmap files to compressed JPG/JPEG format instantly. Reduce file sizes by up to 95% while maintaining quality. Free online converter.",
     
     h1: "Convert BMP to JPG Online — Compress Bitmap Images",
@@ -330,7 +330,7 @@ The browser-based processing means your BMP files never leave your device. Large
   // ============================================
   "bmp-to-png": {
     slug: "bmp-to-png",
-    metaTitle: "BMP to PNG Converter - Convert Bitmap to PNG Free Online | MultiToolsA",
+    metaTitle: "BMP to PNG Converter - Convert Bitmap to PNG Free Online | Convert",
     metaDescription: "Convert BMP bitmap files to PNG format with lossless compression. Reduce file sizes while preserving perfect quality. Free online converter.",
     
     h1: "Convert BMP to PNG Online — Lossless Quality Compression",
@@ -437,7 +437,7 @@ File size reduction varies based on image content. Screenshots with large areas 
   // ============================================
   "raw-to-jpg": {
     slug: "raw-to-jpg",
-    metaTitle: "RAW to JPG Converter - Convert Camera RAW to JPEG Free Online | MultiToolsA",
+    metaTitle: "RAW to JPG Converter - Convert Camera RAW to JPEG Free Online | Convert",
     metaDescription: "Convert RAW camera files to JPG format instantly. Support for CR2, NEF, ARW, DNG, and more. Free online converter with quality control.",
     
     h1: "Convert RAW to JPG Online — Transform Camera Files Instantly",
@@ -542,7 +542,7 @@ The quality control balances detail preservation against file size. Higher setti
   // ============================================
   "add-transparency": {
     slug: "add-transparency",
-    metaTitle: "Add Transparency to Images - Create Transparent PNG Free Online | MultiToolsA",
+    metaTitle: "Add Transparency to Images - Create Transparent PNG Free Online | Convert",
     metaDescription: "Add transparency to any image instantly. Remove backgrounds, create transparent PNG files, make logos and graphics with clear backgrounds. Free online tool.",
     
     h1: "Add Transparency to Images — Create Transparent Graphics Online",
@@ -649,7 +649,7 @@ Color-to-alpha conversion offers another method. Select any color in your image,
   // ============================================
   "remove-transparency": {
     slug: "remove-transparency",
-    metaTitle: "Remove Transparency from Images - Add Solid Background Free Online | MultiToolsA",
+    metaTitle: "Remove Transparency from Images - Add Solid Background Free Online | Convert",
     metaDescription: "Remove transparency from PNG images by adding solid backgrounds. Convert transparent images for email, documents, and universal compatibility. Free online tool.",
     
     h1: "Remove Transparency — Add Solid Backgrounds to Images Online",
@@ -756,7 +756,7 @@ The conversion also affects file format options. Once transparency is removed, i
   // ============================================
   "flatten-image": {
     slug: "flatten-image",
-    metaTitle: "Flatten Image Tool - Merge Layers & Remove Transparency Free Online | MultiToolsA",
+    metaTitle: "Flatten Image Tool - Merge Layers & Remove Transparency Free Online | Convert",
     metaDescription: "Flatten images by merging all layers and removing transparency. Convert layered graphics to single-layer, solid-background images. Free online tool.",
     
     h1: "Flatten Image — Merge Layers and Create Solid Graphics Online",
@@ -863,7 +863,7 @@ Quality edge handling distinguishes professional flattening. Our algorithms prop
   // ============================================
   "collage-maker": {
     slug: "collage-maker",
-    metaTitle: "Photo Collage Maker - Create Beautiful Collages Free Online | MultiToolsA",
+    metaTitle: "Photo Collage Maker - Create Beautiful Collages Free Online | Convert",
     metaDescription: "Create stunning photo collages with our free online collage maker. Multiple layouts, custom spacing, backgrounds, and borders. No software needed.",
     
     h1: "Photo Collage Maker — Design Beautiful Multi-Photo Layouts",
@@ -971,7 +971,7 @@ Our tool handles practical concerns automatically. Various image sizes and orien
   // ============================================
   "image-to-qr-code": {
     slug: "image-to-qr-code",
-    metaTitle: "Image to QR Code Generator - Create Picture QR Codes Free Online | MultiToolsA",
+    metaTitle: "Image to QR Code Generator - Create Picture QR Codes Free Online | Convert",
     metaDescription: "Create QR codes that link to images or embed logos within QR codes. Custom colors, high-resolution output. Free online QR generator.",
     
     h1: "Image to QR Code Generator — Create Picture-Enhanced QR Codes",

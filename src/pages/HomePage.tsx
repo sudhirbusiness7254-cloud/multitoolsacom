@@ -202,7 +202,7 @@ const HomePage = () => {
   return (
     <>
       <Helmet>
-        <title>MultiToolsA - Free Online Image & PDF Tools | No Upload Required</title>
+        <title>Convert - Free Online Image & PDF Tools | No Upload Required</title>
         <meta name="description" content="Transform, compress, resize, and edit images directly in your browser. 100+ free professional tools with complete privacy - your files never leave your device. No signup required." />
         <meta name="keywords" content="online image tools, image converter, image compressor, PDF editor, photo editor, resize image, crop image, free image tools, browser-based image editing" />
         <link rel="canonical" href="https://multitoolsa.com/" />
@@ -211,22 +211,22 @@ const HomePage = () => {
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <meta name="googlebot" content="index, follow" />
         
-        <meta property="og:title" content="MultiToolsA - Free Browser-Based Image & PDF Tools" />
+        <meta property="og:title" content="Convert - Free Browser-Based Image & PDF Tools" />
         <meta property="og:description" content="Edit images privately in your browser. No uploads, no accounts, no limits. 100+ professional tools for free." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://multitoolsa.com/" />
         <meta property="og:image" content="https://multitoolsa.com/screenshot.png" />
-        <meta property="og:site_name" content="MultiToolsA" />
+        <meta property="og:site_name" content="Convert" />
         
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="MultiToolsA - Free Online Image Tools" />
+        <meta name="twitter:title" content="Convert - Free Online Image Tools" />
         <meta name="twitter:description" content="100+ free image editing tools. No uploads, complete privacy." />
         
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebApplication",
-            "name": "MultiToolsA",
+            "name": "Convert",
             "description": "Free browser-based image and PDF editing tools with complete privacy",
             "url": "https://multitoolsa.com",
             "applicationCategory": "UtilitiesApplication",
@@ -251,7 +251,7 @@ const HomePage = () => {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Organization",
-            "name": "MultiToolsA",
+            "name": "Convert",
             "url": "https://multitoolsa.com",
             "logo": "https://multitoolsa.com/logo.png",
             "description": "Free online image and PDF tools platform"
@@ -280,7 +280,7 @@ const HomePage = () => {
                 
                 {/* Engaging introduction - 3-5 sentences */}
                 <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto mb-4 leading-relaxed">
-                  Welcome to <strong>MultiToolsA</strong>, your trusted destination for over 100 professional-grade image editing and PDF tools. 
+                  Welcome to <strong>Convert</strong>, your trusted destination for over 100 professional-grade image editing and PDF tools. 
                   Every tool runs entirely in your browser, which means your files never leave your device and are never uploaded to any server.
                 </p>
                 <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
@@ -435,7 +435,7 @@ const HomePage = () => {
               <div className="text-center mb-12">
                 <h2 className="text-2xl sm:text-4xl font-bold mb-4">How Browser-Based Processing Works</h2>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                  Unlike traditional online tools, MultiToolsA processes everything locally on your device. 
+                  Unlike traditional online tools, Convert processes everything locally on your device. 
                   Here's why this matters for your privacy and speed.
                 </p>
               </div>
@@ -594,7 +594,7 @@ const HomePage = () => {
           {/* Why Choose Us - Trust signals */}
           <section className="py-12 sm:py-16 px-4 sm:px-6">
             <div className="container mx-auto max-w-6xl">
-              <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4">Why Thousands Choose MultiToolsA</h2>
+              <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4">Why Thousands Choose Convert</h2>
               <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
                 Professional-quality tools with uncompromising privacy. Here's what sets us apart from other online image editors.
               </p>
@@ -783,7 +783,7 @@ const HomePage = () => {
                 </Link>
               </div>
               <p className="text-sm text-muted-foreground mt-6">
-                Join thousands of users who trust MultiToolsA for their daily image editing needs
+                Join thousands of users who trust Convert for their daily image editing needs
               </p>
             </div>
           </section>

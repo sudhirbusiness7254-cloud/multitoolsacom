@@ -13,12 +13,12 @@ const faqCategories = [
     icon: <HelpCircle className="w-5 h-5" />,
     faqs: [
       {
-        question: "What is MultiToolsA?",
-        answer: "MultiToolsA is a comprehensive free online platform offering 100+ image editing, conversion, compression, and optimization tools. All our tools work directly in your browser without requiring any software installation, account registration, or file uploads to external servers. We provide professional-grade image processing capabilities completely free of charge, making advanced image editing accessible to everyone from professional designers to casual users."
+        question: "What is Convert?",
+        answer: "Convert is a comprehensive free online platform offering 100+ image editing, conversion, compression, and optimization tools. All our tools work directly in your browser without requiring any software installation, account registration, or file uploads to external servers. We provide professional-grade image processing capabilities completely free of charge, making advanced image editing accessible to everyone from professional designers to casual users."
       },
       {
-        question: "Is MultiToolsA really free to use?",
-        answer: "Yes, MultiToolsA is 100% free to use with no hidden costs, subscription fees, or premium tiers. All features are available to everyone without limitations. We believe that essential image editing tools should be accessible to all users regardless of their budget. There are no watermarks added to your images, no file size limits, and no daily usage caps."
+        question: "Is Convert really free to use?",
+        answer: "Yes, Convert is 100% free to use with no hidden costs, subscription fees, or premium tiers. All features are available to everyone without limitations. We believe that essential image editing tools should be accessible to all users regardless of their budget. There are no watermarks added to your images, no file size limits, and no daily usage caps."
       },
       {
         question: "Do I need to create an account to use the tools?",
@@ -26,11 +26,11 @@ const faqCategories = [
       },
       {
         question: "What devices and browsers are supported?",
-        answer: "MultiToolsA works on any modern web browser including Chrome, Firefox, Safari, Edge, and Opera on any device—Windows, Mac, Linux, iOS, and Android. Our tools are fully responsive and optimized for both desktop and mobile use, allowing you to edit images on your smartphone, tablet, laptop, or desktop computer with the same professional results."
+        answer: "Convert works on any modern web browser including Chrome, Firefox, Safari, Edge, and Opera on any device—Windows, Mac, Linux, iOS, and Android. Our tools are fully responsive and optimized for both desktop and mobile use, allowing you to edit images on your smartphone, tablet, laptop, or desktop computer with the same professional results."
       },
       {
-        question: "How is MultiToolsA different from other online image tools?",
-        answer: "MultiToolsA stands out through our commitment to privacy (all processing happens locally in your browser), our comprehensive toolset (100+ specialized tools), zero-friction access (no accounts or downloads required), and professional-quality results at no cost. Unlike many competitors, we never upload your images to external servers, ensuring your files remain completely private and secure."
+        question: "How is Convert different from other online image tools?",
+        answer: "Convert stands out through our commitment to privacy (all processing happens locally in your browser), our comprehensive toolset (100+ specialized tools), zero-friction access (no accounts or downloads required), and professional-quality results at no cost. Unlike many competitors, we never upload your images to external servers, ensuring your files remain completely private and secure."
       }
     ]
   },
@@ -41,15 +41,15 @@ const faqCategories = [
     faqs: [
       {
         question: "Are my images uploaded to your servers?",
-        answer: "No, absolutely not. All image processing happens entirely within your web browser using JavaScript and HTML5 Canvas technology. Your images never leave your device, are never transmitted over the internet, and are never stored on any server. This local processing approach ensures complete privacy and security for all your files, making MultiToolsA safe to use even with sensitive or confidential images."
+        answer: "No, absolutely not. All image processing happens entirely within your web browser using JavaScript and HTML5 Canvas technology. Your images never leave your device, are never transmitted over the internet, and are never stored on any server. This local processing approach ensures complete privacy and security for all your files, making Convert safe to use even with sensitive or confidential images."
       },
       {
         question: "How do you protect my privacy?",
         answer: "We protect your privacy through browser-based processing, meaning your files never leave your device. We don't collect personal information, don't require accounts, and don't track individual file operations. When you close your browser tab or navigate away, all image data is automatically cleared from memory. We use industry-standard encryption (HTTPS) for our website, but since no files are transmitted, there's nothing to intercept."
       },
       {
-        question: "Is it safe to use MultiToolsA for sensitive images?",
-        answer: "Yes, MultiToolsA is one of the safest options for processing sensitive images. Since all processing occurs locally in your browser and no files are uploaded to any server, your images remain completely private. This makes our tools suitable for processing confidential documents, personal photos, business assets, and any other sensitive visual content."
+        question: "Is it safe to use Convert for sensitive images?",
+        answer: "Yes, Convert is one of the safest options for processing sensitive images. Since all processing occurs locally in your browser and no files are uploaded to any server, your images remain completely private. This makes our tools suitable for processing confidential documents, personal photos, business assets, and any other sensitive visual content."
       },
       {
         question: "Do you store or sell user data?",
@@ -68,7 +68,7 @@ const faqCategories = [
     faqs: [
       {
         question: "What image formats can I convert between?",
-        answer: "MultiToolsA supports conversion between all major image formats including JPG/JPEG, PNG, WebP, GIF, BMP, TIFF, SVG, HEIC, and RAW formats. Popular conversions include JPG to PNG for transparency support, PNG to JPG for smaller file sizes, and conversion to WebP for modern web optimization. Each format has specific advantages for different use cases."
+        answer: "Convert supports conversion between all major image formats including JPG/JPEG, PNG, WebP, GIF, BMP, TIFF, SVG, HEIC, and RAW formats. Popular conversions include JPG to PNG for transparency support, PNG to JPG for smaller file sizes, and conversion to WebP for modern web optimization. Each format has specific advantages for different use cases."
       },
       {
         question: "Will I lose quality when converting images?",
@@ -121,8 +121,8 @@ const faqCategories = [
     icon: <FileText className="w-5 h-5" />,
     faqs: [
       {
-        question: "What editing features does MultiToolsA offer?",
-        answer: "MultiToolsA offers comprehensive editing including: resizing (exact, percentage, fit-to-dimensions), cropping (manual, aspect ratio, circle, square), rotation and flipping, filters and effects (brightness, contrast, saturation, blur, sharpen), watermarking (text and image), drawing and annotation, background removal, metadata editing, and image combining. Each feature is available as a dedicated, specialized tool."
+        question: "What editing features does Convert offer?",
+        answer: "Convert offers comprehensive editing including: resizing (exact, percentage, fit-to-dimensions), cropping (manual, aspect ratio, circle, square), rotation and flipping, filters and effects (brightness, contrast, saturation, blur, sharpen), watermarking (text and image), drawing and annotation, background removal, metadata editing, and image combining. Each feature is available as a dedicated, specialized tool."
       },
       {
         question: "Can I resize images without losing quality?",
@@ -160,8 +160,8 @@ const faqCategories = [
         answer: "Common causes include: corrupted image files, unsupported formats (try converting first), very large files exceeding device memory, browser issues (try refreshing or using a different browser), or privacy extensions blocking functionality. Ensure your file is a valid image format and try with a smaller test file to diagnose the issue."
       },
       {
-        question: "Can I use MultiToolsA offline?",
-        answer: "Currently, MultiToolsA requires an internet connection to load the web application. However, once the page is loaded, processing happens locally and doesn't require ongoing connectivity. We're exploring Progressive Web App (PWA) capabilities that would enable offline use in future updates."
+        question: "Can I use Convert offline?",
+        answer: "Currently, Convert requires an internet connection to load the web application. However, once the page is loaded, processing happens locally and doesn't require ongoing connectivity. We're exploring Progressive Web App (PWA) capabilities that would enable offline use in future updates."
       },
       {
         question: "How do I report a bug or suggest a feature?",
@@ -191,12 +191,12 @@ const FAQPage = () => {
   return (
     <>
       <Helmet>
-        <title>Frequently Asked Questions - MultiToolsA | Image Tools FAQ</title>
-        <meta name="description" content="Find answers to common questions about MultiToolsA's free online image tools. Learn about image conversion, compression, privacy, security, and how to use our 100+ tools." />
-        <meta name="keywords" content="MultiToolsA FAQ, image tools help, image converter questions, compression help, online image editor FAQ, free tools support" />
+        <title>Frequently Asked Questions - Convert | Image Tools FAQ</title>
+        <meta name="description" content="Find answers to common questions about Convert's free online image tools. Learn about image conversion, compression, privacy, security, and how to use our 100+ tools." />
+        <meta name="keywords" content="Convert FAQ, image tools help, image converter questions, compression help, online image editor FAQ, free tools support" />
         <link rel="canonical" href="https://multitoolsa.com/faq" />
         
-        <meta property="og:title" content="FAQ - MultiToolsA Image Tools" />
+        <meta property="og:title" content="FAQ - Convert Image Tools" />
         <meta property="og:description" content="Get answers to frequently asked questions about our free online image tools." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://multitoolsa.com/faq" />
@@ -225,7 +225,7 @@ const FAQPage = () => {
                 Frequently Asked Questions
               </h1>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Find answers to common questions about MultiToolsA's free online image tools. 
+                Find answers to common questions about Convert's free online image tools. 
                 Can't find what you're looking for? <Link to="/contact" className="text-primary hover:underline">Contact us</Link>.
               </p>
             </div>

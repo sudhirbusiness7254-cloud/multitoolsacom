@@ -8,8 +8,8 @@ const DisclaimerPage = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <Helmet>
-        <title>Disclaimer - MultiToolsA | Legal Information</title>
-        <meta name="description" content="Read the MultiToolsA disclaimer. Understand the terms of use for our free online image tools, limitations of liability, and third-party content policies." />
+        <title>Disclaimer - Convert | Legal Information</title>
+        <meta name="description" content="Read the Convert disclaimer. Understand the terms of use for our free online image tools, limitations of liability, and third-party content policies." />
         <link rel="canonical" href="https://multitoolsa.com/disclaimer" />
       </Helmet>
       <HreflangTags path="/disclaimer" />
@@ -24,7 +24,7 @@ const DisclaimerPage = () => {
             <section>
               <h2 className="text-2xl font-bold mb-4">General Disclaimer</h2>
               <p className="text-muted-foreground leading-relaxed">
-                The information and tools provided on MultiToolsA (multitoolsa.com) are offered on an "as is" and "as available" basis 
+                The information and tools provided on Convert (multitoolsa.com) are offered on an "as is" and "as available" basis 
                 for general informational and utility purposes only. While we strive to ensure our image processing tools function correctly 
                 and deliver high-quality results, we make no warranties or representations of any kind, express or implied, about the completeness, 
                 accuracy, reliability, suitability, or availability of the website or the tools provided.
@@ -52,7 +52,7 @@ const DisclaimerPage = () => {
             <section>
               <h2 className="text-2xl font-bold mb-4">Limitation of Liability</h2>
               <p className="text-muted-foreground leading-relaxed">
-                In no event shall MultiToolsA, its owners, operators, or contributors be liable for any direct, indirect, incidental, 
+                In no event shall Convert, its owners, operators, or contributors be liable for any direct, indirect, incidental, 
                 consequential, special, or exemplary damages arising out of or in connection with your use of this website or its tools. 
                 This includes, but is not limited to, loss of data, loss of profits, or damage to your device or files.
               </p>
@@ -61,7 +61,7 @@ const DisclaimerPage = () => {
             <section>
               <h2 className="text-2xl font-bold mb-4">Third-Party Content and Links</h2>
               <p className="text-muted-foreground leading-relaxed">
-                Our website may contain links to third-party websites or services that are not owned or controlled by MultiToolsA. 
+                Our website may contain links to third-party websites or services that are not owned or controlled by Convert. 
                 We have no control over, and assume no responsibility for, the content, privacy policies, or practices of any third-party websites. 
                 We strongly advise you to read the terms and privacy policies of any third-party websites you visit.
               </p>
@@ -72,7 +72,7 @@ const DisclaimerPage = () => {
               <p className="text-muted-foreground leading-relaxed">
                 This website displays advertisements provided by third-party advertising networks, including Google AdSense. 
                 These advertisements help us maintain and improve our free tools. We are not responsible for the content of third-party advertisements 
-                or the products and services they promote. Ad presence does not imply endorsement by MultiToolsA.
+                or the products and services they promote. Ad presence does not imply endorsement by Convert.
               </p>
             </section>
 
@@ -80,7 +80,7 @@ const DisclaimerPage = () => {
               <h2 className="text-2xl font-bold mb-4">Intellectual Property</h2>
               <p className="text-muted-foreground leading-relaxed">
                 Users are solely responsible for ensuring they have the right to process any images or files using our tools. 
-                MultiToolsA does not claim ownership of any content you process. You should not use our tools to process copyrighted material 
+                Convert does not claim ownership of any content you process. You should not use our tools to process copyrighted material 
                 without proper authorization from the copyright holder.
               </p>
             </section>

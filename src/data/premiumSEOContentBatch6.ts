@@ -9,7 +9,7 @@ export const premiumToolsSEOBatch6: Record<string, PremiumToolSEO> = {
   // ============================================
   "tiff-to-jpg": {
     slug: "tiff-to-jpg",
-    metaTitle: "TIFF to JPG Converter - Convert TIF Files Free Online | MultiToolsA",
+    metaTitle: "TIFF to JPG Converter - Convert TIF Files Free Online | Convert",
     metaDescription: "Convert TIFF to JPG instantly. Free online converter preserves quality while creating universally compatible JPG files. No signup, no software needed.",
     
     h1: "Convert TIFF to JPG Online — Free & Instant",
@@ -131,7 +131,7 @@ The entire process happens locally in your browser using WebAssembly technology.
   // ============================================
   "tiff-to-png": {
     slug: "tiff-to-png",
-    metaTitle: "TIFF to PNG Converter - Convert TIF to PNG Free Online | MultiToolsA",
+    metaTitle: "TIFF to PNG Converter - Convert TIF to PNG Free Online | Convert",
     metaDescription: "Convert TIFF to PNG with transparency support. Free online converter preserves quality and alpha channels. No signup required.",
     
     h1: "Convert TIFF to PNG Online — Free with Transparency",
@@ -255,7 +255,7 @@ All processing happens locally in your browser. Your TIFF files are never upload
   // ============================================
   "svg-to-png": {
     slug: "svg-to-png",
-    metaTitle: "SVG to PNG Converter - Rasterize Vector Graphics Free | MultiToolsA",
+    metaTitle: "SVG to PNG Converter - Rasterize Vector Graphics Free | Convert",
     metaDescription: "Convert SVG to PNG at any resolution. Free online tool rasterizes vector graphics with transparency. Custom dimensions, no signup required.",
     
     h1: "Convert SVG to PNG Online — Any Size, Free",
@@ -384,7 +384,7 @@ All processing happens locally in your browser using the Canvas API for accurate
   // ============================================
   "heic-to-jpg": {
     slug: "heic-to-jpg",
-    metaTitle: "HEIC to JPG Converter - Convert iPhone Photos Free | MultiToolsA",
+    metaTitle: "HEIC to JPG Converter - Convert iPhone Photos Free | Convert",
     metaDescription: "Convert HEIC photos from iPhone to JPG instantly. Free online converter, no software needed. Works on Windows, Android, and any browser.",
     
     h1: "Convert HEIC to JPG Online — iPhone Photos Made Universal",
@@ -511,7 +511,7 @@ All processing happens locally in your browser using WebAssembly-based HEIC deco
   // ============================================
   "edit-exif-datetime": {
     slug: "edit-exif-datetime",
-    metaTitle: "Edit Photo Date & Time - Change EXIF DateTime Free | MultiToolsA",
+    metaTitle: "Edit Photo Date & Time - Change EXIF DateTime Free | Convert",
     metaDescription: "Change photo dates and timestamps in EXIF data. Free online tool to correct camera dates, batch adjust times. No software needed.",
     
     h1: "Edit Photo Date & Time — Change EXIF Timestamps Free",
@@ -650,7 +650,7 @@ All processing happens locally in your browser. Your photos are never uploaded a
   // ============================================
   "copy-exif": {
     slug: "copy-exif",
-    metaTitle: "Copy EXIF Data Between Photos - Transfer Metadata Free | MultiToolsA",
+    metaTitle: "Copy EXIF Data Between Photos - Transfer Metadata Free | Convert",
     metaDescription: "Copy EXIF metadata from one photo to another. Transfer camera settings, dates, GPS location. Free online tool, no software needed.",
     
     h1: "Copy EXIF Metadata Between Photos — Free Transfer Tool",
@@ -795,7 +795,7 @@ All processing happens locally in your browser. Neither source nor target photos
   // ============================================
   "sharpen-filter": {
     slug: "sharpen-filter",
-    metaTitle: "Sharpen Image Online - Enhance Photo Clarity Free | MultiToolsA",
+    metaTitle: "Sharpen Image Online - Enhance Photo Clarity Free | Convert",
     metaDescription: "Sharpen blurry photos and enhance image clarity. Free online tool with adjustable strength. No signup, works on all devices.",
     
     h1: "Sharpen Images Online — Enhance Clarity Free",
@@ -934,7 +934,7 @@ All processing happens locally in your browser using hardware-accelerated algori
   // ============================================
   "blur-filter": {
     slug: "blur-filter",
-    metaTitle: "Blur Image Online - Add Blur Effect Free | MultiToolsA",
+    metaTitle: "Blur Image Online - Add Blur Effect Free | Convert",
     metaDescription: "Add blur effects to images. Gaussian blur, motion blur, and more. Free online tool with adjustable intensity. No signup required.",
     
     h1: "Blur Images Online — Free Blur Effect Tool",
@@ -1079,7 +1079,7 @@ All processing happens locally in your browser using hardware-accelerated algori
   // ============================================
   "vintage-filter": {
     slug: "vintage-filter",
-    metaTitle: "Vintage Filter - Add Retro Photo Effect Free | MultiToolsA",
+    metaTitle: "Vintage Filter - Add Retro Photo Effect Free | Convert",
     metaDescription: "Transform photos with vintage and retro effects. Free online tool with adjustable intensity. Create nostalgic, film-like looks instantly.",
     
     h1: "Add Vintage Effect to Photos — Free Retro Filter",
@@ -1223,7 +1223,7 @@ All processing happens locally in your browser. Your photos are never uploaded a
   // ============================================
   "negative-image": {
     slug: "negative-image",
-    metaTitle: "Negative Image Effect - Invert Photo Colors Free | MultiToolsA",
+    metaTitle: "Negative Image Effect - Invert Photo Colors Free | Convert",
     metaDescription: "Create negative/inverted images by reversing colors. Free online tool for artistic effects and film negative simulation. No signup needed.",
     
     h1: "Create Negative Images — Invert Photo Colors Free",

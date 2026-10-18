@@ -206,12 +206,12 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
     "featureList": seoContent.benefits.join(", "),
     "author": {
       "@type": "Organization",
-      "name": "MultiToolsA",
+      "name": "Convert",
       "url": "https://multitoolsa.com"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "MultiToolsA",
+      "name": "Convert",
       "url": "https://multitoolsa.com",
       "logo": {
         "@type": "ImageObject",
@@ -306,16 +306,16 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
     "representativeOfPage": true,
     "creator": {
       "@type": "Organization",
-      "name": "MultiToolsA",
+      "name": "Convert",
       "url": "https://multitoolsa.com"
     },
     "copyrightHolder": {
       "@type": "Organization",
-      "name": "MultiToolsA"
+      "name": "Convert"
     },
     "license": "https://multitoolsa.com/terms",
     "acquireLicensePage": "https://multitoolsa.com/terms",
-    "creditText": "MultiToolsA Free Online Tools",
+    "creditText": "Convert Free Online Tools",
     "thumbnail": {
       "@type": "ImageObject",
       "contentUrl": ogImageUrl,
@@ -748,11 +748,11 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
         <meta property="og:description" content={comprehensiveContent?.metaDescription || seoContent.metaDescription} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={canonicalUrl} />
-        <meta property="og:site_name" content="MultiToolsA" />
+        <meta property="og:site_name" content="Convert" />
         <meta property="og:image" content={ogImageUrl} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content={`${seoContent.title} - Free Online Tool | MultiToolsA`} />
+        <meta property="og:image:alt" content={`${seoContent.title} - Free Online Tool | Convert`} />
         <meta property="og:locale" content="en_US" />
         
         {/* Twitter Card Meta Tags */}
@@ -762,7 +762,7 @@ const SEOToolPage = ({ seoContent, children }: SEOToolPageProps) => {
         <meta name="twitter:title" content={comprehensiveContent?.metaTitle || seoContent.metaTitle} />
         <meta name="twitter:description" content={comprehensiveContent?.metaDescription || seoContent.metaDescription} />
         <meta name="twitter:image" content={ogImageUrl} />
-        <meta name="twitter:image:alt" content={`${seoContent.title} - Free Online Tool | MultiToolsA`} />
+        <meta name="twitter:image:alt" content={`${seoContent.title} - Free Online Tool | Convert`} />
         
         {/* Additional Social Meta */}
         <meta property="article:publisher" content="https://multitoolsa.com" />

@@ -8,8 +8,8 @@ const AdPlacementGuidePage = () => {
   return (
     <>
       <Helmet>
-        <title>Ad Placement Guidelines - MultiToolsA</title>
-        <meta name="description" content="Guidelines for advertisement placement on MultiToolsA. Learn about safe ad zones, prohibited areas, and best practices for ad integration." />
+        <title>Ad Placement Guidelines - Convert</title>
+        <meta name="description" content="Guidelines for advertisement placement on Convert. Learn about safe ad zones, prohibited areas, and best practices for ad integration." />
         <meta name="robots" content="noindex" />
         <link rel="canonical" href="https://multitoolsa.com/ad-placement-guide" />
       </Helmet>

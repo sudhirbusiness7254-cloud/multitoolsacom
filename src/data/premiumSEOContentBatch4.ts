@@ -11,7 +11,7 @@ export const premiumToolsSEOBatch4: Record<string, PremiumToolSEO> = {
   "webp-to-jpg": {
     slug: "webp-to-jpg",
     
-    metaTitle: "WebP to JPG Converter - Free Online, No Upload | MultiToolsA",
+    metaTitle: "WebP to JPG Converter - Free Online, No Upload | Convert",
     metaDescription: "Convert WebP images to JPG format instantly. Free online converter, no signup needed. Maintains quality, works on all devices. 100% private browser processing.",
     
     h1: "Convert WebP to JPG Online — Free & Instant",
@@ -138,7 +138,7 @@ The tool works equally well on Windows, macOS, Linux, iOS, and Android. Any devi
   "png-to-webp": {
     slug: "png-to-webp",
     
-    metaTitle: "PNG to WebP Converter - Reduce Size 50%+ Free | MultiToolsA",
+    metaTitle: "PNG to WebP Converter - Reduce Size 50%+ Free | Convert",
     metaDescription: "Convert PNG to WebP and reduce file size by 50%+ while keeping transparency. Free online tool, no signup. Instant browser processing, complete privacy.",
     
     h1: "Convert PNG to WebP Online — Smaller Files, Same Quality",
@@ -267,7 +267,7 @@ The conversion runs entirely within your web browser using Canvas and Blob APIs.
   "image-watermark": {
     slug: "image-watermark",
     
-    metaTitle: "Image Watermark Tool - Add Logo Watermarks Free | MultiToolsA",
+    metaTitle: "Image Watermark Tool - Add Logo Watermarks Free | Convert",
     metaDescription: "Add image or logo watermarks to photos free. Adjustable position, size, opacity. Batch processing supported. No signup, complete privacy. Browser-based tool.",
     
     h1: "Add Image Watermarks to Photos — Free Online Tool",
@@ -404,7 +404,7 @@ Whether you're watermarking a single hero image or processing an entire product 
   "square-crop": {
     slug: "square-crop",
     
-    metaTitle: "Square Crop Image - 1:1 Crop Tool Free Online | MultiToolsA",
+    metaTitle: "Square Crop Image - 1:1 Crop Tool Free Online | Convert",
     metaDescription: "Crop images to perfect squares for Instagram, profile pictures, and social media. Free 1:1 aspect ratio crop tool, no signup. Browser-based, instant results.",
     
     h1: "Square Crop Images Online — Perfect 1:1 Ratio",
@@ -551,7 +551,7 @@ This browser-based approach provides several key advantages:
   "flip-vertical": {
     slug: "flip-vertical",
     
-    metaTitle: "Flip Image Vertically - Mirror Upside Down Free | MultiToolsA",
+    metaTitle: "Flip Image Vertically - Mirror Upside Down Free | Convert",
     metaDescription: "Flip images upside down with vertical mirroring. Free online tool, instant results. Perfect for reflections, corrections, and creative effects. No signup needed.",
     
     h1: "Flip Images Vertically — Mirror Upside Down",
@@ -695,7 +695,7 @@ This browser-based approach ensures:
   "rotate-180": {
     slug: "rotate-180",
     
-    metaTitle: "Rotate Image 180 Degrees - Turn Upside Down Free | MultiToolsA",
+    metaTitle: "Rotate Image 180 Degrees - Turn Upside Down Free | Convert",
     metaDescription: "Rotate images 180° to turn them upside down. Free online tool, instant processing. Fix orientation, correct inverted photos. No signup, browser-based.",
     
     h1: "Rotate Images 180 Degrees — Turn Upside Down",
@@ -843,7 +843,7 @@ This browser-based approach guarantees:
   "rotate-270": {
     slug: "rotate-270",
     
-    metaTitle: "Rotate Image 270 Degrees - Turn Left 90° Free | MultiToolsA",
+    metaTitle: "Rotate Image 270 Degrees - Turn Left 90° Free | Convert",
     metaDescription: "Rotate images 270° (90° counterclockwise). Free online tool, instant processing. Fix orientation, prepare photos for specific layouts. No signup required.",
     
     h1: "Rotate Images 270 Degrees — Turn Left 90°",
@@ -992,7 +992,7 @@ This browser-based approach guarantees complete privacy, instant processing, no 
   "fit-to-box": {
     slug: "fit-to-box",
     
-    metaTitle: "Fit Image to Box - Resize Within Dimensions Free | MultiToolsA",
+    metaTitle: "Fit Image to Box - Resize Within Dimensions Free | Convert",
     metaDescription: "Fit images within maximum width and height while maintaining aspect ratio. Free online tool, instant results. Perfect for thumbnails and layouts. No signup.",
     
     h1: "Fit Images to Box — Maintain Aspect Ratio",
@@ -1140,7 +1140,7 @@ The processing occurs entirely within your browser using Canvas APIs with qualit
   "grayscale-conversion": {
     slug: "grayscale-conversion",
     
-    metaTitle: "Convert Image to Grayscale - Black and White Free | MultiToolsA",
+    metaTitle: "Convert Image to Grayscale - Black and White Free | Convert",
     metaDescription: "Convert color images to grayscale instantly. Free online tool, professional quality. Perfect for artistic effects, printing, and design. No signup required.",
     
     h1: "Convert Images to Grayscale — Professional Quality",
@@ -1283,7 +1283,7 @@ The processing occurs entirely in your browser using Canvas APIs with proper col
   "brightness-adjust": {
     slug: "brightness-adjust",
     
-    metaTitle: "Adjust Image Brightness - Lighten or Darken Free | MultiToolsA",
+    metaTitle: "Adjust Image Brightness - Lighten or Darken Free | Convert",
     metaDescription: "Brighten or darken images with precise control. Free online tool, instant preview. Fix underexposed or overexposed photos. No signup, browser-based processing.",
     
     h1: "Adjust Image Brightness — Lighten or Darken Photos",

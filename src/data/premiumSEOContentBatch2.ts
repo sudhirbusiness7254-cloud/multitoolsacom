@@ -25,7 +25,7 @@ export interface PremiumToolSEO {
 // Compress PDF - Premium SEO Content
 export const compressPdfPremiumSEO: PremiumToolSEO = {
   slug: "compress-pdf",
-  metaTitle: "Compress PDF Online Free — Reduce PDF Size Up to 90% | MultiToolsA",
+  metaTitle: "Compress PDF Online Free — Reduce PDF Size Up to 90% | Convert",
   metaDescription: "Compress PDF files instantly with our free online tool. Reduce PDF size by up to 90% while maintaining quality. No signup, works in browser.",
   h1: "Compress PDF Online — Reduce File Size Instantly",
   
@@ -127,7 +127,7 @@ Cross-platform compatibility ensures your compressed PDFs work perfectly everywh
 // PNG Compressor - Premium SEO Content
 export const pngCompressorPremiumSEO: PremiumToolSEO = {
   slug: "png-compressor",
-  metaTitle: "Compress PNG Online Free — Reduce PNG Size 80% | MultiToolsA",
+  metaTitle: "Compress PNG Online Free — Reduce PNG Size 80% | Convert",
   metaDescription: "Compress PNG images up to 80% smaller with our free online tool. Maintain transparency and quality. No signup required, instant results.",
   h1: "Compress PNG Images — Reduce Size While Keeping Transparency",
   
@@ -229,7 +229,7 @@ Batch processing capabilities let you optimize entire icon sets, image galleries
 // Split PDF - Premium SEO Content
 export const splitPdfPremiumSEO: PremiumToolSEO = {
   slug: "split-pdf",
-  metaTitle: "Split PDF Online Free — Extract Pages from PDF | MultiToolsA",
+  metaTitle: "Split PDF Online Free — Extract Pages from PDF | Convert",
   metaDescription: "Split PDF files into separate pages or custom ranges. Extract specific pages from any PDF. Free online tool, no signup, instant results.",
   h1: "Split PDF Online — Extract Pages Instantly",
   
@@ -331,7 +331,7 @@ Batch operations let you define multiple split operations and execute them toget
 // Crop Image - Premium SEO Content
 export const cropImagePremiumSEO: PremiumToolSEO = {
   slug: "manual-crop",
-  metaTitle: "Crop Image Online Free — Custom Image Cropping Tool | MultiToolsA",
+  metaTitle: "Crop Image Online Free — Custom Image Cropping Tool | Convert",
   metaDescription: "Crop images online with precise control. Custom aspect ratios, preset sizes for social media. Free, instant, works in your browser.",
   h1: "Crop Image Online — Precise Custom Cropping",
   
@@ -433,7 +433,7 @@ Support extends to all common image formats including high-resolution files from
 // Rotate Image - Premium SEO Content
 export const rotateImagePremiumSEO: PremiumToolSEO = {
   slug: "rotate-90",
-  metaTitle: "Rotate Image Online Free — Flip & Turn Photos | MultiToolsA",
+  metaTitle: "Rotate Image Online Free — Flip & Turn Photos | Convert",
   metaDescription: "Rotate images 90°, 180°, or custom angles. Flip horizontally or vertically. Free online tool, instant results, works in browser.",
   h1: "Rotate Image Online — Fix Orientation Instantly",
   
@@ -535,7 +535,7 @@ Batch rotation capabilities let you apply the same rotation to multiple images s
 // WebP Compressor - Premium SEO Content
 export const webpCompressorPremiumSEO: PremiumToolSEO = {
   slug: "webp-compressor",
-  metaTitle: "Compress WebP Online Free — Reduce WebP File Size | MultiToolsA",
+  metaTitle: "Compress WebP Online Free — Reduce WebP File Size | Convert",
   metaDescription: "Compress WebP images while maintaining quality. Reduce file size up to 70%. Free online tool, instant processing, no signup required.",
   h1: "Compress WebP Images — Smaller Files, Same Quality",
   
