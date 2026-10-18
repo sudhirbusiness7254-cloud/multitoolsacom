@@ -7,8 +7,8 @@ const Privacy = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <Helmet>
-        <title>Privacy Policy - MultiToolsA | Your Data Protection Rights</title>
-        <meta name="description" content="Learn how MultiToolsA protects your privacy. Our comprehensive privacy policy explains data collection, usage, security measures, and your rights." />
+        <title>Privacy Policy - Convert | Your Data Protection Rights</title>
+        <meta name="description" content="Learn how Convert protects your privacy. Our comprehensive privacy policy explains data collection, usage, security measures, and your rights." />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://multitoolsa.com/privacy" />
       </Helmet>
@@ -29,10 +29,10 @@ const Privacy = () => {
             <section>
               <h2 className="text-2xl font-bold text-foreground mb-4">1. Introduction and Overview</h2>
               <p className="text-muted-foreground mb-4">
-                Welcome to MultiToolsA ("we," "our," or "us"). We are committed to protecting your personal information and your right to privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website multitoolsa.com and use our image processing and conversion tools.
+                Welcome to Convert ("we," "our," or "us"). We are committed to protecting your personal information and your right to privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website multitoolsa.com and use our image processing and conversion tools.
               </p>
               <p className="text-muted-foreground mb-4">
-                MultiToolsA provides a comprehensive suite of free online image tools including image compression, format conversion, resizing, cropping, watermarking, metadata extraction, QR code generation, and various other image manipulation utilities. Our tools are designed to process your images directly in your browser, ensuring maximum privacy and security.
+                Convert provides a comprehensive suite of free online image tools including image compression, format conversion, resizing, cropping, watermarking, metadata extraction, QR code generation, and various other image manipulation utilities. Our tools are designed to process your images directly in your browser, ensuring maximum privacy and security.
               </p>
               <p className="text-muted-foreground">
                 By using our website and services, you consent to the data practices described in this policy. If you do not agree with the terms of this privacy policy, please do not access the site or use our services.
@@ -86,7 +86,7 @@ const Privacy = () => {
             <section>
               <h2 className="text-2xl font-bold text-foreground mb-4">4. Image Processing and Data Security</h2>
               <p className="text-muted-foreground mb-4">
-                <strong>Client-Side Processing:</strong> All image processing on MultiToolsA occurs directly in your web browser using JavaScript and HTML5 Canvas technology. This means your images are never uploaded to our servers for processing. The images remain on your device throughout the entire processing workflow.
+                <strong>Client-Side Processing:</strong> All image processing on Convert occurs directly in your web browser using JavaScript and HTML5 Canvas technology. This means your images are never uploaded to our servers for processing. The images remain on your device throughout the entire processing workflow.
               </p>
               <p className="text-muted-foreground mb-4">
                 <strong>No Image Storage:</strong> We do not store, save, or retain any images that you process using our tools. Once you close your browser tab or navigate away from our website, all processed images are automatically cleared from browser memory.
@@ -197,10 +197,10 @@ const Privacy = () => {
                 If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:
               </p>
               <div className="bg-muted/30 rounded-lg p-4 space-y-2 text-muted-foreground">
-                <p><strong>MultiToolsA</strong></p>
+                <p><strong>Convert</strong></p>
                 <p>Email: <a href="mailto:info@multitoolsa.com" className="text-accent hover:underline">info@multitoolsa.com</a></p>
                 <p>Phone: <a href="tel:+9779763567489" className="text-accent hover:underline">+977 9763567489</a></p>
-                <p>Website: <a href="https://multitoolsa.com" aria-label="Visit MultiToolsA homepage" className="text-accent hover:underline">Visit MultiToolsA homepage</a></p>
+                <p>Website: <a href="https://multitoolsa.com" aria-label="Visit Convert homepage" className="text-accent hover:underline">Visit Convert homepage</a></p>
               </div>
               <p className="text-muted-foreground mt-4">
                 We will respond to your inquiry within 30 days of receipt.

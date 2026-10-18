@@ -159,7 +159,7 @@ Load images only when needed:
 
 Image compression is both an art and a science. The key is finding the right balance between file size and visual quality for your specific use case. By understanding the different compression techniques and formats, you can significantly improve your website's performance while maintaining excellent visual quality.
 
-At MultiToolsA, we provide free tools for all your image compression needs. Whether you need to compress JPEG, PNG, WebP, or any other format, our browser-based tools make it easy to optimize your images without uploading them to any server.
+At Convert, we provide free tools for all your image compression needs. Whether you need to compress JPEG, PNG, WebP, or any other format, our browser-based tools make it easy to optimize your images without uploading them to any server.
 
 Start optimizing your images today and experience faster loading times and better user experience!
     `
@@ -349,7 +349,7 @@ There's no one-size-fits-all image format. The best choice depends on your speci
 - **WebP** for modern websites prioritizing performance
 - **GIF** for simple animations (consider WebP as alternative)
 
-At MultiToolsA, we provide free tools to convert between all these formats, helping you choose and use the right format for every situation.
+At Convert, we provide free tools to convert between all these formats, helping you choose and use the right format for every situation.
     `
   },
   "optimize-images-website-speed": {
@@ -469,7 +469,7 @@ CDNs provide:
 
 ### Online Tools
 
-1. **MultiToolsA**: Free browser-based compression
+1. **Convert**: Free browser-based compression
 2. **TinyPNG/TinyJPG**: Quick compression
 3. **Squoosh**: Google's advanced tool
 
@@ -538,7 +538,7 @@ Image optimization is one of the most impactful improvements you can make to you
 
 Start with the quick wins: compress your images, add lazy loading, and ensure you're using the right formats. Then gradually implement more advanced techniques for maximum performance gains.
 
-Use MultiToolsA's free image tools to compress, resize, and convert your images for optimal web performance. All processing happens in your browser, ensuring your images stay private and secure.
+Use Convert's free image tools to compress, resize, and convert your images for optimal web performance. All processing happens in your browser, ensuring your images stay private and secure.
     `
   },
   "watermark-images-protect-photos": {
@@ -725,7 +725,7 @@ It's important to note:
 
 ## Tools for Adding Watermarks
 
-### MultiToolsA Watermark Tool
+### Convert Watermark Tool
 
 Our free online tool offers:
 - Text and image watermarks
@@ -769,7 +769,7 @@ Our free online tool offers:
 
 Watermarking is an important practice for protecting your creative work while building your brand. The key is finding the right balance between visibility and subtlety.
 
-Use MultiToolsA's free watermarking tool to add professional watermarks to your images. Our browser-based tool ensures your images stay private while giving you full control over watermark placement, opacity, and style.
+Use Convert's free watermarking tool to add professional watermarks to your images. Our browser-based tool ensures your images stay private while giving you full control over watermark placement, opacity, and style.
 
 Protect your work, build your brand, and share your images with confidence!
     `
@@ -960,7 +960,7 @@ Using correctly sized images on social media:
 - Check mobile preview
 - Account for overlay text
 
-## Using MultiToolsA for Social Media
+## Using Convert for Social Media
 
 Our free tools help you:
 1. **Resize**: Exact dimensions for any platform
@@ -970,7 +970,7 @@ Our free tools help you:
 
 ## Conclusion
 
-Using correctly sized images is crucial for professional social media presence. Bookmark this guide for quick reference, and use MultiToolsA's free resizing tools to get perfect dimensions every time.
+Using correctly sized images is crucial for professional social media presence. Bookmark this guide for quick reference, and use Convert's free resizing tools to get perfect dimensions every time.
 
 Our browser-based tools make it easy to resize, crop, and optimize images for any social media platform. No uploads required – your images stay private and secure!
     `
@@ -1094,13 +1094,13 @@ Bad actors could use this for:
 
 ### Online Tools
 
-- Use MultiToolsA's Metadata Viewer
+- Use Convert's Metadata Viewer
 - View all embedded data
 - Completely private (browser-based)
 
 ## Removing Metadata
 
-### Using MultiToolsA
+### Using Convert
 
 Our free tool offers:
 1. Upload your image (processed locally)
@@ -1198,7 +1198,7 @@ Sometimes metadata is valuable:
 
 Image metadata is a privacy risk that many people overlook. The hidden data in your photos can reveal sensitive information about your location, habits, and devices. Taking a few seconds to remove this data before sharing can protect your privacy significantly.
 
-Use MultiToolsA's free metadata viewer and remover to check and clean your images. Our browser-based tool ensures your images never leave your device, providing maximum privacy while you protect your privacy.
+Use Convert's free metadata viewer and remover to check and clean your images. Our browser-based tool ensures your images never leave your device, providing maximum privacy while you protect your privacy.
 
 Stay safe, stay private, and always check your photo metadata before sharing!
     `
@@ -1551,7 +1551,7 @@ const BlogPost = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <Helmet>
-        <title>{post.title} - MultiToolsA Blog</title>
+        <title>{post.title} - Convert Blog</title>
         <meta name="description" content={post.excerpt} />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href={canonicalUrl} />
@@ -1575,12 +1575,12 @@ const BlogPost = () => {
             "author": {
               "@type": "Person",
               "name": post.author,
-              "jobTitle": authorProfile?.role || "MultiToolsA Editorial Contributor",
-              "description": authorProfile?.bio || "Contributor to MultiToolsA's practical image, document, SEO, and privacy guides."
+              "jobTitle": authorProfile?.role || "Convert Editorial Contributor",
+              "description": authorProfile?.bio || "Contributor to Convert's practical image, document, SEO, and privacy guides."
             },
             "publisher": {
               "@type": "Organization",
-              "name": "MultiToolsA",
+              "name": "Convert",
               "logo": {
                 "@type": "ImageObject",
                 "url": "https://multitoolsa.com/logo.png"

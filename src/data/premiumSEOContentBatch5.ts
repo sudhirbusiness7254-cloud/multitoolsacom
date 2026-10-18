@@ -11,7 +11,7 @@ export const premiumToolsSEOBatch5: Record<string, PremiumToolSEO> = {
   "webp-to-png": {
     slug: "webp-to-png",
     
-    metaTitle: "WebP to PNG Converter - Keep Transparency Free | MultiToolsA",
+    metaTitle: "WebP to PNG Converter - Keep Transparency Free | Convert",
     metaDescription: "Convert WebP images to PNG format with full transparency support. Free online tool, no signup. Instant browser processing, complete privacy guaranteed.",
     
     h1: "Convert WebP to PNG Online — Preserve Transparency",
@@ -155,7 +155,7 @@ This browser-based approach ensures instant results (no upload/download delays),
   "jpg-to-webp": {
     slug: "jpg-to-webp",
     
-    metaTitle: "JPG to WebP Converter - Reduce Size 30%+ Free | MultiToolsA",
+    metaTitle: "JPG to WebP Converter - Reduce Size 30%+ Free | Convert",
     metaDescription: "Convert JPG to WebP and reduce file size by 30%+ without quality loss. Free online tool, instant results. Improve website speed. No signup required.",
     
     h1: "Convert JPG to WebP Online — Smaller Files, Same Quality",
@@ -297,7 +297,7 @@ All modern browsers—Chrome, Firefox, Safari, Edge, and their mobile versions�
   "contrast-adjust": {
     slug: "contrast-adjust",
     
-    metaTitle: "Adjust Image Contrast - Increase or Decrease Free | MultiToolsA",
+    metaTitle: "Adjust Image Contrast - Increase or Decrease Free | Convert",
     metaDescription: "Adjust image contrast to make photos pop or soften harsh lighting. Free online tool with real-time preview. Fix flat or harsh images. No signup required.",
     
     h1: "Adjust Image Contrast — Make Photos Pop",
@@ -445,7 +445,7 @@ The processing occurs entirely within your browser using Canvas APIs. Your image
   "saturation-adjust": {
     slug: "saturation-adjust",
     
-    metaTitle: "Adjust Image Saturation - Vivid or Muted Colors Free | MultiToolsA",
+    metaTitle: "Adjust Image Saturation - Vivid or Muted Colors Free | Convert",
     metaDescription: "Adjust image saturation for more vivid or muted colors. Free online tool with real-time preview. Perfect for photo enhancement. No signup, browser-based.",
     
     h1: "Adjust Image Saturation — Control Color Intensity",
@@ -593,7 +593,7 @@ The processing occurs entirely within your browser using Canvas APIs with proper
   "sepia-effect": {
     slug: "sepia-effect",
     
-    metaTitle: "Sepia Effect - Add Vintage Brown Tone Free | MultiToolsA",
+    metaTitle: "Sepia Effect - Add Vintage Brown Tone Free | Convert",
     metaDescription: "Apply sepia filter for vintage, warm brown tones. Free online tool, instant preview. Create nostalgic, timeless photos. No signup, browser-based processing.",
     
     h1: "Apply Sepia Effect — Create Vintage Photo Style",
@@ -742,7 +742,7 @@ The processing occurs entirely within your browser using Canvas APIs with proper
   "black-white-conversion": {
     slug: "black-white-conversion",
     
-    metaTitle: "Black & White Converter - True Monochrome Free | MultiToolsA",
+    metaTitle: "Black & White Converter - True Monochrome Free | Convert",
     metaDescription: "Convert photos to striking black and white with high contrast. Free online tool, instant results. Create dramatic monochrome images. No signup required.",
     
     h1: "Convert to Black & White — Striking Monochrome Images",
@@ -887,7 +887,7 @@ The processing occurs entirely within your browser. Your images load locally, co
   "merge-horizontally": {
     slug: "merge-horizontally",
     
-    metaTitle: "Merge Images Horizontally - Side by Side Free | MultiToolsA",
+    metaTitle: "Merge Images Horizontally - Side by Side Free | Convert",
     metaDescription: "Combine multiple images side by side horizontally. Free online tool, instant results. Perfect for comparisons, panoramas, and collages. No signup required.",
     
     h1: "Merge Images Horizontally — Combine Side by Side",
@@ -1035,7 +1035,7 @@ The processing occurs entirely within your browser using Canvas APIs. Your image
   "merge-vertically": {
     slug: "merge-vertically",
     
-    metaTitle: "Merge Images Vertically - Stack Top to Bottom Free | MultiToolsA",
+    metaTitle: "Merge Images Vertically - Stack Top to Bottom Free | Convert",
     metaDescription: "Combine multiple images stacked vertically top to bottom. Free online tool, instant results. Perfect for long screenshots and sequences. No signup required.",
     
     h1: "Merge Images Vertically — Stack Top to Bottom",
@@ -1185,7 +1185,7 @@ The processing occurs entirely within your browser using Canvas APIs. Nothing is
   "view-exif": {
     slug: "view-exif",
     
-    metaTitle: "View EXIF Data - See Photo Metadata Free | MultiToolsA",
+    metaTitle: "View EXIF Data - See Photo Metadata Free | Convert",
     metaDescription: "View complete EXIF metadata from photos. See camera settings, date, GPS location, and more. Free online tool, instant results. No upload to server.",
     
     h1: "View EXIF Data — See Complete Photo Metadata",
@@ -1329,7 +1329,7 @@ This local processing is crucial for privacy. EXIF data often contains sensitive
   "remove-exif": {
     slug: "remove-exif",
     
-    metaTitle: "Remove EXIF Data - Strip Photo Metadata Free | MultiToolsA",
+    metaTitle: "Remove EXIF Data - Strip Photo Metadata Free | Convert",
     metaDescription: "Remove all EXIF metadata from photos for privacy. Strip GPS location, camera info, dates. Free online tool, instant results. No upload to server.",
     
     h1: "Remove EXIF Data — Protect Your Photo Privacy",

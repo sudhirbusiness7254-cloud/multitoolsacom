@@ -165,12 +165,12 @@ const ImageFormatsGuidePage = () => {
   return (
     <>
       <Helmet>
-        <title>Complete Guide to Image Formats: JPEG vs PNG vs WebP vs GIF | MultiToolsA</title>
+        <title>Complete Guide to Image Formats: JPEG vs PNG vs WebP vs GIF | Convert</title>
         <meta name="description" content="Comprehensive guide comparing image formats. Learn when to use JPEG, PNG, WebP, GIF, SVG, HEIC, and TIFF. Understand compression, transparency, and choose the right format for any situation." />
         <meta name="keywords" content="image formats comparison, JPEG vs PNG, WebP format, GIF animation, SVG vector, HEIC conversion, image format guide, when to use PNG, when to use JPEG" />
         <link rel="canonical" href="https://multitoolsa.com/image-formats-guide" />
         
-        <meta property="og:title" content="Complete Guide to Image Formats | MultiToolsA" />
+        <meta property="og:title" content="Complete Guide to Image Formats | Convert" />
         <meta property="og:description" content="Everything you need to know about image formats. Compare JPEG, PNG, WebP, GIF, SVG, and more." />
         <meta property="og:type" content="article" />
         <meta property="og:url" content="https://multitoolsa.com/image-formats-guide" />
@@ -183,11 +183,11 @@ const ImageFormatsGuidePage = () => {
             "description": "Comprehensive comparison of image formats including JPEG, PNG, WebP, GIF, SVG, HEIC, TIFF, and BMP.",
             "author": {
               "@type": "Organization",
-              "name": "MultiToolsA"
+              "name": "Convert"
             },
             "publisher": {
               "@type": "Organization",
-              "name": "MultiToolsA",
+              "name": "Convert",
               "url": "https://multitoolsa.com"
             }
           })}

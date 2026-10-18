@@ -101,8 +101,8 @@ const Header = () => {
         <div className="flex items-center justify-between gap-3">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity flex-shrink-0">
-            <img src={logo} alt="MultiToolsA Logo" className="h-8 w-8" />
-            <span className="text-base sm:text-lg md:text-xl font-bold text-primary">MultiToolsA</span>
+            <img src={logo} alt="Convert Logo" className="h-8 w-8" />
+            <span className="text-base sm:text-lg md:text-xl font-bold text-primary">Convert</span>
           </Link>
           
           {/* Desktop Navigation */}

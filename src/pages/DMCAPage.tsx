@@ -8,8 +8,8 @@ const DMCAPage = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <Helmet>
-        <title>DMCA Policy - MultiToolsA | Copyright & Takedown Requests</title>
-        <meta name="description" content="MultiToolsA DMCA policy. Learn how to file a copyright infringement notice or counter-notification. We respect intellectual property rights." />
+        <title>DMCA Policy - Convert | Copyright & Takedown Requests</title>
+        <meta name="description" content="Convert DMCA policy. Learn how to file a copyright infringement notice or counter-notification. We respect intellectual property rights." />
         <link rel="canonical" href="https://multitoolsa.com/dmca" />
       </Helmet>
       <HreflangTags path="/dmca" />
@@ -24,7 +24,7 @@ const DMCAPage = () => {
             <section>
               <h2 className="text-2xl font-bold mb-4">Digital Millennium Copyright Act (DMCA) Notice</h2>
               <p className="text-muted-foreground leading-relaxed">
-                MultiToolsA ("we", "us", or "our") respects the intellectual property rights of others and expects our users to do the same. 
+                Convert ("we", "us", or "our") respects the intellectual property rights of others and expects our users to do the same. 
                 In accordance with the Digital Millennium Copyright Act of 1998 ("DMCA"), we will respond promptly to claims of copyright infringement 
                 committed using our website (multitoolsa.com) that are reported to our designated copyright agent.
               </p>
@@ -33,7 +33,7 @@ const DMCAPage = () => {
             <section>
               <h2 className="text-2xl font-bold mb-4">Important Notice About Our Service</h2>
               <p className="text-muted-foreground leading-relaxed">
-                MultiToolsA is a browser-based image processing platform. All image processing occurs entirely within the user's web browser. 
+                Convert is a browser-based image processing platform. All image processing occurs entirely within the user's web browser. 
                 We do not upload, store, transmit, or have access to any images or files that users process using our tools. 
                 Because all processing is client-side, we have no ability to monitor or control the content that users process on their own devices.
               </p>
@@ -73,7 +73,7 @@ const DMCAPage = () => {
                 All DMCA notices and counter-notifications should be sent to our designated copyright agent:
               </p>
               <div className="bg-card border border-border rounded-xl p-6 mt-4">
-                <p className="text-foreground font-semibold">MultiToolsA Copyright Agent</p>
+                <p className="text-foreground font-semibold">Convert Copyright Agent</p>
                 <p className="text-muted-foreground">Email: <a href="mailto:info@multitoolsa.com" className="text-primary hover:underline">info@multitoolsa.com</a></p>
                 <p className="text-muted-foreground">Subject Line: "DMCA Notice" or "DMCA Counter-Notification"</p>
               </div>
@@ -82,7 +82,7 @@ const DMCAPage = () => {
             <section>
               <h2 className="text-2xl font-bold mb-4">Repeat Infringers</h2>
               <p className="text-muted-foreground leading-relaxed">
-                In appropriate circumstances, MultiToolsA will disable and/or terminate the accounts of users who are repeat infringers, 
+                In appropriate circumstances, Convert will disable and/or terminate the accounts of users who are repeat infringers, 
                 in accordance with the DMCA and other applicable laws.
               </p>
             </section>

@@ -29,7 +29,7 @@ const getInitialMessages = (): Message[] => {
   return [
     {
       role: "assistant",
-      content: "Hi! 👋 I'm MultiToolsA's AI assistant. I can help you with questions about our free image tools, how to use them, troubleshooting, and more. What would you like to know?",
+      content: "Hi! 👋 I'm Convert's AI assistant. I can help you with questions about our free image tools, how to use them, troubleshooting, and more. What would you like to know?",
     },
   ];
 };
@@ -191,7 +191,7 @@ const SupportChat = () => {
   const clearChat = () => {
     const initialMessage: Message = {
       role: "assistant",
-      content: "Hi! 👋 I'm MultiToolsA's AI assistant. I can help you with questions about our free image tools, how to use them, troubleshooting, and more. What would you like to know?",
+      content: "Hi! 👋 I'm Convert's AI assistant. I can help you with questions about our free image tools, how to use them, troubleshooting, and more. What would you like to know?",
     };
     setMessages([initialMessage]);
     localStorage.removeItem(STORAGE_KEY);

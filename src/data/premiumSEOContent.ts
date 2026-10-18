@@ -15,7 +15,7 @@ import { premiumToolsSEOBatch8 } from './premiumSEOContentBatch8';
 
 export const homepageSEOContent = {
   // Meta Information
-  metaTitle: "Free Online Image & PDF Tools - Convert, Compress, Edit | MultiToolsA",
+  metaTitle: "Free Online Image & PDF Tools - Convert, Compress, Edit | Convert",
   metaDescription: "100% free online tools to convert, compress, resize, crop images and edit PDFs. No signup required. Fast, secure, browser-based processing. Trusted by millions.",
   
   // Hero Section
@@ -32,17 +32,17 @@ export const homepageSEOContent = {
   ],
   
   // Main Introduction (SEO-optimized, 200 words)
-  introduction: `Welcome to MultiToolsA — your trusted destination for free online image and PDF tools. Whether you need to convert JPG to PNG, compress images for faster websites, resize photos for social media, or edit PDF documents, we've got you covered with over 100 powerful tools.
+  introduction: `Welcome to Convert — your trusted destination for free online image and PDF tools. Whether you need to convert JPG to PNG, compress images for faster websites, resize photos for social media, or edit PDF documents, we've got you covered with over 100 powerful tools.
 
 Unlike desktop software that requires downloads and installations, our tools work directly in your browser. This means instant results, no waiting, and complete privacy since your files never leave your device. We've designed every tool to be simple enough for beginners yet powerful enough for professionals.
 
-Millions of users worldwide trust MultiToolsA for their daily image and document needs. From students preparing presentations to businesses optimizing website performance, our platform serves everyone who works with digital files. Every tool is free, with no hidden fees, no watermarks, and no account required.
+Millions of users worldwide trust Convert for their daily image and document needs. From students preparing presentations to businesses optimizing website performance, our platform serves everyone who works with digital files. Every tool is free, with no hidden fees, no watermarks, and no account required.
 
 Our commitment to quality means you'll always get professional-grade results. Whether you're converting file formats, reducing image sizes, or editing PDFs, expect the same output quality you'd get from expensive desktop software — all completely free.`,
 
   // Why Choose Us Section
   whyChooseUs: {
-    title: "Why Millions Choose MultiToolsA",
+    title: "Why Millions Choose Convert",
     subtitle: "Professional tools, zero cost, maximum privacy",
     points: [
       {
@@ -154,7 +154,7 @@ Our commitment to quality means you'll always get professional-grade results. Wh
   faqs: [
     {
       question: "Are all tools really free?",
-      answer: "Yes, 100% free. Every tool on MultiToolsA is completely free to use with no hidden costs, premium tiers, or usage limits. We believe essential tools should be accessible to everyone."
+      answer: "Yes, 100% free. Every tool on Convert is completely free to use with no hidden costs, premium tiers, or usage limits. We believe essential tools should be accessible to everyone."
     },
     {
       question: "Do I need to create an account?",
@@ -204,7 +204,7 @@ Our commitment to quality means you'll always get professional-grade results. Wh
   cta: {
     primary: "Start Using Free Tools",
     secondary: "Explore All Tools",
-    description: "Join millions of users who trust MultiToolsA for their daily image and PDF needs."
+    description: "Join millions of users who trust Convert for their daily image and PDF needs."
   },
 
   // SEO Keywords Strategy
@@ -273,7 +273,7 @@ export interface PremiumToolSEO {
 export const jpegCompressorPremiumSEO: PremiumToolSEO = {
   slug: "jpeg-compressor",
   
-  metaTitle: "JPEG Compressor - Reduce JPG Size Up to 80% Free | MultiToolsA",
+  metaTitle: "JPEG Compressor - Reduce JPG Size Up to 80% Free | Convert",
   metaDescription: "Compress JPEG images up to 80% smaller without quality loss. Free online tool, no signup. Fast, secure, works on all devices. Try now!",
   
   h1: "Compress JPEG Images Online — Free & Instant",
@@ -444,7 +444,7 @@ The tool handles standard JPEG files as well as JPEG images with embedded color 
 export const jpgToPngPremiumSEO: PremiumToolSEO = {
   slug: "jpg-to-png",
   
-  metaTitle: "JPG to PNG Converter - Free Online with Transparency | MultiToolsA",
+  metaTitle: "JPG to PNG Converter - Free Online with Transparency | Convert",
   metaDescription: "Convert JPG to PNG free online. Get transparency support & lossless quality. No signup, instant conversion. Works on all devices. Try now!",
   
   h1: "Convert JPG to PNG Online — Free & Instant",
@@ -590,7 +590,7 @@ Processing is entirely local — your images never leave your device. This ensur
 export const mergePdfPremiumSEO: PremiumToolSEO = {
   slug: "merge-pdf",
   
-  metaTitle: "Merge PDF Files Online Free - Combine PDFs Instantly | MultiToolsA",
+  metaTitle: "Merge PDF Files Online Free - Combine PDFs Instantly | Convert",
   metaDescription: "Merge multiple PDF files into one document free online. Drag to reorder, no limits. Fast, secure, no signup required. Works on all devices.",
   
   h1: "Merge PDF Files Online — Free & Unlimited",
@@ -740,7 +740,7 @@ Processing occurs entirely in your browser using WebAssembly technology. This me
 export const imageResizePremiumSEO: PremiumToolSEO = {
   slug: "exact-resize",
   
-  metaTitle: "Resize Images Online Free - Exact Dimensions in Seconds | MultiToolsA",
+  metaTitle: "Resize Images Online Free - Exact Dimensions in Seconds | Convert",
   metaDescription: "Resize images to exact pixel dimensions online free. Perfect for social media, websites, printing. No signup, instant results. Try now!",
   
   h1: "Resize Images to Exact Dimensions — Free & Instant",
@@ -892,7 +892,7 @@ All processing occurs locally in your browser. Your images remain private, and t
 export const imageToPdfPremiumSEO: PremiumToolSEO = {
   slug: "image-to-pdf",
   
-  metaTitle: "Image to PDF Converter - Convert JPG PNG to PDF Free | MultiToolsA",
+  metaTitle: "Image to PDF Converter - Convert JPG PNG to PDF Free | Convert",
   metaDescription: "Convert images to PDF online free. Combine multiple JPG, PNG photos into one PDF. Adjust page size, orientation. No signup, instant download.",
   
   h1: "Convert Images to PDF — Free & Instant",

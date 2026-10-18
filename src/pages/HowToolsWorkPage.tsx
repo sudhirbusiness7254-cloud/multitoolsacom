@@ -124,13 +124,13 @@ const HowToolsWorkPage = () => {
   return (
     <>
       <Helmet>
-        <title>How Our Tools Work - Browser-Based Image Processing Explained | MultiToolsA</title>
-        <meta name="description" content="Learn how MultiToolsA processes images entirely in your browser using JavaScript and HTML5. Understand the technology behind our privacy-first approach with no server uploads." />
+        <title>How Our Tools Work - Browser-Based Image Processing Explained | Convert</title>
+        <meta name="description" content="Learn how Convert processes images entirely in your browser using JavaScript and HTML5. Understand the technology behind our privacy-first approach with no server uploads." />
         <meta name="keywords" content="browser-based image processing, client-side image editing, JavaScript image tools, HTML5 Canvas, privacy-first tools, no upload image editor" />
         <link rel="canonical" href="https://multitoolsa.com/how-tools-work" />
         
         <meta property="og:title" content="How Our Tools Work - Browser-Based Image Processing" />
-        <meta property="og:description" content="Discover the technology behind MultiToolsA's privacy-first image tools. All processing happens in your browser—no uploads, no servers, no risk." />
+        <meta property="og:description" content="Discover the technology behind Convert's privacy-first image tools. All processing happens in your browser—no uploads, no servers, no risk." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://multitoolsa.com/how-tools-work" />
         
@@ -139,14 +139,14 @@ const HowToolsWorkPage = () => {
             "@context": "https://schema.org",
             "@type": "TechArticle",
             "headline": "How Browser-Based Image Processing Works",
-            "description": "Technical explanation of how MultiToolsA processes images entirely in your browser using JavaScript and HTML5 technologies.",
+            "description": "Technical explanation of how Convert processes images entirely in your browser using JavaScript and HTML5 technologies.",
             "author": {
               "@type": "Organization",
-              "name": "MultiToolsA"
+              "name": "Convert"
             },
             "publisher": {
               "@type": "Organization",
-              "name": "MultiToolsA",
+              "name": "Convert",
               "url": "https://multitoolsa.com"
             },
             "mainEntityOfPage": "https://multitoolsa.com/how-tools-work"
@@ -173,7 +173,7 @@ const HowToolsWorkPage = () => {
                 How Our Tools Work
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8 leading-relaxed">
-                Every MultiToolsA tool processes images entirely within your web browser. No uploads. No servers. 
+                Every Convert tool processes images entirely within your web browser. No uploads. No servers. 
                 No risk. Here's the technology that makes this possible.
               </p>
               
@@ -200,7 +200,7 @@ const HowToolsWorkPage = () => {
               <div className="text-center mb-12">
                 <h2 className="text-2xl md:text-4xl font-bold mb-4">The Processing Pipeline</h2>
                 <p className="text-muted-foreground max-w-2xl mx-auto">
-                  Here's exactly what happens when you use any MultiToolsA image tool—from file selection to download.
+                  Here's exactly what happens when you use any Convert image tool—from file selection to download.
                 </p>
               </div>
               
@@ -240,7 +240,7 @@ const HowToolsWorkPage = () => {
               <div className="text-center mb-12">
                 <h2 className="text-2xl md:text-4xl font-bold mb-4">Technologies We Use</h2>
                 <p className="text-muted-foreground max-w-2xl mx-auto">
-                  Modern web standards make browser-based image processing possible. Here are the key technologies powering MultiToolsA.
+                  Modern web standards make browser-based image processing possible. Here are the key technologies powering Convert.
                 </p>
               </div>
               
@@ -294,7 +294,7 @@ const HowToolsWorkPage = () => {
                 <h2 className="text-2xl md:text-4xl font-bold mb-4">Your Device Does Everything</h2>
                 <p className="text-muted-foreground max-w-2xl mx-auto">
                   Traditional online tools upload your files to their servers for processing. 
-                  MultiToolsA is fundamentally different.
+                  Convert is fundamentally different.
                 </p>
               </div>
               
@@ -325,11 +325,11 @@ const HowToolsWorkPage = () => {
                   </div>
                 </div>
                 
-                {/* MultiToolsA */}
+                {/* Convert */}
                 <div className="bg-green-500/5 border border-green-500/30 rounded-2xl p-6">
                   <h3 className="font-bold text-lg text-green-500 mb-4 flex items-center gap-2">
                     <MonitorSmartphone className="w-5 h-5" />
-                    MultiToolsA Approach
+                    Convert Approach
                   </h3>
                   <div className="space-y-3 text-sm">
                     <div className="flex items-center gap-3">

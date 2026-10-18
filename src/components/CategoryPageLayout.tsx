@@ -126,7 +126,7 @@ const CategoryPageLayout = ({
     },
     "author": {
       "@type": "Organization",
-      "name": "MultiToolsA",
+      "name": "Convert",
       "url": "https://multitoolsa.com"
     }
   };
@@ -216,11 +216,11 @@ const CategoryPageLayout = ({
         <meta property="og:description" content={metaDescription} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={canonicalUrl} />
-        <meta property="og:site_name" content="MultiToolsA" />
+        <meta property="og:site_name" content="Convert" />
         <meta property="og:image" content={ogImageUrl} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content={`${category.name} - Free Online Tools | MultiToolsA`} />
+        <meta property="og:image:alt" content={`${category.name} - Free Online Tools | Convert`} />
         <meta property="og:locale" content="en_US" />
         
         {/* Twitter Card Meta Tags */}
@@ -230,7 +230,7 @@ const CategoryPageLayout = ({
         <meta name="twitter:title" content={metaTitle} />
         <meta name="twitter:description" content={metaDescription} />
         <meta name="twitter:image" content={ogImageUrl} />
-        <meta name="twitter:image:alt" content={`${category.name} - Free Online Tools | MultiToolsA`} />
+        <meta name="twitter:image:alt" content={`${category.name} - Free Online Tools | Convert`} />
         
         {/* Additional Social Meta */}
         <meta property="article:publisher" content="https://multitoolsa.com" />

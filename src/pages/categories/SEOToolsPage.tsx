@@ -30,10 +30,10 @@ const SEOToolsPage = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <Helmet>
-        <title>Free SEO Tools Online - Keyword Checker, Meta Tag Generator | MultiToolsA</title>
+        <title>Free SEO Tools Online - Keyword Checker, Meta Tag Generator | Convert</title>
         <meta name="description" content="Free online SEO tools: Keyword Density Checker, Meta Tag Generator, Word Counter, Open Graph Checker, Heading Analyzer. Optimize your website for search engines." />
         <link rel="canonical" href="https://multitoolsa.com/seo-tools" />
-        <meta property="og:title" content="Free SEO Tools - MultiToolsA" />
+        <meta property="og:title" content="Free SEO Tools - Convert" />
         <meta property="og:description" content="Optimize your website with free SEO tools. Check keyword density, generate meta tags, count words, and validate Open Graph tags." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://multitoolsa.com/seo-tools" />
