@@ -97,31 +97,27 @@ async function blogRoutes() {
   }
 
   // BlogPost.tsx owns the rendered records: a URL only resolves when its slug is a key
-  // in the blogContent record (or merged into it from one of the content modules).
+  // in the blogContent record.
   const blogPostPage = await read("src/pages/BlogPost.tsx");
-  for (const match of blogPostPage.matchAll(/^\s*"([a-z0-9]+(?:-[a-z0-9]+)+)"\s*:\s*\{/gm)) {
+  for (const match of blogPostPage.matchAll(/^\s{2}"([a-z0-9]+(?:-[a-z0-9]+)+)"\s*:\s*\{/gm)) {
     slugs.add(match[1]);
   }
 
-  for (const file of [
-    "src/data/newBlogContent.ts",
-    "src/data/extraBlogContent.ts",
-    "src/data/extra2BlogContent.ts",
-    "src/data/conversionArticlesData.ts",
-    "src/data/additionalSEOContent.ts",
-  ]) {
-    let source = "";
-    try {
-      source = await read(file);
-    } catch {
-      continue;
-    }
-    for (const match of source.matchAll(/^\s*"([a-z0-9]+(?:-[a-z0-9]+)+)"\s*:/gm)) {
-      slugs.add(match[1]);
-    }
+  // Only slugs that BlogPost.tsx renders are real. Content modules contain extra slugs
+  // that have no page, and listing them created soft-404s in Search Console.
+  const rendered = new Set();
+  for (const match of blogPostPage.matchAll(/^\s{2}"([a-z0-9]+(?:-[a-z0-9]+)+)"\s*:\s*\{/gm)) {
+    rendered.add(match[1]);
   }
 
-  return new Set([...slugs].map((slug) => `/blog/${slug}`));
+  const real = [...slugs].filter((slug) => rendered.has(slug));
+  const orphans = [...slugs].filter((slug) => !rendered.has(slug));
+  if (orphans.length) {
+    console.warn(`[sitemap] skipped ${orphans.length} blog slugs from content modules with no rendered page:`);
+    for (const slug of orphans.slice(0, 8)) console.warn(`  - /blog/${slug}`);
+  }
+
+  return new Set(real.map((slug) => `/blog/${slug}`));
 }
 
 function lastmodFromGit() {
