@@ -42,3 +42,23 @@ node scripts/generate-sitemap.mjs --dry-run
 ```
 
 Recommended: run it in `prebuild` so the sitemap can never drift from the router again.
+
+## Keyword research (new)
+
+- `keywords/keyword-research.csv` — 246 researched keywords with India volume, difficulty, intent, tier and target URL
+- `keywords/tool-keyword-map.json` — one primary keyword per tool page plus secondaries; use for titles, H1s and FAQs
+- `keywords/priority-keywords.md` — the ranked build order, tier A first
+- `../scripts/build-keyword-research.mjs` — regenerates all of the above from the real tool slug list
+
+### The finding
+
+`signature resize for exam form` (18,100/mo, KD 18) and `photo resizer for exam form` (12,100/mo, KD 16) are
+served today by single-purpose micro-sites. One exam-preset page (SSC / IBPS / UPSC / RRB / PAN / Aadhaar) with
+exact KB and pixel targets captures that cluster and routes it into `/image-resize` and `/image-compression`.
+
+### Rules
+
+1. One primary keyword per URL. Secondaries go in H2s, FAQs and internal anchors on that same page.
+2. Never point the same query at two pages — that is the cannibalisation already visible between
+   `/image-to-pdf`, `/jpg-to-pdf` and `/pdf-compress`.
+3. Re-verify every volume in Search Console after 28 days. These are planning estimates.

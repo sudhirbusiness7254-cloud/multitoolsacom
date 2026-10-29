@@ -1,0 +1,1358 @@
+[
+  {
+    "slug": "add-emojis",
+    "url": "/add-emojis",
+    "cluster": "watermark",
+    "primaryKeyword": "add emoji to photo online",
+    "volume": 3600,
+    "difficulty": 18,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "add-stickers",
+    "url": "/add-stickers",
+    "cluster": "watermark",
+    "primaryKeyword": "add stickers to photo online",
+    "volume": 4400,
+    "difficulty": 18,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "add-transparency",
+    "url": "/add-transparency",
+    "cluster": "editor",
+    "primaryKeyword": "make background transparent",
+    "volume": 22200,
+    "difficulty": 35,
+    "secondaryKeywords": [
+      "transparent png maker"
+    ]
+  },
+  {
+    "slug": "aspect-ratio-crop",
+    "url": "/aspect-ratio-crop",
+    "cluster": "resize",
+    "primaryKeyword": "aspect ratio crop image",
+    "volume": 2900,
+    "difficulty": 14,
+    "secondaryKeywords": [
+      "crop image to 4:5",
+      "crop image to 16:9"
+    ]
+  },
+  {
+    "slug": "auto-orient-image",
+    "url": "/auto-orient-image",
+    "cluster": "other",
+    "primaryKeyword": "fix rotated photo automatically",
+    "volume": 1900,
+    "difficulty": 12,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "base64-to-image",
+    "url": "/base64-to-image",
+    "cluster": "doc",
+    "primaryKeyword": "base64 to image converter",
+    "volume": 9900,
+    "difficulty": 24,
+    "secondaryKeywords": [
+      "decode base64 image online"
+    ]
+  },
+  {
+    "slug": "before-after-maker",
+    "url": "/before-after-maker",
+    "cluster": "editor",
+    "primaryKeyword": "before and after photo maker",
+    "volume": 3600,
+    "difficulty": 18,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "black-white-conversion",
+    "url": "/black-white-conversion",
+    "cluster": "editor",
+    "primaryKeyword": "black and white image converter",
+    "volume": 3600,
+    "difficulty": 16,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "blur-filter",
+    "url": "/blur-filter",
+    "cluster": "editor",
+    "primaryKeyword": "blur image online free",
+    "volume": 5400,
+    "difficulty": 18,
+    "secondaryKeywords": [
+      "blur background of photo"
+    ]
+  },
+  {
+    "slug": "bmp-to-jpg",
+    "url": "/bmp-to-jpg",
+    "cluster": "convert",
+    "primaryKeyword": "bmp to jpg converter",
+    "volume": 4400,
+    "difficulty": 14,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "bmp-to-png",
+    "url": "/bmp-to-png",
+    "cluster": "convert",
+    "primaryKeyword": "bmp to png converter",
+    "volume": 2400,
+    "difficulty": 13,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "brightness-adjust",
+    "url": "/brightness-adjust",
+    "cluster": "editor",
+    "primaryKeyword": "brighten image online",
+    "volume": 2900,
+    "difficulty": 14,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "circle-crop",
+    "url": "/circle-crop",
+    "cluster": "resize",
+    "primaryKeyword": "circle crop image online",
+    "volume": 2400,
+    "difficulty": 12,
+    "secondaryKeywords": [
+      "round profile picture maker",
+      "make image circular"
+    ]
+  },
+  {
+    "slug": "collage-maker",
+    "url": "/collage-maker",
+    "cluster": "editor",
+    "primaryKeyword": "photo collage maker free",
+    "volume": 14800,
+    "difficulty": 30,
+    "secondaryKeywords": [
+      "collage banane wala app"
+    ]
+  },
+  {
+    "slug": "color-change",
+    "url": "/color-change",
+    "cluster": "editor",
+    "primaryKeyword": "change color of object in image",
+    "volume": 4400,
+    "difficulty": 22,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "compress-pdf",
+    "url": "/compress-pdf",
+    "cluster": "pdf",
+    "primaryKeyword": "compress pdf online free",
+    "volume": 27100,
+    "difficulty": 44,
+    "secondaryKeywords": [
+      "reduce pdf file size below 100kb",
+      "compress pdf to 200kb",
+      "pdf ka size kaise kam kare",
+      "compress scanned pdf"
+    ]
+  },
+  {
+    "slug": "contrast-adjust",
+    "url": "/contrast-adjust",
+    "cluster": "editor",
+    "primaryKeyword": "adjust image contrast online",
+    "volume": 2400,
+    "difficulty": 13,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "cool-tone",
+    "url": "/cool-tone",
+    "cluster": "editor",
+    "primaryKeyword": "cool tone photo filter",
+    "volume": 1300,
+    "difficulty": 11,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "copy-exif",
+    "url": "/copy-exif",
+    "cluster": "privacy",
+    "primaryKeyword": "copy exif data from one photo to another",
+    "volume": 1300,
+    "difficulty": 12,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "custom-rotate",
+    "url": "/custom-rotate",
+    "cluster": "editor",
+    "primaryKeyword": "rotate image by any angle",
+    "volume": 1600,
+    "difficulty": 12,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "draw-shapes",
+    "url": "/draw-shapes",
+    "cluster": "editor",
+    "primaryKeyword": "draw shapes on image online",
+    "volume": 2400,
+    "difficulty": 14,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "edit-exif-datetime",
+    "url": "/edit-exif-datetime",
+    "cluster": "privacy",
+    "primaryKeyword": "change photo date taken",
+    "volume": 3600,
+    "difficulty": 16,
+    "secondaryKeywords": [
+      "edit exif date"
+    ]
+  },
+  {
+    "slug": "emboss-filter",
+    "url": "/emboss-filter",
+    "cluster": "editor",
+    "primaryKeyword": "emboss photo effect",
+    "volume": 880,
+    "difficulty": 9,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "exact-resize",
+    "url": "/exact-resize",
+    "cluster": "exam",
+    "primaryKeyword": "resize image to exact pixels",
+    "volume": 4400,
+    "difficulty": 16,
+    "secondaryKeywords": [
+      "exact size photo maker"
+    ]
+  },
+  {
+    "slug": "fit-to-box",
+    "url": "/fit-to-box",
+    "cluster": "resize",
+    "primaryKeyword": "fit image to size",
+    "volume": 1600,
+    "difficulty": 12,
+    "secondaryKeywords": [
+      "fit photo to 200x230"
+    ]
+  },
+  {
+    "slug": "fit-to-height",
+    "url": "/fit-to-height",
+    "cluster": "resize",
+    "primaryKeyword": "resize image to specific height",
+    "volume": 1300,
+    "difficulty": 11,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "fit-to-width",
+    "url": "/fit-to-width",
+    "cluster": "resize",
+    "primaryKeyword": "resize image to specific width",
+    "volume": 1600,
+    "difficulty": 12,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "flatten-image",
+    "url": "/flatten-image",
+    "cluster": "editor",
+    "primaryKeyword": "flatten image online",
+    "volume": 1300,
+    "difficulty": 10,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "flip-horizontal",
+    "url": "/flip-horizontal",
+    "cluster": "editor",
+    "primaryKeyword": "flip image horizontally",
+    "volume": 2900,
+    "difficulty": 12,
+    "secondaryKeywords": [
+      "mirror image online"
+    ]
+  },
+  {
+    "slug": "flip-vertical",
+    "url": "/flip-vertical",
+    "cluster": "editor",
+    "primaryKeyword": "flip image vertically",
+    "volume": 1900,
+    "difficulty": 11,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "font-change",
+    "url": "/font-change",
+    "cluster": "editor",
+    "primaryKeyword": "change font on image",
+    "volume": 2900,
+    "difficulty": 16,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "free-selection-crop",
+    "url": "/free-selection-crop",
+    "cluster": "resize",
+    "primaryKeyword": "free selection crop image",
+    "volume": 1300,
+    "difficulty": 10,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "gaussian-blur",
+    "url": "/gaussian-blur",
+    "cluster": "editor",
+    "primaryKeyword": "gaussian blur image online",
+    "volume": 1300,
+    "difficulty": 11,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "gif-compressor",
+    "url": "/gif-compressor",
+    "cluster": "compression",
+    "primaryKeyword": "gif compressor",
+    "volume": 2400,
+    "difficulty": 15,
+    "secondaryKeywords": [
+      "compress gif online",
+      "reduce gif size"
+    ]
+  },
+  {
+    "slug": "gif-to-jpg",
+    "url": "/gif-to-jpg",
+    "cluster": "convert",
+    "primaryKeyword": "gif to jpg converter",
+    "volume": 3600,
+    "difficulty": 16,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "gif-to-png",
+    "url": "/gif-to-png",
+    "cluster": "convert",
+    "primaryKeyword": "gif to png converter",
+    "volume": 2900,
+    "difficulty": 15,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "grayscale-conversion",
+    "url": "/grayscale-conversion",
+    "cluster": "editor",
+    "primaryKeyword": "convert image to grayscale",
+    "volume": 2900,
+    "difficulty": 14,
+    "secondaryKeywords": [
+      "black and white photo converter"
+    ]
+  },
+  {
+    "slug": "heading-checker",
+    "url": "/heading-checker",
+    "cluster": "seo",
+    "primaryKeyword": "h1 heading checker",
+    "volume": 1300,
+    "difficulty": 12,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "heic-to-jpg",
+    "url": "/heic-to-jpg",
+    "cluster": "convert",
+    "primaryKeyword": "heic to jpg converter",
+    "volume": 22200,
+    "difficulty": 20,
+    "secondaryKeywords": [
+      "convert heic to jpg online free",
+      "iphone photo heic to jpg"
+    ]
+  },
+  {
+    "slug": "heic-to-png",
+    "url": "/heic-to-png",
+    "cluster": "convert",
+    "primaryKeyword": "heic to png converter",
+    "volume": 3600,
+    "difficulty": 16,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "hide-area",
+    "url": "/hide-area",
+    "cluster": "privacy",
+    "primaryKeyword": "hide part of image online",
+    "volume": 2900,
+    "difficulty": 16,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "image-combine",
+    "url": "/image-combine",
+    "cluster": "editor",
+    "primaryKeyword": "merge two images online",
+    "volume": 4400,
+    "difficulty": 18,
+    "secondaryKeywords": [
+      "combine photos side by side"
+    ]
+  },
+  {
+    "slug": "image-compression",
+    "url": "/image-compression",
+    "cluster": "compression",
+    "primaryKeyword": "compress image to 20kb",
+    "volume": 27100,
+    "difficulty": 24,
+    "secondaryKeywords": [
+      "compress image to 50kb",
+      "compress image to 100kb",
+      "compress image online free",
+      "image compressor without losing quality",
+      "reduce image size in kb",
+      "photo ka size kaise kam kare",
+      "private image compressor no upload"
+    ]
+  },
+  {
+    "slug": "image-converter",
+    "url": "/image-converter",
+    "cluster": "convert",
+    "primaryKeyword": "image converter online free",
+    "volume": 14800,
+    "difficulty": 34,
+    "secondaryKeywords": [
+      "convert image to jpg",
+      "image format converter",
+      "photo converter online"
+    ]
+  },
+  {
+    "slug": "image-crop",
+    "url": "/image-crop",
+    "cluster": "resize",
+    "primaryKeyword": "crop image online free",
+    "volume": 12100,
+    "difficulty": 32,
+    "secondaryKeywords": [
+      "crop photo to passport size",
+      "crop image to 3.5 cm 4.5 cm",
+      "image cropper online"
+    ]
+  },
+  {
+    "slug": "image-decrypt",
+    "url": "/image-decrypt",
+    "cluster": "privacy",
+    "primaryKeyword": "decrypt image online",
+    "volume": 720,
+    "difficulty": 9,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "image-drawing",
+    "url": "/image-drawing",
+    "cluster": "editor",
+    "primaryKeyword": "draw on image online free",
+    "volume": 3600,
+    "difficulty": 17,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "image-encrypt",
+    "url": "/image-encrypt",
+    "cluster": "privacy",
+    "primaryKeyword": "encrypt image online",
+    "volume": 880,
+    "difficulty": 10,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "image-format-utilities",
+    "url": "/image-format-utilities",
+    "cluster": "convert",
+    "primaryKeyword": "image file format converter",
+    "volume": 4400,
+    "difficulty": 22,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "image-metadata",
+    "url": "/image-metadata",
+    "cluster": "privacy",
+    "primaryKeyword": "image metadata viewer",
+    "volume": 4400,
+    "difficulty": 20,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "image-optimization",
+    "url": "/image-optimization",
+    "cluster": "other",
+    "primaryKeyword": "image optimization tool",
+    "volume": 3600,
+    "difficulty": 26,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "image-qr",
+    "url": "/image-qr",
+    "cluster": "qr",
+    "primaryKeyword": "qr code generator free",
+    "volume": 60500,
+    "difficulty": 45,
+    "secondaryKeywords": [
+      "qr code generator with logo",
+      "qr code kaise banaye"
+    ]
+  },
+  {
+    "slug": "image-resize",
+    "url": "/image-resize",
+    "cluster": "exam",
+    "primaryKeyword": "resize image online free",
+    "volume": 27100,
+    "difficulty": 40,
+    "secondaryKeywords": [
+      "signature resize for exam form",
+      "ssc photo resize 20kb",
+      "photo resizer for exam form",
+      "ibps signature resize 10kb 20kb",
+      "upsc photo resize 300kb",
+      "passport size photo maker",
+      "aadhaar photo resize 20kb",
+      "pan card photo resize 213x213",
+      "railway photo resize",
+      "neet photo signature resize",
+      "thumb impression resize online",
+      "resize image to 2x2 inch"
+    ]
+  },
+  {
+    "slug": "image-rotate-flip",
+    "url": "/image-rotate-flip",
+    "cluster": "editor",
+    "primaryKeyword": "rotate and flip image online",
+    "volume": 2900,
+    "difficulty": 15,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "image-security",
+    "url": "/image-security",
+    "cluster": "privacy",
+    "primaryKeyword": "hide information in image online",
+    "volume": 3600,
+    "difficulty": 20,
+    "secondaryKeywords": [
+      "blur part of image online",
+      "hide area in photo"
+    ]
+  },
+  {
+    "slug": "image-to-base64",
+    "url": "/image-to-base64",
+    "cluster": "doc",
+    "primaryKeyword": "image to base64 converter",
+    "volume": 6600,
+    "difficulty": 20,
+    "secondaryKeywords": [
+      "convert image to base64 online"
+    ]
+  },
+  {
+    "slug": "image-to-document",
+    "url": "/image-to-document",
+    "cluster": "doc",
+    "primaryKeyword": "image to document converter",
+    "volume": 2400,
+    "difficulty": 16,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "image-to-docx",
+    "url": "/image-to-docx",
+    "cluster": "doc",
+    "primaryKeyword": "image to word converter",
+    "volume": 2400,
+    "difficulty": 14,
+    "secondaryKeywords": [
+      "jpg to docx"
+    ]
+  },
+  {
+    "slug": "image-to-html",
+    "url": "/image-to-html",
+    "cluster": "doc",
+    "primaryKeyword": "image to html converter",
+    "volume": 3600,
+    "difficulty": 16,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "image-to-pdf",
+    "url": "/image-to-pdf",
+    "cluster": "pdf",
+    "primaryKeyword": "image to pdf converter free",
+    "volume": 22200,
+    "difficulty": 35,
+    "secondaryKeywords": [
+      "jpg to pdf",
+      "multiple photos to one pdf",
+      "jpg to pdf kaise banaye"
+    ]
+  },
+  {
+    "slug": "image-to-pptx",
+    "url": "/image-to-pptx",
+    "cluster": "doc",
+    "primaryKeyword": "image to powerpoint converter",
+    "volume": 1900,
+    "difficulty": 12,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "image-to-qr-code",
+    "url": "/image-to-qr-code",
+    "cluster": "qr",
+    "primaryKeyword": "image to qr code",
+    "volume": 3600,
+    "difficulty": 18,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "image-watermark",
+    "url": "/image-watermark",
+    "cluster": "watermark",
+    "primaryKeyword": "image watermark tool",
+    "volume": 4400,
+    "difficulty": 22,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "jpeg-compressor",
+    "url": "/jpeg-compressor",
+    "cluster": "compression",
+    "primaryKeyword": "jpeg compressor online free",
+    "volume": 8100,
+    "difficulty": 20,
+    "secondaryKeywords": [
+      "jpg compressor to 100kb",
+      "reduce jpeg size"
+    ]
+  },
+  {
+    "slug": "jpg-to-pdf",
+    "url": "/jpg-to-pdf",
+    "cluster": "pdf",
+    "primaryKeyword": "jpg to pdf converter",
+    "volume": 74000,
+    "difficulty": 42,
+    "secondaryKeywords": [
+      "convert jpg to pdf online free",
+      "photo to pdf"
+    ]
+  },
+  {
+    "slug": "jpg-to-png",
+    "url": "/jpg-to-png",
+    "cluster": "convert",
+    "primaryKeyword": "jpg to png converter",
+    "volume": 27100,
+    "difficulty": 30,
+    "secondaryKeywords": [
+      "convert jpg to png online free"
+    ]
+  },
+  {
+    "slug": "jpg-to-webp",
+    "url": "/jpg-to-webp",
+    "cluster": "convert",
+    "primaryKeyword": "jpg to webp converter",
+    "volume": 9900,
+    "difficulty": 24,
+    "secondaryKeywords": [
+      "convert jpg to webp online"
+    ]
+  },
+  {
+    "slug": "keyword-density-checker",
+    "url": "/keyword-density-checker",
+    "cluster": "seo",
+    "primaryKeyword": "keyword density checker",
+    "volume": 2900,
+    "difficulty": 16,
+    "secondaryKeywords": [
+      "keyword density calculator"
+    ]
+  },
+  {
+    "slug": "manual-crop",
+    "url": "/manual-crop",
+    "cluster": "resize",
+    "primaryKeyword": "manual crop image online",
+    "volume": 1600,
+    "difficulty": 11,
+    "secondaryKeywords": [
+      "free selection crop"
+    ]
+  },
+  {
+    "slug": "manual-face-blur",
+    "url": "/manual-face-blur",
+    "cluster": "privacy",
+    "primaryKeyword": "blur face in photo online",
+    "volume": 5400,
+    "difficulty": 20,
+    "secondaryKeywords": [
+      "hide face in image"
+    ]
+  },
+  {
+    "slug": "manual-pixel-blur",
+    "url": "/manual-pixel-blur",
+    "cluster": "privacy",
+    "primaryKeyword": "pixelate part of image",
+    "volume": 1900,
+    "difficulty": 13,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "merge-horizontally",
+    "url": "/merge-horizontally",
+    "cluster": "other",
+    "primaryKeyword": "merge images horizontally",
+    "volume": 1900,
+    "difficulty": 12,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "merge-images",
+    "url": "/merge-images",
+    "cluster": "editor",
+    "primaryKeyword": "merge images online free",
+    "volume": 720,
+    "difficulty": 18,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "merge-pdf",
+    "url": "/merge-pdf",
+    "cluster": "pdf",
+    "primaryKeyword": "merge pdf online free",
+    "volume": 33100,
+    "difficulty": 40,
+    "secondaryKeywords": [
+      "combine pdf files",
+      "join pdf files"
+    ]
+  },
+  {
+    "slug": "merge-vertically",
+    "url": "/merge-vertically",
+    "cluster": "other",
+    "primaryKeyword": "merge images vertically",
+    "volume": 1600,
+    "difficulty": 11,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "meta-tag-generator",
+    "url": "/meta-tag-generator",
+    "cluster": "seo",
+    "primaryKeyword": "meta tag generator",
+    "volume": 6600,
+    "difficulty": 24,
+    "secondaryKeywords": [
+      "meta description generator",
+      "og tag generator"
+    ]
+  },
+  {
+    "slug": "mirror-effect",
+    "url": "/mirror-effect",
+    "cluster": "editor",
+    "primaryKeyword": "mirror image effect online",
+    "volume": 2400,
+    "difficulty": 13,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "negative-image",
+    "url": "/negative-image",
+    "cluster": "editor",
+    "primaryKeyword": "invert image colors",
+    "volume": 2900,
+    "difficulty": 13,
+    "secondaryKeywords": [
+      "negative photo effect"
+    ]
+  },
+  {
+    "slug": "opacity-settings",
+    "url": "/opacity-settings",
+    "cluster": "editor",
+    "primaryKeyword": "change image opacity online",
+    "volume": 2400,
+    "difficulty": 12,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "open-graph-checker",
+    "url": "/open-graph-checker",
+    "cluster": "seo",
+    "primaryKeyword": "open graph checker",
+    "volume": 1600,
+    "difficulty": 14,
+    "secondaryKeywords": [
+      "og image preview tool"
+    ]
+  },
+  {
+    "slug": "optimize-for-web",
+    "url": "/optimize-for-web",
+    "cluster": "compression",
+    "primaryKeyword": "optimize image for web",
+    "volume": 2900,
+    "difficulty": 24,
+    "secondaryKeywords": [
+      "image optimization for website"
+    ]
+  },
+  {
+    "slug": "paint-tool",
+    "url": "/paint-tool",
+    "cluster": "editor",
+    "primaryKeyword": "paint on image online",
+    "volume": 1900,
+    "difficulty": 13,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "pdf-compress",
+    "url": "/pdf-compress",
+    "cluster": "pdf",
+    "primaryKeyword": "pdf size reducer",
+    "volume": 9900,
+    "difficulty": 26,
+    "secondaryKeywords": [
+      "reduce pdf size online"
+    ]
+  },
+  {
+    "slug": "pdf-merge",
+    "url": "/pdf-merge",
+    "cluster": "pdf",
+    "primaryKeyword": "pdf merger",
+    "volume": 12100,
+    "difficulty": 30,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "pdf-split",
+    "url": "/pdf-split",
+    "cluster": "pdf",
+    "primaryKeyword": "pdf splitter",
+    "volume": 8100,
+    "difficulty": 26,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "pdf-to-jpg",
+    "url": "/pdf-to-jpg",
+    "cluster": "pdf",
+    "primaryKeyword": "pdf to jpg converter",
+    "volume": 40500,
+    "difficulty": 38,
+    "secondaryKeywords": [
+      "convert pdf pages to images"
+    ]
+  },
+  {
+    "slug": "pdf-tools",
+    "url": "/pdf-tools",
+    "cluster": "pdf",
+    "primaryKeyword": "pdf tools online",
+    "volume": 1900,
+    "difficulty": 22,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "percentage-resize",
+    "url": "/percentage-resize",
+    "cluster": "resize",
+    "primaryKeyword": "resize image by percentage",
+    "volume": 1900,
+    "difficulty": 12,
+    "secondaryKeywords": [
+      "scale image by 50 percent"
+    ]
+  },
+  {
+    "slug": "photo-filters",
+    "url": "/photo-filters",
+    "cluster": "editor",
+    "primaryKeyword": "photo filters online free",
+    "volume": 6600,
+    "difficulty": 26,
+    "secondaryKeywords": [
+      "instagram filters online"
+    ]
+  },
+  {
+    "slug": "pixelate-effect",
+    "url": "/pixelate-effect",
+    "cluster": "editor",
+    "primaryKeyword": "pixelate image online",
+    "volume": 1900,
+    "difficulty": 12,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "png-compressor",
+    "url": "/png-compressor",
+    "cluster": "compression",
+    "primaryKeyword": "png compressor online free",
+    "volume": 6600,
+    "difficulty": 22,
+    "secondaryKeywords": [
+      "compress png without losing quality",
+      "reduce png file size"
+    ]
+  },
+  {
+    "slug": "png-to-jpg",
+    "url": "/png-to-jpg",
+    "cluster": "convert",
+    "primaryKeyword": "png to jpg converter",
+    "volume": 22200,
+    "difficulty": 28,
+    "secondaryKeywords": [
+      "convert png to jpg online free"
+    ]
+  },
+  {
+    "slug": "png-to-webp",
+    "url": "/png-to-webp",
+    "cluster": "convert",
+    "primaryKeyword": "png to webp converter",
+    "volume": 5400,
+    "difficulty": 20,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "position-settings",
+    "url": "/position-settings",
+    "cluster": "editor",
+    "primaryKeyword": "move image position online",
+    "volume": 880,
+    "difficulty": 9,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "qr-code-to-image",
+    "url": "/qr-code-to-image",
+    "cluster": "qr",
+    "primaryKeyword": "qr code to image converter",
+    "volume": 2400,
+    "difficulty": 12,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "raw-to-jpg",
+    "url": "/raw-to-jpg",
+    "cluster": "convert",
+    "primaryKeyword": "raw to jpg converter",
+    "volume": 6600,
+    "difficulty": 18,
+    "secondaryKeywords": [
+      "convert raw photo to jpg"
+    ]
+  },
+  {
+    "slug": "raw-to-png",
+    "url": "/raw-to-png",
+    "cluster": "convert",
+    "primaryKeyword": "raw to png converter",
+    "volume": 1900,
+    "difficulty": 13,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "reduce-file-size",
+    "url": "/reduce-file-size",
+    "cluster": "compression",
+    "primaryKeyword": "reduce file size to 20kb",
+    "volume": 5400,
+    "difficulty": 19,
+    "secondaryKeywords": [
+      "reduce photo size online",
+      "image size reducer"
+    ]
+  },
+  {
+    "slug": "reduce-resolution",
+    "url": "/reduce-resolution",
+    "cluster": "resize",
+    "primaryKeyword": "reduce image resolution online",
+    "volume": 3600,
+    "difficulty": 18,
+    "secondaryKeywords": [
+      "lower dpi of image"
+    ]
+  },
+  {
+    "slug": "remove-exif",
+    "url": "/remove-exif",
+    "cluster": "privacy",
+    "primaryKeyword": "remove exif data from image",
+    "volume": 3600,
+    "difficulty": 15,
+    "secondaryKeywords": [
+      "remove photo location before sharing"
+    ]
+  },
+  {
+    "slug": "remove-transparency",
+    "url": "/remove-transparency",
+    "cluster": "editor",
+    "primaryKeyword": "remove transparency from png",
+    "volume": 1600,
+    "difficulty": 11,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "resize-without-quality-loss",
+    "url": "/resize-without-quality-loss",
+    "cluster": "resize",
+    "primaryKeyword": "resize image without losing quality",
+    "volume": 6600,
+    "difficulty": 24,
+    "secondaryKeywords": [
+      "resize image without blur"
+    ]
+  },
+  {
+    "slug": "rotate-180",
+    "url": "/rotate-180",
+    "cluster": "editor",
+    "primaryKeyword": "rotate image 180 degrees",
+    "volume": 1300,
+    "difficulty": 10,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "rotate-270",
+    "url": "/rotate-270",
+    "cluster": "editor",
+    "primaryKeyword": "rotate image 270 degrees",
+    "volume": 880,
+    "difficulty": 9,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "rotate-90",
+    "url": "/rotate-90",
+    "cluster": "editor",
+    "primaryKeyword": "rotate image 90 degrees online",
+    "volume": 4400,
+    "difficulty": 14,
+    "secondaryKeywords": [
+      "rotate photo online free"
+    ]
+  },
+  {
+    "slug": "saturation-adjust",
+    "url": "/saturation-adjust",
+    "cluster": "editor",
+    "primaryKeyword": "increase image saturation online",
+    "volume": 1600,
+    "difficulty": 12,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "seo-tools",
+    "url": "/seo-tools",
+    "cluster": "seo",
+    "primaryKeyword": "free seo tools online",
+    "volume": 8900,
+    "difficulty": 37,
+    "secondaryKeywords": [
+      "seo tools for bloggers"
+    ]
+  },
+  {
+    "slug": "sepia-effect",
+    "url": "/sepia-effect",
+    "cluster": "editor",
+    "primaryKeyword": "sepia filter online",
+    "volume": 1900,
+    "difficulty": 12,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "sharpen-filter",
+    "url": "/sharpen-filter",
+    "cluster": "editor",
+    "primaryKeyword": "sharpen image online",
+    "volume": 2400,
+    "difficulty": 14,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "signature-pad",
+    "url": "/signature-pad",
+    "cluster": "exam",
+    "primaryKeyword": "signature maker online free",
+    "volume": 3600,
+    "difficulty": 20,
+    "secondaryKeywords": [
+      "create digital signature online"
+    ]
+  },
+  {
+    "slug": "smooth-filter",
+    "url": "/smooth-filter",
+    "cluster": "editor",
+    "primaryKeyword": "smooth filter online free",
+    "volume": 720,
+    "difficulty": 18,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "split-pdf",
+    "url": "/split-pdf",
+    "cluster": "pdf",
+    "primaryKeyword": "split pdf online free",
+    "volume": 18100,
+    "difficulty": 34,
+    "secondaryKeywords": [
+      "separate pdf pages",
+      "extract pages from pdf"
+    ]
+  },
+  {
+    "slug": "square-crop",
+    "url": "/square-crop",
+    "cluster": "resize",
+    "primaryKeyword": "square crop image",
+    "volume": 1900,
+    "difficulty": 11,
+    "secondaryKeywords": [
+      "crop image to 1:1"
+    ]
+  },
+  {
+    "slug": "stitch-images",
+    "url": "/stitch-images",
+    "cluster": "editor",
+    "primaryKeyword": "stitch images together",
+    "volume": 1900,
+    "difficulty": 13,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "svg-to-jpg",
+    "url": "/svg-to-jpg",
+    "cluster": "convert",
+    "primaryKeyword": "svg to jpg converter",
+    "volume": 3600,
+    "difficulty": 18,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "svg-to-png",
+    "url": "/svg-to-png",
+    "cluster": "convert",
+    "primaryKeyword": "svg to png converter",
+    "volume": 8100,
+    "difficulty": 22,
+    "secondaryKeywords": [
+      "convert svg to png online"
+    ]
+  },
+  {
+    "slug": "tag-extractor",
+    "url": "/tag-extractor",
+    "cluster": "seo",
+    "primaryKeyword": "hashtag extractor",
+    "volume": 2900,
+    "difficulty": 16,
+    "secondaryKeywords": [
+      "tag extractor from text"
+    ]
+  },
+  {
+    "slug": "tag-tools",
+    "url": "/tag-tools",
+    "cluster": "seo",
+    "primaryKeyword": "hashtag generator free",
+    "volume": 6600,
+    "difficulty": 24,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "text-case-converter",
+    "url": "/text-case-converter",
+    "cluster": "seo",
+    "primaryKeyword": "text case converter",
+    "volume": 4400,
+    "difficulty": 18,
+    "secondaryKeywords": [
+      "uppercase to lowercase converter"
+    ]
+  },
+  {
+    "slug": "text-watermark",
+    "url": "/text-watermark",
+    "cluster": "watermark",
+    "primaryKeyword": "text watermark on photo",
+    "volume": 2900,
+    "difficulty": 18,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "tiff-compressor",
+    "url": "/tiff-compressor",
+    "cluster": "compression",
+    "primaryKeyword": "tiff compressor",
+    "volume": 1300,
+    "difficulty": 12,
+    "secondaryKeywords": [
+      "compress tiff file",
+      "reduce tiff size"
+    ]
+  },
+  {
+    "slug": "tiff-to-jpg",
+    "url": "/tiff-to-jpg",
+    "cluster": "convert",
+    "primaryKeyword": "tiff to jpg converter",
+    "volume": 2400,
+    "difficulty": 14,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "tiff-to-png",
+    "url": "/tiff-to-png",
+    "cluster": "convert",
+    "primaryKeyword": "tiff to png converter",
+    "volume": 1300,
+    "difficulty": 12,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "view-exif",
+    "url": "/view-exif",
+    "cluster": "privacy",
+    "primaryKeyword": "view exif data online",
+    "volume": 8100,
+    "difficulty": 20,
+    "secondaryKeywords": [
+      "check photo metadata"
+    ]
+  },
+  {
+    "slug": "vintage-filter",
+    "url": "/vintage-filter",
+    "cluster": "editor",
+    "primaryKeyword": "vintage photo filter online",
+    "volume": 2400,
+    "difficulty": 14,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "warm-tone",
+    "url": "/warm-tone",
+    "cluster": "editor",
+    "primaryKeyword": "warm tone photo filter",
+    "volume": 1600,
+    "difficulty": 11,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "watermark-tools",
+    "url": "/watermark-tools",
+    "cluster": "watermark",
+    "primaryKeyword": "add watermark to photo online free",
+    "volume": 9900,
+    "difficulty": 30,
+    "secondaryKeywords": [
+      "watermark photo with logo",
+      "batch watermark photos",
+      "photo par watermark kaise lagaye"
+    ]
+  },
+  {
+    "slug": "webp-compressor",
+    "url": "/webp-compressor",
+    "cluster": "compression",
+    "primaryKeyword": "webp compressor",
+    "volume": 3600,
+    "difficulty": 18,
+    "secondaryKeywords": [
+      "compress webp image",
+      "reduce webp size"
+    ]
+  },
+  {
+    "slug": "webp-to-jpg",
+    "url": "/webp-to-jpg",
+    "cluster": "convert",
+    "primaryKeyword": "webp to jpg converter",
+    "volume": 14800,
+    "difficulty": 22,
+    "secondaryKeywords": [
+      "convert webp to jpg online free"
+    ]
+  },
+  {
+    "slug": "webp-to-png",
+    "url": "/webp-to-png",
+    "cluster": "convert",
+    "primaryKeyword": "webp to png converter",
+    "volume": 3600,
+    "difficulty": 18,
+    "secondaryKeywords": []
+  },
+  {
+    "slug": "word-counter",
+    "url": "/word-counter",
+    "cluster": "seo",
+    "primaryKeyword": "word counter online free",
+    "volume": 33100,
+    "difficulty": 30,
+    "secondaryKeywords": [
+      "character counter online",
+      "word count checker"
+    ]
+  },
+  {
+    "slug": "word-to-pdf",
+    "url": "/word-to-pdf",
+    "cluster": "pdf",
+    "primaryKeyword": "word to pdf converter free",
+    "volume": 33100,
+    "difficulty": 42,
+    "secondaryKeywords": [
+      "docx to pdf online"
+    ]
+  }
+]
