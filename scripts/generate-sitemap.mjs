@@ -1,0 +1,190 @@
+#!/usr/bin/env node
+/**
+ * Generates public/sitemap.xml from the routes that actually exist in this app.
+ *
+ * Why: the previous sitemap listed 282 URLs while the router defines 39 static routes,
+ * a /:toolSlug route and a /blog/:slug route. URLs such as /de/compress-pdf and
+ * /fr/compress-pdf had no route at all, so they resolved to the SPA shell and were
+ * reported as soft 404s in Search Console.
+ *
+ * Sources of truth (nothing is hardcoded here):
+ *   1. src/App.tsx                                  -> static routes
+ *   2. src/data/toolsSEOData.ts                      -> valid /:toolSlug pages
+ *   3. src/data/blogData.ts + content modules        -> valid /blog/:slug pages
+ *
+ * Usage:
+ *   node scripts/generate-sitemap.mjs            # write public/sitemap.xml
+ *   node scripts/generate-sitemap.mjs --check    # exit 1 if the file is out of date
+ *   node scripts/generate-sitemap.mjs --dry-run  # print summary only
+ */
+import { readFile, writeFile } from "node:fs/promises";
+import { fileURLToPath } from "node:url";
+import path from "node:path";
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const SITE = process.env.SITE_URL ?? "https://multitoolsa.com";
+const args = new Set(process.argv.slice(2));
+
+const read = (file) => readFile(path.join(root, file), "utf8");
+
+/** Pages that must never be listed even if a route exists. */
+const EXCLUDED = new Set(["/404", "/search", "/thank-you"]);
+
+/** Lower priority for utility pages. */
+const PRIORITY = {
+  "/": 1.0,
+  "/all-tools": 0.9,
+  "/image-tools": 0.9,
+  "/pdf-tools": 0.9,
+  "/seo-tools": 0.8,
+  "/blog": 0.8,
+  "/about": 0.5,
+  "/contact": 0.5,
+  "/privacy": 0.3,
+  "/terms": 0.3,
+  "/disclaimer": 0.3,
+  "/dmca": 0.3,
+  "/advertiser-disclosure": 0.3,
+};
+
+function priorityFor(route) {
+  if (PRIORITY[route] !== undefined) return PRIORITY[route];
+  if (route.startsWith("/blog/")) return 0.6;
+  if (route.startsWith("/tools/")) return 0.7;
+  return 0.7;
+}
+
+function changeFrequencyFor(route) {
+  if (route === "/") return "daily";
+  if (route === "/all-tools" || route === "/blog") return "weekly";
+  if (route.startsWith("/privacy") || route.startsWith("/terms") || route.startsWith("/disclaimer")) {
+    return "yearly";
+  }
+  return "monthly";
+}
+
+async function staticRoutes() {
+  const app = await read("src/App.tsx");
+  const routes = new Set();
+  for (const match of app.matchAll(/path="([^"]+)"/g)) {
+    const route = match[1];
+    if (route === "*" || route.includes(":")) continue;
+    if (route.length > 1 && route.endsWith("/")) continue;
+    if (EXCLUDED.has(route)) continue;
+    routes.add(route);
+  }
+  return routes;
+}
+
+async function toolRoutes() {
+  const source = await read("src/data/toolsSEOData.ts");
+  const slugs = new Set();
+  for (const match of source.matchAll(/"([a-z0-9]+(?:-[a-z0-9]+)+)"/g)) {
+    const slug = match[1];
+    if (slug.length < 4) continue;
+    slugs.add(slug);
+  }
+  // Only top-level slugs are served by /:toolSlug. Category routes are already static.
+  return new Set([...slugs].map((slug) => `/${slug}`));
+}
+
+async function blogRoutes() {
+  const slugs = new Set();
+
+  const blogData = await read("src/data/blogData.ts");
+  for (const match of blogData.matchAll(/\bid:\s*"([a-z0-9]+(?:-[a-z0-9]+)+)"/g)) {
+    slugs.add(match[1]);
+  }
+
+  // BlogPost.tsx owns the rendered records: a URL only resolves when its slug is a key
+  // in the blogContent record (or merged into it from one of the content modules).
+  const blogPostPage = await read("src/pages/BlogPost.tsx");
+  for (const match of blogPostPage.matchAll(/^\s*"([a-z0-9]+(?:-[a-z0-9]+)+)"\s*:\s*\{/gm)) {
+    slugs.add(match[1]);
+  }
+
+  for (const file of [
+    "src/data/newBlogContent.ts",
+    "src/data/extraBlogContent.ts",
+    "src/data/extra2BlogContent.ts",
+    "src/data/conversionArticlesData.ts",
+    "src/data/additionalSEOContent.ts",
+  ]) {
+    let source = "";
+    try {
+      source = await read(file);
+    } catch {
+      continue;
+    }
+    for (const match of source.matchAll(/^\s*"([a-z0-9]+(?:-[a-z0-9]+)+)"\s*:/gm)) {
+      slugs.add(match[1]);
+    }
+  }
+
+  return new Set([...slugs].map((slug) => `/blog/${slug}`));
+}
+
+function lastmodFromGit() {
+  return new Date().toISOString().slice(0, 10);
+}
+
+function render(urls) {
+  const entries = [...urls]
+    .sort((a, b) => (a === "/" ? -1 : b === "/" ? 1 : a.localeCompare(b)))
+    .map((route) => {
+      const loc = route === "/" ? `${SITE}/` : `${SITE}${route}`;
+      return [
+        "  <url>",
+        `    <loc>${loc}</loc>`,
+        `    <lastmod>${lastmodFromGit()}</lastmod>`,
+        `    <changefreq>${changeFrequencyFor(route)}</changefreq>`,
+        `    <priority>${priorityFor(route).toFixed(1)}</priority>`,
+        "  </url>",
+      ].join("\n");
+    })
+    .join("\n");
+
+  return [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    "  <!-- Generated by scripts/generate-sitemap.mjs from real routes. Do not edit by hand. -->",
+    entries,
+    "</urlset>",
+    "",
+  ].join("\n");
+}
+
+const statics = await staticRoutes();
+const tools = await toolRoutes();
+const blogs = await blogRoutes();
+
+const all = new Set([...statics, ...tools, ...blogs]);
+for (const route of EXCLUDED) all.delete(route);
+all.add("/");
+
+const xml = render(all);
+const outFile = path.join(root, "public/sitemap.xml");
+
+const previous = await readFile(outFile, "utf8").catch(() => "");
+
+console.log(`static routes: ${statics.size}`);
+console.log(`tool pages:    ${tools.size}`);
+console.log(`blog posts:    ${blogs.size}`);
+console.log(`total URLs:    ${all.size}`);
+
+if (args.has("--check")) {
+  if (previous.trim() !== xml.trim()) {
+    console.error("public/sitemap.xml is out of date. Run: node scripts/generate-sitemap.mjs");
+    process.exit(1);
+  }
+  console.log("public/sitemap.xml is up to date.");
+  process.exit(0);
+}
+
+if (args.has("--dry-run")) {
+  console.log("dry run: sitemap not written");
+  process.exit(0);
+}
+
+await writeFile(outFile, xml, "utf8");
+console.log(`wrote ${path.relative(root, outFile)} (${all.size} URLs)`);

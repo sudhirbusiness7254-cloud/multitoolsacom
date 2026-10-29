@@ -23,3 +23,22 @@ This folder is generated from the RankForge SEO workspace. It holds publish-read
 
 One tool, one page, one primary keyword. Delete the templated SEO batches rather than layering a new block on
 top of them — two competing blocks on one URL is worse than one honest block.
+
+## Audit and implementation (this push)
+
+- `AUDIT-REPORT.md` — what was measured on the live domain and in this repo, with the commands used
+- `phantom-urls.txt` — 100 production sitemap URLs that have no route or content record (remove or 301)
+- `implementation/cloudflare-mirror-redirect.md` — 301 the `.com.np` mirror to `multitoolsa.com`
+- `implementation/fix-soft-404-and-rendering.md` — real 404 status + pre-rendering so the first HTML has content
+- `../scripts/generate-sitemap.mjs` — rebuilds `public/sitemap.xml` from real routes (224 URLs verified)
+- `../public/sitemap.xml` — regenerated; the old file listed 100 URLs that do not exist
+
+### Sitemap regeneration
+
+```bash
+node scripts/generate-sitemap.mjs          # rewrite public/sitemap.xml
+node scripts/generate-sitemap.mjs --check  # fail if it is out of date (useful in CI)
+node scripts/generate-sitemap.mjs --dry-run
+```
+
+Recommended: run it in `prebuild` so the sitemap can never drift from the router again.
