@@ -129,8 +129,13 @@ const CURATED = {
   "merge-pdf": { primary: ["merge pdf online free", 33100, 40], secondary: [["combine pdf files", 12100, 30], ["join pdf files", 6600, 26]] },
   "split-pdf": { primary: ["split pdf online free", 18100, 34], secondary: [["separate pdf pages", 4400, 20], ["extract pages from pdf", 5400, 24]] },
   "word-to-pdf": { primary: ["word to pdf converter free", 33100, 42], secondary: [["docx to pdf online", 9900, 28]] },
-  "image-to-pdf": { primary: ["image to pdf converter free", 22200, 35], secondary: [["jpg to pdf", 74000, 42], ["multiple photos to one pdf", 4400, 18], ["jpg to pdf kaise banaye", 2400, 9]] },
-  "jpg-to-pdf": { primary: ["jpg to pdf converter", 74000, 42], secondary: [["convert jpg to pdf online free", 18100, 32], ["photo to pdf", 9900, 26]] },
+  "image-to-pdf": {
+    primary: ["image to pdf converter free", 22200, 35],
+    secondary: [["multiple photos to one pdf", 4400, 18], ["image to pdf kaise banaye", 1900, 9]] },
+  "jpg-to-pdf": {
+    primary: ["jpg to pdf", 74000, 42],
+    secondary: [["jpg to pdf converter", 40500, 38], ["convert jpg to pdf online free", 18100, 32], ["photo to pdf", 9900, 26], ["jpg to pdf kaise banaye mobile se", 2400, 9]],
+  },
   "pdf-to-jpg": { primary: ["pdf to jpg converter", 40500, 38], secondary: [["convert pdf pages to images", 4400, 20]] },
   "pdf-compress": { primary: ["pdf size reducer", 9900, 26], secondary: [["reduce pdf size online", 6600, 24]] },
   "pdf-merge": { primary: ["pdf merger", 12100, 30], secondary: [] },

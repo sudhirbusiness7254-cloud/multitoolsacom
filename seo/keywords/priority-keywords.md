@@ -1,6 +1,6 @@
 # Priority keywords — multitoolsa.com
 
-Generated 2026-10-29 · 246 keywords · 15,88,170 monthly searches · 132 tools mapped.
+Generated 2026-10-29 · 246 keywords · 15,54,170 monthly searches · 132 tools mapped.
 
 Volumes are India-focused planning estimates, not API-verified numbers. Difficulty is 0–100.
 
@@ -53,11 +53,11 @@ Volumes are India-focused planning estimates, not API-verified numbers. Difficul
 
 | Cluster | Keywords | Volume | Avg KD | Tier A |
 | --- | --- | --- | --- | --- |
-| PDF tools | 27 | 4,52,600 | 27 | 10 |
+| PDF tools | 28 | 4,21,000 | 26 | 10 |
 | Format conversion | 31 | 2,51,900 | 20 | 24 |
 | Editing & effects | 49 | 1,72,780 | 16 | 27 |
 | Image compression | 28 | 1,62,190 | 18 | 17 |
-| Exam & ID photo sizes | 25 | 1,47,000 | 14 | 21 |
+| Exam & ID photo sizes | 24 | 1,44,600 | 14 | 20 |
 | SEO & text tools | 18 | 1,02,000 | 19 | 9 |
 | QR codes | 5 | 91,200 | 25 | 3 |
 | Resize & crop | 25 | 70,200 | 14 | 9 |
