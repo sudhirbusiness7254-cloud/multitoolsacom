@@ -1,0 +1,10 @@
+url,primary_keyword,secondary_keywords,intent
+"/image-compression","compress image online free","compress image to 100kb | image compressor without uploading | reduce photo size in kb","Transactional"
+"/image-converter","image converter online free","heic to jpg converter | png to jpg | webp to png | convert image without losing quality","Transactional"
+"/image-resize","resize image online free","resize image in pixels | photo resizer for exam form | resize image to 2x2 inch","Transactional"
+"/image-crop","crop image online free","circle crop profile picture | crop image to square | aspect ratio crop","Transactional"
+"/watermark-tools","add watermark to photo online free","watermark image with logo | batch watermark photos | protect photos from theft","Transactional"
+"/compress-pdf","compress pdf online free","reduce pdf file size below 100kb | compress scanned pdf | pdf compressor without upload","Transactional and urgent"
+"/image-to-pdf","image to pdf converter free","jpg to pdf | multiple photos to one pdf | scan documents with phone","Transactional"
+"/seo-tools","free seo tools online","meta tag generator | keyword density checker | word counter | open graph checker","Transactional and informational mix"
+"/all-tools","free online image and pdf tools","all in one tools website | free tools no signup | private online tools","Navigational and exploratory"
