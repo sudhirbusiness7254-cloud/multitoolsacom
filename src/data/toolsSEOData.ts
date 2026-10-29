@@ -969,5 +969,17 @@ export const getAllToolsFlat = () => {
     tools.push({ slug, name, category: "PDF Tools", categorySlug: "pdf-tools" });
   });
 
+  // SEO Tools
+  [
+    ["keyword-density-checker", "Keyword Density Checker"],
+    ["meta-tag-generator", "Meta Tag Generator"],
+    ["word-counter", "Word Counter"],
+    ["open-graph-checker", "Open Graph Checker"],
+    ["heading-checker", "Heading Structure Checker"],
+    ["text-case-converter", "Text Case Converter"],
+  ].forEach(([slug, name]) => {
+    tools.push({ slug, name, category: "SEO Tools", categorySlug: "seo-tools" });
+  });
+
   return tools;
 };
