@@ -183,8 +183,7 @@ export const financeCalcs: FinanceCalc[] = [
       const homeVal = v.price * Math.pow(1 + v.app / 100, v.y), buyCost = down + e * v.y * 12 - homeVal;
       let rentPaid = 0, rent = v.rent, port = down; const mi = v.inv / 1200;
       for (let m = 0; m < v.y * 12; m++) { if (m && m % 12 === 0) rent *= 1 + v.ri / 100; rentPaid += rent; port = port * (1 + mi) + Math.max(0, e - rent); }
-      const rentCost = rentPaid - (port - down) - down + down;
-      return [{ label: "Better option", value: buyCost < rentPaid - port + down ? "Buying" : "Renting", highlight: true }, { label: "Net cost of buying", value: inr(buyCost) }, { label: "Net cost of renting", value: inr(rentPaid - port) }, { label: "Home value after period", value: inr(homeVal) }, { label: "Total rent paid", value: inr(rentCost - (port - down) + port - down) }]; } },
+      return [{ label: "Better option", value: buyCost < rentPaid - port ? "Buying" : "Renting", highlight: true }, { label: "Net cost of buying", value: inr(buyCost) }, { label: "Net cost of renting", value: inr(rentPaid - port) }, { label: "Home value after period", value: inr(homeVal) }, { label: "Total rent paid", value: inr(rentPaid) }]; } },
   // Business
   { slug: "profit-margin-calculator", name: "Profit Margin Calculator", category: "Business & Personal Finance", desc: "Gross or net profit margin.",
     fields: [{ key: "rev", label: "Revenue", def: 100000, suffix: "₹" }, { key: "cost", label: "Total cost", def: 70000, suffix: "₹" }],
