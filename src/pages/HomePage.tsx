@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { Calculator, Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -62,6 +62,7 @@ const categoryLucideIcons: Record<string, React.ReactNode> = {
   "image-security": <Lock className="w-6 h-6 text-white" />,
   "image-qr": <QrCode className="w-6 h-6 text-white" />,
   "pdf-tools": <FileText className="w-6 h-6 text-white" />,
+  "finance-calculators": <Calculator className="w-6 h-6 text-white" />,
 };
 
 // Colorful gradients for categories
@@ -82,6 +83,7 @@ const categoryGradients: Record<string, { from: string; to: string }> = {
   "image-security": { from: "#EF4444", to: "#B91C1C" },
   "image-qr": { from: "#3B82F6", to: "#1D4ED8" },
   "pdf-tools": { from: "#DC2626", to: "#EA580C" },
+  "finance-calculators": { from: "#16A34A", to: "#0EA5E9" },
 };
 
 // Unique descriptions for each category - AdSense & SEO optimized
