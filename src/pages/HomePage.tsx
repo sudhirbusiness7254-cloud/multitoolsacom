@@ -32,8 +32,8 @@ import {
   Eye,
   Clock,
   Users,
-  Award
-  Calculator,
+  Award,
+  Calculator
 } from "lucide-react";
 import { toolCategories } from "@/data/toolsData";
 import { ToolIconWithBackground } from "@/lib/toolIcons";
