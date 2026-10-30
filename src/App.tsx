@@ -40,6 +40,9 @@ const ImageDrawingPage = lazy(() => import("./pages/categories/ImageDrawingPage"
 const ImageSecurityPage = lazy(() => import("./pages/categories/ImageSecurityPage"));
 const ImageQRPage = lazy(() => import("./pages/categories/ImageQRPage"));
 const PDFToolsPage = lazy(() => import("./pages/categories/PDFToolsPage"));
+const FinanceCalculatorsPage = lazy(() => import("./pages/categories/FinanceCalculatorsPage"));
+const FinanceCalculatorPage = lazy(() => import("./pages/FinanceCalculatorPage"));
+import { financeCalcs } from "./lib/financeCalculators";
 const SEOToolsPage = lazy(() => import("./pages/categories/SEOToolsPage"));
 
 const ImageEditorPage = lazy(() => import("./pages/ImageEditorPage"));
@@ -111,6 +114,8 @@ const App = () => (
               <Route path="/image-qr" element={<ImageQRPage />} />
               <Route path="/pdf-tools" element={<PDFToolsPage />} />
               <Route path="/seo-tools" element={<SEOToolsPage />} />
+              <Route path="/finance-calculators" element={<FinanceCalculatorsPage />} />
+              {financeCalcs.map((c) => <Route key={c.slug} path={`/${c.slug}`} element={<FinanceCalculatorPage slug={c.slug} />} />)}
 
               {/* PDF Tool Pages */}
               <Route path="/merge-pdf" element={<PDFToolPage />} />
