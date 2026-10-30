@@ -1,3 +1,4 @@
+import { financeCalcs } from "@/lib/financeCalculators";
 // Comprehensive tools data for all categories
 
 export interface Tool {
@@ -311,6 +312,15 @@ export const toolCategories: Category[] = [
       { id: "heading-checker", name: "Heading Structure Checker", slug: "heading-checker", description: "Analyze H1-H6 heading hierarchy and structure of your content for SEO best practices", category: "SEO Tools", categorySlug: "seo-tools", icon: "ListOrdered", keywords: ["heading checker", "h1 h2 checker", "heading structure", "seo headings"] },
       { id: "text-case-converter", name: "Text Case Converter", slug: "text-case-converter", description: "Convert text between uppercase, lowercase, title case, sentence case and more", category: "SEO Tools", categorySlug: "seo-tools", icon: "CaseSensitive", keywords: ["text case converter", "uppercase", "lowercase", "title case"] },
     ]
+  },
+  {
+    id: "finance-calculators",
+    name: "Finance Calculators",
+    slug: "finance-calculators",
+    description: "Free Indian finance calculators for SIP, EMI, income tax, GST, salary and savings",
+    icon: "Calculator",
+    priority: 19,
+    tools: financeCalcs.map((c) => ({ id: c.slug, name: c.name, slug: c.slug, description: c.desc, category: "Finance Calculators", categorySlug: "finance-calculators", icon: "Calculator", keywords: [c.name.toLowerCase(), c.category.toLowerCase()] })),
   },
 ];
 

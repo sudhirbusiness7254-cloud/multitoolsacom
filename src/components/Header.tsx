@@ -37,6 +37,7 @@ const categoryGradients: Record<string, { from: string; to: string }> = {
   "image-qr": { from: "#3B82F6", to: "#1D4ED8" },
   "tag-tools": { from: "#8B5CF6", to: "#6366F1" },
   "pdf-tools": { from: "#DC2626", to: "#EA580C" },
+  "finance-calculators": { from: "#16A34A", to: "#0EA5E9" },
 };
 
 // Top categories to show directly in nav bar
