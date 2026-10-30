@@ -1,4 +1,4 @@
-import { Calculator, Helmet } from "react-helmet-async";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -33,6 +33,7 @@ import {
   Clock,
   Users,
   Award
+  Calculator,
 } from "lucide-react";
 import { toolCategories } from "@/data/toolsData";
 import { ToolIconWithBackground } from "@/lib/toolIcons";
